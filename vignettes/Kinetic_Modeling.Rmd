@@ -1,0 +1,332 @@
+---
+title: "Kinetic Modeling of SFE and SWE"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Kinetic Modeling}
+  %\VignetteEngine{knitr::rmarkdown_notangle}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+is_check <- ("CheckExEnv" %in% search()) || any(c("_R_CHECK_TIMINGS_",
+             "_R_CHECK_LICENSE_") %in% names(Sys.getenv()))
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  eval = !is_check,
+  comment = "#>",
+  out.width = "100%"
+)
+```
+
+```{r setup, message = FALSE, include = FALSE}
+library(supeRcrit)
+```
+
+## Introduction
+Kinetic models of supercritical and subcritical extraction processes are based on a variety of assumptions expressed in various equations. All of these models are based on examining and approximating the **Overall Extraction Curve (OEC)** through optimization of several adjustable parameters and incorporation of several physico-chemical parameters that are constant for a given material or process. For reviews of kinetic models pertinent to both supercritical fluid extraction (SFE) and subcritical water extraction (SWE) see the works of [Diaz & Brignole][diaz_brignole], [Huang et al.][huang], and others. Detailed descriptions of the underlying principles and equations is outside the scope of this vignette, which is intended to be a basic introduction to the kinetic modeling functions included in **supeRcrit**. The following sections introduce the user to:
+
+1. Building [Broken-and-Intact Cells (BIC) models](#bic) for SFE.
+2. Building [Two-Site Kinetic Desorption (KTS) models](#kts) for SWE.
+3. [Comparing several models](#multi) using visualisation and performance metrics.
+4. Various useful [auxiliary functions](#aux).
+
+## Worked Examples
+### Broken-and-Intact Cells (BIC) model for SFE {#bic}
+SFE occurs in a series of non-discreet, interconnected steps: **i)** Permeation of the plant matrix with the solvent (scCO~2~) at the micropore level; **ii)** Solute solubilization within the matrix; **iii)** Internal (i.e. intramolecular or intraparticle) diffusion of the solute-scCO~2~ complex towards the external scCO~2~-matrix interface; **iv)** Desorption and external (film) diffusion into the bulk scCO~2~, which also occurs simultaneously with step **i)** for the easily-accesible solute portion at the plant material surface; **v)** Controlled depressurization and resulting precipitation of solutes for collection. The prevalence of these processes shifts throughout an SFE run and may be represented by an extraction curve of extract yield (% *w/w*) or another cumulative response versus extraction time (min) or other representative parameters. The extraction curve is often mathematically modelled to estimate extract yield over time by assessment of extraction kinetics. 
+
+Among the most popular kinetic models for SFE is the **Broken-and-Intact Cells (BIC)** model of Sovova et al. ([2005][sovova_1], [2012][sovova_2], [2017][sovova_3]), which is derived from Lack's model and distinguishes two regions in the raw material particles: broken cells where extractable material is present on the easily-accessible surface of the particles, and intact cells unaffected by mechanical or other pre-treatment. The model then divides the extraction process into three discreet regions:
+
+1.	A rapid **Constant Extraction Rate (CER)** region, where extraction is driven by convective film diffusion of easily-accessible solute found in broken cells (with disrupted cell walls) on the plant matrix surface. A key property of this solute fraction is that it is directly exposed to the sc-CO~2~ such that the process is only limited by extract solubility and not diffusion/mass transfer. Generally, 50–90% of lipophilic constituents are extracted in this region. The slope of a clearly linear CER region is used to estimate extract solubility and extraction rate, while the total yield fraction is representative of the extract portion in broken cells. This requires **delineation/curve segmentation** of CER boundaries. Extract composition is often constant throughout the CER.
+
+2.	A **Falling Extraction Rate (FER)** region jointly governed by a progressively decreasing contribution of film diffusion from broken cells and an increasingly important intraparticle diffusion from the inner, intact cells (found within the microporous plant matrix structure) towards the matrix-scCO~2~ interface. True to its name, this step is characterised by an exponential decrease in extraction rate and can be difficult to observe in some cases.
+
+3.	A final, slower **Diffusion-Controlled (DC) region**, where the rate is exclusively mass transfer-limited by intraparticle diffusion. The total extract yield is estimated from the asymptote of this region. Similarly to CER, the DC region can usually also be defined by a linear segmentation function. Other parameters may also be determined, such as external film and internal intramolecular diffusion coefficients.
+
+Let us build and analyze a model for the OEC of lipids extracted from *Scenedesmus obliquus* microalgae at 300 bar, 45 C, and 0.5% ethanol co-solvent by [Carmela Sonia Rizza in 2014][rizza], who also reviewed and described the three BIC model definitions included in **supeRcrit**. These are the so-called **Simplified BIC model**, the **Complete BIC model** (see also [Sovova, 2005][sovova_1]), and the **Simplified model based on characteristic times** (see also [Sovova, 2012][sovova_2]).
+
+A reference to all associated input, adjustable, and output parameters for BIC models is included in **supeRcrit**.
+
+```{r bic_1, message = FALSE}
+bicpars <- show_pars("bic")
+knitr::kable(bicpars, format = "html") |>  kableExtra::kable_styling(full_width = T)
+```
+
+Now, we can build the required models using the `bicmod` function.
+
+```{r bic_2, message = FALSE, out.width = "100%", fig.retina = 3, fig.width = 7.5, fig.height = 7.5}
+#Retrieve data
+bicdata <- sfex[[2]][["data"]]
+
+#Build simplified, complete, and characteristic times BIC models
+bic_res <- bicmod(oec = bicdata,
+                  oec_vars = c(x = "Time_min", y = "Yield_g", slv = "Solvent_mL"), #Specify variable names
+                  pars = c(pres = 300, #Define input parameters
+                           cu = 0.165,
+                           temp = 45,
+                           flow = NA,
+                           mass_in = 0.5125,
+                           moisture = 8.6,
+                           D = 0.015,
+                           L = 0.015,
+                           etoh = 0.5,
+                           dr = 1554,
+                           dp = 0.0004,
+                           n = 2), #The last data point of the CER period (see also the 'oec_bp' function farther down)
+                  opt_est = "default", #Initial parameter estimates (default values are used here)
+                  flowpar = c(1.01325, 25), #Temperature and pressure at which CO2 flow rate is measured
+                  etoh_frac = 0.06, #Required when CO2 flow is not provided but 'etoh' is non-zero
+                  ro_co2 = NA, #Supercritical CO2 density. If not provided, it is calculated by the Bender Equation of State
+                  tmax = NA, #Maximum extraction time at which to build the model
+                  qmax = NA, #Maximum S/M ratio (g/g insoluble solid) at which to build the model
+                  cumulative = FALSE, #Is the response and flow rate cumulative?
+                  mass_flow = FALSE, #The the flow rate provided mass or volumetric?
+                  draw = FALSE,
+                  units = c(flow = "none", resp = "g"), #Units of flow rate and response
+                  modtype = "all", #Which BIC models to build? All three (simplified, complete, and characteristic times) models are built by default
+                  silent = FALSE) 
+
+#View the simple model graph (the CER period only dependent on apparent solubility)
+bic_res[["plots"]][["sim"]]
+
+#View the simple model graph with time on the x-axis
+bic_res[["plots"]][["sim_time"]]
+```
+
+The simple model provides quite a good visual fit for the data. What about the others?
+
+```{r bic_3, message = FALSE, out.width = "100%", fig.retina = 3, fig.width = 7.5, fig.height = 7.5}
+#View the plot for the complete model with 2 extraction periods (CER and DC)
+bic_res[["plots"]][["cmp2"]]
+
+#Finally, for the characteristic times model
+bic_res[["plots"]][["ct"]]
+```
+
+The complete model looks nearly identical to the simple model, while the characteristic times model appears to be a worse fit for the data. Viewing their associated error measures should provide us with a better idea of the performance.
+
+```{r bic_4, message = FALSE}
+#Error measures for the simple model
+bic_res[["sim"]][["resid"]]
+
+#For the characteristic times model
+bic_res[["ct"]][["resid"]]
+
+#For the complete model
+bic_res[["cmp"]][["resid"]]
+```
+
+It is also possible to view the adjustable parameters of the model, and check which ones among these were fit algorithmically through iterative optimization.
+
+```{r bic_5, message = FALSE}
+#For the complete model
+bic_res[["cmp"]][["mod_pars"]]
+bic_res[["cmp"]][["fit_pars"]]
+```
+
+Predictions for new data using the model may be made using the function `predict_bic` as shown below.
+```{r bic_6, message = FALSE}
+#Derive predictions
+preds_bic <- predict_bic(bic_res, newdata = c(10,20,40,60), units = "time") #New data is given in minutes
+
+#Display predictions for all models
+preds_bic[["predictions"]]
+
+#Display the parameters for which the model is valid
+preds_bic[["description"]]
+```
+
+### Two-site kinetic desorption (KTS) model for SWE {#kts}
+KTS is an empirical two-site model characterized by two first-order expressions defining an extraction curve in two steps, wherein a certain fraction of extractable material quickly desorbs in the first step, while the remaining fraction is significantly slower to desorb. Both stesp are defined by separate rate constants. Initially used for modeling the rate of polycyclic aromatic hydrocarbon (PAH) extraction from soil, early applications of the model may be found in the works of [Loehr and Webster][loehr_webster], [Hawthorne et al.][hawthorne], [Kubatova][kubatova], and many others. The field of application has since widened to include extraction of extracts from plant material, such as citrus flavonoids from peel (see the study of [Dong-Shin Kim][kim], for example).
+
+The KTS model is significantly simpler than the BIC model in terms of the number of required and fitted parameters, which can be checked via `show_pars`.
+```{r kts_1, message = FALSE}
+tspars <- show_pars("ts")
+knitr::kable(tspars, format = "html") |>  kableExtra::kable_styling(full_width = T)
+```
+
+As an example, we use the daba of [Kurabachew Simon Duba][duba], who carried out subcritical water extraction of grape skins and defatted seeds (80-120C, 2 mL/min, with a separately estimated fraction of easily-desorbed material *F*). Let us model the data collected at an extraction temperature of 100 C.
+
+```{r kts_2, message = FALSE, out.width = "100%", fig.retina = 3, fig.width = 7.5, fig.height = 7.5}
+twsdata <- swex[["duba1"]][["data"]]
+twosite_res <- ktsmod(oec = twsdata,
+                      oec_vars = c(x = "Time_min", y = "Yield_100C"),
+                      pars = c(pres = 15, temp = 100, flow = 2, c0 = 77, m_in = 2, f = 0.24),
+                      units = c(flow = "mL/min", resp = "permille"),
+                      plot_units = c(x = "q", y = "abs"), #"time" "q" "abs" "cc0"
+                      cumulative = TRUE,
+                      draw = FALSE,
+                      optmet = "nlopt")
+
+#View error measures
+twosite_res[["tws"]][["resid"]]
+
+#View model parameters
+twosite_res[["tws"]][["mod_pars"]]
+
+#Check which parameters were estimated iteratively
+twosite_res[["tws"]][["fit_pars"]]
+
+#Display the model plot
+twosite_res[["plots"]][["tws"]]
+```
+
+The model provides a reasonable fit. Similarly to BIC models, new predictions can be made using `predict_kts`.
+
+```{r kts_3, message = FALSE}
+#Derive predictions
+preds_kts <- predict_kts(twosite_res, newdata = c(10,20,45,72,94)) #New data is given in minutes
+
+#Display predictions for all models
+preds_kts[["predictions"]]
+
+#Display the parameters for which the model is valid
+preds_kts[["description"]]
+```
+
+### Comparing multiple models {#multi}
+Both visual and tabulated comparison of several BIC or KTS models is possible using the `kin_splot` function. Let us start by comparing three complete BIC models.
+
+```{r multi_1, message = FALSE, out.width = "100%", fig.retina = 3, fig.width = 7.5, fig.height = 7.5}
+#Prepare input data
+bicdt <- list(sfex[["rizza1"]][["data"]],
+sfex[["rizza2"]][["data"]],
+sfex[["rizza3"]][["data"]])
+
+#Estimates of extractable solute fraction
+cuvals <- c(0.165, 0.21, 0.18)
+
+#Generate several BIC models
+biclst <- list()
+for(i in seq_along(bicdt)) {
+  biclst[[i]] <- bicmod(oec = bicdt[[i]],
+                        oec_vars = c(x = "Time_min", y = "Yield_g", slv = "Solvent_mL"),
+                        pars = c(pres = 300,
+                                 cu = cuvals[i],
+                                 temp = 45,
+                                 flow = NA,
+                                 mass_in = 0.5125,
+                                 moisture = 8.6,
+                                 D = 0.015,
+                                 L = 0.015,
+                                 etoh = 0.5,
+                                 dr = 1554,
+                                 dp = 0.0004,
+                                 n = 2),
+                        opt_est = "default",
+                        flowpar = c(1.01325, 25),
+                        etoh_frac = 0.06, #For when CO2 flow not provided but 'etoh' is >0
+                        ro_co2 = NA,
+                        tmax = NA,
+                        qmax = NA,
+                        cumulative = FALSE,
+                        mass_flow = FALSE,
+                        draw = FALSE,
+                        units = c(flow = "none", resp = "g"),
+                        modtype = "all",
+                        silent = TRUE) #"cu"
+}
+
+#Summarize the results
+bic_summary <- kin_splot(m = biclst,
+                         which_mod = "cmp2",
+                         mvars = c(x = "x", y = "y"), #c("x", "y")
+                         leglab = c("S. obliquus", "N. salina", "C. protothecoides"),
+                         axlab = c(title = "BIC models", x = "q (kg/kg)", y = "e (kg/kg)"))
+
+#Display model plots
+bic_summary[["plot"]]
+```
+
+Another example for KTS models is presented below.
+
+```{r multi_2, message = FALSE, out.width = "100%", fig.retina = 3, fig.width = 7.5, fig.height = 7.5}
+ylst <- c("Yield_80C", "Yield_100C", "Yield_120C")
+twlst <- list()
+
+#Generate KTS models
+for(i in seq_along(ylst)) {
+  twlst[[i]] <- ktsmod(oec = swex[["duba1"]][["data"]],
+                       oec_vars = c(x = "Time_min", y = ylst[i]),
+                       pars = c(pres = 15, temp = 100, flow = 2, c0 = 77, m_in = 2, f = 0.24),
+                       opt_est = "default",
+                       units = c(flow = "mL/min", resp = "ppm"),
+                       plot_units = c(x = "q", y = "abs"), #"time" "q" "abs" "cc0"
+                       cumulative = TRUE,
+                       mass_flow = FALSE,
+                       flowpar = rep(NA,2),
+                       ro_h2o = NA,
+                       tmax = NA,
+                       qmax = NA,
+                       optmet = "nlopt",
+                       draw = FALSE,
+                       silent = TRUE)
+}
+
+#Summarize the results
+tws_summary <- kin_splot(m = twlst,
+                         which_mod = "tws",
+                         leglab = c("80C", "100C", "120C"),
+                         axlab = c(title = "Two-site kinetic desorption models", x = "q (kg/kg)", y = "Yield (ppm)"))
+
+#Display the plot
+tws_summary[["plot"]]
+```
+
+Finally, the built models and their comparisons may be exported (with plots either in **.png** or **.pdf** format) using `kin_export` (**code not run**).
+```{r, eval = FALSE, message = FALSE}
+#Export BIC model and TWS model results as .CSV and .PNG/.PDF plots
+kin_export(modres = biclst,
+           sumres = bic_summary,
+           expath = "C:/Models", #Hypothetical export path
+           plotpars = "default",
+           plot_format = "png")
+
+kin_export(modres = twlst,
+           sumres = tws_summary,
+           expath = "C:/Models", #Hypothetical export path
+           plotpars = "default",
+           plot_format = "pdf")
+```
+
+### Useful auxiliary functions {#aux}
+A few  auxiliary functions are included for estimation of CO~2~ density (via the [Bender][bender] EoS), as well as that of water (using the [International Association for the Properties of Water and Steam IAPWS-95][iawps95] formulation) and ethanol (see [Poling et al., 2008][poling]). Some example are given below.
+
+```{r aux_1, message = FALSE}
+#Density of CO2 at 300 bar and 45 C
+bendens(300,45)
+
+#Density of ethanol at 45 C
+etoh_dens(45)
+
+#Density of a CO2-ethanol mixture
+#The first element is pure ethanol density, the second is the density of the mixture
+etoh_dens(45, co2_frac = 0.5, co2_rho = bendens(300,45)[["rho"]])
+
+#Density of water at 100 bar and 45 C
+h2o_dens(100,45)
+```
+
+The function `oec_bp` allows estimation of likely break-points along an extraction curve, which may be useful for estimating the point at which the Constant Extraction Rate (CER) period ends, one of the prerequisites for BIC models. To this end, the work of [Vito Muggeo][muggeo] and his package titled [segmented][muggeo_r] have been adapted here. An example is shown below.
+
+```{r aux_2, message = FALSE, out.width = "100%", fig.retina = 3, fig.width = 7.5, fig.height = 7.5}
+oec_bp(input = sfex[[1]][["data"]], x = "time_min", y = "yield_g") #Using the data of Dimic et al. (2021)
+```
+
+The results suggest that the CER ends is most appropriately assigned to point number 4 along the OEC.
+
+[diaz_brignole]: https://doi.org/10.1016/j.supflu.2008.09.006
+[huang]: https://doi.org/10.1016/j.chroma.2012.04.032
+[sovova_1]: https://doi.org/10.1016/j.supflu.2004.03.005
+[sovova_2]: https://doi.org/10.1016/j.supflu.2011.11.004
+[sovova_3]: https://doi.org/10.1016/j.supflu.2017.02.014
+[rizza]: https://hdl.handle.net/20.500.12608/18318
+[loehr_webster]: https://doi.org/10.1061/(ASCE)1090-025X(2000)4:3(118)
+[kubatova]: https://doi.org/10.1016/S0021-9673(02)01329-8
+[hawthorne]: https://doi.org/10.1021/es010771i
+[kim]: https://doi.org/10.3390/antiox9050360
+[duba]: https://iris.unitn.it/retrieve/9ab2b95c-09cd-4458-9ab9-2e719b12ca0b/DUBA_PhD_Thesis_March_2015.pdf
+[bender]: https://doi.org/10.1016/0011-2275(75)90100-9
+[iawps95]: doi.org/10.1063/1.1461829
+[poling]: https://www.accessengineeringlibrary.com/content/book/9780071834087
+[muggeo]: https://doi.org/10.1002/sim.1545
+[muggeo_r]: https://doi.org/10.32614/CRAN.package.segmented

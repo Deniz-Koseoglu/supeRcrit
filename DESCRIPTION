@@ -1,12 +1,58 @@
 Package: supeRcrit
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: Supercritical CO2 and Subcritical Water Process Development
+Version: 0.9.0
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+    person("Deniz Can", "Koseoglu", , "denizcan.koseoglu@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-1569-9788"))
+Description: 
+    Provides tools for kinetic modeling, systematic co-solvent choice, 
+    process optimization via experimental design and response surface methodology (RSM), 
+    and Cost of Manufacturing (COM) analysis of supercritical CO2 and subcritical water processes.
+License: MIT + file LICENSE
+URL: https://github.com/Deniz-Koseoglu/supeRcrit
+Depends: 
+    R (>= 4.0.0)
+Imports:
+    utils,
+    stats,
+    graphics,
+    grDevices,
+    stringr (>= 1.5.1),
+    grid (>= 4.3.2),
+    gridExtra (>= 2.3),
+    webchem (>= 1.3.0),
+    rcdk (>= 3.8.1),
+    data.table (>= 1.14.8),
+    ggpmisc (>= 0.5.4.1),
+    ggplot2 (>= 3.5.1),
+    nloptr (>= 2.0.3),
+    robustbase (>= 0.99.2),
+    segmented (>= 2.1.0),
+    factoextra (>= 1.0.7),
+    cluster (>= 2.1.6),
+    pracma (>= 2.4.4),
+    desirability2 (>= 0.0.1),
+    ggrepel (>= 0.9.6),
+    rJava (>= 1.0.11),
+    depict (>= 0.4.0),
+    scales (>= 1.3.0),
+    dplyr (>= 1.1.4),
+    purrr (>= 1.0.2),
+    tibble (>= 3.2.1),
+    tidyr (>= 1.3.1),
+    magrittr (>= 2.0.3)
+Suggests: 
+    kableExtra,
+    knitr,
+    R.rsp,
+    rmarkdown,
+    testthat (>= 3.0.0)
+Remotes:
+    CDK-R/depict
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
+Config/testthat/edition: 3
+VignetteBuilder: knitr, R.rsp
+LazyData: true
+BugReports: https://github.com/Deniz-Koseoglu/supeRcrit/issues

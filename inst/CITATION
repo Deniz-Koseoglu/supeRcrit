@@ -1,0 +1,9 @@
+bibentry(
+  bibtype  = "Manual",
+  title    = "supercRit - A toolkit for development and optimization of supercritical and subcritical processes",
+  author   = "Deniz Can Koseoglu",
+  organization  = "AltraFlora Natural Extracts Inc.",
+  address  = "Denizli, Turkey",
+  year     = "2024",
+  url      = "https://www.altraflora.com/"
+)

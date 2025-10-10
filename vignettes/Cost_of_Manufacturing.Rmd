@@ -1,0 +1,104 @@
+---
+title: "Cost of Manufacturing calculation"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Cost of Manufacturing}
+  %\VignetteEngine{knitr::rmarkdown_notangle}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+is_check <- ("CheckExEnv" %in% search()) || any(c("_R_CHECK_TIMINGS_",
+             "_R_CHECK_LICENSE_") %in% names(Sys.getenv()))
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  eval = !is_check,
+  comment = "#>",
+  out.width = "100%"
+)
+```
+
+```{r setup, message = FALSE, include = FALSE}
+library(supeRcrit)
+```
+
+## Introduction
+One of the main deterrents of natural extraction via supercritical fluid extraction (SFE) is the high associated investment cost which may necessitate higher extract pricing to cover. Relative complexity of the technique may also cause significant differences in extraction performance between laboratory-, pilot-, and industrial-scale assemblies unless the CO2 is distributed similarly within the extractor and the same scCO~2~ to feed ratio is maintained. Resolution of such challenges requires systematic economic evaluation and scale-up strategy.
+
+Economic evaluation is complementary to SFE optimization via response surface methodology (RSM). The key economic performance metric of an SFE process in the Cost of Manufacturing (COM) commonly expressed in $US kg^-1^ of the final product (e.g. extract). This value encompasses fixed and direct/variable costs as well as other expenses. The former are not dependent on extraction performance and include **capital investment (FCI)**, taxes and machinery depreciation (commonly 10% yr^-1^). Variable costs directly correlate with process performance and include costs of **raw materials (CRM)**, **operational labour (COL)**, and **utilities (CUT)**. Other expenses (administrative, R&D, marketing etc.) are considered additional. The associated calculations are based on the original equations presented by [Turton and colleagues (1998)][turton], which have since been expanded on and utilize by various studies (e.g. [Rosa & Meireles, 2005][rosa_meireles], [Pereira & Meireles, 2007][pereira_meireles], [Attard et al., 2015][attard], and [Paula et al., 2016][paula]). The reader is referred to these and other primary literature sources to gain a basic understanding of the associated principles and calculations.
+
+## Worked Example
+### Available parameters
+Use the `show_pars` function to display the various input and output parameters pertinent to COM calculation.
+
+```{r com_1, message = FALSE}
+compars <- show_pars("com")
+
+#Input parameters
+knitr::kable(compars[["input"]], format = "html") |>  kableExtra::kable_styling(full_width = T)
+
+#Output parameters
+knitr::kable(compars[["output"]], format = "html") |>  kableExtra::kable_styling(full_width = T)
+```
+
+### Calculation and visualization
+Consider a process where rosemary leaves are extracted by supercritical CO~2~ over a period of **180 minutes** to yield a total of **7% of extract**. A **30 L** pilot-scale extraction system is used, into which **9 kg** of material may be loaded per batch to be extracted at **300 bar**, **40 C**, at a CO~2~ flow rate of **3000 mL min^-1^**. The resulting extract is diluted by a factor of **2** in a vegetable oil. These and other associated parameters of the process are listed in the table below.
+
+Let us run a COM calculation using the above and other parameters.
+
+```{r com_2, echo = FALSE, message = FALSE}
+#Define an extraction curve yielding 7% yield of crude extract after 180 min
+comin <- data.frame(time = c(5,9,11,15,19,21,23,25,30,40,60,80,100,120,140,160,180),
+yield = c(0.80, 2.18, 2.79, 3.40, 3.86, 4.17, 4.47, 4.63, 4.93,
+          5.24, 5.70, 6.00, 6.31, 6.46, 6.77, 6.92, 7.00))
+
+comres <- calcom(input = comin,
+                 gen = c(volex = 30, load = 9, pres = 300, temp = 40, flow = 3000,
+                        extime = 30, csol_flow = 300, dilfac = 2, pr_sale = 90),
+                 crm = c(bh = 155, id = 15.5, pr_mat = 0.5, pr_msol = 0.8, pr_csol = 2,
+                 recp = 60, rect = 10, sept = 55),
+                 cut = c(pw_main = 25, pr_kwh = 0.13, pw_dry = 2, pw_com = 1, pw_evap = 13.3,
+                 cap_dry = 4.16, cap_com = 20, cap_evap = 60),
+                 col = c(oper = 1, whr = 8, shifts = 3, wage = 940, wdays = 24),
+                 fci = c(capex = 150000, maint = 250, other = 1210),
+                 auxpr = c(oil = 1.52),
+                 auxfr = c(oil = 1),
+                 draw = FALSE,
+                 pltlab = "Time (min)")
+```
+
+The full list of input parameters are shown below.
+
+```{r com_3, message = FALSE}
+com_input <- comres[["input"]]
+com_input[,"value"] <- format(com_input[,"value"], digits = 2, scientific = FALSE)
+knitr::kable(com_input, format = "html") |>  kableExtra::kable_styling(full_width = T)
+```
+
+Simplified output is stored in the `$simple_output` element as shown below.
+
+```{r com_4, message = FALSE}
+comres_sout <- comres[["simple_output"]]
+comres_sout[,!colnames(comres_sout) %in% c("yield","payback_yr")] <- format(comres_sout[,!colnames(comres_sout) %in% c("yield","payback_yr")], digits = 1)
+comres_sout[,c("yield","payback_yr")] <- format(comres_sout[,c("yield","payback_yr")], digits = 2)
+knitr::kable(comres_sout, format = "html", row.names = FALSE, align = "c") |>  
+  kableExtra::kable_styling(full_width = T, font_size = 10, bootstrap_options="responsive")
+```
+
+Several conclusions may be drawn from the output data:
+
+1. The highest **monthly sales volume (USD)** and mass of **extract produced (521 kg month^-1^)** occurs after ca. **23 minutes** of extraction.
+2. This is associated with the lowest **specific cost (SC) of extract (22 USD kg^-1^)**.
+3. The **payback period (yr)** is therefore also lowest at this point at **0.35 years**, with an average **profit margin** of 76%.
+
+The variation of both the specific cost and payback period may be visualized graphically as shown below.
+
+```{r com_5, message = FALSE, fig.retina = 3, fig.height = 7.5, fig.width = 7.5}
+comres[["plots"]]
+```
+
+[turton]: https://richardturton.faculty.wvu.edu/publications/analysis-synthesis-and-design-of-chemical-processes-5th-edition
+[rosa_meireles]: https://doi.org/10.1016/j.jfoodeng.2004.05.064
+[pereira_meireles]: https://doi.org/10.1007/s11947-009-0263-2
+[attard]: https://doi.org/10.3390/ijms160817546
+[paula]: https://doi.org/10.1016/j.supflu.2015.09.013

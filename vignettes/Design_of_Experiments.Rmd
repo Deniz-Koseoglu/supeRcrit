@@ -1,0 +1,208 @@
+---
+title: "Design of Experiments (DOE) generation and analysis"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Design of Experiments}
+  %\VignetteEngine{knitr::rmarkdown_notangle}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+is_check <- ("CheckExEnv" %in% search()) || any(c("_R_CHECK_TIMINGS_",
+             "_R_CHECK_LICENSE_") %in% names(Sys.getenv()))
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  eval = !is_check,
+  comment = "#>",
+  out.width = "100%"
+)
+```
+
+```{r setup, message = FALSE, include = FALSE}
+library(supeRcrit)
+```
+
+## Introduction
+This vignette serves as an introduction for the various modules included in **supeRcrit** for [Design of Experiments (DOE)][doe_intro] generation and modelling of associated experimental results (i.e. responses) using linear and quadratic models as part of [Response Surface Methodology (RSM)][rsm_intro] and [Desirability Functions (DF)][df_intro]. The associated functions are able to:
+
+1. [Generate various experimental designs](#doegen) with different numbers of factors and levels.
+2. [Analyze experimental results of DOEs](#rsm) via various linear and quadratic models to maximize or minimize a target response.
+3. [Combine models for individual response into Desirability Functions](#desir) to obtain optimum parameters for various (optionally weighted) responses.
+
+## Worked examples
+### Design of Experiments (DOE) generation {#doegen}
+Response variable optimization targets, input variables/factors, and their possible values are determined by process objectives, expert assessment, and capabilities of the extraction system, respectively. On the other hand, the fewest number of SFE experiments (and, by extension, unique combinations of process variable values or “levels”) required for sufficient optimization is most commonly assessed via a statistical Design of Experiments (DOE) approach which has largely superseded less efficient and non-reproducible *ad hoc* testing. Various DOE generator functions allow for generation of several types of experimental designs listed below. The reader of this vignette (and, indeed, a proficient user of **supeRcrit**) is assumed to have aquired at least a basic understanding of DOE and associated terminology from primary literature. For a comprehensive introduction to each of these designs and workflows for their analysis, consult the [NIST/Sematech Engineering Handbook][nist_book] and the works of **Baş and Boyacı** ([2007a][bb_a], [2007b][bb_b], [2007c][bb_c],[2007d][bb_d]). One also cannot forget about the excellent [**RSM package**][rsm_package] by Russell Lenth, from which some functions are adapted for use herein. The DOE generators of **supeRcrit** include the following screening and optimization designs:
+
+1. Full Factorial Designs (FFD) with 2-3 levels and 2-5 factors (the `doe_ffd` function).
+2. Two-level Fractional Factorial Designs (FrFD) with 2-5 factors (the `doe_frfd` function).
+3. Central Composite Designs (CCD) with 2-4 factors and including the Circumscribed (CCC) and Face-Centered (CCF) designs with 3 or 5 levels, respectively (the `doe_ccd` function).
+4. Box-Behnken Designs (BBD) with 3-4 factors and 3 levels (the function `doe_bbd`).
+5. Taguchi Method Orthogonal Array Designs (TM) with 3-5 factors and 2-4 levels (the function `doe_tm`).
+
+Generating a design is exceedingly simple with the respective functions. Let's generate a full factorial design with 3 factors and 3 levels (i.e. a 3^3^ design). We also set the factor names as well as lower and upper limits.
+
+```{r, doegen_1, message = FALSE}
+#Generate design
+ffd <- doe_ffd(levels = 3, factors = 3, fnames = c("Pressure", "Temperature", "Flow"), flims = list(c(100,400), c(40,70), c(50, 100)))
+
+#Display design
+ffd[["doe"]]
+
+#Display information about design
+ffd["description"]
+```
+
+What about a 2-factor fractional factorial design for screening? We use 5 factors and a *p* value of 2 (i.e. a 2^5-2^ design). Additionally, 3 center points are included.
+
+```{r, doegen_2, message = FALSE}
+frfd <- doe_frfd(factors = 5, p = 2, cpts = 3, 
+                 fnames = c("Pressure", "Temperature", "Flow", "EtOH", "PBD"), #The last two factors are % flow of ethanol co-solvent, and the interval (in minutes) between sudden pressure drop in the extractor (for cell disruption due to rapid expansion of CO2) 
+                 flims = list(c(100,400), c(40,70), c(50,100), c(0,10), c(15,120))) 
+
+frfd[["doe"]]
+frfd[["description"]]
+```
+
+Finally, we can generate a CCC (a type of CCD design), which is perhaps the most popular optimization design used for RSM.
+This designs incorporates star points (which test the extremes of the process space) and center points.
+Because star points extend factors beyond their maximum and minimum limits, it can be difficult to define sensible limits such that star points do not push them beyond the realm of possibility (e.g. due to equipment limitations). To avoid this, we specify limits for pressure and temperature as **hard** limits, which will now represent star points.
+
+```{r doegen_3, message = FALSE}
+ccd <- doe_ccd(design = "CCC",
+                   levels = 5,
+                   factors = 3,
+                   cpts = 6,
+                   fnames = c("Pressure", "Temperature", "EtOH"),
+                   flims = list("hard"=c(100, 345), "hard"=c(35, 75), c(2, 8))) #Hard limits specified
+
+ccd[["doe"]]
+ccd[["description"]]
+```
+
+Any generated design can be exported via the `doe_export` function as shown below (**code not run**). Alternatively, designs can be exported directly during generation using the `export` argument.
+
+```{r doegen_4, eval = FALSE, message = FALSE}
+doe_export(ccd, expath = "C:/") #Hypothetical export path
+```
+
+### Response Surface Methodology (RSM) and other models for DOE analysis {#rsm}
+The key goal of SFE experimental design is process optimization, commonly achieved via Response Surface Methodology (RSM) which calculates both the interaction and quadratic terms and approximates the shape of the local response surface. Because a typical supercritical fluid extraction (SFE) rate almost always decreases along a single smooth curvature seen in a typical Overall Extraction Curve (OEC), RSM is especially suitable for SFE as it predicts a local response surface by a single 2nd-order (i.e. quadratic) polynomial function, thus failing to describe piece-wise smooth or jagged response trajectories in a single experiment.
+
+At least a 3-level design is required to estimate quadratic interactions. This requirement is **not met** by 2-level designs with center points, which are positioned within the experimental space such that all quadratic effects are aliased. Three-level FFDs are useful but are not rotatable and become prohibitive due to the large number of runs required for more than 3 factors. Instead, rotatable **CCD** or **BBD** designs are used, where response is dependent only on the distance of factor levels from the center of the experimental space (and not on direction); thus, points at an identical distance from the center of the experimental space exhibit the same prediction error/variance. A CCD embeds an FFD or FrFD with the mandatory addition of up to 6 center points, as well as 2×*k* star points α optionally exceeding both the lower and higher factor levels to establish new extremes.
+
+Let's analyze CCF results with 6 center points and 3 factors: temperature, pressure, and ethanol co-solvent flow rate. The response is crude SFE extract yield from spearmint by [Bimakr and colleagues][bimakr]. We specify a second-order (i.e. quadratic) model. While the initial model will be built using all possible main, interaction, and quadratic terms, all insignificant terms will subsequently be trimmed in the final model based on dual criteria in this case: a *p*-value cutoff of 0.10 and stepwise regression.
+
+```{r rsm_1, message = FALSE}
+doe_data <- doex[["ccd3"]][["data"]]
+
+analysis <- doe_analyze(doe = doe_data,
+                        uc_facs = c("P_bar", "T_degC", "EtOH_gmin"),
+                        resp_var = "ExtYield",
+                        time_var = "Actual_Order",
+                        mod_order = 2,
+                        p_cutoff = 0.10,
+                        trim_method = "both",
+                        verbose = FALSE)
+
+#View the equation of the initial model
+cat(analysis[["results"]][["initial"]][["Misc"]][["Equation"]]["raw"])
+
+#View the equation of the final (i.e. trimmed) model
+cat(analysis[["results"]][["final"]][["Misc"]][["Equation"]]["raw"])
+
+#Confirm that the initial model was not trimmed (equations are identical)
+cat(analysis[["statements"]][["Notrim"]])
+
+#View the p-values and other associated metrics for each term
+analysis[["results"]][["final"]][["Model_Results"]]
+
+#View the R2 and adjusted R2
+analysis[["results"]][["final"]][["Model_Metrics"]][c("R2", "Adj_R2")]
+
+#View decoded canonical analysis results and eigen values/vectors
+analysis[["results"]][["final"]][["Model_Metrics"]][["Canonical_Analysis"]][["xs_decoded"]]
+```
+
+Canonical analysis results show optimal values of **206.8 bar**, **54.6 C**, and **8.1 % EtOH flow**. From the results above, we see that the initial and final models are identical due to the excellent fit when using all possible terms (main, interaction, and quadratic). Rather appropriately, the *p*-values for all terms are low, while the Lack-of-Fit is insignificant with a *p*-value of 0.153. However, it is difficult to believe the model cannot provide similar performance with at least some simplification to improve applicability. Let us check the Lack-of-Fit test results, force the model to trim some terms by setting a lower *p*-value cutoff, and re-evaluating the lack of fit.
+
+```{r rsm_2, message = FALSE}
+#Check Lack-of-Fit testing p-value
+analysis[["results"]][["initial"]][["Model_Metrics"]][["LoF_Pvalue"]]
+
+#Force model to trim some terms with a 0.005 p-value cutoff
+analysis_new <- doe_analyze(doe = doe_data,
+                        uc_facs = c("P_bar", "T_degC", "EtOH_gmin"),
+                        resp_var = "ExtYield",
+                        time_var = "Actual_Order",
+                        mod_order = 2,
+                        p_cutoff = 0.005,
+                        trim_method = "both",
+                        verbose = FALSE)
+
+#Check which factors were removed
+cat(analysis_new$statements["p_cutoff"])
+
+#Check the new Lack-of-Fit
+analysis_new[["results"]][["final"]][["Model_Metrics"]][["LoF_Pvalue"]]
+```
+
+We see that the Lack-of-Fit is now significant despite only removing 3 terms from the model, two of which are interaction terms. In this case, rather surprisingly, it appears that keeping all terms in the quadratic model is justified and trimming is indeed not appropriate.
+
+Using the full-featured model, we can predict extraction yield for new values of pressure, temperature, and EtOH flow as shown below. Remember that new data has to be named appropriately.
+
+```{r rsm_3, message = FALSE}
+#Using a single set of values (provided as a vector)
+preds <- predict_doe(analysis, newdata = c(P_bar = 200, T_degC = 50, EtOH_gmin = 5), coded = FALSE)
+
+#Using multiple sets of values (as a data.frame)
+preds_multiple <- predict_doe(analysis, newdata = data.frame(P_bar = c(150, 200, 250, 300), T_degC = c(40, 50, 45, 40), EtOH_gmin = c(0, 5, 10, 4)), coded = FALSE)
+
+#View predictions of the final model
+preds_multiple[["summary"]][["final"]]
+```
+
+### Combining models into Desirability Functions (DF) {#desir}
+All examples thus far have dealt with modeling a **single response**. What if we want to determine optimum parameters for more than one response, and assign weights to each response based on their practical importance? For this, **supeRcrit** includes [Desirability Functions (DF)][derringer_suich], a more recent review of which may be found in [Cardoso et al. (2023)][cardoso]. Our implementation borrows generously from the [desirability2][kuhn_df] package by Max Kuhn. All cited sources are excellent sources of the fundamentals.
+
+For this example, we will first retrieve three separate single-response RSM models. The data and results are taken from [Pavic et al. (2019)][pavic], who carried out extraction of phenolic antioxidants from Dalmatian sage. There are three responses: extract yield (%), carnosic acid content (per mille extract), carnosol content (per mille extract). The design used is a BBD with 3 center points and 3 factors: Pressure (MPa), Temperature (C), and CO~2~ flow rate (kg/h).
+
+```{r df_1, message = FALSE}
+#Retrievve RSM models
+doe_lst1 <- load_internal("doe_lst1")
+```
+
+Next, we build a DF using all three models while specifying the lower and upper limits to be (beyond which optimization is not attempted), the same limits for factors. Our objective is to maximize all three responses with equal weighing. We also specify that the data provided is uncoded, and process only the final (i.e. trimmed) models.
+
+```{r df_2, message = FALSE}
+#Calculate the desirability function that maximizes 3 responses
+desires <- doe_desir(mods = doe_lst1,
+                     dsrng = list(CarnosicAcid_mgg = c(0,150), Carnosol_mgg = c(0,65), ExtYield = c(1,7)),
+                     frng = list(B = c(40,60), A = c(10,30), C = c(1,3)),
+                     obj = c("max", "max", "max"),
+                     dtype = "uncoded",
+                     modbase = "final",
+                     spts = c(20,10),
+                     silent = TRUE)
+
+#View the overall results (all unique solutions found by the optimization algorithm)
+library(dplyr)
+desires[["unique_solutions"]] %>% 
+ mutate_if(is.numeric, round, digits = 2)
+```
+
+The information above shows that two unique solutions were obtained from a total of 30 optimization trials (which can be viewed in the `$output_data` element). These solutions result in an Overall Desirability (DO) of 0.84 and 0.69, of which the former solution recommends pressure, temperature, and CO~2~ flow of 27.04 MPa, 40 C, and 3 kg/h, respectively.
+
+[doe_intro]: https://doi.org/10.1021/op500169m
+[rsm_intro]: https://doi.org/10.3390/asi8040099
+[df_intro]: https://doi.org/10.1016/j.chemolab.2011.04.004
+[nist_book]: https://doi.org/10.18434/M32189
+[bb_a]: https://doi.org/10.1016/j.jfoodeng.2005.11.024
+[bb_b]: https://doi.org/10.1016/j.jfoodeng.2005.11.025
+[bb_c]: https://doi.org/10.1016/j.jfoodeng.2006.02.021
+[bb_d]: https://doi.org/10.1016/j.jfoodeng.2006.04.004
+[rsm_package]: https://doi.org/10.32614/CRAN.package.rsm
+[bimakr]: https://doi.org/10.1007/s11947-010-0504-4
+[derringer_suich]: https://doi.org/10.1080/00224065.1980.11980968  
+[cardoso]: http://dx.doi.org/10.7769/gesec.v14i1.1536
+[kuhn_df]: https://doi.org/10.32614/CRAN.package.desirability2
+[pavic]: https://doi.org/10.3390/plants8010016
