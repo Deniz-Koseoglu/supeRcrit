@@ -11,14 +11,21 @@
 #'
 #' @param solute Information about the solute as required by function \code{\link{mol_find}}.
 #' @param tb,crit,hsp All are \code{character} values specifying the methods to use for GCMs (see \code{\link{est_gcm}}).
-#' @param modif A \code{character} value or vector indicating which co-solvent(s) to evaluate alongside pure CO2.
-#' One or more of: \code{"Acetone"}, \code{"Benzene"}, \code{"Toluene"}, \code{"OXylene"} (ortho-xylene),
-#' \code{"PXylene"} (para-xylene), \code{"Cyclohexane"}, \code{"DiethylEther"}, \code{"Methanol"},
-#' \code{"Ethanol"}, \code{"Heptane"}, \code{"Hexane"}, and/or \code{"MethylOleate"}.
+#' @param gorder A \code{numeric} value denoting the maximum order of groups to be considered. Defaults to \code{0}, which
+#' considers all available group orders. May also be a \strong{named} vector - see \code{\link{est_gcm}} for details.
+#' @param modif A \code{character} value, vector, or \code{list} indicating which co-solvent(s) to evaluate alongside pure CO2.
+#' Each element of vector must be either a solvent \strong{name} or its \strong{abbreviation}. For possible values,
+#' consult the output of \code{\link{show_solv}}. \strong{Mixtures of co-solvents} may
+#' also be evaluated if a \code{list} is provided, where a mixture may be specified in each list element as a vector of length 2
+#' or more containing the \strong{names of solvents}.
+#' @param modfracs An \strong{optional} \code{list} of solvent mixture volume percentages to use for solvent mixtures specified in
+#' \code{modif}. Percentages given in each list element must either be less than or add up to 100 and contain an equal number of
+#' percentage values to the number of solvents in the corresponding mixture (or one less value, in which case the remainder is
+#' made up to a total of 100). The total number of list elements must equal the number of mixtures specified in \code{modif}.
 #' @param hlight A \code{logical} indicating whether substructures are highlighted (see \code{\link{plot_gcm}}).
-#' @param overlap A \code{logical} indicating whether overlapping sub-structures should be allowed (\code{TRUE} by default).
-#' This argument is experimental (see \code{\link{sub_smarts}}).
-#' @param pres,temps Both are \code{numeric} values \strong{or sequences} of pressures (75-700 bar) and temperatures (32-70 Celsius)
+#' @param simplicity A \code{character} string indicating whether overlapping sub-structures should be allowed (\code{"auto"} by default).
+#' See \code{\link{sub_smarts}}.
+#' @param pres,temps Both are \code{numeric} values \strong{or sequences} of pressures (75-1000 bar) and temperatures (32-200 Celsius)
 #' at which to evaluate solute and solvent HSPs. Defaults are \code{seq(80,300,20)} and \code{seq(32,65,3)} for pressure and
 #' temperature, respectively.
 #' @param vfrac The volume fraction of co-solvent to use (defaults to \code{0.10}, or 10%).
@@ -80,9 +87,9 @@
 #' crit = "NL07_robust",
 #' hsp = "SP12")
 #'
-#' @seealso \code{\link{mol_find}}, \code{\link{est_gcm}}, \code{\link{plot_gcm}}, \code{\link{hsp_optim}}, \code{\link{show_solv}}
-sfe_mod <- function(solute, tb, crit, hsp, modif = "all", hlight = TRUE, overlap = TRUE,
-                    pres = seq_last(80, 300, 20), temps = seq_last(32, 65, 3), vfrac = 0.10,
+#' @seealso \code{\link{mol_find}}, \code{\link{est_gcm}}, \code{\link{plot_gcm}}, \code{\link{hsp_optim}}, \code{\link{miscomp}}, \code{\link{compare_gcm}}, \code{\link{show_solv}}
+sfe_mod <- function(solute, tb, crit, hsp, gorder = 0, modif = "all", modfracs = NA, hlight = TRUE, simplicity = "auto",
+                    pres = seq_last(80, 400, 20), temps = seq_last(32, 70, 3), vfrac = 0.10,
                     silent = FALSE) {
 
   #Record function call for later exporting
@@ -92,7 +99,7 @@ sfe_mod <- function(solute, tb, crit, hsp, modif = "all", hlight = TRUE, overlap
   #if(any(modif %in% "none")) stop("The function has no task to carry out! No SFE modifiers were set...")
 
   #Estimate boiling points, critical parameters, and HSP via GCM
-  gcmres <- est_gcm(solute, tb, crit, hsp, hlight, overlap, silent)
+  gcmres <- est_gcm(solute, tb, crit, hsp, vdw = NA, hlight, simplicity, gorder, silent)
 
   #Unpack results and get parameters for HSP-based miscibility optimization
   solute_data <- gcmres[["solute_data"]]
@@ -102,11 +109,8 @@ sfe_mod <- function(solute, tb, crit, hsp, modif = "all", hlight = TRUE, overlap
   hsp_foropt <- pares[["HSP"]]
 
   #Use the critical temperature Tc and HSP parameters of solute to obtain miscibility enhancement in various CO2-Cosolvent mixtures versus pure CO2
-  if(any(modif %in% "all")) modif <- c("Acetone", "Benzene", "Toluene", "OXylene", "PXylene", "Cyclohexane",
-                                       "DiethylEther", "Methanol", "Ethanol", "Heptane", "Hexane", "MethylOleate")
   if(!any(modif %in% "none")) {
-    if(!silent) cat("\nCalculating SFE miscibility enhancement using a ", vfrac, " volume fraction of the following modifiers: ", paste0("'", modif, "'", collapse = ", "), ".", sep = "")
-    optres <- hsp_optim(crit_foropt, hsp_foropt, modif, pres, temps, vfrac)
+    optres <- hsp_optim(crit_foropt, hsp_foropt, modif, modfracs, pres, temps, vfrac, silent = silent)
   } else optres <- NA
 
   #Return results
@@ -123,7 +127,10 @@ sfe_mod <- function(solute, tb, crit, hsp, modif = "all", hlight = TRUE, overlap
 #'
 #' @param sols A \code{list} where each element provides information for a solute as required by \code{\link{mol_find}}.
 #' @param tb,crit,hsp All \code{character} values of GCM methods to use. For available methods, see \code{\link{est_gcm}}.
-#' @param modif A \code{character} value of the co-solvent to use. For possible values, see \code{\link{sfe_mod}}.
+#' @param modif A \code{character} value or vector of the co-solvent (or solvent blend) to use.
+#' For possible values, see \code{\link{sfe_mod}}.
+#' @param modfracs A vector or \code{list} of co-solvent volume fractions to use when a \strong{solvent blend} is specified
+#' in \code{modif}.
 #' @param pres A \code{numeric} vector of \strong{up to 6} pressures (in bar) to evaluate miscibility enhancement at.
 #' @param pres_comp A \code{numeric} pressure value to use for comparative plots between solutes. Must also be present in \code{pres}.
 #' @param cols Either \code{"default"} or a \strong{named} vector of colours to use for up to six values of pressure (given in \code{pres}).
@@ -131,8 +138,8 @@ sfe_mod <- function(solute, tb, crit, hsp, modif = "all", hlight = TRUE, overlap
 #' @param plt_title A \code{logical} indicating whether titles should be added to plots.
 #' @param temp The single \code{numeric} temperature value to use (between 40-70 Celsius).
 #' @param vfrac A \code{numeric} vector of volume fractions of co-solvent to evaluate. Defaults to \code{seq(0.05, 0.40, 0.05)}.
-#' @param overlap A \code{logical} indicating whether overlapping sub-structures should be allowed (\code{TRUE} by default).
-#' This argument is experimental (see \code{\link{sub_smarts}}).
+#' @param simplicity A \code{character} string indicating whether overlapping sub-structures should be allowed (\code{"auto"} by default).
+#' See \code{\link{sub_smarts}}.
 #' @param draw A \code{logical} indicating whether generated plots should be printed automatically (\code{TRUE} by default).
 #' @param silent A \code{logical}. When \code{FALSE} (default), additional information is printed in the console.
 #'
@@ -158,8 +165,8 @@ sfe_mod <- function(solute, tb, crit, hsp, modif = "all", hlight = TRUE, overlap
 #' @import ggplot2
 #'
 miscomp <- function(sols, tb = "SB_corr", crit = "NL07_robust", hsp = "SP12",
-                    modif = "Ethanol", pres = seq(100,600,100), pres_comp = pres, cols = "default",
-                    plt_title = TRUE, temp = 40, vfrac = seq(0.05, 0.40, 0.05), overlap = TRUE,
+                    modif = "Ethanol", modfracs = NA, pres = seq(100,600,100), pres_comp = pres, cols = "default",
+                    plt_title = TRUE, temp = 40, vfrac = seq(0.05, 0.40, 0.05), simplicity = "auto",
                     draw = TRUE, silent = FALSE) {
 
   #Preliminary checks
@@ -180,10 +187,14 @@ miscomp <- function(sols, tb = "SB_corr", crit = "NL07_robust", hsp = "SP12",
   if(length(sols)>6) stop("The maximum number of solutes to be compared ('sols') is currently limited to 6!")
   if(length(pres)>6|!is.numeric(pres)) stop("The pressure parameter 'pres' must be a numeric vector of length 1-6!")
   if(!all(pres_comp %in% pres)) stop("The pressure(s) used for solute comparison ('pres_comp') must also be included in 'pres'!")
-  defmod <- c("Acetone", "Benzene", "Toluene", "OXylene", "PXylene", "Cyclohexane",
-              "DiethylEther", "Methanol", "Ethanol", "Heptane", "Hexane", "MethylOleate")
-  if(!all(modif %in% defmod)|length(modif)!=1) stop(paste0("The modified ('modif') must be ONE of the following: ",
-                                                           paste0("'", defmod, "'", collapse = ", "), "!"))
+  defmod <- unname(unlist(show_solv()[,c("Solvent","Abbreviation")]))
+  if(!all(modif %in% defmod)) {
+    stop(paste0("The modified ('modif') must be ONE OR MORE (if using a solvent blend) of the following: ",
+                paste0("'", defmod, "'", collapse = ", "), "!"))
+  } else if(length(modif)>1) {
+    if(!is.list(modif)) modif <- list(modif)
+    if(!is.list(modfracs)) modfracs <- list(modfracs)
+  }
 
   #Set up plot colours
   defcols <- c(one = "black", two = "blue", three = "darkgreen", four = "darkorange", five = "darkred", six = "purple")
@@ -195,14 +206,14 @@ miscomp <- function(sols, tb = "SB_corr", crit = "NL07_robust", hsp = "SP12",
   for(i in seq_along(sols)) {
     if(!silent) cat("\nWorking on compound", i, "of", length(sols),"...")
     if(!silent) cat("\nCalculating HSPs and other parameters...")
-    gcmpars <- est_gcm(sols[[i]], tb[[i]], crit[[i]], hsp[[i]], overlap = overlap, silent = TRUE)
+    gcmpars <- est_gcm(sols[[i]], tb[[i]], crit[[i]], hsp[[i]], vdw = NA, simplicity = simplicity, silent = TRUE)
     soldata <- gcmpars[["solute_data"]][["IDs"]]
     crit_opt <- gcmpars[["pares"]][["Critical"]][["Tc"]]
     hsp_opt <- gcmpars[["pares"]][["HSP"]]
 
     cat("\nCalculating miscibility enhancement...")
     optres <- lapply(vfrac, function(x) {
-      res <- hsp_optim(crit_opt, hsp_opt, modif, pres, temp, vfrac = x, silent = TRUE)[["Miscib_Enhancement"]][[paste0("CO2_",modif)]]
+      res <- hsp_optim(crit_opt, hsp_opt, modif, modfracs, pres, temp, vfrac = x, silent = TRUE)[["Miscib_Enhancement"]][[1]]
       res <- data.frame(rep(soldata[["Name"]],nrow(res)), rep(x, nrow(res)), as.character(rownames(res)), miscib_enh = res)
       return(res)
     })
@@ -286,9 +297,14 @@ miscomp <- function(sols, tb = "SB_corr", crit = "NL07_robust", hsp = "SP12",
 #' and/or Hansen Solubility Parameters (HSPs) estimated for a solute by various Group Contribution Methods (GCMs).
 #'
 #' @param solute A (optionally named) \code{character} vector of solute information as provided to \code{\link{mol_find}}.
+#' @param gorder A \code{numeric} value or vector denoting the maximum order of groups to be considered.
+#' Defaults to \code{0}, which considers all group orders. Must either be of \strong{length 1} or a \strong{named vector}
+#' with names corresponding to available GCM methods (see \code{\link{est_gcm}} for a full list).
+#' @param simplicity A \code{character} string indicating whether overlapping sub-structures should be allowed (\code{"auto"} by default).
+#' See \code{\link{sub_smarts}}.
 #'
 #' @return A \code{data.frame} containing the type of estimated \code{parameter}, the \code{method} used,
-#' whether \code{overlap} was allowed in GCM SMARTS substructures, and various estimated parameters including
+#' the level of \code{simplicity} of matching GCM SMARTS substructures, and various estimated parameters including
 #' boiling points (\code{"Tb"}, \code{"Tb_corr"}), critical temperature (\code{"Tc"}), pressure (\code{"Pc"}),
 #' and volume (\code{"Vc"}), as well as dispersion (\code{"dD"}), polarity (\code{"dP"}, \code{"dP_low"}),
 #' and hydrogen bonding (\code{"dHB"}, \code{"dHB_low"}) components of HSPs.
@@ -304,25 +320,40 @@ miscomp <- function(sols, tb = "SB_corr", crit = "NL07_robust", hsp = "SP12",
 #' mol2 <- c("CCCCCC=CCC=CCCCCCCCC(=O)O", "60-33-3", "Linoleic Acid")
 #' res <- compare_gcm(mol2)
 #'
-#' @seealso \code{\link{mol_find}}, \code{\link{sfe_mod}}
+#' @seealso \code{\link{mol_find}}, \code{\link{sfe_mod}}, \code{\link{sub_smarts}}
 #'
-compare_gcm <- function(solute) {
-  mets <- cbind.data.frame(parameter = c(rep("tb",5), rep("crit",3), rep("hsp",8)),
-                           method = c("JR", "JR_corr", "SB", "SB_corr", "NL04",
-                                      "JR", "NL07", "NL07_robust",
-                                      rep(c("SP08", "SP12", "SP08_first", "SP12_first"),2)),
-                           overlap = c(rep(TRUE,12), rep(FALSE,4)))
+compare_gcm <- function(solute, gorder = 0, simplicity = "auto") {
+  if(length(gorder)>1 & is.null(names(gorder))) {
+    stop("When group order 'gorder' is of length > 1, names corresponding to available GCM methods must be provided!")
+  } else if(length(gorder)>1 & !all(names(gorder) %in% gcm_opts[,"Method"])) {
+    stop(paste0("The following method names in 'gorder' were not recognized: ",
+                paste0("'", names(gorder)[!names(gorder) %in% gcm_opts[,"Method"]], "'", collapse = ", "), "."))
+  } else if(length(gorder)==1) gorder <- setNames(rep(gorder, nrow(gcm_opts)), gcm_opts[,"Method"])
+
+  mets <- cbind.data.frame(parameter = c(rep("tb",7), rep("crit",5), rep("hsp",4), rep("vdw",3)),
+                           method = c("JR", "JR_corr", "SB", "SB_corr", "NL04", "HKR_STW", "HKR_SIM",
+                                      "JR", "NL07", "NL07_robust", "HKR_STW", "HKR_SIM",
+                                      "SP08", "SP12",  "HKR_STW", "HKR_SIM",
+                                      "BND", "SLON", "ZHAO"),
+                           simplicity = c(rep(simplicity,19)))
+  mets[,"order"] <- sapply(mets[,"method"], function(x) {
+    input_order <- gorder[names(gorder) %in% x]
+    cur_order <- gcm_opts[gcm_opts[,"Method"]==x,"Order"]
+    if(cur_order < input_order | input_order==0) cur_order else input_order
+  })
+
   solute <- mol_find(solute)
   for(i in seq(nrow(mets))) {
+    cat(if(i==1)"\n" else "\r", "Estimating values using method: ", mets[i, "method"], "...", sep = "")
     par <- mets[i,"parameter"]
-    grps <- define_grps(sub_smarts(solute, method = mets[i,"method"], overlap = mets[i,"overlap"]))
+    grps <- define_grps(sub_smarts(solute, method = mets[i,"method"], simplicity = simplicity, gorder = gorder[names(gorder) %in% mets[i,"method"]], silent = TRUE))
     contribs <- gcm_contribs(solute, grps)
     if(par=="tb") {
       tbres <- gcm_bp(contribs)
       mets[i,"Tb"] <- tbres[["Tb"]]
       if(any(names(tbres) %in% "Tb_corr")) mets[i,"Tb_corr"] <- tbres[["Tb_corr"]]
     } else if(par=="crit") {
-      tb_grps <- define_grps(sub_smarts(solute, method = "SB_corr", overlap = TRUE))
+      tb_grps <- define_grps(sub_smarts(solute, method = "SB_corr", simplicity = simplicity, gorder = gorder[names(gorder) %in% mets[i,"method"]], silent = TRUE))
       tb_contribs <- gcm_contribs(solute, tb_grps)
       tb <- gcm_bp(tb_contribs)[["Tb_corr"]]
       mets[i,c("Tc","Pc","Vc")] <- unname(gcm_crit(tb, contribs)[c("Tc","Pc","Vc")])
@@ -330,6 +361,9 @@ compare_gcm <- function(solute) {
       hspres <- gcm_hsp(contribs)
       mets[i,c("dD","dP","dHB")] <- unname(hspres[c("dD", "dP", "dHB")])
       for(j in c("dP_low", "dHB_low")) if(any(names(hspres) %in% j)) mets[i,"dP_low"] <- hspres[[j]]
+    } else if(par=="vdw") {
+      vdwres <- gcm_vdw(contribs)
+      mets[i,"VDW"] <- vdwres[["VDW"]]
     }
   }
   return(mets)

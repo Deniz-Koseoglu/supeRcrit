@@ -458,3 +458,75 @@ tws_cmp <- function(x, y, c0, q = NA, f = NA, k1_0 = 0.5, k2_0 = 0.5, f0 = NA, e
   fit_pars <- c("k1", "k2", if(est_f) "f" else NULL)
   return(list(ordt = ordt, mdt = mod_dt, mod_pars = mod_pars, fit_pars = fit_pars, resid = resid))
 }
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#FUNCTION: Predict response for KTS desorption models
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#' @title Predict responses using built KTS desorption models
+#'
+#' @description Predicts the response for new input values using two-site kinetic desorption models
+#' built via \code{\link{ktsmod}}.
+#'
+#' @param input The output of \code{\link{ktsmod}} containing model information.
+#' @param newdata A single \code{numeric} value or a vector of new input data to made predictions for
+#' (extraction time, in minutes).
+#' @param get_yields A \code{logical} value specifying whether the default yield should be converted into mass
+#' and percentage yield. Defaults to \code{TRUE}.
+#' @param moisture An optional \code{numeric} value showing the moisture content of the raw material
+#' in percent fresh weight. Only used to correct percentage yield predictions when \code{get_yields == TRUE}. Defaults to \code{NA}.
+#'
+#' @return A \code{list} of length 3 containing the \code{$predictions} as a \code{data.frame}, the \code{$input} parameters,
+#' and a \code{$description} outlining which process parameters the model is valid for along with other useful information.
+#' @export
+#'
+#' @seealso \code{\link{ktsmod}}
+predict_kts <- function(input, newdata, get_yields = TRUE, moisture = NA) {
+  #Preliminary checks
+  if(!all(c("tws", "plots", "data", "input", "call") %in% names(input))) stop("The 'input' must originate from function 'ktsmod'!")
+  if(!is.numeric(newdata)) stop("New input data ('newdata') must be a numeric value/vector!")
+  if(!is.logical(get_yields)) stop("Argument 'get_yields' must be logical!")
+  if(!is.numeric(moisture) & !is.na(moisture)) stop("If provided, argument 'moisture' must be a numeric value!")
+
+  #Retrieve model output and input parameters
+  inpars <- input[["input"]]
+  outpars <- input[["tws"]][["mod_pars"]]
+
+  cat("\nPredicting response...")
+  #Compile predictions
+  pred_cc0 <- tws_eq(t = newdata, k1 = outpars[["k1"]], k2 = outpars[["k2"]], f = outpars[["f"]])
+  pred_y <- pred_cc0*outpars[["c0"]]
+
+  df <- setNames(cbind.data.frame(newdata, inpars[["flow"]]*1000*(newdata*60)/inpars[["mass_in"]],
+                         pred_y, pred_cc0), c("t", "sm", paste0("yield_", input[["units"]]["response"]), "yield_cc0"))
+
+  #Optionally append extra yields (mass and percentage) using information about fractional yield units
+  if(get_yields) {
+    cat("\nConverting fractional yield into mass and percentage yield...")
+    yunit <- input[["units"]]["response"]
+    divider <- c(percent = 100, permille = 1000, ppm = 1000000, ppb = 1000000000)
+
+    moisture_factor <- if(!is.na(moisture)) moisture/100 else 0
+
+    yield_mass <- if(yunit == "g") pred_y else pred_y/divider[yunit] * inpars[["mass_in"]] * (1+moisture_factor)
+    yield_percent <- if(yunit == "g") pred_y/inpars[["mass_in"]]* (1-moisture_factor) else pred_y / (divider[yunit]/100)
+    df <- cbind.data.frame(df, yield_g = yield_mass, yield_percent = yield_percent)
+  }
+
+  #Compile statement about parameters for which the model is valid
+  parnms <- c(pres = "Pressure", temp = "Temperature", flow = "Flow rate", c0 = "Extractable fraction")
+  parunits <- c(pres = "bar", temp = "C", flow = "g/min", c0 = "percent")
+  whichnms <- which(names(inpars) %in% names(parnms))
+  statepars <- inpars[names(parunits)[whichnms]]
+  if("flow" %in% names(statepars)) statepars["flow"] <- round(statepars["flow"]*1000*60, 2)
+
+  statement <- paste0("\nPredictions are valid for the following process parameters:",
+                      paste0("\n", parnms[whichnms], " of ", statepars,
+                             " ", parunits[whichnms], ".", collapse = ""))
+  statement <- append(statement, paste0("\nThe units of flow rate and response are ",
+                                        paste0(input[["units"]], collapse = " and "), ", respectively.",
+                                        if(get_yields) paste0("\nThe calculated percentage yield was calculated on a ",
+                                                              if(is.na(moisture)) "wet" else "dry", " weight basis.") else ""))
+
+  cat("\nDONE!")
+  return(list(predictions = df, input = inpars, description = statement))
+}

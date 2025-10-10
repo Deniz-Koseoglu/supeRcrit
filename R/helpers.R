@@ -1,3 +1,18 @@
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#FUNCTION: Check which elements can be numeric
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#' @title Check which elements of vector can or cannot be numeric
+#' @description Finds elements which can (or cannot) be coerced to \code{numeric} format.
+#' @param vec Character vector to evaluate
+#'
+#' @return A \code{logical} vector indicating whether numeric conversion is suitable
+#' @export
+#'
+can_numeric <- function(vec) {
+  if(!is.character(vec)) stop("The input must be a character vector!")
+  grepl('^(?=.)([+-]?([0-9]*)(\\.([0-9]+))?)$', vec, perl = TRUE)
+}
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #FUNCTION: Supplement function arguments (named vectors) with default values
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -53,8 +68,7 @@ supp_pars <- function(defpars, pars = "default", parlb = NA) {
 #' @export
 #'
 #' @references
-#' StackOverflow answer by \strong{flodel}:
-#' \url{https://stackoverflow.com/questions/16357962/r-split-numeric-vector-at-position}
+#' \href{StackOverflow answer}{https://stackoverflow.com/questions/16357962/r-split-numeric-vector-at-position} by \strong{flodel}.
 #'
 #' @examples
 #' splitAt(seq(1,5,1), c(2,4))
@@ -112,4 +126,20 @@ flattenlist <- function(x){
   if(sum(morelists)){
     Recall(out)
   } else return(out)
+}
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#FUNCTION: Calculate row-wise variances
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#' @title Calculate row-wise variances
+#'
+#' @param x A \code{data.frame} for which to calculate row-wise variances.
+#' @param na.rm A \code{logical} indicating whether to ignore \code{NA} values (\code{FALSE} by default).
+#'
+#' @return A \code{numeric} vector of variances (one value per row of \code{x}).
+#' @export
+#'
+rowVars <- function(x, na.rm = FALSE) {
+  # Vectorised version of variance filter
+  rowSums((x - rowMeans(x, na.rm=na.rm))^2, na.rm=na.rm) / (ncol(x) - 1)
 }

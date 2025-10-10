@@ -275,7 +275,7 @@ confound <- function(input, def_rel) {
 #'
 doe_export <- function(input, export_name = NA, expath = getwd(), silent = FALSE) {
   #Preliminary checks
-  if(!is.list(input)) stop("The input data must be a list output from one of the DOE generator functions!")
+  if(!is.list(input) | !all(c("doe", "description") %in% names(input))) stop("The input data must be a list output from one of the DOE generator functions!")
   if(!dir.exists(expath)) stop("The export directory does not exist!")
   #if(!is.character(export_name)) stop("An export file title must be given as a single character string!")
 
@@ -283,7 +283,11 @@ doe_export <- function(input, export_name = NA, expath = getwd(), silent = FALSE
   expath <- paste0(expath, "/", names(input)[1], "_", format(Sys.time(), "%Y-%m-%d %Hhr %Mmin %Ssec"), ".tab")
   if(!silent) cat("\nExporting design to: ", expath, "...", sep = "")
 
-  if(!is.na(export_name) & is.character(export_name)) cat(export_name, "\n", file = expath, sep = "", append = TRUE)
+  if(!is.na(export_name) & is.character(export_name)) {
+    cat(export_name, "\n", file = expath, sep = "", append = TRUE)
+  } else cat(input[["description"]], "\n", sep = "", append = TRUE)
+
+  input <- input[["doe"]]
   for(i in seq_along(input)) {
     if(i==1) {
       heading <- "DESIGN MATRIX"

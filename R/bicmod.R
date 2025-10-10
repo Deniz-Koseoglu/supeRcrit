@@ -57,6 +57,7 @@
 #' (one of \code{"mL/min"}, the \strong{default} \code{"g/min"}, \code{"kg/h"}, \code{"L/h"}, or \code{"none"}) and/or
 #' the response \code{"resp"} (one of \code{"g"}, the \strong{default} \code{"percent"}, \code{"permille"}, \code{"ppm"},
 #' or \code{"ppb"}). Where not provided, default values are used.
+#' @param silent Should console output be silenced? Defaults to \code{FALSE}).
 #'
 #' @return The output takes two forms. When \code{modtype} includes \code{"cu"} (for estimation of the maximum extractable fraction \eqn{c_u}),
 #' the output is a \code{list} of the estimated \eqn{c_u} value (\code{$cu}) and the iteratively derived final estimate of the related constant
@@ -128,7 +129,7 @@
 #'
 bicmod <- function(oec, oec_vars, pars, opt_est = "default", etoh_frac = 0, flowpar = rep(NA,2), ro_co2 = NA, tmax = NA, qmax = NA,
                    cumulative = FALSE, mass_flow = FALSE, draw = TRUE, aggreg = "aard", modtype = "all",
-                   units = "default") {
+                   units = "default", silent = FALSE) {
 
   #Preliminary checks
   modtps <- c("sim", "cu", "ct", "cmp3", "cmp2")
@@ -151,6 +152,7 @@ bicmod <- function(oec, oec_vars, pars, opt_est = "default", etoh_frac = 0, flow
   if(!any(names(opt_est) %in% "c3")) opt_est <- c(opt_est, c3 = NA)
 
   #Set up units
+  if(!silent) cat("\nSetting up units...")
   posun_flow <- c("mL/min", "g/min", "kg/h", "L/h", "none")
   posun_resp <- c("g", "percent", "permille", "ppm", "ppb")
   defunits <- c(flow = "g/min", resp = "percent")
@@ -169,9 +171,10 @@ bicmod <- function(oec, oec_vars, pars, opt_est = "default", etoh_frac = 0, flow
     names(oec_vars) <- names(oec_vars)[!names(oec_vars) %in% "slv"]
   }
   if(is.na(pars["flow"]) & pars["etoh"]!=0 & etoh_frac==0) stop("When CO2 flow rate is not provided and EtOH co-solvent flow is non-zero, EtOH flow fraction ('etoh_frac') MUST be provided!")
-  if(any(names(oec_vars) %in% "slv")) cat("Note that when total expended solvent is given instead of a flow rate, the units must be either mL or g based on the 'mass_flow' logical switch!\n")
+  if(any(names(oec_vars) %in% "slv") & !silent) cat("Note that when total expended solvent is given instead of a flow rate, the units must be either mL or g based on the 'mass_flow' logical switch!\n")
 
   #Set up initial parameter estimates
+  if(!silent) cat("\nSetting up input variable and initial parameter estimates...")
   defest <- c(r = 0.4, ksas = 10e-5, qc = 400, thetaf = 1, ti = 30, kf = 0.001, c3 = 0.15)
   opt_est <- supp_pars(pars = opt_est, defpars = defest, parlb = "opt_est")
 
@@ -208,7 +211,7 @@ bicmod <- function(oec, oec_vars, pars, opt_est = "default", etoh_frac = 0, flow
   cumulcnd <- if(cumulative) c(any(diff(mex)<0), any(diff(uslv)<0), " NOT ", " ") else c(all(diff(mex)>0), all(diff(uslv)>0), " ", " NOT ")
   cumulog <- as.logical(cumulcnd[1:2])
   if(cumulog[1]) warning(paste0("The response values provided are likely", cumulcnd[3], "cumulative and were", cumulcnd[4], "converted."))
-  if(cumulog[2]) warning(paste0("The solvent consumption values provided are likely", cumulcnd[3], "cumulative and were", cumulcnd[4], "converted."))
+  if(cumulog[2] & is.na(pars["flow"])) warning(paste0("The solvent consumption values provided are likely", cumulcnd[3], "cumulative and were", cumulcnd[4], "converted."))
 
   if(cumulative) {
     if(cumulog[1]) mex <- cumsum(mex)
@@ -277,7 +280,7 @@ bicmod <- function(oec, oec_vars, pars, opt_est = "default", etoh_frac = 0, flow
   }
   qser <- mass_slv/(t*60)
   qser[1] <- 0
-  qaver <- mean(qser, na.rm = TRUE) #[kg/s] Average CO2 flow rate
+  qaver <- mean(qser[-1], na.rm = TRUE) #[kg/s] Average CO2 flow rate
   q <- if(!est_cu) mass_slv/Nm else mass_slv/N #[kg/kg] Relative amount of the passed solvent (kg/kg insoluble solid)
 
   #Calculate cumulative yields
@@ -299,6 +302,8 @@ bicmod <- function(oec, oec_vars, pars, opt_est = "default", etoh_frac = 0, flow
   if(is.na(tmax)) tmax <- round(max(t, na.rm = TRUE)*1.2, -1)
   if(is.na(qmax)) qmax <- round(max(q)*1.2,-1) #Maximum x-axis value (kg/kg solvent expended) to use to model predictions
 
+  if(!silent) cat("\nDeriving model(s)...")
+
   #SIMPLIFIED MODEL
   modres[["sim"]] <- bic_sm(yield, q, n, xu, qaver, Nm, porosity, ys, opt_est[["c3"]], Ng, est_cu = if(est_cu) TRUE else FALSE,
                             maxq = qmax, r0 = opt_est[["r"]], ksas0 = opt_est[["ksas"]], qc0 = opt_est[["qc"]])
@@ -318,28 +323,29 @@ bicmod <- function(oec, oec_vars, pars, opt_est = "default", etoh_frac = 0, flow
   }
 
   #COMPILE PLOTS
+  if(!silent) cat("\nGenerating plots...")
   pltlst <- list()
   plt_titles <- c("sim" = "Simple BIC model", "ct" = "BIC characteristic times model", "cmp" = "Complete BIC model")
   time_suffix <- " (time-based)"
   time_titles <- setNames(paste0(plt_titles[c("sim","cmp")], time_suffix), c("sim","cmp"))
 
   for(i in names(modres)) {
-    pltlst <- append(pltlst, kin_plot(pts = modres[[i]][["ordt"]], mod = modres[[i]][["mdt"]],
-                                      grp = c(mod = "model", reg = "period"), cols = "default",
-                                      pltlabs = c(title = plt_titles[[i]], x = if(i=="ct") "Time (min)" else "q (kg/kg)", y = "e (kg/kg)")))
+    pltlst[[i]] <- kin_plot(pts = modres[[i]][["ordt"]], mod = modres[[i]][["mdt"]],
+                          grp = c(mod = "model", reg = "period"), cols = "default",
+                          pltlabs = c(title = plt_titles[[i]], x = if(i=="ct") "Time (min)" else "q (kg/kg)", y = "e (kg/kg)"))
 
     if(i!="ct") {
-      pltlst <- append(pltlst, kin_plot(pts = modres[[i]][["ordt"]], mod = modres[[i]][["mdt"]],
-                                        ptvars = c("t","y"),
-                                        grp = c(mod = "model", reg = "period"), cols = "default",
-                                        pltlabs = c(title = time_titles[[i]], x = "Time (min)", y = "e (kg/kg)")))
+      pltlst[[paste0(i, "_time")]] <- kin_plot(pts = modres[[i]][["ordt"]], mod = modres[[i]][["mdt"]],
+                                               ptvars = c("t","y"),
+                                               grp = c(mod = "model", reg = "period"), cols = "default",
+                                               pltlabs = c(title = time_titles[[i]], x = "Time (min)", y = "e (kg/kg)"))
     }
   }
   modres[["plots"]] <- pltlst
   isnest <- any(sapply(modres[["plots"]], function(x) class(x)=="list" & length(x)>1))
   if(isnest) {
     modres[["plots"]] <- flattenlist(modres[["plots"]])
-    names(modres[["plots"]]) <- gsub(".*\\.", "", names(modres[["plots"]]))
+    names(modres[["plots"]]) <- sapply(names(modres[["plots"]]), function(x) paste0(gsub(".*\\.", "", x), if(grepl("_time", x)) "_time" else ""))
   }
   if(draw) print(modres[["plots"]])
 
@@ -350,7 +356,8 @@ bicmod <- function(oec, oec_vars, pars, opt_est = "default", etoh_frac = 0, flow
                          n = n, m = m, mass_in = m_in, moisture = moisture, Ng = Ng,
                          Nm = Nm, cu = cu, xu = xu, ys = ys)
 
-  #Retieve function call
+  #Retrieve function call
   modres[["call"]] <- match.call()
+  if(!silent) cat("\nDONE!")
   return(modres)
 }

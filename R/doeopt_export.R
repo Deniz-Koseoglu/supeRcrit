@@ -95,7 +95,7 @@ doeopt_export <- function(input, expath = getwd(), plotpars = "default", plot_fo
     cat("\n", statements[paste0("Eq_",i)],"\n", file = fpath, sep = "", append = TRUE)
 
     #Export model results
-    cat("\nESTIMATED COEFFICIENTS, ANOVA AND OTHER STATISTICS", file = fpath, sep = "", append = TRUE)
+    cat("\nESTIMATED COEFFICIENTS, ANOVA AND OTHER STATISTICS\n", file = fpath, sep = "", append = TRUE)
     fwrite(modres[[i]][["Model_Results"]], file = fpath, na = "", sep = fwsep, col.names = TRUE, append = TRUE)
 
     #Export model data with residuals

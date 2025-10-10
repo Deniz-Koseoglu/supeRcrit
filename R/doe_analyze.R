@@ -27,7 +27,7 @@
 #' @param p_cutoff The p-value cutoff to use when pruning the initial model. Only used when \code{trim_method} includes \code{"p_cutoff"}.
 #' @param trim_method A \code{character} string specifying which method(s) to use for removing \strong{in}significant terms
 #' from the initial model. One of \code{"stepwise"} (Stepwise Regression, default), \code{"p_cutoff"} (p-value cutoff),
-#' \code{"both"}, or \code{"none"}.
+#' or \code{"both"}.
 #' @param which_facs A \code{character} string specifying which factors to use for model building. One of \code{"coded"} (default)
 #' or \code{"uncoded"}.
 #' @param export An \strong{existing} export folder path where plots and results are exported as .PDF (or .PNG) and .CSV files
@@ -66,9 +66,9 @@
 #' distance of factor levels from the center of the experimental space (and not on direction); thus, points at an identical distance from
 #' the center of the experimental space exhibit the same prediction error/variance  (Sharif et al., 2014).
 #' Cubic terms are seldom included when interpreting RSM. An ANOVA table should then be examined for goodness of fit
-#' (consistently high R2 and adjusted R2) and insignificant terms of low-magnitude exhibiting a high p value (e.g. >0.05).
-#' Probability plots can be used as a complementary technique. Insignificant effects may then be separated systematically –
-#' using stepwise regression and/or Pareto charts (Kiratu, 2015), for example – and the simplified ANOVA model re-examined iteratively.
+#' (consistently high R2 and adjusted R2) and insignificant terms of low-magnitude exhibiting a high p value (e.g. >0.05),
+#' Probability plots can be used as a complementary technique. Insignificant effects may then be separated systematically
+#' using stepwise regression and/or Pareto charts (Kiratu, 2015), and the simplified ANOVA model re-examined iteratively.
 #' Once the simplest model that explains most of the response variability is attained, the residual distribution should be examined to
 #' validate the normality and uniformity of variance assumptions (Yolmeh et al., 2017). Transformation of response data (e.g. via a
 #' natural logarithm or a Box-Cox approach) is useful for mitigating violations of these assumptions. The residuals can also be checked
@@ -135,9 +135,12 @@ doe_analyze <- function(doe, uc_facs = NA, cent_id = NA, resp_var, time_var, mod
   all_facs <- prepres[["all_facs"]]
   all_effs <- prepres[["all_effs"]]
 
+  #Check if a useful model can even be built (it cannot if the number of effects is equal to or larger than the number of observations)
+  if(nrow(prepres[["orig_df"]])<=nrow(all_effs)) stop("No useful model is possible since the number of observations is equal to or lower than the number of effects! Try a lower-order model?")
+
   #Build initial model and determine if any factors were not estimated due to singularities etc.
   cat("\nBuilding initial model...")
-  init_modres <- doe_build(input = init_input, resp_var, effs = all_effs, orig_data = doe,
+  init_modres <- doe_build(input = init_input, resp_var = resp_var, effs = all_effs, orig_data = doe,
                            uc_facs = if(is.character(uc_facs)) uc_facs[which(all_facs[["coded"]] %in% colnames(init_input))] else uc_facs)
   rev_input <- init_modres[["input_df"]]
   init_model <- mods[["initial"]] <- init_modres[["model"]]
@@ -151,6 +154,15 @@ doe_analyze <- function(doe, uc_facs = NA, cent_id = NA, resp_var, time_var, mod
   cat("\nTrimming insignificant factors from the initial model using methods: ", paste0("'", trim_method, "'", collapse = ", "),"...", sep = "")
   signif_res <- doe_insig(init_model, all_facs[["coded"]], resp_var, trim_method, p_cutoff)
   signif_effs <- signif_res[["signif"]]
+
+  #Check if model is too poor to trim
+  if(nrow(signif_effs)<2) {
+    cat("\nModel trimming resulted in only ", nrow(signif_effs), " remaining! Cancelling trimming.", sep = "")
+    signif_effs <- est_effs
+  } else if(all(is.nan(init_lof[,"Pr(>F)"]))) {
+    cat("\nThe initial model does not have enough degrees of freedom for a Lack-of-Fit test! Model factors were not trimmed!")
+    signif_effs <- est_effs
+  }
 
   #Apply the Hierarchy Principle (if any main effects are deemed insignificant but ARE included in significant two-way or quadratic interactions, add them back into the model!)
   cat("\nApplying the Hierarchy Principle to the initial model...")

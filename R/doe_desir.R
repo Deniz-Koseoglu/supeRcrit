@@ -194,8 +194,8 @@ doe_desir <- function(mods, dsrng, frng = "default", obj = rep("max", length(mod
     stop("Vector of objectives 'obj' must either be of length 1 or that of 'mods'!")
   } else if(length(obj)==1) obj <- rep(obj, length(mods))
 
-  if(!is.numeric(wts)) stop("The desirability function weights ('wts') must be numeric!")
   if(!is.list(wts)) wts <- as.list(wts)
+  if(any(sapply(wts, function(x) !is.numeric(x)))) stop("The desirability function weights ('wts') must be numeric!")
   if(any(unlist(wts) < 0.1|unlist(wts) > 10)) stop("Desirability weights 'wts' must all be between 0.1 and 10!")
   if(!any(c(1,length(mods)) %in% length(wts))) {
     stop("The length of 'wts' must either equal 1 or that of 'mods'!")

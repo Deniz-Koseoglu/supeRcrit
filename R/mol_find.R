@@ -6,8 +6,8 @@
 #' @description Converts a SMILES string and (optionally) other information from SMILES to MOL.
 #' Part of the \code{\link{sfe_mod}} workflow.
 #'
-#' @param mol A \code{character} vector of \code{length} 1-3 containing the \strong{mandatory CAS number}
-#' as well as \strong{optional SMILES string} and \strong{name} of a given molecule.
+#' @param mol A \code{character} vector of \code{length} 1-3 containing the \strong{mandatory CAS number and name}
+#' as well as \strong{optional SMILES string} of a given molecule.
 #' The vector may \strong{optionally} be named with \code{"Name"}, \code{"SMILES"},
 #' and/or \code{"CAS"}. Otherwise the function will attempt automatic assignment based on values.
 #'
@@ -49,7 +49,7 @@ mol_find <- function(mol) {
     }
   }
   #CAS Check
-  if(!any(names(solute_ids) %in% "CAS")) stop("CAS number is required and was not provided!")
+  if(!all(c("CAS", "Name") %in% names(solute_ids))) stop("CAS number and Name are required and were not provided!")
 
   #Obtaining identifying information from CI (Chemical Identifier DB)
   qu_name <- "CAS"

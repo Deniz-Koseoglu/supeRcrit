@@ -43,6 +43,8 @@
 #' @param optmet The method of iterative curve fitting to use for estimating \eqn{k_1}, \eqn{k_2}, and (optionally) \eqn{F}.
 #' One of \code{"nlopt"} (Non-Linear Optimization via \code{\link[nloptr]{nloptr}}; default) or \code{"nlrob"} (Robust Fitting
 #' via \code{\link[robustbase]{nlrob}}).
+#' @param silent Should console output be silenced? Defaults to \code{FALSE}).
+#'
 #'
 #' @return A named \code{list} with the following elements:
 #' \enumerate{
@@ -95,7 +97,7 @@
 #'
 ktsmod <- function(oec, oec_vars, pars, units = "default", opt_est = "default",
                    plot_units = c(x = "time", y = "cc0"), flowpar = rep(NA,2), ro_h2o = NA, tmax = NA, qmax = NA,
-                   cumulative = TRUE, mass_flow = FALSE, draw = TRUE, optmet = "nlopt") {
+                   cumulative = TRUE, mass_flow = FALSE, draw = TRUE, optmet = "nlopt", silent = FALSE) {
 
   #Preliminary checks
   if(!all(c("x","y") %in% names(plot_units))|!is.character(plot_units)) stop("Argument 'plot_units' must be a character vector of length 2!")
@@ -127,6 +129,7 @@ ktsmod <- function(oec, oec_vars, pars, units = "default", opt_est = "default",
   if(is.na(pars["flow"]) & !any(names(oec_vars) %in% "slv")) stop("When water flow rate is not provided, data on expended solvent MUST be included in 'oec'!")
 
   #Set up initial parameter estimates
+  if(!silent) cat("\nSetting up input variable and initial parameter estimates...")
   defest <- c(k1 = 0.1, k2 = 0.1)
   if(is.na(pars["f"])) defest <- append(defest, c(f = 0.5))
   opt_est <- supp_pars(pars = opt_est, defpars = defest, parlb = "opt_est")
@@ -196,13 +199,14 @@ ktsmod <- function(oec, oec_vars, pars, units = "default", opt_est = "default",
   qser <- mass_slv/(t*60)
   qser[1] <- 0
   qaver <- mean(qser, na.rm = TRUE) #[kg/s] Average water flow rate
-  q <- mass_slv/(m_in/1000) #[kg/kg] Relative amount of the passed solvent (kg/kg insoluble solid)
+  q <- mass_slv/(m_in/1000) #[kg/kg] Relative amount of the passed solvent (kg/kg total solid)
 
-  #Set up maximum modeling limits for time t (min) and relative mass of solvent q (kg/kg)
+  #Set up maximum modeling limits for time t (min) and relative mass of solvent sm (kg/kg)
   if(is.na(tmax)) tmax <- round(max(t, na.rm = TRUE)*1.2, -1)
   if(is.na(qmax)) qmax <- round(max(q)*1.2,-1) #Maximum x-axis value (kg/kg solvent expended) to use to model predictions
 
   #Build the two-site kinetic desorption model
+  if(!silent) cat("\nDeriving model...")
   modres <- list()
   est_f <- if(is.na(f)) TRUE else FALSE
 
@@ -212,21 +216,24 @@ ktsmod <- function(oec, oec_vars, pars, units = "default", opt_est = "default",
                              optmet = optmet) #"nlopt" "nlrob"
 
   #Create and optionally print model plot
+  if(!silent) cat("\nGenerating plot...")
   qchk <- plot_units["x"]=="q"
   ccchk <- plot_units["y"]=="cc0"
   modres[["plots"]] <- kin_plot(pts = modres[["tws"]][["ordt"]], mod = modres[["tws"]][["mdt"]],
                                 ptvars = c(x = if(qchk) "q" else "x", y = if(ccchk) "cc0" else "y"),
                                 grp = c(mod = "model", reg = NA), cols = "default",
                                 pltlabs = c(title = "Two-site kinetic desorption model",
-                                            x = if(qchk) "q (kg/kg)" else "Time (min)",
+                                            x = if(qchk) "S/M (kg/kg)" else "Time (min)",
                                             y = if(ccchk) "e (kg/kg)" else paste0("Yield (", units[["resp"]], ")")))
 
   if(draw) print(modres[["plots"]])
 
   #COMPILE MODEL INPUT PARAMETERS
-  modres[["data"]] <- cbind.data.frame(oec, q = q, yield_g = mex, yield_cc0 = cc0)
+  modres[["data"]] <- cbind.data.frame(oec, sm = q, yield_g = mex, yield_cc0 = cc0)
   modres[["input"]] <- c(pres = pres, temp = temp, flow = qaver, c0 = c0, mass_in = m_in, m = m)
+  modres[["units"]] <- setNames(units, c("flow", "response"))
   modres[["call"]] <- match.call()
 
+  if(!silent) cat("\nDONE!")
   return(modres)
 }

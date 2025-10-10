@@ -243,7 +243,7 @@ calcom <- function(input, invars = c(names(input)[1], names(input)[2]), pltlab =
   if(!mass_flow[1]) {
     #Set up flow parameters
     if(any(flowpar %in% "auto")) {
-      if(comode=="sfe") flowpar_main <- if(!is.na(crm["recp"])) c(crm[["recp"]], crm[["rect"]]) else c(60,10)
+      if(comode=="sfe") flowpar_main <- c(60,10) #if(!is.na(crm["recp"])) c(crm[["recp"]], crm[["rect"]]) else c(60,10)
     } else flowpar_main <- flowpar[[1]]
 
     #Calculate CO2 or water density
@@ -258,7 +258,7 @@ calcom <- function(input, invars = c(names(input)[1], names(input)[2]), pltlab =
     if(!mass_flow[2]) {
       #Set up flow parameters
       if(any(flowpar %in% "auto")) {
-        flowpar_csol <- if(!sfechk & !is.na(crm[["recp"]])) c(crm[["recp"]], crm[["rect"]]) else if(!sfechk & is.na(crm[["recp"]])) c(60,10) #if(sfechk) c(1.01325, 25) else
+        flowpar_csol <- c(60,10) #if(!sfechk & !is.na(crm[["recp"]])) c(crm[["recp"]], crm[["rect"]]) else if(!sfechk & is.na(crm[["recp"]])) c(60,10) #if(sfechk) c(1.01325, 25) else
       } else if(comode!="sfe") flowpar_csol <- flowpar[[2]]
 
       #Calculate CO2 density for SWE (EtOH density is a constant value at STP)
@@ -279,6 +279,7 @@ calcom <- function(input, invars = c(names(input)[1], names(input)[2]), pltlab =
   inpars <- setNames(cbind.data.frame(names(inpars), inpars), c("parameter", "value"))
   inpars[,c("units", "type", "description")] <- desc_com[["input"]][match(inpars[,"parameter"], desc_com[["input"]][,"parameter"]),
                                                                     c("units", "type", "description")]
+  inpars[inpars[,"parameter"] %in% c("flow", "csol_flow"),"units"] <- ifelse(mass_flow, "g/min", "mL/min") #Specify flow units
 
   #Add auxiliary material prices and required fractions
   if(!auxna) {

@@ -162,7 +162,7 @@
 #' @references
 #' Abidin, Z.Z., Samadi, M., Biak, D.R., Awang Yunus, R. (2024), 'Mathematical Modelling of Subcritical Water Extraction of
 #' Essential Oil From Aquilaria Malacenssis Wood', \emph{Journal of Applied Science and Engineering} \strong{27} (12), pp. 3725-3738, DOI:
-#' \emph{https://www.doi.org/10.6180/jase.202412_27(12).0012}.
+#' \url{https://www.doi.org/10.6180/jase.202412_27%2812%29.0012}.
 #'
 #' Barrera vazquez, M.F., Comini, L.R., Milanesio, J.M., Nunez Montoya, S.C., Cabrera, J.L., Bottini, S., Martini, R.E. (2015),
 #' 'Pressurized hot water extraction of anthraquinones from \emph{Heterophyllaea pustulata} Hook f. (Rubiaceae)',

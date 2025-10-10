@@ -311,17 +311,15 @@ twoway <- function(c_facs, mod_order = 2) {
     all_effs <- lapply(all_effs, function(x) { res <- strsplit(x, "")[[1]];
     if(any(table(res)>1) & mod_order < 2) res <- NULL else res <- res[order(res, decreasing = FALSE)];
     res_stnd <- paste(res, collapse = "");
-    res_label <- if(length(res)==1) res_stnd
-    else if(length(res)==2 & length(unique(res))==2) paste0(res, collapse = "*") #paste0("I(",paste0(res,collapse = "*"), ")")
-    else if(length(unique(res))==1) paste0(unique(res),"^2")
-    res_formula <- if(length(res)==1) res_stnd
-    else if(length(res)>1) paste0("I(", res_label, ")")
+    res_label <- if(length(res)==1) res_stnd else if(length(res)==2 & length(unique(res))==2) paste0(res, collapse = "*") else if(length(unique(res))==1) paste0(unique(res),"^2")
+    res_formula <- if(length(res)==1) res_stnd else if(length(res)>1) paste0("I(", res_label, ")")
     return(c(res_stnd, res_formula, res_label))})
 
     all_effs <- do.call(rbind.data.frame, c(lapply(c_facs, rep, 3), all_effs))
     all_effs <- unique(all_effs)
   } else all_effs <- do.call(rbind.data.frame, lapply(c_facs, rep, 3))
   colnames(all_effs) <- c("data","formula","label")
+  all_effs <- all_effs[rowSums(all_effs==""|is.na(all_effs))==0,] #Final check for
   return(all_effs)
 }
 
@@ -545,9 +543,11 @@ doe_insig <- function(model, facs, resp_var, trim_method="stepwise", p_cutoff = 
   if(any(trim_method %in% "stepwise")) {
     min_effs <- paste0(facs, collapse = "+")
     minmod_formula <- as.formula(paste0(resp_var, "~", min_effs))
-    mod_formula <- model[["terms"]]
+    mod_formula <- as.formula(paste0(resp_var, "~ ."))
+    #mod_formula <- model[["terms"]]
+    #mod_formula <- as.formula(gsub("`", "", paste0(c(mod_formula[[2]], mod_formula[[1]], mod_formula[[3]]), collapse = " ")))
     input <- model[["model"]]
-    step_res <- step(model, scope = list(lower = minmod_formula, upper = mod_formula), direction = "both", trace = 0)
+    step_res <- step(model, scope = list(lower = minmod_formula, upper = mod_formula), direction = "both", trace = 0, data = input)
     facs_step <- rownames(summary(step_res)[["coefficients"]])
     insignif_step <- rownames(coeffs)[-which(rownames(coeffs) %in% facs_step)]
   } else insignif_step <- c()
@@ -893,23 +893,34 @@ doe_state <- function(initres = NA, finres = NA, signif = NA, hrp = NA, sums = N
   }
 
   #Initial model Lack-of-Fit test results
+  lof_failcond <- FALSE
   if(!any(is.na(lofs)) & any(names(lofs) %in% labs[1])) {
-    statements[paste0("LoF_",labs[1])] <- paste0("ANOVA Lack-of-Fit testing of the initial model revealed a p value of ", round(mean(lofs[[labs[1]]][["Pr(>F)"]], na.rm = TRUE), 4), ".")
+    if(all(is.na(lofs[[labs[1]]][["Pr(>F)"]])|is.nan(lofs[[labs[1]]][["Pr(>F)"]]))) {
+      statements[paste0("LoF_",labs[1])] <- paste0("ANOVA Lack-of-Fit testing of the initial model failed to compute F and p-values (not enough degrees of freedom?).")
+      lof_failcond <- TRUE
+    } else statements[paste0("LoF_",labs[1])] <- paste0("ANOVA Lack-of-Fit testing of the initial model revealed a p value of ", round(mean(lofs[[labs[1]]][["Pr(>F)"]], na.rm = TRUE), 4), ".")
   }
 
   #Results of trimming out insignificant variables (initial model)
   if(!any(is.na(signif))) {
-    stepchk <- nrow(signif[["removed_step"]])>0
-    pchk <- nrow(signif[["removed_p"]])>0
-    if(stepchk) statements["Stepwise"] <- paste0("Stepwise regression based on AIC removed ", nrow(signif[["removed_step"]]), " factors from the initial model: ", paste0(signif[["removed_step"]][,"data"], collapse = ", "), ".")
-    if(pchk) statements["p_cutoff"] <- paste0("A p-value cutoff removed ", nrow(signif[["removed_p"]]), " factors from the initial model: ", paste0(signif[["removed_p"]][,"data"], collapse = ", "), ".")
-    if(!any(c(stepchk,pchk))) {
-      statements["Notrim"] <- "The initial model was not truncated via either a p-value cutoff or stepwise regression."
-      statements["Signif_Effs"] <- "No effects were removed from the model."
+    sigrows <- nrow(signif[["removed_p"]])+nrow(signif[["removed_step"]])
+
+    if(sigrows < 2 & lof_failcond) {
+      statements["Signif_Effs"] <- paste0("No effects were removed from the initial model since Lack-of-Fit testing failed and/or the model became too simple after trimming!")
     } else {
-      trim_type <- paste0(c("stepwise regression", "p-value cutoff")[which(c(stepchk,pchk))], collapse = " and ")
-      statements["Signif_Effs"] <- paste0("After removing insignificant effects via ", trim_type, " method(s), the following ", nrow(signif[["signif"]]), " were left in the model: ", paste0(signif[["signif"]][,"data"], collapse = ", "), ".")
+      stepchk <- nrow(signif[["removed_step"]])>0
+      pchk <- nrow(signif[["removed_p"]])>0
+      if(stepchk) statements["Stepwise"] <- paste0("Stepwise regression based on AIC removed ", nrow(signif[["removed_step"]]), " factors from the initial model: ", paste0(signif[["removed_step"]][,"data"], collapse = ", "), ".")
+      if(pchk) statements["p_cutoff"] <- paste0("A p-value cutoff removed ", nrow(signif[["removed_p"]]), " factors from the initial model: ", paste0(signif[["removed_p"]][,"data"], collapse = ", "), ".")
+      if(!any(c(stepchk,pchk))) {
+        statements["Notrim"] <- "The initial model was not truncated via either a p-value cutoff or stepwise regression."
+        statements["Signif_Effs"] <- "No effects were removed from the model."
+      } else {
+        trim_type <- paste0(c("stepwise regression", "p-value cutoff")[which(c(stepchk,pchk))], collapse = " and ")
+        statements["Signif_Effs"] <- paste0("After removing insignificant effects via ", trim_type, " method(s), the following ", nrow(signif[["signif"]]), " were left in the model: ", paste0(signif[["signif"]][,"data"], collapse = ", "), ".")
+      }
     }
+
   } else statements["Signif_Effs"] <- "No effects were removed from the model since all were significant."
 
   #Hierarchy Principle
@@ -935,7 +946,9 @@ doe_state <- function(initres = NA, finres = NA, signif = NA, hrp = NA, sums = N
 
   #Initial model Lack-of-Fit test results
   if(!any(is.na(lofs)) & any(names(lofs) %in% labs[2])) {
-    statements[paste0("LoF_",labs[2])] <- paste0("ANOVA Lack-of-Fit testing of the final model revealed a p value of ", round(mean(lofs[[labs[2]]][["Pr(>F)"]], na.rm = TRUE), 4), ".")
+    if(all(is.na(lofs[[labs[2]]][["Pr(>F)"]])|is.nan(lofs[[labs[2]]][["Pr(>F)"]]))) {
+      statements[paste0("LoF_",labs[2])] <- paste0("ANOVA Lack-of-Fit testing of the final model failed to compute F and p-values (not enough degrees of freedom?).")
+    } else statements[paste0("LoF_",labs[2])] <- paste0("ANOVA Lack-of-Fit testing of the final model revealed a p value of ", round(mean(lofs[[labs[2]]][["Pr(>F)"]], na.rm = TRUE), 4), ".")
   }
 
   #PART 3: FINAL MODEL OPTIMIZATION
@@ -1382,10 +1395,10 @@ doe_cooks <- function(model, type = 1, plt_title = NA, cols = "default", asprat 
   pltname <- paste0("Cooks_Distance_Plot", ifelse(modlab=="", "", paste0("_", scap(modlab), "_Model", collapse = "")))
   plotres[[pltname]] <- ggplot(data = df, aes(x = 1:n, y = .data[["cook_dist"]], ymin = 0,
                                               ymax = .data[["cook_dist"]])) +
-    geom_point(size = 1.5, shape=1) +
+    geom_point(size = 1.5, shape=1, na.rm = TRUE) +
     geom_hline(yintercept = h,
                color = cols["main"], linetype = 2) +
-    geom_linerange(color = cols["line"]) +
+    geom_linerange(color = cols["line"], na.rm = TRUE) +
     scale_x_continuous(breaks = scales::breaks_pretty(n = if(n <= 10) n else n/2)) +
     scale_y_continuous(breaks = scales::breaks_pretty(n = 5)) +
     ggrepel::geom_label_repel(data = df,aes(label = !!sym("cooks_switch")),
@@ -1555,3 +1568,84 @@ doe_pareto <- function(model, conf = 0.05, method = "zahn", plt_title = NA, cols
   return(plotres)
 }
 #END OF PLOTTING FUNCTIONS
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#FUNCTION: Predict response for new values using built RSM models
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#' @title Predict response for new factor values from built RSM models
+#'
+#' @description A simple wrapper for the predictor function. Works with models output from \code{\link{doe_analyze}}.
+#'
+#' @param input The models output from \code{\link{doe_analyze}}. Includes initial and final (i.e. simplified) models.
+#' @param newdata New data to predict the response for. Either a \code{numeric} vector or a \code{data.frame}.
+#' @param coded A \code{logical} indicating whether the provided \code{newdata} is coded or not (defaults to \code{FALSE}).
+#'
+#' @return A \code{list} containing \code{data.frame} objects with coded and uncoded factors provided in \code{newdata},
+#' and their associated predicted response values. The predicted responses are also provided in a second list element named
+#' \code{$predictions}.
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' #Build RSM model
+#'doe_optres <- doe_analyze(doe = doex[["ccd3"]][["data"]],
+#' uc_facs = c("P_bar", "T_degC", "EtOH_gmin"),
+#' cent_id = NA,
+#' resp_var = "ExtYield",
+#' time_var = "Actual_Order",
+#' mod_order = 2,
+#' canon_thres = "auto",
+#' p_cutoff = 0.10,
+#' trim_method = "both",
+#' which_facs = "coded",
+#' export = "none",
+#' verbose = TRUE)
+#'
+#' #Predict response for new factor values
+#' new_preds <- predict_doe(doe_optres, newdata = c(A = -0.67, B = 0, C = 0.67), coded = TRUE)
+#'
+#' }
+predict_doe <- function(input, newdata, coded = FALSE) {
+  #Preliminary checks
+  if(!all(c("models", "results", "plots", "statements", "call") %in% names(input))) stop("The 'input' must originate from the doe_analyze function!")
+  if(is.atomic(newdata)) {
+    bkp_names <- names(newdata)
+    newdata <- setNames(as.data.frame(t(matrix(newdata))), bkp_names)
+  }
+
+  cat("\nPredicting values...")
+  df <- preds <- list()
+  for(i in names(input[["models"]])) {
+    curmod <- input[["models"]][[i]]
+    cures <- input[["results"]][[i]]
+
+    #Retrieve model equation
+    eqs <- cures[["Misc"]][["Equation"]][["raw"]]
+
+    #Retrieve variable names and coded names
+    ucfacs <- curmod[["realnames"]]
+    cfacs <- curmod[["codenames"]][nchar(curmod[["codenames"]][,"data"])==1, "data"]
+
+    if(!all(names(newdata) %in% ucfacs) & !all(names(newdata) %in% cfacs)) stop("Unrecognized variables in prediction data! Check 'newdata'...")
+    facinds <- which(names(newdata) %in% cfacs | names(newdata) %in% ucfacs)
+    ucfacs <- ucfacs[facinds]
+    cfacs <- cfacs[facinds]
+
+    #Retrieve response name
+    respname <- cures[["Misc"]][["Response"]]
+
+    #Retrieve original data frame containing both coded and uncoded factors
+    orig_df <- curmod[["orig_df"]]
+
+    #Store coded and decoded values
+    cvals <- if(coded) newdata else doe_decode(newdata, orig_df, cfacs, ucfacs, task = "code")[["newvals"]]
+    ucvals <- if(coded) doe_decode(newdata, orig_df, cfacs, ucfacs, task = "decode")[["newvals"]] else newdata
+    names(cvals) <- names(ucvals) <- cfacs
+
+    #Carry out prediction
+    preds[[i]] <- predict(curmod, newdata = cvals)
+    df[[i]] <- setNames(cbind.data.frame(cvals, ucvals, preds[[i]]), c(cfacs, ucfacs, respname))
+  }
+  cat("\nDONE!")
+  return(list(summary = df, predictions = preds))
+}

@@ -17,7 +17,7 @@
 #' @param randomize A \code{logical} indicating whether or not the run order of the design is randomized (\code{TRUE} by default).
 #' @param export Either \code{"none"} (default) or a path to export the generated design .TAB file to.
 #'
-#' @return A \code{data.frame} containing the generated design.
+#' @return A \code{list} containing a \code{data.frame} with the generated design as well as a short description (\code{$description}).
 #' @export
 #'
 #' @examples
@@ -65,11 +65,10 @@ doe_ffd <- function(levels = 2, factors = 3, cpts = 0, fnames, flims, randomize 
   doe[["call"]] <- match.call()
 
   #Export
-  if(export!="none" & dir.exists(export)) {
-    export_name <- paste0("A ", levels, "^", factors, " FFD (FULL FACTORIAL) DESIGN OF RESOLUTION V WITH ", nrow(doe_df), " RUNS AND ", cpts, " ADDED CENTER POINTS")
-    doe_export(doe, export_name, expath = export)
-  }
-  return(doe)
+  export_name <- paste0("A ", levels, "^", factors, " FFD (FULL FACTORIAL) DESIGN OF RESOLUTION V WITH ", nrow(doe_df), " RUNS AND ", cpts, " ADDED CENTER POINTS")
+  if(export!="none" & dir.exists(export)) doe_export(doe, export_name, expath = export)
+
+  return(list(doe = doe, description = export_name))
 }
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -87,12 +86,12 @@ doe_ffd <- function(levels = 2, factors = 3, cpts = 0, fnames, flims, randomize 
 #' @param p A numeric value describing the fraction of the Full Factorial design used. Must be 1 when \code{factors} are between 2-4, and 1-2 for 5 \code{factors}.
 #' @param cpts The number of center points to add to the design (0 by default).
 #' @param aliasing Either \code{"default"} or a \code{character} vector containing the aliasing patterns to use.
-#' @param fnames A \code{character} vector of factor names of length 2-4.
+#' @param fnames A \code{character} vector of factor names of length 2-5.
 #' @param flims A \code{list} of numeric vectors containing the lower and upper factor level limits \strong{in the same order as given in \code{fnames}}.
 #' @param randomize A \code{logical} indicating whether or not the run order of the design is randomized (\code{TRUE} by default).
 #' @param export Either \code{"none"} (default) or a path to export the generated design .TAB file to.
 #'
-#' @return A \code{data.frame} containing the generated design.
+#' @return A \code{list} containing a \code{data.frame} with the generated design as well as a short description (\code{$description}).
 #' @export
 #'
 #' @examples
@@ -161,11 +160,10 @@ doe_frfd <- function(factors = 3, p = 1, cpts = 0, aliasing = "default", fnames,
   doe[["call"]] <- match.call()
 
   #Export
-  if(export!="none" & dir.exists(export)) {
-    export_name <- paste0("A ", levels, "^", factors, "-", p, " FrFD (FRACTIONAL FACTORIAL) SCREENING DESIGN OF RESOLUTION ", doe_res, " WITH ", nrow(doe_df), " RUNS AND ", cpts, " ADDED CENTER POINTS")
-    doe_export(doe, export_name, expath = export)
-  }
-  return(doe)
+  export_name <- paste0("A ", levels, "^", factors, "-", p, " FrFD (FRACTIONAL FACTORIAL) SCREENING DESIGN OF RESOLUTION ", doe_res, " WITH ", nrow(doe_df), " RUNS AND ", cpts, " ADDED CENTER POINTS")
+  if(export!="none" & dir.exists(export)) doe_export(doe, export_name, expath = export)
+
+  return(list(doe = doe, description = export_name))
 }
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -187,7 +185,7 @@ doe_frfd <- function(factors = 3, p = 1, cpts = 0, aliasing = "default", fnames,
 #' @param randomize A \code{logical} indicating whether or not the run order of the design is randomized (\code{TRUE} by default).
 #' @param export Either \code{"none"} (default) or a path to export the generated design .TAB file to.
 #'
-#' @return A \code{data.frame} containing the generated design.
+#' @return A \code{list} containing a \code{data.frame} with the generated design as well as a short description (\code{$description}).
 #' @export
 #'
 #' @examples
@@ -200,7 +198,7 @@ doe_frfd <- function(factors = 3, p = 1, cpts = 0, aliasing = "default", fnames,
 #' flims = list("hard"=c(100, 345), "hard"=c(35, 75), c(2, 8)))
 #'
 #' @seealso \code{\link{doe_export}}, \code{\link{doe_frfd}}, \code{\link{doe_ffd}}, \code{\link{doe_bbd}}, \code{\link{doe_tm}}
-doe_ccd <- function(design = "CCC", levels = 2, factors = 3, cpts = 0, fnames, flims, randomize = TRUE, export = "none") {
+doe_ccd <- function(design = "CCC", levels = 3, factors = 3, cpts = 0, fnames, flims, randomize = TRUE, export = "none") {
 
   #Preliminary checks
   if(length(fnames)!=length(flims) | length(fnames)!=factors | length(flims)!=factors) stop("Length of factor/limits, and/or the number of factors specified for the design do not match!")
@@ -246,11 +244,10 @@ doe_ccd <- function(design = "CCC", levels = 2, factors = 3, cpts = 0, fnames, f
   doe[["call"]] <- match.call()
 
   #Export
-  if(export!="none" & dir.exists(export)) {
-    export_name <- paste0("A ", levels, "^", factors, " ", design, " (CENTRAL COMPOSITE) OPTIMIZATION DESIGN WITH ", 2*factors, " STAR POINTS AND ", cpts, " CENTER POINTS FOR A TOTAL OF ", nrow(doe_df), " RUNS")
-    doe_export(doe, export_name, expath = export)
-  }
-  return(doe)
+  export_name <- paste0("A ", levels, "^", factors, " ", design, " (CENTRAL COMPOSITE) OPTIMIZATION DESIGN WITH ", 2*factors, " STAR POINTS AND ", cpts, " CENTER POINTS FOR A TOTAL OF ", nrow(doe_df), " RUNS")
+  if(export!="none" & dir.exists(export)) doe_export(doe, export_name, expath = export)
+
+  return(list(doe = doe, description = export_name))
 }
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -271,7 +268,7 @@ doe_ccd <- function(design = "CCC", levels = 2, factors = 3, cpts = 0, fnames, f
 #' @param randomize A \code{logical} indicating whether or not the run order of the design is randomized (\code{TRUE} by default).
 #' @param export Either \code{"none"} (default) or a path to export the generated design .TAB file to.
 #'
-#' @return A \code{data.frame} containing the generated design.
+#' @return A \code{list} containing a \code{data.frame} with the generated design as well as a short description (\code{$description}).
 #' @export
 #'
 #' @examples
@@ -314,11 +311,10 @@ doe_bbd <- function(factors = 3, cpts = 0, fnames, flims, randomize = TRUE, expo
   doe[["call"]] <- match.call()
 
   #Export
-  if(export!="none" & dir.exists(export)) {
-    export_name <- paste0("A 3^", factors, " BBD (BOX-BEHNKEN) OPTIMIZATION DESIGN WITH ", nrow(doe_df), " RUNS")
-    doe_export(doe, export_name, expath = export)
-  }
-  return(doe)
+  export_name <- paste0("A 3^", factors, " BBD (BOX-BEHNKEN) OPTIMIZATION DESIGN WITH ", nrow(doe_df), " RUNS")
+  if(export!="none" & dir.exists(export)) doe_export(doe, export_name, expath = export)
+
+  return(list(doe = doe, description = export_name))
 }
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -337,7 +333,7 @@ doe_bbd <- function(factors = 3, cpts = 0, fnames, flims, randomize = TRUE, expo
 #' @param randomize A \code{logical} indicating whether or not the run order of the design is randomized (\code{TRUE} by default).
 #' @param export Either \code{"none"} (default) or a path to export the generated design .TAB file to.
 #'
-#' @return A \code{data.frame} containing the generated design.
+#' @return A \code{list} containing a \code{data.frame} with the generated design as well as a short description (\code{$description}).
 #' @export
 #'
 #' @examples
@@ -375,9 +371,8 @@ doe_tm <- function(levels = 2, factors = 3, fnames, flims, randomize = TRUE, exp
   doe[["call"]] <- match.call()
 
   #Export
-  if(export!="none" & dir.exists(export)) {
-    export_name <- paste0("A ", levels, "^", factors, " TAGUCHI DESIGN WITH ", nrow(doe_df), " RUNS")
-    doe_export(doe, export_name, expath = export)
-  }
-  return(doe)
+  export_name <- paste0("A ", levels, "^", factors, " TAGUCHI DESIGN WITH ", nrow(doe_df), " RUNS")
+  if(export!="none" & dir.exists(export)) doe_export(doe, export_name, expath = export)
+
+  return(list(doe = doe, description = export_name))
 }

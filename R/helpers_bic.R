@@ -38,7 +38,7 @@ else return(desc_pars[[nmvec[type]]])
 #' }
 load_internal <- function(dtname) {
   int_nms <- c("doe_base", "doe_lst1", "doe_lst2", "gcm_cnt", "gcm_int",
-               "gcm_smarts", "solv_dmass", "solv_dmol", "solv_mv")
+               "gcm_smarts", "solv_dmass", "solv_dmol", "solv_mv", "solv_iscrit")
   if(!all(dtname %in% int_nms)) stop(paste0("Internal dataset name must be one of: ", paste0(int_nms, collapse = ", "), "!"))
   else return(eval(parse(text = dtname)))
 }
@@ -104,7 +104,7 @@ oec_bp <- function(input, x, y, plt = TRUE, segmode = "step") {
 #' @param pres,temp Pressure (in bar) and temperature (in degrees Celsius) for which to return the CO2 density.
 #' @param units Units required for output density as a \code{character} value. One of: \code{"g/L"} or \code{"g/mL"}.
 #'
-#' @return A named \code{numeric} vector containing the density (\code{["rho"]}) in chosen \code{units} and the enthalpy
+#' @return A named \code{numeric} vector containing the density (\code{["rho"]}) in chosen \code{units} and the specific enthalpy (\code{"ent"}).
 #' @export
 #'
 #' @examples
@@ -851,7 +851,7 @@ solv_cmp <- function(x, ys, thetae, xu, betam, r, qm, gam, thetai) {
 #' Part of the \code{\link{bicmod}} workflow.
 #'
 #' @param yield A \code{numeric} vector of yields (\eqn{e}; g/g insoluble solid).
-#' @param q A \code{numeric} vector of relative amount of expended solvent (\eqn{q}; kg/kg).
+#' @param q A \code{numeric} vector of relative amount of expended solvent (\eqn{q}; kg/kg insoluble solid).
 #' @param n Period corresponding to the end of the CER (\eqn{n}; in \strong{number of experimental points}).
 #' @param xu Weight fraction (concentration) in the untreated solid \eqn{x_u}. Defaults to \code{NA}.
 #' Must be provided only when \code{est_cu} is \code{FALSE}.
@@ -877,6 +877,8 @@ solv_cmp <- function(x, ys, thetae, xu, betam, r, qm, gam, thetai) {
 #' @param aggreg A string specifying how the "best" results of non-linear optimization (\code{nlsm}) should be chosen.
 #' One of \code{"aard"} (default; value with minimum Average Absolute Relative Deviation is chosen) or \code{"mean"}
 #' (the arithmetic mean of all results is taken).
+#' @param const_flow A \code{logical} specifying whether the flow rate is constant throughout the extraction.
+#' If set to \code{TRUE}, the solvent-material ratio (S/M) is \strong{not} converted to extraction time (min).
 #'
 #' @return A named \code{list} containing the following elements:
 #' \enumerate{
@@ -910,7 +912,7 @@ solv_cmp <- function(x, ys, thetae, xu, betam, r, qm, gam, thetai) {
 #' @importFrom stats as.formula coef uniroot
 bic_sm <- function(yield, q, n, xu = NA, qaver, Nm = NA, porosity, ys = NA, c3 = NA, Ng = NA, est_cu = FALSE,
                    maxq = round(max(q)*1.2,-1), r0 = 0.4, ksas0 = 0.0001, qc0 = 400, aggreg = "aard", modpts = 100,
-                   nlsm = c("MM","tau","CM","mtl")) {
+                   nlsm = c("MM","tau","CM","mtl"), const_flow = TRUE) {
 
   #Preliminary checks
   modnms <- c("MM","tau","CM","mtl")
@@ -1000,13 +1002,18 @@ bic_sm <- function(yield, q, n, xu = NA, qaver, Nm = NA, porosity, ys = NA, c3 =
   fer_dt <- cbind.data.frame(model = rep("sim",length(xdt_fer)), period = rep("fer", length(xdt_fer)), x = xdt_fer, y = ydt_fer)
   mod_dt <- rbind.data.frame(cer_dt, fer_dt)
 
-  #Add time equivalent (for plotting)
-  mod_dt[,"t"] <- mod_dt[,"x"]*Nm/qaver/60 #Extraction time (min)
+  if(const_flow){
+    #Add time equivalent (for plotting)
+    mod_dt[,"t"] <- mod_dt[,"x"]*Nm/qaver/60 #Extraction time (min)
 
-  #Also derive time for original input q data
-  ort <- q*Nm/qaver/60
+    #Also derive time for original q data
+    ort <- q*Nm/qaver/60
 
-  return(list(ordt = data.frame(t = ort, x = q, y = yield, mod_y = c(cer_pred,fer_pred)), mdt = mod_dt,
+    ordt <- data.frame(t = ort, x = q, y = yield, mod_y = c(cer_pred,fer_pred))
+  } else ordt <- data.frame(x = q, y = yield, mod_y = c(cer_pred,fer_pred))
+
+  return(list(ordt = ordt,
+              mdt = mod_dt,
               mod_pars = c(c1 = c1, c2 = c2, qm = qm, r = r_new, ksas = ksas_new, G = G),
               fit_pars = c("c1", "c2", "qm"), resid = resid))
 }
@@ -1122,7 +1129,7 @@ bic_ct <- function(yield, t, n, qaver, cu, N, Nm, ys, modpts = 100, thetaf0 = 1,
   mod_dt <- rbind.data.frame(cer_dt, fer_dt)
 
   return(list(ordt = data.frame(x = t, y = yield, mod_y = c(cer_pred,fer_pred)), mdt = mod_dt,
-              mod_pars = c(thetaf = thetaf, ti = ti, tprime = tprime, eprime = eprime, G = G),
+              mod_pars = c(thetaf = thetaf, ti = ti, tprime = tprime, eprime = eprime, G = G), #qspec = qspec
               fit_pars = c("ti","G","thetaf"), resid = resid))
 }
 
@@ -1157,6 +1164,8 @@ bic_ct <- function(yield, t, n, qaver, cu, N, Nm, ys, modpts = 100, thetaf0 = 1,
 #' @param aggreg A string specifying how the "best" results of non-linear optimization (\code{nlsm}) should be chosen.
 #' One of \code{"aard"} (default; value with minimum Average Absolute Relative Deviation is chosen) or \code{"mean"}
 #' (the arithmetic mean of all results is taken).
+#' @param const_flow A \code{logical} specifying whether the flow rate is constant throughout the extraction.
+#' If set to \code{TRUE}, the solvent-material ratio (S/M) is \strong{not} converted to extraction time (min).
 #'
 #' @return A named \code{list} containing the following elements:
 #' \enumerate{
@@ -1194,7 +1203,7 @@ bic_ct <- function(yield, t, n, qaver, cu, N, Nm, ys, modpts = 100, thetaf0 = 1,
 #'
 #' @importFrom stats coef setNames
 bic_cmp <- function(yield, q, n, a0, gam, porosity, qaver, Nm, ys, xu, r0, ksas0, kf0 = 0.001, qc0 = 400,
-                    modpts = 100, maxq = round(max(q)*1.2,-1), nlsm = c("MM","tau","CM","mtl"), aggreg = "aard") {
+                    modpts = 100, maxq = round(max(q)*1.2,-1), nlsm = c("MM","tau","CM","mtl"), aggreg = "aard", const_flow = TRUE) {
 
   #Preliminary checks
   modnms <- c("MM","tau","CM","mtl")
@@ -1325,13 +1334,17 @@ bic_cmp <- function(yield, q, n, a0, gam, porosity, qaver, Nm, ys, xu, r0, ksas0
   mod_dt <- do.call(rbind.data.frame, list(cer_dt_cmp3, fer_dt_cmp3, dc_dt_cmp3, cer_dt_cmp2, fer_dt_cmp2))
   colnames(mod_dt) <- colnames(cer_dt_cmp3)
 
-  #Add time equivalent (for plotting)
-  mod_dt[,"t"] <- mod_dt[,"x"]*Nm/qaver/60 #Extraction time (min)
+  if(const_flow){
+    #Add time equivalent (for plotting)
+    mod_dt[,"t"] <- mod_dt[,"x"]*Nm/qaver/60 #Extraction time (min)
 
-  #Also derive time for original q data
-  ort <- q*Nm/qaver/60
+    #Also derive time for original q data
+    ort <- q*Nm/qaver/60
 
-  return(list(ordt = data.frame(t = ort, x = q, y = yield, y_cmp3 = c(pred_cer1, pred_fer1, pred_dc1), y_cmp2 = c(pred_cer2, pred_dc2)),
+    ordt <- data.frame(t = ort, x = q, y = yield, y_cmp3 = c(pred_cer1, pred_fer1, pred_dc1), y_cmp2 = c(pred_cer2, pred_dc2))
+  } else ordt <- data.frame(x = q, y = yield, y_cmp3 = c(pred_cer1, pred_fer1, pred_dc1), y_cmp2 = c(pred_cer2, pred_dc2))
+
+  return(list(ordt = ordt,
               mdt = mod_dt,
               mod_pars = c(thetae = thetae, kfa0 = kfa0, qm = qm, qn = qn, qs = qs, beta = betam, G = G, kf = kf, r = r, ksas = ksas),
               fit_pars = c("kf","r","ksas"),
@@ -1431,4 +1444,138 @@ kin_plot <- function(pts, mod, ptvars = c("x","y"), modvars = NA, grp = c(mod = 
   #Optionally draw the plots
   if(draw) print(pltlst)
   return(pltlst)
+}
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#FUNCTION: Predict response for BIC model (Sovova)
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#' @title Predict response using built BIC models
+#'
+#' @description Predicts responses from new temporal data using BIC (Broken-and-Intact Cells) models
+#' built via \code{\link{bicmod}}.
+#'
+#' @param input A BIC model output from \code{\link{bicmod}}.
+#' @param newdata A \code{numeric} value or vector of new data (extraction time or solvent-to-insoluble solid ratio)
+#' to make predictions for.
+#' @param units Specifies the units of the input data (\code{newdata}). One of \code{"time"} (extraction time in minutes)
+#' or the default \code{"sm"} (solvent-to-insoluble solid material ratio, dimensionless).
+#' @param get_yields A \code{logical} specifying whether mass and percentage yields should be calculated from the default
+#' prediction format (g/g insoluble solid, i.e. \strong{fractional yield}).
+#'
+#' @return A \code{list} of length 3 containing the model \code{$predictions}, a helpful \code{$unit_chart} showing the units
+#' pertaining to the predictions, and a \code{$description} providing some additional details about the predictions (such as the
+#' process conditions which they are valid for).
+#'
+#' @export
+#'
+#' @seealso \code{\link{bicmod}}
+predict_bic <- function(input, newdata, units = "sm", get_yields = TRUE) {
+
+  #Preliminary checks
+  modtypes <- c("sim", "ct", "cmp")
+  modnms <- setNames(c("Simple", "Characteristic Times", "Complete"), modtypes)
+  if(!all(c("plots", "data", "input", "call") %in% names(input)) | !any(modtypes %in% names(input))) stop("The 'input' data must originate from function 'bicmod'!")
+  if(!any(c("sm","time") %in% units)) stop("The 'units' of 'newdata' must be one of 'time' or 'sm' (ratio of solvent to insoluble solid)!")
+
+  #Retrieve input parameters
+  inpr <- input[["input"]]
+
+  #Begin processing
+  finres <- preds <- list()
+  for(i in which(names(input) %in% modtypes)) {
+    #Get necessary data from current model
+    curmod <- input[[i]]
+    curnm <- names(input)[i]
+
+    cat("\nWorking on model type: '", curnm, "' (", modnms[curnm], ")...", sep = "")
+
+    #Determine whether time data is available
+    timecol <- if(curnm=="ct") "x" else "t"
+    time_chk <- any(colnames(curmod[["ordt"]]) %in% timecol)
+    if(!time_chk & units == "time") {
+      cat("\nNo predictions were made for this model type since no extraction time data is available! Skipping...")
+      next
+    } else {
+      #Convert units where necessary
+      data_sm <- if(units == "time") 60*newdata*inpr["flow"]/inpr["Nm"] else if(units == "sm") newdata
+      data_time <- if(units == "time") newdata else if(units == "sm") newdata*inpr["Nm"]/inpr["flow"]/60
+    }
+
+    #Get modeled parameters
+    modpr <- curmod[["mod_pars"]]
+
+    #Get initial predictions
+    if(curnm == "sim") {
+      preds[[curnm]] <- unname(sapply(data_sm, function(x) if(modpr["qm"] < x) fer_sim_eq(modpr["c1"], modpr["c2"], x, inpr["xu"]) else x * inpr["ys"]))
+    } else if(curnm == "ct") {
+      if(units == "sm") {
+        cat("\nNo predictions were made for the characteristic times model since input data is a solvent-material ratio (check 'units').")
+        preds[[curnm]] <- rep(NA, length(data_time))
+      } else {
+        qspec <- inpr["flow"]/(inpr["Ng"]/1000)*60
+        preds[[curnm]] <- unname(sapply(data_time, function(x) if(modpr["tprime"] < x) fer_ct_eq(modpr["G"], modpr["ti"], x, inpr["cu"], modpr["tprime"]) else cer_ct_eq(modpr["thetaf"], x, inpr["ys"], qspec)))
+      }
+    } else if(curnm == "cmp") {
+      #Three-period model
+      preds_cmp3 <- fer_cmp_eq(modpr["r"], modpr["ksas"],
+                               data_sm[data_sm >= modpr["qn"]], modpr["kf"], inpr["xu"], inpr["ys"],
+                               inpr["porosity"], inpr["flow"], inpr["gamma"], inpr["Nm"], inpr["a0"], out = "all",
+                               x1 = data_sm[data_sm < modpr["qm"]], x2 = data_sm[data_sm >= modpr["qm"] & data_sm < modpr["qn"]])
+
+      preds[[paste0(curnm,"3")]] <- unname(sort(unlist(preds_cmp3[!names(preds_cmp3) %in% "pars"])))
+
+      #Ditto for 2-period model
+      preds_cmp2 <- fer_cmp_eq(modpr["r"], modpr["ksas"],
+                               data_sm[data_sm > modpr["qs"]], modpr["kf"], inpr["xu"], inpr["ys"],
+                               inpr["porosity"], inpr["flow"], inpr["gamma"], inpr["Nm"], inpr["a0"], out = "all",
+                               x1 = data_sm[data_sm <= modpr["qs"]], x2 = NA)
+      preds[[paste0(curnm, "2")]] <- unname(sort(unlist(preds_cmp2[!names(preds_cmp2) %in% c("pars","y2")])))
+    }
+    curpreds <- preds[grepl(curnm, names(preds))]
+
+    #Convert q (kg/kg insoluble solid) to S/M (kg/kg total mass loaded)
+    sm <- inpr["flow"]*1000*60*data_time/inpr["mass_in"]
+
+    #Compile results into a data.frame
+    nmlist <- if(!grepl("cmp", curnm)) curnm else c("cmp2", "cmp3")
+    for(j in nmlist) {
+      finres[[j]] <- data.frame(t = data_time, q = data_sm, sm = sm, yield = preds[[j]])
+      #Optionally decode responses, converting yield into mass AND percentage yields
+      if(get_yields) {
+        if(j==nmlist[1]) cat("\nConverting fractional yield into mass and percentage yield...")
+        yield_mass <- (if(j=="ct") preds[[j]]*(inpr["Ng"]/1000)/inpr["Nm"] else preds[[j]])*(inpr["Nm"]*1000) #[g] Absolute yield
+        yield_percent <- yield_mass/inpr["mass_in"]*(1-inpr["moisture"]/100)*100 #[% dry weight] Relative yield
+        finres[[j]] <- cbind.data.frame(finres[[j]], yield_mass = yield_mass, yield_percent = yield_percent)
+      }
+    }
+  }
+
+  #Create a chart of units for reference
+  modnum <- length(modtypes)
+  unit_chart <- data.frame(model_type = modtypes,
+                           t = rep("min", modnum),
+                           q = rep("kg/kg insoluble solid", modnum),
+                           sm = rep("dimensionless (S/M ratio)", modnum),
+                           yield = c("g/g insoluble solid", "g/g total solid", "g/g insoluble solid"),
+                           yield_mass = rep("g", modnum),
+                           yield_percent = rep("percent dry weight", modnum))
+
+  unit_chart <- unit_chart[unit_chart[,"model_type"] %in% modtypes, colnames(unit_chart) %in% colnames(finres[[1]])]
+
+  #Compile statement about parameters for which the model is valid
+  parnms <- c(pres = "Pressure", temp = "Temperature", flow = "Flow rate", cu = "Extractable fraction",
+              etoh = "Co-solvent concentration", D = "Extractor diameter", L = "Extractor height")
+  parunits <- c(pres = "bar", temp = "C", flow = "g/min", cu = "", etoh = "percent CO2 flow",
+                D = "m", L = "m")
+  whichnms <- which(names(inpr) %in% names(parnms))
+  statepars <- inpr[names(inpr)[whichnms]]
+  finfilter <- match(names(parnms), names(statepars))
+  if("flow" %in% names(statepars)) statepars["flow"] <- round(statepars["flow"]*1000*60, 2)
+
+  statement <- paste0("\nPredictions are valid for the following process parameters:",
+                      paste0("\n", parnms[finfilter], " of ", statepars[names(parnms[finfilter])],
+                             " ", parunits[finfilter], ".", collapse = ""))
+  statement <- append(statement, paste0("\nRefer to the unit chart for units of input and predicted data."))
+
+  return(list(predictions = finres, unit_chart = unit_chart, description = statement))
 }
