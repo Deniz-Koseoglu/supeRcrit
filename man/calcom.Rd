@@ -52,8 +52,13 @@ Both default to \code{NA} (no auxiliary materials used).}
 \item{taxrate}{The \code{fraction of gross profit} to be removed as tax to calculate \strong{net profit}.}
 
 \item{flowpar}{The parameters of temperature and pressure at which flow rate is given.
+Either \auto{"auto"} (default) or a \code{list} of length 2, where the first element specifies the pressure and temperature at which flow is
+measured for the main solvent (CO2 or water depending on \code{comode}), while the second element specifies these values for the co-solvent (
+either CO2 or ethanol when \code{comode} is set to \code{"swe"} or \code{"sfe"}, respectively). \strong{Note} that when \code{comode} is
+\code{"sfe"}, only the temperature of ethanol is included in the second element, as pressure is disregarded in density calculations.
 Used for conversion of volumetric flow to mass flow when \code{!mass_flow}.
-If set to \code{"auto"} (default), uses the temperature and pressure specified for the recovery line in \code{crm[c("recp","rect")]}.}
+If set to \code{"auto"}, uses a temperature and pressure of 10 degrees Celsius and 60 bar for CO2, and 25 degrees Celsius
+for ethanol.}
 
 \item{draw}{A \code{logical} switch specifying whether to plot the results.
 Only works if \strong{an extraction curve is provided as } \code{input}.}

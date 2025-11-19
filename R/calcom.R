@@ -25,8 +25,13 @@
 #' Both default to \code{NA} (no auxiliary materials used).
 #' @param taxrate The \code{fraction of gross profit} to be removed as tax to calculate \strong{net profit}.
 #' @param flowpar The parameters of temperature and pressure at which flow rate is given.
+#' Either \auto{"auto"} (default) or a \code{list} of length 2, where the first element specifies the pressure and temperature at which flow is
+#' measured for the main solvent (CO2 or water depending on \code{comode}), while the second element specifies these values for the co-solvent (
+#' either CO2 or ethanol when \code{comode} is set to \code{"swe"} or \code{"sfe"}, respectively). \strong{Note} that when \code{comode} is
+#' \code{"sfe"}, only the temperature of ethanol is included in the second element, as pressure is disregarded in density calculations.
 #' Used for conversion of volumetric flow to mass flow when \code{!mass_flow}.
-#' If set to \code{"auto"} (default), uses the temperature and pressure specified for the recovery line in \code{crm[c("recp","rect")]}.
+#' If set to \code{"auto"}, uses a temperature and pressure of 10 degrees Celsius and 60 bar for CO2, and 25 degrees Celsius
+#' for ethanol.
 #' @param draw A \code{logical} switch specifying whether to plot the results.
 #' Only works if \strong{an extraction curve is provided as } \code{input}.
 #' @param mass_flow A \code{logical} specifying whether the \code{["flow"]} component of \code{gen} is provided in \strong{mass (g/min)}
@@ -243,7 +248,7 @@ calcom <- function(input, invars = c(names(input)[1], names(input)[2]), pltlab =
   if(!mass_flow[1]) {
     #Set up flow parameters
     if(any(flowpar %in% "auto")) {
-      if(comode=="sfe") flowpar_main <- c(60,10) #if(!is.na(crm["recp"])) c(crm[["recp"]], crm[["rect"]]) else c(60,10)
+      flowpar_main <- if(comode=="sfe") c(60,10) else c(gen["pres"], gen["temp"]) #if(!is.na(crm["recp"])) c(crm[["recp"]], crm[["rect"]]) else c(60,10)
     } else flowpar_main <- flowpar[[1]]
 
     #Calculate CO2 or water density
@@ -258,11 +263,11 @@ calcom <- function(input, invars = c(names(input)[1], names(input)[2]), pltlab =
     if(!mass_flow[2]) {
       #Set up flow parameters
       if(any(flowpar %in% "auto")) {
-        flowpar_csol <- c(60,10) #if(!sfechk & !is.na(crm[["recp"]])) c(crm[["recp"]], crm[["rect"]]) else if(!sfechk & is.na(crm[["recp"]])) c(60,10) #if(sfechk) c(1.01325, 25) else
-      } else if(comode!="sfe") flowpar_csol <- flowpar[[2]]
+        flowpar_csol <- if(!sfechk) c(60,10) else 25 #if(!sfechk & !is.na(crm[["recp"]])) c(crm[["recp"]], crm[["rect"]]) else if(!sfechk & is.na(crm[["recp"]])) c(60,10) #if(sfechk) c(1.01325, 25) else
+      } else flowpar_csol <- flowpar[[2]]
 
       #Calculate CO2 density for SWE (EtOH density is a constant value at STP)
-      csol_dens <- if(!sfechk) bendens(flowpar_csol[1], flowpar_csol[2])[[1]] else etoh_dens(25)[[1]]
+      csol_dens <- if(!sfechk) bendens(flowpar_csol[1], flowpar_csol[2])[[1]] else etoh_dens(flowpar_csol[1])[[1]]
       csol_flow <- csol_dens/1000*cur_csol
 
     } else csol_flow <- cur_csol
