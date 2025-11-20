@@ -1,0 +1,590 @@
+{
+  "translation": [
+    {
+      "en": "Reset",
+      "ru": "Сброс",
+      "tr": "Sıfırla"
+    },
+    {
+      "en": "Analyze",
+      "ru": "Анализировать",
+      "tr": "Analiz Et"
+    },
+    {
+      "en": "Analysis Parameters",
+      "ru": "Параметры анализа",
+      "tr": "Analiz Parametreleri"
+    },
+    {
+      "en": "Time Variable:",
+      "ru": "Переменная времени:",
+      "tr": "Zaman Değişkeni:"
+    },
+    {
+      "en": "Response Variable:",
+      "ru": "Переменная отклика:",
+      "tr": "Yanıt Değişkeni:"
+    },
+    {
+      "en": "Model Order:",
+      "ru": "Порядок модели:",
+      "tr": "Model Sırası:"
+    },
+    {
+      "en": "P-value Cutoff",
+      "ru": "Отсечка P-значения",
+      "tr": "P-değeri Kesme Noktası"
+    },
+    {
+      "en": "Trim Method:",
+      "ru": "Метод обрезки:",
+      "tr": "Kırpma Yöntemi:"
+    },
+    {
+      "en": "Factor Type:",
+      "ru": "Тип фактора:",
+      "tr": "Faktör Tipi:"
+    },
+    {
+      "en": "Data Source",
+      "ru": "Источник данных",
+      "tr": "Veri Kaynağı"
+    },
+    {
+      "en": "Select Data Source:",
+      "ru": "Выберите источник данных:",
+      "tr": "Veri Kaynağını Seçin:"
+    },
+    {
+      "en": "Select Saved Design:",
+      "ru": "Выберите сохраненный дизайн:",
+      "tr": "Kaydedilmiş Tasarımı Seçin:"
+    },
+    {
+      "en": "Import JSON File",
+      "ru": "Импортировать файл JSON",
+      "tr": "JSON Dosyasını İçe Aktar"
+    },
+    {
+      "en": "Import CSV File",
+      "ru": "Импортировать файл CSV",
+      "tr": "CSV Dosyasını İçe Aktar"
+    },
+    {
+      "en": "Data Preview",
+      "ru": "Предварительный просмотр данных",
+      "tr": "Veri Önizleme"
+    },
+    {
+      "en": "Model Summary",
+      "ru": "Сводка модели",
+      "tr": "Model Özeti"
+    },
+    {
+      "en": "All Results",
+      "ru": "Все результаты",
+      "tr": "Tüm Sonuçlar"
+    },
+    {
+      "en": "ANOVA Table",
+      "ru": "Таблица ANOVA",
+      "tr": "ANOVA Tablosu"
+    },
+    {
+      "en": "Optimization",
+      "ru": "Оптимизация",
+      "tr": "Optimizasyon"
+    },
+    {
+      "en": "Predicted Optimum",
+      "ru": "Предсказанный оптимум",
+      "tr": "Tahmini Optimum"
+    },
+    {
+      "en": "Stationary Point",
+      "ru": "Стационарная точка",
+      "tr": "Durağan Nokta"
+    },
+    {
+      "en": "Optimal Conditions",
+      "ru": "Оптимальные условия",
+      "tr": "Optimal Koşullar"
+    },
+    {
+      "en": "Canonical Analysis",
+      "ru": "Канонический анализ",
+      "tr": "Kanonik Analiz"
+    },
+    {
+      "en": "Diagnostics",
+      "ru": "Диагностика",
+      "tr": "Tanılama"
+    },
+    {
+      "en": "Residual Plot",
+      "ru": "График остатков",
+      "tr": "Artık Grafik"
+    },
+    {
+      "en": "Normal Q-Q Plot",
+      "ru": "Нормальный Q-Q график",
+      "tr": "Normal Q-Q Grafiği"
+    },
+    {
+      "en": "Pareto Chart",
+      "ru": "Диаграмма Парето",
+      "tr": "Pareto Grafiği"
+    },
+    {
+      "en": "Cook's Distance",
+      "ru": "Расстояние Кука",
+      "tr": "Cook Mesafesi"
+    },
+    {
+      "en": "Model Details",
+      "ru": "Детали модели",
+      "tr": "Model Detayları"
+    },
+    {
+      "en": "Model Coefficients",
+      "ru": "Коэффициенты модели",
+      "tr": "Model Katsayıları"
+    },
+    {
+      "en": "Model Data",
+      "ru": "Данные модели",
+      "tr": "Model Verileri"
+    },
+    {
+      "en": "Total Result",
+      "ru": "Общий результат",
+      "tr": "Toplam Sonuç"
+    },
+    {
+      "en": "Save Analysis",
+      "ru": "Сохранить анализ",
+      "tr": "Analizi Kaydet"
+    },
+    {
+      "en": "Uncoded Factors:",
+      "ru": "Некодированные факторы:",
+      "tr": "Kodlanmamış Faktörler:"
+    },
+    {
+      "en": "Optimal Conditions (Canonical Analysis)",
+      "ru": "Оптимальные условия (канонический анализ)",
+      "tr": "Optimal Koşullar (Kanonik Analiz)"
+    },
+    {
+      "en": "Canonical Analysis Summary",
+      "ru": "Сводка канонического анализа",
+      "tr": "Kanonik Analiz Özeti"
+    },
+    {
+      "en": "Optimization Results",
+      "ru": "Результаты оптимизации",
+      "tr": "Optimizasyon Sonuçları"
+    },
+    {
+      "en": "Stationary Point Type",
+      "ru": "Тип стационарной точки",
+      "tr": "Durağan Nokta Tipi"
+    },
+    {
+      "en": "Predicted Response at Stationary Point",
+      "ru": "Прогнозируемый отклик в стационарной точке",
+      "tr": "Durağan Noktadaki Tahmini Yanıt"
+    },
+    {
+      "en": "Stationary Point (Coded and Decoded)",
+      "ru": "Стационарная точка (кодированная и декодированная)",
+      "tr": "Durağan Nokta (Kodlanmış ve Kod Çözülmüş)"
+    },
+    {
+      "en": "Min/Max Response Comparison (Traditional Optimization)",
+      "ru": "Сравнение мин/макс отклика (традиционная оптимизация)",
+      "tr": "Min/Max Yanıt Karşılaştırması (Geleneksel Optimizasyon)"
+    },
+    {
+      "en": "Steepest Ascent Path",
+      "ru": "Путь наискорейшего подъема",
+      "tr": "En Dik Çıkış Yolu"
+    },
+    {
+      "en": "Eigenvalues Analysis",
+      "ru": "Анализ собственных значений",
+      "tr": "Özdeğer Analizi"
+    },
+    {
+      "en": "Range Check and Warnings",
+      "ru": "Проверка диапазона и предупреждения",
+      "tr": "Aralık Kontrolü ve Uyarılar"
+    },
+    {
+      "en": "Initial Model Diagnostics",
+      "ru": "Диагностика начальной модели",
+      "tr": "Başlangıç Modeli Tanılaması"
+    },
+    {
+      "en": "Final Model Diagnostics",
+      "ru": "Диагностика конечной модели",
+      "tr": "Nihai Model Tanılaması"
+    },
+    {
+      "en": "Initial Model: Response vs Predicted",
+      "ru": "Начальная модель: Отклик против прогнозируемого",
+      "tr": "Başlangıç Modeli: Yanıt ve Tahmin Karşılaştırması"
+    },
+    {
+      "en": "Initial Model: Response Diagnostics",
+      "ru": "Начальная модель: Диагностика отклика",
+      "tr": "Başlangıç Modeli: Yanıt Tanılaması"
+    },
+    {
+      "en": "Initial Model: Residual vs Predicted",
+      "ru": "Начальная модель: Остатки против прогнозируемого",
+      "tr": "Başlangıç Modeli: Artık ve Tahmin Karşılaştırması"
+    },
+    {
+      "en": "Initial Model: Residual Diagnostics",
+      "ru": "Начальная модель: Диагностика остатков",
+      "tr": "Başlangıç Modeli: Artık Tanılaması"
+    },
+    {
+      "en": "Initial Model: Cook's Distance",
+      "ru": "Начальная модель: Расстояние Кука",
+      "tr": "Başlangıç Modeli: Cook Mesafesi"
+    },
+    {
+      "en": "Initial Model: Pareto Plot",
+      "ru": "Начальная модель: Диаграмма Парето",
+      "tr": "Başlangıç Modeli: Pareto Grafiği"
+    },
+    {
+      "en": "Initial Model: Response vs Coded",
+      "ru": "Начальная модель: Отклик против кодированного",
+      "tr": "Başlangıç Modeli: Yanıt ve Kodlanmış Karşılaştırması"
+    },
+    {
+      "en": "Initial Model: Response vs Uncoded",
+      "ru": "Начальная модель: Отклик против некодированного",
+      "tr": "Başlangıç Modeli: Yanıt ve Kodlanmamış Karşılaştırması"
+    },
+    {
+      "en": "Initial Model: Residual vs Coded",
+      "ru": "Начальная модель: Остатки против кодированного",
+      "tr": "Başlangıç Modeli: Artık ve Kodlanmış Karşılaştırması"
+    },
+    {
+      "en": "Initial Model: Residual vs Uncoded",
+      "ru": "Начальная модель: Остатки против некодированного",
+      "tr": "Başlangıç Modeli: Artık ve Kodlanmamış Karşılaştırması"
+    },
+    {
+      "en": "Final Model: Response vs Predicted",
+      "ru": "Конечная модель: Отклик против прогнозируемого",
+      "tr": "Nihai Model: Yanıt ve Tahmin Karşılaştırması"
+    },
+    {
+      "en": "Final Model: Response Diagnostics",
+      "ru": "Конечная модель: Диагностика отклика",
+      "tr": "Nihai Model: Yanıt Tanılaması"
+    },
+    {
+      "en": "Final Model: Residual vs Predicted",
+      "ru": "Конечная модель: Остатки против прогнозируемого",
+      "tr": "Nihai Model: Artık ve Tahmin Karşılaştırması"
+    },
+    {
+      "en": "Final Model: Residual Diagnostics",
+      "ru": "Конечная модель: Диагностика остатков",
+      "tr": "Nihai Model: Artık Tanılaması"
+    },
+    {
+      "en": "Final Model: Cook's Distance",
+      "ru": "Конечная модель: Расстояние Кука",
+      "tr": "Nihai Model: Cook Mesafesi"
+    },
+    {
+      "en": "Final Model: Pareto Plot",
+      "ru": "Конечная модель: Диаграмма Парето",
+      "tr": "Nihai Model: Pareto Grafiği"
+    },
+    {
+      "en": "Final Model: Response vs Coded",
+      "ru": "Конечная модель: Отклик против кодированного",
+      "tr": "Nihai Model: Yanıt ve Kodlanmış Karşılaştırması"
+    },
+    {
+      "en": "Final Model: Response vs Uncoded",
+      "ru": "Конечная модель: Отклик против некодированного",
+      "tr": "Nihai Model: Yanıt ve Kodlanmamış Karşılaştırması"
+    },
+    {
+      "en": "Final Model: Residual vs Coded",
+      "ru": "Конечная модель: Остатки против кодированного",
+      "tr": "Nihai Model: Artık ve Kodlanmış Karşılaştırması"
+    },
+    {
+      "en": "Final Model: Residual vs Uncoded",
+      "ru": "Конечная модель: Остатки против некодированного",
+      "tr": "Nihai Model: Artık ve Kodlanmamış Karşılaştırması"
+    },
+    {
+      "en": "Model Equations",
+      "ru": "Уравнения модели",
+      "tr": "Model Denklemleri"
+    },
+    {
+      "en": "Full Report",
+      "ru": "Полный отчет",
+      "tr": "Tam Rapor"
+    },
+    {
+      "en": "Comprehensive Analysis Report",
+      "ru": "Комплексный аналитический отчет",
+      "tr": "Kapsamlı Analiz Raporu"
+    },
+    {
+      "en": "Download Report (HTML)",
+      "ru": "Скачать отчет (HTML)",
+      "tr": "Raporu İndir (HTML)"
+    },
+    {
+      "en": "Download Raw Statements (TXT)",
+      "ru": "Скачать необработанные отчеты (TXT)",
+      "tr": "Ham İfadeleri İndir (TXT)"
+    },
+    {
+      "en": "Predictions",
+      "ru": "Прогнозы",
+      "tr": "Tahminler"
+    },
+    {
+      "en": "Enter Factor Values",
+      "ru": "Введите значения факторов",
+      "tr": "Faktör Değerlerini Girin"
+    },
+    {
+      "en": "Input Type:",
+      "ru": "Тип ввода:",
+      "tr": "Giriş Tipi:"
+    },
+    {
+      "en": "Value Type:",
+      "ru": "Тип значения:",
+      "tr": "Değer Tipi:"
+    },
+    {
+      "en": "Predict",
+      "ru": "Прогнозировать",
+      "tr": "Tahmin Et"
+    },
+    {
+      "en": "Prediction Results",
+      "ru": "Результаты прогнозирования",
+      "tr": "Tahmin Sonuçları"
+    },
+    {
+      "en": "Initial Model Predictions",
+      "ru": "Прогнозы начальной модели",
+      "tr": "Başlangıç Modeli Tahminleri"
+    },
+    {
+      "en": "Final Model Predictions",
+      "ru": "Прогнозы конечной модели",
+      "tr": "Nihai Model Tahminleri"
+    },
+    {
+      "en": "Download Predictions",
+      "ru": "Скачать прогнозы",
+      "tr": "Tahminleri İndir"
+    },
+    {
+      "en": "Export All Results",
+      "ru": "Экспортировать все результаты",
+      "tr": "Tüm Sonuçları Dışa Aktar"
+    },
+    {
+      "en": "Initial Model Summary",
+      "ru": "Сводка начальной модели",
+      "tr": "Başlangıç Modeli Özeti"
+    },
+    {
+      "en": "Final Model Summary",
+      "ru": "Сводка конечной модели",
+      "tr": "Nihai Model Özeti"
+    },
+    {
+      "en": "Model Trimming Information",
+      "ru": "Информация об обрезке модели",
+      "tr": "Model Kırpma Bilgileri"
+    },
+    {
+      "en": "Error loading JSON:",
+      "ru": "Ошибка загрузки JSON:",
+      "tr": "JSON yükleme hatası:"
+    },
+    {
+      "en": "Error loading file:",
+      "ru": "Ошибка загрузки файла:",
+      "tr": "Dosya yükleme hatası:"
+    },
+    {
+      "en": "Error parsing manual data:",
+      "ru": "Ошибка при разборе данных вручную:",
+      "tr": "Manuel veri ayrıştırma hatası:"
+    },
+    {
+      "en": "Final filename:",
+      "ru": "Имя конечного файла:",
+      "tr": "Nihai dosya adı:"
+    },
+    {
+      "en": "Analysis settings saved successfully!",
+      "ru": "Настройки анализа успешно сохранены!",
+      "tr": "Analiz ayarları başarıyla kaydedildi!"
+    },
+    {
+      "en": "Error saving analysis settings:",
+      "ru": "Ошибка сохранения настроек анализа:",
+      "tr": "Analiz ayarlarını kaydetme hatası:"
+    },
+    {
+      "en": "No data loaded",
+      "ru": "Данные не загружены",
+      "tr": "Veri yüklenmedi"
+    },
+    {
+      "en": "Column renamed successfully.",
+      "ru": "Столбец успешно переименован.",
+      "tr": "Sütun başarıyla yeniden adlandırıldı."
+    },
+    {
+      "en": "Column removed successfully.",
+      "ru": "Столбец успешно удален.",
+      "tr": "Sütun başarıyla kaldırıldı."
+    },
+    {
+      "en": "Error:",
+      "ru": "Ошибка:",
+      "tr": "Hata:"
+    },
+    {
+      "en": "Column name cannot be empty.",
+      "ru": "Имя столбца не может быть пустым.",
+      "tr": "Sütun adı boş olamaz."
+    },
+    {
+      "en": "New column added:",
+      "ru": "Добавлен новый столбец:",
+      "tr": "Yeni sütun eklendi:"
+    },
+    {
+      "en": "Error adding column:",
+      "ru": "Ошибка добавления столбца:",
+      "tr": "Sütun ekleme hatası:"
+    },
+    {
+      "en": "Running analysis...",
+      "ru": "Выполнение анализа...",
+      "tr": "Analiz yürütülüyor..."
+    },
+    {
+      "en": "Preparing data...",
+      "ru": "Подготовка данных...",
+      "tr": "Veriler hazırlanıyor..."
+    },
+    {
+      "en": "Please select at least one uncoded factor when 'Factor Type' is 'Uncoded'.",
+      "ru": "Пожалуйста, выберите хотя бы один некодированный фактор, когда 'Тип фактора' - 'Некодированный'.",
+      "tr": "'Faktör Tipi' 'Kodlanmamış' olduğunda lütfen en az bir kodlanmamış faktör seçin."
+    },
+    {
+      "en": "Running DOE analysis...",
+      "ru": "Выполнение анализа DOE...",
+      "tr": "DOE analizi yürütülüyor..."
+    },
+    {
+      "en": "Analysis completed!",
+      "ru": "Анализ завершен!",
+      "tr": "Analiz tamamlandı!"
+    },
+    {
+      "en": "Analysis completed successfully!",
+      "ru": "Анализ успешно завершен!",
+      "tr": "Analiz başarıyla tamamlandı!"
+    },
+    {
+      "en": "Analysis error:",
+      "ru": "Ошибка анализа:",
+      "tr": "Analiz hatası:"
+    },
+    {
+      "en": "Error exporting results:",
+      "ru": "Ошибка экспорта результатов:",
+      "tr": "Sonuçları dışa aktarma hatası:"
+    },
+    {
+      "en": "Analysis reset",
+      "ru": "Анализ сброшен",
+      "tr": "Analiz sıfırlandı"
+    },
+    {
+      "en": "CSV file loaded to input table.",
+      "ru": "CSV-файл загружен в входную таблицу.",
+      "tr": "CSV dosyası giriş tablosuna yüklendi."
+    },
+    {
+      "en": "Error loading CSV for prediction:",
+      "ru": "Ошибка загрузки CSV для прогнозирования:",
+      "tr": "Tahmin için CSV yükleme hatası:"
+    },
+    {
+      "en": "Calculating predictions...",
+      "ru": "Расчет прогнозов...",
+      "tr": "Tahminler hesaplanıyor..."
+    },
+    {
+      "en": "Predictions completed successfully!",
+      "ru": "Прогнозы успешно завершены!",
+      "tr": "Tahminler başarıyla tamamlandı!"
+    },
+    {
+      "en": "Prediction error:",
+      "ru": "Ошибка прогнозирования:",
+      "tr": "Tahmin hatası:"
+    },
+    {
+      "en": "No initial model predictions available",
+      "ru": "Нет доступных прогнозов начальной модели",
+      "tr": "Başlangıç modeli tahminleri mevcut değil"
+    },
+    {
+      "en": "Column Configuration",
+      "ru": "Настройка столбцов",
+      "tr": "Sütun Yapılandırması"
+    },
+    {
+      "en": "Configure Columns",
+      "ru": "Настроить столбцы",
+      "tr": "Sütunları Yapılandır"
+    },
+    {
+      "en": "Stationary Point (Coded and Decoded)",
+      "ru": "Неподвижная точка (кодированная и декодированная)",
+      "tr": "Sabit Nokta (Kodlanmış ve Kod Çözülmüş)"
+    },
+    {
+      "en": "Range Check and Warnings",
+      "ru": "Проверка диапазона и предупреждения",
+      "tr": "Menzil Kontrolü ve Uyarılar"
+    },
+
+    {
+      "en": "No final model predictions available",
+      "ru": "Нет доступных прогнозов конечной модели",
+      "tr": "Nihai model tahminleri mevcut değil"
+    }
+  ]
+}

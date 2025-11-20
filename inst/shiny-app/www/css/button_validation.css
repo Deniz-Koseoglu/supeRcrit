@@ -1,0 +1,51 @@
+/* Button validation styles for disabled states */
+.btn-disabled {
+  opacity: 1 !important;
+  cursor: not-allowed !important;
+  background-color: #6c757d !important;
+  border-color: #6c757d !important;
+  color: #fff !important;
+  pointer-events: none !important;
+}
+
+.btn-disabled:hover,
+.btn-disabled:focus {
+  background-color: #6c757d !important;
+  border-color: #6c757d !important;
+  box-shadow: none !important;
+}
+
+/* Smooth transition for button state changes */
+.transition-button {
+  transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+/* Tooltip for disabled buttons (optional enhancement) */
+.btn-disabled::after {
+  content: attr(data-tooltip) !important;
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.btn-disabled:hover::after {
+  opacity: 1;
+}
+
+/* Ensure modal buttons inherit proper styling */
+.modal .btn-primary.btn-disabled,
+.modal .btn-success.btn-disabled {
+  background-color: #6c757d !important;
+  border-color: #6c757d !important;
+}

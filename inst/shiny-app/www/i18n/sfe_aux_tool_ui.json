@@ -1,0 +1,174 @@
+{
+  "translation": [
+    {
+      "en": "CO2-Ethanol Critical Parameters",
+      "ru": "Критические параметры CO2-этанола",
+      "tr": "CO2-Etanol Kritik Parametreleri"
+    },
+    {
+      "en": "Binary CO2-Ethanol Mixtures (iscrit_etoh)",
+      "ru": "Бинарные смеси CO2-этанола (iscrit_etoh)",
+      "tr": "İkili CO2-Etanol Karışımları (iscrit_etoh)"
+    },
+    {
+      "en": "CO2 Molar Fraction (0-1)",
+      "ru": "Молярная доля CO2 (0-1)",
+      "tr": "CO2 Molar Fraksiyonu (0-1)"
+    },
+    {
+      "en": "Pressure (bar)",
+      "ru": "Давление (бар)",
+      "tr": "Basınç (bar)"
+    },
+    {
+      "en": "Temperature (Celsius)",
+      "ru": "Температура (Цельсий)",
+      "tr": "Sıcaklık (Celsius)"
+    },
+    {
+      "en": "Method:",
+      "ru": "Метод:",
+      "tr": "Metot:"
+    },
+    {
+      "en": "Calculate CO2-EtOH Critical Params",
+      "ru": "Рассчитать критические параметры CO2-этанола",
+      "tr": "CO2-Etanol Kritik Parametrelerini Hesapla"
+    },
+    {
+      "en": "CO2-Ethanol Demo",
+      "ru": "Демо CO2-этанола",
+      "tr": "CO2-Etanol Demoları"
+    },
+    {
+      "en": "Show Validation Plot",
+      "ru": "Показать график проверки",
+      "tr": "Doğrulama Grafiğini Göster"
+    },
+    {
+      "en": "General Mixture Critical Parameters",
+      "ru": "Общие критические параметры смеси",
+      "tr": "Genel Karışım Kritik Parametreleri"
+    },
+    {
+      "en": "General Solvent Mixtures (iscrit_gen)",
+      "ru": "Общие смеси растворителей (iscrit_gen)",
+      "tr": "Genel Çözücü Karışımları (iscrit_gen)"
+    },
+    {
+      "en": "Units:",
+      "ru": "Единицы измерения:",
+      "tr": "Birimler:"
+    },
+    {
+      "en": "Critical Temperature Method:",
+      "ru": "Метод критической температуры:",
+      "tr": "Kritik Sıcaklık Metodu:"
+    },
+    {
+      "en": "Critical Pressure Method:",
+      "ru": "Метод критического давления:",
+      "tr": "Kritik Basınç Metodu:"
+    },
+    {
+      "en": "Calculate General Critical Params",
+      "ru": "Рассчитать общие критические параметры",
+      "tr": "Genel Kritik Parametreleri Hesapla"
+    },
+    {
+      "en": "Available Solvents Database",
+      "ru": "База данных доступных растворителей",
+      "tr": "Mevcut Çözücüler Veritabanı"
+    },
+    {
+      "en": "Available Solvents Data",
+      "ru": "Данные доступных растворителей",
+      "tr": "Mevcut Çözücüler Verileri"
+    },
+    {
+      "en": "GCM Method Selection Chart",
+      "ru": "Таблица выбора метода GCM",
+      "tr": "GCM Metot Seçim Tablosu"
+    },
+    {
+      "en": "Solvent",
+      "ru": "Растворитель",
+      "tr": "Çözücü"
+    },
+       {
+      "en": "Solvent 1",
+      "ru": "Растворитель 1",
+      "tr": "Çözücü 1"
+    },
+       {
+      "en": "Solvent 2",
+      "ru": "Растворитель 2",
+      "tr": "Çözücü 2"
+    },
+    {
+      "en": "Fraction",
+      "ru": "Фракция",
+      "tr": "Fraksiyon"
+    },
+    {
+      "en": "Add Solvent",
+      "ru": "Добавить растворитель",
+      "tr": "Çözücü Ekle"
+    },
+    {
+      "en": "Total Fraction:",
+      "ru": "Общая фракция:",
+      "tr": "Toplam Fraksiyon:"
+    },
+    {
+      "en": "Error calculating CO2-Ethanol critical params:",
+      "ru": "Ошибка при расчете критических параметров CO2-этанола:",
+      "tr": "CO2-Etanol kritik parametreleri hesaplanırken hata oluştu:"
+    },
+    {
+      "en": "Statement:",
+      "ru": "Заявление:",
+      "tr": "Açıklama:"
+    },
+    {
+      "en": "Critical Temperature (K):",
+      "ru": "Критическая температура (К):",
+      "tr": "Kritik Sıcaklık (K):"
+    },
+    {
+      "en": "Critical Pressure (MPa):",
+      "ru": "Критическое давление (МПа):",
+      "tr": "Kritik Basınç (MPa):"
+    },
+    {
+      "en": "Fractions must sum to 1.",
+      "ru": "Сумма фракций должна быть равна 1.",
+      "tr": "Fraksiyonların toplamı 1 olmalıdır."
+    },
+    {
+      "en": "Duplicate solvents are not allowed.",
+      "ru": "Дублирование растворителей не допускается.",
+      "tr": "Tekrarlayan çözücülere izin verilmez."
+    },
+    {
+      "en": "Error calculating general critical params:",
+      "ru": "Ошибка при расчете общих критических параметров:",
+      "tr": "Genel kritik parametreler hesaplanırken hata oluştu:"
+    },
+    {
+      "en": "Error running demo:",
+      "ru": "Ошибка при запуске демонстрации:",
+      "tr": "Demo çalıştırılırken hata oluştu:"
+    },
+    {
+      "en": "Demo Plots:",
+      "ru": "Демонстрационные графики:",
+      "tr": "Demo Grafikleri:"
+    },
+    {
+      "en": "Demo Data:",
+      "ru": "Демонстрационные данные:",
+      "tr": "Demo Verileri:"
+    }
+  ]
+}

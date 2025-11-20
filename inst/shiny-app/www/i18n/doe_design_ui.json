@@ -1,0 +1,89 @@
+{
+  "translation": [
+    {
+      "en": "Reset",
+      "ru": "Сброс",
+      "tr": "Sıfırla"
+    },
+    {
+      "en": "Design",
+      "ru": "Дизайн",
+      "tr": "Tasarım"
+    },
+    {
+      "en": "Design Parameters",
+      "ru": "Параметры дизайна",
+      "tr": "Tasarım Parametreleri"
+    },
+    {
+      "en": "Select Design Type:",
+      "ru": "Выберите тип дизайна:",
+      "tr": "Tasarım Türünü Seçin:"
+    },
+    {
+      "en": "Number of Factors",
+      "ru": "Количество факторов",
+      "tr": "Faktör Sayısı"
+    },
+    {
+      "en": "Randomize Run Order",
+      "ru": "Рандомизировать порядок выполнения",
+      "tr": "Çalışma Sırasını Rastgele Yap"
+    },
+    {
+      "en": "Design Matrix",
+      "ru": "Матрица дизайна",
+      "tr": "Tasarım Matrisi"
+    },
+    {
+      "en": "Experimental Design Matrix",
+      "ru": "Матрица экспериментального дизайна",
+      "tr": "Deneysel Tasarım Matrisi"
+    },
+    {
+      "en": "Save Design",
+      "ru": "Сохранить дизайн",
+      "tr": "Tasarımı Kaydet"
+    },
+    {
+      "en": "Design Summary",
+      "ru": "Сводка дизайна",
+      "tr": "Tasarım Özeti"
+    },
+    {
+      "en": "Design Properties",
+      "ru": "Свойства дизайна",
+      "tr": "Tasarım Özellikleri"
+    },
+    {
+      "en": "Enter a name for your design:",
+      "ru": "Введите имя для вашего дизайна:",
+      "tr": "Tasarımınız için bir ad girin:"
+    },
+    {
+      "en": "Design Description",
+      "ru": "Описание дизайна",
+      "tr": "Tasarım Açıklaması"
+    },
+    {
+      "en": "Export Design",
+      "ru": "Экспорт дизайна",
+      "tr": "Tasarımı Dışa Aktar"
+    },
+    {
+      "en": "Confounding Pattern",
+      "ru": "Сбивающий узор",
+      "tr": "Karıştırıcı Desen"
+    },
+    {
+      "en": "Cancel",
+      "ru": "Отмена",
+      "tr": "İptal"
+    },
+    {
+      "en": "Save",
+      "ru": "Сохранить",
+      "tr": "Kaydet"
+    }
+  ]
+}

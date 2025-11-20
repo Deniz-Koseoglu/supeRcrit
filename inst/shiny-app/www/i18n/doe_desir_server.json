@@ -1,0 +1,19 @@
+{
+  "translation": [
+{
+"en": "No responses found in loaded analyses.",
+"ru": "В загруженных анализах не найдено ответов.",
+"tr": "Yüklenen analizlerde yanıt bulunamadı."
+},
+{
+"en": "Error in desirability calculation:",
+"ru": "Ошибка при расчете желательности:",
+"tr": "Arzu edilebilirlik hesaplamasında hata:"
+},
+{
+"en": "Desirability analysis completed successfully!",
+"ru": "Анализ желательности успешно завершен!",
+"tr": "Arzu edilebilirlik analizi başarıyla tamamlandı!"
+}
+  ]
+}

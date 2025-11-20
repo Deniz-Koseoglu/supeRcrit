@@ -1,0 +1,18 @@
+{
+  "display_name": "Beta-carotene | SB_corr-NL07_robust-SP12 | 17:00",
+  "parameters": {
+    "cas_input": "7235-40-7",
+    "name_input": "Beta-carotene",
+    "smiles_input": "",
+    "specify_smiles": false,
+    "gcm_tb": "SB_corr",
+    "gcm_crit": "NL07_robust",
+    "gcm_hsp": "SP12",
+    "gcm_simplicity": "auto",
+    "gcm_gorder": 0
+  },
+  "metadata": {
+    "created_date": "2025-11-07 17:00:37",
+    "app_version": "0.9.0"
+  }
+}

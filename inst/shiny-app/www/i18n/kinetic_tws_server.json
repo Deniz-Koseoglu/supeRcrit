@@ -1,0 +1,99 @@
+{
+  "translation": [
+    {
+      "en": "Error loading CSV:",
+      "ru": "Ошибка загрузки CSV:",
+      "tr": "CSV yüklenirken hata oluştu:"
+    },
+    {
+      "en": "Error parsing manual data:",
+      "ru": "Ошибка при разборе данных вручную:",
+      "tr": "Manuel veri ayrıştırılırken hata oluştu:"
+    },
+    {
+      "en": "Selected OEC variables not found in data.",
+      "ru": "Выбранные переменные OEC не найдены в данных.",
+      "tr": "Seçilen OEC değişkenleri verilerde bulunamadı."
+    },
+    {
+      "en": "Time and yield columns must be numeric.",
+      "ru": "Столбцы времени и выхода должны быть числовыми.",
+      "tr": "Zaman ve verim sütunları sayısal olmalıdır."
+    },
+    {
+      "en": "Calculating kinetic model...",
+      "ru": "Расчет кинетической модели...",
+      "tr": "Kinetik model hesaplanıyor..."
+    },
+    {
+      "en": "Preparing parameters...",
+      "ru": "Подготовка параметров...",
+      "tr": "Parametreler hazırlanıyor..."
+    },
+    {
+      "en": "Running model...",
+      "ru": "Запуск модели...",
+      "tr": "Model çalıştırılıyor..."
+    },
+    {
+      "en": "Completed!",
+      "ru": "Завершено!",
+      "tr": "Tamamlandı!"
+    },
+    {
+      "en": "Time Variable",
+      "ru": "Переменная времени",
+      "tr": "Zaman Değişkeni"
+    },
+    {
+      "en": "Response Variable",
+      "ru": "Переменная отклика",
+      "tr": "Yanıt Değişkeni"
+    },
+    {
+      "en": "Solvent Variable (Optional)",
+      "ru": "Переменная растворителя (опционально)",
+      "tr": "Çözücü Değişkeni (İsteğe Bağlı)"
+    },
+    {
+      "en": "Kinetic model calculated successfully!",
+      "ru": "Кинетическая модель успешно рассчитана!",
+      "tr": "Kinetik model başarıyla hesaplandı!"
+    },
+    {
+      "en": "Error calculating kinetic model:",
+      "ru": "Ошибка при расчете кинетической модели:",
+      "tr": "Kinetik model hesaplanırken hata oluştu:"
+    },
+    {
+      "en": "Parameters reset",
+      "ru": "Параметры сброшены",
+      "tr": "Parametreler sıfırlandı"
+    },
+    {
+      "en": "Please enter new time values for prediction.",
+      "ru": "Пожалуйста, введите новые значения времени для прогнозирования.",
+      "tr": "Lütfen tahmin için yeni zaman değerleri girin."
+    },
+    {
+      "en": "Invalid time values. Please enter comma-separated numbers.",
+      "ru": "Неверные значения времени. Пожалуйста, введите числа, разделенные запятыми.",
+      "tr": "Geçersiz zaman değerleri. Lütfen virgülle ayrılmış sayılar girin."
+    },
+    {
+      "en": "Generating predictions...",
+      "ru": "Генерация прогнозов...",
+      "tr": "Tahminler oluşturuluyor..."
+    },
+    {
+      "en": "Predictions generated successfully!",
+      "ru": "Прогнозы успешно сгенерированы!",
+      "tr": "Tahminler başarıyla oluşturuldu!"
+    },
+    {
+      "en": "Error generating predictions:",
+      "ru": "Ошибка при генерации прогнозов:",
+      "tr": "Tahminler oluşturulurken hata oluştu:"
+    }
+  ]
+}

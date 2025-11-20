@@ -1,0 +1,314 @@
+{
+  "translation": [
+    {
+      "en": "Optimization Parameters",
+      "ru": "Параметры оптимизации",
+      "tr": "Optimizasyon Parametreleri"
+    },
+    {
+      "en": "Lastest Solute Characterizations",
+      "ru": "Последние характеристики растворенного вещества",
+      "tr": "En Son Çözünen Madde Karakterizasyonları"
+    },
+    {
+      "en": "Load Selected Calculation",
+      "ru": "Загрузить выбранный расчет",
+      "tr": "Seçilen Hesaplamayı Yükle"
+    },
+    {
+      "en": "Characterizing Solute (GCM)",
+      "ru": "Характеристика растворенного вещества (GCM)",
+      "tr": "Çözünen Maddeyi Karakterize Etme (GCM)"
+    },
+    {
+      "en": "GCM Method Selection",
+      "ru": "Выбор метода GCM",
+      "tr": "GCM Metot Seçimi"
+    },
+    {
+      "en": "Boiling Point (Tb) Method:",
+      "ru": "Метод температуры кипения (Tb):",
+      "tr": "Kaynama Noktası (Tb) Metodu:"
+    },
+    {
+      "en": "Critical Parameters Method:",
+      "ru": "Метод критических параметров:",
+      "tr": "Kritik Parametreler Metodu:"
+    },
+    {
+      "en": "Hansen Solubility Parameters (HSP) Method:",
+      "ru": "Метод параметров растворимости Хансена (HSP):",
+      "tr": "Hansen Çözünürlük Parametreleri (HSP) Metodu:"
+    },
+    {
+      "en": "Fragmentation Simplicity:",
+      "ru": "Простота фрагментации:",
+      "tr": "Parçalanma Basitliği:"
+    },
+    {
+      "en": "Maximum Group Order:",
+      "ru": "Максимальный порядок группы:",
+      "tr": "Maksimum Grup Sırası:"
+    },
+    {
+      "en": "Solute Information",
+      "ru": "Информация о растворенном веществе",
+      "tr": "Çözünen Madde Bilgileri"
+    },
+    {
+      "en": "CAS Number",
+      "ru": "Номер CAS",
+      "tr": "CAS Numarası"
+    },
+    {
+      "en": "Solute Name",
+      "ru": "Название растворенного вещества",
+      "tr": "Çözünen Madde Adı"
+    },
+    {
+      "en": "Specify SMILES",
+      "ru": "Указать SMILES",
+      "tr": "SMILES Belirt"
+    },
+    {
+      "en": "SMILES String",
+      "ru": "Строка SMILES",
+      "tr": "SMILES Dizisi"
+    },
+    {
+      "en": "Co-Solvent Selection",
+      "ru": "Выбор сорастворителя",
+      "tr": "Yardımcı Çözücü Seçimi"
+    },
+    {
+      "en": "Select Modifier(s)",
+      "ru": "Выбрать модификатор(ы)",
+      "tr": "Değiştirici(leri) Seçin"
+    },
+    {
+      "en": "Solvent Blends (Optional)",
+      "ru": "Смеси растворителей (необязательно)",
+      "tr": "Çözücü Karışımları (İsteğe Bağlı)"
+    },
+    {
+      "en": "Build a Blend:",
+      "ru": "Создать смесь:",
+      "tr": "Bir Karışım Oluştur:"
+    },
+    {
+      "en": "Select Solvent to Add:",
+      "ru": "Выбрать растворитель для добавления:",
+      "tr": "Eklenecek Çözücüyü Seçin:"
+    },
+    {
+      "en": "Add to Blend",
+      "ru": "Добавить в смесь",
+      "tr": "Karışıma Ekle"
+    },
+    {
+      "en": "Current Blend Composition:",
+      "ru": "Текущий состав смеси:",
+      "tr": "Mevcut Karışım Bileşimi:"
+    },
+    {
+      "en": "Clear",
+      "ru": "Очистить",
+      "tr": "Temizle"
+    },
+    {
+      "en": "Save Blend",
+      "ru": "Сохранить смесь",
+      "tr": "Karışımı Kaydet"
+    },
+    {
+      "en": "Saved Blends:",
+      "ru": "Сохраненные смеси:",
+      "tr": "Kaydedilmiş Karışımlar:"
+    },
+    {
+      "en": "Process Conditions",
+      "ru": "Условия процесса",
+      "tr": "Proses Koşulları"
+    },
+    {
+      "en": "Co-Solvent Volume Fraction (%)",
+      "ru": "Объемная доля сорастворителя (%)",
+      "tr": "Yardımcı Çözücü Hacim Fraksiyonu (%)"
+    },
+    {
+      "en": "Min Pressure (bar)",
+      "ru": "Минимальное давление (бар)",
+      "tr": "Minimum Basınç (bar)"
+    },
+    {
+      "en": "Max Pressure (bar)",
+      "ru": "Максимальное давление (бар)",
+      "tr": "Maksimum Basınç (bar)"
+    },
+    {
+      "en": "Min Temperature (Celsius)",
+      "ru": "Минимальная температура (Цельсий)",
+      "tr": "Minimum Sıcaklık (Celsius)"
+    },
+    {
+      "en": "Max Temperature (Celsius)",
+      "ru": "Максимальная температура (Цельсий)",
+      "tr": "Maksimum Sıcaklık (Celsius)"
+    },
+    {
+      "en": "Optimize Miscibility",
+      "ru": "Оптимизировать смешиваемость",
+      "tr": "Karışabilirliği Optimize Et"
+    },
+    {
+      "en": "Add to Comparison",
+      "ru": "Добавить к сравнению",
+      "tr": "Karşılaştırmaya Ekle"
+    },
+    {
+      "en": "Best Modifier Table",
+      "ru": "Таблица лучших модификаторов",
+      "tr": "En İyi Değiştirici Tablosu"
+    },
+    {
+      "en": "Export Results",
+      "ru": "Экспортировать результаты",
+      "tr": "Sonuçları Dışa Aktar"
+    },
+    {
+      "en": "Summary",
+      "ru": "Сводка",
+      "tr": "Özet"
+    },
+    {
+      "en": "Best Co-Solvent",
+      "ru": "Лучший сорастворитель",
+      "tr": "En İyi Yardımcı Çözücü"
+    },
+    {
+      "en": "Max ME (%)",
+      "ru": "Максимальное ME (%)",
+      "tr": "Maksimum ME (%)"
+    },
+    {
+      "en": "Test Conditions",
+      "ru": "Условия испытаний",
+      "tr": "Test Koşulları"
+    },
+    {
+      "en": "Test Configurations",
+      "ru": "Конфигурации испытаний",
+      "tr": "Test Konfigürasyonları"
+    },
+    {
+      "en": "Co-Solvent Comparison",
+      "ru": "Сравнение сорастворителей",
+      "tr": "Yardımcı Çözücü Karşılaştırması"
+    },
+    {
+      "en": "Miscibility Enhancement",
+      "ru": "Улучшение смешиваемости",
+      "tr": "Karışabilirlik Geliştirme"
+    },
+    {
+      "en": "Select Co-Solvent",
+      "ru": "Выбрать сорастворитель",
+      "tr": "Yardımcı Çözücüyü Seçin"
+    },
+    {
+      "en": "Detailed Results",
+      "ru": "Подробные результаты",
+      "tr": "Detaylı Sonuçlar"
+    },
+    {
+      "en": "Selected calculation not found.",
+      "ru": "Выбранный расчет не найден.",
+      "tr": "Seçilen hesaplama bulunamadı."
+    },
+    {
+      "en": "Calculation loaded successfully.",
+      "ru": "Расчет успешно загружен.",
+      "tr": "Hesaplama başarıyla yüklendi."
+    },
+    {
+      "en": "Solvent already in blend!",
+      "ru": "Растворитель уже в смеси!",
+      "tr": "Çözücü zaten karışımda!"
+    },
+    {
+      "en": "No solvents added yet.",
+      "ru": "Растворители еще не добавлены.",
+      "tr": "Henüz çözücü eklenmedi."
+    },
+    {
+      "en": "Total:",
+      "ru": "Всего:",
+      "tr": "Toplam:"
+    },
+    {
+      "en": "Total percentage must be exactly 100% to save the blend.",
+      "ru": "Общий процент должен быть ровно 100%, чтобы сохранить смесь.",
+      "tr": "Karışımı kaydetmek için toplam yüzde tam olarak %100 olmalıdır."
+    },
+    {
+      "en": "Blend saved!",
+      "ru": "Смесь сохранена!",
+      "tr": "Karışım kaydedildi!"
+    },
+    {
+      "en": "No blends saved yet.",
+      "ru": "Смеси еще не сохранены.",
+      "tr": "Henüz karışım kaydedilmedi."
+    },
+    {
+      "en": "Please select at least one GCM method (Boiling Point, Critical Parameters, or HSP).",
+      "ru": "Пожалуйста, выберите хотя бы один метод GCM (температура кипения, критические параметры или HSP).",
+      "tr": "Lütfen en az bir GCM yöntemi seçin (Kaynama Noktası, Kritik Parametreler veya HSP)."
+    },
+    {
+      "en": "Minimum pressure must be less than maximum pressure.",
+      "ru": "Минимальное давление должно быть меньше максимального давления.",
+      "tr": "Minimum basınç, maksimum basınçtan az olmalıdır."
+    },
+    {
+      "en": "Minimum temperature must be less than maximum temperature.",
+      "ru": "Минимальная температура должна быть меньше максимальной температуры.",
+      "tr": "Minimum sıcaklık, maksimum sıcaklıktan az olmalıdır."
+    },
+    {
+      "en": "Please select at least one co-solvent or define a blend for miscibility optimization.",
+      "ru": "Пожалуйста, выберите хотя бы один сорастворитель или определите смесь для оптимизации смешиваемости.",
+      "tr": "Lütfen karışabilirlik optimizasyonu için en az bir yardımcı çözücü seçin veya bir karışım tanımlayın."
+    },
+    {
+      "en": "Error during miscibility optimization:",
+      "ru": "Ошибка во время оптимизации смешиваемости:",
+      "tr": "Karışabilirlik optimizasyonu sırasında hata oluştu:"
+    },
+    {
+      "en": "Modifier",
+      "ru": "Модификатор",
+      "tr": "Değiştirici"
+    },
+    {
+      "en": "Occurrence (%)",
+      "ru": "Встречаемость (%)",
+      "tr": "Oluşum (%)"
+    },
+    {
+      "en": "Optimization results added to comparison list.",
+      "ru": "Результаты оптимизации добавлены в список сравнения.",
+      "tr": "Optimizasyon sonuçları karşılaştırma listesine eklendi."
+    },
+    {
+      "en": "Export completed successfully!",
+      "ru": "Экспорт успешно завершен!",
+      "tr": "Dışa aktarma başarıyla tamamlandı!"
+    },
+    {
+      "en": "Error exporting results:",
+      "ru": "Ошибка при экспорте результатов:",
+      "tr": "Sonuçlar dışa aktarılırken hata oluştu:"
+    }
+  ]
+}

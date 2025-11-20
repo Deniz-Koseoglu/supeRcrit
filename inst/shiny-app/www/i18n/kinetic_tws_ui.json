@@ -1,0 +1,224 @@
+{
+  "translation": [
+    {
+      "en": "Kinetic Model Parameters",
+      "ru": "Параметры кинетической модели",
+      "tr": "Kinetik Model Parametreleri"
+    },
+    {
+      "en": "Input Data",
+      "ru": "Входные данные",
+      "tr": "Giriş Verileri"
+    },
+    {
+      "en": "OEC Variables",
+      "ru": "Переменные OEC",
+      "tr": "OEC Değişkenleri"
+    },
+    {
+      "en": "Time Variable (e.g., Time_min)",
+      "ru": "Переменная времени (например, Time_min)",
+      "tr": "Zaman Değişkeni (örn., Time_min)"
+    },
+    {
+      "en": "Response Variable (e.g., Yield_100C)",
+      "ru": "Переменная отклика (например, Yield_100C)",
+      "tr": "Yanıt Değişkeni (örn., Yield_100C)"
+    },
+    {
+      "en": "Solvent Variable (Optional, e.g., Solvent_mL)",
+      "ru": "Переменная растворителя (необязательно, например, Solvent_mL)",
+      "tr": "Çözücü Değişkeni (İsteğe Bağlı, örn., Solvent_mL)"
+    },
+    {
+      "en": "Process Parameters",
+      "ru": "Параметры процесса",
+      "tr": "İşlem Parametreleri"
+    },
+    {
+      "en": "Fitted Parameters",
+      "ru": "Подогнанные параметры",
+      "tr": "Uyumlaştırılan Parametreler"
+    },
+    {
+      "en": "Model Statistics",
+      "ru": "Статистика модели",
+      "tr": "Model İstatistikleri"
+    },
+    {
+      "en": "Observed vs Predicted Data",
+      "ru": "Наблюдаемые vs предсказанные данные",
+      "tr": "Gözlenen vs Tahmin Edilen Veriler"
+    },
+    {
+      "en": "Flow Rate Meas. Temp (°C)",
+      "ru": "Темп. измер. расхода (°C)",
+      "tr": "Akış Hızı Ölçüm Sıcaklığı (°C)"
+    },
+    {
+      "en": "Flow Rate Meas. Pres (bar)",
+      "ru": "Давл. измер. расхода (bar)",
+      "tr": "Akış Hızı Ölçüm Basıncı (bar)"
+    },
+    {
+      "en": "Water Density (g/L)",
+      "ru": "Плотность воды (г/л)",
+      "tr": "Su Yoğunluğu (g/L)"
+    },
+    {
+      "en": "Max Time (min)",
+      "ru": "Макс. время (мин)",
+      "tr": "Maks. Süre (dak)"
+    },
+    {
+      "en": "Max Q",
+      "ru": "Макс. Q",
+      "tr": "Maks. Q"
+    },
+    {
+      "en": "Max Time for Predictions (min)",
+      "ru": "Макс. время для прогнозов (мин)",
+      "tr": "Tahminler İçin Maks. Süre (dak)"
+    },
+    {
+      "en": "Pressure (bar)",
+      "ru": "Давление (бар)",
+      "tr": "Basınç (bar)"
+    },
+    {
+      "en": "Temperature (°C)",
+      "ru": "Температура (°C)",
+      "tr": "Sıcaklık (°C)"
+    },
+    {
+      "en": "Mass of Raw Material (g)",
+      "ru": "Масса сырья (г)",
+      "tr": "Hammadde Kütlesi (g)"
+    },
+    {
+      "en": "Max Possible Yield (units of response)",
+      "ru": "Максимально возможный выход (единицы отклика)",
+      "tr": "Maksimum Olası Verim (yanıt birimleri)"
+    },
+    {
+      "en": "Flow Rate (mL/min or g/min)",
+      "ru": "Скорость потока (мл/мин или г/мин)",
+      "tr": "Akış Hızı (mL/dk veya g/dk)"
+    },
+    {
+      "en": "Fraction of Easily Desorbed Solute (F)",
+      "ru": "Доля легко десорбируемого растворенного вещества (F)",
+      "tr": "Kolay Desorbe Edilen Çözünen Madde Kesri (F)"
+    },
+    {
+      "en": "Cumulative Data",
+      "ru": "Кумулятивные данные",
+      "tr": "Kümülatif Veri"
+    },
+    {
+      "en": "Mass Flow Rate",
+      "ru": "Массовый расход",
+      "tr": "Kütle Akış Hızı"
+    },
+    {
+      "en": "Model Parameters",
+      "ru": "Параметры модели",
+      "tr": "Model Parametreleri"
+    },
+    {
+      "en": "Initial k1 Estimate",
+      "ru": "Начальная оценка k1",
+      "tr": "Başlangıç k1 Tahmini"
+    },
+    {
+      "en": "Initial k2 Estimate",
+      "ru": "Начальная оценка k2",
+      "tr": "Başlangıç k2 Tahmini"
+    },
+    {
+      "en": "Initial F Estimate (if not in Process Params)",
+      "ru": "Начальная оценка F (если нет в параметрах процесса)",
+      "tr": "Başlangıç F Tahmini (İşlem Parametrelerinde yoksa)"
+    },
+    {
+      "en": "Optimization Method",
+      "ru": "Метод оптимизации",
+      "tr": "Optimizasyon Yöntemi"
+    },
+    {
+      "en": "Flow Units (e.g., mL/min, g/min)",
+      "ru": "Единицы потока (например, мл/мин, г/мин)",
+      "tr": "Akış Birimleri (örn., mL/dk, g/dk)"
+    },
+    {
+      "en": "Response Units (e.g., permille, g)",
+      "ru": "Единицы отклика (например, промилле, г)",
+      "tr": "Yanıt Birimleri (örn., permille, g)"
+    },
+    {
+      "en": "Plot X-axis Units (time or q)",
+      "ru": "Единицы оси X графика (время или q)",
+      "tr": "Grafik X ekseni Birimleri (zaman veya q)"
+    },
+    {
+      "en": "Plot Y-axis Units (abs or cc0)",
+      "ru": "Единицы оси Y графика (abs veya cc0)",
+      "tr": "Grafik Y ekseni Birimleri (abs veya cc0)"
+    },
+    {
+      "en": "Model Plot",
+      "ru": "График модели",
+      "tr": "Model Grafiği"
+    },
+    {
+      "en": "Model Summary",
+      "ru": "Сводка модели",
+      "tr": "Model Özeti"
+    },
+    {
+      "en": "Model Data",
+      "ru": "Данные модели",
+      "tr": "Model Verileri"
+    },
+    {
+      "en": "Predictions",
+      "ru": "Прогнозы",
+      "tr": "Tahminler"
+    },
+    {
+      "en": "Prediction Inputs",
+      "ru": "Входные данные для прогнозирования",
+      "tr": "Tahmin Girişleri"
+    },
+    {
+      "en": "New Time Values (comma-separated)",
+      "ru": "Новые значения времени (через запятую)",
+      "tr": "Yeni Zaman Değerleri (virgülle ayrılmış)"
+    },
+    {
+      "en": "Calculate Yields",
+      "ru": "Рассчитать выходы",
+      "tr": "Verimleri Hesapla"
+    },
+    {
+      "en": "Moisture Content (%) (Optional)",
+      "ru": "Влажность (%) (необязательно)",
+      "tr": "Nem İçeriği (%) (İsteğe Bağlı)"
+    },
+    {
+      "en": "Generate Predictions",
+      "ru": "Сгенерировать прогнозы",
+      "tr": "Tahminleri Oluştur"
+    },
+    {
+      "en": "Prediction Results",
+      "ru": "Результаты прогнозирования",
+      "tr": "Tahmin Sonuçları"
+    },
+    {
+      "en": "Model Validity",
+      "ru": "Достоверность модели",
+      "tr": "Model Geçerliliği"
+    }
+  ]
+}

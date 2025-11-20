@@ -1,0 +1,101 @@
+{
+  "design_type": "tm",
+  "parameters": {
+    "factors": 3,
+    "factor_names": ["Factor1", "Factor2", "Factor3"],
+    "factor_limits": [
+      [100, 300],
+      [35, 65],
+      [2, 4]
+    ]
+  },
+  "results": {
+    "design_matrix": [
+      {
+        "Standard_Order": 1,
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "A_Factor1": 100,
+        "B_Factor2": 35,
+        "C_Factor3": 2
+      },
+      {
+        "Standard_Order": 6,
+        "A": 2,
+        "B": 3,
+        "C": 1,
+        "A_Factor1": 200,
+        "B_Factor2": 65,
+        "C_Factor3": 2
+      },
+      {
+        "Standard_Order": 8,
+        "A": 3,
+        "B": 2,
+        "C": 1,
+        "A_Factor1": 300,
+        "B_Factor2": 50,
+        "C_Factor3": 2
+      },
+      {
+        "Standard_Order": 5,
+        "A": 2,
+        "B": 2,
+        "C": 3,
+        "A_Factor1": 200,
+        "B_Factor2": 50,
+        "C_Factor3": 4
+      },
+      {
+        "Standard_Order": 3,
+        "A": 1,
+        "B": 3,
+        "C": 3,
+        "A_Factor1": 100,
+        "B_Factor2": 65,
+        "C_Factor3": 4
+      },
+      {
+        "Standard_Order": 7,
+        "A": 3,
+        "B": 1,
+        "C": 3,
+        "A_Factor1": 300,
+        "B_Factor2": 35,
+        "C_Factor3": 4
+      },
+      {
+        "Standard_Order": 9,
+        "A": 3,
+        "B": 3,
+        "C": 2,
+        "A_Factor1": 300,
+        "B_Factor2": 65,
+        "C_Factor3": 3
+      },
+      {
+        "Standard_Order": 4,
+        "A": 2,
+        "B": 1,
+        "C": 2,
+        "A_Factor1": 200,
+        "B_Factor2": 35,
+        "C_Factor3": 3
+      },
+      {
+        "Standard_Order": 2,
+        "A": 1,
+        "B": 2,
+        "C": 2,
+        "A_Factor1": 100,
+        "B_Factor2": 50,
+        "C_Factor3": 3
+      }
+    ]
+  },
+  "metadata": {
+    "created_date": "2025-10-22 09:45:22",
+    "app_version": "0.9.0"
+  }
+}

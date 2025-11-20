@@ -1,0 +1,64 @@
+{
+  "translation": [
+    {
+      "en": "Error loading JSON:",
+      "ru": "Ошибка загрузки JSON:",
+      "tr": "JSON yüklenirken hata oluştu:"
+    },
+    {
+      "en": "Error loading CSV:",
+      "ru": "Ошибка загрузки CSV:",
+      "tr": "CSV yüklenirken hata oluştu:"
+    },
+    {
+      "en": "Error parsing manual data:",
+      "ru": "Ошибка при разборе данных вручную:",
+      "tr": "Manuel veri ayrıştırılırken hata oluştu:"
+    },
+    {
+      "en": "No data loaded",
+      "ru": "Данные не загружены",
+      "tr": "Veri yüklenmedi"
+    },
+    {
+      "en": "Running analysis...",
+      "ru": "Выполнение анализа...",
+      "tr": "Analiz çalıştırılıyor..."
+    },
+    {
+      "en": "Preparing data...",
+      "ru": "Подготовка данных...",
+      "tr": "Veriler hazırlanıyor..."
+    },
+    {
+      "en": "Running DOE analysis...",
+      "ru": "Выполнение анализа DOE...",
+      "tr": "DOE analizi çalıştırılıyor..."
+    },
+    {
+      "en": "Analysis completed!",
+      "ru": "Анализ завершен!",
+      "tr": "Analiz tamamlandı!"
+    },
+    {
+      "en": "Analysis completed successfully!",
+      "ru": "Анализ успешно завершен!",
+      "tr": "Analiz başarıyla tamamlandı!"
+    },
+    {
+      "en": "Analysis error:",
+      "ru": "Ошибка анализа:",
+      "tr": "Analiz hatası:"
+    },
+    {
+      "en": "Error exporting results:",
+      "ru": "Ошибка экспорта результатов:",
+      "tr": "Sonuçlar dışa aktarılırken hata oluştu:"
+    },
+    {
+      "en": "Analysis reset",
+      "ru": "Анализ сброшен",
+      "tr": "Analiz sıfırlandı"
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "data_source": "csv",
+  "parameters": {
+    "response_var": "ExtYield",
+    "time_var": "Actual_Order",
+    "mod_order": 2,
+    "p_cutoff": 0.1,
+    "trim_method": "both",
+    "uc_facs": ["P_MPa", "T_degC", "Flow_kgh"],
+    "which_facs": "coded",
+    "canon_thres": "auto",
+    "export": "none",
+    "verbose": false
+  },
+  "data": {
+    "source_reference": {},
+    "original_file": "gui-doe_analysis-demo3.csv",
+    "table": [
+      {
+        "Actual_Order": 1,
+        "A": -1,
+        "B": -1,
+        "C": 0,
+        "P_MPa": 10,
+        "T_degC": 40,
+        "Flow_kgh": 2,
+        "ExtYield": 0.659,
+        "CarnosicAcid_mgg": 67.94,
+        "Carnosol_mgg": 40.71
+      },
+      {
+        "Actual_Order": 2,
+        "A": 0,
+        "B": -1,
+        "C": -1,
+        "P_MPa": 20,
+        "T_degC": 40,
+        "Flow_kgh": 1,
+        "ExtYield": 3.385,
+        "CarnosicAcid_mgg": 48.04,
+        "Carnosol_mgg": 61.7
+      },
+      {
+        "Actual_Order": 3,
+        "A": 0,
+        "B": -1,
+        "C": 1,
+        "P_MPa": 20,
+        "T_degC": 40,
+        "Flow_kgh": 3,
+        "ExtYield": 4.026,
+        "CarnosicAcid_mgg": 120.05,
+        "Carnosol_mgg": 51.08
+      },
+      {
+        "Actual_Order": 4,
+        "A": -1,
+        "B": 0,
+        "C": 1,
+        "P_MPa": 10,
+        "T_degC": 50,
+        "Flow_kgh": 3,
+        "ExtYield": 1.144,
+        "CarnosicAcid_mgg": 25.49,
+        "Carnosol_mgg": 39.77
+      },
+      {
+        "Actual_Order": 5,
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "P_MPa": 20,
+        "T_degC": 50,
+        "Flow_kgh": 2,
+        "ExtYield": 3.768,
+        "CarnosicAcid_mgg": 47.56,
+        "Carnosol_mgg": 65.51
+      },
+      {
+        "Actual_Order": 6,
+        "A": 1,
+        "B": 0,
+        "C": 1,
+        "P_MPa": 30,
+        "T_degC": 50,
+        "Flow_kgh": 3,
+        "ExtYield": 7.361,
+        "CarnosicAcid_mgg": 116.25,
+        "Carnosol_mgg": 60.63
+      },
+      {
+        "Actual_Order": 7,
+        "A": 1,
+        "B": 0,
+        "C": -1,
+        "P_MPa": 30,
+        "T_degC": 50,
+        "Flow_kgh": 1,
+        "ExtYield": 5.238,
+        "CarnosicAcid_mgg": 61.78,
+        "Carnosol_mgg": 61.47
+      },
+      {
+        "Actual_Order": 8,
+        "A": 0,
+        "B": 1,
+        "C": 1,
+        "P_MPa": 20,
+        "T_degC": 60,
+        "Flow_kgh": 3,
+        "ExtYield": 5.477,
+        "CarnosicAcid_mgg": 38.53,
+        "Carnosol_mgg": 58
+      },
+      {
+        "Actual_Order": 9,
+        "A": -1,
+        "B": 0,
+        "C": -1,
+        "P_MPa": 10,
+        "T_degC": 50,
+        "Flow_kgh": 1,
+        "ExtYield": 0.242,
+        "CarnosicAcid_mgg": 0.29,
+        "Carnosol_mgg": 0.46
+      },
+      {
+        "Actual_Order": 10,
+        "A": -1,
+        "B": 1,
+        "C": 0,
+        "P_MPa": 10,
+        "T_degC": 60,
+        "Flow_kgh": 2,
+        "ExtYield": 0.365,
+        "CarnosicAcid_mgg": 2.93,
+        "Carnosol_mgg": 1.8
+      },
+      {
+        "Actual_Order": 11,
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "P_MPa": 20,
+        "T_degC": 50,
+        "Flow_kgh": 2,
+        "ExtYield": 3.305,
+        "CarnosicAcid_mgg": 39.78,
+        "Carnosol_mgg": 37.28
+      },
+      {
+        "Actual_Order": 12,
+        "A": 1,
+        "B": 1,
+        "C": 0,
+        "P_MPa": 30,
+        "T_degC": 60,
+        "Flow_kgh": 2,
+        "ExtYield": 4.316,
+        "CarnosicAcid_mgg": 18.93,
+        "Carnosol_mgg": 64.19
+      },
+      {
+        "Actual_Order": 13,
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "P_MPa": 20,
+        "T_degC": 50,
+        "Flow_kgh": 2,
+        "ExtYield": 2.552,
+        "CarnosicAcid_mgg": 55.61,
+        "Carnosol_mgg": 46.72
+      },
+      {
+        "Actual_Order": 14,
+        "A": 1,
+        "B": -1,
+        "C": 0,
+        "P_MPa": 30,
+        "T_degC": 40,
+        "Flow_kgh": 2,
+        "ExtYield": 3.803,
+        "CarnosicAcid_mgg": 71.94,
+        "Carnosol_mgg": 54.75
+      },
+      {
+        "Actual_Order": 15,
+        "A": 0,
+        "B": 1,
+        "C": -1,
+        "P_MPa": 20,
+        "T_degC": 60,
+        "Flow_kgh": 1,
+        "ExtYield": 4.891,
+        "CarnosicAcid_mgg": 1.64,
+        "Carnosol_mgg": 35.19
+      },
+      {
+        "Actual_Order": 16,
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "P_MPa": 20,
+        "T_degC": 50,
+        "Flow_kgh": 2,
+        "ExtYield": 4.528,
+        "CarnosicAcid_mgg": 66.2,
+        "Carnosol_mgg": 61.02
+      }
+    ]
+  },
+  "metadata": {
+    "created_date": "2025-10-23 14:43:45",
+    "app_version": "0.9.0"
+  }
+}

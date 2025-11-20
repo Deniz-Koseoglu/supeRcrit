@@ -1,0 +1,18 @@
+{
+  "display_name": "Limonene | JR-NL07-SP08 | 16:45",
+  "parameters": {
+    "cas_input": "5989-54-8",
+    "name_input": "Limonene",
+    "smiles_input": "",
+    "specify_smiles": false,
+    "gcm_tb": "JR",
+    "gcm_crit": "NL07",
+    "gcm_hsp": "SP08",
+    "gcm_simplicity": "auto",
+    "gcm_gorder": 0
+  },
+  "metadata": {
+    "created_date": "2025-11-04 16:45:39",
+    "app_version": "0.9.0"
+  }
+}

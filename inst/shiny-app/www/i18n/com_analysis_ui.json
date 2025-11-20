@@ -1,0 +1,530 @@
+{
+  "translation": [
+    {
+      "en": "Cost Analysis",
+      "ru": "Анализ затрат",
+      "tr": "Maliyet Analizi"
+    },
+    {
+      "en": "Manage Settings",
+      "ru": "Управление настройками",
+      "tr": "Ayarları Yönet"
+    },
+    {
+      "en": "Save",
+      "ru": "Сохранить",
+      "tr": "Kaydet"
+    },
+    {
+      "en": "Save Current Settings",
+      "ru": "Сохранить текущие настройки",
+      "tr": "Mevcut Ayarları Kaydet"
+    },
+    {
+      "en": "Settings Name",
+      "ru": "Название настроек",
+      "tr": "Ayar Adı"
+    },
+    {
+      "en": "e.g., my_hplc_method",
+      "ru": "например, мой_метод_ВЭЖХ",
+      "tr": "örn., hplc_metodum"
+    },
+    {
+      "en": "Load Saved Settings",
+      "ru": "Загрузить сохраненные настройки",
+      "tr": "Kaydedilmiş Ayarları Yükle"
+    },
+    {
+      "en": "Load",
+      "ru": "Загрузить",
+      "tr": "Yükle"
+    },
+    {
+      "en": "Import Settings from File",
+      "ru": "Импортировать настройки из файла",
+      "tr": "Dosyadan Ayarları İçe Aktar"
+    },
+    {
+      "en": "Choose JSON File",
+      "ru": "Выберите файл JSON",
+      "tr": "JSON Dosyası Seç"
+    },
+    {
+      "en": "Import",
+      "ru": "Импорт",
+      "tr": "İçe Aktar"
+    },
+    {
+      "en": "Filename",
+      "ru": "Имя файла",
+      "tr": "Dosya Adı"
+    },
+    {
+      "en": "Export",
+      "ru": "Экспорт",
+      "tr": "Dışa Aktar"
+    },
+    {
+      "en": "Cancel",
+      "ru": "Отмена",
+      "tr": "İptal"
+    },
+    {
+      "en": "Reset",
+      "ru": "Сброс",
+      "tr": "Sıfırla"
+    },
+    {
+      "en": "Calculate",
+      "ru": "Рассчитать",
+      "tr": "Hesapla"
+    },
+    {
+      "en": "Settings",
+      "ru": "Настройки",
+      "tr": "Ayarlar"
+    },
+    {
+      "en": "Select Input Type:",
+      "ru": "Выберите тип ввода:",
+      "tr": "Giriş Türünü Seçin:"
+    },
+    {
+      "en": "Time (min)",
+      "ru": "Время (мин)",
+      "tr": "Süre (dk)"
+    },
+    {
+      "en": "Yield (g)",
+      "ru": "Выход (г)",
+      "tr": "Verim (g)"
+    },
+    {
+      "en": "Upload CSV File",
+      "ru": "Загрузить CSV файл",
+      "tr": "CSV Dosyası Yükle"
+    },
+    {
+      "en": "Enter Time and Yield Data (CSV format, max 10 rows)",
+      "ru": "Введите данные времени и выхода (формат CSV, макс. 10 строк)",
+      "tr": "Zaman ve Verim Verilerini Girin (CSV formatı, maks. 10 satır)"
+    },
+    {
+      "en": "Calculation Mode",
+      "ru": "Режим расчета",
+      "tr": "Hesaplama Modu"
+    },
+    {
+      "en": "Use Pre-defined Coefficients",
+      "ru": "Использовать предопределенные коэффициенты",
+      "tr": "Önceden Tanımlanmış Katsayıları Kullan"
+    },
+    {
+      "en": "General Parameters",
+      "ru": "Общие параметры",
+      "tr": "Genel Parametreler"
+    },
+    {
+      "en": "Extractor Volume (L)",
+      "ru": "Объем экстрактора (л)",
+      "tr": "Ekstraktör Hacmi (L)"
+    },
+    {
+      "en": "Load (kg)",
+      "ru": "Загрузка (кг)",
+      "tr": "Yük (kg)"
+    },
+    {
+      "en": "Pressure (bar)",
+      "ru": "Давление (бар)",
+      "tr": "Basınç (bar)"
+    },
+    {
+      "en": "Temperature (°C)",
+      "ru": "Температура (°C)",
+      "tr": "Sıcaklık (°C)"
+    },
+    {
+      "en": "Flow Rate (mL/min)",
+      "ru": "Скорость потока (мл/мин)",
+      "tr": "Akış Hızı (mL/dk)"
+    },
+    {
+      "en": "Extraction Time (min)",
+      "ru": "Время экстракции (мин)",
+      "tr": "Ekstraksiyon Süresi (dk)"
+    },
+    {
+      "en": "Dilution Factor",
+      "ru": "Коэффициент разбавления",
+      "tr": "Seyreltme Faktörü"
+    },
+    {
+      "en": "Sales Price (USD/kg)",
+      "ru": "Цена продажи (USD/кг)",
+      "tr": "Satış Fiyatı (USD/kg)"
+    },
+    {
+      "en": "Other parameters",
+      "ru": "Другие параметры",
+      "tr": "Diğer parametreler"
+    },
+    {
+      "en": "Auxiliary Material Price (USD/kg)",
+      "ru": "Цена вспомогательного материала (USD/кг)",
+      "tr": "Yardımcı Madde Fiyatı (USD/kg)"
+    },
+    {
+      "en": "Required Fraction",
+      "ru": "Требуемая фракция",
+      "tr": "Gerekli Fraksiyon"
+    },
+    {
+      "en": "Co-solvent Loss (fraction)",
+      "ru": "Потеря сорастворителя (доля)",
+      "tr": "Yardımcı Çözücü Kaybı (fraksiyon)"
+    },
+    {
+      "en": "Flow Parameter",
+      "ru": "Параметр потока",
+      "tr": "Akış Parametresi"
+    },
+    {
+      "en": "Co-solvent Flow Rate (mL/min)",
+      "ru": "Скорость потока сорастворителя (мл/мин)",
+      "tr": "Yardımcı Çözücü Akış Hızı (mL/dk)"
+    },
+    {
+      "en": "Cost of Raw Materials",
+      "ru": "Стоимость сырья",
+      "tr": "Hammadde Maliyeti"
+    },
+    {
+      "en": "Bed Height (cm)",
+      "ru": "Высота слоя (см)",
+      "tr": "Yatak Yüksekliği (cm)"
+    },
+    {
+      "en": "Inner Diameter (cm)",
+      "ru": "Внутренний диаметр (см)",
+      "tr": "İç Çap (cm)"
+    },
+    {
+      "en": "Raw Material Price (USD/kg)",
+      "ru": "Цена сырья (USD/кг)",
+      "tr": "Hammadde Fiyatı (USD/kg)"
+    },
+    {
+      "en": "Main Solvent Price (USD/kg)",
+      "ru": "Цена основного растворителя (USD/кг)",
+      "tr": "Ana Çözücü Fiyatı (USD/kg)"
+    },
+    {
+      "en": "Co-solvent Price (USD/kg)",
+      "ru": "Цена сорастворителя (USD/кг)",
+      "tr": "Yardımcı Çözücü Fiyatı (USD/kg)"
+    },
+    {
+      "en": "Recovery Pressure (bar)",
+      "ru": "Давление восстановления (бар)",
+      "tr": "Geri Kazanım Basıncı (bar)"
+    },
+    {
+      "en": "Recovery Temperature (°C)",
+      "ru": "Температура восстановления (°C)",
+      "tr": "Geri Kazanım Sıcaklığı (°C)"
+    },
+    {
+      "en": "Separator Temperature (°C)",
+      "ru": "Температура сепаратора (°C)",
+      "tr": "Ayırıcı Sıcaklığı (°C)"
+    },
+    {
+      "en": "Cost of Utilities",
+      "ru": "Стоимость коммунальных услуг",
+      "tr": "Yardımcı Hizmet Maliyeti"
+    },
+    {
+      "en": "Main Power (kW)",
+      "ru": "Основная мощность (кВт)",
+      "tr": "Ana Güç (kW)"
+    },
+    {
+      "en": "Energy Price (USD/kWh)",
+      "ru": "Цена энергии (USD/кВтч)",
+      "tr": "Enerji Fiyatı (USD/kWh)"
+    },
+    {
+      "en": "Drying Power (kW)",
+      "ru": "Мощность сушки (кВт)",
+      "tr": "Kurutma Gücü (kW)"
+    },
+    {
+      "en": "Drying Capacity (kg/h)",
+      "ru": "Мощность сушки (кг/ч)",
+      "tr": "Kurutma Kapasitesi (kg/sa)"
+    },
+    {
+      "en": "Comminution Power (kW)",
+      "ru": "Мощность измельчения (кВт)",
+      "tr": "Öğütme Gücü (kW)"
+    },
+    {
+      "en": "Comminution Capacity (kg/h)",
+      "ru": "Мощность измельчения (кг/ч)",
+      "tr": "Öğütme Kapasitesi (kg/sa)"
+    },
+    {
+      "en": "Evaporation Power (kW)",
+      "ru": "Мощность испарения (кВт)",
+      "tr": "Buharlaşma Gücü (kW)"
+    },
+    {
+      "en": "Evaporation Capacity (kg/h)",
+      "ru": "Мощность испарения (кг/ч)",
+      "tr": "Buharlaşma Kapasitesi (kg/sa)"
+    },
+    {
+      "en": "Cost of Labor",
+      "ru": "Стоимость труда",
+      "tr": "İşçilik Maliyeti"
+    },
+    {
+      "en": "Number of Operators",
+      "ru": "Количество операторов",
+      "tr": "Operatör Sayısı"
+    },
+    {
+      "en": "Shift Duration (hours)",
+      "ru": "Продолжительность смены (часы)",
+      "tr": "Vardiya Süresi (saat)"
+    },
+    {
+      "en": "Number of Shifts",
+      "ru": "Количество смен",
+      "tr": "Vardiya Sayısı"
+    },
+    {
+      "en": "Monthly Wage (USD)",
+      "ru": "Месячная заработная плата (USD)",
+      "tr": "Aylık Ücret (USD)"
+    },
+    {
+      "en": "Working Days (monthly)",
+      "ru": "Рабочие дни (в месяц)",
+      "tr": "Çalışma Günleri (aylık)"
+    },
+    {
+      "en": "Fixed Costs & Tax Rate",
+      "ru": "Постоянные затраты и налоговая ставка",
+      "tr": "Sabit Maliyetler ve Vergi Oranı"
+    },
+    {
+      "en": "Capital Investment (USD)",
+      "ru": "Капитальные вложения (USD)",
+      "tr": "Sermaye Yatırımı (USD)"
+    },
+    {
+      "en": "Maintenance Cost (USD)",
+      "ru": "Затраты на обслуживание (USD)",
+      "tr": "Bakım Maliyeti (USD)"
+    },
+    {
+      "en": "Other Fixed Costs (USD)",
+      "ru": "Прочие постоянные затраты (USD)",
+      "tr": "Diğer Sabit Maliyetler (USD)"
+    },
+    {
+      "en": "Depreciation Rate",
+      "ru": "Норма амортизации",
+      "tr": "Amortisman Oranı"
+    },
+    {
+      "en": "Tax Rate",
+      "ru": "Налоговая ставка",
+      "tr": "Vergi Oranı"
+    },
+    {
+      "en": "General Results",
+      "ru": "Общие результаты",
+      "tr": "Genel Sonuçlar"
+    },
+    {
+      "en": "*MONTHLY",
+      "ru": "*ЕЖЕМЕСЯЧНО",
+      "tr": "*AYLIK"
+    },
+    {
+      "en": "Select Time (min):",
+      "ru": "Выберите время (мин):",
+      "tr": "Zamanı Seçin (dk):"
+    },
+    {
+      "en": "5-Year ROI and Payback Period",
+      "ru": "5-летний ROI и срок окупаемости",
+      "tr": "5 Yıllık ROI ve Geri Ödeme Süresi"
+    },
+    {
+      "en": "Monthly Table",
+      "ru": "Ежемесячная таблица",
+      "tr": "Aylık Tablo"
+    },
+    {
+      "en": "Export Monthly Data",
+      "ru": "Экспорт ежемесячных данных",
+      "tr": "Aylık Verileri Dışa Aktar"
+    },
+    {
+      "en": "Optimal Performance Window",
+      "ru": "Оптимальное окно производительности",
+      "tr": "Optimal Performans Penceresi"
+    },
+    {
+      "en": "Plots are available only when multiple time-yield data points are provided.",
+      "ru": "Графики доступны только при наличии нескольких точек данных времени-выхода.",
+      "tr": "Grafikler yalnızca birden fazla zaman-verim veri noktası sağlandığında kullanılabilir."
+    },
+    {
+      "en": "Payback Plot",
+      "ru": "График окупаемости",
+      "tr": "Geri Ödeme Grafiği"
+    },
+    {
+      "en": "Specific Cost Plot",
+      "ru": "График удельных затрат",
+      "tr": "Spesifik Maliyet Grafiği"
+    },
+    {
+      "en": "Detailed Results",
+      "ru": "Подробные результаты",
+      "tr": "Detaylı Sonuçlar"
+    },
+    {
+      "en": "Detailed Cost Distribution",
+      "ru": "Подробное распределение затрат",
+      "tr": "Detaylı Maliyet Dağılımı"
+    },
+    {
+      "en": "Download All Results",
+      "ru": "Скачать все результаты",
+      "tr": "Tüm Sonuçları İndir"
+    },
+    {
+      "en": "e.g., black cumin",
+      "ru": "например, черный тмин",
+      "tr": "örn., siyah kimyon"
+    },
+    {
+      "en": "Saved Settings",
+      "ru": "Сохраненные настройки",
+      "tr": "Kaydedilmiş Ayarlar"
+    },
+    {
+      "en": "No saved settings found.",
+      "ru": "Сохраненные настройки не найдены.",
+      "tr": "Kaydedilmiş ayar bulunamadı."
+    },
+    {
+      "en": " years",
+      "ru": " лет",
+      "tr": " yıl"
+    },
+    {
+      "en": "Cost of Utilities",
+      "ru": "Стоимость коммунальных услуг",
+      "tr": "Kamu Hizmetleri Maliyeti"
+    },
+    {
+      "en": "Cost of Labor",
+      "ru": "Стоимость рабочей силы",
+      "tr": "İşçilik Maliyeti"
+    },
+
+    {
+      "en": "Input Parameters",
+      "ru": "Входные параметры",
+      "tr": "Giriş Parametreleri"
+    },
+    {
+      "en": "Input Data",
+      "ru": "Входные данные",
+      "tr": "Giriş Verileri"
+    },
+    {
+      "en": "Close",
+      "ru": "Закрыть",
+      "tr": "Kapat"
+    },
+    {
+      "en": "Single Value",
+      "ru": "Одиночное значение",
+      "tr": "Tek Değer"
+    },
+    {
+      "en": "Upload CSV File",
+      "ru": "Загрузить CSV файл",
+      "tr": "CSV Dosyası Yükle"
+    },
+    {
+      "en": "Manual Text Input",
+      "ru": "Ручной ввод текста",
+      "tr": "Manuel Metin Girişi"
+    },
+    {
+      "en": "Export Current Settings",
+      "ru": "Экспортировать текущие настройки",
+      "tr": "Mevcut Ayarları Dışa Aktar"
+    },
+     {
+  "en": "Month",
+  "ru": "Месяц",
+  "tr": "Ay"
+},
+{
+  "en": "Cumulative Gross Profit (USD)",
+  "ru": "Совокупная валовая прибыль (USD)",
+  "tr": "Kümülatif Brüt Kar (USD)"
+},
+{
+  "en": "Cumulative Net Profit (USD)",
+  "ru": "Совокупная чистая прибыль (USD)",
+  "tr": "Kümülatif Net Kar (USD)"
+},
+{
+  "en": "Sales Volume (USD/month)",
+  "ru": "Объем продаж (USD/месяц)",
+  "tr": "Satış Hacmi (USD/ay)"
+},
+{
+  "en": "Cost of Manufacturing (USD/month)",
+  "ru": "Стоимость производства (USD/месяц)",
+  "tr": "Üretim Maliyeti (USD/ay)"
+},
+{
+  "en": "Cost of Raw Materials (USD/month)",
+  "ru": "Стоимость сырья (USD/месяц)",
+  "tr": "Hammadde Maliyeti (USD/ay)"
+},
+{
+  "en": "Cost of Utilities (USD/month)",
+  "ru": "Стоимость коммунальных услуг (USD/месяц)",
+  "tr": "Altyapı Hizmetleri Maliyeti"
+},
+{
+  "en": "Fixed Cost (USD/month)",
+  "ru": "Постоянные затраты (USD/месяц)",
+  "tr": "Sabit Maliyet (USD/ay)"
+},
+{
+  "en": "Cost of Labour (USD/month)",
+  "ru": "Стоимость труда (USD/месяц)",
+  "tr": "İşçilik Maliyeti (USD/ay)"
+},
+{
+  "en": "Tax Rate (%)",
+  "ru": "Налоговая ставка (%)",
+  "tr": "Vergi Oranı (%)"
+}
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "translation": [
+    {
+      "en": "DOE Analysis",
+      "ru": "DOE Анализ",
+      "tr": "DOE Analiz"
+    },
+    {
+      "en": "DOE Design",
+      "ru": "DOE Дизайн",
+      "tr": "DOE Tasarım"
+    },
+    {
+      "en": "Kinetic Modeling",
+      "ru": "Кинетическое моделирование",
+      "tr": "Kinetik Modelleme"
+    },
+    {
+      "en": "Two-Site Adsorption",
+      "ru": "Двухсайтовая адсорбция",
+      "tr": "İki Bölgeli Adsorpsiyon"
+    },
+    {
+      "en": "Broken-And-Intact Cell",
+      "ru": "Поврежденная и неповрежденная клетка",
+      "tr": "Hasarlı ve Sağlam Hücre"
+    },
+    {
+      "en": "Help",
+      "ru": "Помощь",
+      "tr": "Yardım"
+    },
+    {
+      "en": "Cost Analysis",
+      "ru": "Анализ стоимости",
+      "tr": "Maliyet Analizi"
+    },
+    {
+      "en": "Design of Experiments",
+      "ru": "Планирование экспериментов",
+      "tr": "Deneyler Tasarımı"
+    },
+    {
+      "en": "Desirability Function",
+      "ru": "Функция желательности",
+      "tr": "İstenilirlik Fonksiyonu"
+    },
+    {
+      "en": "SFE Co-Solvent Selection",
+      "ru": "Выбор сорастворителя СФЭ",
+      "tr": "SFE Eş Çözücü Seçimi"
+    },
+    {
+      "en": "Solute Characterization",
+      "ru": "Характеризация растворенного вещества",
+      "tr": "Çözünen Madde Karakterizasyonu"
+    },
+    {
+      "en": "Miscibility Optimization",
+      "ru": "Оптимизация смешиваемости",
+      "tr": "Karışabilirlik Optimizasyonu"
+    },
+    {
+      "en": "Miscibility Comparison",
+      "ru": "Сравнение смешиваемости",
+      "tr": "Karışabilirlik Karşılaştırması"
+    },
+    {
+      "en": "Auxiliary Tools",
+      "ru": "Вспомогательные инструменты",
+      "tr": "Yardımcı Araçlar"
+    }
+  ]
+}

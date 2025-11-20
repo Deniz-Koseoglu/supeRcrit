@@ -1,0 +1,79 @@
+{
+  "translation": [
+    {
+      "en": "Constant C₁",
+      "ru": "Константа C₁",
+      "tr": "Sabit C₁"
+    },
+    {
+      "en": "Constant C₂",
+      "ru": "Константа C₂",
+      "tr": "Sabit C₂"
+    },
+    {
+      "en": "Relative amount of expended solvent at end of CER (kg/kg)",
+      "ru": "Относительное количество израсходованного растворителя в конце CER (кг/кг)",
+      "tr": "CER sonunda harcanan çözücünün bağıl miktarı (kg/kg)"
+    },
+    {
+      "en": "Grinding efficiency (fraction of broken cells)",
+      "ru": "Эффективность измельчения (доля разрушенных клеток)",
+      "tr": "Öğütme verimliliği (kırılmış hücrelerin kesri)"
+    },
+    {
+      "en": "Solid phase mass transfer coefficient × area (1/m/s)",
+      "ru": "Коэффициент массообмена твердой фазы × площадь (1/м/с)",
+      "tr": "Katı faz kütle transfer katsayısı × alan (1/m/s)"
+    },
+    {
+      "en": "Initial fraction of solute in broken cells",
+      "ru": "Начальная доля растворенного вещества в разрушенных клетках",
+      "tr": "Kırılmış hücrelerde çözünen maddenin başlangıç kesri"
+    },
+    {
+      "en": "External mass transfer resistance",
+      "ru": "Сопротивление внешнему массообмену",
+      "tr": "Dış kütle transfer direnci"
+    },
+    {
+      "en": "Extraction time/duration of FER",
+      "ru": "Время экстракции/длительность FER",
+      "tr": "Ekstraksiyon süresi/FER süresi"
+    },
+    {
+      "en": "Extraction time at end of CER",
+      "ru": "Время экстракции в конце CER",
+      "tr": "CER sonunda ekstraksiyon süresi"
+    },
+    {
+      "en": "Yield at end of CER (g/g total dry solid)",
+      "ru": "Выход в конце CER (г/г общего сухого твердого вещества)",
+      "tr": "CER sonunda verim (g/g toplam kuru katı)"
+    },
+    {
+      "en": "Fluid phase mass transfer coefficient × area (1/m/s)",
+      "ru": "Коэффициент массообмена жидкой фазы × площадь (1/м/с)",
+      "tr": "Sıvı faz kütle transfer katsayısı × alan (1/m/s)"
+    },
+    {
+      "en": "FER for 3-period model",
+      "ru": "FER для 3-периодной модели",
+      "tr": "3-periyotlu model için FER"
+    },
+    {
+      "en": "DC for 2-period model",
+      "ru": "DC для 2-периодной модели",
+      "tr": "2-periyotlu model için DC"
+    },
+    {
+      "en": "Coefficient β",
+      "ru": "Коэффициент β",
+      "tr": "Katsayı β"
+    },
+    {
+      "en": "Fluid mass transfer coefficient (1/s)",
+      "ru": "Коэффициент массообмена жидкости (1/с)",
+      "tr": "Sıvı kütle transfer katsayısı (1/s)"
+    }
+  ]
+}

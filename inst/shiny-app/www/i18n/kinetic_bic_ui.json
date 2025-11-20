@@ -1,0 +1,524 @@
+{
+  "translation": [
+    {
+      "en": "BIC Model Parameters",
+      "ru": "Параметры модели BIC",
+      "tr": "BIC Model Parametreleri"
+    },
+    {
+      "en": "Input Data",
+      "ru": "Входные данные",
+      "tr": "Giriş Verileri"
+    },
+    {
+      "en": "OEC Variables",
+      "ru": "Переменные OEC",
+      "tr": "OEC Değişkenleri"
+    },
+    {
+      "en": "Time Variable (e.g., Time_min)",
+      "ru": "Переменная времени (например, Time_min)",
+      "tr": "Zaman Değişkeni (örn., Time_min)"
+    },
+    {
+      "en": "Response Variable (e.g., Yield_g)",
+      "ru": "Переменная отклика (например, Yield_g)",
+      "tr": "Yanıt Değişkeni (örn., Yield_g)"
+    },
+    {
+      "en": "Solvent Variable (Optional, e.g., Solvent_mL)",
+      "ru": "Переменная растворителя (необязательно, например, Solvent_mL)",
+      "tr": "Çözücü Değişkeni (İsteğe Bağlı, örn., Solvent_mL)"
+    },
+    {
+      "en": "Process Parameters",
+      "ru": "Параметры процесса",
+      "tr": "İşlem Parametreleri"
+    },
+    {
+      "en": "Pressure (bar)",
+      "ru": "Давление (бар)",
+      "tr": "Basınç (bar)"
+    },
+    {
+      "en": "Temperature (°C)",
+      "ru": "Температура (°C)",
+      "tr": "Sıcaklık (°C)"
+    },
+    {
+      "en": "Mass of Raw Material (g)",
+      "ru": "Масса сырья (г)",
+      "tr": "Hammadde Kütlesi (g)"
+    },
+    {
+      "en": "Moisture Content (%)",
+      "ru": "Влажность (%)",
+      "tr": "Nem İçeriği (%)"
+    },
+    {
+      "en": "Extractor Diameter (m)",
+      "ru": "Диаметр экстрактора (м)",
+      "tr": "Ekstraktör Çapı (m)"
+    },
+    {
+      "en": "Extractor Length (m)",
+      "ru": "Длина экстрактора (м)",
+      "tr": "Ekstraktör Uzunluğu (m)"
+    },
+    {
+      "en": "Ethanol Co-solvent Fraction",
+      "ru": "Доля этанола-сорастворителя",
+      "tr": "Etanol Yardımcı Çözücü Kesri"
+    },
+    {
+      "en": "Real Density (g/L)",
+      "ru": "Истинная плотность (г/л)",
+      "tr": "Gerçek Yoğunluk (g/L)"
+    },
+    {
+      "en": "Apparent Density (g/L)",
+      "ru": "Кажущаяся плотность (г/л)",
+      "tr": "Görünür Yoğunluk (g/L)"
+    },
+    {
+      "en": "Number of Observations (CER)",
+      "ru": "Количество наблюдений (CER)",
+      "tr": "Gözlem Sayısı (CER)"
+    },
+    {
+      "en": "Flow Rate (mL/min or g/min)",
+      "ru": "Скорость потока (мл/мин или г/мин)",
+      "tr": "Akış Hızı (mL/dk veya g/dk)"
+    },
+    {
+      "en": "Max Extractable Material Fraction",
+      "ru": "Максимальная извлекаемая фракция материала",
+      "tr": "Maksimum Ekstrakt Edilebilir Madde Kesri"
+    },
+    {
+      "en": "Cumulative Data",
+      "ru": "Кумулятивные данные",
+      "tr": "Kümülatif Veri"
+    },
+    {
+      "en": "Mass Flow Rate",
+      "ru": "Массовый расход",
+      "tr": "Kütle Akış Hızı"
+    },
+    {
+      "en": "Model Parameters",
+      "ru": "Параметры модели",
+      "tr": "Model Parametreleri"
+    },
+    {
+      "en": "Initial r Estimate",
+      "ru": "Начальная оценка r",
+      "tr": "Başlangıç r Tahmini"
+    },
+    {
+      "en": "Initial ksas Estimate",
+      "ru": "Начальная оценка ksas",
+      "tr": "Başlangıç ksas Tahmini"
+    },
+    {
+      "en": "Initial qc Estimate",
+      "ru": "Начальная оценка qc",
+      "tr": "Başlangıç qc Tahmini"
+    },
+    {
+      "en": "Initial thetaf Estimate",
+      "ru": "Начальная оценка thetaf",
+      "tr": "Başlangıç thetaf Tahmini"
+    },
+    {
+      "en": "Initial ti Estimate",
+      "ru": "Начальная оценка ti",
+      "tr": "Başlangıç ti Tahmini"
+    },
+    {
+      "en": "Initial kf Estimate",
+      "ru": "Начальная оценка kf",
+      "tr": "Başlangıç kf Tahmini"
+    },
+    {
+      "en": "Initial c3 Estimate",
+      "ru": "Начальная оценка c3",
+      "tr": "Başlangıç c3 Tahmini"
+    },
+    {
+      "en": "Model Type",
+      "ru": "Тип модели",
+      "tr": "Model Tipi"
+    },
+    {
+      "en": "Flow Units (e.g., mL/min, g/min)",
+      "ru": "Единицы потока (например, мл/мин, г/мин)",
+      "tr": "Akış Birimleri (örn., mL/dk, g/dk)"
+    },
+    {
+      "en": "Response Units (e.g., permille, g)",
+      "ru": "Единицы отклика (например, промилле, г)",
+      "tr": "Yanıt Birimleri (örn., permille, g)"
+    },
+    {
+      "en": "Model Plot",
+      "ru": "График модели",
+      "tr": "Model Grafiği"
+    },
+    {
+      "en": "Model Summary",
+      "ru": "Сводка модели",
+      "tr": "Model Özeti"
+    },
+    {
+      "en": "Model Data",
+      "ru": "Данные модели",
+      "tr": "Model Verileri"
+    },
+    {
+      "en": "Reset",
+      "ru": "Сброс",
+      "tr": "Sıfırla"
+    },
+    {
+      "en": "Calculate",
+      "ru": "Рассчитать",
+      "tr": "Hesapla"
+    },
+    {
+      "en": "Input Data and Variables",
+      "ru": "Входные данные и переменные",
+      "tr": "Giriş Verileri ve Değişkenler"
+    },
+    {
+      "en": "Select Input Type:",
+      "ru": "Выберите тип ввода:",
+      "tr": "Giriş Tipini Seçin:"
+    },
+    {
+      "en": "Upload CSV File",
+      "ru": "Загрузить CSV файл",
+      "tr": "CSV Dosyası Yükle"
+    },
+    {
+      "en": "Manual Text Input",
+      "ru": "Ручной ввод текста",
+      "tr": "Manuel Metin Girişi"
+    },
+    {
+      "en": "Variables will be automatically detected from your data.",
+      "ru": "Переменные будут автоматически определены из ваших данных.",
+      "tr": "Değişkenler verilerinizden otomatik olarak algılanacaktır."
+    },
+    {
+      "en": "Time Variable",
+      "ru": "Переменная времени",
+      "tr": "Zaman Değişkeni"
+    },
+    {
+      "en": "Response Variable",
+      "ru": "Переменная отклика",
+      "tr": "Yanıt Değişkeni"
+    },
+    {
+      "en": "Solvent Variable (Optional)",
+      "ru": "Переменная растворителя (необязательно)",
+      "tr": "Çözücü Değişkeni (İsteğe Bağlı)"
+    },
+    {
+      "en": "Advanced Parameters",
+      "ru": "Расширенные параметры",
+      "tr": "Gelişmiş Parametreler"
+    },
+    {
+      "en": "Ethanol Co-solvent Fraction (0-0.99)",
+      "ru": "Доля этанола-сорастворителя (0-0.99)",
+      "tr": "Etanol Yardımcı Çözücü Kesri (0-0.99)"
+    },
+    {
+      "en": "Flow Measurement Temperature (°C)",
+      "ru": "Температура измерения потока (°C)",
+      "tr": "Akış Ölçüm Sıcaklığı (°C)"
+    },
+    {
+      "en": "Flow Measurement Pressure (bar)",
+      "ru": "Давление измерения потока (бар)",
+      "tr": "Akış Ölçüm Basıncı (bar)"
+    },
+    {
+      "en": "CO2 Density (g/L, optional)",
+      "ru": "Плотность CO2 (г/л, необязательно)",
+      "tr": "CO2 Yoğunluğu (g/L, isteğe bağlı)"
+    },
+    {
+      "en": "Max Time for CT Model (min, optional)",
+      "ru": "Максимальное время для модели CT (мин, необязательно)",
+      "tr": "CT Modeli için Maksimum Süre (dk, isteğe bağlı)"
+    },
+    {
+      "en": "Max Solvent for Other Models (kg/kg, optional)",
+      "ru": "Максимальное количество растворителя для других моделей (кг/кг, необязательно)",
+      "tr": "Diğer Modeller için Maksimum Çözücü (kg/kg, isteğe bağlı)"
+    },
+    {
+      "en": "Model Settings",
+      "ru": "Настройки модели",
+      "tr": "Model Ayarları"
+    },
+    {
+      "en": "Optimization Aggregation",
+      "ru": "Агрегация оптимизации",
+      "tr": "Optimizasyon Agregasyonu"
+    },
+    {
+      "en": "Flow Units",
+      "ru": "Единицы потока",
+      "tr": "Akış Birimleri"
+    },
+    {
+      "en": "Response Units",
+      "ru": "Единицы отклика",
+      "tr": "Yanıt Birimleri"
+    },
+    {
+      "en": "Optimization Parameters",
+      "ru": "Параметры оптимизации",
+      "tr": "Optimizasyon Parametreleri"
+    },
+    {
+      "en": "Initial Parameter Estimates:",
+      "ru": "Начальные оценки параметров:",
+      "tr": "Başlangıç Parametre Tahminleri:"
+    },
+    {
+      "en": "Use Default Values",
+      "ru": "Использовать значения по умолчанию",
+      "tr": "Varsayılan Değerleri Kullan"
+    },
+    {
+      "en": "Custom Values",
+      "ru": "Пользовательские значения",
+      "tr": "Özel Değerler"
+    },
+    {
+      "en": "r (grinding efficiency)",
+      "ru": "r (эффективность измельчения)",
+      "tr": "r (öğütme verimliliği)"
+    },
+    {
+      "en": "ksas (k_s * a_s)",
+      "ru": "ksas (k_s * a_s)",
+      "tr": "ksas (k_s * a_s)"
+    },
+    {
+      "en": "qc (relative solvent at CER end)",
+      "ru": "qc (относительный растворитель в конце CER)",
+      "tr": "qc (CER sonunda bağıl çözücü)"
+    },
+    {
+      "en": "thetaf (external mass transfer)",
+      "ru": "thetaf (внешний массообмен)",
+      "tr": "thetaf (dış kütle transferi)"
+    },
+    {
+      "en": "ti (FER duration)",
+      "ru": "ti (длительность FER)",
+      "tr": "ti (FER süresi)"
+    },
+    {
+      "en": "kf (fluid mass transfer)",
+      "ru": "kf (массообмен жидкости)",
+      "tr": "kf (akışkan kütle transferi)"
+    },
+    {
+      "en": "c3 (for cu estimation)",
+      "ru": "c3 (для оценки cu)",
+      "tr": "c3 (cu tahmini için)"
+    },
+    {
+      "en": "Model Plots",
+      "ru": "Графики модели",
+      "tr": "Model Grafikleri"
+    },
+    {
+      "en": "Simplified Model (SIM)",
+      "ru": "Упрощенная модель (SIM)",
+      "tr": "Basitleştirilmiş Model (SIM)"
+    },
+    {
+      "en": "Fitted Parameters",
+      "ru": "Подобранные параметры",
+      "tr": "Uyarlanan Parametreler"
+    },
+    {
+      "en": "Model Statistics",
+      "ru": "Статистика модели",
+      "tr": "Model İstatistikleri"
+    },
+    {
+      "en": "Observed vs Predicted Data",
+      "ru": "Наблюдаемые и прогнозируемые данные",
+      "tr": "Gözlenen ve Tahmin Edilen Veriler"
+    },
+    {
+      "en": "Detailed Predictions (CER/FER)",
+      "ru": "Подробные прогнозы (CER/FER)",
+      "tr": "Detaylı Tahminler (CER/FER)"
+    },
+    {
+      "en": "Characteristic Times (CT)",
+      "ru": "Характеристические времена (CT)",
+      "tr": "Karakteristik Zamanlar (CT)"
+    },
+    {
+      "en": "Complete Model (CMP)",
+      "ru": "Полная модель (CMP)",
+      "tr": "Tam Model (CMP)"
+    },
+    {
+      "en": "Model Comparison",
+      "ru": "Сравнение моделей",
+      "tr": "Model Karşılaştırması"
+    },
+    {
+      "en": "Model Comparison Statistics",
+      "ru": "Статистика сравнения моделей",
+      "tr": "Model Karşılaştırma İstatistikleri"
+    },
+    {
+      "en": "Simplified",
+      "ru": "Упрощенный",
+      "tr": "Basitleştirilmiş"
+    },
+    {
+      "en": "Characteristic Times",
+      "ru": "Характеристические времена",
+      "tr": "Karakteristik Zamanlar"
+    },
+    {
+      "en": "Complete Model",
+      "ru": "Полная модель",
+      "tr": "Tam Model"
+    },
+    {
+      "en": "Select Model Plot",
+      "ru": "Выбрать график модели",
+      "tr": "Model Grafiği Seç"
+    },
+    {
+      "en": "Simplified Model",
+      "ru": "Упрощенная модель",
+      "tr": "Basitleştirilmiş Model"
+    },
+    {
+      "en": "Characteristic Times Model",
+      "ru": "Модель характеристических времен",
+      "tr": "Karakteristik Zamanlar Modeli"
+    },
+    {
+      "en": "Complete Model (2 Regions)",
+      "ru": "Полная модель (2 области)",
+      "tr": "Tam Model (2 Bölge)"
+    },
+    {
+      "en": "Complete Model (3 Regions)",
+      "ru": "Полная модель (3 области)",
+      "tr": "Tam Model (3 Bölge)"
+    },
+    {
+      "en": "Simplified Model (time-based)",
+      "ru": "Упрощенная модель (по времени)",
+      "tr": "Basitleştirilmiş Model (zamana dayalı)"
+    },
+    {
+      "en": "Complete Model (2 Regions) (time-based)",
+      "ru": "Полная модель (2 области) (по времени)",
+      "tr": "Tam Model (2 Bölge) (zamana dayalı)"
+    },
+    {
+      "en": "Complete Model (3 Regions) (time-based)",
+      "ru": "Полная модель (3 области) (по времени)",
+      "tr": "Tam Model (3 Bölge) (zamana dayalı)"
+    },
+    {
+      "en": "Predictions",
+      "ru": "Прогнозы",
+      "tr": "Tahminler"
+    },
+    {
+      "en": "Prediction Settings",
+      "ru": "Настройки прогноза",
+      "tr": "Tahmin Ayarları"
+    },
+    {
+      "en": "Calculate Predictions",
+      "ru": "Рассчитать прогнозы",
+      "tr": "Tahminleri Hesapla"
+    },
+    {
+      "en": "Reset Predictions",
+      "ru": "Сбросить прогнозы",
+      "tr": "Tahminleri Sıfırla"
+    },
+    {
+      "en": "Input Data Type:",
+      "ru": "Тип входных данных:",
+      "tr": "Giriş Veri Tipi:"
+    },
+    {
+      "en": "Manual Input",
+      "ru": "Ручной ввод",
+      "tr": "Manuel Giriş"
+    },
+    {
+      "en": "Upload CSV",
+      "ru": "Загрузить CSV",
+      "tr": "CSV Yükle"
+    },
+    {
+      "en": "Calculate mass and percentage yields",
+      "ru": "Рассчитать массовые и процентные выходы",
+      "tr": "Kütle ve yüzde verimlerini hesapla"
+    },
+    {
+      "en": "Select Model Type",
+      "ru": "Выбрать тип модели",
+      "tr": "Model Tipini Seç"
+    },
+    {
+      "en": "Input Units",
+      "ru": "Единицы ввода",
+      "tr": "Giriş Birimleri"
+    },
+    {
+      "en": "Solvent/Material Ratio (q)",
+      "ru": "Соотношение растворитель/материал (q)",
+      "tr": "Çözücü/Madde Oranı (q)"
+    },
+    {
+      "en": "Time (minutes)",
+      "ru": "Время (минуты)",
+      "tr": "Zaman (dakika)"
+    },
+    {
+      "en": "Note: Characteristic Times (CT) model only accepts 'Time (minutes)' units.",
+      "ru": "Примечание: Модель характеристических времен (CT) принимает только единицы 'Время (минуты)'.",
+      "tr": "Not: Karakteristik Zamanlar (CT) modeli sadece 'Zaman (dakika)' birimlerini kabul eder."
+    },
+    {
+      "en": "Prediction Results",
+      "ru": "Результаты прогноза",
+      "tr": "Tahmin Sonuçları"
+    },
+    {
+      "en": "Unit Reference Chart",
+      "ru": "Справочная таблица единиц",
+      "tr": "Birim Referans Tablosu"
+    },
+    {
+      "en": "Model Information",
+      "ru": "Информация о модели",
+      "tr": "Model Bilgisi"
+    }
+  ]
+}

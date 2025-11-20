@@ -1,0 +1,179 @@
+{
+  "translation": [
+    {
+      "en": "Select Settings",
+      "ru": "Выберите настройки",
+      "tr": "Ayarları Seç"
+    },
+    {
+      "en": "Error",
+      "ru": "Ошибка",
+      "tr": "Hata"
+    },
+    {
+      "en": "Please provide a name for the settings.",
+      "ru": "Пожалуйста, укажите имя для настроек.",
+      "tr": "Lütfen ayarlar için bir ad belirtin."
+    },
+    {
+      "en": "Success!",
+      "ru": "Успех!",
+      "tr": "Başarılı!"
+    },
+    {
+      "en": "Settings saved as",
+      "ru": "Настройки сохранены как",
+      "tr": "Ayarlar kaydedildi:"
+    },
+    {
+      "en": "Failed to save settings:",
+      "ru": "Не удалось сохранить настройки:",
+      "tr": "Ayarlar kaydedilemedi:"
+    },
+    {
+      "en": "No saved settings found.",
+      "ru": "Сохраненные настройки не найдены.",
+      "tr": "Kaydedilmiş ayar bulunamadı."
+    },
+    {
+      "en": "Settings loaded successfully.",
+      "ru": "Настройки успешно загружены.",
+      "tr": "Ayarlar başarıyla yüklendi."
+    },
+    {
+      "en": "Failed to load settings:",
+      "ru": "Не удалось загрузить настройки:",
+      "tr": "Ayarlar yüklenemedi:"
+    },
+    {
+      "en": "Settings imported successfully.",
+      "ru": "Настройки успешно импортированы.",
+      "tr": "Ayarlar başarıyla içe aktarıldı."
+    },
+    {
+      "en": "Failed to import file:",
+      "ru": "Не удалось импортировать файл:",
+      "tr": "Dosya içe aktarılamadı:"
+    },
+    {
+      "en": "Could not update all settings. The settings file might be outdated or corrupted. Error:",
+      "ru": "Не удалось обновить все настройки. Файл настроек может быть устаревшим или поврежденным. Ошибка:",
+      "tr": "Tüm ayarlar güncellenemedi. Ayarlar dosyası eski veya bozuk olabilir. Hata:"
+    },
+    {
+      "en": "No data to preview or invalid format.",
+      "ru": "Нет данных для предварительного просмотра или неверный формат.",
+      "tr": "Önizlenecek veri yok veya geçersiz format."
+    },
+    {
+      "en": "Calculating...",
+      "ru": "Расчет...",
+      "tr": "Hesaplanıyor..."
+    },
+    {
+      "en": "Preparing data...",
+      "ru": "Подготовка данных...",
+      "tr": "Veriler hazırlanıyor..."
+    },
+    {
+      "en": "Preparing parameters...",
+      "ru": "Подготовка параметров...",
+      "tr": "Parametreler hazırlanıyor..."
+    },
+    {
+      "en": "Performing calculations...",
+      "ru": "Выполнение расчетов...",
+      "tr": "Hesaplamalar yapılıyor..."
+    },
+    {
+      "en": "Completed!",
+      "ru": "Завершено!",
+      "tr": "Tamamlandı!"
+    },
+    {
+      "en": "Calculation completed!",
+      "ru": "Расчет завершен!",
+      "tr": "Hesaplama tamamlandı!"
+    },
+    {
+      "en": "Error occurred:",
+      "ru": "Произошла ошибка:",
+      "tr": "Hata oluştu:"
+    },
+    {
+      "en": "Parameters reset",
+      "ru": "Параметры сброшены",
+      "tr": "Parametreler sıfırlandı"
+    },
+    {
+      "en": "Extract produced *",
+      "ru": "Экстракт произведен *",
+      "tr": "Üretilen Ekstrakt *"
+    },
+    {
+      "en": "Profit (After-tax) *",
+      "ru": "Прибыль (после налогов) *",
+      "tr": "Kar (Vergi Sonrası) *"
+    },
+    {
+      "en": "Gross profit (After-tax) *",
+      "ru": "Валовая прибыль (после налогов) *",
+      "tr": "Brüt kar (Vergi Sonrası) *"
+    },
+    {
+      "en": "Profit Margin *",
+      "ru": "Рентабельность *",
+      "tr": "Kar Marjı *"
+    },
+    {
+      "en": "Payback Period",
+      "ru": "Срок окупаемости",
+      "tr": "Geri Ödeme Süresi"
+    },
+    {
+      "en": "Payback Period: ",
+      "ru": "Срок окупаемости: ",
+      "tr": "Geri Ödeme Süresi: "
+    },
+    {
+      "en": "Cumulative Profit Over 5 Years (",
+      "ru": "Накопленная прибыль за 5 лет (",
+      "tr": "5 Yıllık Kümülatif Kar ("
+    },
+    {
+      "en": "Cumulative Profit (USD)",
+      "ru": "Накопленная прибыль (USD)",
+      "tr": "Kümülatif Kar (USD)"
+    },
+    {
+      "en": "  Months)",
+      "ru": "  Месяцы)",
+      "tr": "  Ay)"
+    },
+    {
+      "en": " Months)",
+      "ru": " Месяцы)",
+      "tr": " Ay)"
+    },
+    {
+      "en": "Year",
+      "ru": "Год",
+      "tr": "Yıl"
+    },
+    {
+      "en": " Year",
+      "ru": " Год",
+      "tr": " Yıl"
+    },
+    {
+      "en": "Start",
+      "ru": "Старт",
+      "tr": "Başla"
+    },
+    {
+      "en": "Error exporting results:",
+      "ru": "Ошибка экспорта результатов:",
+      "tr": "Sonuçları dışa aktarma hatası:"
+    }
+  ]
+}

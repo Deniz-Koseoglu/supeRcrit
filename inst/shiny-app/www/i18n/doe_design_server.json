@@ -1,0 +1,134 @@
+{
+  "translation": [
+    {
+      "en": "Center Points",
+      "ru": "Центральные точки",
+      "tr": "Merkez Noktaları"
+    },
+    {
+      "en": "Requirements:",
+      "ru": "Требования:",
+      "tr": "Gereksinimler:"
+    },
+    {
+      "en": "Information:",
+      "ru": "Информация:",
+      "tr": "Bilgi:"
+    },
+    {
+      "en": "Invalid Configuration:",
+      "ru": "Неверная конфигурация:",
+      "tr": "Geçersiz Yapılandırma:"
+    },
+    {
+      "en": "Factor",
+      "ru": "Фактор",
+      "tr": "Faktör"
+    },
+    {
+      "en": "Name",
+      "ru": "Имя",
+      "tr": "Ad"
+    },
+    {
+      "en": "Min",
+      "ru": "Мин",
+      "tr": "Min"
+    },
+    {
+      "en": "Max",
+      "ru": "Макс",
+      "tr": "Maks"
+    },
+    {
+      "en": "CCD Type:",
+      "ru": "Тип ЦКП:",
+      "tr": "CCD Tipi:"
+    },
+    {
+      "en": "Levels:",
+      "ru": "Уровни:",
+      "tr": "Seviyeler:"
+    },
+    {
+      "en": "Use Default Center Points",
+      "ru": "Использовать центральные точки по умолчанию",
+      "tr": "Varsayılan Merkez Noktalarını Kullan"
+    },
+    {
+      "en": "Fraction (p)",
+      "ru": "Доля (p)",
+      "tr": "Kesir (p)"
+    },
+    {
+      "en": "Aliasing:",
+      "ru": "Псевдонимы:",
+      "tr": "Takma Adlandırma:"
+    },
+    {
+      "en": "Generating design...",
+      "ru": "Генерация дизайна...",
+      "tr": "Tasarım oluşturuluyor..."
+    },
+    {
+      "en": "Preparing parameters...",
+      "ru": "Подготовка параметров...",
+      "tr": "Parametreler hazırlanıyor..."
+    },
+    {
+      "en": "Generating design matrix...",
+      "ru": "Генерация матрицы дизайна...",
+      "tr": "Tasarım matrisi oluşturuluyor..."
+    },
+    {
+      "en": "Completed!",
+      "ru": "Завершено!",
+      "tr": "Tamamlandı!"
+    },
+    {
+      "en": "Design generated successfully!",
+      "ru": "Дизайн успешно сгенерирован!",
+      "tr": "Tasarım başarıyla oluşturuldu!"
+    },
+    {
+      "en": "Error:",
+      "ru": "Ошибка:",
+      "tr": "Hata:"
+    },
+    {
+      "en": "Total Runs",
+      "ru": "Всего прогонов",
+      "tr": "Toplam Çalışma"
+    },
+    {
+      "en": "Design Type",
+      "ru": "Тип дизайна",
+      "tr": "Tasarım Tipi"
+    },
+    {
+      "en": "Factors",
+      "ru": "Факторы",
+      "tr": "Faktörler"
+    },
+    {
+      "en": "Final filename:",
+      "ru": "Итоговое имя файла:",
+      "tr": "Son dosya adı:"
+    },
+    {
+      "en": "Design saved successfully!",
+      "ru": "Дизайн успешно сохранен!",
+      "tr": "Tasarım başarıyla kaydedildi!"
+    },
+    {
+      "en": "Error saving design:",
+      "ru": "Ошибка сохранения дизайна:",
+      "tr": "Tasarım kaydedilirken hata oluştu:"
+    },
+    {
+      "en": "Parameters reset",
+      "ru": "Параметры сброшены",
+      "tr": "Parametreler sıfırlandı"
+    }
+  ]
+}

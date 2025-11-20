@@ -1,0 +1,3170 @@
+{
+  "cultural_date_format": "%d-%m-%Y",
+  "languages": [
+    "en",
+    "ru",
+    "tr"
+  ],
+  "translation": [
+    {
+      "en": "DOE Analysis",
+      "ru": "DOE Анализ",
+      "tr": "DOE Analiz"
+    },
+    {
+      "en": "DOE Design",
+      "ru": "DOE Дизайн",
+      "tr": "DOE Tasarım"
+    },
+    {
+      "en": "Kinetic Modeling",
+      "ru": "Кинетическое моделирование",
+      "tr": "Kinetik Modelleme"
+    },
+    {
+      "en": "Two-Site Adsorption",
+      "ru": "Двухсайтовая адсорбция",
+      "tr": "İki Bölgeli Adsorpsiyon"
+    },
+    {
+      "en": "Broken-And-Intact Cell",
+      "ru": "Поврежденная и неповрежденная клетка",
+      "tr": "Hasarlı ve Sağlam Hücre"
+    },
+    {
+      "en": "Help",
+      "ru": "Помощь",
+      "tr": "Yardım"
+    },
+    {
+      "en": "Cost Analysis",
+      "ru": "Анализ стоимости",
+      "tr": "Maliyet Analizi"
+    },
+    {
+      "en": "Design of Experiments",
+      "ru": "Планирование экспериментов",
+      "tr": "Deneyler Tasarımı"
+    },
+    {
+      "en": "Desirability Function",
+      "ru": "Функция желательности",
+      "tr": "İstenilirlik Fonksiyonu"
+    },
+    {
+      "en": "SFE Co-Solvent Selection",
+      "ru": "Выбор сорастворителя СФЭ",
+      "tr": "SFE Eş Çözücü Seçimi"
+    },
+    {
+      "en": "Solute Characterization",
+      "ru": "Характеризация растворенного вещества",
+      "tr": "Çözünen Madde Karakterizasyonu"
+    },
+    {
+      "en": "Miscibility Optimization",
+      "ru": "Оптимизация смешиваемости",
+      "tr": "Karışabilirlik Optimizasyonu"
+    },
+    {
+      "en": "Miscibility Comparison",
+      "ru": "Сравнение смешиваемости",
+      "tr": "Karışabilirlik Karşılaştırması"
+    },
+    {
+      "en": "Auxiliary Tools",
+      "ru": "Вспомогательные инструменты",
+      "tr": "Yardımcı Araçlar"
+    },
+    {
+      "en": "Select Settings",
+      "ru": "Выберите настройки",
+      "tr": "Ayarları Seç"
+    },
+    {
+      "en": "Error",
+      "ru": "Ошибка",
+      "tr": "Hata"
+    },
+    {
+      "en": "Please provide a name for the settings.",
+      "ru": "Пожалуйста, укажите имя для настроек.",
+      "tr": "Lütfen ayarlar için bir ad belirtin."
+    },
+    {
+      "en": "Success!",
+      "ru": "Успех!",
+      "tr": "Başarılı!"
+    },
+    {
+      "en": "Settings saved as",
+      "ru": "Настройки сохранены как",
+      "tr": "Ayarlar kaydedildi:"
+    },
+    {
+      "en": "Failed to save settings:",
+      "ru": "Не удалось сохранить настройки:",
+      "tr": "Ayarlar kaydedilemedi:"
+    },
+    {
+      "en": "No saved settings found.",
+      "ru": "Сохраненные настройки не найдены.",
+      "tr": "Kaydedilmiş ayar bulunamadı."
+    },
+    {
+      "en": "Settings loaded successfully.",
+      "ru": "Настройки успешно загружены.",
+      "tr": "Ayarlar başarıyla yüklendi."
+    },
+    {
+      "en": "Failed to load settings:",
+      "ru": "Не удалось загрузить настройки:",
+      "tr": "Ayarlar yüklenemedi:"
+    },
+    {
+      "en": "Settings imported successfully.",
+      "ru": "Настройки успешно импортированы.",
+      "tr": "Ayarlar başarıyla içe aktarıldı."
+    },
+    {
+      "en": "Failed to import file:",
+      "ru": "Не удалось импортировать файл:",
+      "tr": "Dosya içe aktarılamadı:"
+    },
+    {
+      "en": "Could not update all settings. The settings file might be outdated or corrupted. Error:",
+      "ru": "Не удалось обновить все настройки. Файл настроек может быть устаревшим или поврежденным. Ошибка:",
+      "tr": "Tüm ayarlar güncellenemedi. Ayarlar dosyası eski veya bozuk olabilir. Hata:"
+    },
+    {
+      "en": "No data to preview or invalid format.",
+      "ru": "Нет данных для предварительного просмотра или неверный формат.",
+      "tr": "Önizlenecek veri yok veya geçersiz format."
+    },
+    {
+      "en": "Calculating...",
+      "ru": "Расчет...",
+      "tr": "Hesaplanıyor..."
+    },
+    {
+      "en": "Preparing data...",
+      "ru": "Подготовка данных...",
+      "tr": "Veriler hazırlanıyor..."
+    },
+    {
+      "en": "Preparing parameters...",
+      "ru": "Подготовка параметров...",
+      "tr": "Parametreler hazırlanıyor..."
+    },
+    {
+      "en": "Performing calculations...",
+      "ru": "Выполнение расчетов...",
+      "tr": "Hesaplamalar yapılıyor..."
+    },
+    {
+      "en": "Completed!",
+      "ru": "Завершено!",
+      "tr": "Tamamlandı!"
+    },
+    {
+      "en": "Calculation completed!",
+      "ru": "Расчет завершен!",
+      "tr": "Hesaplama tamamlandı!"
+    },
+    {
+      "en": "Error occurred:",
+      "ru": "Произошла ошибка:",
+      "tr": "Hata oluştu:"
+    },
+    {
+      "en": "Parameters reset",
+      "ru": "Параметры сброшены",
+      "tr": "Parametreler sıfırlandı"
+    },
+    {
+      "en": "Extract produced *",
+      "ru": "Экстракт произведен *",
+      "tr": "Üretilen Ekstrakt *"
+    },
+    {
+      "en": "Profit (After-tax) *",
+      "ru": "Прибыль (после налогов) *",
+      "tr": "Kar (Vergi Sonrası) *"
+    },
+    {
+      "en": "Gross profit (After-tax) *",
+      "ru": "Валовая прибыль (после налогов) *",
+      "tr": "Brüt kar (Vergi Sonrası) *"
+    },
+    {
+      "en": "Profit Margin *",
+      "ru": "Рентабельность *",
+      "tr": "Kar Marjı *"
+    },
+    {
+      "en": "Payback Period",
+      "ru": "Срок окупаемости",
+      "tr": "Geri Ödeme Süresi"
+    },
+    {
+      "en": "Payback Period: ",
+      "ru": "Срок окупаемости: ",
+      "tr": "Geri Ödeme Süresi: "
+    },
+    {
+      "en": "Cumulative Profit Over 5 Years (",
+      "ru": "Накопленная прибыль за 5 лет (",
+      "tr": "5 Yıllık Kümülatif Kar ("
+    },
+    {
+      "en": "Cumulative Profit (USD)",
+      "ru": "Накопленная прибыль (USD)",
+      "tr": "Kümülatif Kar (USD)"
+    },
+    {
+      "en": "  Months)",
+      "ru": "  Месяцы)",
+      "tr": "  Ay)"
+    },
+    {
+      "en": " Months)",
+      "ru": " Месяцы)",
+      "tr": " Ay)"
+    },
+    {
+      "en": "Year",
+      "ru": "Год",
+      "tr": "Yıl"
+    },
+    {
+      "en": " Year",
+      "ru": " Год",
+      "tr": " Yıl"
+    },
+    {
+      "en": "Start",
+      "ru": "Старт",
+      "tr": "Başla"
+    },
+    {
+      "en": "Error exporting results:",
+      "ru": "Ошибка экспорта результатов:",
+      "tr": "Sonuçları dışa aktarma hatası:"
+    },
+    {
+      "en": "Manage Settings",
+      "ru": "Управление настройками",
+      "tr": "Ayarları Yönet"
+    },
+    {
+      "en": "Save",
+      "ru": "Сохранить",
+      "tr": "Kaydet"
+    },
+    {
+      "en": "Save Current Settings",
+      "ru": "Сохранить текущие настройки",
+      "tr": "Mevcut Ayarları Kaydet"
+    },
+    {
+      "en": "Settings Name",
+      "ru": "Название настроек",
+      "tr": "Ayar Adı"
+    },
+    {
+      "en": "e.g., my_hplc_method",
+      "ru": "например, мой_метод_ВЭЖХ",
+      "tr": "örn., hplc_metodum"
+    },
+    {
+      "en": "Load Saved Settings",
+      "ru": "Загрузить сохраненные настройки",
+      "tr": "Kaydedilmiş Ayarları Yükle"
+    },
+    {
+      "en": "Load",
+      "ru": "Загрузить",
+      "tr": "Yükle"
+    },
+    {
+      "en": "Import Settings from File",
+      "ru": "Импортировать настройки из файла",
+      "tr": "Dosyadan Ayarları İçe Aktar"
+    },
+    {
+      "en": "Choose JSON File",
+      "ru": "Выберите файл JSON",
+      "tr": "JSON Dosyası Seç"
+    },
+    {
+      "en": "Import",
+      "ru": "Импорт",
+      "tr": "İçe Aktar"
+    },
+    {
+      "en": "Filename",
+      "ru": "Имя файла",
+      "tr": "Dosya Adı"
+    },
+    {
+      "en": "Export",
+      "ru": "Экспорт",
+      "tr": "Dışa Aktar"
+    },
+    {
+      "en": "Cancel",
+      "ru": "Отмена",
+      "tr": "İptal"
+    },
+    {
+      "en": "Reset",
+      "ru": "Сброс",
+      "tr": "Sıfırla"
+    },
+    {
+      "en": "Calculate",
+      "ru": "Рассчитать",
+      "tr": "Hesapla"
+    },
+    {
+      "en": "Settings",
+      "ru": "Настройки",
+      "tr": "Ayarlar"
+    },
+    {
+      "en": "Select Input Type:",
+      "ru": "Выберите тип ввода:",
+      "tr": "Giriş Türünü Seçin:"
+    },
+    {
+      "en": "Time (min)",
+      "ru": "Время (мин)",
+      "tr": "Süre (dk)"
+    },
+    {
+      "en": "Yield (g)",
+      "ru": "Выход (г)",
+      "tr": "Verim (g)"
+    },
+    {
+      "en": "Upload CSV File",
+      "ru": "Загрузить CSV файл",
+      "tr": "CSV Dosyası Yükle"
+    },
+    {
+      "en": "Enter Time and Yield Data (CSV format, max 10 rows)",
+      "ru": "Введите данные времени и выхода (формат CSV, макс. 10 строк)",
+      "tr": "Zaman ve Verim Verilerini Girin (CSV formatı, maks. 10 satır)"
+    },
+    {
+      "en": "Calculation Mode",
+      "ru": "Режим расчета",
+      "tr": "Hesaplama Modu"
+    },
+    {
+      "en": "Use Pre-defined Coefficients",
+      "ru": "Использовать предопределенные коэффициенты",
+      "tr": "Önceden Tanımlanmış Katsayıları Kullan"
+    },
+    {
+      "en": "General Parameters",
+      "ru": "Общие параметры",
+      "tr": "Genel Parametreler"
+    },
+    {
+      "en": "Extractor Volume (L)",
+      "ru": "Объем экстрактора (л)",
+      "tr": "Ekstraktör Hacmi (L)"
+    },
+    {
+      "en": "Load (kg)",
+      "ru": "Загрузка (кг)",
+      "tr": "Yük (kg)"
+    },
+    {
+      "en": "Pressure (bar)",
+      "ru": "Давление (бар)",
+      "tr": "Basınç (bar)"
+    },
+    {
+      "en": "Temperature (°C)",
+      "ru": "Температура (°C)",
+      "tr": "Sıcaklık (°C)"
+    },
+    {
+      "en": "Flow Rate (mL/min)",
+      "ru": "Скорость потока (мл/мин)",
+      "tr": "Akış Hızı (mL/dk)"
+    },
+    {
+      "en": "Extraction Time (min)",
+      "ru": "Время экстракции (мин)",
+      "tr": "Ekstraksiyon Süresi (dk)"
+    },
+    {
+      "en": "Dilution Factor",
+      "ru": "Коэффициент разбавления",
+      "tr": "Seyreltme Faktörü"
+    },
+    {
+      "en": "Sales Price (USD/kg)",
+      "ru": "Цена продажи (USD/кг)",
+      "tr": "Satış Fiyatı (USD/kg)"
+    },
+    {
+      "en": "Other parameters",
+      "ru": "Другие параметры",
+      "tr": "Diğer parametreler"
+    },
+    {
+      "en": "Auxiliary Material Price (USD/kg)",
+      "ru": "Цена вспомогательного материала (USD/кг)",
+      "tr": "Yardımcı Madde Fiyatı (USD/kg)"
+    },
+    {
+      "en": "Required Fraction",
+      "ru": "Требуемая фракция",
+      "tr": "Gerekli Fraksiyon"
+    },
+    {
+      "en": "Co-solvent Loss (fraction)",
+      "ru": "Потеря сорастворителя (доля)",
+      "tr": "Yardımcı Çözücü Kaybı (fraksiyon)"
+    },
+    {
+      "en": "Flow Parameter",
+      "ru": "Параметр потока",
+      "tr": "Akış Parametresi"
+    },
+    {
+      "en": "Co-solvent Flow Rate (mL/min)",
+      "ru": "Скорость потока сорастворителя (мл/мин)",
+      "tr": "Yardımcı Çözücü Akış Hızı (mL/dk)"
+    },
+    {
+      "en": "Cost of Raw Materials",
+      "ru": "Стоимость сырья",
+      "tr": "Hammadde Maliyeti"
+    },
+    {
+      "en": "Bed Height (cm)",
+      "ru": "Высота слоя (см)",
+      "tr": "Yatak Yüksekliği (cm)"
+    },
+    {
+      "en": "Inner Diameter (cm)",
+      "ru": "Внутренний диаметр (см)",
+      "tr": "İç Çap (cm)"
+    },
+    {
+      "en": "Raw Material Price (USD/kg)",
+      "ru": "Цена сырья (USD/кг)",
+      "tr": "Hammadde Fiyatı (USD/kg)"
+    },
+    {
+      "en": "Main Solvent Price (USD/kg)",
+      "ru": "Цена основного растворителя (USD/кг)",
+      "tr": "Ana Çözücü Fiyatı (USD/kg)"
+    },
+    {
+      "en": "Co-solvent Price (USD/kg)",
+      "ru": "Цена сорастворителя (USD/кг)",
+      "tr": "Yardımcı Çözücü Fiyatı (USD/kg)"
+    },
+    {
+      "en": "Recovery Pressure (bar)",
+      "ru": "Давление восстановления (бар)",
+      "tr": "Geri Kazanım Basıncı (bar)"
+    },
+    {
+      "en": "Recovery Temperature (°C)",
+      "ru": "Температура восстановления (°C)",
+      "tr": "Geri Kazanım Sıcaklığı (°C)"
+    },
+    {
+      "en": "Separator Temperature (°C)",
+      "ru": "Температура сепаратора (°C)",
+      "tr": "Ayırıcı Sıcaklığı (°C)"
+    },
+    {
+      "en": "Cost of Utilities",
+      "ru": "Стоимость коммунальных услуг",
+      "tr": "Yardımcı Hizmet Maliyeti"
+    },
+    {
+      "en": "Main Power (kW)",
+      "ru": "Основная мощность (кВт)",
+      "tr": "Ana Güç (kW)"
+    },
+    {
+      "en": "Energy Price (USD/kWh)",
+      "ru": "Цена энергии (USD/кВтч)",
+      "tr": "Enerji Fiyatı (USD/kWh)"
+    },
+    {
+      "en": "Drying Power (kW)",
+      "ru": "Мощность сушки (кВт)",
+      "tr": "Kurutma Gücü (kW)"
+    },
+    {
+      "en": "Drying Capacity (kg/h)",
+      "ru": "Мощность сушки (кг/ч)",
+      "tr": "Kurutma Kapasitesi (kg/sa)"
+    },
+    {
+      "en": "Comminution Power (kW)",
+      "ru": "Мощность измельчения (кВт)",
+      "tr": "Öğütme Gücü (kW)"
+    },
+    {
+      "en": "Comminution Capacity (kg/h)",
+      "ru": "Мощность измельчения (кг/ч)",
+      "tr": "Öğütme Kapasitesi (kg/sa)"
+    },
+    {
+      "en": "Evaporation Power (kW)",
+      "ru": "Мощность испарения (кВт)",
+      "tr": "Buharlaşma Gücü (kW)"
+    },
+    {
+      "en": "Evaporation Capacity (kg/h)",
+      "ru": "Мощность испарения (кг/ч)",
+      "tr": "Buharlaşma Kapasitesi (kg/sa)"
+    },
+    {
+      "en": "Cost of Labor",
+      "ru": "Стоимость труда",
+      "tr": "İşçilik Maliyeti"
+    },
+    {
+      "en": "Number of Operators",
+      "ru": "Количество операторов",
+      "tr": "Operatör Sayısı"
+    },
+    {
+      "en": "Shift Duration (hours)",
+      "ru": "Продолжительность смены (часы)",
+      "tr": "Vardiya Süresi (saat)"
+    },
+    {
+      "en": "Number of Shifts",
+      "ru": "Количество смен",
+      "tr": "Vardiya Sayısı"
+    },
+    {
+      "en": "Monthly Wage (USD)",
+      "ru": "Месячная заработная плата (USD)",
+      "tr": "Aylık Ücret (USD)"
+    },
+    {
+      "en": "Working Days (monthly)",
+      "ru": "Рабочие дни (в месяц)",
+      "tr": "Çalışma Günleri (aylık)"
+    },
+    {
+      "en": "Fixed Costs & Tax Rate",
+      "ru": "Постоянные затраты и налоговая ставка",
+      "tr": "Sabit Maliyetler ve Vergi Oranı"
+    },
+    {
+      "en": "Capital Investment (USD)",
+      "ru": "Капитальные вложения (USD)",
+      "tr": "Sermaye Yatırımı (USD)"
+    },
+    {
+      "en": "Maintenance Cost (USD)",
+      "ru": "Затраты на обслуживание (USD)",
+      "tr": "Bakım Maliyeti (USD)"
+    },
+    {
+      "en": "Other Fixed Costs (USD)",
+      "ru": "Прочие постоянные затраты (USD)",
+      "tr": "Diğer Sabit Maliyetler (USD)"
+    },
+    {
+      "en": "Depreciation Rate",
+      "ru": "Норма амортизации",
+      "tr": "Amortisman Oranı"
+    },
+    {
+      "en": "Tax Rate",
+      "ru": "Налоговая ставка",
+      "tr": "Vergi Oranı"
+    },
+    {
+      "en": "General Results",
+      "ru": "Общие результаты",
+      "tr": "Genel Sonuçlar"
+    },
+    {
+      "en": "*MONTHLY",
+      "ru": "*ЕЖЕМЕСЯЧНО",
+      "tr": "*AYLIK"
+    },
+    {
+      "en": "Select Time (min):",
+      "ru": "Выберите время (мин):",
+      "tr": "Zamanı Seçin (dk):"
+    },
+    {
+      "en": "5-Year ROI and Payback Period",
+      "ru": "5-летний ROI и срок окупаемости",
+      "tr": "5 Yıllık ROI ve Geri Ödeme Süresi"
+    },
+    {
+      "en": "Monthly Table",
+      "ru": "Ежемесячная таблица",
+      "tr": "Aylık Tablo"
+    },
+    {
+      "en": "Export Monthly Data",
+      "ru": "Экспорт ежемесячных данных",
+      "tr": "Aylık Verileri Dışa Aktar"
+    },
+    {
+      "en": "Optimal Performance Window",
+      "ru": "Оптимальное окно производительности",
+      "tr": "Optimal Performans Penceresi"
+    },
+    {
+      "en": "Plots are available only when multiple time-yield data points are provided.",
+      "ru": "Графики доступны только при наличии нескольких точек данных времени-выхода.",
+      "tr": "Grafikler yalnızca birden fazla zaman-verim veri noktası sağlandığında kullanılabilir."
+    },
+    {
+      "en": "Payback Plot",
+      "ru": "График окупаемости",
+      "tr": "Geri Ödeme Grafiği"
+    },
+    {
+      "en": "Specific Cost Plot",
+      "ru": "График удельных затрат",
+      "tr": "Spesifik Maliyet Grafiği"
+    },
+    {
+      "en": "Detailed Results",
+      "ru": "Подробные результаты",
+      "tr": "Detaylı Sonuçlar"
+    },
+    {
+      "en": "Detailed Cost Distribution",
+      "ru": "Подробное распределение затрат",
+      "tr": "Detaylı Maliyet Dağılımı"
+    },
+    {
+      "en": "Download All Results",
+      "ru": "Скачать все результаты",
+      "tr": "Tüm Sonuçları İndir"
+    },
+    {
+      "en": "e.g., black cumin",
+      "ru": "например, черный тмин",
+      "tr": "örn., siyah kimyon"
+    },
+    {
+      "en": "Saved Settings",
+      "ru": "Сохраненные настройки",
+      "tr": "Kaydedilmiş Ayarlar"
+    },
+    {
+      "en": " years",
+      "ru": " лет",
+      "tr": " yıl"
+    },
+    {
+      "en": "Input Parameters",
+      "ru": "Входные параметры",
+      "tr": "Giriş Parametreleri"
+    },
+    {
+      "en": "Input Data",
+      "ru": "Входные данные",
+      "tr": "Giriş Verileri"
+    },
+    {
+      "en": "Close",
+      "ru": "Закрыть",
+      "tr": "Kapat"
+    },
+    {
+      "en": "Single Value",
+      "ru": "Одиночное значение",
+      "tr": "Tek Değer"
+    },
+    {
+      "en": "Manual Text Input",
+      "ru": "Ручной ввод текста",
+      "tr": "Manuel Metin Girişi"
+    },
+    {
+      "en": "Export Current Settings",
+      "ru": "Экспортировать текущие настройки",
+      "tr": "Mevcut Ayarları Dışa Aktar"
+    },
+    {
+      "en": "Month",
+      "ru": "Месяц",
+      "tr": "Ay"
+    },
+    {
+      "en": "Cumulative Gross Profit (USD)",
+      "ru": "Совокупная валовая прибыль (USD)",
+      "tr": "Kümülatif Brüt Kar (USD)"
+    },
+    {
+      "en": "Cumulative Net Profit (USD)",
+      "ru": "Совокупная чистая прибыль (USD)",
+      "tr": "Kümülatif Net Kar (USD)"
+    },
+    {
+      "en": "Sales Volume (USD/month)",
+      "ru": "Объем продаж (USD/месяц)",
+      "tr": "Satış Hacmi (USD/ay)"
+    },
+    {
+      "en": "Cost of Manufacturing (USD/month)",
+      "ru": "Стоимость производства (USD/месяц)",
+      "tr": "Üretim Maliyeti (USD/ay)"
+    },
+    {
+      "en": "Cost of Raw Materials (USD/month)",
+      "ru": "Стоимость сырья (USD/месяц)",
+      "tr": "Hammadde Maliyeti (USD/ay)"
+    },
+    {
+      "en": "Cost of Utilities (USD/month)",
+      "ru": "Стоимость коммунальных услуг (USD/месяц)",
+      "tr": "Altyapı Hizmetleri Maliyeti"
+    },
+    {
+      "en": "Fixed Cost (USD/month)",
+      "ru": "Постоянные затраты (USD/месяц)",
+      "tr": "Sabit Maliyet (USD/ay)"
+    },
+    {
+      "en": "Cost of Labour (USD/month)",
+      "ru": "Стоимость труда (USD/месяц)",
+      "tr": "İşçilik Maliyeti (USD/ay)"
+    },
+    {
+      "en": "Tax Rate (%)",
+      "ru": "Налоговая ставка (%)",
+      "tr": "Vergi Oranı (%)"
+    },
+    {
+      "en": "Error saving settings:",
+      "ru": "Ошибка сохранения настроек:",
+      "tr": "Ayarlar kaydedilirken hata oluştu:"
+    },
+    {
+      "en": "Text input must have exactly two columns (time, yield).",
+      "ru": "Текстовый ввод должен содержать ровно два столбца (время, выход).",
+      "tr": "Metin girişi tam olarak iki sütun (zaman, verim) içermelidir."
+    },
+    {
+      "en": "Text input column names must be 'time' and 'yield'.",
+      "ru": "Имена столбцов текстового ввода должны быть 'time' и 'yield'.",
+      "tr": "Metin girişi sütun adları 'time' ve 'yield' olmalıdır."
+    },
+    {
+      "en": "Time and yield columns must be numeric.",
+      "ru": "Столбцы времени и выхода должны быть числовыми.",
+      "tr": "Zaman ve verim sütunları sayısal olmalıdır."
+    },
+    {
+      "en": "Error parsing text input:",
+      "ru": "Ошибка при разборе текстового ввода:",
+      "tr": "Metin girişi ayrıştırılırken hata oluştu:"
+    },
+    {
+      "en": "merge_translation_jsons is running. Output file: ",
+      "ru": "merge_translation_jsons выполняется. Выходной файл: ",
+      "tr": "merge_translation_jsons çalışıyor. Çıktı dosyası: "
+    },
+    {
+      "en": "Error loading JSON:",
+      "ru": "Ошибка загрузки JSON:",
+      "tr": "JSON yüklenirken hata oluştu:"
+    },
+    {
+      "en": "Error loading CSV:",
+      "ru": "Ошибка загрузки CSV:",
+      "tr": "CSV yüklenirken hata oluştu:"
+    },
+    {
+      "en": "Error parsing manual data:",
+      "ru": "Ошибка при разборе данных вручную:",
+      "tr": "Manuel veri ayrıştırılırken hata oluştu:"
+    },
+    {
+      "en": "No data loaded",
+      "ru": "Данные не загружены",
+      "tr": "Veri yüklenmedi"
+    },
+    {
+      "en": "Running analysis...",
+      "ru": "Выполнение анализа...",
+      "tr": "Analiz çalıştırılıyor..."
+    },
+    {
+      "en": "Running DOE analysis...",
+      "ru": "Выполнение анализа DOE...",
+      "tr": "DOE analizi çalıştırılıyor..."
+    },
+    {
+      "en": "Analysis completed!",
+      "ru": "Анализ завершен!",
+      "tr": "Analiz tamamlandı!"
+    },
+    {
+      "en": "Analysis completed successfully!",
+      "ru": "Анализ успешно завершен!",
+      "tr": "Analiz başarıyla tamamlandı!"
+    },
+    {
+      "en": "Analysis error:",
+      "ru": "Ошибка анализа:",
+      "tr": "Analiz hatası:"
+    },
+    {
+      "en": "Analysis reset",
+      "ru": "Анализ сброшен",
+      "tr": "Analiz sıfırlandı"
+    },
+    {
+      "en": "Analyze",
+      "ru": "Анализировать",
+      "tr": "Analiz Et"
+    },
+    {
+      "en": "Analysis Parameters",
+      "ru": "Параметры анализа",
+      "tr": "Analiz Parametreleri"
+    },
+    {
+      "en": "Time Variable:",
+      "ru": "Переменная времени:",
+      "tr": "Zaman Değişkeni:"
+    },
+    {
+      "en": "Response Variable:",
+      "ru": "Переменная отклика:",
+      "tr": "Yanıt Değişkeni:"
+    },
+    {
+      "en": "Model Order:",
+      "ru": "Порядок модели:",
+      "tr": "Model Sırası:"
+    },
+    {
+      "en": "P-value Cutoff",
+      "ru": "Отсечка P-значения",
+      "tr": "P-değeri Kesme Noktası"
+    },
+    {
+      "en": "Trim Method:",
+      "ru": "Метод обрезки:",
+      "tr": "Kırpma Yöntemi:"
+    },
+    {
+      "en": "Factor Type:",
+      "ru": "Тип фактора:",
+      "tr": "Faktör Tipi:"
+    },
+    {
+      "en": "Data Source",
+      "ru": "Источник данных",
+      "tr": "Veri Kaynağı"
+    },
+    {
+      "en": "Select Data Source:",
+      "ru": "Выберите источник данных:",
+      "tr": "Veri Kaynağını Seçin:"
+    },
+    {
+      "en": "Select Saved Design:",
+      "ru": "Выберите сохраненный дизайн:",
+      "tr": "Kaydedilmiş Tasarımı Seçin:"
+    },
+    {
+      "en": "Import JSON File",
+      "ru": "Импортировать файл JSON",
+      "tr": "JSON Dosyasını İçe Aktar"
+    },
+    {
+      "en": "Import CSV File",
+      "ru": "Импортировать файл CSV",
+      "tr": "CSV Dosyasını İçe Aktar"
+    },
+    {
+      "en": "Data Preview",
+      "ru": "Предварительный просмотр данных",
+      "tr": "Veri Önizleme"
+    },
+    {
+      "en": "Model Summary",
+      "ru": "Сводка модели",
+      "tr": "Model Özeti"
+    },
+    {
+      "en": "All Results",
+      "ru": "Все результаты",
+      "tr": "Tüm Sonuçlar"
+    },
+    {
+      "en": "ANOVA Table",
+      "ru": "Таблица ANOVA",
+      "tr": "ANOVA Tablosu"
+    },
+    {
+      "en": "Optimization",
+      "ru": "Оптимизация",
+      "tr": "Optimizasyon"
+    },
+    {
+      "en": "Predicted Optimum",
+      "ru": "Предсказанный оптимум",
+      "tr": "Tahmini Optimum"
+    },
+    {
+      "en": "Stationary Point",
+      "ru": "Стационарная точка",
+      "tr": "Durağan Nokta"
+    },
+    {
+      "en": "Optimal Conditions",
+      "ru": "Оптимальные условия",
+      "tr": "Optimal Koşullar"
+    },
+    {
+      "en": "Canonical Analysis",
+      "ru": "Канонический анализ",
+      "tr": "Kanonik Analiz"
+    },
+    {
+      "en": "Diagnostics",
+      "ru": "Диагностика",
+      "tr": "Tanılama"
+    },
+    {
+      "en": "Residual Plot",
+      "ru": "График остатков",
+      "tr": "Artık Grafik"
+    },
+    {
+      "en": "Normal Q-Q Plot",
+      "ru": "Нормальный Q-Q график",
+      "tr": "Normal Q-Q Grafiği"
+    },
+    {
+      "en": "Pareto Chart",
+      "ru": "Диаграмма Парето",
+      "tr": "Pareto Grafiği"
+    },
+    {
+      "en": "Cook's Distance",
+      "ru": "Расстояние Кука",
+      "tr": "Cook Mesafesi"
+    },
+    {
+      "en": "Model Details",
+      "ru": "Детали модели",
+      "tr": "Model Detayları"
+    },
+    {
+      "en": "Model Coefficients",
+      "ru": "Коэффициенты модели",
+      "tr": "Model Katsayıları"
+    },
+    {
+      "en": "Model Data",
+      "ru": "Данные модели",
+      "tr": "Model Verileri"
+    },
+    {
+      "en": "Total Result",
+      "ru": "Общий результат",
+      "tr": "Toplam Sonuç"
+    },
+    {
+      "en": "Save Analysis",
+      "ru": "Сохранить анализ",
+      "tr": "Analizi Kaydet"
+    },
+    {
+      "en": "Uncoded Factors:",
+      "ru": "Некодированные факторы:",
+      "tr": "Kodlanmamış Faktörler:"
+    },
+    {
+      "en": "Optimal Conditions (Canonical Analysis)",
+      "ru": "Оптимальные условия (канонический анализ)",
+      "tr": "Optimal Koşullar (Kanonik Analiz)"
+    },
+    {
+      "en": "Canonical Analysis Summary",
+      "ru": "Сводка канонического анализа",
+      "tr": "Kanonik Analiz Özeti"
+    },
+    {
+      "en": "Optimization Results",
+      "ru": "Результаты оптимизации",
+      "tr": "Optimizasyon Sonuçları"
+    },
+    {
+      "en": "Stationary Point Type",
+      "ru": "Тип стационарной точки",
+      "tr": "Durağan Nokta Tipi"
+    },
+    {
+      "en": "Predicted Response at Stationary Point",
+      "ru": "Прогнозируемый отклик в стационарной точке",
+      "tr": "Durağan Noktadaki Tahmini Yanıt"
+    },
+    {
+      "en": "Stationary Point (Coded and Decoded)",
+      "ru": "Стационарная точка (кодированная и декодированная)",
+      "tr": "Durağan Nokta (Kodlanmış ve Kod Çözülmüş)"
+    },
+    {
+      "en": "Min/Max Response Comparison (Traditional Optimization)",
+      "ru": "Сравнение мин/макс отклика (традиционная оптимизация)",
+      "tr": "Min/Max Yanıt Karşılaştırması (Geleneksel Optimizasyon)"
+    },
+    {
+      "en": "Steepest Ascent Path",
+      "ru": "Путь наискорейшего подъема",
+      "tr": "En Dik Çıkış Yolu"
+    },
+    {
+      "en": "Eigenvalues Analysis",
+      "ru": "Анализ собственных значений",
+      "tr": "Özdeğer Analizi"
+    },
+    {
+      "en": "Range Check and Warnings",
+      "ru": "Проверка диапазона и предупреждения",
+      "tr": "Aralık Kontrolü ve Uyarılar"
+    },
+    {
+      "en": "Initial Model Diagnostics",
+      "ru": "Диагностика начальной модели",
+      "tr": "Başlangıç Modeli Tanılaması"
+    },
+    {
+      "en": "Final Model Diagnostics",
+      "ru": "Диагностика конечной модели",
+      "tr": "Nihai Model Tanılaması"
+    },
+    {
+      "en": "Initial Model: Response vs Predicted",
+      "ru": "Начальная модель: Отклик против прогнозируемого",
+      "tr": "Başlangıç Modeli: Yanıt ve Tahmin Karşılaştırması"
+    },
+    {
+      "en": "Initial Model: Response Diagnostics",
+      "ru": "Начальная модель: Диагностика отклика",
+      "tr": "Başlangıç Modeli: Yanıt Tanılaması"
+    },
+    {
+      "en": "Initial Model: Residual vs Predicted",
+      "ru": "Начальная модель: Остатки против прогнозируемого",
+      "tr": "Başlangıç Modeli: Artık ve Tahmin Karşılaştırması"
+    },
+    {
+      "en": "Initial Model: Residual Diagnostics",
+      "ru": "Начальная модель: Диагностика остатков",
+      "tr": "Başlangıç Modeli: Artık Tanılaması"
+    },
+    {
+      "en": "Initial Model: Cook's Distance",
+      "ru": "Начальная модель: Расстояние Кука",
+      "tr": "Başlangıç Modeli: Cook Mesafesi"
+    },
+    {
+      "en": "Initial Model: Pareto Plot",
+      "ru": "Начальная модель: Диаграмма Парето",
+      "tr": "Başlangıç Modeli: Pareto Grafiği"
+    },
+    {
+      "en": "Initial Model: Response vs Coded",
+      "ru": "Начальная модель: Отклик против кодированного",
+      "tr": "Başlangıç Modeli: Yanıt ve Kodlanmış Karşılaştırması"
+    },
+    {
+      "en": "Initial Model: Response vs Uncoded",
+      "ru": "Начальная модель: Отклик против некодированного",
+      "tr": "Başlangıç Modeli: Yanıt ve Kodlanmamış Karşılaştırması"
+    },
+    {
+      "en": "Initial Model: Residual vs Coded",
+      "ru": "Начальная модель: Остатки против кодированного",
+      "tr": "Başlangıç Modeli: Artık ve Kodlanmış Karşılaştırması"
+    },
+    {
+      "en": "Initial Model: Residual vs Uncoded",
+      "ru": "Начальная модель: Остатки против некодированного",
+      "tr": "Başlangıç Modeli: Artık ve Kodlanmamış Karşılaştırması"
+    },
+    {
+      "en": "Final Model: Response vs Predicted",
+      "ru": "Конечная модель: Отклик против прогнозируемого",
+      "tr": "Nihai Model: Yanıt ve Tahmin Karşılaştırması"
+    },
+    {
+      "en": "Final Model: Response Diagnostics",
+      "ru": "Конечная модель: Диагностика отклика",
+      "tr": "Nihai Model: Yanıt Tanılaması"
+    },
+    {
+      "en": "Final Model: Residual vs Predicted",
+      "ru": "Конечная модель: Остатки против прогнозируемого",
+      "tr": "Nihai Model: Artık ve Tahmin Karşılaştırması"
+    },
+    {
+      "en": "Final Model: Residual Diagnostics",
+      "ru": "Конечная модель: Диагностика остатков",
+      "tr": "Nihai Model: Artık Tanılaması"
+    },
+    {
+      "en": "Final Model: Cook's Distance",
+      "ru": "Конечная модель: Расстояние Кука",
+      "tr": "Nihai Model: Cook Mesafesi"
+    },
+    {
+      "en": "Final Model: Pareto Plot",
+      "ru": "Конечная модель: Диаграмма Парето",
+      "tr": "Nihai Model: Pareto Grafiği"
+    },
+    {
+      "en": "Final Model: Response vs Coded",
+      "ru": "Конечная модель: Отклик против кодированного",
+      "tr": "Nihai Model: Yanıt ve Kodlanmış Karşılaştırması"
+    },
+    {
+      "en": "Final Model: Response vs Uncoded",
+      "ru": "Конечная модель: Отклик против некодированного",
+      "tr": "Nihai Model: Yanıt ve Kodlanmamış Karşılaştırması"
+    },
+    {
+      "en": "Final Model: Residual vs Coded",
+      "ru": "Конечная модель: Остатки против кодированного",
+      "tr": "Nihai Model: Artık ve Kodlanmış Karşılaştırması"
+    },
+    {
+      "en": "Final Model: Residual vs Uncoded",
+      "ru": "Конечная модель: Остатки против некодированного",
+      "tr": "Nihai Model: Artık ve Kodlanmamış Karşılaştırması"
+    },
+    {
+      "en": "Model Equations",
+      "ru": "Уравнения модели",
+      "tr": "Model Denklemleri"
+    },
+    {
+      "en": "Full Report",
+      "ru": "Полный отчет",
+      "tr": "Tam Rapor"
+    },
+    {
+      "en": "Comprehensive Analysis Report",
+      "ru": "Комплексный аналитический отчет",
+      "tr": "Kapsamlı Analiz Raporu"
+    },
+    {
+      "en": "Download Report (HTML)",
+      "ru": "Скачать отчет (HTML)",
+      "tr": "Raporu İndir (HTML)"
+    },
+    {
+      "en": "Download Raw Statements (TXT)",
+      "ru": "Скачать необработанные отчеты (TXT)",
+      "tr": "Ham İfadeleri İndir (TXT)"
+    },
+    {
+      "en": "Predictions",
+      "ru": "Прогнозы",
+      "tr": "Tahminler"
+    },
+    {
+      "en": "Enter Factor Values",
+      "ru": "Введите значения факторов",
+      "tr": "Faktör Değerlerini Girin"
+    },
+    {
+      "en": "Input Type:",
+      "ru": "Тип ввода:",
+      "tr": "Giriş Tipi:"
+    },
+    {
+      "en": "Value Type:",
+      "ru": "Тип значения:",
+      "tr": "Değer Tipi:"
+    },
+    {
+      "en": "Predict",
+      "ru": "Прогнозировать",
+      "tr": "Tahmin Et"
+    },
+    {
+      "en": "Prediction Results",
+      "ru": "Результаты прогнозирования",
+      "tr": "Tahmin Sonuçları"
+    },
+    {
+      "en": "Initial Model Predictions",
+      "ru": "Прогнозы начальной модели",
+      "tr": "Başlangıç Modeli Tahminleri"
+    },
+    {
+      "en": "Final Model Predictions",
+      "ru": "Прогнозы конечной модели",
+      "tr": "Nihai Model Tahminleri"
+    },
+    {
+      "en": "Download Predictions",
+      "ru": "Скачать прогнозы",
+      "tr": "Tahminleri İndir"
+    },
+    {
+      "en": "Export All Results",
+      "ru": "Экспортировать все результаты",
+      "tr": "Tüm Sonuçları Dışa Aktar"
+    },
+    {
+      "en": "Initial Model Summary",
+      "ru": "Сводка начальной модели",
+      "tr": "Başlangıç Modeli Özeti"
+    },
+    {
+      "en": "Final Model Summary",
+      "ru": "Сводка конечной модели",
+      "tr": "Nihai Model Özeti"
+    },
+    {
+      "en": "Model Trimming Information",
+      "ru": "Информация об обрезке модели",
+      "tr": "Model Kırpma Bilgileri"
+    },
+    {
+      "en": "Error loading file:",
+      "ru": "Ошибка загрузки файла:",
+      "tr": "Dosya yükleme hatası:"
+    },
+    {
+      "en": "Final filename:",
+      "ru": "Имя конечного файла:",
+      "tr": "Nihai dosya adı:"
+    },
+    {
+      "en": "Analysis settings saved successfully!",
+      "ru": "Настройки анализа успешно сохранены!",
+      "tr": "Analiz ayarları başarıyla kaydedildi!"
+    },
+    {
+      "en": "Error saving analysis settings:",
+      "ru": "Ошибка сохранения настроек анализа:",
+      "tr": "Analiz ayarlarını kaydetme hatası:"
+    },
+    {
+      "en": "Column renamed successfully.",
+      "ru": "Столбец успешно переименован.",
+      "tr": "Sütun başarıyla yeniden adlandırıldı."
+    },
+    {
+      "en": "Column removed successfully.",
+      "ru": "Столбец успешно удален.",
+      "tr": "Sütun başarıyla kaldırıldı."
+    },
+    {
+      "en": "Error:",
+      "ru": "Ошибка:",
+      "tr": "Hata:"
+    },
+    {
+      "en": "Column name cannot be empty.",
+      "ru": "Имя столбца не может быть пустым.",
+      "tr": "Sütun adı boş olamaz."
+    },
+    {
+      "en": "New column added:",
+      "ru": "Добавлен новый столбец:",
+      "tr": "Yeni sütun eklendi:"
+    },
+    {
+      "en": "Error adding column:",
+      "ru": "Ошибка добавления столбца:",
+      "tr": "Sütun ekleme hatası:"
+    },
+    {
+      "en": "Please select at least one uncoded factor when 'Factor Type' is 'Uncoded'.",
+      "ru": "Пожалуйста, выберите хотя бы один некодированный фактор, когда 'Тип фактора' - 'Некодированный'.",
+      "tr": "'Faktör Tipi' 'Kodlanmamış' olduğunda lütfen en az bir kodlanmamış faktör seçin."
+    },
+    {
+      "en": "CSV file loaded to input table.",
+      "ru": "CSV-файл загружен в входную таблицу.",
+      "tr": "CSV dosyası giriş tablosuna yüklendi."
+    },
+    {
+      "en": "Error loading CSV for prediction:",
+      "ru": "Ошибка загрузки CSV для прогнозирования:",
+      "tr": "Tahmin için CSV yükleme hatası:"
+    },
+    {
+      "en": "Calculating predictions...",
+      "ru": "Расчет прогнозов...",
+      "tr": "Tahminler hesaplanıyor..."
+    },
+    {
+      "en": "Predictions completed successfully!",
+      "ru": "Прогнозы успешно завершены!",
+      "tr": "Tahminler başarıyla tamamlandı!"
+    },
+    {
+      "en": "Prediction error:",
+      "ru": "Ошибка прогнозирования:",
+      "tr": "Tahmin hatası:"
+    },
+    {
+      "en": "No initial model predictions available",
+      "ru": "Нет доступных прогнозов начальной модели",
+      "tr": "Başlangıç modeli tahminleri mevcut değil"
+    },
+    {
+      "en": "Column Configuration",
+      "ru": "Настройка столбцов",
+      "tr": "Sütun Yapılandırması"
+    },
+    {
+      "en": "Configure Columns",
+      "ru": "Настроить столбцы",
+      "tr": "Sütunları Yapılandır"
+    },
+    {
+      "en": "No final model predictions available",
+      "ru": "Нет доступных прогнозов конечной модели",
+      "tr": "Nihai model tahminleri mevcut değil"
+    },
+    {
+      "en": "Center Points",
+      "ru": "Центральные точки",
+      "tr": "Merkez Noktaları"
+    },
+    {
+      "en": "Requirements:",
+      "ru": "Требования:",
+      "tr": "Gereksinimler:"
+    },
+    {
+      "en": "Information:",
+      "ru": "Информация:",
+      "tr": "Bilgi:"
+    },
+    {
+      "en": "Invalid Configuration:",
+      "ru": "Неверная конфигурация:",
+      "tr": "Geçersiz Yapılandırma:"
+    },
+    {
+      "en": "Factor",
+      "ru": "Фактор",
+      "tr": "Faktör"
+    },
+    {
+      "en": "Name",
+      "ru": "Имя",
+      "tr": "Ad"
+    },
+    {
+      "en": "Min",
+      "ru": "Мин",
+      "tr": "Min"
+    },
+    {
+      "en": "Max",
+      "ru": "Макс",
+      "tr": "Maks"
+    },
+    {
+      "en": "CCD Type:",
+      "ru": "Тип ЦКП:",
+      "tr": "CCD Tipi:"
+    },
+    {
+      "en": "Levels:",
+      "ru": "Уровни:",
+      "tr": "Seviyeler:"
+    },
+    {
+      "en": "Use Default Center Points",
+      "ru": "Использовать центральные точки по умолчанию",
+      "tr": "Varsayılan Merkez Noktalarını Kullan"
+    },
+    {
+      "en": "Fraction (p)",
+      "ru": "Доля (p)",
+      "tr": "Kesir (p)"
+    },
+    {
+      "en": "Aliasing:",
+      "ru": "Псевдонимы:",
+      "tr": "Takma Adlandırma:"
+    },
+    {
+      "en": "Generating design...",
+      "ru": "Генерация дизайна...",
+      "tr": "Tasarım oluşturuluyor..."
+    },
+    {
+      "en": "Generating design matrix...",
+      "ru": "Генерация матрицы дизайна...",
+      "tr": "Tasarım matrisi oluşturuluyor..."
+    },
+    {
+      "en": "Design generated successfully!",
+      "ru": "Дизайн успешно сгенерирован!",
+      "tr": "Tasarım başarıyla oluşturuldu!"
+    },
+    {
+      "en": "Total Runs",
+      "ru": "Всего прогонов",
+      "tr": "Toplam Çalışma"
+    },
+    {
+      "en": "Design Type",
+      "ru": "Тип дизайна",
+      "tr": "Tasarım Tipi"
+    },
+    {
+      "en": "Factors",
+      "ru": "Факторы",
+      "tr": "Faktörler"
+    },
+    {
+      "en": "Design saved successfully!",
+      "ru": "Дизайн успешно сохранен!",
+      "tr": "Tasarım başarıyla kaydedildi!"
+    },
+    {
+      "en": "Error saving design:",
+      "ru": "Ошибка сохранения дизайна:",
+      "tr": "Tasarım kaydedilirken hata oluştu:"
+    },
+    {
+      "en": "Design",
+      "ru": "Дизайн",
+      "tr": "Tasarım"
+    },
+    {
+      "en": "Design Parameters",
+      "ru": "Параметры дизайна",
+      "tr": "Tasarım Parametreleri"
+    },
+    {
+      "en": "Select Design Type:",
+      "ru": "Выберите тип дизайна:",
+      "tr": "Tasarım Türünü Seçin:"
+    },
+    {
+      "en": "Number of Factors",
+      "ru": "Количество факторов",
+      "tr": "Faktör Sayısı"
+    },
+    {
+      "en": "Randomize Run Order",
+      "ru": "Рандомизировать порядок выполнения",
+      "tr": "Çalışma Sırasını Rastgele Yap"
+    },
+    {
+      "en": "Design Matrix",
+      "ru": "Матрица дизайна",
+      "tr": "Tasarım Matrisi"
+    },
+    {
+      "en": "Experimental Design Matrix",
+      "ru": "Матрица экспериментального дизайна",
+      "tr": "Deneysel Tasarım Matrisi"
+    },
+    {
+      "en": "Save Design",
+      "ru": "Сохранить дизайн",
+      "tr": "Tasarımı Kaydet"
+    },
+    {
+      "en": "Design Summary",
+      "ru": "Сводка дизайна",
+      "tr": "Tasarım Özeti"
+    },
+    {
+      "en": "Design Properties",
+      "ru": "Свойства дизайна",
+      "tr": "Tasarım Özellikleri"
+    },
+    {
+      "en": "Enter a name for your design:",
+      "ru": "Введите имя для вашего дизайна:",
+      "tr": "Tasarımınız için bir ad girin:"
+    },
+    {
+      "en": "Design Description",
+      "ru": "Описание дизайна",
+      "tr": "Tasarım Açıklaması"
+    },
+    {
+      "en": "Export Design",
+      "ru": "Экспорт дизайна",
+      "tr": "Tasarımı Dışa Aktar"
+    },
+    {
+      "en": "Confounding Pattern",
+      "ru": "Сбивающий узор",
+      "tr": "Karıştırıcı Desen"
+    },
+    {
+      "en": "No responses found in loaded analyses.",
+      "ru": "В загруженных анализах не найдено ответов.",
+      "tr": "Yüklenen analizlerde yanıt bulunamadı."
+    },
+    {
+      "en": "Error in desirability calculation:",
+      "ru": "Ошибка при расчете желательности:",
+      "tr": "Arzu edilebilirlik hesaplamasında hata:"
+    },
+    {
+      "en": "Desirability analysis completed successfully!",
+      "ru": "Анализ желательности успешно завершен!",
+      "tr": "Arzu edilebilirlik analizi başarıyla tamamlandı!"
+    },
+    {
+      "en": "Select DOE Analyses",
+      "ru": "Выбрать анализы DOE",
+      "tr": "DOE Analizlerini Seçin"
+    },
+    {
+      "en": "Select 2-6 saved DOE analysis setups to combine with desirability function:",
+      "ru": "Выберите 2-6 сохраненных настроек анализа DOE для объединения с функцией желательности:",
+      "tr": "İstenilebilirlik fonksiyonu ile birleştirmek için 2-6 kayıtlı DOE analizi kurulumu seçin:"
+    },
+    {
+      "en": "Load Selected Analyses",
+      "ru": "Загрузить выбранные анализы",
+      "tr": "Seçilen Analizleri Yükle"
+    },
+    {
+      "en": "Desirability Settings",
+      "ru": "Настройки желательности",
+      "tr": "İstenilebilirlik Ayarları"
+    },
+    {
+      "en": "Factor Range Settings",
+      "ru": "Настройки диапазона факторов",
+      "tr": "Faktör Aralığı Ayarları"
+    },
+    {
+      "en": "Use Default Factor Ranges",
+      "ru": "Использовать диапазоны факторов по умолчанию",
+      "tr": "Varsayılan Faktör Aralıklarını Kullan"
+    },
+    {
+      "en": "Global Parameters",
+      "ru": "Глобальные параметры",
+      "tr": "Global Parametreler"
+    },
+    {
+      "en": "Model Base:",
+      "ru": "База модели:",
+      "tr": "Model Tabanı:"
+    },
+    {
+      "en": "Optimization Method:",
+      "ru": "Метод оптимизации:",
+      "tr": "Optimizasyon Yöntemi:"
+    },
+    {
+      "en": "Clustering:",
+      "ru": "Кластеризация:",
+      "tr": "Kümeleme:"
+    },
+    {
+      "en": "Random Starting Points:",
+      "ru": "Случайные начальные точки:",
+      "tr": "Rastgele Başlangıç Noktaları:"
+    },
+    {
+      "en": "Data Starting Points:",
+      "ru": "Начальные точки данных:",
+      "tr": "Veri Başlangıç Noktaları:"
+    },
+    {
+      "en": "Summary",
+      "ru": "Сводка",
+      "tr": "Özet"
+    },
+    {
+      "en": "Export Results",
+      "ru": "Экспортировать результаты",
+      "tr": "Sonuçları Dışa Aktar"
+    },
+    {
+      "en": "Factor Limits",
+      "ru": "Пределы факторов",
+      "tr": "Faktör Limitleri"
+    },
+    {
+      "en": "Response Limits",
+      "ru": "Пределы отклика",
+      "tr": "Yanıt Limitleri"
+    },
+    {
+      "en": "Model Summaries",
+      "ru": "Сводки моделей",
+      "tr": "Model Özetleri"
+    },
+    {
+      "en": "Optimal Solutions",
+      "ru": "Оптимальные решения",
+      "tr": "Optimal Çözümler"
+    },
+    {
+      "en": "Download Solutions",
+      "ru": "Скачать решения",
+      "tr": "Çözümleri İndir"
+    },
+    {
+      "en": "All Optimization Outputs",
+      "ru": "Все выходы оптимизации",
+      "tr": "Tüm Optimizasyon Çıktıları"
+    },
+    {
+      "en": "Original Data with Desirabilities",
+      "ru": "Исходные данные с желательностью",
+      "tr": "İstenilebilirlikler ile Orijinal Veriler"
+    },
+    {
+      "en": "No saved DOE analyses found.",
+      "ru": "Сохраненные анализы DOE не найдены.",
+      "tr": "Kaydedilmiş DOE analizi bulunamadı."
+    },
+    {
+      "en": "Please create and save DOE analyses first in the DOE Analysis tab.",
+      "ru": "Пожалуйста, сначала создайте и сохраните анализы DOE на вкладке 'Анализ DOE'.",
+      "tr": "Lütfen önce DOE Analiz sekmesinde DOE analizleri oluşturun ve kaydedin."
+    },
+    {
+      "en": "Available Analyses:",
+      "ru": "Доступные анализы:",
+      "tr": "Mevcut Analizler:"
+    },
+    {
+      "en": "Please select at least 2 analyses.",
+      "ru": "Пожалуйста, выберите как минимум 2 анализа.",
+      "tr": "Lütfen en az 2 analiz seçin."
+    },
+    {
+      "en": "Please select maximum 6 analyses.",
+      "ru": "Пожалуйста, выберите максимум 6 анализов.",
+      "tr": "Lütfen en fazla 6 analiz seçin."
+    },
+    {
+      "en": "Loading analyses...",
+      "ru": "Загрузка анализов...",
+      "tr": "Analizler yükleniyor..."
+    },
+    {
+      "en": "Loading",
+      "ru": "Загрузка",
+      "tr": "Yükleniyor"
+    },
+    {
+      "en": "Error loading",
+      "ru": "Ошибка загрузки",
+      "tr": "Yükleme hatası"
+    },
+    {
+      "en": "Loaded",
+      "ru": "Загружено",
+      "tr": "Yüklendi"
+    },
+    {
+      "en": "analyses successfully.",
+      "ru": "анализы успешно.",
+      "tr": "analizler başarıyla."
+    },
+    {
+      "en": "Response:",
+      "ru": "Отклик:",
+      "tr": "Yanıt:"
+    },
+    {
+      "en": "Selected Analyses:",
+      "ru": "Выбранные анализы:",
+      "tr": "Seçilen Analizler:"
+    },
+    {
+      "en": "Response",
+      "ru": "Отклик",
+      "tr": "Yanıt"
+    },
+    {
+      "en": "Objective:",
+      "ru": "Цель:",
+      "tr": "Hedef:"
+    },
+    {
+      "en": "Lower Limit:",
+      "ru": "Нижний предел:",
+      "tr": "Alt Limit:"
+    },
+    {
+      "en": "Upper Limit:",
+      "ru": "Верхний предел:",
+      "tr": "Üst Limit:"
+    },
+    {
+      "en": "Target Value:",
+      "ru": "Целевое значение:",
+      "tr": "Hedef Değer:"
+    },
+    {
+      "en": "Weight (Lower):",
+      "ru": "Вес (нижний):",
+      "tr": "Ağırlık (Alt):"
+    },
+    {
+      "en": "Weight (Upper):",
+      "ru": "Вес (верхний):",
+      "tr": "Ağırlık (Üst):"
+    },
+    {
+      "en": "Min:",
+      "ru": "Мин:",
+      "tr": "Min:"
+    },
+    {
+      "en": "Max:",
+      "ru": "Макс:",
+      "tr": "Maks:"
+    },
+    {
+      "en": "Calculating desirability...",
+      "ru": "Расчет желательности...",
+      "tr": "İstenilebilirlik hesaplanıyor..."
+    },
+    {
+      "en": "Running DOE analyses...",
+      "ru": "Выполнение анализов DOE...",
+      "tr": "DOE analizleri yürütülüyor..."
+    },
+    {
+      "en": "Analyzing",
+      "ru": "Анализ",
+      "tr": "Analiz Ediliyor"
+    },
+    {
+      "en": "Optimizing desirability...",
+      "ru": "Оптимизация желательности...",
+      "tr": "İstenilebilirlik optimize ediliyor..."
+    },
+    {
+      "en": "Complete!",
+      "ru": "Готово!",
+      "tr": "Tamamlandı!"
+    },
+    {
+      "en": "Reset complete",
+      "ru": "Сброс завершен",
+      "tr": "Sıfırlama tamamlandı"
+    },
+    {
+      "en": "Constant C₁",
+      "ru": "Константа C₁",
+      "tr": "Sabit C₁"
+    },
+    {
+      "en": "Constant C₂",
+      "ru": "Константа C₂",
+      "tr": "Sabit C₂"
+    },
+    {
+      "en": "Relative amount of expended solvent at end of CER (kg/kg)",
+      "ru": "Относительное количество израсходованного растворителя в конце CER (кг/кг)",
+      "tr": "CER sonunda harcanan çözücünün bağıl miktarı (kg/kg)"
+    },
+    {
+      "en": "Grinding efficiency (fraction of broken cells)",
+      "ru": "Эффективность измельчения (доля разрушенных клеток)",
+      "tr": "Öğütme verimliliği (kırılmış hücrelerin kesri)"
+    },
+    {
+      "en": "Solid phase mass transfer coefficient × area (1/m/s)",
+      "ru": "Коэффициент массообмена твердой фазы × площадь (1/м/с)",
+      "tr": "Katı faz kütle transfer katsayısı × alan (1/m/s)"
+    },
+    {
+      "en": "Initial fraction of solute in broken cells",
+      "ru": "Начальная доля растворенного вещества в разрушенных клетках",
+      "tr": "Kırılmış hücrelerde çözünen maddenin başlangıç kesri"
+    },
+    {
+      "en": "External mass transfer resistance",
+      "ru": "Сопротивление внешнему массообмену",
+      "tr": "Dış kütle transfer direnci"
+    },
+    {
+      "en": "Extraction time/duration of FER",
+      "ru": "Время экстракции/длительность FER",
+      "tr": "Ekstraksiyon süresi/FER süresi"
+    },
+    {
+      "en": "Extraction time at end of CER",
+      "ru": "Время экстракции в конце CER",
+      "tr": "CER sonunda ekstraksiyon süresi"
+    },
+    {
+      "en": "Yield at end of CER (g/g total dry solid)",
+      "ru": "Выход в конце CER (г/г общего сухого твердого вещества)",
+      "tr": "CER sonunda verim (g/g toplam kuru katı)"
+    },
+    {
+      "en": "Fluid phase mass transfer coefficient × area (1/m/s)",
+      "ru": "Коэффициент массообмена жидкой фазы × площадь (1/м/с)",
+      "tr": "Sıvı faz kütle transfer katsayısı × alan (1/m/s)"
+    },
+    {
+      "en": "FER for 3-period model",
+      "ru": "FER для 3-периодной модели",
+      "tr": "3-periyotlu model için FER"
+    },
+    {
+      "en": "DC for 2-period model",
+      "ru": "DC для 2-периодной модели",
+      "tr": "2-periyotlu model için DC"
+    },
+    {
+      "en": "Coefficient β",
+      "ru": "Коэффициент β",
+      "tr": "Katsayı β"
+    },
+    {
+      "en": "Fluid mass transfer coefficient (1/s)",
+      "ru": "Коэффициент массообмена жидкости (1/с)",
+      "tr": "Sıvı kütle transfer katsayısı (1/s)"
+    },
+    {
+      "en": "BIC Model Parameters",
+      "ru": "Параметры модели BIC",
+      "tr": "BIC Model Parametreleri"
+    },
+    {
+      "en": "OEC Variables",
+      "ru": "Переменные OEC",
+      "tr": "OEC Değişkenleri"
+    },
+    {
+      "en": "Time Variable (e.g., Time_min)",
+      "ru": "Переменная времени (например, Time_min)",
+      "tr": "Zaman Değişkeni (örn., Time_min)"
+    },
+    {
+      "en": "Response Variable (e.g., Yield_g)",
+      "ru": "Переменная отклика (например, Yield_g)",
+      "tr": "Yanıt Değişkeni (örn., Yield_g)"
+    },
+    {
+      "en": "Solvent Variable (Optional, e.g., Solvent_mL)",
+      "ru": "Переменная растворителя (необязательно, например, Solvent_mL)",
+      "tr": "Çözücü Değişkeni (İsteğe Bağlı, örn., Solvent_mL)"
+    },
+    {
+      "en": "Process Parameters",
+      "ru": "Параметры процесса",
+      "tr": "İşlem Parametreleri"
+    },
+    {
+      "en": "Mass of Raw Material (g)",
+      "ru": "Масса сырья (г)",
+      "tr": "Hammadde Kütlesi (g)"
+    },
+    {
+      "en": "Moisture Content (%)",
+      "ru": "Влажность (%)",
+      "tr": "Nem İçeriği (%)"
+    },
+    {
+      "en": "Extractor Diameter (m)",
+      "ru": "Диаметр экстрактора (м)",
+      "tr": "Ekstraktör Çapı (m)"
+    },
+    {
+      "en": "Extractor Length (m)",
+      "ru": "Длина экстрактора (м)",
+      "tr": "Ekstraktör Uzunluğu (m)"
+    },
+    {
+      "en": "Ethanol Co-solvent Fraction",
+      "ru": "Доля этанола-сорастворителя",
+      "tr": "Etanol Yardımcı Çözücü Kesri"
+    },
+    {
+      "en": "Real Density (g/L)",
+      "ru": "Истинная плотность (г/л)",
+      "tr": "Gerçek Yoğunluk (g/L)"
+    },
+    {
+      "en": "Apparent Density (g/L)",
+      "ru": "Кажущаяся плотность (г/л)",
+      "tr": "Görünür Yoğunluk (g/L)"
+    },
+    {
+      "en": "Number of Observations (CER)",
+      "ru": "Количество наблюдений (CER)",
+      "tr": "Gözlem Sayısı (CER)"
+    },
+    {
+      "en": "Flow Rate (mL/min or g/min)",
+      "ru": "Скорость потока (мл/мин или г/мин)",
+      "tr": "Akış Hızı (mL/dk veya g/dk)"
+    },
+    {
+      "en": "Max Extractable Material Fraction",
+      "ru": "Максимальная извлекаемая фракция материала",
+      "tr": "Maksimum Ekstrakt Edilebilir Madde Kesri"
+    },
+    {
+      "en": "Cumulative Data",
+      "ru": "Кумулятивные данные",
+      "tr": "Kümülatif Veri"
+    },
+    {
+      "en": "Mass Flow Rate",
+      "ru": "Массовый расход",
+      "tr": "Kütle Akış Hızı"
+    },
+    {
+      "en": "Model Parameters",
+      "ru": "Параметры модели",
+      "tr": "Model Parametreleri"
+    },
+    {
+      "en": "Initial r Estimate",
+      "ru": "Начальная оценка r",
+      "tr": "Başlangıç r Tahmini"
+    },
+    {
+      "en": "Initial ksas Estimate",
+      "ru": "Начальная оценка ksas",
+      "tr": "Başlangıç ksas Tahmini"
+    },
+    {
+      "en": "Initial qc Estimate",
+      "ru": "Начальная оценка qc",
+      "tr": "Başlangıç qc Tahmini"
+    },
+    {
+      "en": "Initial thetaf Estimate",
+      "ru": "Начальная оценка thetaf",
+      "tr": "Başlangıç thetaf Tahmini"
+    },
+    {
+      "en": "Initial ti Estimate",
+      "ru": "Начальная оценка ti",
+      "tr": "Başlangıç ti Tahmini"
+    },
+    {
+      "en": "Initial kf Estimate",
+      "ru": "Начальная оценка kf",
+      "tr": "Başlangıç kf Tahmini"
+    },
+    {
+      "en": "Initial c3 Estimate",
+      "ru": "Начальная оценка c3",
+      "tr": "Başlangıç c3 Tahmini"
+    },
+    {
+      "en": "Model Type",
+      "ru": "Тип модели",
+      "tr": "Model Tipi"
+    },
+    {
+      "en": "Flow Units (e.g., mL/min, g/min)",
+      "ru": "Единицы потока (например, мл/мин, г/мин)",
+      "tr": "Akış Birimleri (örn., mL/dk, g/dk)"
+    },
+    {
+      "en": "Response Units (e.g., permille, g)",
+      "ru": "Единицы отклика (например, промилле, г)",
+      "tr": "Yanıt Birimleri (örn., permille, g)"
+    },
+    {
+      "en": "Model Plot",
+      "ru": "График модели",
+      "tr": "Model Grafiği"
+    },
+    {
+      "en": "Input Data and Variables",
+      "ru": "Входные данные и переменные",
+      "tr": "Giriş Verileri ve Değişkenler"
+    },
+    {
+      "en": "Variables will be automatically detected from your data.",
+      "ru": "Переменные будут автоматически определены из ваших данных.",
+      "tr": "Değişkenler verilerinizden otomatik olarak algılanacaktır."
+    },
+    {
+      "en": "Time Variable",
+      "ru": "Переменная времени",
+      "tr": "Zaman Değişkeni"
+    },
+    {
+      "en": "Response Variable",
+      "ru": "Переменная отклика",
+      "tr": "Yanıt Değişkeni"
+    },
+    {
+      "en": "Solvent Variable (Optional)",
+      "ru": "Переменная растворителя (необязательно)",
+      "tr": "Çözücü Değişkeni (İsteğe Bağlı)"
+    },
+    {
+      "en": "Advanced Parameters",
+      "ru": "Расширенные параметры",
+      "tr": "Gelişmiş Parametreler"
+    },
+    {
+      "en": "Ethanol Co-solvent Fraction (0-0.99)",
+      "ru": "Доля этанола-сорастворителя (0-0.99)",
+      "tr": "Etanol Yardımcı Çözücü Kesri (0-0.99)"
+    },
+    {
+      "en": "Flow Measurement Temperature (°C)",
+      "ru": "Температура измерения потока (°C)",
+      "tr": "Akış Ölçüm Sıcaklığı (°C)"
+    },
+    {
+      "en": "Flow Measurement Pressure (bar)",
+      "ru": "Давление измерения потока (бар)",
+      "tr": "Akış Ölçüm Basıncı (bar)"
+    },
+    {
+      "en": "CO2 Density (g/L, optional)",
+      "ru": "Плотность CO2 (г/л, необязательно)",
+      "tr": "CO2 Yoğunluğu (g/L, isteğe bağlı)"
+    },
+    {
+      "en": "Max Time for CT Model (min, optional)",
+      "ru": "Максимальное время для модели CT (мин, необязательно)",
+      "tr": "CT Modeli için Maksimum Süre (dk, isteğe bağlı)"
+    },
+    {
+      "en": "Max Solvent for Other Models (kg/kg, optional)",
+      "ru": "Максимальное количество растворителя для других моделей (кг/кг, необязательно)",
+      "tr": "Diğer Modeller için Maksimum Çözücü (kg/kg, isteğe bağlı)"
+    },
+    {
+      "en": "Model Settings",
+      "ru": "Настройки модели",
+      "tr": "Model Ayarları"
+    },
+    {
+      "en": "Optimization Aggregation",
+      "ru": "Агрегация оптимизации",
+      "tr": "Optimizasyon Agregasyonu"
+    },
+    {
+      "en": "Flow Units",
+      "ru": "Единицы потока",
+      "tr": "Akış Birimleri"
+    },
+    {
+      "en": "Response Units",
+      "ru": "Единицы отклика",
+      "tr": "Yanıt Birimleri"
+    },
+    {
+      "en": "Optimization Parameters",
+      "ru": "Параметры оптимизации",
+      "tr": "Optimizasyon Parametreleri"
+    },
+    {
+      "en": "Initial Parameter Estimates:",
+      "ru": "Начальные оценки параметров:",
+      "tr": "Başlangıç Parametre Tahminleri:"
+    },
+    {
+      "en": "Use Default Values",
+      "ru": "Использовать значения по умолчанию",
+      "tr": "Varsayılan Değerleri Kullan"
+    },
+    {
+      "en": "Custom Values",
+      "ru": "Пользовательские значения",
+      "tr": "Özel Değerler"
+    },
+    {
+      "en": "r (grinding efficiency)",
+      "ru": "r (эффективность измельчения)",
+      "tr": "r (öğütme verimliliği)"
+    },
+    {
+      "en": "ksas (k_s * a_s)",
+      "ru": "ksas (k_s * a_s)",
+      "tr": "ksas (k_s * a_s)"
+    },
+    {
+      "en": "qc (relative solvent at CER end)",
+      "ru": "qc (относительный растворитель в конце CER)",
+      "tr": "qc (CER sonunda bağıl çözücü)"
+    },
+    {
+      "en": "thetaf (external mass transfer)",
+      "ru": "thetaf (внешний массообмен)",
+      "tr": "thetaf (dış kütle transferi)"
+    },
+    {
+      "en": "ti (FER duration)",
+      "ru": "ti (длительность FER)",
+      "tr": "ti (FER süresi)"
+    },
+    {
+      "en": "kf (fluid mass transfer)",
+      "ru": "kf (массообмен жидкости)",
+      "tr": "kf (akışkan kütle transferi)"
+    },
+    {
+      "en": "c3 (for cu estimation)",
+      "ru": "c3 (для оценки cu)",
+      "tr": "c3 (cu tahmini için)"
+    },
+    {
+      "en": "Model Plots",
+      "ru": "Графики модели",
+      "tr": "Model Grafikleri"
+    },
+    {
+      "en": "Simplified Model (SIM)",
+      "ru": "Упрощенная модель (SIM)",
+      "tr": "Basitleştirilmiş Model (SIM)"
+    },
+    {
+      "en": "Fitted Parameters",
+      "ru": "Подобранные параметры",
+      "tr": "Uyarlanan Parametreler"
+    },
+    {
+      "en": "Model Statistics",
+      "ru": "Статистика модели",
+      "tr": "Model İstatistikleri"
+    },
+    {
+      "en": "Observed vs Predicted Data",
+      "ru": "Наблюдаемые и прогнозируемые данные",
+      "tr": "Gözlenen ve Tahmin Edilen Veriler"
+    },
+    {
+      "en": "Detailed Predictions (CER/FER)",
+      "ru": "Подробные прогнозы (CER/FER)",
+      "tr": "Detaylı Tahminler (CER/FER)"
+    },
+    {
+      "en": "Characteristic Times (CT)",
+      "ru": "Характеристические времена (CT)",
+      "tr": "Karakteristik Zamanlar (CT)"
+    },
+    {
+      "en": "Complete Model (CMP)",
+      "ru": "Полная модель (CMP)",
+      "tr": "Tam Model (CMP)"
+    },
+    {
+      "en": "Model Comparison",
+      "ru": "Сравнение моделей",
+      "tr": "Model Karşılaştırması"
+    },
+    {
+      "en": "Model Comparison Statistics",
+      "ru": "Статистика сравнения моделей",
+      "tr": "Model Karşılaştırma İstatistikleri"
+    },
+    {
+      "en": "Simplified",
+      "ru": "Упрощенный",
+      "tr": "Basitleştirilmiş"
+    },
+    {
+      "en": "Characteristic Times",
+      "ru": "Характеристические времена",
+      "tr": "Karakteristik Zamanlar"
+    },
+    {
+      "en": "Complete Model",
+      "ru": "Полная модель",
+      "tr": "Tam Model"
+    },
+    {
+      "en": "Select Model Plot",
+      "ru": "Выбрать график модели",
+      "tr": "Model Grafiği Seç"
+    },
+    {
+      "en": "Simplified Model",
+      "ru": "Упрощенная модель",
+      "tr": "Basitleştirilmiş Model"
+    },
+    {
+      "en": "Characteristic Times Model",
+      "ru": "Модель характеристических времен",
+      "tr": "Karakteristik Zamanlar Modeli"
+    },
+    {
+      "en": "Complete Model (2 Regions)",
+      "ru": "Полная модель (2 области)",
+      "tr": "Tam Model (2 Bölge)"
+    },
+    {
+      "en": "Complete Model (3 Regions)",
+      "ru": "Полная модель (3 области)",
+      "tr": "Tam Model (3 Bölge)"
+    },
+    {
+      "en": "Simplified Model (time-based)",
+      "ru": "Упрощенная модель (по времени)",
+      "tr": "Basitleştirilmiş Model (zamana dayalı)"
+    },
+    {
+      "en": "Complete Model (2 Regions) (time-based)",
+      "ru": "Полная модель (2 области) (по времени)",
+      "tr": "Tam Model (2 Bölge) (zamana dayalı)"
+    },
+    {
+      "en": "Complete Model (3 Regions) (time-based)",
+      "ru": "Полная модель (3 области) (по времени)",
+      "tr": "Tam Model (3 Bölge) (zamana dayalı)"
+    },
+    {
+      "en": "Prediction Settings",
+      "ru": "Настройки прогноза",
+      "tr": "Tahmin Ayarları"
+    },
+    {
+      "en": "Calculate Predictions",
+      "ru": "Рассчитать прогнозы",
+      "tr": "Tahminleri Hesapla"
+    },
+    {
+      "en": "Reset Predictions",
+      "ru": "Сбросить прогнозы",
+      "tr": "Tahminleri Sıfırla"
+    },
+    {
+      "en": "Input Data Type:",
+      "ru": "Тип входных данных:",
+      "tr": "Giriş Veri Tipi:"
+    },
+    {
+      "en": "Manual Input",
+      "ru": "Ручной ввод",
+      "tr": "Manuel Giriş"
+    },
+    {
+      "en": "Upload CSV",
+      "ru": "Загрузить CSV",
+      "tr": "CSV Yükle"
+    },
+    {
+      "en": "Calculate mass and percentage yields",
+      "ru": "Рассчитать массовые и процентные выходы",
+      "tr": "Kütle ve yüzde verimlerini hesapla"
+    },
+    {
+      "en": "Select Model Type",
+      "ru": "Выбрать тип модели",
+      "tr": "Model Tipini Seç"
+    },
+    {
+      "en": "Input Units",
+      "ru": "Единицы ввода",
+      "tr": "Giriş Birimleri"
+    },
+    {
+      "en": "Solvent/Material Ratio (q)",
+      "ru": "Соотношение растворитель/материал (q)",
+      "tr": "Çözücü/Madde Oranı (q)"
+    },
+    {
+      "en": "Time (minutes)",
+      "ru": "Время (минуты)",
+      "tr": "Zaman (dakika)"
+    },
+    {
+      "en": "Note: Characteristic Times (CT) model only accepts 'Time (minutes)' units.",
+      "ru": "Примечание: Модель характеристических времен (CT) принимает только единицы 'Время (минуты)'.",
+      "tr": "Not: Karakteristik Zamanlar (CT) modeli sadece 'Zaman (dakika)' birimlerini kabul eder."
+    },
+    {
+      "en": "Unit Reference Chart",
+      "ru": "Справочная таблица единиц",
+      "tr": "Birim Referans Tablosu"
+    },
+    {
+      "en": "Model Information",
+      "ru": "Информация о модели",
+      "tr": "Model Bilgisi"
+    },
+    {
+      "en": "Selected OEC variables not found in data.",
+      "ru": "Выбранные переменные OEC не найдены в данных.",
+      "tr": "Seçilen OEC değişkenleri verilerde bulunamadı."
+    },
+    {
+      "en": "Calculating kinetic model...",
+      "ru": "Расчет кинетической модели...",
+      "tr": "Kinetik model hesaplanıyor..."
+    },
+    {
+      "en": "Running model...",
+      "ru": "Запуск модели...",
+      "tr": "Model çalıştırılıyor..."
+    },
+    {
+      "en": "Kinetic model calculated successfully!",
+      "ru": "Кинетическая модель успешно рассчитана!",
+      "tr": "Kinetik model başarıyla hesaplandı!"
+    },
+    {
+      "en": "Error calculating kinetic model:",
+      "ru": "Ошибка при расчете кинетической модели:",
+      "tr": "Kinetik model hesaplanırken hata oluştu:"
+    },
+    {
+      "en": "Please enter new time values for prediction.",
+      "ru": "Пожалуйста, введите новые значения времени для прогнозирования.",
+      "tr": "Lütfen tahmin için yeni zaman değerleri girin."
+    },
+    {
+      "en": "Invalid time values. Please enter comma-separated numbers.",
+      "ru": "Неверные значения времени. Пожалуйста, введите числа, разделенные запятыми.",
+      "tr": "Geçersiz zaman değerleri. Lütfen virgülle ayrılmış sayılar girin."
+    },
+    {
+      "en": "Generating predictions...",
+      "ru": "Генерация прогнозов...",
+      "tr": "Tahminler oluşturuluyor..."
+    },
+    {
+      "en": "Predictions generated successfully!",
+      "ru": "Прогнозы успешно сгенерированы!",
+      "tr": "Tahminler başarıyla oluşturuldu!"
+    },
+    {
+      "en": "Error generating predictions:",
+      "ru": "Ошибка при генерации прогнозов:",
+      "tr": "Tahminler oluşturulurken hata oluştu:"
+    },
+    {
+      "en": "Kinetic Model Parameters",
+      "ru": "Параметры кинетической модели",
+      "tr": "Kinetik Model Parametreleri"
+    },
+    {
+      "en": "Response Variable (e.g., Yield_100C)",
+      "ru": "Переменная отклика (например, Yield_100C)",
+      "tr": "Yanıt Değişkeni (örn., Yield_100C)"
+    },
+    {
+      "en": "Flow Rate Meas. Temp (°C)",
+      "ru": "Темп. измер. расхода (°C)",
+      "tr": "Akış Hızı Ölçüm Sıcaklığı (°C)"
+    },
+    {
+      "en": "Flow Rate Meas. Pres (bar)",
+      "ru": "Давл. измер. расхода (bar)",
+      "tr": "Akış Hızı Ölçüm Basıncı (bar)"
+    },
+    {
+      "en": "Water Density (g/L)",
+      "ru": "Плотность воды (г/л)",
+      "tr": "Su Yoğunluğu (g/L)"
+    },
+    {
+      "en": "Max Time (min)",
+      "ru": "Макс. время (мин)",
+      "tr": "Maks. Süre (dak)"
+    },
+    {
+      "en": "Max Q",
+      "ru": "Макс. Q",
+      "tr": "Maks. Q"
+    },
+    {
+      "en": "Max Time for Predictions (min)",
+      "ru": "Макс. время для прогнозов (мин)",
+      "tr": "Tahminler İçin Maks. Süre (dak)"
+    },
+    {
+      "en": "Max Possible Yield (units of response)",
+      "ru": "Максимально возможный выход (единицы отклика)",
+      "tr": "Maksimum Olası Verim (yanıt birimleri)"
+    },
+    {
+      "en": "Fraction of Easily Desorbed Solute (F)",
+      "ru": "Доля легко десорбируемого растворенного вещества (F)",
+      "tr": "Kolay Desorbe Edilen Çözünen Madde Kesri (F)"
+    },
+    {
+      "en": "Initial k1 Estimate",
+      "ru": "Начальная оценка k1",
+      "tr": "Başlangıç k1 Tahmini"
+    },
+    {
+      "en": "Initial k2 Estimate",
+      "ru": "Начальная оценка k2",
+      "tr": "Başlangıç k2 Tahmini"
+    },
+    {
+      "en": "Initial F Estimate (if not in Process Params)",
+      "ru": "Начальная оценка F (если нет в параметрах процесса)",
+      "tr": "Başlangıç F Tahmini (İşlem Parametrelerinde yoksa)"
+    },
+    {
+      "en": "Optimization Method",
+      "ru": "Метод оптимизации",
+      "tr": "Optimizasyon Yöntemi"
+    },
+    {
+      "en": "Plot X-axis Units (time or q)",
+      "ru": "Единицы оси X графика (время или q)",
+      "tr": "Grafik X ekseni Birimleri (zaman veya q)"
+    },
+    {
+      "en": "Plot Y-axis Units (abs or cc0)",
+      "ru": "Единицы оси Y графика (abs veya cc0)",
+      "tr": "Grafik Y ekseni Birimleri (abs veya cc0)"
+    },
+    {
+      "en": "Prediction Inputs",
+      "ru": "Входные данные для прогнозирования",
+      "tr": "Tahmin Girişleri"
+    },
+    {
+      "en": "New Time Values (comma-separated)",
+      "ru": "Новые значения времени (через запятую)",
+      "tr": "Yeni Zaman Değerleri (virgülle ayrılmış)"
+    },
+    {
+      "en": "Calculate Yields",
+      "ru": "Рассчитать выходы",
+      "tr": "Verimleri Hesapla"
+    },
+    {
+      "en": "Moisture Content (%) (Optional)",
+      "ru": "Влажность (%) (необязательно)",
+      "tr": "Nem İçeriği (%) (İsteğe Bağlı)"
+    },
+    {
+      "en": "Generate Predictions",
+      "ru": "Сгенерировать прогнозы",
+      "tr": "Tahminleri Oluştur"
+    },
+    {
+      "en": "Model Validity",
+      "ru": "Достоверность модели",
+      "tr": "Model Geçerliliği"
+    },
+    {
+      "en": "CO2-Ethanol Critical Parameters",
+      "ru": "Критические параметры CO2-этанола",
+      "tr": "CO2-Etanol Kritik Parametreleri"
+    },
+    {
+      "en": "Binary CO2-Ethanol Mixtures (iscrit_etoh)",
+      "ru": "Бинарные смеси CO2-этанола (iscrit_etoh)",
+      "tr": "İkili CO2-Etanol Karışımları (iscrit_etoh)"
+    },
+    {
+      "en": "CO2 Molar Fraction (0-1)",
+      "ru": "Молярная доля CO2 (0-1)",
+      "tr": "CO2 Molar Fraksiyonu (0-1)"
+    },
+    {
+      "en": "Temperature (Celsius)",
+      "ru": "Температура (Цельсий)",
+      "tr": "Sıcaklık (Celsius)"
+    },
+    {
+      "en": "Method:",
+      "ru": "Метод:",
+      "tr": "Metot:"
+    },
+    {
+      "en": "Calculate CO2-EtOH Critical Params",
+      "ru": "Рассчитать критические параметры CO2-этанола",
+      "tr": "CO2-Etanol Kritik Parametrelerini Hesapla"
+    },
+    {
+      "en": "CO2-Ethanol Demo",
+      "ru": "Демо CO2-этанола",
+      "tr": "CO2-Etanol Demoları"
+    },
+    {
+      "en": "Show Validation Plot",
+      "ru": "Показать график проверки",
+      "tr": "Doğrulama Grafiğini Göster"
+    },
+    {
+      "en": "General Mixture Critical Parameters",
+      "ru": "Общие критические параметры смеси",
+      "tr": "Genel Karışım Kritik Parametreleri"
+    },
+    {
+      "en": "General Solvent Mixtures (iscrit_gen)",
+      "ru": "Общие смеси растворителей (iscrit_gen)",
+      "tr": "Genel Çözücü Karışımları (iscrit_gen)"
+    },
+    {
+      "en": "Units:",
+      "ru": "Единицы измерения:",
+      "tr": "Birimler:"
+    },
+    {
+      "en": "Critical Temperature Method:",
+      "ru": "Метод критической температуры:",
+      "tr": "Kritik Sıcaklık Metodu:"
+    },
+    {
+      "en": "Critical Pressure Method:",
+      "ru": "Метод критического давления:",
+      "tr": "Kritik Basınç Metodu:"
+    },
+    {
+      "en": "Calculate General Critical Params",
+      "ru": "Рассчитать общие критические параметры",
+      "tr": "Genel Kritik Parametreleri Hesapla"
+    },
+    {
+      "en": "Available Solvents Database",
+      "ru": "База данных доступных растворителей",
+      "tr": "Mevcut Çözücüler Veritabanı"
+    },
+    {
+      "en": "Available Solvents Data",
+      "ru": "Данные доступных растворителей",
+      "tr": "Mevcut Çözücüler Verileri"
+    },
+    {
+      "en": "GCM Method Selection Chart",
+      "ru": "Таблица выбора метода GCM",
+      "tr": "GCM Metot Seçim Tablosu"
+    },
+    {
+      "en": "Solvent",
+      "ru": "Растворитель",
+      "tr": "Çözücü"
+    },
+    {
+      "en": "Solvent 1",
+      "ru": "Растворитель 1",
+      "tr": "Çözücü 1"
+    },
+    {
+      "en": "Solvent 2",
+      "ru": "Растворитель 2",
+      "tr": "Çözücü 2"
+    },
+    {
+      "en": "Fraction",
+      "ru": "Фракция",
+      "tr": "Fraksiyon"
+    },
+    {
+      "en": "Add Solvent",
+      "ru": "Добавить растворитель",
+      "tr": "Çözücü Ekle"
+    },
+    {
+      "en": "Total Fraction:",
+      "ru": "Общая фракция:",
+      "tr": "Toplam Fraksiyon:"
+    },
+    {
+      "en": "Error calculating CO2-Ethanol critical params:",
+      "ru": "Ошибка при расчете критических параметров CO2-этанола:",
+      "tr": "CO2-Etanol kritik parametreleri hesaplanırken hata oluştu:"
+    },
+    {
+      "en": "Statement:",
+      "ru": "Заявление:",
+      "tr": "Açıklama:"
+    },
+    {
+      "en": "Critical Temperature (K):",
+      "ru": "Критическая температура (К):",
+      "tr": "Kritik Sıcaklık (K):"
+    },
+    {
+      "en": "Critical Pressure (MPa):",
+      "ru": "Критическое давление (МПа):",
+      "tr": "Kritik Basınç (MPa):"
+    },
+    {
+      "en": "Fractions must sum to 1.",
+      "ru": "Сумма фракций должна быть равна 1.",
+      "tr": "Fraksiyonların toplamı 1 olmalıdır."
+    },
+    {
+      "en": "Duplicate solvents are not allowed.",
+      "ru": "Дублирование растворителей не допускается.",
+      "tr": "Tekrarlayan çözücülere izin verilmez."
+    },
+    {
+      "en": "Error calculating general critical params:",
+      "ru": "Ошибка при расчете общих критических параметров:",
+      "tr": "Genel kritik parametreler hesaplanırken hata oluştu:"
+    },
+    {
+      "en": "Error running demo:",
+      "ru": "Ошибка при запуске демонстрации:",
+      "tr": "Demo çalıştırılırken hata oluştu:"
+    },
+    {
+      "en": "Demo Plots:",
+      "ru": "Демонстрационные графики:",
+      "tr": "Demo Grafikleri:"
+    },
+    {
+      "en": "Demo Data:",
+      "ru": "Демонстрационные данные:",
+      "tr": "Demo Verileri:"
+    },
+    {
+      "en": "Comparison Parameters",
+      "ru": "Параметры сравнения",
+      "tr": "Karşılaştırma Parametreleri"
+    },
+    {
+      "en": "Solute Selectionx",
+      "ru": "Выбор растворенного веществаx",
+      "tr": "Çözünen Madde Seçimix"
+    },
+    {
+      "en": "Select Solutes from Saved Characterizations",
+      "ru": "Выбрать растворенные вещества из сохраненных характеристик",
+      "tr": "Kaydedilmiş Karakterizasyonlardan Çözünen Maddeleri Seçin"
+    },
+    {
+      "en": "Load Selected Solutes",
+      "ru": "Загрузить выбранные растворенные вещества",
+      "tr": "Seçilen Çözünen Maddeleri Yükle"
+    },
+    {
+      "en": "Manual Solute Entry",
+      "ru": "Ручной ввод растворенного вещества",
+      "tr": "Manuel Çözünen Madde Girişi"
+    },
+    {
+      "en": "CAS",
+      "ru": "CAS",
+      "tr": "CAS"
+    },
+    {
+      "en": "SMILES",
+      "ru": "SMILES",
+      "tr": "SMILES"
+    },
+    {
+      "en": "Add",
+      "ru": "Добавить",
+      "tr": "Ekle"
+    },
+    {
+      "en": "Added Solutes:",
+      "ru": "Добавленные растворенные вещества:",
+      "tr": "Eklenen Çözünen Maddeler:"
+    },
+    {
+      "en": "Characterizing Solute (GCM)",
+      "ru": "Характеристика растворенного вещества (GCM)",
+      "tr": "Çözünen Maddeyi Karakterize Etme (GCM)"
+    },
+    {
+      "en": "GCM Method Selection",
+      "ru": "Выбор метода GCM",
+      "tr": "GCM Metot Seçimi"
+    },
+    {
+      "en": "Boiling Point (Tb) Method:",
+      "ru": "Метод температуры кипения (Tb):",
+      "tr": "Kaynama Noktası (Tb) Metodu:"
+    },
+    {
+      "en": "Critical Parameters Method:",
+      "ru": "Метод критических параметров:",
+      "tr": "Kritik Parametreler Metodu:"
+    },
+    {
+      "en": "Hansen Solubility Parameters (HSP) Method:",
+      "ru": "Метод параметров растворимости Хансена (HSP):",
+      "tr": "Hansen Çözünürlük Parametreleri (HSP) Metodu:"
+    },
+    {
+      "en": "Fragmentation Simplicity:",
+      "ru": "Простота фрагментации:",
+      "tr": "Parçalanma Basitliği:"
+    },
+    {
+      "en": "Maximum Group Order:",
+      "ru": "Максимальный порядок группы:",
+      "tr": "Maksimum Grup Sırası:"
+    },
+    {
+      "en": "Co-Solvent Selection",
+      "ru": "Выбор сорастворителя",
+      "tr": "Yardımcı Çözücü Seçimi"
+    },
+    {
+      "en": "Select Modifier(s)",
+      "ru": "Выбрать модификатор(ы)",
+      "tr": "Değiştirici(leri) Seçin"
+    },
+    {
+      "en": "Solvent Blends (Optional)",
+      "ru": "Смеси растворителей (необязательно)",
+      "tr": "Çözücü Karışımları (İsteğe Bağlı)"
+    },
+    {
+      "en": "Build a Blend:",
+      "ru": "Создать смесь:",
+      "tr": "Bir Karışım Oluştur:"
+    },
+    {
+      "en": "Select Solvent to Add:",
+      "ru": "Выбрать растворитель для добавления:",
+      "tr": "Eklenecek Çözücüyü Seçin:"
+    },
+    {
+      "en": "Add to Blend",
+      "ru": "Добавить в смесь",
+      "tr": "Karışıma Ekle"
+    },
+    {
+      "en": "Current Blend Composition:",
+      "ru": "Текущий состав смеси:",
+      "tr": "Mevcut Karışım Bileşimi:"
+    },
+    {
+      "en": "Clear",
+      "ru": "Очистить",
+      "tr": "Temizle"
+    },
+    {
+      "en": "Save Blend",
+      "ru": "Сохранить смесь",
+      "tr": "Karışımı Kaydet"
+    },
+    {
+      "en": "Saved Blends:",
+      "ru": "Сохраненные смеси:",
+      "tr": "Kaydedilmiş Karışımlar:"
+    },
+    {
+      "en": "Process Conditions",
+      "ru": "Условия процесса",
+      "tr": "Proses Koşulları"
+    },
+    {
+      "en": "Pressures (bar, comma-separated)",
+      "ru": "Давления (бар, через запятую)",
+      "tr": "Basınçlar (bar, virgülle ayrılmış)"
+    },
+    {
+      "en": "Comparative Pressure",
+      "ru": "Сравнительное давление",
+      "tr": "Karşılaştırmalı Basınç"
+    },
+    {
+      "en": "Volume Fractions (comma-separated)",
+      "ru": "Объемные доли (через запятую)",
+      "tr": "Hacim Fraksiyonları (virgülle ayrılmış)"
+    },
+    {
+      "en": "Advanced Plot Options",
+      "ru": "Расширенные параметры графика",
+      "tr": "Gelişmiş Grafik Seçenekleri"
+    },
+    {
+      "en": "Show Plot Titles",
+      "ru": "Показать заголовки графиков",
+      "tr": "Grafik Başlıklarını Göster"
+    },
+    {
+      "en": "Use Custom Colors",
+      "ru": "Использовать пользовательские цвета",
+      "tr": "Özel Renkler Kullan"
+    },
+    {
+      "en": "Color 1",
+      "ru": "Цвет 1",
+      "tr": "Renk 1"
+    },
+    {
+      "en": "Color 2",
+      "ru": "Цвет 2",
+      "tr": "Renk 2"
+    },
+    {
+      "en": "Color 3",
+      "ru": "Цвет 3",
+      "tr": "Renk 3"
+    },
+    {
+      "en": "Color 4",
+      "ru": "Цвет 4",
+      "tr": "Renk 4"
+    },
+    {
+      "en": "Color 5",
+      "ru": "Цвет 5",
+      "tr": "Renk 5"
+    },
+    {
+      "en": "Color 6",
+      "ru": "Цвет 6",
+      "tr": "Renk 6"
+    },
+    {
+      "en": "Run Miscibility Comparison",
+      "ru": "Запустить сравнение смешиваемости",
+      "tr": "Karışabilirlik Karşılaştırmasını Çalıştır"
+    },
+    {
+      "en": "Plots",
+      "ru": "Графики",
+      "tr": "Grafikler"
+    },
+    {
+      "en": "Miscibility Data",
+      "ru": "Данные смешиваемости",
+      "tr": "Karışabilirlik Verileri"
+    },
+    {
+      "en": "No saved GCM calculations found.",
+      "ru": "Сохраненные расчеты GCM не найдены.",
+      "tr": "Kaydedilmiş GCM hesaplamaları bulunamadı."
+    },
+    {
+      "en": "Select saved calculations:",
+      "ru": "Выбрать сохраненные расчеты:",
+      "tr": "Kaydedilmiş hesaplamaları seçin:"
+    },
+    {
+      "en": "No solutes added yet.",
+      "ru": "Растворенные вещества еще не добавлены.",
+      "tr": "Henüz çözünen madde eklenmedi."
+    },
+    {
+      "en": "Solvent already in blend!",
+      "ru": "Растворитель уже в смеси!",
+      "tr": "Çözücü zaten karışımda!"
+    },
+    {
+      "en": "Total:",
+      "ru": "Всего:",
+      "tr": "Toplam:"
+    },
+    {
+      "en": "Total percentage must be exactly 100% to save the blend.",
+      "ru": "Общий процент должен быть ровно 100%, чтобы сохранить смесь.",
+      "tr": "Karışımı kaydetmek için toplam yüzde tam olarak %100 olmalıdır."
+    },
+    {
+      "en": "Blend saved!",
+      "ru": "Смесь сохранена!",
+      "tr": "Karışım kaydedildi!"
+    },
+    {
+      "en": "No blends saved yet.",
+      "ru": "Смеси еще не сохранены.",
+      "tr": "Henüz karışım kaydedilmedi."
+    },
+    {
+      "en": "Please add at least 2 solutes for comparison.",
+      "ru": "Пожалуйста, добавьте как минимум 2 растворенных вещества для сравнения.",
+      "tr": "Karşılaştırma için lütfen en az 2 çözünen madde ekleyin."
+    },
+    {
+      "en": "Please select at least one GCM method (Boiling Point, Critical Parameters, or HSP).",
+      "ru": "Пожалуйста, выберите хотя бы один метод GCM (температура кипения, критические параметры или HSP).",
+      "tr": "Lütfen en az bir GCM yöntemi seçin (Kaynama Noktası, Kritik Parametreler veya HSP)."
+    },
+    {
+      "en": "Please enter valid pressure values.",
+      "ru": "Пожалуйста, введите действительные значения давления.",
+      "tr": "Lütfen geçerli basınç değerleri girin."
+    },
+    {
+      "en": "Maximum 6 pressure values are allowed.",
+      "ru": "Допускается максимум 6 значений давления.",
+      "tr": "Maksimum 6 basınç değerine izin verilir."
+    },
+    {
+      "en": "Please enter valid volume fraction values.",
+      "ru": "Пожалуйста, введите действительные значения объемной доли.",
+      "tr": "Lütfen geçerli hacim fraksiyonu değerleri girin."
+    },
+    {
+      "en": "Please select a co-solvent or define a blend.",
+      "ru": "Пожалуйста, выберите сорастворитель или определите смесь.",
+      "tr": "Lütfen bir yardımcı çözücü seçin veya bir karışım tanımlayın."
+    },
+    {
+      "en": "Error during miscibility comparison:",
+      "ru": "Ошибка во время сравнения смешиваемости:",
+      "tr": "Karışabilirlik karşılaştırması sırasında hata oluştu:"
+    },
+    {
+      "en": "Lastest Solute Characterizations",
+      "ru": "Последние характеристики растворенного вещества",
+      "tr": "En Son Çözünen Madde Karakterizasyonları"
+    },
+    {
+      "en": "Load Selected Calculation",
+      "ru": "Загрузить выбранный расчет",
+      "tr": "Seçilen Hesaplamayı Yükle"
+    },
+    {
+      "en": "Solute Information",
+      "ru": "Информация о растворенном веществе",
+      "tr": "Çözünen Madde Bilgileri"
+    },
+    {
+      "en": "CAS Number",
+      "ru": "Номер CAS",
+      "tr": "CAS Numarası"
+    },
+    {
+      "en": "Solute Name",
+      "ru": "Название растворенного вещества",
+      "tr": "Çözünen Madde Adı"
+    },
+    {
+      "en": "Specify SMILES",
+      "ru": "Указать SMILES",
+      "tr": "SMILES Belirt"
+    },
+    {
+      "en": "SMILES String",
+      "ru": "Строка SMILES",
+      "tr": "SMILES Dizisi"
+    },
+    {
+      "en": "Co-Solvent Volume Fraction (%)",
+      "ru": "Объемная доля сорастворителя (%)",
+      "tr": "Yardımcı Çözücü Hacim Fraksiyonu (%)"
+    },
+    {
+      "en": "Min Pressure (bar)",
+      "ru": "Минимальное давление (бар)",
+      "tr": "Minimum Basınç (bar)"
+    },
+    {
+      "en": "Max Pressure (bar)",
+      "ru": "Максимальное давление (бар)",
+      "tr": "Maksimum Basınç (bar)"
+    },
+    {
+      "en": "Min Temperature (Celsius)",
+      "ru": "Минимальная температура (Цельсий)",
+      "tr": "Minimum Sıcaklık (Celsius)"
+    },
+    {
+      "en": "Max Temperature (Celsius)",
+      "ru": "Максимальная температура (Цельсий)",
+      "tr": "Maksimum Sıcaklık (Celsius)"
+    },
+    {
+      "en": "Optimize Miscibility",
+      "ru": "Оптимизировать смешиваемость",
+      "tr": "Karışabilirliği Optimize Et"
+    },
+    {
+      "en": "Add to Comparison",
+      "ru": "Добавить к сравнению",
+      "tr": "Karşılaştırmaya Ekle"
+    },
+    {
+      "en": "Best Modifier Table",
+      "ru": "Таблица лучших модификаторов",
+      "tr": "En İyi Değiştirici Tablosu"
+    },
+    {
+      "en": "Best Co-Solvent",
+      "ru": "Лучший сорастворитель",
+      "tr": "En İyi Yardımcı Çözücü"
+    },
+    {
+      "en": "Max ME (%)",
+      "ru": "Максимальное ME (%)",
+      "tr": "Maksimum ME (%)"
+    },
+    {
+      "en": "Test Conditions",
+      "ru": "Условия испытаний",
+      "tr": "Test Koşulları"
+    },
+    {
+      "en": "Test Configurations",
+      "ru": "Конфигурации испытаний",
+      "tr": "Test Konfigürasyonları"
+    },
+    {
+      "en": "Co-Solvent Comparison",
+      "ru": "Сравнение сорастворителей",
+      "tr": "Yardımcı Çözücü Karşılaştırması"
+    },
+    {
+      "en": "Miscibility Enhancement",
+      "ru": "Улучшение смешиваемости",
+      "tr": "Karışabilirlik Geliştirme"
+    },
+    {
+      "en": "Select Co-Solvent",
+      "ru": "Выбрать сорастворитель",
+      "tr": "Yardımcı Çözücüyü Seçin"
+    },
+    {
+      "en": "Selected calculation not found.",
+      "ru": "Выбранный расчет не найден.",
+      "tr": "Seçilen hesaplama bulunamadı."
+    },
+    {
+      "en": "Calculation loaded successfully.",
+      "ru": "Расчет успешно загружен.",
+      "tr": "Hesaplama başarıyla yüklendi."
+    },
+    {
+      "en": "No solvents added yet.",
+      "ru": "Растворители еще не добавлены.",
+      "tr": "Henüz çözücü eklenmedi."
+    },
+    {
+      "en": "Minimum pressure must be less than maximum pressure.",
+      "ru": "Минимальное давление должно быть меньше максимального давления.",
+      "tr": "Minimum basınç, maksimum basınçtan az olmalıdır."
+    },
+    {
+      "en": "Minimum temperature must be less than maximum temperature.",
+      "ru": "Минимальная температура должна быть меньше максимальной температуры.",
+      "tr": "Minimum sıcaklık, maksimum sıcaklıktan az olmalıdır."
+    },
+    {
+      "en": "Please select at least one co-solvent or define a blend for miscibility optimization.",
+      "ru": "Пожалуйста, выберите хотя бы один сорастворитель или определите смесь для оптимизации смешиваемости.",
+      "tr": "Lütfen karışabilirlik optimizasyonu için en az bir yardımcı çözücü seçin veya bir karışım tanımlayın."
+    },
+    {
+      "en": "Error during miscibility optimization:",
+      "ru": "Ошибка во время оптимизации смешиваемости:",
+      "tr": "Karışabilirlik optimizasyonu sırasında hata oluştu:"
+    },
+    {
+      "en": "Modifier",
+      "ru": "Модификатор",
+      "tr": "Değiştirici"
+    },
+    {
+      "en": "Occurrence (%)",
+      "ru": "Встречаемость (%)",
+      "tr": "Oluşum (%)"
+    },
+    {
+      "en": "Optimization results added to comparison list.",
+      "ru": "Результаты оптимизации добавлены в список сравнения.",
+      "tr": "Optimizasyon sonuçları karşılaştırma listesine eklendi."
+    },
+    {
+      "en": "Export completed successfully!",
+      "ru": "Экспорт успешно завершен!",
+      "tr": "Dışa aktarma başarıyla tamamlandı!"
+    },
+    {
+      "en": "Van der Waals Volume Method:",
+      "ru": "Метод объема Ван-дер-Ваальса:",
+      "tr": "Van der Waals Hacim Metodu:"
+    },
+    {
+      "en": "Characterize Solute (GCM)",
+      "ru": "Характеризовать растворенное вещество (GCM)",
+      "tr": "Çözünen Maddeyi Karakterize Et (GCM)"
+    },
+    {
+      "en": "GCM Comparison",
+      "ru": "Сравнение GCM",
+      "tr": "GCM Karşılaştırması"
+    },
+    {
+      "en": "Compare GCM",
+      "ru": "Сравнить GCM",
+      "tr": "GCM Karşılaştır"
+    },
+    {
+      "en": "Solute Characterization Results",
+      "ru": "Результаты характеристики растворенного вещества",
+      "tr": "Çözünen Madde Karakterizasyon Sonuçları"
+    },
+    {
+      "en": "Show HSP Visualization",
+      "ru": "Показать визуализацию HSP",
+      "tr": "HSP Görselleştirmesini Göster"
+    },
+    {
+      "en": "Show Critical Visualization",
+      "ru": "Показать критическую визуализацию",
+      "tr": "Kritik Görselleştirmeyi Göster"
+    },
+    {
+      "en": "Show Tb Visualization",
+      "ru": "Показать визуализацию Tb",
+      "tr": "Tb Görselleştirmesini Göster"
+    },
+    {
+      "en": "Predicted Parameters (HSP & Critical)",
+      "ru": "Предсказанные параметры (HSP и критические)",
+      "tr": "Tahmini Parametreler (HSP ve Kritik)"
+    },
+    {
+      "en": "Group Contributions",
+      "ru": "Групповые вклады",
+      "tr": "Grup Katkıları"
+    },
+    {
+      "en": "HSP Visualization",
+      "ru": "Визуализация HSP",
+      "tr": "HSP Görselleştirme"
+    },
+    {
+      "en": "Critical Parameters Visualization",
+      "ru": "Визуализация критических параметров",
+      "tr": "Kritik Parametreler Görselleştirme"
+    },
+    {
+      "en": "Tb Visualization",
+      "ru": "Визуализация Tb",
+      "tr": "Tb Görselleştirme"
+    },
+    {
+      "en": "Error during GCM characterization:",
+      "ru": "Ошибка во время характеристики GCM:",
+      "tr": "GCM karakterizasyonu sırasında hata oluştu:"
+    },
+    {
+      "en": "GCM calculation saved.",
+      "ru": "Расчет GCM сохранен.",
+      "tr": "GCM hesaplaması kaydedildi."
+    },
+    {
+      "en": "Error during GCM comparison:",
+      "ru": "Ошибка во время сравнения GCM:",
+      "tr": "GCM karşılaştırması sırasında hata oluştu:"
+    }
+  ]
+}

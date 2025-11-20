@@ -1,0 +1,149 @@
+{
+  "translation": [
+    {
+      "en": "Solute Information",
+      "ru": "Информация о растворенном веществе",
+      "tr": "Çözünen Madde Bilgileri"
+    },
+    {
+      "en": "CAS Number",
+      "ru": "Номер CAS",
+      "tr": "CAS Numarası"
+    },
+    {
+      "en": "Solute Name",
+      "ru": "Название растворенного вещества",
+      "tr": "Çözünen Madde Adı"
+    },
+    {
+      "en": "Specify SMILES",
+      "ru": "Указать SMILES",
+      "tr": "SMILES Belirt"
+    },
+    {
+      "en": "SMILES String",
+      "ru": "Строка SMILES",
+      "tr": "SMILES Dizisi"
+    },
+    {
+      "en": "Characterizing Solute (GCM)",
+      "ru": "Характеристика растворенного вещества (GCM)",
+      "tr": "Çözünen Maddeyi Karakterize Etme (GCM)"
+    },
+    {
+      "en": "GCM Method Selection",
+      "ru": "Выбор метода GCM",
+      "tr": "GCM Metot Seçimi"
+    },
+    {
+      "en": "Boiling Point (Tb) Method:",
+      "ru": "Метод температуры кипения (Tb):",
+      "tr": "Kaynama Noktası (Tb) Metodu:"
+    },
+    {
+      "en": "Critical Parameters Method:",
+      "ru": "Метод критических параметров:",
+      "tr": "Kritik Parametreler Metodu:"
+    },
+    {
+      "en": "Hansen Solubility Parameters (HSP) Method:",
+      "ru": "Метод параметров растворимости Хансена (HSP):",
+      "tr": "Hansen Çözünürlük Parametreleri (HSP) Metodu:"
+    },
+    {
+      "en": "Van der Waals Volume Method:",
+      "ru": "Метод объема Ван-дер-Ваальса:",
+      "tr": "Van der Waals Hacim Metodu:"
+    },
+    {
+      "en": "Fragmentation Simplicity:",
+      "ru": "Простота фрагментации:",
+      "tr": "Parçalanma Basitliği:"
+    },
+    {
+      "en": "Maximum Group Order:",
+      "ru": "Максимальный порядок группы:",
+      "tr": "Maksimum Grup Sırası:"
+    },
+    {
+      "en": "Characterize Solute (GCM)",
+      "ru": "Характеризовать растворенное вещество (GCM)",
+      "tr": "Çözünen Maddeyi Karakterize Et (GCM)"
+    },
+    {
+      "en": "GCM Comparison",
+      "ru": "Сравнение GCM",
+      "tr": "GCM Karşılaştırması"
+    },
+    {
+      "en": "Compare GCM",
+      "ru": "Сравнить GCM",
+      "tr": "GCM Karşılaştır"
+    },
+    {
+      "en": "Solute Characterization Results",
+      "ru": "Результаты характеристики растворенного вещества",
+      "tr": "Çözünen Madde Karakterizasyon Sonuçları"
+    },
+    {
+      "en": "Show HSP Visualization",
+      "ru": "Показать визуализацию HSP",
+      "tr": "HSP Görselleştirmesini Göster"
+    },
+    {
+      "en": "Show Critical Visualization",
+      "ru": "Показать критическую визуализацию",
+      "tr": "Kritik Görselleştirmeyi Göster"
+    },
+    {
+      "en": "Show Tb Visualization",
+      "ru": "Показать визуализацию Tb",
+      "tr": "Tb Görselleştirmesini Göster"
+    },
+    {
+      "en": "Predicted Parameters (HSP & Critical)",
+      "ru": "Предсказанные параметры (HSP и критические)",
+      "tr": "Tahmini Parametreler (HSP ve Kritik)"
+    },
+    {
+      "en": "Group Contributions",
+      "ru": "Групповые вклады",
+      "tr": "Grup Katkıları"
+    },
+    {
+      "en": "HSP Visualization",
+      "ru": "Визуализация HSP",
+      "tr": "HSP Görselleştirme"
+    },
+    {
+      "en": "Close",
+      "ru": "Закрыть",
+      "tr": "Kapat"
+    },
+    {
+      "en": "Critical Parameters Visualization",
+      "ru": "Визуализация критических параметров",
+      "tr": "Kritik Parametreler Görselleştirme"
+    },
+    {
+      "en": "Tb Visualization",
+      "ru": "Визуализация Tb",
+      "tr": "Tb Görselleştirme"
+    },
+    {
+      "en": "Error during GCM characterization:",
+      "ru": "Ошибка во время характеристики GCM:",
+      "tr": "GCM karakterizasyonu sırasında hata oluştu:"
+    },
+    {
+      "en": "GCM calculation saved.",
+      "ru": "Расчет GCM сохранен.",
+      "tr": "GCM hesaplaması kaydedildi."
+    },
+    {
+      "en": "Error during GCM comparison:",
+      "ru": "Ошибка во время сравнения GCM:",
+      "tr": "GCM karşılaştırması sırasında hata oluştu:"
+    }
+  ]
+}

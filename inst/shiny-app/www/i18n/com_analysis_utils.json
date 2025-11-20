@@ -1,0 +1,34 @@
+{
+  "translation": [
+    {
+      "en": "Error saving settings:",
+      "ru": "Ошибка сохранения настроек:",
+      "tr": "Ayarlar kaydedilirken hata oluştu:"
+    },
+    {
+      "en": "Text input must have exactly two columns (time, yield).",
+      "ru": "Текстовый ввод должен содержать ровно два столбца (время, выход).",
+      "tr": "Metin girişi tam olarak iki sütun (zaman, verim) içermelidir."
+    },
+    {
+      "en": "Text input column names must be 'time' and 'yield'.",
+      "ru": "Имена столбцов текстового ввода должны быть 'time' и 'yield'.",
+      "tr": "Metin girişi sütun adları 'time' ve 'yield' olmalıdır."
+    },
+    {
+      "en": "Time and yield columns must be numeric.",
+      "ru": "Столбцы времени и выхода должны быть числовыми.",
+      "tr": "Zaman ve verim sütunları sayısal olmalıdır."
+    },
+    {
+      "en": "Error parsing text input:",
+      "ru": "Ошибка при разборе текстового ввода:",
+      "tr": "Metin girişi ayrıştırılırken hata oluştu:"
+    },
+    {
+      "en": "merge_translation_jsons is running. Output file: ",
+      "ru": "merge_translation_jsons выполняется. Выходной файл: ",
+      "tr": "merge_translation_jsons çalışıyor. Çıktı dosyası: "
+    }
+  ]
+}

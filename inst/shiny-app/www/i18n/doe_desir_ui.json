@@ -1,0 +1,289 @@
+{
+  "translation": [
+    {
+      "en": "Reset",
+      "ru": "Сброс",
+      "tr": "Sıfırla"
+    },
+    {
+      "en": "Calculate",
+      "ru": "Рассчитать",
+      "tr": "Hesapla"
+    },
+    {
+      "en": "Select DOE Analyses",
+      "ru": "Выбрать анализы DOE",
+      "tr": "DOE Analizlerini Seçin"
+    },
+    {
+      "en": "Select 2-6 saved DOE analysis setups to combine with desirability function:",
+      "ru": "Выберите 2-6 сохраненных настроек анализа DOE для объединения с функцией желательности:",
+      "tr": "İstenilebilirlik fonksiyonu ile birleştirmek için 2-6 kayıtlı DOE analizi kurulumu seçin:"
+    },
+    {
+      "en": "Load Selected Analyses",
+      "ru": "Загрузить выбранные анализы",
+      "tr": "Seçilen Analizleri Yükle"
+    },
+    {
+      "en": "Desirability Settings",
+      "ru": "Настройки желательности",
+      "tr": "İstenilebilirlik Ayarları"
+    },
+    {
+      "en": "Factor Range Settings",
+      "ru": "Настройки диапазона факторов",
+      "tr": "Faktör Aralığı Ayarları"
+    },
+    {
+      "en": "Use Default Factor Ranges",
+      "ru": "Использовать диапазоны факторов по умолчанию",
+      "tr": "Varsayılan Faktör Aralıklarını Kullan"
+    },
+    {
+      "en": "Global Parameters",
+      "ru": "Глобальные параметры",
+      "tr": "Global Parametreler"
+    },
+    {
+      "en": "Factor Type:",
+      "ru": "Тип фактора:",
+      "tr": "Faktör Tipi:"
+    },
+    {
+      "en": "Model Base:",
+      "ru": "База модели:",
+      "tr": "Model Tabanı:"
+    },
+    {
+      "en": "Optimization Method:",
+      "ru": "Метод оптимизации:",
+      "tr": "Optimizasyon Yöntemi:"
+    },
+    {
+      "en": "Clustering:",
+      "ru": "Кластеризация:",
+      "tr": "Kümeleme:"
+    },
+    {
+      "en": "Random Starting Points:",
+      "ru": "Случайные начальные точки:",
+      "tr": "Rastgele Başlangıç Noktaları:"
+    },
+    {
+      "en": "Data Starting Points:",
+      "ru": "Начальные точки данных:",
+      "tr": "Veri Başlangıç Noktaları:"
+    },
+    {
+      "en": "Summary",
+      "ru": "Сводка",
+      "tr": "Özet"
+    },
+    {
+      "en": "Export Results",
+      "ru": "Экспортировать результаты",
+      "tr": "Sonuçları Dışa Aktar"
+    },
+    {
+      "en": "Factor Limits",
+      "ru": "Пределы факторов",
+      "tr": "Faktör Limitleri"
+    },
+    {
+      "en": "Response Limits",
+      "ru": "Пределы отклика",
+      "tr": "Yanıt Limitleri"
+    },
+    {
+      "en": "Model Summaries",
+      "ru": "Сводки моделей",
+      "tr": "Model Özetleri"
+    },
+    {
+      "en": "Optimization Results",
+      "ru": "Результаты оптимизации",
+      "tr": "Optimizasyon Sonuçları"
+    },
+    {
+      "en": "Optimal Solutions",
+      "ru": "Оптимальные решения",
+      "tr": "Optimal Çözümler"
+    },
+    {
+      "en": "Download Solutions",
+      "ru": "Скачать решения",
+      "tr": "Çözümleri İndir"
+    },
+    {
+      "en": "All Optimization Outputs",
+      "ru": "Все выходы оптимизации",
+      "tr": "Tüm Optimizasyon Çıktıları"
+    },
+    {
+      "en": "Original Data with Desirabilities",
+      "ru": "Исходные данные с желательностью",
+      "tr": "İstenilebilirlikler ile Orijinal Veriler"
+    },
+    {
+      "en": "No saved DOE analyses found.",
+      "ru": "Сохраненные анализы DOE не найдены.",
+      "tr": "Kaydedilmiş DOE analizi bulunamadı."
+    },
+    {
+      "en": "Please create and save DOE analyses first in the DOE Analysis tab.",
+      "ru": "Пожалуйста, сначала создайте и сохраните анализы DOE на вкладке 'Анализ DOE'.",
+      "tr": "Lütfen önce DOE Analiz sekmesinde DOE analizleri oluşturun ve kaydedin."
+    },
+    {
+      "en": "Available Analyses:",
+      "ru": "Доступные анализы:",
+      "tr": "Mevcut Analizler:"
+    },
+    {
+      "en": "Please select at least 2 analyses.",
+      "ru": "Пожалуйста, выберите как минимум 2 анализа.",
+      "tr": "Lütfen en az 2 analiz seçin."
+    },
+    {
+      "en": "Please select maximum 6 analyses.",
+      "ru": "Пожалуйста, выберите максимум 6 анализов.",
+      "tr": "Lütfen en fazla 6 analiz seçin."
+    },
+    {
+      "en": "Loading analyses...",
+      "ru": "Загрузка анализов...",
+      "tr": "Analizler yükleniyor..."
+    },
+    {
+      "en": "Loading",
+      "ru": "Загрузка",
+      "tr": "Yükleniyor"
+    },
+    {
+      "en": "Error loading",
+      "ru": "Ошибка загрузки",
+      "tr": "Yükleme hatası"
+    },
+    {
+      "en": "Loaded",
+      "ru": "Загружено",
+      "tr": "Yüklendi"
+    },
+    {
+      "en": "analyses successfully.",
+      "ru": "анализы успешно.",
+      "tr": "analizler başarıyla."
+    },
+    {
+      "en": "Response:",
+      "ru": "Отклик:",
+      "tr": "Yanıt:"
+    },
+    {
+      "en": "Model Order:",
+      "ru": "Порядок модели:",
+      "tr": "Model Sırası:"
+    },
+    {
+      "en": "Selected Analyses:",
+      "ru": "Выбранные анализы:",
+      "tr": "Seçilen Analizler:"
+    },
+    {
+      "en": "Response",
+      "ru": "Отклик",
+      "tr": "Yanıt"
+    },
+    {
+      "en": "Objective:",
+      "ru": "Цель:",
+      "tr": "Hedef:"
+    },
+    {
+      "en": "Lower Limit:",
+      "ru": "Нижний предел:",
+      "tr": "Alt Limit:"
+    },
+    {
+      "en": "Upper Limit:",
+      "ru": "Верхний предел:",
+      "tr": "Üst Limit:"
+    },
+    {
+      "en": "Target Value:",
+      "ru": "Целевое значение:",
+      "tr": "Hedef Değer:"
+    },
+    {
+      "en": "Weight (Lower):",
+      "ru": "Вес (нижний):",
+      "tr": "Ağırlık (Alt):"
+    },
+    {
+      "en": "Weight (Upper):",
+      "ru": "Вес (верхний):",
+      "tr": "Ağırlık (Üst):"
+    },
+    {
+      "en": "Min:",
+      "ru": "Мин:",
+      "tr": "Min:"
+    },
+    {
+      "en": "Max:",
+      "ru": "Макс:",
+      "tr": "Maks:"
+    },
+    {
+      "en": "Calculating desirability...",
+      "ru": "Расчет желательности...",
+      "tr": "İstenilebilirlik hesaplanıyor..."
+    },
+    {
+      "en": "Running DOE analyses...",
+      "ru": "Выполнение анализов DOE...",
+      "tr": "DOE analizleri yürütülüyor..."
+    },
+    {
+      "en": "Analyzing",
+      "ru": "Анализ",
+      "tr": "Analiz Ediliyor"
+    },
+    {
+      "en": "Preparing parameters...",
+      "ru": "Подготовка параметров...",
+      "tr": "Parametreler hazırlanıyor..."
+    },
+    {
+      "en": "Optimizing desirability...",
+      "ru": "Оптимизация желательности...",
+      "tr": "İstenilebilirlik optimize ediliyor..."
+    },
+    {
+      "en": "Complete!",
+      "ru": "Готово!",
+      "tr": "Tamamlandı!"
+    },
+    {
+      "en": "Desirability analysis completed successfully!",
+      "ru": "Анализ желательности успешно завершен!",
+      "tr": "İstenilebilirlik analizi başarıyla tamamlandı!"
+    },
+    {
+      "en": "Error in desirability calculation:",
+      "ru": "Ошибка в расчете желательности:",
+      "tr": "İstenilebilirlik hesaplamasında hata:"
+    },
+    {
+      "en": "Error exporting results:",
+      "ru": "Ошибка экспорта результатов:",
+      "tr": "Sonuçları dışa aktarma hatası:"
+    },
+    {
+      "en": "Reset complete",
+      "ru": "Сброс завершен",
+      "tr": "Sıfırlama tamamlandı"
+    }
+  ]
+}

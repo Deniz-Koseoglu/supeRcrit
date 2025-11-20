@@ -1,0 +1,11 @@
+{
+  "default_mod_order": 2,
+  "default_p_cutoff": 0.1,
+  "default_trim_method": "both",
+  "default_which_facs": "coded",
+  "default_data_source": "manual",
+  "results_page_length": 20,
+  "auto_select_variables": true,
+  "show_diagnostics": true,
+  "verbose_output": false
+}

@@ -1,0 +1,225 @@
+{
+  "data_source": "saved",
+  "parameters": {
+    "response_var": "response",
+    "time_var": "Standard_Order",
+    "mod_order": 2,
+    "p_cutoff": 0.1,
+    "trim_method": "both",
+    "uc_facs": ["P_bar", "T_degC", "EtOH_gmin"],
+    "which_facs": "coded",
+    "canon_thres": "auto",
+    "export": "none",
+    "verbose": false
+  },
+  "data": {
+    "source_reference": "A_test_ccd_20251021_171840",
+    "original_file": {},
+    "table": [
+      {
+        "Standard_Order": 1,
+        "A": -1,
+        "B": -1,
+        "C": -1,
+        "P_bar": 100,
+        "T_degC": 40,
+        "EtOH_gmin": 3,
+        "response": 3.0213
+      },
+      {
+        "Standard_Order": 2,
+        "A": -1,
+        "B": 1,
+        "C": -1,
+        "P_bar": 100,
+        "T_degC": 60,
+        "EtOH_gmin": 3,
+        "response": 4.56
+      },
+      {
+        "Standard_Order": 3,
+        "A": 1,
+        "B": -1,
+        "C": -1,
+        "P_bar": 300,
+        "T_degC": 40,
+        "EtOH_gmin": 3,
+        "response": 4.3666
+      },
+      {
+        "Standard_Order": 4,
+        "A": 1,
+        "B": 1,
+        "C": -1,
+        "P_bar": 300,
+        "T_degC": 60,
+        "EtOH_gmin": 3,
+        "response": 5.154
+      },
+      {
+        "Standard_Order": 5,
+        "A": -1,
+        "B": -1,
+        "C": 1,
+        "P_bar": 100,
+        "T_degC": 40,
+        "EtOH_gmin": 9,
+        "response": 4.1375
+      },
+      {
+        "Standard_Order": 6,
+        "A": -1,
+        "B": 1,
+        "C": 1,
+        "P_bar": 100,
+        "T_degC": 60,
+        "EtOH_gmin": 9,
+        "response": 5.3212
+      },
+      {
+        "Standard_Order": 7,
+        "A": 1,
+        "B": -1,
+        "C": 1,
+        "P_bar": 300,
+        "T_degC": 40,
+        "EtOH_gmin": 9,
+        "response": 5.007
+      },
+      {
+        "Standard_Order": 8,
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "P_bar": 300,
+        "T_degC": 60,
+        "EtOH_gmin": 9,
+        "response": 5.3761
+      },
+      {
+        "Standard_Order": 9,
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "P_bar": 200,
+        "T_degC": 50,
+        "EtOH_gmin": 6,
+        "response": 6.6132
+      },
+      {
+        "Standard_Order": 10,
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "P_bar": 200,
+        "T_degC": 50,
+        "EtOH_gmin": 6,
+        "response": 6.7468
+      },
+      {
+        "Standard_Order": 11,
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "P_bar": 200,
+        "T_degC": 50,
+        "EtOH_gmin": 6,
+        "response": 6.677
+      },
+      {
+        "Standard_Order": 12,
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "P_bar": 200,
+        "T_degC": 50,
+        "EtOH_gmin": 6,
+        "response": 6.6321
+      },
+      {
+        "Standard_Order": 13,
+        "A": 0,
+        "B": -1,
+        "C": 0,
+        "P_bar": 200,
+        "T_degC": 40,
+        "EtOH_gmin": 6,
+        "response": 5.4513
+      },
+      {
+        "Standard_Order": 14,
+        "A": 0,
+        "B": 1,
+        "C": 0,
+        "P_bar": 200,
+        "T_degC": 60,
+        "EtOH_gmin": 6,
+        "response": 6.8167
+      },
+      {
+        "Standard_Order": 15,
+        "A": -1,
+        "B": 0,
+        "C": 0,
+        "P_bar": 100,
+        "T_degC": 50,
+        "EtOH_gmin": 6,
+        "response": 4.871
+      },
+      {
+        "Standard_Order": 16,
+        "A": 1,
+        "B": 0,
+        "C": 0,
+        "P_bar": 300,
+        "T_degC": 50,
+        "EtOH_gmin": 6,
+        "response": 5.6375
+      },
+      {
+        "Standard_Order": 17,
+        "A": 0,
+        "B": 0,
+        "C": -1,
+        "P_bar": 200,
+        "T_degC": 50,
+        "EtOH_gmin": 3,
+        "response": 5.9912
+      },
+      {
+        "Standard_Order": 18,
+        "A": 0,
+        "B": 0,
+        "C": 1,
+        "P_bar": 200,
+        "T_degC": 50,
+        "EtOH_gmin": 9,
+        "response": 6.8118
+      },
+      {
+        "Standard_Order": 19,
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "P_bar": 200,
+        "T_degC": 50,
+        "EtOH_gmin": 6,
+        "response": 6.8456
+      },
+      {
+        "Standard_Order": 20,
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "P_bar": 200,
+        "T_degC": 50,
+        "EtOH_gmin": 6,
+        "response": 6.7211
+      }
+    ]
+  },
+  "metadata": {
+    "created_date": "2025-10-23 13:34:01",
+    "app_version": "0.9.0"
+  }
+}

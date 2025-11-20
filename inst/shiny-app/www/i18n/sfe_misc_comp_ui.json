@@ -1,0 +1,299 @@
+{
+  "translation": [
+    {
+      "en": "Comparison Parameters",
+      "ru": "Параметры сравнения",
+      "tr": "Karşılaştırma Parametreleri"
+    },
+    {
+      "en": "Solute Selectionx",
+      "ru": "Выбор растворенного веществаx",
+      "tr": "Çözünen Madde Seçimix"
+    },
+    {
+      "en": "Select Solutes from Saved Characterizations",
+      "ru": "Выбрать растворенные вещества из сохраненных характеристик",
+      "tr": "Kaydedilmiş Karakterizasyonlardan Çözünen Maddeleri Seçin"
+    },
+    {
+      "en": "Load Selected Solutes",
+      "ru": "Загрузить выбранные растворенные вещества",
+      "tr": "Seçilen Çözünen Maddeleri Yükle"
+    },
+    {
+      "en": "Manual Solute Entry",
+      "ru": "Ручной ввод растворенного вещества",
+      "tr": "Manuel Çözünen Madde Girişi"
+    },
+    {
+      "en": "CAS",
+      "ru": "CAS",
+      "tr": "CAS"
+    },
+    {
+      "en": "Name",
+      "ru": "Имя",
+      "tr": "Ad"
+    },
+    {
+      "en": "SMILES",
+      "ru": "SMILES",
+      "tr": "SMILES"
+    },
+    {
+      "en": "Add",
+      "ru": "Добавить",
+      "tr": "Ekle"
+    },
+    {
+      "en": "Added Solutes:",
+      "ru": "Добавленные растворенные вещества:",
+      "tr": "Eklenen Çözünen Maddeler:"
+    },
+    {
+      "en": "Characterizing Solute (GCM)",
+      "ru": "Характеристика растворенного вещества (GCM)",
+      "tr": "Çözünen Maddeyi Karakterize Etme (GCM)"
+    },
+    {
+      "en": "GCM Method Selection",
+      "ru": "Выбор метода GCM",
+      "tr": "GCM Metot Seçimi"
+    },
+    {
+      "en": "Boiling Point (Tb) Method:",
+      "ru": "Метод температуры кипения (Tb):",
+      "tr": "Kaynama Noktası (Tb) Metodu:"
+    },
+    {
+      "en": "Critical Parameters Method:",
+      "ru": "Метод критических параметров:",
+      "tr": "Kritik Parametreler Metodu:"
+    },
+    {
+      "en": "Hansen Solubility Parameters (HSP) Method:",
+      "ru": "Метод параметров растворимости Хансена (HSP):",
+      "tr": "Hansen Çözünürlük Parametreleri (HSP) Metodu:"
+    },
+    {
+      "en": "Fragmentation Simplicity:",
+      "ru": "Простота фрагментации:",
+      "tr": "Parçalanma Basitliği:"
+    },
+    {
+      "en": "Maximum Group Order:",
+      "ru": "Максимальный порядок группы:",
+      "tr": "Maksimum Grup Sırası:"
+    },
+    {
+      "en": "Co-Solvent Selection",
+      "ru": "Выбор сорастворителя",
+      "tr": "Yardımcı Çözücü Seçimi"
+    },
+    {
+      "en": "Select Modifier(s)",
+      "ru": "Выбрать модификатор(ы)",
+      "tr": "Değiştirici(leri) Seçin"
+    },
+    {
+      "en": "Solvent Blends (Optional)",
+      "ru": "Смеси растворителей (необязательно)",
+      "tr": "Çözücü Karışımları (İsteğe Bağlı)"
+    },
+    {
+      "en": "Build a Blend:",
+      "ru": "Создать смесь:",
+      "tr": "Bir Karışım Oluştur:"
+    },
+    {
+      "en": "Select Solvent to Add:",
+      "ru": "Выбрать растворитель для добавления:",
+      "tr": "Eklenecek Çözücüyü Seçin:"
+    },
+    {
+      "en": "Add to Blend",
+      "ru": "Добавить в смесь",
+      "tr": "Karışıma Ekle"
+    },
+    {
+      "en": "Current Blend Composition:",
+      "ru": "Текущий состав смеси:",
+      "tr": "Mevcut Karışım Bileşimi:"
+    },
+    {
+      "en": "Clear",
+      "ru": "Очистить",
+      "tr": "Temizle"
+    },
+    {
+      "en": "Save Blend",
+      "ru": "Сохранить смесь",
+      "tr": "Karışımı Kaydet"
+    },
+    {
+      "en": "Saved Blends:",
+      "ru": "Сохраненные смеси:",
+      "tr": "Kaydedilmiş Karışımlar:"
+    },
+    {
+      "en": "Process Conditions",
+      "ru": "Условия процесса",
+      "tr": "Proses Koşulları"
+    },
+    {
+      "en": "Pressures (bar, comma-separated)",
+      "ru": "Давления (бар, через запятую)",
+      "tr": "Basınçlar (bar, virgülle ayrılmış)"
+    },
+    {
+      "en": "Comparative Pressure",
+      "ru": "Сравнительное давление",
+      "tr": "Karşılaştırmalı Basınç"
+    },
+    {
+      "en": "Temperature (°C)",
+      "ru": "Температура (°C)",
+      "tr": "Sıcaklık (°C)"
+    },
+    {
+      "en": "Volume Fractions (comma-separated)",
+      "ru": "Объемные доли (через запятую)",
+      "tr": "Hacim Fraksiyonları (virgülle ayrılmış)"
+    },
+    {
+      "en": "Advanced Plot Options",
+      "ru": "Расширенные параметры графика",
+      "tr": "Gelişmiş Grafik Seçenekleri"
+    },
+    {
+      "en": "Show Plot Titles",
+      "ru": "Показать заголовки графиков",
+      "tr": "Grafik Başlıklarını Göster"
+    },
+    {
+      "en": "Use Custom Colors",
+      "ru": "Использовать пользовательские цвета",
+      "tr": "Özel Renkler Kullan"
+    },
+    {
+      "en": "Color 1",
+      "ru": "Цвет 1",
+      "tr": "Renk 1"
+    },
+    {
+      "en": "Color 2",
+      "ru": "Цвет 2",
+      "tr": "Renk 2"
+    },
+    {
+      "en": "Color 3",
+      "ru": "Цвет 3",
+      "tr": "Renk 3"
+    },
+    {
+      "en": "Color 4",
+      "ru": "Цвет 4",
+      "tr": "Renk 4"
+    },
+    {
+      "en": "Color 5",
+      "ru": "Цвет 5",
+      "tr": "Renk 5"
+    },
+    {
+      "en": "Color 6",
+      "ru": "Цвет 6",
+      "tr": "Renk 6"
+    },
+    {
+      "en": "Run Miscibility Comparison",
+      "ru": "Запустить сравнение смешиваемости",
+      "tr": "Karışabilirlik Karşılaştırmasını Çalıştır"
+    },
+    {
+      "en": "Plots",
+      "ru": "Графики",
+      "tr": "Grafikler"
+    },
+    {
+      "en": "Miscibility Data",
+      "ru": "Данные смешиваемости",
+      "tr": "Karışabilirlik Verileri"
+    },
+    {
+      "en": "No saved GCM calculations found.",
+      "ru": "Сохраненные расчеты GCM не найдены.",
+      "tr": "Kaydedilmiş GCM hesaplamaları bulunamadı."
+    },
+    {
+      "en": "Select saved calculations:",
+      "ru": "Выбрать сохраненные расчеты:",
+      "tr": "Kaydedilmiş hesaplamaları seçin:"
+    },
+    {
+      "en": "No solutes added yet.",
+      "ru": "Растворенные вещества еще не добавлены.",
+      "tr": "Henüz çözünen madde eklenmedi."
+    },
+    {
+      "en": "Solvent already in blend!",
+      "ru": "Растворитель уже в смеси!",
+      "tr": "Çözücü zaten karışımda!"
+    },
+    {
+      "en": "Total:",
+      "ru": "Всего:",
+      "tr": "Toplam:"
+    },
+    {
+      "en": "Total percentage must be exactly 100% to save the blend.",
+      "ru": "Общий процент должен быть ровно 100%, чтобы сохранить смесь.",
+      "tr": "Karışımı kaydetmek için toplam yüzde tam olarak %100 olmalıdır."
+    },
+    {
+      "en": "Blend saved!",
+      "ru": "Смесь сохранена!",
+      "tr": "Karışım kaydedildi!"
+    },
+    {
+      "en": "No blends saved yet.",
+      "ru": "Смеси еще не сохранены.",
+      "tr": "Henüz karışım kaydedilmedi."
+    },
+    {
+      "en": "Please add at least 2 solutes for comparison.",
+      "ru": "Пожалуйста, добавьте как минимум 2 растворенных вещества для сравнения.",
+      "tr": "Karşılaştırma için lütfen en az 2 çözünen madde ekleyin."
+    },
+    {
+      "en": "Please select at least one GCM method (Boiling Point, Critical Parameters, or HSP).",
+      "ru": "Пожалуйста, выберите хотя бы один метод GCM (температура кипения, критические параметры или HSP).",
+      "tr": "Lütfen en az bir GCM yöntemi seçin (Kaynama Noktası, Kritik Parametreler veya HSP)."
+    },
+    {
+      "en": "Please enter valid pressure values.",
+      "ru": "Пожалуйста, введите действительные значения давления.",
+      "tr": "Lütfen geçerli basınç değerleri girin."
+    },
+    {
+      "en": "Maximum 6 pressure values are allowed.",
+      "ru": "Допускается максимум 6 значений давления.",
+      "tr": "Maksimum 6 basınç değerine izin verilir."
+    },
+    {
+      "en": "Please enter valid volume fraction values.",
+      "ru": "Пожалуйста, введите действительные значения объемной доли.",
+      "tr": "Lütfen geçerli hacim fraksiyonu değerleri girin."
+    },
+    {
+      "en": "Please select a co-solvent or define a blend.",
+      "ru": "Пожалуйста, выберите сорастворитель или определите смесь.",
+      "tr": "Lütfen bir yardımcı çözücü seçin veya bir karışım tanımlayın."
+    },
+    {
+      "en": "Error during miscibility comparison:",
+      "ru": "Ошибка во время сравнения смешиваемости:",
+      "tr": "Karışabilirlik karşılaştırması sırasında hata oluştu:"
+    }
+  ]
+}
