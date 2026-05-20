@@ -1,0 +1,24 @@
+/* Show question-mark cursor on all elements with a title (tooltip) attribute */
+[title] {
+  cursor: help;
+}
+
+/* Exclude elements where a pointer cursor is more appropriate */
+a[title],
+button[title],
+input[title],
+select[title],
+.btn[title],
+.action-button[title],
+.shiny-bound-input[title],
+.selectize-input[title],
+.selectize-control[title] {
+  cursor: pointer;
+}
+
+/* Disabled elements with titles should still show help cursor */
+.disabled[title],
+[disabled][title],
+.shinyjs-disabled[title] {
+  cursor: help;
+}

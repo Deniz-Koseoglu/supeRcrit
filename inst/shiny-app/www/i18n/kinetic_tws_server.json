@@ -1,0 +1,309 @@
+{
+  "translation": [
+    {
+      "en": "Error loading CSV:",
+      "ru": "Ошибка загрузки CSV:",
+      "tr": "CSV yüklenirken hata oluştu:"
+    },
+    {
+      "en": "Error parsing manual data:",
+      "ru": "Ошибка при разборе данных вручную:",
+      "tr": "Manuel veri ayrıştırılırken hata oluştu:"
+    },
+    {
+      "en": "Selected OEC variables not found in data.",
+      "ru": "Выбранные переменные OEC не найдены в данных.",
+      "tr": "Seçilen OEC değişkenleri verilerde bulunamadı."
+    },
+    {
+      "en": "Time and yield columns must be numeric.",
+      "ru": "Столбцы времени и выхода должны быть числовыми.",
+      "tr": "Zaman ve verim sütunları sayısal olmalıdır."
+    },
+    {
+      "en": "Calculating kinetic model...",
+      "ru": "Расчет кинетической модели...",
+      "tr": "Kinetik model hesaplanıyor..."
+    },
+    {
+      "en": "Preparing parameters...",
+      "ru": "Подготовка параметров...",
+      "tr": "Parametreler hazırlanıyor..."
+    },
+    {
+      "en": "Running model...",
+      "ru": "Запуск модели...",
+      "tr": "Model çalıştırılıyor..."
+    },
+    {
+      "en": "Completed!",
+      "ru": "Завершено!",
+      "tr": "Tamamlandı!"
+    },
+    {
+      "en": "Time Variable",
+      "ru": "Переменная времени",
+      "tr": "Zaman Değişkeni"
+    },
+    {
+      "en": "Response Variable",
+      "ru": "Переменная отклика",
+      "tr": "Yanıt Değişkeni"
+    },
+    {
+      "en": "Solvent Variable (Optional)",
+      "ru": "Переменная растворителя (опционально)",
+      "tr": "Çözücü Değişkeni (İsteğe Bağlı)"
+    },
+    {
+      "en": "Kinetic model calculated successfully!",
+      "ru": "Кинетическая модель успешно рассчитана!",
+      "tr": "Kinetik model başarıyla hesaplandı!"
+    },
+    {
+      "en": "Error calculating kinetic model:",
+      "ru": "Ошибка при расчете кинетической модели:",
+      "tr": "Kinetik model hesaplanırken hata oluştu:"
+    },
+    {
+      "en": "Parameters reset",
+      "ru": "Параметры сброшены",
+      "tr": "Parametreler sıfırlandı"
+    },
+    {
+      "en": "Please enter new time values for prediction.",
+      "ru": "Пожалуйста, введите новые значения времени для прогнозирования.",
+      "tr": "Lütfen tahmin için yeni zaman değerleri girin."
+    },
+    {
+      "en": "Invalid time values. Please enter comma-separated numbers.",
+      "ru": "Неверные значения времени. Пожалуйста, введите числа, разделенные запятыми.",
+      "tr": "Geçersiz zaman değerleri. Lütfen virgülle ayrılmış sayılar girin."
+    },
+    {
+      "en": "Generating predictions...",
+      "ru": "Генерация прогнозов...",
+      "tr": "Tahminler oluşturuluyor..."
+    },
+    {
+      "en": "Predictions generated successfully!",
+      "ru": "Прогнозы успешно сгенерированы!",
+      "tr": "Tahminler başarıyla oluşturuldu!"
+    },
+    {
+      "en": "Error generating predictions:",
+      "ru": "Ошибка при генерации прогнозов:",
+      "tr": "Tahminler oluşturulurken hata oluştu:"
+    },
+    {
+      "en": "Please enter prediction data.",
+      "ru": "Пожалуйста, введите данные для прогноза.",
+      "tr": "Lütfen tahmin verilerini girin."
+    },
+    {
+      "en": "Flow Rate",
+      "ru": "Скорость потока",
+      "tr": "Akış Hızı"
+    },
+    {
+      "en": "Plot X-axis Units",
+      "ru": "Единицы оси X графика",
+      "tr": "Grafik X ekseni Birimleri"
+    },
+    {
+      "en": "Plot Y-axis Units",
+      "ru": "Единицы оси Y графика",
+      "tr": "Grafik Y ekseni Birimleri"
+    },
+    {
+      "en": "Default data file not found.",
+      "ru": "Файл данных по умолчанию не найден.",
+      "tr": "Varsayılan veri dosyası bulunamadı."
+    },
+    {
+      "en": "Time and response columns must be numeric.",
+      "ru": "Столбцы времени и отклика должны быть числовыми.",
+      "tr": "Zaman ve yanıt sütunları sayısal olmalıdır."
+    },
+    {
+      "en": "This often happens with limited data points (< 10 rows) or poor initial estimates. ",
+      "ru": "Это часто происходит при ограниченном количестве точек данных (< 10 строк) или плохих начальных оценках. ",
+      "tr": "Bu genellikle sınırlı veri noktası (< 10 satır) veya zayıf başlangıç tahminleri ile olur. "
+    },
+    {
+      "en": "Recommendations:",
+      "ru": "Рекомендации:",
+      "tr": "Öneriler:"
+    },
+    {
+      "en": "Provide more data points (at least 10-15 rows)",
+      "ru": "Предоставьте больше точек данных (минимум 10-15 строк)",
+      "tr": "Daha fazla veri noktası sağlayın (en az 10-15 satır)"
+    },
+    {
+      "en": "Adjust initial parameter estimates (k1, k2, f)",
+      "ru": "Настройте начальные оценки параметров (k1, k2, f)",
+      "tr": "Başlangıç parametre tahminlerini ayarlayın (k1, k2, f)"
+    },
+    {
+      "en": "Original error: ",
+      "ru": "Исходная ошибка: ",
+      "tr": "Orijinal hata: "
+    },
+    {
+      "en": "Error with nlrob optimization method. ",
+      "ru": "Ошибка с методом оптимизации nlrob. ",
+      "tr": "nlrob optimizasyon yöntemi ile hata. "
+    },
+    {
+      "en": "Original error: ",
+      "ru": "Исходная ошибка: ",
+      "tr": "Orijinal hata: "
+    },
+    {
+      "en": "Flow rate (kg/s)",
+      "ru": "Скорость потока (кг/с)",
+      "tr": "Akış hızı (kg/s)"
+    },
+    {
+      "en": "Maximum possible yield",
+      "ru": "Максимально возможный выход",
+      "tr": "Maksimum olası verim"
+    },
+    {
+      "en": "Mass of raw material loaded (g)",
+      "ru": "Масса загруженного сырья (г)",
+      "tr": "Yüklenen hammadde kütlesi (g)"
+    },
+    {
+      "en": "Number of experimental observations",
+      "ru": "Количество экспериментальных наблюдений",
+      "tr": "Deneysel gözlem sayısı"
+    },
+    {
+      "en": "First-order rate constant for fast desorption (1/min)",
+      "ru": "Константа скорости первого порядка для быстрой десорбции (1/мин)",
+      "tr": "Hızlı desorpsiyon için birinci derece hız sabiti (1/dk)"
+    },
+    {
+      "en": "First-order rate constant for slow desorption (1/min)",
+      "ru": "Константа скорости первого порядка для медленной десорбции (1/мин)",
+      "tr": "Yavaş desorpsiyon için birinci derece hız sabiti (1/dk)"
+    },
+    {
+      "en": "Fraction of easily desorbed solute",
+      "ru": "Фракция легко десорбируемого растворенного вещества",
+      "tr": "Kolay desorbe olan çözünen madde fraksiyonu"
+    },
+    {
+      "en": "Enter values (one per line)",
+      "ru": "Введите значения (одно на строку)",
+      "tr": "Değerleri girin (her satıra bir tane)"
+    },
+    {
+      "en": "Error parsing data:",
+      "ru": "Ошибка разбора данных:",
+      "tr": "Veri ayrıştırılırken hata:"
+    },
+    {
+      "en": "Default template file not found.",
+      "ru": "Файл шаблона по умолчанию не найден.",
+      "tr": "Varsayılan şablon dosyası bulunamadı."
+    },
+    {
+      "en": "Kinetic model results exported successfully!",
+      "ru": "Результаты кинетической модели успешно экспортированы!",
+      "tr": "Kinetik model sonuçları başarıyla dışa aktarıldı!"
+    },
+    {
+      "en": "Error exporting kinetic model results:",
+      "ru": "Ошибка экспорта результатов кинетической модели:",
+      "tr": "Kinetik model sonuçları dışa aktarılırken hata:"
+    },
+    {
+      "en": "Two-Site Kinetic Model Parameter Units",
+      "ru": "Единицы параметров двухцентровой кинетической модели",
+      "tr": "İki Bölgeli Kinetik Model Parametre Birimleri"
+    },
+    {
+      "en": "\\n=== DEBUG: ktsmod() Parameters ===\\n",
+      "ru": "\\n=== DEBUG: ktsmod() Parameters ===\\n",
+      "tr": "\\n=== DEBUG: ktsmod() Parameters ===\\n"
+    },
+    {
+      "en": "\\n!!! ERROR in ktsmod() !!!\\n",
+      "ru": "\\n!!! ERROR in ktsmod() !!!\\n",
+      "tr": "\\n!!! ERROR in ktsmod() !!!\\n"
+    },
+    {
+      "en": "Two-site kinetic desorption model",
+      "ru": "Двухцентровая кинетическая модель десорбции",
+      "tr": "İki bölgeli kinetik desorpsiyon modeli"
+    },
+    {
+      "en": "S/M (kg/kg)",
+      "ru": "Растворитель/Материал (кг/кг)",
+      "tr": "Ç/M (kg/kg)"
+    },
+    {
+      "en": "Yield (permille)",
+      "ru": "Выход (промилле)",
+      "tr": "Verim (binde)"
+    },
+    {
+      "en": "Plot display error. Original ggplot available but cannot convert to plotly.",
+      "ru": "Ошибка отображения графика. Исходный ggplot доступен, но не может быть преобразован в plotly.",
+      "tr": "Grafik görüntüleme hatası. Orijinal ggplot mevcut ancak plotly'ye dönüştürülemiyor."
+    },
+    {
+      "en": "Plot Conversion Error",
+      "ru": "Ошибка преобразования графика",
+      "tr": "Grafik Dönüştürme Hatası"
+    },
+    {
+      "en": "Unsupported plot format",
+      "ru": "Неподдерживаемый формат графика",
+      "tr": "Desteklenmeyen grafik formatı"
+    },
+    {
+      "en": "Error displaying plot:",
+      "ru": "Ошибка отображения графика:",
+      "tr": "Grafik görüntülenirken hata:"
+    },
+    {
+      "en": "Plot Error",
+      "ru": "Ошибка графика",
+      "tr": "Grafik Hatası"
+    },
+    {
+      "en": "The 'nlrob' optimization method failed to converge with your data. ",
+      "ru": "Метод оптимизации 'nlrob' не смог сойтись с вашими данными. ",
+      "tr": "'nlrob' optimizasyon yöntemi verilerinizle yakınsayamadı. "
+    },
+    {
+      "en": "Switch to 'nlopt' optimization method (recommended)",
+      "ru": "Переключитесь на метод оптимизации 'nlopt' (рекомендуется)",
+      "tr": "'nlopt' optimizasyon yöntemine geçin (önerilen)"
+    },
+    {
+      "en": "Try using 'nlopt' method instead, or check if 'robustbase' package is installed. ",
+      "ru": "Попробуйте использовать метод 'nlopt' или проверьте, установлен ли пакет 'robustbase'. ",
+      "tr": "Bunun yerine 'nlopt' yöntemini kullanmayı deneyin veya 'robustbase' paketinin yüklenmiş olup olmadığını kontrol edin. "
+    },
+    {
+      "en": "Upload CSV (single column)",
+      "ru": "Загрузить CSV (один столбец)",
+      "tr": "CSV Yükle (tek sütun)"
+    },
+    {
+      "en": "Valid range:",
+      "ru": "Допустимый диапазон:",
+      "tr": "Geçerli aralık:"
+    },
+    {
+      "en": "Moisture Content was adjusted to the valid range (0\u2013100%).",
+      "ru": "Влажность была скорректирована до допустимого диапазона (0\u2013100%).",
+      "tr": "Nem İçeriği geçerli aralığa (0\u2013100%) ayarlandı."
+    }
+  ]
+}

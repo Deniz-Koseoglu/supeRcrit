@@ -1,0 +1,89 @@
+{
+      "translation": [
+            {
+                  "en": "com_analysis_help_en",
+                  "ru": "com_analysis_help_ru",
+                  "tr": "com_analysis_help_tr"
+            },
+            {
+                  "en": "doe_analysis_help_en",
+                  "ru": "doe_analysis_help_ru",
+                  "tr": "doe_analysis_help_tr"
+            },
+            {
+                  "en": "doe_design_help_en",
+                  "ru": "doe_design_help_ru",
+                  "tr": "doe_design_help_tr"
+            },
+            {
+                  "en": "doe_desir_help_en",
+                  "ru": "doe_desir_help_ru",
+                  "tr": "doe_desir_help_tr"
+            },
+            {
+                  "en": "kinetic_aux_tool_co2_density_help_en",
+                  "ru": "kinetic_aux_tool_co2_density_help_ru",
+                  "tr": "kinetic_aux_tool_co2_density_help_tr"
+            },
+            {
+                  "en": "kinetic_aux_tool_etoh_density_help_en",
+                  "ru": "kinetic_aux_tool_etoh_density_help_ru",
+                  "tr": "kinetic_aux_tool_etoh_density_help_tr"
+            },
+            {
+                  "en": "kinetic_aux_tool_h2o_density_help_en",
+                  "ru": "kinetic_aux_tool_h2o_density_help_ru",
+                  "tr": "kinetic_aux_tool_h2o_density_help_tr"
+            },
+            {
+                  "en": "kinetic_bic_help_en",
+                  "ru": "kinetic_bic_help_ru",
+                  "tr": "kinetic_bic_help_tr"
+            },
+            {
+                  "en": "kinetic_tws_help_en",
+                  "ru": "kinetic_tws_help_ru",
+                  "tr": "kinetic_tws_help_tr"
+            },
+            {
+                  "en": "sfe_aux_tool_etoh_crit_params_help_en",
+                  "ru": "sfe_aux_tool_etoh_crit_params_help_ru",
+                  "tr": "sfe_aux_tool_etoh_crit_params_help_tr"
+            },
+            {
+                  "en": "sfe_aux_tool_gcm_chart_help_en",
+                  "ru": "sfe_aux_tool_gcm_chart_help_ru",
+                  "tr": "sfe_aux_tool_gcm_chart_help_tr"
+            },
+            {
+                  "en": "sfe_aux_tool_gen_crit_params_help_en",
+                  "ru": "sfe_aux_tool_gen_crit_params_help_ru",
+                  "tr": "sfe_aux_tool_gen_crit_params_help_tr"
+            },
+            {
+                  "en": "sfe_aux_tool_solvents_db_help_en",
+                  "ru": "sfe_aux_tool_solvents_db_help_ru",
+                  "tr": "sfe_aux_tool_solvents_db_help_tr"
+            },
+            {
+                  "en": "sfe_misc_comp_help_en",
+                  "ru": "sfe_misc_comp_help_ru",
+                  "tr": "sfe_misc_comp_help_tr"
+            },
+            {
+                  "en": "sfe_misc_opt_help_en",
+                  "ru": "sfe_misc_opt_help_ru",
+                  "tr": "sfe_misc_opt_help_tr"
+            },
+            {
+                  "en": "sfe_sol_char_help_en",
+                  "ru": "sfe_sol_char_help_ru",
+                  "tr": "sfe_sol_char_help_tr"
+            },
+            {
+                  "en": "sfe_aux_tool_crit_params_help_en",
+                  "ru": "sfe_aux_tool_crit_params_help_ru",
+                  "tr": "sfe_aux_tool_crit_params_help_tr"
+            }
+      ]
+}

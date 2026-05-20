@@ -1,0 +1,699 @@
+{
+  "translation": [
+    {
+      "en": "Reset",
+      "ru": "Сброс",
+      "tr": "Sıfırla"
+    },
+    {
+      "en": "Calculate",
+      "ru": "Рассчитать",
+      "tr": "Hesapla"
+    },
+    {
+      "en": "Select DOE Analyses",
+      "ru": "Выбрать анализы DOE",
+      "tr": "DOE Analizlerini Seçin"
+    },
+    {
+      "en": "Select 2-6 saved DOE analysis setups to combine with desirability function:",
+      "ru": "Выберите 2-6 сохраненных настроек анализа DOE для объединения с функцией желательности:",
+      "tr": "İstenilebilirlik fonksiyonu ile birleştirmek için 2-6 kayıtlı DOE analizi kurulumu seçin:"
+    },
+    {
+      "en": "Load Selected Analyses",
+      "ru": "Загрузить выбранные анализы",
+      "tr": "Seçilen Analizleri Yükle"
+    },
+    {
+      "en": "Desirability Settings",
+      "ru": "Настройки желательности",
+      "tr": "İstenilebilirlik Ayarları"
+    },
+    {
+      "en": "Factor Range Settings",
+      "ru": "Настройки диапазона факторов",
+      "tr": "Faktör Aralığı Ayarları"
+    },
+    {
+      "en": "Use Default Factor Ranges",
+      "ru": "Использовать диапазоны факторов по умолчанию",
+      "tr": "Varsayılan Faktör Aralıklarını Kullan"
+    },
+    {
+      "en": "Global Parameters",
+      "ru": "Глобальные параметры",
+      "tr": "Global Parametreler"
+    },
+    {
+      "en": "Factor Type",
+      "ru": "Тип фактора",
+      "tr": "Faktör Tipi"
+    },
+    {
+      "en": "Model Base",
+      "ru": "База модели",
+      "tr": "Model Tabanı"
+    },
+    {
+      "en": "Optimization Method",
+      "ru": "Метод оптимизации",
+      "tr": "Optimizasyon Yöntemi"
+    },
+    {
+      "en": "Clustering",
+      "ru": "Кластеризация",
+      "tr": "Kümeleme"
+    },
+    {
+      "en": "Random Starting Points",
+      "ru": "Случайные начальные точки",
+      "tr": "Rastgele Başlangıç Noktaları"
+    },
+    {
+      "en": "Data Starting Points",
+      "ru": "Начальные точки данных",
+      "tr": "Veri Başlangıç Noktaları"
+    },
+    {
+      "en": "Summary",
+      "ru": "Сводка",
+      "tr": "Özet"
+    },
+    {
+      "en": "Export Results",
+      "ru": "Экспортировать результаты",
+      "tr": "Sonuçları Dışa Aktar"
+    },
+    {
+      "en": "Factor Limits",
+      "ru": "Пределы факторов",
+      "tr": "Faktör Limitleri"
+    },
+    {
+      "en": "Response Limits",
+      "ru": "Пределы отклика",
+      "tr": "Yanıt Limitleri"
+    },
+    {
+      "en": "Model Summaries",
+      "ru": "Сводки моделей",
+      "tr": "Model Özetleri"
+    },
+    {
+      "en": "Optimization Results",
+      "ru": "Результаты оптимизации",
+      "tr": "Optimizasyon Sonuçları"
+    },
+    {
+      "en": "Optimal Solutions",
+      "ru": "Оптимальные решения",
+      "tr": "Optimal Çözümler"
+    },
+    {
+      "en": "Download Solutions",
+      "ru": "Скачать решения",
+      "tr": "Çözümleri İndir"
+    },
+    {
+      "en": "All Optimization Outputs",
+      "ru": "Все выходы оптимизации",
+      "tr": "Tüm Optimizasyon Çıktıları"
+    },
+    {
+      "en": "Original Data with Desirabilities",
+      "ru": "Исходные данные с желательностью",
+      "tr": "İstenilebilirlikler ile Orijinal Veriler"
+    },
+    {
+      "en": "No saved DOE analyses found.",
+      "ru": "Сохраненные анализы DOE не найдены.",
+      "tr": "Kaydedilmiş DOE analizi bulunamadı."
+    },
+    {
+      "en": "Please create and save DOE analyses first in the DOE Analysis tab.",
+      "ru": "Пожалуйста, сначала создайте и сохраните анализы DOE на вкладке 'Анализ DOE'.",
+      "tr": "Lütfen önce DOE Analiz sekmesinde DOE analizleri oluşturun ve kaydedin."
+    },
+    {
+      "en": "Available Analyses",
+      "ru": "Доступные анализы",
+      "tr": "Mevcut Analizler"
+    },
+    {
+      "en": "Please select at least 2 analyses.",
+      "ru": "Пожалуйста, выберите как минимум 2 анализа.",
+      "tr": "Lütfen en az 2 analiz seçin."
+    },
+    {
+      "en": "Please select maximum 6 analyses.",
+      "ru": "Пожалуйста, выберите максимум 6 анализов.",
+      "tr": "Lütfen en fazla 6 analiz seçin."
+    },
+    {
+      "en": "Loading analyses...",
+      "ru": "Загрузка анализов...",
+      "tr": "Analizler yükleniyor..."
+    },
+    {
+      "en": "Loading",
+      "ru": "Загрузка",
+      "tr": "Yükleniyor"
+    },
+    {
+      "en": "Error loading",
+      "ru": "Ошибка загрузки",
+      "tr": "Yükleme hatası"
+    },
+    {
+      "en": "Loaded",
+      "ru": "Загружено",
+      "tr": "Yüklendi"
+    },
+    {
+      "en": "analyses successfully.",
+      "ru": "анализы успешно.",
+      "tr": "analizler başarıyla."
+    },
+    {
+      "en": "Response",
+      "ru": "Отклик",
+      "tr": "Yanıt"
+    },
+    {
+      "en": "Model Order",
+      "ru": "Порядок модели",
+      "tr": "Model Sırası"
+    },
+    {
+      "en": "Selected Analyses:",
+      "ru": "Выбранные анализы:",
+      "tr": "Seçilen Analizler:"
+    },
+    {
+      "en": "Response",
+      "ru": "Отклик",
+      "tr": "Yanıt"
+    },
+    {
+      "en": "Objective",
+      "ru": "Цель",
+      "tr": "Hedef"
+    },
+    {
+      "en": "Lower Limit",
+      "ru": "Нижний предел",
+      "tr": "Alt Limit"
+    },
+    {
+      "en": "Upper Limit",
+      "ru": "Верхний предел",
+      "tr": "Üst Limit"
+    },
+    {
+      "en": "Target Value",
+      "ru": "Целевое значение",
+      "tr": "Hedef Değer"
+    },
+    {
+      "en": "Weight (Lower)",
+      "ru": "Вес (нижний)",
+      "tr": "Ağırlık (Alt)"
+    },
+    {
+      "en": "Weight (Upper)",
+      "ru": "Вес (верхний)",
+      "tr": "Ağırlık (Üst)"
+    },
+    {
+      "en": "Min",
+      "ru": "Мин",
+      "tr": "Min"
+    },
+    {
+      "en": "Max",
+      "ru": "Макс",
+      "tr": "Maks"
+    },
+    {
+      "en": "Calculating desirability...",
+      "ru": "Расчет желательности...",
+      "tr": "İstenilebilirlik hesaplanıyor..."
+    },
+    {
+      "en": "Running DOE analyses...",
+      "ru": "Выполнение анализов DOE...",
+      "tr": "DOE analizleri yürütülüyor..."
+    },
+    {
+      "en": "Analyzing",
+      "ru": "Анализ",
+      "tr": "Analiz Ediliyor"
+    },
+    {
+      "en": "Preparing parameters...",
+      "ru": "Подготовка параметров...",
+      "tr": "Parametreler hazırlanıyor..."
+    },
+    {
+      "en": "Optimizing desirability...",
+      "ru": "Оптимизация желательности...",
+      "tr": "İstenilebilirlik optimize ediliyor..."
+    },
+    {
+      "en": "Complete!",
+      "ru": "Готово!",
+      "tr": "Tamamlandı!"
+    },
+    {
+      "en": "Desirability analysis completed successfully!",
+      "ru": "Анализ желательности успешно завершен!",
+      "tr": "İstenilebilirlik analizi başarıyla tamamlandı!"
+    },
+    {
+      "en": "Error in desirability calculation:",
+      "ru": "Ошибка в расчете желательности:",
+      "tr": "İstenilebilirlik hesaplamasında hata:"
+    },
+    {
+      "en": "Error exporting results:",
+      "ru": "Ошибка экспорта результатов:",
+      "tr": "Sonuçları dışa aktarma hatası:"
+    },
+    {
+      "en": "Reset complete",
+      "ru": "Сброс завершен",
+      "tr": "Sıfırlama tamamlandı"
+    },
+    {
+      "en": "Initial",
+      "ru": "Изначальный",
+      "tr": "Başlangıç"
+    },
+    {
+      "en": "Uncoded",
+      "ru": "Декодированный",
+      "tr": "Kodlanmamış"
+    },
+    {
+      "en": "Coded",
+      "ru": "Кодированный",
+      "tr": "Kodlanmış"
+    },
+    {
+      "en": "Final",
+      "ru": "Финальный",
+      "tr": "Son"
+    },
+    {
+      "en": "Desirability Parameters",
+      "ru": "Параметры желательности",
+      "tr": "İstenilirlik Parametreleri"
+    },
+    {
+      "en": "Load DOE analyses above to configure desirability settings.",
+      "ru": "Загрузите анализы DOE выше, чтобы настроить параметры желательности.",
+      "tr": "İstenilebilirlik ayarlarını yapılandırmak için yukarıdan DOE analizlerini yükleyin."
+    },
+    {
+      "en": "Load DOE analyses above to configure factor ranges.",
+      "ru": "Загрузите анализы DOE выше, чтобы настроить диапазоны факторов.",
+      "tr": "Faktör aralıklarını yapılandırmak için yukarıdan DOE analizlerini yükleyin."
+    },
+    {
+      "en": "Load Examples",
+      "ru": "Загрузить примеры",
+      "tr": "Örnekleri Yükle"
+    },
+    {
+      "en": "No example data available.",
+      "ru": "Нет доступных примеров.",
+      "tr": "Örnek veri mevcut değil."
+    },
+    {
+      "en": "Example data already loaded.",
+      "ru": "Примеры уже загружены.",
+      "tr": "Örnek veriler zaten yüklendi."
+    },
+    {
+      "en": "Loaded %d example analysis(es).",
+      "ru": "Загружено примеров анализа: %d.",
+      "tr": "%d örnek analiz yüklendi."
+    },
+    {
+      "en": "Select the parameters and run the calculation to see results.",
+      "ru": "Выберите параметры и запустите расчёт для просмотра результатов.",
+      "tr": "Parametreleri seçin ve sonuçları görmek için hesaplamayı çalıştırın."
+    },
+    {
+      "en": "Non-Linear (Global)",
+      "ru": "Нелинейный (глобальный)",
+      "tr": "Doğrusal Olmayan (Global)"
+    },
+    {
+      "en": "Nelder-Mead (Local)",
+      "ru": "Нелдер-Мид (локальный)",
+      "tr": "Nelder-Mead (Lokal)"
+    },
+    {
+      "en": "was adjusted to the valid range.",
+      "ru": "было скорректировано до допустимого диапазона.",
+      "tr": "geçerli aralığa ayarlandı."
+    },
+    {
+      "en": "Factor",
+      "ru": "Фактор",
+      "tr": "Faktör"
+    },
+    {
+      "en": "Starting Points (Coded)",
+      "ru": "Начальные точки (кодированные)",
+      "tr": "Başlangıç Noktaları (Kodlanmış)"
+    },
+    {
+      "en": "Starting Points (Uncoded)",
+      "ru": "Начальные точки (некодированные)",
+      "tr": "Başlangıç Noktaları (Kodlanmamış)"
+    },
+    {
+      "en": "Optimal Values (Coded)",
+      "ru": "Оптимальные значения (кодированные)",
+      "tr": "Optimal Değerler (Kodlanmış)"
+    },
+    {
+      "en": "Optimal Values (Uncoded)",
+      "ru": "Оптимальные значения (некодированные)",
+      "tr": "Optimal Değerler (Kodlanmamış)"
+    },
+    {
+      "en": "Predicted Responses",
+      "ru": "Предсказанные отклики",
+      "tr": "Tahmin Edilen Yanıtlar"
+    },
+    {
+      "en": "Individual Desirability",
+      "ru": "Индивидуальная желательность",
+      "tr": "Bireysel İstenirlik"
+    },
+    {
+      "en": "Overall Desirability",
+      "ru": "Общая желательность",
+      "tr": "Genel İstenirlik"
+    },
+    {
+      "en": "Cluster",
+      "ru": "Кластер",
+      "tr": "Küme"
+    },
+    {
+      "en": "Type",
+      "ru": "Тип",
+      "tr": "Tür"
+    },
+    {
+      "en": "Starting point source: random or from design data",
+      "ru": "Источник начальной точки: случайная или из данных дизайна",
+      "tr": "Başlangıç noktası kaynağı: rastgele veya tasarım verisinden"
+    },
+    {
+      "en": "Starting point for coded factor",
+      "ru": "Начальная точка для кодированного фактора",
+      "tr": "Kodlanmış faktör için başlangıç noktası"
+    },
+    {
+      "en": "Starting point for uncoded factor",
+      "ru": "Начальная точка для некодированного фактора",
+      "tr": "Kodlanmamış faktör için başlangıç noktası"
+    },
+    {
+      "en": "Optimized coded factor value for",
+      "ru": "Оптимизированное значение кодированного фактора для",
+      "tr": "Optimize edilmiş kodlanmış faktör değeri:"
+    },
+    {
+      "en": "Optimized uncoded factor value for",
+      "ru": "Оптимизированное значение некодированного фактора для",
+      "tr": "Optimize edilmiş kodlanmamış faktör değeri:"
+    },
+    {
+      "en": "Predicted response value for",
+      "ru": "Предсказанное значение отклика для",
+      "tr": "Tahmin edilen yanıt değeri:"
+    },
+    {
+      "en": "Individual desirability score for",
+      "ru": "Индивидуальный показатель желательности для",
+      "tr": "Bireysel istenirlik skoru:"
+    },
+    {
+      "en": "Overall desirability (geometric mean of individual desirabilities)",
+      "ru": "Общая желательность (среднее геометрическое индивидуальных желательностей)",
+      "tr": "Genel istenirlik (bireysel istenirliklerin geometrik ortalaması)"
+    },
+    {
+      "en": "K-medoids cluster assignment",
+      "ru": "Кластер по методу K-медоидов",
+      "tr": "K-medoid küme ataması"
+    },
+    {
+      "en": "Desirability",
+      "ru": "Желательность",
+      "tr": "İstenirlik"
+    },
+    {
+      "en": "Original Data",
+      "ru": "Исходные данные",
+      "tr": "Orijinal Veri"
+    },
+    {
+      "en": "Desirabilities",
+      "ru": "Желательности",
+      "tr": "İstenirlikler"
+    },
+    {
+      "en": "Target Value",
+      "ru": "Целевое значение",
+      "tr": "Hedef Değer"
+    },
+    {
+      "en": "Upper Weight",
+      "ru": "Верхний вес",
+      "tr": "Üst Ağırlık"
+    },
+    {
+      "en": "Lower Weight",
+      "ru": "Нижний вес",
+      "tr": "Alt Ağırlık"
+    },
+    {
+      "en": "Optimization Method: 'NLopt' uses advanced non-linear optimization algorithms (recommended), 'Optim' uses R's built-in optimizer.",
+      "ru": "Метод оптимизации: NLopt (рекомендуется) — продвинутые нелинейные алгоритмы, Optim — встроенная оптимизация R.",
+      "tr": "Optimizasyon Yöntemi: 'NLopt' gelişmiş doğrusal olmayan algoritmalar (önerilen), 'Optim' R'nin yerleşik optimizasyonu."
+    },
+    {
+      "en": "Select 2-6 saved DOE analysis setups that you want to combine using desirability function. Each analysis represents a different response variable.",
+      "ru": "Выберите 2-6 saved DOE analysis setups that you want to combine using desirability function. Each analysis represents a different response variable.",
+      "tr": "Seçin: 2-6 saved DOE analysis setups that you want to combine using desirability function. Each analysis represents a different response variable."
+    },
+    {
+      "en": "Factor Type: Choose 'Coded' for normalized values (-1 to +1) or 'Uncoded' for original factor units.",
+      "ru": "Тип факторов: «Кодированные» для нормализованных значений (-1 до +1) или «Некодированные» для исходных единиц.",
+      "tr": "Faktör Türü: Normalleştirilmiş değerler (-1 ila +1) için 'Kodlu' veya orijinal faktör birimleri için 'Kodsuz' seçin."
+    },
+    {
+      "en": "Objective: Choose 'Maximize' for Larger-The-Best (LTB), 'Minimize' for Smaller-The-Best (STB), or 'Target' for Nominal-The-Best (NTB) optimization.",
+      "ru": "Цель: «Максимизировать» для LTB, «Минимизировать» для STB, или «Целевое значение» для NTB.",
+      "tr": "Amaç: LTB için 'Maksimize', STB için 'Minimize' veya NTB için 'Hedef' seçin."
+    },
+    {
+      "en": "Calculate: Run the desirability function optimization based on your settings. This will analyze all responses simultaneously and find optimal factor combinations.",
+      "ru": "Рассчитайте: Run the desirability function optimization based on your settings. This will analyze all responses simultaneously and find optimal factor combinations.",
+      "tr": "Hesaplayın: Run the desirability function optimization based on your settings. This will analyze all responses simultaneously and find optimal factor combinations."
+    },
+    {
+      "en": "Click this button to load the selected DOE analyses. The system will extract response variables and their ranges for desirability optimization.",
+      "ru": "Нажмите this button to load the selected DOE analyses. The system will extract response variables and their ranges for desirability optimization.",
+      "tr": "Tıklayın: this button to load the selected DOE analyses. The system will extract response variables and their ranges for desirability optimization."
+    },
+    {
+      "en": "Review the loaded analyses here. This shows response variables, model orders, and creation dates for each selected analysis.",
+      "ru": "Просмотрите загруженные анализы. Показаны переменные отклика, порядки моделей и даты создания для каждого анализа.",
+      "tr": "Yüklenen analizleri burada inceleyin. Seçilen her analiz için yanıt değişkenleri, model sıraları ve oluşturma tarihleri gösterilir."
+    },
+    {
+      "en": "Lower/Upper Limits: Define the acceptable range for each response. Values outside this range will have zero desirability.",
+      "ru": "Нижние/верхние пределы: определите допустимый диапазон для каждого отклика. Значения за пределами будут иметь нулевую желательность.",
+      "tr": "Alt/Üst Limitler: Her yanıt için kabul edilebilir aralığı tanımlayın. Bu aralığın dışındaki değerler sıfır arzu edilirliğe sahip olacaktır."
+    },
+    {
+      "en": "Model Base: Select 'Initial' to use the full model or 'Final' to use the trimmed/optimized model from each DOE analysis.",
+      "ru": "Базовая модель: «Начальная» для полной модели или «Итоговая» для усечённой/оптимизированной модели из каждого анализа DOE.",
+      "tr": "Model Tabanı: Tam model için 'Başlangıç' veya her DOE analizinden kırpılmış/optimize edilmiş model için 'Final' seçin."
+    },
+    {
+      "en": "When custom ranges are enabled, specify minimum and maximum values for each factor. The desirability optimization will search within these bounds.",
+      "ru": "Когда custom ranges are enabled, specify minimum and maximum values for each factor. The desirability optimization will search within these bounds.",
+      "tr": "Seçildiğinde: custom ranges are enabled, specify minimum and maximum values for each factor. The desirability optimization will search within these bounds."
+    },
+    {
+      "en": "Clustering: Group similar solutions using k-medoids clustering. 'Auto' determines optimal clusters, 'None' disables clustering, or specify 2-5 clusters.",
+      "ru": "Кластеризация: группировка похожих решений методом k-medoids. «Авто» определяет оптимальное число кластеров, «Нет» отключает кластеризацию.",
+      "tr": "Kümeleme: k-medoids kullanarak benzer çözümleri gruplayın. 'Otomatik' optimal kümeleri belirler, 'Hiçbiri' kümelemeyi devre dışı bırakır."
+    },
+    {
+      "en": "Configure desirability parameters for each response variable. Set objectives (maximize, minimize, or target), response limits, and weights.",
+      "ru": "Настройте desirability parameters for each response variable. Set objectives (maximize, minimize, or target), response limits, and weights.",
+      "tr": "Yapılandırın: desirability parameters for each response variable. Set objectives (maximize, minimize, or target), response limits, and weights."
+    },
+    {
+      "en": "Random Starting Points: Number of randomly generated initial points for optimization (10-1000). More points increase chances of finding global optimum but take longer.",
+      "ru": "Случайные стартовые точки: число случайно сгенерированных начальных точек (10-1000). Больше точек повышает шанс нахождения глобального оптимума.",
+      "tr": "Rastgele Başlangıç Noktaları: Optimizasyon için rastgele oluşturulan başlangıç noktası sayısı (10-1000). Daha fazla nokta global optimumu bulma şansını artırır."
+    },
+    {
+      "en": "Reset: Clear all selections and results to start fresh.",
+      "ru": "Сброс: Clear all selections and results to start fresh.",
+      "tr": "Sıfırla: Clear all selections and results to start fresh."
+    },
+    {
+      "en": "Weights (0.1-10): Control the shape of the desirability function. Values <1 decrease importance, values >1 increase importance. For 'Target' objective, set separate weights for lower and upper sides.",
+      "ru": "Веса (0.1-10): управление формой функции желательности. Значения <1 уменьшают важность, >1 увеличивают.",
+      "tr": "Ağırlıklar (0.1-10): Arzu edilirlik fonksiyonunun şeklini kontrol edin. <1 değerler önemi azaltır, >1 değerler artırır."
+    },
+    {
+      "en": "Data Starting Points: Number of starting points taken from your original data (1-100). Uses actual experimental conditions as optimization seeds.",
+      "ru": "Стартовые точки данных: число начальных точек из исходных данных (1-100). Используются реальные экспериментальные условия.",
+      "tr": "Veri Başlangıç Noktaları: Orijinal verilerinizden alınan başlangıç noktaları sayısı (1-100). Gerçek deneysel koşulları kullanır."
+    },
+    {
+      "en": "Choose whether to use default factor ranges from your data or specify custom ranges for optimization.",
+      "ru": "Выберите: использовать диапазоны факторов из данных по умолчанию или задать пользовательские диапазоны.",
+      "tr": "Verilerinizdeki varsayılan faktör aralıklarını mı yoksa optimizasyon için özel aralıkları mı kullanacağınızı seçin."
+    },
+    {
+      "en": "OK",
+      "ru": "OK",
+      "tr": "Tamam"
+    },
+    {
+      "en": "Factor Type",
+      "ru": "Тип факторов",
+      "tr": "Faktör Türü"
+    },
+    {
+      "en": "Model Base",
+      "ru": "Основа модели",
+      "tr": "Model Temeli"
+    },
+    {
+      "en": "Optimization Method",
+      "ru": "Метод оптимизации",
+      "tr": "Optimizasyon Yöntemi"
+    },
+    {
+      "en": "Clustering",
+      "ru": "Кластеризация",
+      "tr": "Kümeleme"
+    },
+    {
+      "en": "Random Starting Points",
+      "ru": "Случайные начальные точки",
+      "tr": "Rastgele Başlangıç Noktaları"
+    },
+    {
+      "en": "Data Starting Points",
+      "ru": "Начальные точки из данных",
+      "tr": "Veri Başlangıç Noktaları"
+    },
+    {
+      "en": "Whether to express factor ranges in coded (-1 to +1) or uncoded (actual) units. Coded units are standardized; uncoded use the original measurement scales.",
+      "ru": "Выражать диапазоны факторов в кодированных (-1 до +1) или некодированных (фактических) единицах. Кодированные стандартизированы; некодированные используют исходные шкалы.",
+      "tr": "Faktör aralıklarını kodlanmış (-1 ila +1) veya kodlanmamış (gerçek) birimlerle ifade edip etmeyeceğiniz. Kodlanmış birimler standartlaştırılmıştır; kodlanmamış orijinal ölçüm ölçeklerini kullanır."
+    },
+    {
+      "en": "Which model from the DOE Analysis to use for predictions. Initial uses the full model before trimming. Final uses the simplified model after removing insignificant terms.",
+      "ru": "Какую модель из анализа DOE использовать. Начальная — полная модель до упрощения. Финальная — упрощённая модель после удаления незначимых членов.",
+      "tr": "Tahminler için DOE Analizinden hangi modelin kullanılacağı. Başlangıç sadeleştirmeden önceki tam modeli kullanır. Son anlamsız terimleri kaldırdıktan sonraki sadeleştirilmiş modeli kullanır."
+    },
+    {
+      "en": "Optimization algorithm for finding factor settings that maximize overall desirability. Global searches broadly using multiple starting points (recommended). Local uses a single-start Nelder-Mead simplex method.",
+      "ru": "Алгоритм оптимизации для нахождения настроек, максимизирующих общую желательность. Глобальный — широкий поиск с множественными начальными точками (рекомендуется). Локальный — метод Нелдера-Мида с одной начальной точкой.",
+      "tr": "Genel arzu edilirliği maksimize eden faktör ayarlarını bulmak için optimizasyon algoritması. Global çoklu başlangıç noktalarıyla geniş arama yapar (önerilir). Lokal tek başlangıçlı Nelder-Mead simpleks yöntemi kullanır."
+    },
+    {
+      "en": "Apply k-medoids clustering to group similar optimal solutions. Auto detects the best number of clusters. None disables clustering. Useful when multiple local optima exist.",
+      "ru": "Применить k-медоидную кластеризацию для группировки похожих решений. Авто определяет оптимальное число кластеров. Нет отключает кластеризацию. Полезно при наличии множественных локальных оптимумов.",
+      "tr": "Benzer optimal çözümleri gruplamak için k-medoid kümeleme uygulayın. Otomatik en iyi küme sayısını belirler. Hiçbiri kümelemeyi devre dışı bırakır. Birden fazla yerel optimum olduğunda kullanışlıdır."
+    },
+    {
+      "en": "Number of randomly generated starting points for the optimization search. More starting points increase the chance of finding the global optimum but take longer to compute.",
+      "ru": "Число случайно сгенерированных начальных точек. Больше точек повышает шанс найти глобальный оптимум, но увеличивает время расчёта.",
+      "tr": "Optimizasyon araması için rastgele oluşturulan başlangıç noktası sayısı. Daha fazla başlangıç noktası global optimumu bulma şansını artırır ancak hesaplama süresi uzar."
+    },
+    {
+      "en": "Number of starting points drawn from the experimental data itself. These complement random starting points by seeding the search near observed conditions.",
+      "ru": "Число начальных точек из экспериментальных данных. Дополняют случайные точки, начиная поиск вблизи наблюдённых условий.",
+      "tr": "Deneysel verilerden çekilen başlangıç noktası sayısı. Aramayı gözlemlenen koşullar yakınında başlatarak rastgele başlangıç noktalarını tamamlar."
+    },
+    {
+      "en": "When enabled, factor ranges are set to the coded design limits (-1 to +1) or the corresponding uncoded values. Disable to specify custom ranges.",
+      "ru": "Включено — диапазоны факторов установлены по кодированным пределам плана (-1 до +1) или соответствующим некодированным значениям. Отключите для задания пользовательских диапазонов.",
+      "tr": "Etkinleştirildiğinde faktör aralıkları kodlanmış tasarım limitlerine (-1 ila +1) veya karşılık gelen kodlanmamış değerlere ayarlanır. Özel aralıklar belirtmek için devre dışı bırakın."
+    },
+    {
+      "en": "Objective",
+      "ru": "Цель",
+      "tr": "Hedef"
+    },
+    {
+      "en": "Lower Limit",
+      "ru": "Нижний предел",
+      "tr": "Alt Sınır"
+    },
+    {
+      "en": "Upper Limit",
+      "ru": "Верхний предел",
+      "tr": "Üst Sınır"
+    },
+    {
+      "en": "Weight",
+      "ru": "Вес",
+      "tr": "Ağırlık"
+    },
+    {
+      "en": "Desirability objective for this response. Maximize drives the response toward its upper limit. Minimize drives it toward its lower limit. Target aims for a specific value between the limits.",
+      "ru": "Цель желательности для этого отклика. Максимизация стремится к верхнему пределу. Минимизация — к нижнему. Целевое значение — к заданной величине между пределами.",
+      "tr": "Bu yanıt için arzu edilirlik hedefi. Maksimize yanıtı üst sınırına doğru yönlendirir. Minimize alt sınırına doğru yönlendirir. Hedef sınırlar arasında belirli bir değeri hedefler."
+    },
+    {
+      "en": "Desired target value for this response when the objective is set to Target. The desirability is highest at this value and decreases toward the limits. Only active when Objective is set to Target.",
+      "ru": "Целевое значение отклика при цели «Целевое значение». Желательность максимальна в этой точке и уменьшается к пределам. Активно только при цели «Целевое значение».",
+      "tr": "Hedef olarak ayarlandığında bu yanıt için istenen hedef değer. Arzu edilirlik bu değerde en yüksektir ve sınırlara doğru azalır. Yalnızca Hedef olarak ayarlandığında etkindir."
+    },
+    {
+      "en": "Lower boundary of the acceptable range for this response. For Maximize, the desirability is zero at or below this value. For Target, it defines the lower end of the desirability window.",
+      "ru": "Нижняя граница допустимого диапазона отклика. При максимизации желательность равна нулю на этом значении или ниже. При целевом — определяет нижний конец окна желательности.",
+      "tr": "Bu yanıt için kabul edilebilir aralığın alt sınırı. Maksimize için arzu edilirlik bu değerde veya altında sıfırdır. Hedef için arzu edilirlik penceresinin alt ucunu tanımlar."
+    },
+    {
+      "en": "Upper boundary of the acceptable range for this response. For Minimize, the desirability is zero at or above this value. For Target, it defines the upper end of the desirability window.",
+      "ru": "Верхняя граница допустимого диапазона отклика. При минимизации желательность равна нулю на этом значении или выше. При целевом — определяет верхний конец окна желательности.",
+      "tr": "Bu yanıt için kabul edilebilir aralığın üst sınırı. Minimize için arzu edilirlik bu değerde veya üzerinde sıfırdır. Hedef için arzu edilirlik penceresinin üst ucunu tanımlar."
+    },
+    {
+      "en": "Shape parameter for the desirability function below the target (or for the entire range when maximizing/minimizing). Values less than 1 give a convex shape (lenient), 1 is linear, and values greater than 1 give a concave shape (strict).",
+      "ru": "Параметр формы функции желательности ниже целевого (или для всего диапазона при максимизации/минимизации). Значения меньше 1 — выпуклая форма (мягкая), 1 — линейная, больше 1 — вогнутая (строгая).",
+      "tr": "Hedefin altındaki (veya maksimize/minimize ederken tüm aralık için) arzu edilirlik fonksiyonunun şekil parametresi. 1'den küçük değerler dışbükey şekil (esnek), 1 doğrusal ve 1'den büyük değerler içbükey şekil (katı) verir."
+    },
+    {
+      "en": "Minimum value of this factor for the optimization search space. The optimizer will not explore below this value.",
+      "tr": "Bu faktörün optimizasyon arama alanındaki minimum değeri. Optimize edici bu değerin altını araştırmayacaktır.",
+      "ru": "Минимальное значение фактора для области поиска оптимизации. Оптимизатор не будет исследовать ниже этого значения."
+    },
+    {
+      "en": "Maximum value of this factor for the optimization search space. The optimizer will not explore above this value.",
+      "tr": "Bu faktörün optimizasyon arama alanındaki maksimum değeri. Optimize edici bu değerin üstünü araştırmayacaktır.",
+      "ru": "Максимальное значение фактора для области поиска оптимизации. Оптимизатор не будет исследовать выше этого значения."
+    }
+  ]
+}

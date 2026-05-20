@@ -1,0 +1,1009 @@
+{
+  "translation": [
+    {
+      "en": "Error loading JSON:",
+      "ru": "Ошибка загрузки JSON:",
+      "tr": "JSON yüklenirken hata oluştu:"
+    },
+    {
+      "en": "Error loading CSV:",
+      "ru": "Ошибка загрузки CSV:",
+      "tr": "CSV yüklenirken hata oluştu:"
+    },
+    {
+      "en": "Error parsing manual data:",
+      "ru": "Ошибка при разборе данных вручную:",
+      "tr": "Manuel veri ayrıştırılırken hata oluştu:"
+    },
+    {
+      "en": "No data loaded",
+      "ru": "Данные не загружены",
+      "tr": "Veri yüklenmedi"
+    },
+    {
+      "en": "Running analysis...",
+      "ru": "Выполнение анализа...",
+      "tr": "Analiz çalıştırılıyor..."
+    },
+    {
+      "en": "Preparing data...",
+      "ru": "Подготовка данных...",
+      "tr": "Veriler hazırlanıyor..."
+    },
+    {
+      "en": "Running DOE analysis...",
+      "ru": "Выполнение анализа DOE...",
+      "tr": "DOE analizi çalıştırılıyor..."
+    },
+    {
+      "en": "Analysis completed!",
+      "ru": "Анализ завершен!",
+      "tr": "Analiz tamamlandı!"
+    },
+    {
+      "en": "Analysis completed successfully!",
+      "ru": "Анализ успешно завершен!",
+      "tr": "Analiz başarıyla tamamlandı!"
+    },
+    {
+      "en": "Analysis error",
+      "ru": "Ошибка анализа",
+      "tr": "Analiz hatası"
+    },
+    {
+      "en": "Error exporting results:",
+      "ru": "Ошибка экспорта результатов:",
+      "tr": "Sonuçlar dışa aktarılırken hata oluştu:"
+    },
+    {
+      "en": "Analysis reset",
+      "ru": "Анализ сброшен",
+      "tr": "Analiz sıfırlandı"
+    },
+    {
+      "en": "Right-click on the table to add or remove rows. You can also edit values directly in the cells.",
+      "ru": "Щелкните правой кнопкой мыши по таблице, чтобы добавить или удалить строки. Вы также можете редактировать значения непосредственно в ячейках.",
+      "tr": "Satır eklemek veya kaldırmak için tabloya sağ tıklayın. Ayrıca hücrelerdeki değerleri doğrudan düzenleyebilirsiniz."
+    },
+    {
+      "en": "Error loading default file:",
+      "ru": "Ошибка загрузки файла по умолчанию:",
+      "tr": "Varsayılan dosya yüklenirken hata:"
+    },
+    {
+      "en": "Default DOE design file not found.",
+      "ru": "Файл дизайна DOE по умолчанию не найден.",
+      "tr": "Varsayılan DOE tasarım dosyası bulunamadı."
+    },
+    {
+      "en": "Analysis saved successfully to session and",
+      "ru": "Анализ успешно сохранен в сеанс и",
+      "tr": "Analiz başarıyla oturuma ve"
+    },
+    {
+      "en": "Analysis saved successfully to session",
+      "ru": "Анализ успешно сохранен в сеанс",
+      "tr": "Analiz başarıyla oturuma kaydedildi"
+    },
+    {
+      "en": "Error saving analysis:",
+      "ru": "Ошибка сохранения анализа:",
+      "tr": "Analiz kaydedilirken hata:"
+    },
+    {
+      "en": "Default template file not found.",
+      "ru": "Файл шаблона по умолчанию не найден.",
+      "tr": "Varsayılan şablon dosyası bulunamadı."
+    },
+    {
+      "en": "Preparing export...",
+      "ru": "Подготовка экспорта...",
+      "tr": "Dışa aktarma hazırlanıyor..."
+    },
+    {
+      "en": "Creating temporary directory...",
+      "ru": "Создание временной директории...",
+      "tr": "Geçici dizin oluşturuluyor..."
+    },
+    {
+      "en": "Exporting analysis results...",
+      "ru": "Экспорт результатов анализа...",
+      "tr": "Analiz sonuçları dışa aktarılıyor..."
+    },
+    {
+      "en": "Collecting exported files...",
+      "ru": "Сбор экспортированных файлов...",
+      "tr": "Dışa aktarılan dosyalar toplanıyor..."
+    },
+    {
+      "en": "Creating ZIP archive...",
+      "ru": "Создание ZIP архива...",
+      "tr": "ZIP arşivi oluşturuluyor..."
+    },
+    {
+      "en": "Export completed!",
+      "ru": "Экспорт завершен!",
+      "tr": "Dışa aktarma tamamlandı!"
+    },
+    {
+      "en": "Rendering rHandsontable with new data.",
+      "ru": "Рендеринг rHandsontable с новыми данными.",
+      "tr": "rHandsontable yeni veri ile oluşturuluyor."
+    },
+    {
+      "en": "Method",
+      "ru": "Метод",
+      "tr": "Yöntem"
+    },
+    {
+      "en": "Description & Results",
+      "ru": "Описание и результаты",
+      "tr": "Açıklama ve Sonuçlar"
+    },
+    {
+      "en": "Canonical Analysis",
+      "ru": "Канонический анализ",
+      "tr": "Kanonik Analiz"
+    },
+    {
+      "en": "RSM Method",
+      "ru": "Метод ПОП",
+      "tr": "YYM Yöntemi"
+    },
+    {
+      "en": "Finds stationary point via eigenvalue decomposition",
+      "ru": "Находит стационарную точку через разложение собственных значений",
+      "tr": "Özdeğer ayrıştırması ile durağan nokta bulur"
+    },
+    {
+      "en": "Quadratic models (order = 2)",
+      "ru": "Квадратичные модели (порядок = 2)",
+      "tr": "Kuadratik modeller (derece = 2)"
+    },
+    {
+      "en": "Not available (requires quadratic model)",
+      "ru": "Недоступно (требуется квадратичная модель)",
+      "tr": "Kullanılamıyor (kuadratik model gerektirir)"
+    },
+    {
+      "en": "Traditional Optimization",
+      "ru": "Традиционная оптимизация",
+      "tr": "Geleneksel Optimizasyon"
+    },
+    {
+      "en": "Numerical Method",
+      "ru": "Численный метод",
+      "tr": "Sayısal Yöntem"
+    },
+    {
+      "en": "Finds min/max via numerical optimization (L-BFGS-B)",
+      "ru": "Находит мин/макс через численную оптимизацию (L-BFGS-B)",
+      "tr": "Sayısal optimizasyon ile min/maks bulur (L-BFGS-B)"
+    },
+    {
+      "en": "All model types (linear, interaction, quadratic)",
+      "ru": "Все типы моделей (линейная, взаимодействия, квадратичная)",
+      "tr": "Tüm model tipleri (lineer, etkileşim, kuadratik)"
+    },
+    {
+      "en": "Not available",
+      "ru": "Недоступно",
+      "tr": "Kullanılamıyor"
+    },
+    {
+      "en": "Purpose:",
+      "ru": "Цель:",
+      "tr": "Amaç:"
+    },
+    {
+      "en": "Best for:",
+      "ru": "Лучше для:",
+      "tr": "En uygun:"
+    },
+    {
+      "en": "Result:",
+      "ru": "Результат:",
+      "tr": "Sonuç:"
+    },
+    {
+      "en": "Results:",
+      "ru": "Результаты:",
+      "tr": "Sonuçlar:"
+    },
+    {
+      "en": "at response =",
+      "ru": "при отклике =",
+      "tr": "yanıt değeri ="
+    },
+    {
+      "en": "Minimum",
+      "ru": "Минимум",
+      "tr": "Minimum"
+    },
+    {
+      "en": "Maximum",
+      "ru": "Максимум",
+      "tr": "Maksimum"
+    },
+    {
+      "en": "Saddle Point",
+      "ru": "Седловая точка",
+      "tr": "Eyer Noktası"
+    },
+    {
+      "en": "Note:",
+      "ru": "Примечание:",
+      "tr": "Not:"
+    },
+    {
+      "en": "Canonical Analysis provides the theoretical optimum for quadratic models. Traditional Optimization gives practical min/max bounds for all model types.",
+      "ru": "Канонический анализ дает теоретический оптимум для квадратичных моделей. Традиционная оптимизация дает практические границы мин/макс для всех типов моделей.",
+      "tr": "Kanonik Analiz, kuadratik modeller için teorik optimumu sağlar. Geleneksel Optimizasyon, tüm model tipleri için pratik min/maks sınırları verir."
+    },
+    {
+      "en": "Response Variable",
+      "ru": "Переменная отклика",
+      "tr": "Yanıt Değişkeni"
+    },
+    {
+      "en": "Model Order",
+      "ru": "Порядок модели",
+      "tr": "Model Derecesi"
+    },
+    {
+      "en": "R²:",
+      "ru": "R²:",
+      "tr": "R²:"
+    },
+    {
+      "en": "Adjusted R²:",
+      "ru": "Скорректированный R²:",
+      "tr": "Düzeltilmiş R²:"
+    },
+    {
+      "en": "F-statistic:",
+      "ru": "F-статистика:",
+      "tr": "F-istatistiği:"
+    },
+    {
+      "en": "Residual Std Error:",
+      "ru": "Остаточная стандартная ошибка:",
+      "tr": "Artık Standart Hata:"
+    },
+    {
+      "en": "Lack-of-Fit p-value:",
+      "ru": "p-значение теста на несоответствие:",
+      "tr": "Uyum Eksikliği p-değeri:"
+    },
+    {
+      "en": "Model Equation:",
+      "ru": "Уравнение модели:",
+      "tr": "Model Denklemi:"
+    },
+    {
+      "en": "N/A",
+      "ru": "Н/Д",
+      "tr": "Y/A"
+    },
+    {
+      "en": "Select a column to modify",
+      "ru": "Выберите столбец для изменения",
+      "tr": "Değiştirilecek sütunu seçin"
+    },
+    {
+      "en": "Select Column",
+      "ru": "Выберите столбец",
+      "tr": "Sütun Seçin"
+    },
+    {
+      "en": "Choose...",
+      "ru": "Выбрать...",
+      "tr": "Seçin..."
+    },
+    {
+      "en": "Operation",
+      "ru": "Операция",
+      "tr": "İşlem"
+    },
+    {
+      "en": "Rename",
+      "ru": "Переименовать",
+      "tr": "Yeniden Adlandır"
+    },
+    {
+      "en": "Remove",
+      "ru": "Удалить",
+      "tr": "Kaldır"
+    },
+    {
+      "en": "Apply",
+      "ru": "Применить",
+      "tr": "Uygula"
+    },
+    {
+      "en": "Add New Column",
+      "ru": "Добавить новый столбец",
+      "tr": "Yeni Sütun Ekle"
+    },
+    {
+      "en": "Enter column name",
+      "ru": "Введите имя столбца",
+      "tr": "Sütun adı girin"
+    },
+    {
+      "en": "Add",
+      "ru": "Добавить",
+      "tr": "Ekle"
+    },
+    {
+      "en": "Changes will be applied to the data preview immediately.",
+      "ru": "Изменения будут применены к предпросмотру данных немедленно.",
+      "tr": "Değişiklikler veri önizlemesine anında uygulanacaktır."
+    },
+    {
+      "en": "New Name",
+      "ru": "Новое имя",
+      "tr": "Yeni Ad"
+    },
+    {
+      "en": "Enter new name",
+      "ru": "Введите новое имя",
+      "tr": "Yeni ad girin"
+    },
+    {
+      "en": "New name cannot be empty.",
+      "ru": "Новое имя не может быть пустым.",
+      "tr": "Yeni ad boş olamaz."
+    },
+    {
+      "en": "Warning: Column '%s' is selected in multiple fields!",
+      "ru": "Предупреждение: Столбец '%s' выбран в нескольких полях!",
+      "tr": "Uyarı: '%s' sütunu birden fazla alanda seçildi!"
+    },
+    {
+      "en": "Column '%s' not found for renaming.",
+      "ru": "Столбец '%s' не найден для переименования.",
+      "tr": "'%s' sütunu yeniden adlandırma için bulunamadı."
+    },
+    {
+      "en": "New column name '%s' already exists.",
+      "ru": "Новое имя столбца '%s' уже существует.",
+      "tr": "Yeni sütun adı '%s' zaten mevcut."
+    },
+    {
+      "en": "Column '%s' already exists.",
+      "ru": "Столбец '%s' уже существует.",
+      "tr": "'%s' sütunu zaten mevcut."
+    },
+    {
+      "en": "Column '%s' not found for removal.",
+      "ru": "Столбец '%s' не найден для удаления.",
+      "tr": "'%s' sütunu kaldırma için bulunamadı."
+    },
+    {
+      "en": "Cannot remove response variable '%s'.",
+      "ru": "Невозможно удалить переменную отклика '%s'.",
+      "tr": "Yanıt değişkeni '%s' kaldırılamaz."
+    },
+    {
+      "en": "Cannot remove time variable '%s'.",
+      "ru": "Невозможно удалить переменную времени '%s'.",
+      "tr": "Zaman değişkeni '%s' kaldırılamaz."
+    },
+    {
+      "en": "Model Was Trimmed:",
+      "ru": "Модель была обрезана:",
+      "tr": "Model Kısaltıldı:"
+    },
+    {
+      "en": "NO",
+      "ru": "НЕТ",
+      "tr": "HAYIR"
+    },
+    {
+      "en": "YES",
+      "ru": "ДА",
+      "tr": "EVET"
+    },
+    {
+      "en": "P-value Cutoff:",
+      "ru": "Порог p-значения:",
+      "tr": "P-değeri Eşiği:"
+    },
+    {
+      "en": "Stepwise Regression:",
+      "ru": "Пошаговая регрессия:",
+      "tr": "Adımsal Regresyon:"
+    },
+    {
+      "en": "Remaining Effects:",
+      "ru": "Оставшиеся эффекты:",
+      "tr": "Kalan Etkiler:"
+    },
+    {
+      "en": "Hierarchy Principle:",
+      "ru": "Принцип иерархии:",
+      "tr": "Hiyerarşi İlkesi:"
+    },
+    {
+      "en": "Initial Model:",
+      "ru": "Начальная модель:",
+      "tr": "Başlangıç Modeli:"
+    },
+    {
+      "en": "Final Model:",
+      "ru": "Финальная модель:",
+      "tr": "Son Model:"
+    },
+    {
+      "en": "Canonical analysis not available for this model order.",
+      "ru": "Канонический анализ недоступен для этого порядка модели.",
+      "tr": "Bu model derecesi için kanonik analiz kullanılamıyor."
+    },
+    {
+      "en": "No plot available",
+      "ru": "График недоступен",
+      "tr": "Grafik mevcut değil"
+    },
+    {
+      "en": "No plot available or not a ggplot object",
+      "ru": "График недоступен или не является объектом ggplot",
+      "tr": "Grafik mevcut değil veya ggplot nesnesi değil"
+    },
+    {
+      "en": "No plot available.",
+      "ru": "График недоступен.",
+      "tr": "Grafik mevcut değil."
+    },
+    {
+      "en": "Stationary point (decoded) from Canonical Analysis",
+      "ru": "Стационарная точка (декодированная) из Канонического Анализа",
+      "tr": "Kanonik Analiz'den sabit nokta (kod çözülmüş)"
+    },
+    {
+      "en": "Stationary point from Canonical Analysis (for quadratic models)",
+      "ru": "Стационарная точка из Канонического Анализа (для квадратичных моделей)",
+      "tr": "Kanonik Analiz'den sabit nokta (kuadratik modeller için)"
+    },
+    {
+      "en": "Min/Max predictions from Traditional Optimization (using optim() function)",
+      "ru": "Прогнозы мин/макс из Традиционной оптимизации (используя функцию optim())",
+      "tr": "Geleneksel Optimizasyon'dan Min/Maks tahminleri (optim() fonksiyonu kullanılarak)"
+    },
+    {
+      "en": "Factor",
+      "ru": "Фактор",
+      "tr": "Faktör"
+    },
+    {
+      "en": "Coded",
+      "ru": "Кодированный",
+      "tr": "Kodlanmış"
+    },
+    {
+      "en": "Decoded",
+      "ru": "Декодированный",
+      "tr": "Kod Çözülmüş"
+    },
+    {
+      "en": "Eigenvalue",
+      "ru": "Собственное значение",
+      "tr": "Özdeğer"
+    },
+    {
+      "en": "Sign",
+      "ru": "Знак",
+      "tr": "İşaret"
+    },
+    {
+      "en": "Value",
+      "ru": "Значение",
+      "tr": "Değer"
+    },
+    {
+      "en": "Based on eigenvalue analysis of the response surface",
+      "ru": "На основе анализа собственных значений поверхности отклика",
+      "tr": "Yanıt yüzeyinin özdeğer analizi temel alınarak"
+    },
+    {
+      "en": "Predicted",
+      "ru": "Предсказано",
+      "tr": "Tahmin edildi"
+    },
+    {
+      "en": "at stationary point",
+      "ru": "в стационарной точке",
+      "tr": "durağan noktada"
+    },
+    {
+      "en": "1. Model Building Overview",
+      "ru": "1. Обзор построения модели",
+      "tr": "1. Model İnşa Genel Bakış"
+    },
+    {
+      "en": "2. Model Equations",
+      "ru": "2. Уравнения модели",
+      "tr": "2. Model Denklemleri"
+    },
+    {
+      "en": "3. Model Performance",
+      "ru": "3. Производительность модели",
+      "tr": "3. Model Performansı"
+    },
+    {
+      "en": "4. Model Trimming and Simplification",
+      "ru": "4. Обрезка и упрощение модели",
+      "tr": "4. Model Kısaltma ve Basitleştirme"
+    },
+    {
+      "en": "5. Canonical Analysis (Optimization)",
+      "ru": "5. Канонический анализ (оптимизация)",
+      "tr": "5. Kanonik Analiz (Optimizasyon)"
+    },
+    {
+      "en": "6. Traditional Min/Max Optimization",
+      "ru": "6. Традиционная оптимазация мин/макс",
+      "tr": "6. Geleneksel Min/Maks Optimizasyon"
+    },
+    {
+      "en": "Two Optimization Approaches",
+      "ru": "Два подхода к оптимизации",
+      "tr": "Optimizasyon İçin İki Yaklaşım"
+    },
+    {
+      "en": "This analysis uses <strong>two complementary methods</strong> to find optimal factor settings:",
+      "ru": "Этот анализ использует <strong>два взаимодополняющих метода</strong> для поиска оптимальных настроек факторов:",
+      "tr": "Bu analiz, optimal faktör ayarlarını bulmak için <strong>iki tamamlayıcı yöntem</strong> kullanır:"
+    },
+    {
+      "en": "Method 1: Canonical Analysis (RSM)",
+      "ru": "Метод 1: Канонический анализ (ПОП)",
+      "tr": "Yöntem 1: Kanonik Analiz (YYM)"
+    },
+    {
+      "en": "Purpose:",
+      "ru": "Цель:",
+      "tr": "Amaç:"
+    },
+    {
+      "en": "Finds the stationary point of the response surface using eigenvalue decomposition.<br>Best for: Quadratic models (order = 2) with curvature.<br>",
+      "ru": "Находит стационарную точку поверхности отклика с помощью разложения собственных значений.<br>Лучше для: Квадратичных моделей (порядок = 2) с кривизной.<br>",
+      "tr": "Yanıt yüzeyinin durağan noktasını özdeğer ayrıştırması kullanarak bulur.<br>En uygun: Eğrilik içeren kuadratik modeller (derece = 2).<br>"
+    },
+    {
+      "en": "Result:",
+      "ru": "Результат:",
+      "tr": "Sonuç:"
+    },
+    {
+      "en": "Not available (requires quadratic model with order = 2)",
+      "ru": "Недоступно (требуется квадратичная модель порядка 2)",
+      "tr": "Kullanılamıyor (2. derece kuadratik model gerektirir)"
+    },
+    {
+      "en": "Method 2: Traditional Optimization",
+      "ru": "Метод 2: Традиционная оптимизация",
+      "tr": "Yöntem 2: Geleneksel Optimizasyon"
+    },
+    {
+      "en": "Uses numerical optimization (L-BFGS-B) to find min/max predictions within design space.<br>Best for: All model types (linear, interaction, quadratic).<br>",
+      "ru": "Использует численную оптимизацию (L-BFGS-B) для поиска прогнозов мин/макс в пределах пространства дизайна.<br>Лучше для: Всех типов моделей (линейная, взаимодействия, квадратичная).<br>",
+      "tr": "Tasarım alanı içinde min/maks tahminleri bulmak için sayısal optimizasyon kullanır (L-BFGS-B).<br>En uygun: Tüm model tipleri (lineer, etkileşim, kuadratik).<br>"
+    },
+    {
+      "en": "Results:",
+      "ru": "Результаты:",
+      "tr": "Sonuçlar:"
+    },
+    {
+      "en": "Not available (optimization failed or data missing)",
+      "ru": "Недоступно (оптимизация не удалась или данные отсутствуют)",
+      "tr": "Kullanılamıyor (optimizasyon başarısız veya veri eksik)"
+    },
+    {
+      "en": "Recommendation:",
+      "ru": "Рекомендация:",
+      "tr": "Öneri:"
+    },
+    {
+      "en": "For quadratic models, <strong>Canonical Analysis</strong> provides the theoretical optimum. <strong>Traditional Optimization</strong> gives practical min/max bounds. Compare both methods to understand your design space thoroughly.",
+      "ru": "Для квадратичных моделей <strong>Канонический аналгиз</strong> дает теоретический оптимум. <strong>Традиционная оптимизация</strong> дает практические границы мин/макс. Сравните оба метода, чтобы thoroughly понять пространство вашего дизайна.",
+      "tr": "Kuadratik modeller için <strong>Kanonik Analiz</strong> teorik optimumu sağlar. <strong>Geleneksel Optimizasyon</strong> pratik min/maks sınırları verir. Tasarım alanınızı derinlemesine anlamak için her iki yöntemi karşılaştırın."
+    },
+    {
+      "en": "Cook's Distance Plot - Initial Model",
+      "ru": "График расстояния Кука - Начальная модель",
+      "tr": "Cook Uzaklığı Grafiği - Başlangıç Modeli"
+    },
+    {
+      "en": "Cook's Distance Plot - Final Model",
+      "ru": "График расстояния Кука - Финальная модель",
+      "tr": "Cook Uzaklığı Grafiği - Son Model"
+    },
+    {
+      "en": "Observation",
+      "ru": "Наблюдение",
+      "tr": "Gözlem"
+    },
+    {
+      "en": "Cook's Distance",
+      "ru": "Расстояние Кука",
+      "tr": "Cook Uzaklığı"
+    },
+    {
+      "en": "Pareto Plot - Initial Model",
+      "ru": "Диаграмма Парето - Начальная модель",
+      "tr": "Pareto Grafiği - Başlangıç Modeli"
+    },
+    {
+      "en": "Pareto Plot - Final Model",
+      "ru": "Диаграмма Парето - Финальная модель",
+      "tr": "Pareto Grafiği - Son Model"
+    },
+    {
+      "en": "Absolute effects",
+      "ru": "Абсолютные эффекты",
+      "tr": "Mutlak etkiler"
+    },
+    {
+      "en": "Initial Model Predicted Response vs Actual Response",
+      "ru": "Начальная модель: Предсказанный отклик vs Фактический отклик",
+      "tr": "Başlangıç Modeli: Tahmin Edilen Yanıt vs Gerçek Yanıt"
+    },
+    {
+      "en": "Final Model Predicted Response vs Actual Response",
+      "ru": "Финальная модель: Предсказанный отклик vs Фактический отклик",
+      "tr": "Son Model: Tahmin Edilen Yanıt vs Gerçek Yanıt"
+    },
+    {
+      "en": "Predicted Response",
+      "ru": "Предсказанный отклик",
+      "tr": "Tahmin Edilen Yanıt"
+    },
+    {
+      "en": "Actual Response",
+      "ru": "Фактический отклик",
+      "tr": "Gerçek Yanıt"
+    },
+    {
+      "en": "Initial Model: Predicted Response vs Residuals",
+      "ru": "Начальная модель: Предсказанный отклик vs Остатки",
+      "tr": "Başlangıç Modeli: Tahmin Edilen Yanıt vs Artıklar"
+    },
+    {
+      "en": "Final Model: Predicted Response vs Residuals",
+      "ru": "Финальная модель: Предсказанный отклик vs Остатки",
+      "tr": "Son Model: Tahmin Edilen Yanıt vs Artıklar"
+    },
+    {
+      "en": "Residuals",
+      "ru": "Остатки",
+      "tr": "Artıklar"
+    },
+    {
+      "en": "Initial Model: Response vs Coded Factors",
+      "ru": "Начальная модель: Отклик vs Кодированные факторы",
+      "tr": "Başlangıç Modeli: Yanıt vs Kodlanmış Faktörler"
+    },
+    {
+      "en": "Final Model: Response vs Coded Factors",
+      "ru": "Финальная модель: Отклик vs Кодированные факторы",
+      "tr": "Son Model: Yanıt vs Kodlanmış Faktörler"
+    },
+    {
+      "en": "Initial Model: Response vs Uncoded Factors",
+      "ru": "Начальная модель: Отклик vs Декодированные факторы",
+      "tr": "Başlangıç Modeli: Yanıt vs Kod Çözülmüş Faktörler"
+    },
+    {
+      "en": "Final Model: Response vs Uncoded Factors",
+      "ru": "Финальная модель: Отклик vs Декодированные факторы",
+      "tr": "Son Model: Yanıt vs Kod Çözülmüş Faktörler"
+    },
+    {
+      "en": "Factor Level",
+      "ru": "Уровень фактора",
+      "tr": "Faktör Seviyesi"
+    },
+    {
+      "en": "Response",
+      "ru": "Отклик",
+      "tr": "Yanıt"
+    },
+    {
+      "en": "Initial Model: Residual vs Coded Factors",
+      "ru": "Начальная модель: Остатки vs Кодированные факторы",
+      "tr": "Başlangıç Modeli: Artık vs Kodlanmış Faktörler"
+    },
+    {
+      "en": "Final Model: Residual vs Coded Factors",
+      "ru": "Финальная модель: Остатки vs Кодированные факторы",
+      "tr": "Son Model: Artık vs Kodlanmış Faktörler"
+    },
+    {
+      "en": "Initial Model: Residual vs Uncoded Factors",
+      "ru": "Начальная модель: Остатки vs Декодированные факторы",
+      "tr": "Başlangıç Modeli: Artık vs Kod Çözülmüş Faktörler"
+    },
+    {
+      "en": "Final Model: Residual vs Uncoded Factors",
+      "ru": "Финальная модель: Остатки vs Декодированные факторы",
+      "tr": "Son Model: Artık vs Kod Çözülmüş Faktörler"
+    },
+    {
+      "en": "Residual",
+      "ru": "Остаток",
+      "tr": "Artık"
+    },
+    {
+      "en": "Molecular Information",
+      "ru": "Молекулярная информация",
+      "tr": "Moleküler Bilgi"
+    },
+    {
+      "en": "Name:",
+      "ru": "Название:",
+      "tr": "İsim:"
+    },
+    {
+      "en": "CAS:",
+      "ru": "CAS:",
+      "tr": "CAS:"
+    },
+    {
+      "en": "SMILES:",
+      "ru": "SMILES:",
+      "tr": "SMILES:"
+    },
+    {
+      "en": "InChI:",
+      "ru": "InChI:",
+      "tr": "InChI:"
+    },
+    {
+      "en": "InChIKey:",
+      "ru": "InChIKey:",
+      "tr": "InChIKey:"
+    },
+    {
+      "en": "Molecular Properties",
+      "ru": "Молекулярные свойства",
+      "tr": "Moleküler Özellikler"
+    },
+    {
+      "en": "Molecular Formula:",
+      "ru": "Молекулярная формула:",
+      "tr": "Moleküler Formül:"
+    },
+    {
+      "en": "Molecular Weight:",
+      "ru": "Молекулярный вес:",
+      "tr": "Moleküler Ağırlık:"
+    },
+    {
+      "en": "g/mol",
+      "ru": "г/моль",
+      "tr": "g/mol"
+    },
+    {
+      "en": "Atom Count:",
+      "ru": "Количество атомов:",
+      "tr": "Atom Sayısı:"
+    },
+    {
+      "en": "Hydrogen Count:",
+      "ru": "Количество водорода:",
+      "tr": "Hidrojen Sayısı:"
+    },
+    {
+      "en": "Aromaticity:",
+      "ru": "Ароматичность:",
+      "tr": "Aromatiklik:"
+    },
+    {
+      "en": "Tb:",
+      "ru": "Tb:",
+      "tr": "Tb:"
+    },
+    {
+      "en": "Tc:",
+      "ru": "Tc:",
+      "tr": "Tc:"
+    },
+    {
+      "en": "Pc:",
+      "ru": "Pc:",
+      "tr": "Pc:"
+    },
+    {
+      "en": "Vc:",
+      "ru": "Vc:",
+      "tr": "Vc:"
+    },
+    {
+      "en": "K",
+      "ru": "K",
+      "tr": "K"
+    },
+    {
+      "en": "MPa",
+      "ru": "МПа",
+      "tr": "MPa"
+    },
+    {
+      "en": "mL/mol",
+      "ru": "мл/моль",
+      "tr": "mL/mol"
+    },
+    {
+      "en": "δD:",
+      "ru": "δD:",
+      "tr": "δD:"
+    },
+    {
+      "en": "δP:",
+      "ru": "δP:",
+      "tr": "δP:"
+    },
+    {
+      "en": "δHB:",
+      "ru": "δHB:",
+      "tr": "δHB:"
+    },
+    {
+      "en": "√MPa",
+      "ru": "√МПа",
+      "tr": "√MPa"
+    },
+    {
+      "en": "L/mol",
+      "ru": "л/моль",
+      "tr": "L/mol"
+    },
+    {
+      "en": "Property",
+      "ru": "Свойство",
+      "tr": "Özellik"
+    },
+    {
+      "en": "Value",
+      "ru": "Значение",
+      "tr": "Değer"
+    },
+    {
+      "en": "Parameter",
+      "ru": "Параметр",
+      "tr": "Parametre"
+    },
+    {
+      "en": "VDW Volume:",
+      "ru": "Объем VDW:",
+      "tr": "VDW Hacmi:"
+    },
+    {
+      "en": "Canonical analysis not available (requires quadratic model)",
+      "ru": "Канонический анализ недоступен (требуется квадратичная модель)",
+      "tr": "Kanonik analiz kullanılamıyor (kuadratik model gerektirir)"
+    },
+    {
+      "en": " (coded)",
+      "ru": " (кодированный)",
+      "tr": " (kodlanmış)"
+    },
+    {
+      "en": "Insufficient optimization data",
+      "ru": "Недостаточно данных для оптимизации",
+      "tr": "Yetersiz optimizasyon verisi"
+    },
+    {
+      "en": "Min/Max predictions (coded values only)",
+      "ru": "Прогнозы мин/макс (только кодированные значения)",
+      "tr": "Min/Maks tahminleri (sadece kodlanmış değerler)"
+    },
+    {
+      "en": "Traditional optimization data format issue",
+      "ru": "Проблема формата данных традиционной оптимизации",
+      "tr": "Geleneksel optimizasyon veri formatı sorunu"
+    },
+    {
+      "en": "Traditional optimization not available",
+      "ru": "Традиционная оптимизация недоступна",
+      "tr": "Geleneksel optimizasyon kullanılamıyor"
+    },
+    {
+      "en": "Eigenvalue analysis not available",
+      "ru": "Анализ собственных значений недоступен",
+      "tr": "Özdeğer analizi kullanılamıyor"
+    },
+    {
+      "en": "Eigenvalue analysis confirms the stationary point type.",
+      "ru": "Анализ собственных значений подтверждает тип стационарной точки.",
+      "tr": "Özdeğer analizi durağan nokta tipini doğrular."
+    },
+    {
+      "en": "Steepest Ascent not available for this model",
+      "ru": "Метод наискорейшего подъема недоступен для этой модели",
+      "tr": "Bu model için Steepest Ascent kullanılamıyor"
+    },
+    {
+      "en": "No analysis results available",
+      "ru": "Результаты анализа недоступны",
+      "tr": "Analiz sonuçları mevcut değil"
+    },
+    {
+      "en": "No saved designs",
+      "ru": "Нет сохраненных дизайнов",
+      "tr": "Kaydedilmiş tasarım yok"
+    },
+    {
+      "en": "Failed to save analysis to file directory",
+      "ru": "Не удалось сохранить анализ в каталог файлов",
+      "tr": "Analiz dosya dizinine kaydedilemedi"
+    },
+    {
+      "en": "Status:",
+      "ru": "Статус:",
+      "tr": "Durum:"
+    },
+    {
+      "en": "at predicted response =",
+      "ru": "при прогнозируемом отклике =",
+      "tr": "tahmin edilen yanıtta ="
+    },
+    {
+      "en": "Minimum response",
+      "ru": "Минимальный отклик",
+      "tr": "Minimum yanıt"
+    },
+    {
+      "en": "Maximum response",
+      "ru": "Максимальный отклик",
+      "tr": "Maksimum yanıt"
+    },
+    {
+      "en": "All Checks Passed",
+      "ru": "Все проверки пройдены",
+      "tr": "Tüm Kontroller Başarılı"
+    },
+    {
+      "en": "All optimal values are within the specified range.",
+      "ru": "Все оптимальные значения находятся в заданном диапазоне.",
+      "tr": "Tüm optimal değerler belirtilen aralıkta."
+    },
+    {
+      "en": "Inestimable",
+      "ru": "Неоценимый",
+      "tr": "Tahmin edilemez"
+    },
+    {
+      "en": "No detailed analysis report available. This might be due to missing statements.",
+      "ru": "Подробный отчет об анализе недоступен. Это может быть связано с отсутствующими заявлениями.",
+      "tr": "Detaylı analiz raporu mevcut değil. Bu, eksik ifadelerden kaynaklanabilir."
+    },
+    {
+      "en": "No detailed analysis report available. No statements found.",
+      "ru": "Подробный отчет об анализе недоступен. Заявления не найдены.",
+      "tr": "Detaylı analiz raporu mevcut değil. İfade bulunamadı."
+    },
+    {
+      "en": "DOE ANALYSIS - RAW STATEMENTS",
+      "ru": "АНАЛИЗ DOE - НЕОБРАБОТАННЫЕ ЗАЯВЛЕНИЯ",
+      "tr": "DOE ANALİZİ - HAM İFADELER"
+    },
+    {
+      "en": "Canonical analysis data incomplete",
+      "ru": "Данные канонического анализа неполны",
+      "tr": "Kanonik analiz verileri eksik"
+    },
+    {
+      "en": "Initial Model,",
+      "ru": "Начальная модель,",
+      "tr": "Başlangıç Modeli,"
+    },
+    {
+      "en": "Final Model,",
+      "ru": "Финальная модель,",
+      "tr": "Son Model,"
+    }
+  ]
+}

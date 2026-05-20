@@ -1,0 +1,814 @@
+{
+      "translation": [
+            {
+                  "en": "Description",
+                  "ru": "Описание",
+                  "tr": "Açıklama"
+            },
+            {
+                  "en": "Unit",
+                  "ru": "Единица",
+                  "tr": "Birim"
+            },
+            {
+                  "en": "Stepwise",
+                  "ru": "Пошаговый",
+                  "tr": "Adım Adım"
+            },
+            {
+                  "en": "Extraction cycles per month",
+                  "ru": "Циклов экстракции в месяц",
+                  "tr": "Aylık ekstraksiyon döngüsü sayısı"
+            },
+            {
+                  "en": "Main solvent loss per cycle (CO2 or water)",
+                  "ru": "Потеря основного растворителя за цикл (CO2 или вода)",
+                  "tr": "Döngü başına ana çözücü kaybı (CO2 veya su)"
+            },
+            {
+                  "en": "Co-solvent loss per batch (EtOH or CO2)",
+                  "ru": "Потеря сорастворителя за партию (EtOH или CO2)",
+                  "tr": "Parti başına yardımcı çözücü kaybı (EtOH veya CO2)"
+            },
+            {
+                  "en": "S/M mass ratio (CO2)",
+                  "ru": "Массовое соотношение Р/С (CO2)",
+                  "tr": "Ç/H kütle oranı (CO2)"
+            },
+            {
+                  "en": "S/M mass ratio (co-solvent)",
+                  "ru": "Массовое соотношение Р/С (сорастворитель)",
+                  "tr": "Ç/H kütle oranı (yardımcı çözücü)"
+            },
+            {
+                  "en": "Raw material requirement (monthly)",
+                  "ru": "Потребность в сырье (месячная)",
+                  "tr": "Hammadde ihtiyacı (aylık)"
+            },
+            {
+                  "en": "Main solvent requirement (monthly)",
+                  "ru": "Потребность в основном растворителе (месячная)",
+                  "tr": "Ana çözücü ihtiyacı (aylık)"
+            },
+            {
+                  "en": "Co-solvent requirement (monthly)",
+                  "ru": "Потребность в сорастворителе (месячная)",
+                  "tr": "Yardımcı çözücü ihtiyacı (aylık)"
+            },
+            {
+                  "en": "Requirement of all auxiliary materials (monthly)",
+                  "ru": "Потребность во всех вспомогательных материалах (месячная)",
+                  "tr": "Tüm yardımcı malzemelerin ihtiyacı (aylık)"
+            },
+            {
+                  "en": "Raw material cost (monthly)",
+                  "ru": "Стоимость сырья (месячная)",
+                  "tr": "Hammadde maliyeti (aylık)"
+            },
+            {
+                  "en": "Main solvent cost (monthly)",
+                  "ru": "Стоимость основного растворителя (месячная)",
+                  "tr": "Ana çözücü maliyeti (aylık)"
+            },
+            {
+                  "en": "Co-solvent cost (monthly)",
+                  "ru": "Стоимость сорастворителя (месячная)",
+                  "tr": "Yardımcı çözücü maliyeti (aylık)"
+            },
+            {
+                  "en": "Cost of all auxiliary materials (monthly)",
+                  "ru": "Стоимость всех вспомогательных материалов (месячная)",
+                  "tr": "Tüm yardımcı malzemelerin maliyeti (aylık)"
+            },
+            {
+                  "en": "Main power requirement (monthly)",
+                  "ru": "Потребность в основной мощности (месячная)",
+                  "tr": "Ana güç ihtiyacı (aylık)"
+            },
+            {
+                  "en": "Additional power requirement (monthly)",
+                  "ru": "Потребность в дополнительной мощности (месячная)",
+                  "tr": "İlave güç ihtiyacı (aylık)"
+            },
+            {
+                  "en": "Drying power requirement (monthly)",
+                  "ru": "Потребность в мощности для сушки (месячная)",
+                  "tr": "Kurutma gücü ihtiyacı (aylık)"
+            },
+            {
+                  "en": "Comminution power requirement (monthly)",
+                  "ru": "Потребность в мощности для измельчения (месячная)",
+                  "tr": "Öğütme gücü ihtiyacı (aylık)"
+            },
+            {
+                  "en": "Evaporation power requirement (monthly)",
+                  "ru": "Потребность в мощности для выпаривания (месячная)",
+                  "tr": "Buharlaştırma gücü ihtiyacı (aylık)"
+            },
+            {
+                  "en": "Main power cost (monthly)",
+                  "ru": "Стоимость основной мощности (месячная)",
+                  "tr": "Ana güç maliyeti (aylık)"
+            },
+            {
+                  "en": "Additional power cost (monthly)",
+                  "ru": "Стоимость дополнительной мощности (месячная)",
+                  "tr": "İlave güç maliyeti (aylık)"
+            },
+            {
+                  "en": "Drying power cost (monthly)",
+                  "ru": "Стоимость мощности для сушки (месячная)",
+                  "tr": "Kurutma gücü maliyeti (aylık)"
+            },
+            {
+                  "en": "Comminution power cost (monthly)",
+                  "ru": "Стоимость мощности для измельчения (месячная)",
+                  "tr": "Öğütme gücü maliyeti (aylık)"
+            },
+            {
+                  "en": "Evaporation power cost (monthly)",
+                  "ru": "Стоимость мощности для испарения (месячная)",
+                  "tr": "Buharlaştırma gücü maliyeti (aylık)"
+            },
+            {
+                  "en": "Extract produced (monthly)",
+                  "ru": "Произведенный экстракт (месячный)",
+                  "tr": "Üretilen ekstrakt (aylık)"
+            },
+            {
+                  "en": "Specific extract cost",
+                  "ru": "Удельная стоимость экстракта",
+                  "tr": "Özgül ekstrakt maliyeti"
+            },
+            {
+                  "en": "Monthly gross profit (pre-tax)",
+                  "ru": "Месячная валовая прибыль (до налогов)",
+                  "tr": "Aylık brüt kar (vergi öncesi)"
+            },
+            {
+                  "en": "Monthly profit (after tax)",
+                  "ru": "Месячная прибыль (после налогов)",
+                  "tr": "Aylık kar (vergi sonrası)"
+            },
+            {
+                  "en": "Sales volume (monthly)",
+                  "ru": "Объем продаж (месячный)",
+                  "tr": "Satış hacmi (aylık)"
+            },
+            {
+                  "en": "Profit margin (monthly)",
+                  "ru": "Норма прибыли (месячная)",
+                  "tr": "Kar marjı (aylık)"
+            },
+            {
+                  "en": "Payback period",
+                  "ru": "Срок окупаемости",
+                  "tr": "Geri ödeme süresi"
+            },
+            {
+                  "en": "Cost of Raw Materials",
+                  "ru": "Стоимость сырья",
+                  "tr": "Hammadde Maliyeti"
+            },
+            {
+                  "en": "Cost of Utilities",
+                  "ru": "Стоимость коммунальных услуг",
+                  "tr": "Enerji Maliyeti"
+            },
+            {
+                  "en": "Cost of Manufacturing",
+                  "ru": "Производственные затраты",
+                  "tr": "Üretim Maliyeti"
+            },
+            {
+                  "en": "none",
+                  "ru": "нет",
+                  "tr": "yok"
+            },
+            {
+                  "en": "kg/cycle",
+                  "ru": "кг/цикл",
+                  "tr": "kg/döngü"
+            },
+            {
+                  "en": "kg/month",
+                  "ru": "кг/месяц",
+                  "tr": "kg/ay"
+            },
+            {
+                  "en": "USD/month",
+                  "ru": "USD/месяц",
+                  "tr": "USD/ay"
+            },
+            {
+                  "en": "kWh/month",
+                  "ru": "кВтч/месяц",
+                  "tr": "kWh/ay"
+            },
+            {
+                  "en": "USD/kg",
+                  "ru": "USD/кг",
+                  "tr": "USD/kg"
+            },
+            {
+                  "en": "percent",
+                  "ru": "процент",
+                  "tr": "yüzde"
+            },
+            {
+                  "en": "years",
+                  "ru": "годы",
+                  "tr": "yıl"
+            },
+            {
+                  "en": "Time (min)",
+                  "ru": "Время (мин)",
+                  "tr": "Süre (dk)"
+            },
+            {
+                  "en": "Yield (%)",
+                  "ru": "Выход (%)",
+                  "tr": "Verim (%)"
+            },
+            {
+                  "en": "Monthly Profit ($)",
+                  "ru": "Месячная прибыль ($)",
+                  "tr": "Aylık Kar ($)"
+            },
+            {
+                  "en": "Margin (%)",
+                  "ru": "Маржа (%)",
+                  "tr": "Marj (%)"
+            },
+            {
+                  "en": "Payback Period (years)",
+                  "ru": "Срок окупаемости (годы)",
+                  "tr": "Geri Ödeme Süresi (yıl)"
+            },
+            {
+                  "en": "Specific Cost ($/kg)",
+                  "ru": "Специфическая стоимость ($/кг)",
+                  "tr": "Özgül Maliyet ($/kg)"
+            },
+            {
+                  "en": "Value",
+                  "ru": "Значение",
+                  "tr": "Değer"
+            },
+            {
+                  "en": "Type",
+                  "ru": "Тип",
+                  "tr": "Tür"
+            },
+            {
+                  "en": "L",
+                  "ru": "л",
+                  "tr": "L"
+            },
+            {
+                  "en": "bar",
+                  "ru": "бар",
+                  "tr": "bar"
+            },
+            {
+                  "en": "degC",
+                  "ru": "°C",
+                  "tr": "°C"
+            },
+            {
+                  "en": "mL/min",
+                  "ru": "мл/мин",
+                  "tr": "mL/dk"
+            },
+            {
+                  "en": "min",
+                  "ru": "мин",
+                  "tr": "dk"
+            },
+            {
+                  "en": "cm",
+                  "ru": "см",
+                  "tr": "cm"
+            },
+            {
+                  "en": "kWh",
+                  "ru": "кВтч",
+                  "tr": "kWh"
+            },
+            {
+                  "en": "USD/kWh",
+                  "ru": "USD/кВтч",
+                  "tr": "USD/kWh"
+            },
+            {
+                  "en": "people",
+                  "ru": "человек",
+                  "tr": "kişi"
+            },
+            {
+                  "en": "hours",
+                  "ru": "часы",
+                  "tr": "saat"
+            },
+            {
+                  "en": "days/month",
+                  "ru": "дней/месяц",
+                  "tr": "gün/ay"
+            },
+            {
+                  "en": "USD",
+                  "ru": "USD",
+                  "tr": "USD"
+            },
+            {
+                  "en": "USD/month",
+                  "ru": "USD/месяц",
+                  "tr": "USD/ay"
+            },
+            {
+                  "en": "general",
+                  "ru": "общие",
+                  "tr": "genel"
+            },
+            {
+                  "en": "crm",
+                  "ru": "СС",
+                  "tr": "HM"
+            },
+            {
+                  "en": "cut",
+                  "ru": "СК",
+                  "tr": "EM"
+            },
+            {
+                  "en": "col",
+                  "ru": "СТ",
+                  "tr": "İM"
+            },
+            {
+                  "en": "fci",
+                  "ru": "ФС",
+                  "tr": "SM"
+            },
+            {
+                  "en": "crm_aux",
+                  "ru": "СС_доп",
+                  "tr": "HM_yar"
+            },
+            {
+                  "en": "Extraction vessel volume",
+                  "ru": "Объем экстракционного сосуда",
+                  "tr": "Ekstraksiyon kabı hacmi"
+            },
+            {
+                  "en": "Material loading per batch",
+                  "ru": "Загрузка материала за партию",
+                  "tr": "Parti başına malzeme yüklemesi"
+            },
+            {
+                  "en": "Extraction pressure",
+                  "ru": "Давление экстракции",
+                  "tr": "Ekstraksiyon basıncı"
+            },
+            {
+                  "en": "Extraction temperature",
+                  "ru": "Температура экстракции",
+                  "tr": "Ekstraksiyon sıcaklığı"
+            },
+            {
+                  "en": "Main solvent flow (CO2 or water; mL/min or g/min)",
+                  "ru": "Поток основного растворителя (CO2 или вода; мл/мин или г/мин)",
+                  "tr": "Ana çözücü akışı (CO2 veya su; mL/dk veya g/dk)"
+            },
+            {
+                  "en": "Additional batch processing time (changeover etc.)",
+                  "ru": "Дополнительное время обработки партии (переналадка и т.д.)",
+                  "tr": "İlave parti işleme süresi (değişim vb.)"
+            },
+            {
+                  "en": "Dilution factor of the crude extract (if any)",
+                  "ru": "Коэффициент разбавления сырого экстракта (если есть)",
+                  "tr": "Ham ekstraktın seyreltme faktörü (varsa)"
+            },
+            {
+                  "en": "Sale price of the final extract",
+                  "ru": "Цена продажи конечного экстракта",
+                  "tr": "Nihai ekstraktın satış fiyatı"
+            },
+            {
+                  "en": "Co-solvent flow (EtOH or CO2; mL/min or g/min)",
+                  "ru": "Поток сорастворителя (EtOH или CO2; мл/мин или г/мин)",
+                  "tr": "Yardımcı çözücü akışı (EtOH veya CO2; mL/dk veya g/dk)"
+            },
+            {
+                  "en": "Material bed height",
+                  "ru": "Высота слоя материала",
+                  "tr": "Malzeme yatak yüksekliği"
+            },
+            {
+                  "en": "Extraction vessel internal diameter",
+                  "ru": "Внутренний диаметр экстракционного сосуда",
+                  "tr": "Ekstraksiyon kabı iç çapı"
+            },
+            {
+                  "en": "Price of extractable material",
+                  "ru": "Цена экстрагируемого материала",
+                  "tr": "Ekstrakte edilebilir malzeme fiyatı"
+            },
+            {
+                  "en": "Price of the main solvent (CO2 or H2O)",
+                  "ru": "Цена основного растворителя (CO2 или H2O)",
+                  "tr": "Ana çözücü fiyatı (CO2 veya H2O)"
+            },
+            {
+                  "en": "Price of co-solvent (EtOH or CO2)",
+                  "ru": "Цена сорастворителя (EtOH или CO2)",
+                  "tr": "Yardımcı çözücü fiyatı (EtOH veya CO2)"
+            },
+            {
+                  "en": "CO2 recovery line pressure",
+                  "ru": "Давление линии регенерации CO2",
+                  "tr": "CO2 geri kazanım hattı basıncı"
+            },
+            {
+                  "en": "CO2 recovery line temperature",
+                  "ru": "Температура линии регенерации CO2",
+                  "tr": "CO2 geri kazanım hattı sıcaklığı"
+            },
+            {
+                  "en": "Final CO2 separator temperature",
+                  "ru": "Температура конечного сепаратора CO2",
+                  "tr": "Son CO2 ayırıcı sıcaklığı"
+            },
+            {
+                  "en": "Fraction of collected co-solvent lost during post-processing",
+                  "ru": "Доля собранного сорастворителя, потерянного при пост-обработке",
+                  "tr": "Son işleme sırasında kaybedilen toplanmış yardımcı çözücü oranı"
+            },
+            {
+                  "en": "Main system power usage",
+                  "ru": "Потребление мощности основной системы",
+                  "tr": "Ana sistem güç tüketimi"
+            },
+            {
+                  "en": "Price of electricity",
+                  "ru": "Цена электроэнергии",
+                  "tr": "Elektrik fiyatı"
+            },
+            {
+                  "en": "Power usage for drying (pre-processing)",
+                  "ru": "Потребление мощности для сушки (предварительная обработка)",
+                  "tr": "Kurutma için güç tüketimi (ön işleme)"
+            },
+            {
+                  "en": "Power usage for comminution (pre-processing)",
+                  "ru": "Потребление мощности для измельчения (предварительная обработка)",
+                  "tr": "Öğütme için güç tüketimi (ön işleme)"
+            },
+            {
+                  "en": "Power usage for evaporation (post-processing)",
+                  "ru": "Потребление мощности для выпаривания (пост-обработка)",
+                  "tr": "Buharlaştırma için güç tüketimi (son işleme)"
+            },
+            {
+                  "en": "Hourly drying capacity (pre-processing)",
+                  "ru": "Часовая мощность сушки (предварительная обработка)",
+                  "tr": "Saatlik kurutma kapasitesi (ön işleme)"
+            },
+            {
+                  "en": "Hourly comminution capacity (pre-processing)",
+                  "ru": "Часовая мощность измельчения (предварительная обработка)",
+                  "tr": "Saatlik öğütme kapasitesi (ön işleme)"
+            },
+            {
+                  "en": "Hourly evaporation capacity (post-processing)",
+                  "ru": "Часовая мощность выпаривания (пост-обработка)",
+                  "tr": "Saatlik buharlaştırma kapasitesi (son işleme)"
+            },
+            {
+                  "en": "Number of operator staff required",
+                  "ru": "Количество требуемых операторов",
+                  "tr": "Gerekli operatör personel sayısı"
+            },
+            {
+                  "en": "Number of hours per work shift",
+                  "ru": "Количество часов в смену",
+                  "tr": "İş vardiyası başına saat sayısı"
+            },
+            {
+                  "en": "Number of work shifts per calendar day",
+                  "ru": "Количество смен в календарный день",
+                  "tr": "Takvim günü başına iş vardiyası sayısı"
+            },
+            {
+                  "en": "Average monthly wage per operator",
+                  "ru": "Средняя месячная заработная плата оператора",
+                  "tr": "Operatör başına ortalama aylık ücret"
+            },
+            {
+                  "en": "Number of work days per month (28 days)",
+                  "ru": "Количество рабочих дней в месяц (28 дней)",
+                  "tr": "Ay başına çalışma günü sayısı (28 gün)"
+            },
+            {
+                  "en": "Capital expenditure invested",
+                  "ru": "Капитальные затраты",
+                  "tr": "Yatırılan sermaye harcaması"
+            },
+            {
+                  "en": "Monthly maintenance costs",
+                  "ru": "Месячные затраты на обслуживание",
+                  "tr": "Aylık bakım maliyetleri"
+            },
+            {
+                  "en": "Other monthly costs",
+                  "ru": "Прочие месячные затраты",
+                  "tr": "Diğer aylık maliyetler"
+            },
+            {
+                  "en": "Depreciation (as CAPEX fraction per year)",
+                  "ru": "Амортизация (как доля CAPEX в год)",
+                  "tr": "Amortisman (yıllık CAPEX oranı olarak)"
+            },
+            {
+                  "en": "Price of auxiliary material: oil",
+                  "ru": "Цена вспомогательного материала: масло",
+                  "tr": "Yardımcı malzeme fiyatı: yağ"
+            },
+            {
+                  "en": "Required fraction of auxiliary material: oil",
+                  "ru": "Требуемая доля вспомогательного материала: масло",
+                  "tr": "Yardımcı malzeme gerekli oranı: yağ"
+            },
+            {
+                  "en": "kg/h",
+                  "ru": "кг/ч",
+                  "tr": "kg/s"
+            },
+            {
+                  "en": "L/h",
+                  "ru": "л/ч",
+                  "tr": "L/s"
+            },
+            {
+                  "en": "mandatory",
+                  "ru": "обязательно",
+                  "tr": "zorunlu"
+            },
+            {
+                  "en": "parameter",
+                  "ru": "параметр",
+                  "tr": "parametre"
+            },
+            {
+                  "en": "source",
+                  "ru": "источник",
+                  "tr": "kaynak"
+            },
+            {
+                  "en": "yes",
+                  "ru": "да",
+                  "tr": "evet"
+            },
+            {
+                  "en": "no",
+                  "ru": "нет",
+                  "tr": "hayır"
+            },
+            {
+                  "en": "Input Parameters",
+                  "ru": "Входные параметры",
+                  "tr": "Girdi Parametreleri"
+            },
+            {
+                  "en": "Output Parameters",
+                  "ru": "Выходные параметры",
+                  "tr": "Çıktı Parametreleri"
+            },
+            {
+                  "en": "kg",
+                  "ru": "кг",
+                  "tr": "kg"
+            },
+            {
+                  "en": "variable",
+                  "ru": "переменная",
+                  "tr": "değişken"
+            },
+            {
+                  "en": "kW/cycle",
+                  "ru": "кВт/цикл",
+                  "tr": "kW/döngü"
+            },
+            {
+                  "en": "Any additional power usage per extraction cycle",
+                  "ru": "Любое дополнительное потребление мощности за цикл экстракции",
+                  "tr": "Ekstraksiyon döngüsü başına herhangi bir ek güç tüketimi"
+            },
+            {
+                  "en": "Flow measurement pressure",
+                  "ru": "Давление измерения потока",
+                  "tr": "Akış ölçüm basıncı"
+            },
+            {
+                  "en": "Flow measurement temperature",
+                  "ru": "Температура измерения потока",
+                  "tr": "Akış ölçüm sıcaklığı"
+            },
+            {
+                  "en": "Main solvent loss per cycle",
+                  "ru": "Потеря основного растворителя за цикл",
+                  "tr": "Döngü başına ana çözücü kaybı"
+            },
+            {
+                  "en": "Co-solvent loss per batch",
+                  "ru": "Потеря сорастворителя за партию",
+                  "tr": "Parti başına yardımcı çözücü kaybı"
+            },
+            {
+                  "en": "Cost of Raw Materials (CRM)",
+                  "ru": "Стоимость сырья (CRM)",
+                  "tr": "Hammadde Maliyeti (CRM)"
+            },
+            {
+                  "en": "Cost of Utilities (CUT)",
+                  "ru": "Стоимость услуг (CUT)",
+                  "tr": "Hizmet Maliyeti (CUT)"
+            },
+            {
+                  "en": "Cost of Manufacturing (COM)",
+                  "ru": "Себестоимость производства (COM)",
+                  "tr": "Üretim Maliyeti (COM)"
+            },
+            {
+                  "en": "Main power consumption (monthly)",
+                  "ru": "Потребление основной мощности (месячное)",
+                  "tr": "Ana güç tüketimi (aylık)"
+            },
+            {
+                  "en": "Main power cost (monthly)",
+                  "ru": "Стоимость основной мощности (месячная)",
+                  "tr": "Ana güç maliyeti (aylık)"
+            },
+            {
+                  "en": "Drying power consumption (monthly)",
+                  "ru": "Потребление мощности на сушку (месячное)",
+                  "tr": "Kurutma güç tüketimi (aylık)"
+            },
+            {
+                  "en": "Drying power cost (monthly)",
+                  "ru": "Стоимость мощности на сушку (месячная)",
+                  "tr": "Kurutma güç maliyeti (aylık)"
+            },
+            {
+                  "en": "Compression power consumption (monthly)",
+                  "ru": "Потребление мощности на сжатие (месячное)",
+                  "tr": "Sıkıştırma güç tüketimi (aylık)"
+            },
+            {
+                  "en": "Compression power cost (monthly)",
+                  "ru": "Стоимость мощности на сжатие (месячная)",
+                  "tr": "Sıkıştırma güç maliyeti (aylık)"
+            },
+            {
+                  "en": "Evaporation power consumption (monthly)",
+                  "ru": "Потребление мощности на испарение (месячное)",
+                  "tr": "Buharlaştırma güç tüketimi (aylık)"
+            },
+            {
+                  "en": "Evaporation power cost (monthly)",
+                  "ru": "Стоимость мощности на испарение (месячная)",
+                  "tr": "Buharlaştırma güç maliyeti (aylık)"
+            },
+            {
+                  "en": "Total electricity consumption (monthly)",
+                  "ru": "Общее потребление электроэнергии (месячное)",
+                  "tr": "Toplam elektrik tüketimi (aylık)"
+            },
+            {
+                  "en": "Total electricity cost (monthly)",
+                  "ru": "Общая стоимость электроэнергии (месячная)",
+                  "tr": "Toplam elektrik maliyeti (aylık)"
+            },
+            {
+                  "en": "Electricity consumption (monthly)",
+                  "ru": "Потребление электроэнергии (месячное)",
+                  "tr": "Elektrik tüketimi (aylık)"
+            },
+            {
+                  "en": "Electricity cost (monthly)",
+                  "ru": "Стоимость электроэнергии (месячная)",
+                  "tr": "Elektrik maliyeti (aylık)"
+            },
+            {
+                  "en": "Auxiliary material cost (monthly)",
+                  "ru": "Стоимость вспомогательных материалов (месячная)",
+                  "tr": "Yardımcı malzeme maliyeti (aylık)"
+            },
+            {
+                  "en": "--- Extract produced (monthly) by response ---",
+                  "ru": "--- Произведённый экстракт (месячный) по откликам ---",
+                  "tr": "--- Üretilen ekstrakt (aylık) yanıtlara göre ---"
+            },
+            {
+                  "en": "Total",
+                  "ru": "Итого",
+                  "tr": "Toplam"
+            },
+            {
+                  "en": "Sale price",
+                  "ru": "Цена продажи",
+                  "tr": "Satış fiyatı"
+            },
+            {
+                  "en": "Dilution factor",
+                  "ru": "Коэффициент разбавления",
+                  "tr": "Seyreltme faktörü"
+            },
+            {
+                  "en": "Cost share (proportional)",
+                  "ru": "Доля затрат (пропорциональная)",
+                  "tr": "Maliyet payı (orantılı)"
+            },
+            {
+                  "en": "Gross profit",
+                  "ru": "Валовая прибыль",
+                  "tr": "Brüt kar"
+            },
+            {
+                  "en": "Profit margin",
+                  "ru": "Норма прибыли",
+                  "tr": "Kar marjı"
+            },
+            {
+                  "en": "COST OF MANUFACTURING ANALYSIS RESULTS",
+                  "ru": "РЕЗУЛЬТАТЫ АНАЛИЗА СЕБЕСТОИМОСТИ ПРОИЗВОДСТВА",
+                  "tr": "ÜRETİM MALİYETİ ANALİZİ SONUÇLARI"
+            },
+            {
+                  "en": "Generated",
+                  "ru": "Создано",
+                  "tr": "Oluşturulma tarihi"
+            },
+            {
+                  "en": "PRODUCTION OVERVIEW",
+                  "ru": "ОБЗОР ПРОИЗВОДСТВА",
+                  "tr": "ÜRETİM GENEL BAKIŞI"
+            },
+            {
+                  "en": "COST OF RAW MATERIALS (CRM)",
+                  "ru": "СТОИМОСТЬ СЫРЬЯ (CRM)",
+                  "tr": "HAMMADDE MALİYETİ (CRM)"
+            },
+            {
+                  "en": "COST OF UTILITIES (CUT)",
+                  "ru": "СТОИМОСТЬ УСЛУГ (CUT)",
+                  "tr": "HİZMET MALİYETİ (CUT)"
+            },
+            {
+                  "en": "FINANCIAL RESULTS (COMBINED SUMMARY)",
+                  "ru": "ФИНАНСОВЫЕ РЕЗУЛЬТАТЫ (СВОДКА)",
+                  "tr": "FİNANSAL SONUÇLAR (ÖZET)"
+            },
+            {
+                  "en": "PER-RESPONSE FINANCIAL BREAKDOWN",
+                  "ru": "ФИНАНСОВАЯ РАЗБИВКА ПО ОТКЛИКАМ",
+                  "tr": "YANIT BAZINDA FİNANSAL DAĞILIM"
+            },
+            {
+                  "en": "PERFORMANCE OVERVIEW (TIME-SERIES DATA)",
+                  "ru": "ОБЗОР ПРОИЗВОДИТЕЛЬНОСТИ (ВРЕМЕННЫЕ ДАННЫЕ)",
+                  "tr": "PERFORMANS GENEL BAKIŞI (ZAMAN SERİSİ VERİLERİ)"
+            },
+            {
+                  "en": "INPUT PARAMETERS",
+                  "ru": "ВХОДНЫЕ ПАРАМЕТРЫ",
+                  "tr": "GİRİŞ PARAMETRELERİ"
+            },
+            {
+                  "en": "ADDITIONAL RESULTS",
+                  "ru": "ДОПОЛНИТЕЛЬНЫЕ РЕЗУЛЬТАТЫ",
+                  "tr": "EK SONUÇLAR"
+            },
+            {
+                  "en": "FUNCTION CALL",
+                  "ru": "ВЫЗОВ ФУНКЦИИ",
+                  "tr": "FONKSİYON ÇAĞRISI"
+            },
+            {
+                  "en": "INPUT DATA PROVIDED BY USER",
+                  "ru": "ВХОДНЫЕ ДАННЫЕ ПОЛЬЗОВАТЕЛЯ",
+                  "tr": "KULLANICI TARAFINDAN SAĞLANAN GİRİŞ VERİLERİ"
+            },
+            {
+                  "en": "DETAILED OUTPUT DATA",
+                  "ru": "ДЕТАЛЬНЫЕ ВЫХОДНЫЕ ДАННЫЕ",
+                  "tr": "DETAYLI ÇIKIŞ VERİLERİ"
+            },
+            {
+                  "en": "ABBREVIATED OUTPUT DATA",
+                  "ru": "СОКРАЩЕННЫЕ ВЫХОДНЫЕ ДАННЫЕ",
+                  "tr": "KISALTILMIŞ ÇIKIŞ VERİLERİ"
+            }
+      ]
+}

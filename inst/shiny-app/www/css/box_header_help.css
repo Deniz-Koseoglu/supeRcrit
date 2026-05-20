@@ -1,0 +1,49 @@
+/* Tighten help icon placement in box headers */
+.box-header .box-title > div {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+/* Kill all spacing on wrapper divs between title and icon */
+.box-header .box-title > div > div {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.box-header .box-title .shiny-html-output {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+}
+
+.box-header .box-title .shinyhelper-wrapper {
+  display: inline-flex !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.box-header .box-title .shinyhelper-container {
+  position: relative !important;
+  top: 0 !important;
+  right: auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.box-header .box-title .shinyhelper-container i {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Fix plotly chart overflow in boxes */
+.box .box-body .plotly {
+  overflow: hidden;
+}
+.box .box-body .js-plotly-plot {
+  overflow: hidden;
+}

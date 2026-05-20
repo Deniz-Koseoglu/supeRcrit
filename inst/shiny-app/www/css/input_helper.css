@@ -1,0 +1,12 @@
+/* Inline help icons next to input labels */
+.input-help-icon {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 4px;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+.input-help-icon:hover svg circle {
+  fill: #2c6d9c;
+}

@@ -1,0 +1,214 @@
+{
+      "translation": [
+            {
+                  "en": "Auxiliary Tools",
+                  "ru": "Вспомогательные инструменты",
+                  "tr": "Yardımcı Araçlar"
+            },
+            {
+                  "en": "Pressure (bar)",
+                  "ru": "Давление (бар)",
+                  "tr": "Basınç (bar)"
+            },
+            {
+                  "en": "Temperature (°C)",
+                  "ru": "Температура (°C)",
+                  "tr": "Sıcaklık (°C)"
+            },
+            {
+                  "en": "Error calculating CO₂ density:",
+                  "ru": "Ошибка при расчете плотности CO₂:",
+                  "tr": "CO₂ yoğunluğu hesaplanırken hata:"
+            },
+            {
+                  "en": "Error calculating ethanol density:",
+                  "ru": "Ошибка при расчете плотности этанола:",
+                  "tr": "Etanol yoğunluğu hesaplanırken hata:"
+            },
+            {
+                  "en": "Error calculating water density:",
+                  "ru": "Ошибка при расчете плотности воды:",
+                  "tr": "Su yoğunluğu hesaplanırken hata:"
+            },
+            {
+                  "en": "Next",
+                  "ru": "Далее",
+                  "tr": "İleri"
+            },
+            {
+                  "en": "Back",
+                  "ru": "Назад",
+                  "tr": "Geri"
+            },
+            {
+                  "en": "Done",
+                  "ru": "Готово",
+                  "tr": "Bitti"
+            },
+            {
+                  "en": "Skip",
+                  "ru": "Пропустить",
+                  "tr": "Atla"
+            },
+            {
+                  "en": "Density Calculator",
+                  "ru": "Калькулятор плотности",
+                  "tr": "Yoğunluk Hesaplayıcı"
+            },
+            {
+                  "en": "Substance",
+                  "ru": "Вещество",
+                  "tr": "Madde"
+            },
+            {
+                  "en": "CO₂",
+                  "ru": "CO₂",
+                  "tr": "CO₂"
+            },
+            {
+                  "en": "Output Units",
+                  "ru": "Единицы вывода",
+                  "tr": "Çıktı Birimleri"
+            },
+            {
+                  "en": "CO₂ Volume Fraction",
+                  "ru": "Объёмная доля CO₂",
+                  "tr": "CO₂ Hacim Oranı"
+            },
+            {
+                  "en": "Calculate Density",
+                  "ru": "Рассчитать плотность",
+                  "tr": "Yoğunluğu Hesapla"
+            },
+            {
+                  "en": "Calculating density...",
+                  "ru": "Расчёт плотности...",
+                  "tr": "Yoğunluk hesaplanıyor..."
+            },
+            {
+                  "en": "kJ/kg",
+                  "ru": "кДж/кг",
+                  "tr": "kJ/kg"
+            },
+            {
+                  "en": "at",
+                  "ru": "при",
+                  "tr": "@"
+            },
+            {
+                  "en": "CO₂ Density Results",
+                  "ru": "Результаты расчёта плотности CO₂",
+                  "tr": "CO₂ Yoğunluk Sonuçları"
+            },
+            {
+                  "en": "Ethanol Density Results",
+                  "ru": "Результаты расчёта плотности этанола",
+                  "tr": "Etanol Yoğunluk Sonuçları"
+            },
+            {
+                  "en": "Water Density Results",
+                  "ru": "Результаты расчёта плотности воды",
+                  "tr": "Su Yoğunluk Sonuçları"
+            },
+            {
+                  "en": "Mixture density computed via the Linear Blend Rule using a CO₂ density of",
+                  "ru": "Плотность смеси рассчитана по правилу линейного смешения с плотностью CO₂, равной",
+                  "tr": "Karışım yoğunluğu, CO₂ yoğunluğu kullanılarak Doğrusal Karıştırma Kuralı ile hesaplandı:"
+            },
+            {
+                  "en": "Pressure was adjusted to the valid range",
+                  "ru": "Давление было скорректировано до допустимого диапазона",
+                  "tr": "Basınç geçerli aralığa ayarlandı"
+            },
+            {
+                  "en": "Temperature was adjusted to the valid range",
+                  "ru": "Температура была скорректирована до допустимого диапазона",
+                  "tr": "Sıcaklık geçerli aralığa ayarlandı"
+            },
+            {
+                  "en": "Could not compute CO₂ density for the mixture:",
+                  "ru": "Не удалось рассчитать плотность CO₂ для смеси:",
+                  "tr": "Karışım için CO₂ yoğunluğu hesaplanamadı:"
+            },
+            {
+                  "en": "Pick the substance whose density you want to calculate: CO₂ (Bender EoS), Ethanol (Poling et al. with Linear Blend Rule for CO₂ mixtures), or Water (IAPWS-95).",
+                  "ru": "Выберите вещество, плотность которого нужно рассчитать: CO₂ (уравнение состояния Бендера), этанол (Полинг и др. с правилом линейного смешения для смесей с CO₂) или вода (IAPWS-95).",
+                  "tr": "Yoğunluğunu hesaplamak istediğiniz maddeyi seçin: CO₂ (Bender Hal Denklemi), Etanol (Poling vd., CO₂ karışımları için Doğrusal Karıştırma Kuralı ile) veya Su (IAPWS-95)."
+            },
+            {
+                  "en": "Set the pressure in bar. The valid range adapts to the selected substance. Pressure is not used for pure ethanol, but is needed when a CO₂ fraction is set so the CO₂ density can be computed for the Linear Blend Rule.",
+                  "ru": "Задайте давление в барах. Допустимый диапазон зависит от выбранного вещества. Для чистого этанола давление не используется, но требуется при заданной доле CO₂, чтобы рассчитать плотность CO₂ по правилу линейного смешения.",
+                  "tr": "Basıncı bar cinsinden ayarlayın. Geçerli aralık seçilen maddeye göre değişir. Saf etanol için basınç kullanılmaz; ancak CO₂ oranı belirlendiğinde, Doğrusal Karıştırma Kuralı için CO₂ yoğunluğunu hesaplamak amacıyla gereklidir."
+            },
+            {
+                  "en": "Set the temperature in degrees Celsius. The valid range adapts to the selected substance.",
+                  "ru": "Задайте температуру в градусах Цельсия. Допустимый диапазон зависит от выбранного вещества.",
+                  "tr": "Sıcaklığı Celsius derecesinde ayarlayın. Geçerli aralık seçilen maddeye göre değişir."
+            },
+            {
+                  "en": "When Ethanol is selected, this field sets the CO₂ volume fraction (0–0.99). Leave at 0 for pure ethanol; any value above 0 triggers the Linear Blend Rule mixture calculation.",
+                  "ru": "Когда выбран этанол, этот ползунок задаёт объёмную долю CO₂ (0–0.99). Оставьте 0 для чистого этанола; любое значение выше 0 запускает расчёт смеси по правилу линейного смешения.",
+                  "tr": "Etanol seçildiğinde bu kaydırıcı CO₂ hacim oranını (0–0,99) belirler. Saf etanol için 0 bırakın; 0'ın üzerindeki herhangi bir değer Doğrusal Karıştırma Kuralı ile karışım hesabını tetikler."
+            },
+            {
+                  "en": "Output units for all three calculators. Choose g/L or g/mL.",
+                  "ru": "Единицы вывода для всех трёх калькуляторов. Выберите g/L или g/mL.",
+                  "tr": "Üç hesaplayıcı için de çıktı birimleri. g/L veya g/mL seçin."
+            },
+            {
+                  "en": "Click to calculate. Results appear below: density (and specific enthalpy for CO₂), formatted in the chosen units.",
+                  "ru": "Нажмите для расчёта. Результаты появятся ниже: плотность (и удельная энтальпия для CO₂), отформатированные в выбранных единицах.",
+                  "tr": "Hesaplamak için tıklayın. Sonuçlar aşağıda görünür: yoğunluk (ve CO₂ için özgül entalpi), seçilen birimlerde biçimlendirilmiş olarak."
+            },
+            {
+                  "en": "Specific Enthalpy",
+                  "ru": "Удельная энтальпия",
+                  "tr": "Özgül Entalpi"
+            },
+            {
+                  "en": "Pure Ethanol Density",
+                  "ru": "Плотность чистого этанола",
+                  "tr": "Saf Etanol Yoğunluğu"
+            },
+            {
+                  "en": "CO₂–Ethanol Mixture Density",
+                  "ru": "Плотность смеси CO₂–этанол",
+                  "tr": "CO₂–Etanol Karışımı Yoğunluğu"
+            },
+            {
+                  "en": "Water Density",
+                  "ru": "Плотность воды",
+                  "tr": "Su Yoğunluğu"
+            },
+            {
+                  "en": "CO₂ volume fraction was adjusted to the valid range (0–0.99).",
+                  "ru": "Объёмная доля CO₂ была скорректирована до допустимого диапазона (0–0.99).",
+                  "tr": "CO₂ hacim oranı geçerli aralığa (0–0,99) ayarlandı."
+            },
+            {
+                  "en": "Set the pressure in bar. The valid range adapts to the selected substance. Pressure is not used for pure ethanol, but is needed when a CO\\u2082 fraction is set so the CO\\u2082 density can be computed for the Linear Blend Rule.",
+                  "ru": "Установите pressure in bar. The valid range adapts to the selected substance. Pressure is not used for pure ethanol, but is needed when a CO\\u2082 fraction is set so the CO\\u2082 density can be computed for the Linear Blend Rule.",
+                  "tr": "Ayarlayın: pressure in bar. The valid range adapts to the selected substance. Pressure is not used for pure ethanol, but is needed when a CO\\u2082 fraction is set so the CO\\u2082 density can be computed for the Linear Blend Rule."
+            },
+            {
+                  "en": "When Ethanol is selected, this field sets the CO\\u2082 volume fraction (0\\u20130.99). Leave at 0 for pure ethanol; any value above 0 triggers the Linear Blend Rule mixture calculation.",
+                  "ru": "Когда Ethanol is selected, this field sets the CO\\u2082 volume fraction (0\\u20130.99). Leave at 0 for pure ethanol; any value above 0 triggers the Linear Blend Rule mixture calculation.",
+                  "tr": "Seçildiğinde: Ethanol is selected, this field sets the CO\\u2082 volume fraction (0\\u20130.99). Leave at 0 for pure ethanol; any value above 0 triggers the Linear Blend Rule mixture calculation."
+            },
+            {
+                  "en": "Pick the substance whose density you want to calculate: CO\\u2082 (Bender EoS), Ethanol (Poling et al. with Linear Blend Rule for CO\\u2082 mixtures), or Water (IAPWS-95).",
+                  "ru": "Выберите the substance whose density you want to calculate: CO\\u2082 (Bender EoS), Ethanol (Poling et al. with Linear Blend Rule for CO\\u2082 mixtures), or Water (IAPWS-95).",
+                  "tr": "Seçin: the substance whose density you want to calculate: CO\\u2082 (Bender EoS), Ethanol (Poling et al. with Linear Blend Rule for CO\\u2082 mixtures), or Water (IAPWS-95)."
+            },
+            {
+                  "en": "Click to calculate. Results appear below: density (and specific enthalpy for CO\\u2082), formatted in the chosen units.",
+                  "ru": "Нажмите, чтобы calculate. Results appear below: density (and specific enthalpy for CO\\u2082), formatted in the chosen units.",
+                  "tr": "Tıklayarak calculate. Results appear below: density (and specific enthalpy for CO\\u2082), formatted in the chosen units."
+            },
+            {
+                  "en": "OK",
+                  "ru": "OK",
+                  "tr": "Tamam"
+            }
+      ]
+}

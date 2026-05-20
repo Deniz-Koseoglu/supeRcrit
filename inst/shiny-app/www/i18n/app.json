@@ -1,0 +1,814 @@
+{
+  "translation": [
+    {
+      "en": "Cost Analysis",
+      "ru": "Анализ затрат",
+      "tr": "Maliyet Analizi"
+    },
+    {
+      "en": "DOE Analysis",
+      "ru": "DOE Анализ",
+      "tr": "DOE Analiz"
+    },
+    {
+      "en": "DOE Design",
+      "ru": "DOE Дизайн",
+      "tr": "DOE Tasarım"
+    },
+    {
+      "en": "Kinetic Modeling",
+      "ru": "Кинетическое моделирование",
+      "tr": "Kinetik Modelleme"
+    },
+    {
+      "en": "Two-Site Desorption",
+      "ru": "Двухцентровая Десорбция",
+      "tr": "İki Bölgeli Desorpsiyon"
+    },
+    {
+      "en": "Broken-And-Intact Cells",
+      "ru": "Разрушенные и Неповрежденные Клетки",
+      "tr": "Kırık ve Sağlam Hücreler"
+    },
+    {
+      "en": "Help",
+      "ru": "Помощь",
+      "tr": "Yardım"
+    },
+    {
+      "en": "Cost of Manufacturing",
+      "ru": "Стоимость производства",
+      "tr": "Üretim Maliyeti"
+    },
+    {
+      "en": "Design of Experiments",
+      "ru": "Планирование экспериментов",
+      "tr": "Deneyler Tasarımı"
+    },
+    {
+      "en": "Desirability Function",
+      "ru": "Функция желательности",
+      "tr": "İstenilirlik Fonksiyonu"
+    },
+    {
+      "en": "SFE Co-Solvent Selection",
+      "ru": "Выбор сорастворителя СКЭ",
+      "tr": "SFE Eş Çözücü Seçimi"
+    },
+    {
+      "en": "Solute Characterization",
+      "ru": "Характеризация растворенного вещества",
+      "tr": "Çözünen Madde Karakterizasyonu"
+    },
+    {
+      "en": "Solute Identification",
+      "ru": "Идентификация растворенного вещества",
+      "tr": "Çözünen Madde Tanımlama"
+    },
+    {
+      "en": "Miscibility Optimization",
+      "ru": "Оптимизация смешиваемости",
+      "tr": "Karışabilirlik Optimizasyonu"
+    },
+    {
+      "en": "Miscibility Comparison",
+      "ru": "Сравнение смешиваемости",
+      "tr": "Karışabilirlik Karşılaştırması"
+    },
+    {
+      "en": "Auxiliary Tools",
+      "ru": "Вспомогательные инструменты",
+      "tr": "Yardımcı Araçlar"
+    },
+    {
+      "en": "Intro",
+      "ru": "Введение",
+      "tr": "Giriş"
+    },
+    {
+      "en": "ok",
+      "ru": "Хорошо",
+      "tr": "Tamam"
+    },
+    {
+      "en": ".",
+      "ru": ",",
+      "tr": ","
+    },
+    {
+      "en": ",",
+      "ru": " ",
+      "tr": "."
+    },
+    {
+      "en": "Processing...",
+      "ru": "Обработка...",
+      "tr": "İşleniyor..."
+    },
+    {
+      "en": "Search:",
+      "ru": "Поиск:",
+      "tr": "Ara:"
+    },
+    {
+      "en": "Show _MENU_ entries",
+      "ru": "Показать _MENU_ записей",
+      "tr": "_MENU_ kayıt göster"
+    },
+    {
+      "en": "Showing _START_ to _END_ of _TOTAL_ entries",
+      "ru": "Показаны записи с _START_ по _END_ из _TOTAL_",
+      "tr": "Toplam _TOTAL_ kayıttan _START_ - _END_ arası gösteriliyor"
+    },
+    {
+      "en": "Showing 0 to 0 of 0 entries",
+      "ru": "Показаны записи с 0 по 0 из 0",
+      "tr": "Toplam 0 kayıttan 0 - 0 arası gösteriliyor"
+    },
+    {
+      "en": "(filtered from _MAX_ total entries)",
+      "ru": "(отфильтровано из _MAX_ записей)",
+      "tr": "(toplam _MAX_ kayıt arasından filtrelendi)"
+    },
+    {
+      "en": "Loading...",
+      "ru": "Загрузка...",
+      "tr": "Yükleniyor..."
+    },
+    {
+      "en": "No matching records found",
+      "ru": "Подходящих записей не найдено",
+      "tr": "Eşleşen kayıt bulunamadı"
+    },
+    {
+      "en": "No data available in table",
+      "ru": "Нет данных в таблице",
+      "tr": "Tabloda veri yok"
+    },
+    {
+      "en": "First",
+      "ru": "Первая",
+      "tr": "İlk"
+    },
+    {
+      "en": "Previous",
+      "ru": "Предыдущая",
+      "tr": "Önceki"
+    },
+    {
+      "en": "Next",
+      "ru": "Следующая",
+      "tr": "Sonraki"
+    },
+    {
+      "en": "Last",
+      "ru": "Последняя",
+      "tr": "Son"
+    },
+    {
+      "en": ": activate to sort column ascending",
+      "ru": ": активировать для сортировки столбца по возрастанию",
+      "tr": ": sütunu artan sırada sıralamak için tıklayın"
+    },
+    {
+      "en": ": activate to sort column descending",
+      "ru": ": активировать для сортировки столбца по убыванию",
+      "tr": ": sütunu azalan sırada sıralamak için tıklayın"
+    },
+    {
+      "en": "Copy",
+      "ru": "Копировать",
+      "tr": "Kopyala"
+    },
+    {
+      "en": "Copy to clipboard",
+      "ru": "Копировать в буфер обмена",
+      "tr": "Panoya kopyala"
+    },
+    {
+      "en": "%d rows copied",
+      "ru": "%d строк скопировано",
+      "tr": "%d satır kopyalandı"
+    },
+    {
+      "en": "1 row copied",
+      "ru": "1 строка скопирована",
+      "tr": "1 satır kopyalandı"
+    },
+    {
+      "en": "Copied!",
+      "ru": "Скопировано!",
+      "tr": "Kopyalandı!"
+    },
+    {
+      "en": "Okay",
+      "ru": "Окей",
+      "tr": "Tamam"
+    },
+    {
+      "en": "supeRcrit is loading...",
+      "ru": "supeRcrit загружается...",
+      "tr": "supeRcrit yükleniyor..."
+    },
+    {
+      "en": "Settings",
+      "ru": "Настройки",
+      "tr": "Ayarlar"
+    },
+    {
+      "en": "Global Settings Manager",
+      "ru": "Глобальный менеджер настроек",
+      "tr": "Global Ayar Yöneticisi"
+    },
+    {
+      "en": "Settings are automatically saved to your browser. You can also export/import settings as JSON files.",
+      "ru": "Настройки автоматически сохраняются в вашем браузере. Вы также можете экспортировать/импортировать настройки как JSON-файлы.",
+      "tr": "Ayarlar otomatik olarak tarayıcınıza kaydedilir. Ayrıca ayarları JSON dosyası olarak dışa aktarabilir/içe aktarabilirsiniz."
+    },
+    {
+      "en": "Browser Storage",
+      "ru": "Хранилище браузера",
+      "tr": "Tarayıcı Depolama"
+    },
+    {
+      "en": "Save to Browser",
+      "ru": "Сохранить в браузере",
+      "tr": "Tarayıcıya Kaydet"
+    },
+    {
+      "en": "Save all current settings to your browser's local storage.",
+      "ru": "Сохранить все текущие настройки в локальное хранилище браузера.",
+      "tr": "Tüm mevcut ayarları tarayıcınızın yerel deposuna kaydedin."
+    },
+    {
+      "en": "Save Settings",
+      "ru": "Сохранить настройки",
+      "tr": "Ayarları Kaydet"
+    },
+    {
+      "en": "Load from Browser",
+      "ru": "Загрузить из браузера",
+      "tr": "Tarayıcıdan Yükle"
+    },
+    {
+      "en": "Restore settings from browser's local storage.",
+      "ru": "Восстановить настройки из локального хранилища браузера.",
+      "tr": "Ayarları tarayıcının yerel deposundan geri yükleyin."
+    },
+    {
+      "en": "Load Settings",
+      "ru": "Загрузить настройки",
+      "tr": "Ayarları Yükle"
+    },
+    {
+      "en": "Clear Browser Storage",
+      "ru": "Очистить хранилище браузера",
+      "tr": "Tarayıcı Deposunu Temizle"
+    },
+    {
+      "en": "Warning: This will permanently delete all saved settings from browser storage.",
+      "ru": "Внимание: Это приведет к безвозвратному удалению всех сохраненных настроек из хранилища браузера.",
+      "tr": "Uyarı: Bu, tarayıcı deposundan tüm kaydedilmiş ayarları kalıcı olarak silecektir."
+    },
+    {
+      "en": "Clear All Settings",
+      "ru": "Очистить все настройки",
+      "tr": "Tüm Ayarları Temizle"
+    },
+    {
+      "en": "Import",
+      "ru": "Импорт",
+      "tr": "İçe Aktar"
+    },
+    {
+      "en": "Import Settings from JSON File",
+      "ru": "Импорт настроек из JSON-файла",
+      "tr": "JSON Dosyasından Ayarları İçe Aktar"
+    },
+    {
+      "en": "Load settings from a previously exported JSON file.",
+      "ru": "Загрузить настройки из ранее экспортированного JSON-файла.",
+      "tr": "Daha önce dışa aktarılmış bir JSON dosyasından ayarları yükleyin."
+    },
+    {
+      "en": "Choose JSON File",
+      "ru": "Выберите JSON-файл",
+      "tr": "JSON Dosyası Seçin"
+    },
+    {
+      "en": "Browse...",
+      "ru": "Обзор...",
+      "tr": "Gözat..."
+    },
+    {
+      "en": "No file selected",
+      "ru": "Файл не выбран",
+      "tr": "Dosya seçilmedi"
+    },
+    {
+      "en": "The file will be imported automatically when selected.",
+      "ru": "Файл будет импортирован автоматически при выборе.",
+      "tr": "Dosya seçildiğinde otomatik olarak içe aktarılacaktır."
+    },
+    {
+      "en": "Export",
+      "ru": "Экспорт",
+      "tr": "Dışa Aktar"
+    },
+    {
+      "en": "Export Current Settings to JSON",
+      "ru": "Экспорт текущих настроек в JSON",
+      "tr": "Mevcut Ayarları JSON Olarak Dışa Aktar"
+    },
+    {
+      "en": "Download all current settings as a JSON file.",
+      "ru": "Загрузить все текущие настройки как JSON-файл.",
+      "tr": "Tüm mevcut ayarları JSON dosyası olarak indirin."
+    },
+    {
+      "en": "Filename",
+      "ru": "Имя файла",
+      "tr": "Dosya Adı"
+    },
+    {
+      "en": "Export Settings",
+      "ru": "Экспорт настроек",
+      "tr": "Ayarları Dışa Aktar"
+    },
+    {
+      "en": "Tip: You can share this file with colleagues or use it as a backup.",
+      "ru": "Совет: Вы можете поделиться этим файлом с коллегами или использовать его как резервную копию.",
+      "tr": "İpucu: Bu dosyayı meslektaşlarınızla paylaşabilir veya yedek olarak kullanabilirsiniz."
+    },
+    {
+      "en": "About",
+      "ru": "О программе",
+      "tr": "Hakkında"
+    },
+    {
+      "en": "How it works",
+      "ru": "Как это работает",
+      "tr": "Nasıl çalışır"
+    },
+    {
+      "en": "Settings are saved locally in your browser using localStorage API.",
+      "ru": "Настройки сохраняются локально в вашем браузере с использованием API localStorage.",
+      "tr": "Ayarlar, localStorage API kullanılarak tarayıcınızda yerel olarak kaydedilir."
+    },
+    {
+      "en": "Privacy:",
+      "ru": "Конфиденциальность:",
+      "tr": "Gizlilik:"
+    },
+    {
+      "en": "Your settings never leave your computer unless you export them.",
+      "ru": "Ваши настройки никогда не покидают ваш компьютер, если вы их не экспортируете.",
+      "tr": "Ayarlarınız, siz dışa aktarmadıkça bilgisayarınızdan ayrılmaz."
+    },
+    {
+      "en": "Persistence:",
+      "ru": "Постоянство:",
+      "tr": "Kalıcılık:"
+    },
+    {
+      "en": "Settings remain even after closing the browser or refreshing the page.",
+      "ru": "Настройки сохраняются даже после закрытия браузера или обновления страницы.",
+      "tr": "Ayarlar, tarayıcıyı kapattıktan veya sayfayı yeniledikten sonra bile kalır."
+    },
+    {
+      "en": "Export/Import:",
+      "ru": "Экспорт/Импорт:",
+      "tr": "Dışa/İçe Aktarma:"
+    },
+    {
+      "en": "JSON files allow you to backup, share, or transfer settings between computers.",
+      "ru": "JSON-файлы позволяют создавать резервные копии, делиться или переносить настройки между компьютерами.",
+      "tr": "JSON dosyaları, ayarları yedeklemenize, paylaşmanıza veya bilgisayarlar arasında aktarmanıza olanak tanır."
+    },
+    {
+      "en": "Important Notes",
+      "ru": "Важные заметки",
+      "tr": "Önemli Notlar"
+    },
+    {
+      "en": "Browser storage is browser-specific (Chrome settings won't appear in Firefox).",
+      "ru": "Хранилище браузера специфично для браузера (настройки Chrome не появятся в Firefox).",
+      "tr": "Tarayıcı depolama, tarayıcıya özgüdür (Chrome ayarları Firefox'ta görünmez)."
+    },
+    {
+      "en": "Clearing browser data will delete saved settings.",
+      "ru": "Очистка данных браузера удалит сохраненные настройки.",
+      "tr": "Tarayıcı verilerini temizlemek kaydedilmiş ayarları siler."
+    },
+    {
+      "en": "Private/Incognito mode may not persist settings.",
+      "ru": "Приватный/Инкогнито режим может не сохранять настройки.",
+      "tr": "Gizli/Özel mod ayarları kalıcı hale getirmeyebilir."
+    },
+    {
+      "en": "Close",
+      "ru": "Закрыть",
+      "tr": "Kapat"
+    },
+    {
+      "en": "Last saved:",
+      "ru": "Последнее сохранение:",
+      "tr": "Son kayıt:"
+    },
+    {
+      "en": "Settings saved to browser storage!",
+      "ru": "Настройки сохранены в хранилище браузера!",
+      "tr": "Ayarlar tarayıcı deposuna kaydedildi!"
+    },
+    {
+      "en": "No saved settings found in browser storage.",
+      "ru": "В хранилище браузера не найдено сохраненных настроек.",
+      "tr": "Tarayıcı deposunda kaydedilmiş ayar bulunamadı."
+    },
+    {
+      "en": "Invalid settings format.",
+      "ru": "Неверный формат настроек.",
+      "tr": "Geçersiz ayar formatı."
+    },
+    {
+      "en": "Settings loaded from browser storage!",
+      "ru": "Настройки загружены из хранилища браузера!",
+      "tr": "Ayarlar tarayıcı deposundan yüklendi!"
+    },
+    {
+      "en": "Error loading settings:",
+      "ru": "Ошибка загрузки настроек:",
+      "tr": "Ayarları yükleme hatası:"
+    },
+    {
+      "en": "Confirm Delete",
+      "ru": "Подтвердите удаление",
+      "tr": "Silmeyi Onayla"
+    },
+    {
+      "en": "Are you sure you want to delete all saved settings? This cannot be undone.",
+      "ru": "Вы уверены, что хотите удалить все сохраненные настройки? Это действие нельзя отменить.",
+      "tr": "Tüm kaydedilmiş ayarları silmek istediğinizden emin misiniz? Bu işlem geri alınamaz."
+    },
+    {
+      "en": "Yes, delete",
+      "ru": "Да, удалить",
+      "tr": "Evet, sil"
+    },
+    {
+      "en": "Cancel",
+      "ru": "Отмена",
+      "tr": "İptal"
+    },
+    {
+      "en": "All settings cleared from browser storage.",
+      "ru": "Все настройки удалены из хранилища браузера.",
+      "tr": "Tüm ayarlar tarayıcı deposundan temizlendi."
+    },
+    {
+      "en": "Settings exported as JSON file!",
+      "ru": "Настройки экспортированы как JSON-файл!",
+      "tr": "Ayarlar JSON dosyası olarak dışa aktarıldı!"
+    },
+    {
+      "en": "Error exporting settings:",
+      "ru": "Ошибка экспорта настроек:",
+      "tr": "Ayarları dışa aktarma hatası:"
+    },
+    {
+      "en": "Invalid settings file format.",
+      "ru": "Неверный формат файла настроек.",
+      "tr": "Geçersiz ayar dosyası formatı."
+    },
+    {
+      "en": "Settings imported from %s!",
+      "ru": "Настройки импортированы из %s!",
+      "tr": "%s'den ayarlar içe aktarıldı!"
+    },
+    {
+      "en": "Error importing settings:",
+      "ru": "Ошибка импорта настроек:",
+      "tr": "Ayarları içe aktarma hatası:"
+    },
+    {
+      "en": "Error reading JSON file:",
+      "ru": "Ошибка чтения JSON-файла:",
+      "tr": "JSON dosyası okuma hatası:"
+    },
+    {
+      "en": "Error saving settings:",
+      "ru": "Ошибка сохранения настроек:",
+      "tr": "Ayarları kaydetme hatası:"
+    },
+    {
+      "en": "Limitations:",
+      "ru": "Ограничения:",
+      "tr": "Kısıtlamalar:"
+    },
+    {
+      "en": "Only UI input values are saved. CSV data and module-saved designs are not included.",
+      "ru": "Сохраняются только значения элементов управления. CSV данные и сохраненные модулями проекты не включены.",
+      "tr": "Sadece kullanıcı arayüzü giriş değerleri kaydedilir. CSV verileri ve modül tarafından kaydedilen tasarımlar dahil değildir."
+    },
+    {
+      "en": "Note: CSV data and saved designs are not restored.",
+      "ru": "Примечание: CSV данные и сохраненные проекты не восстанавливаются.",
+      "tr": "Not: CSV verileri ve kaydedilmiş tasarımlar geri yüklenmez."
+    },
+    {
+      "en": "Please check the browser console (F12) for more details.",
+      "ru": "Пожалуйста, проверьте консоль браузера (F12) для получения дополнительной информации.",
+      "tr": "Daha fazla detay için tarayıcı konsolunu (F12) kontrol edin."
+    },
+    {
+      "en": "Save all current settings with a custom name.",
+      "ru": "Сохранить все текущие настройки с пользовательским именем.",
+      "tr": "Tüm mevcut ayarları özel bir isimle kaydedin."
+    },
+    {
+      "en": "Save Name",
+      "ru": "Название сохранения",
+      "tr": "Kayıt Adı"
+    },
+    {
+      "en": "e.g., My Experiment Settings",
+      "ru": "напр., Мои настройки эксперимента",
+      "tr": "örn., Deney Ayarlarım"
+    },
+    {
+      "en": "Generate name with timestamp",
+      "ru": "Создать имя с временной меткой",
+      "tr": "Zaman damgalı isim oluştur"
+    },
+    {
+      "en": "Preview:",
+      "ru": "Предварительный просмотр:",
+      "tr": "Önizleme:"
+    },
+    {
+      "en": "Select a save to load or manage your saved settings.",
+      "ru": "Выберите сохранение для загрузки или управления сохраненными настройками.",
+      "tr": "Kaydedilmiş ayarlarınızı yüklemek veya yönetmek için bir kayıt seçin."
+    },
+    {
+      "en": "Clear All Saves",
+      "ru": "Очистить все сохранения",
+      "tr": "Tüm Kayıtları Temizle"
+    },
+    {
+      "en": "Warning: This will permanently delete ALL saved settings.",
+      "ru": "Внимание: Это приведет к безвозвратному удалению ВСЕХ сохраненных настроек.",
+      "tr": "Uyarı: Bu, TÜM kaydedilmiş ayarları kalıcı olarak silecektir."
+    },
+    {
+      "en": "Browser Storage:",
+      "ru": "Хранилище браузера:",
+      "tr": "Tarayıcı Depolama:"
+    },
+    {
+      "en": "Output data will appear here",
+      "ru": "Выходные данные появятся здесь",
+      "tr": "Çıktı verileri burada görünecek"
+    },
+    {
+      "en": "Configure parameters and click 'Calculate' to see results.",
+      "ru": "Настройте параметры и нажмите 'Рассчитать' для просмотра результатов.",
+      "tr": "Parametreleri yapılandırın ve sonuçları görmek için 'Hesapla' düğmesine tıklayın."
+    },
+    {
+      "en": "Configure parameters and click 'Generate Design' to see results.",
+      "ru": "Настройте параметры и нажмите 'Создать план' для просмотра результатов.",
+      "tr": "Parametreleri yapılandırın ve sonuçları görmek için 'Tasarım Oluştur' düğmesine tıklayın."
+    },
+    {
+      "en": "Configure parameters and click 'Analyze' to see results.",
+      "ru": "Настройте параметры и нажмите 'Анализировать' для просмотра результатов.",
+      "tr": "Parametreleri yapılandırın ve sonuçları görmek için 'Analiz Et' düğmesine tıklayın."
+    },
+    {
+      "en": "Expand all",
+      "ru": "Развернуть все",
+      "tr": "Tümünü genişlet"
+    },
+    {
+      "en": "Collapse all",
+      "ru": "Свернуть все",
+      "tr": "Tümünü daralt"
+    },
+    {
+      "en": "Clear selection",
+      "ru": "Очистить выбор",
+      "tr": "Seçimi temizle"
+    },
+    {
+      "en": "Variable selection cannot be empty.",
+      "ru": "Выбор переменной не может быть пустым.",
+      "tr": "Değişken seçimi boş olamaz."
+    },
+    {
+      "en": "Select your preferred language for the application interface. Available languages include English, Russian, and Turkish.",
+      "ru": "Выберите предпочтительный язык интерфейса. Доступные языки: английский, русский и турецкий.",
+      "tr": "Uygulama arayüzü için tercih ettiğiniz dili seçin. Mevcut diller: İngilizce, Rusça ve Türkçe."
+    },
+    {
+      "en": "This is the main navigation menu for the supeRcrit application, allowing you to switch between different modules.",
+      "ru": "Это главное навигационное меню приложения supeRcrit, позволяющее переключаться между различными модулями.",
+      "tr": "Bu, supeRcrit uygulamasının ana navigasyon menüsüdür ve farklı modüller arasında geçiş yapmanızı sağlar."
+    },
+    {
+      "en": "Access the Cost of Manufacturing (COM) Analysis module to evaluate the economic feasibility of supercritical CO2 and subcritical water processes.",
+      "ru": "Перейдите к модулю анализа себестоимости производства (COM) для оценки экономической целесообразности процессов сверхкритического CO2 и субкритической воды.",
+      "tr": "Süperkritik CO2 ve subkritik su proseslerinin ekonomik fizibilitesini değerlendirmek için Üretim Maliyeti (COM) Analiz modülüne erişin."
+    },
+    {
+      "en": "Navigate to the Design of Experiments (DOE) Design module to create various experimental designs for process optimization.",
+      "ru": "Перейдите к модулю планирования эксперимента (DOE) для создания различных экспериментальных планов оптимизации процессов.",
+      "tr": "Proses optimizasyonu için çeşitli deneysel tasarımlar oluşturmak üzere Deney Tasarımı (DOE) modülüne gidin."
+    },
+    {
+      "en": "Use the DOE Analysis module to analyze experimental data, build models, and optimize your processes based on statistical insights.",
+      "ru": "Используйте модуль анализа DOE для анализа экспериментальных данных, построения моделей и оптимизации процессов на основе статистических выводов.",
+      "tr": "DOE Analiz modülünü kullanarak deneysel verileri analiz edin, modeller kurun ve istatistiksel çıkarımlara dayalı olarak süreçlerinizi optimize edin."
+    },
+    {
+      "en": "Cost of Manufacturing (COM) Analysis: evaluate the economic feasibility of supercritical CO2 and subcritical water extraction processes, including raw material costs, utilities, labor, and capital investment.",
+      "ru": "Анализ себестоимости производства (COM): оценка экономической целесообразности процессов сверхкритической CO2 и субкритической водной экстракции, включая затраты на сырьё, энергию, труд и капитальные вложения.",
+      "tr": "Üretim Maliyeti (COM) Analizi: ham madde maliyetleri, hizmetler, işçilik ve sermaye yatırımı dahil olmak üzere süperkritik CO2 ve subkritik su ekstraksiyon proseslerinin ekonomik fizibilitesini değerlendirin."
+    },
+    {
+      "en": "SFE Co-Solvent Selection: characterize target solutes using Group Contribution Methods, optimize co-solvent selection via Hansen Solubility Parameters, compare miscibility across conditions, and calculate mixture critical parameters.",
+      "ru": "Выбор со-растворителя СКЭ: характеризация целевых веществ методами групповых вкладов, оптимизация выбора со-растворителя по параметрам растворимости Хансена, сравнение смешиваемости при различных условиях и расчёт критических параметров смесей.",
+      "tr": "SFE Ko-Çözücü Seçimi: Grup Katkı Yöntemleri ile hedef çözünenleri karakterize edin, Hansen Çözünürlük Parametreleri ile ko-çözücü seçimini optimize edin, koşullar arasında karışabilirliği karşılaştırın ve karışım kritik parametrelerini hesaplayın."
+    },
+    {
+      "en": "Design of Experiments (DOE): create experimental designs (Box-Behnken, CCD, Full/Fractional Factorial, Taguchi), analyze response surfaces, and perform multi-objective desirability optimization.",
+      "ru": "Планирование эксперимента (DOE): создание экспериментальных планов (Бокса-Бенкена, CCD, полный/дробный факторный, Тагути), анализ поверхностей отклика и многокритериальная оптимизация желательности.",
+      "tr": "Deney Tasarımı (DOE): deneysel tasarımlar (Box-Behnken, CCD, Tam/Kesirli Faktöriyel, Taguchi) oluşturun, yanıt yüzeylerini analiz edin ve çok amaçlı arzu edilirlik optimizasyonu yapın."
+    },
+    {
+      "en": "Kinetic Modeling: fit extraction kinetics using the Two-Site (TWS) model for subcritical water or the Broken and Intact Cells (BIC) model for supercritical CO2, with built-in density calculators.",
+      "ru": "Кинетическое моделирование: аппроксимация кинетики экстракции двухзонной моделью (TWS) для субкритической воды или моделью разрушенных и целых клеток (BIC) для сверхкритического CO2 со встроенными калькуляторами плотности.",
+      "tr": "Kinetik Modelleme: subkritik su için İki Bölgeli (TWS) modeli veya süperkritik CO2 için Kırılmış ve Sağlam Hücreler (BIC) modeli ile ekstraksiyon kinetiğini uydurma, yerleşik yoğunluk hesaplayıcıları ile."
+    },
+    {
+      "en": "Settings: configure default values for process parameters, flow rates, vessel dimensions, and other module-specific defaults. Settings are saved and restored across sessions.",
+      "ru": "Настройки: настройка значений по умолчанию для параметров процесса, расходов, размеров аппаратов и других параметров модулей. Настройки сохраняются между сессиями.",
+      "tr": "Ayarlar: proses parametreleri, akış hızları, kap boyutları ve diğer modüle özgü varsayılan değerleri yapılandırın. Ayarlar oturumlar arasında kaydedilir ve geri yüklenir."
+    },
+    {
+      "en": "Language: switch the application interface between English, Russian, and Turkish.",
+      "ru": "Язык: переключение интерфейса между английским, русским и турецким языками.",
+      "tr": "Dil: uygulama arayüzünü İngilizce, Rusça ve Türkçe arasında değiştirin."
+    },
+    {
+      "en": "OK",
+      "ru": "OK",
+      "tr": "Tamam"
+    },
+    {
+      "en": "Manage Settings",
+      "tr": "Ayarları Yönet",
+      "ru": "Управление настройками"
+    },
+    {
+      "en": "Import Settings from File",
+      "tr": "Dosyadan Ayarları İçe Aktar",
+      "ru": "Импорт настроек из файла"
+    },
+    {
+      "en": "Select Modules to Import or Load Defaults",
+      "tr": "İçe Aktarılacak veya Varsayılana Yüklenecek Modülleri Seçin",
+      "ru": "Выберите модули для импорта или загрузки настроек по умолчанию"
+    },
+    {
+      "en": "Select All",
+      "tr": "Tümünü Seç",
+      "ru": "Выбрать все"
+    },
+    {
+      "en": "Deselect All",
+      "tr": "Tümünü Kaldır",
+      "ru": "Снять все"
+    },
+    {
+      "en": "Load Defaults",
+      "tr": "Varsayılanları Yükle",
+      "ru": "Загрузить значения по умолчанию"
+    },
+    {
+      "en": "Export Current Settings",
+      "tr": "Mevcut Ayarları Dışa Aktar",
+      "ru": "Экспорт текущих настроек"
+    },
+    {
+      "en": "Please select a JSON file first.",
+      "tr": "Lütfen önce bir JSON dosyası seçin.",
+      "ru": "Сначала выберите файл JSON."
+    },
+    {
+      "en": "Please select at least one module to import.",
+      "tr": "Lütfen içe aktarılacak en az bir modül seçin.",
+      "ru": "Выберите хотя бы один модуль для импорта."
+    },
+    {
+      "en": "The selected file does not contain settings for the chosen modules.",
+      "tr": "Seçilen dosya seçilen modüller için ayar içermiyor.",
+      "ru": "Выбранный файл не содержит настроек для выбранных модулей."
+    },
+    {
+      "en": "Settings imported for:",
+      "tr": "Ayarlar içe aktarıldı:",
+      "ru": "Настройки импортированы для:"
+    },
+    {
+      "en": "Please select at least one module to reset.",
+      "tr": "Lütfen sıfırlanacak en az bir modül seçin.",
+      "ru": "Выберите хотя бы один модуль для сброса."
+    },
+    {
+      "en": "Defaults loaded for:",
+      "tr": "Varsayılanlar yüklendi:",
+      "ru": "Значения по умолчанию загружены для:"
+    },
+    {
+      "en": "Settings exported!",
+      "tr": "Ayarlar dışa aktarıldı!",
+      "ru": "Настройки экспортированы!"
+    },
+    {
+      "en": "COM Analysis",
+      "tr": "COM Analizi",
+      "ru": "Анализ COM"
+    },
+    {
+      "en": "Multi-Solvent Comparison",
+      "tr": "Çoklu Çözücü Karşılaştırması",
+      "ru": "Сравнение нескольких растворителей"
+    },
+    {
+      "en": "DOE",
+      "tr": "DOE",
+      "ru": "DOE"
+    },
+    {
+      "en": "DOE Desirability",
+      "tr": "DOE İstenirlik",
+      "ru": "Желательность DOE"
+    },
+    {
+      "en": "BIC Modeling",
+      "tr": "BIC Modelleme",
+      "ru": "Моделирование BIC"
+    },
+    {
+      "en": "Kinetic Auxiliary Tool",
+      "tr": "Kinetik Yardımcı Araç",
+      "ru": "Вспомогательный кинетический инструмент"
+    },
+    {
+      "en": "Broken-and-Intact Cells",
+      "tr": "Kırık ve Sağlam Hücreler",
+      "ru": "Разрушенные и целые клетки"
+    },
+    {
+      "en": "No submodules",
+      "tr": "Alt modül yok",
+      "ru": "Нет подмодулей"
+    },
+    {
+      "en": "Settings exported successfully!",
+      "tr": "Ayarlar başarıyla dışa aktarıldı!",
+      "ru": "Настройки успешно экспортированы!"
+    },
+    {
+      "en": "Process design software for supercritical fluid and subcritical water extraction.",
+      "tr": "Süperkritik akışkan ve subkritik su ekstraksiyonu için proses tasarım yazılımı.",
+      "ru": "Программное обеспечение для проектирования процессов сверхкритической флюидной и субкритической водной экстракции."
+    },
+    {
+      "en": "Developer:",
+      "tr": "Geliştirici:",
+      "ru": "Разработчик:"
+    },
+    {
+      "en": "Company:",
+      "tr": "Şirket:",
+      "ru": "Компания:"
+    },
+    {
+      "en": "Website:",
+      "tr": "Web Sitesi:",
+      "ru": "Сайт:"
+    },
+    {
+      "en": "Contact:",
+      "tr": "İletişim:",
+      "ru": "Контакт:"
+    },
+    {
+      "en": "All rights reserved.",
+      "tr": "Tüm hakları saklıdır.",
+      "ru": "Все права защищены."
+    }
+  ]
+}

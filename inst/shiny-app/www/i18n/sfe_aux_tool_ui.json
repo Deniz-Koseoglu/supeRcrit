@@ -1,0 +1,1029 @@
+{
+  "translation": [
+    {
+      "en": "CO₂-Ethanol Critical Parameters",
+      "ru": "Критические параметры CO₂-этанола",
+      "tr": "CO₂-Etanol Kritik Parametreleri"
+    },
+    {
+      "en": "Binary CO₂-Ethanol Mixtures",
+      "ru": "Бинарные смеси CO₂-этанола",
+      "tr": "İkili CO₂-Etanol Karışımları"
+    },
+    {
+      "en": "Pressure (bar)",
+      "ru": "Давление (бар)",
+      "tr": "Basınç (bar)"
+    },
+    {
+      "en": "Method",
+      "ru": "Метод",
+      "tr": "Metot"
+    },
+    {
+      "en": "Calculate CO₂-EtOH Critical Params",
+      "ru": "Рассчитать критические параметры CO₂-этанола",
+      "tr": "CO₂-Etanol Kritik Parametrelerini Hesapla"
+    },
+    {
+      "en": "Display and plot data",
+      "ru": "Отображение и построение данных",
+      "tr": "Verileri görüntüle ve çiz"
+    },
+    {
+      "en": "General Mixture Critical Parameters",
+      "ru": "Общие критические параметры смеси",
+      "tr": "Genel Karışım Kritik Parametreleri"
+    },
+    {
+      "en": "General Solvent Mixtures",
+      "ru": "Общие смеси растворителей",
+      "tr": "Genel Çözücü Karışımları"
+    },
+    {
+      "en": "Critical Temperature Method",
+      "ru": "Метод критической температуры",
+      "tr": "Kritik Sıcaklık Metodu"
+    },
+    {
+      "en": "Critical Pressure Method",
+      "ru": "Метод критического давления",
+      "tr": "Kritik Basınç Metodu"
+    },
+    {
+      "en": "Calculate General Critical Params",
+      "ru": "Рассчитать общие критические параметры",
+      "tr": "Genel Kritik Parametreleri Hesapla"
+    },
+    {
+      "en": "Available Solvents Database",
+      "ru": "База данных доступных растворителей",
+      "tr": "Mevcut Çözücüler Veritabanı"
+    },
+    {
+      "en": "Available Solvents Data",
+      "ru": "Данные доступных растворителей",
+      "tr": "Mevcut Çözücüler Verileri"
+    },
+    {
+      "en": "GCM Method Selection Chart",
+      "ru": "Таблица выбора метода МГВ",
+      "tr": "GCM Metot Seçim Tablosu"
+    },
+    {
+      "en": "Solvent",
+      "ru": "Растворитель",
+      "tr": "Çözücü"
+    },
+    {
+      "en": "Solvent 1",
+      "ru": "Растворитель 1",
+      "tr": "Çözücü 1"
+    },
+    {
+      "en": "Solvent 2",
+      "ru": "Растворитель 2",
+      "tr": "Çözücü 2"
+    },
+    {
+      "en": "Fraction",
+      "ru": "Фракция",
+      "tr": "Fraksiyon"
+    },
+    {
+      "en": "Add Solvent",
+      "ru": "Добавить растворитель",
+      "tr": "Çözücü Ekle"
+    },
+    {
+      "en": "Total Fraction",
+      "ru": "Общая фракция",
+      "tr": "Toplam Fraksiyon"
+    },
+    {
+      "en": "Error calculating CO₂-Ethanol critical params:",
+      "ru": "Ошибка при расчете критических параметров CO₂-этанола:",
+      "tr": "CO₂-Etanol kritik parametreleri hesaplanırken hata oluştu:"
+    },
+    {
+      "en": "Critical Temperature (K)",
+      "ru": "Критическая температура (К)",
+      "tr": "Kritik Sıcaklık (K)"
+    },
+    {
+      "en": "Critical Pressure (MPa)",
+      "ru": "Критическое давление (МПа)",
+      "tr": "Kritik Basınç (MPa)"
+    },
+    {
+      "en": "Fractions must sum to 1.",
+      "ru": "Сумма фракций должна быть равна 1.",
+      "tr": "Fraksiyonların toplamı 1 olmalıdır."
+    },
+    {
+      "en": "Duplicate solvents are not allowed.",
+      "ru": "Дублирование растворителей не допускается.",
+      "tr": "Tekrarlayan çözücülere izin verilmez."
+    },
+    {
+      "en": "Error calculating general critical params:",
+      "ru": "Ошибка при расчете общих критических параметров:",
+      "tr": "Genel kritik parametreler hesaplanırken hata oluştu:"
+    },
+    {
+      "en": "Error running demo:",
+      "ru": "Ошибка при запуске демонстрации:",
+      "tr": "Demo çalıştırılırken hata oluştu:"
+    },
+    {
+      "en": "Demo Plots:",
+      "ru": "Демонстрационные графики:",
+      "tr": "Demo Grafikleri:"
+    },
+    {
+      "en": "Demo Data:",
+      "ru": "Демонстрационные данные:",
+      "tr": "Demo Verileri:"
+    },
+    {
+      "en": "Both",
+      "ru": "Оба",
+      "tr": "Her İkisi"
+    },
+    {
+      "en": "g/L",
+      "ru": "г/л",
+      "tr": "g/L"
+    },
+    {
+      "en": "g/mL",
+      "ru": "г/мл",
+      "tr": "g/mL"
+    },
+    {
+      "en": "Calculating CO₂-Ethanol Critical Parameters...",
+      "ru": "Расчет критических параметров CO₂-этанол...",
+      "tr": "CO₂-Etanol Kritik Parametreleri hesaplanıyor..."
+    },
+    {
+      "en": "Calculating General Critical Parameters...",
+      "ru": "Расчет общих критических параметров...",
+      "tr": "Genel Kritik Parametreler hesaplanıyor..."
+    },
+    {
+      "en": "Running CO₂-Ethanol Demo...",
+      "ru": "Запуск демо CO₂-этанол...",
+      "tr": "CO₂-Etanol Demosu çalıştırılıyor..."
+    },
+    {
+      "en": "Experimental",
+      "ru": "Экспериментальные данные",
+      "tr": "Deneysel"
+    },
+    {
+      "en": "Abbr.",
+      "ru": "Сокр.",
+      "tr": "Kıs."
+    },
+    {
+      "en": "CAS",
+      "ru": "CAS",
+      "tr": "CAS"
+    },
+    {
+      "en": "MW",
+      "ru": "MM",
+      "tr": "MA"
+    },
+    {
+      "en": "MV",
+      "ru": "MО",
+      "tr": "MH"
+    },
+    {
+      "en": "ρ",
+      "ru": "ρ",
+      "tr": "ρ"
+    },
+    {
+      "en": "δD",
+      "ru": "δD",
+      "tr": "δD"
+    },
+    {
+      "en": "δP",
+      "ru": "δP",
+      "tr": "δP"
+    },
+    {
+      "en": "δH",
+      "ru": "δH",
+      "tr": "δH"
+    },
+    {
+      "en": "Tb",
+      "ru": "Tb",
+      "tr": "Tb"
+    },
+    {
+      "en": "Ttp",
+      "ru": "Ttp",
+      "tr": "Ttp"
+    },
+    {
+      "en": "Tc",
+      "ru": "Tc",
+      "tr": "Tc"
+    },
+    {
+      "en": "Pc",
+      "ru": "Pc",
+      "tr": "Pc"
+    },
+    {
+      "en": "Vc",
+      "ru": "Vc",
+      "tr": "Vc"
+    },
+    {
+      "en": "ρc",
+      "ru": "ρc",
+      "tr": "ρc"
+    },
+    {
+      "en": "ω",
+      "ru": "ω",
+      "tr": "ω"
+    },
+    {
+      "en": "Order",
+      "ru": "Порядок",
+      "tr": "Sıra"
+    },
+    {
+      "en": "VDW",
+      "ru": "VDW",
+      "tr": "VDW"
+    },
+    {
+      "en": "AVDW",
+      "ru": "AVDW",
+      "tr": "AVDW"
+    },
+    {
+      "en": "Vm",
+      "ru": "Vm",
+      "tr": "Vm"
+    },
+    {
+      "en": "Method",
+      "ru": "Метод",
+      "tr": "Metot"
+    },
+    {
+      "en": "Solvent Name",
+      "ru": "Название растворителя",
+      "tr": "Çözücü Adı"
+    },
+    {
+      "en": "Abbreviation for function arguments",
+      "ru": "Сокращение для аргументов функции",
+      "tr": "Fonksiyon argümanları için kısaltma"
+    },
+    {
+      "en": "CAS Number",
+      "ru": "Номер CAS",
+      "tr": "CAS Numarası"
+    },
+    {
+      "en": "Molecular Weight (g/mol)",
+      "ru": "Молекулярная масса (г/моль)",
+      "tr": "Moleküler Ağırlık (g/mol)"
+    },
+    {
+      "en": "Molar Volume (mL/mol)",
+      "ru": "Молярный объём (мл/моль)",
+      "tr": "Molar Hacim (mL/mol)"
+    },
+    {
+      "en": "Density (g/mL)",
+      "ru": "Плотность (г/мл)",
+      "tr": "Yoğunluk (g/mL)"
+    },
+    {
+      "en": "Hansen Parameter: Dispersion",
+      "ru": "Параметр Хансена: дисперсия",
+      "tr": "Hansen Parametresi: Dispersiyon"
+    },
+    {
+      "en": "Hansen Parameter: Polar",
+      "ru": "Параметр Хансена: полярность",
+      "tr": "Hansen Parametresi: Polar"
+    },
+    {
+      "en": "Hansen Parameter: Hydrogen Bonding",
+      "ru": "Параметр Хансена: водородные связи",
+      "tr": "Hansen Parametresi: Hidrojen Bağı"
+    },
+    {
+      "en": "Boiling Point (K)",
+      "ru": "Температура кипения (K)",
+      "tr": "Kaynama Noktası (K)"
+    },
+    {
+      "en": "Triple Point (K)",
+      "ru": "Тройная точка (K)",
+      "tr": "Üçlü Nokta (K)"
+    },
+    {
+      "en": "Critical Temperature (K)",
+      "ru": "Критическая температура (K)",
+      "tr": "Kritik Sıcaklık (K)"
+    },
+    {
+      "en": "Critical Pressure (MPa)",
+      "ru": "Критическое давление (МПа)",
+      "tr": "Kritik Basınç (MPa)"
+    },
+    {
+      "en": "Critical Volume (L/mol)",
+      "ru": "Критический объём (л/моль)",
+      "tr": "Kritik Hacim (L/mol)"
+    },
+    {
+      "en": "Critical Density (mol/L)",
+      "ru": "Критическая плотность (моль/л)",
+      "tr": "Kritik Yoğunluk (mol/L)"
+    },
+    {
+      "en": "Acentric Factor",
+      "ru": "Ацентрический фактор",
+      "tr": "Asentrik Faktör"
+    },
+    {
+      "en": "Group Contribution Method",
+      "ru": "Метод групповых вкладов",
+      "tr": "Grup Katkı Metodu"
+    },
+    {
+      "en": "Method Order",
+      "ru": "Порядок метода",
+      "tr": "Metot Sırası"
+    },
+    {
+      "en": "Boiling Point",
+      "ru": "Температура кипения",
+      "tr": "Kaynama Noktası"
+    },
+    {
+      "en": "Critical Temperature",
+      "ru": "Критическая температура",
+      "tr": "Kritik Sıcaklık"
+    },
+    {
+      "en": "Critical Pressure",
+      "ru": "Критическое давление",
+      "tr": "Kritik Basınç"
+    },
+    {
+      "en": "Critical Volume",
+      "ru": "Критический объём",
+      "tr": "Kritik Hacim"
+    },
+    {
+      "en": "Dispersion Parameter",
+      "ru": "Параметр дисперсии",
+      "tr": "Dispersiyon Parametresi"
+    },
+    {
+      "en": "Polar Parameter",
+      "ru": "Полярный параметр",
+      "tr": "Polar Parametre"
+    },
+    {
+      "en": "H-Bonding Parameter",
+      "ru": "Параметр H-связи",
+      "tr": "H-Bağı Parametresi"
+    },
+    {
+      "en": "Low Polar Parameter",
+      "ru": "Низкий полярный параметр",
+      "tr": "Düşük Polar Parametre"
+    },
+    {
+      "en": "Low H-Bonding Parameter",
+      "ru": "Низкий параметр H-связи",
+      "tr": "Düşük H-Bağı Parametresi"
+    },
+    {
+      "en": "Van der Waals Volume",
+      "ru": "Объём Ван-дер-Ваальса",
+      "tr": "Van der Waals Hacmi"
+    },
+    {
+      "en": "Van der Waals Area",
+      "ru": "Площадь Ван-дер-Ваальса",
+      "tr": "Van der Waals Alanı"
+    },
+    {
+      "en": "Molar Volume",
+      "ru": "Молярный объём",
+      "tr": "Molar Hacim"
+    },
+    {
+      "en": "Copy",
+      "ru": "Копировать",
+      "tr": "Kopyala"
+    },
+    {
+      "en": "Copied!",
+      "ru": "Скопировано!",
+      "tr": "Kopyalandı!"
+    },
+    {
+      "en": "Okay",
+      "ru": "Хорошо",
+      "tr": "Tamam"
+    },
+    {
+      "en": "All",
+      "ru": "Все",
+      "tr": "Tümü"
+    },
+    {
+      "en": "Data Table",
+      "ru": "Таблица данных",
+      "tr": "Veri Tablosu"
+    },
+    {
+      "en": "Critical Temperature Plot",
+      "ru": "График критической температуры",
+      "tr": "Kritik Sıcaklık Grafiği"
+    },
+    {
+      "en": "Critical Pressure Plot",
+      "ru": "График критического давления",
+      "tr": "Kritik Basınç Grafiği"
+    },
+    {
+      "en": "CO₂ mole fraction",
+      "ru": "Молярная доля CO₂",
+      "tr": "CO₂ mol fraksiyonu"
+    },
+    {
+      "en": "Solvent 3",
+      "ru": "Растворитель 3",
+      "tr": "Çözücü 3"
+    },
+    {
+      "en": "Fraction 1",
+      "ru": "Доля 1",
+      "tr": "Fraksiyon 1"
+    },
+    {
+      "en": "Fraction 2",
+      "ru": "Доля 2",
+      "tr": "Fraksiyon 2"
+    },
+    {
+      "en": "Fraction 3",
+      "ru": "Доля 3",
+      "tr": "Fraksiyon 3"
+    },
+    {
+      "en": "KAY",
+      "ru": "KAY",
+      "tr": "KAY"
+    },
+    {
+      "en": "LI",
+      "ru": "LI",
+      "tr": "LI"
+    },
+    {
+      "en": "FECP",
+      "ru": "FECP",
+      "tr": "FECP"
+    },
+    {
+      "en": "HECP",
+      "ru": "HECP",
+      "tr": "HECP"
+    },
+    {
+      "en": "TANG1",
+      "ru": "TANG1",
+      "tr": "TANG1"
+    },
+    {
+      "en": "TANG2",
+      "ru": "TANG2",
+      "tr": "TANG2"
+    },
+    {
+      "en": "TANG3",
+      "ru": "TANG3",
+      "tr": "TANG3"
+    },
+    {
+      "en": "TANG4",
+      "ru": "TANG4",
+      "tr": "TANG4"
+    },
+    {
+      "en": "Carbon Dioxide",
+      "ru": "Диоксид углерода",
+      "tr": "Karbon Dioksit"
+    },
+    {
+      "en": "Diethyl Ether",
+      "ru": "Диэтиловый эфир",
+      "tr": "Dietil Eter"
+    },
+    {
+      "en": "Methyl Oleate",
+      "ru": "Метилолеат",
+      "tr": "Metil Oleat"
+    },
+    {
+      "en": "p-Xylene",
+      "ru": "п-Ксилол",
+      "tr": "p-Ksilen"
+    },
+    {
+      "en": "o-Xylene",
+      "ru": "о-Ксилол",
+      "tr": "o-Ksilen"
+    },
+    {
+      "en": "Hydrogen",
+      "ru": "Водород",
+      "tr": "Hidrojen"
+    },
+    {
+      "en": "Fraction Units:",
+      "ru": "Единицы долей:",
+      "tr": "Fraksiyon Birimleri:"
+    },
+    {
+      "en": "Mass",
+      "ru": "Масса",
+      "tr": "Kütle"
+    },
+    {
+      "en": "Mole",
+      "ru": "Моль",
+      "tr": "Mol"
+    },
+    {
+      "en": "CO₂ Molar Fraction",
+      "ru": "Молярная доля CO₂",
+      "tr": "CO₂ Molar Fraksiyonu"
+    },
+    {
+      "en": "Temperature",
+      "ru": "Температура",
+      "tr": "Sıcaklık"
+    },
+    {
+      "en": "Show model data within experimental range",
+      "ru": "Показать данные модели в экспериментальном диапазоне",
+      "tr": "Deneysel aralıktaki model verilerini göster"
+    },
+    {
+      "en": "Joback-Reid corrected",
+      "ru": "Джобак-Рид исправленный (JR_corr)",
+      "tr": "Joback-Reid düzeltilmiş (JR_corr)"
+    },
+    {
+      "en": "Joback-Reid",
+      "ru": "Джобак-Рид (JR)",
+      "tr": "Joback-Reid"
+    },
+    {
+      "en": "Stein-Brown corrected",
+      "ru": "Стайн-Браун исправленный (SB_corr)",
+      "tr": "Stein-Brown düzeltilmiş (SB_corr)"
+    },
+    {
+      "en": "Stein-Brown",
+      "ru": "Стайн-Браун (SB)",
+      "tr": "Stein-Brown"
+    },
+    {
+      "en": "Nannoolal 2007 robust",
+      "ru": "Наннулал 2007 робастный (NL07_robust)",
+      "tr": "Nannoolal 2007 robust"
+    },
+    {
+      "en": "Nannoolal 2007",
+      "ru": "Наннулал 2007 (NL07)",
+      "tr": "Nannoolal 2007"
+    },
+    {
+      "en": "Nannoolal 2004",
+      "ru": "Наннулал 2004 (NL04)",
+      "tr": "Nannoolal 2004"
+    },
+    {
+      "en": "Hukkerikar-Stepwise",
+      "ru": "Хуккерикар-пошаговый (HKR_STW)",
+      "tr": "Hukkerikar-Adımsal"
+    },
+    {
+      "en": "Hukkerikar-Simultaneous",
+      "ru": "Хуккерикар-одновременный (HKR_SIM)",
+      "tr": "Hukkerikar-Eşzamanlı"
+    },
+    {
+      "en": "Stefanis-Panayiotou 2008",
+      "ru": "Стефанис-Панайоту 2008 (SP08)",
+      "tr": "Stefanis-Panayiotou 2008"
+    },
+    {
+      "en": "Stefanis-Panayiotou 2012",
+      "ru": "Стефанис-Панайоту 2012 (SP12)",
+      "tr": "Stefanis-Panayiotou 2012"
+    },
+    {
+      "en": "Zhao 2003",
+      "ru": "Чжао 2003 (ZHAO)",
+      "tr": "Zhao 2003"
+    },
+    {
+      "en": "Bondi 1964",
+      "ru": "Бонди 1964 (BND)",
+      "tr": "Bondi 1964"
+    },
+    {
+      "en": "Slonimskii 1970",
+      "ru": "Слонимский 1970 (SLON)",
+      "tr": "Slonimskii 1970"
+    },
+    {
+      "en": "Molecular Weight",
+      "ru": "Молекулярная масса",
+      "tr": "Moleküler Ağırlık"
+    },
+    {
+      "en": "Density",
+      "ru": "Плотность",
+      "tr": "Yoğunluk"
+    },
+    {
+      "en": "Triple Point",
+      "ru": "Тройная точка",
+      "tr": "Üçlü Nokta"
+    },
+    {
+      "en": "Critical Density",
+      "ru": "Критическая плотность",
+      "tr": "Kritik Yoğunluk"
+    },
+    {
+      "en": "Result:",
+      "ru": "Результат:",
+      "tr": "Sonuç:"
+    },
+    {
+      "en": "and",
+      "ru": "и",
+      "tr": "ve"
+    },
+    {
+      "en": "At",
+      "ru": "При",
+      "tr": "Şu değerlerde:"
+    },
+    {
+      "en": "the mixture physical state is",
+      "ru": "физическое состояние смеси",
+      "tr": "karışımın fiziksel durumu"
+    },
+    {
+      "en": "supercritical",
+      "ru": "сверхкритическое",
+      "tr": "süperkritik"
+    },
+    {
+      "en": "NOT supercritical",
+      "ru": "НЕ сверхкритическое",
+      "tr": "süperkritik DEĞİL"
+    },
+    {
+      "en": "Global averages",
+      "ru": "Глобальные средние",
+      "tr": "Genel ortalamalar"
+    },
+    {
+      "en": "The physical state of the system was not determined since no reference pressure and temperature were provided.",
+      "ru": "Физическое состояние системы не определено, так как эталонные давление и температура не были указаны.",
+      "tr": "Referans basınç ve sıcaklık verilmediği için sistemin fiziksel durumu belirlenemedi."
+    },
+    {
+      "en": "Kay (1938)",
+      "ru": "Kay (1938)",
+      "tr": "Kay (1938)"
+    },
+    {
+      "en": "Li (1971)",
+      "ru": "Li (1971)",
+      "tr": "Li (1971)"
+    },
+    {
+      "en": "First Ext. Chueh-Prausnitz (FECP)",
+      "ru": "Первое расш. Chueh-Prausnitz (FECP)",
+      "tr": "İlk Uzatılmış Chueh-Prausnitz (FECP)"
+    },
+    {
+      "en": "He et al. (2017)",
+      "ru": "He и др. (2017)",
+      "tr": "He ve ark. (2017)"
+    },
+    {
+      "en": "Tang et al. v1 (2025)",
+      "ru": "Tang и др. v1 (2025)",
+      "tr": "Tang ve ark. v1 (2025)"
+    },
+    {
+      "en": "Tang et al. v2 (2025)",
+      "ru": "Tang и др. v2 (2025)",
+      "tr": "Tang ve ark. v2 (2025)"
+    },
+    {
+      "en": "Tang et al. v3 (2025)",
+      "ru": "Tang и др. v3 (2025)",
+      "tr": "Tang ve ark. v3 (2025)"
+    },
+    {
+      "en": "Tang et al. v4 (2025)",
+      "ru": "Tang и др. v4 (2025)",
+      "tr": "Tang ve ark. v4 (2025)"
+    },
+    {
+      "en": "Based on the {method} method",
+      "ru": "На основе метода {method}",
+      "tr": "{method} metoduna göre"
+    },
+    {
+      "en": "{method} Method Results",
+      "ru": "Результаты метода {method}",
+      "tr": "{method} Metot Sonuçları"
+    },
+    {
+      "en": "g/mol",
+      "ru": "г/моль",
+      "tr": "g/mol"
+    },
+    {
+      "en": "mL/mol",
+      "ru": "мл/моль",
+      "tr": "mL/mol"
+    },
+    {
+      "en": "MPa",
+      "ru": "МПа",
+      "tr": "MPa"
+    },
+    {
+      "en": "L/mol",
+      "ru": "Л/моль",
+      "tr": "L/mol"
+    },
+    {
+      "en": "mol/L",
+      "ru": "моль/Л",
+      "tr": "mol/L"
+    },
+    {
+      "en": "cm³/mol",
+      "ru": "см³/моль",
+      "tr": "cm³/mol"
+    },
+    {
+      "en": "cm²/mol",
+      "ru": "см²/моль",
+      "tr": "cm²/mol"
+    },
+    {
+      "en": "Mixture Critical Parameters",
+      "ru": "Критические параметры смеси",
+      "tr": "Karışım Kritik Parametreleri"
+    },
+    {
+      "en": "CO₂ + Ethanol",
+      "ru": "CO₂ + Этанол",
+      "tr": "CO₂ + Etanol"
+    },
+    {
+      "en": "General Mixture",
+      "ru": "Общая смесь",
+      "tr": "Genel Karışım"
+    },
+    {
+      "en": "Calculate Critical Parameters",
+      "ru": "Рассчитать критические параметры",
+      "tr": "Kritik Parametreleri Hesapla"
+    },
+    {
+      "en": "Calculating Critical Parameters...",
+      "ru": "Расчёт критических параметров...",
+      "tr": "Kritik parametreler hesaplanıyor..."
+    },
+    {
+      "en": "Error calculating critical params:",
+      "ru": "Ошибка расчёта критических параметров:",
+      "tr": "Kritik parametre hesaplama hatası:"
+    },
+    {
+      "en": "Parameters",
+      "ru": "Параметры",
+      "tr": "Parametreler"
+    },
+    {
+      "en": "Results",
+      "ru": "Результаты",
+      "tr": "Sonuçlar"
+    },
+    {
+      "en": "Output data will appear here",
+      "ru": "Здесь появятся результаты",
+      "tr": "Çıktı verileri burada görünecek"
+    },
+    {
+      "en": "Set the parameters and click Calculate to see results.",
+      "ru": "Задайте параметры и нажмите «Рассчитать» для получения результатов.",
+      "tr": "Parametreleri ayarlayın ve sonuçları görmek için Hesapla'ya tıklayın."
+    },
+    {
+      "en": "Click the button below to display model data.",
+      "ru": "Нажмите кнопку ниже для отображения данных модели.",
+      "tr": "Model verilerini görüntülemek için aşağıdaki düğmeye tıklayın."
+    },
+    {
+      "en": "Temperature was adjusted to the valid range (-20 to 200 °C).",
+      "ru": "Температура скорректирована до допустимого диапазона (-20 до 200 °C).",
+      "tr": "Sıcaklık geçerli aralığa ayarlandı (-20 ile 200 °C)."
+    },
+    {
+      "en": "Pressure was adjusted to the valid range (1 to 1000 bar).",
+      "ru": "Давление скорректировано до допустимого диапазона (от 1 до 1000 бар).",
+      "tr": "Basınç geçerli aralığa ayarlandı (1 ile 1000 bar)."
+    },
+    {
+      "en": "Equalize",
+      "ru": "Уравнять",
+      "tr": "Eşitle"
+    },
+    {
+      "en": "Fraction units:",
+      "ru": "Ед. фракций:",
+      "tr": "Kesir birimleri:"
+    },
+    {
+      "en": "Mixture:",
+      "ru": "Смесь:",
+      "tr": "Karışım:"
+    },
+    {
+      "en": "mole fraction",
+      "ru": "мольная доля",
+      "tr": "mol kesri"
+    },
+    {
+      "en": "mass fraction",
+      "ru": "массовая доля",
+      "tr": "kütle kesri"
+    },
+    {
+      "en": "Results cleared.",
+      "ru": "Результаты очищены.",
+      "tr": "Sonuçlar temizlendi."
+    },
+    {
+      "en": "sfe_aux_tool_crit_params_help_en",
+      "ru": "sfe_aux_tool_crit_params_help_ru",
+      "tr": "sfe_aux_tool_crit_params_help_tr"
+    },
+    {
+      "en": "Set the CO\\u2082 molar fraction in the binary CO\\u2082-ethanol mixture. This determines the mixture composition for which critical parameters (Tc, Pc) will be calculated. A value of 1 corresponds to pure CO\\u2082.",
+      "ru": "Установите CO\\u2082 molar fraction in the binary CO\\u2082-ethanol mixture. This determines the mixture composition for which critical parameters (Tc, Pc) will be calculated. A value of 1 corresponds to pure CO\\u2082.",
+      "tr": "Ayarlayın: CO\\u2082 molar fraction in the binary CO\\u2082-ethanol mixture. This determines the mixture composition for which critical parameters (Tc, Pc) will be calculated. A value of 1 corresponds to pure CO\\u2082."
+    },
+    {
+      "en": "Choose the calculation method for critical parameters. Chueh-Prausnitz and Redlich-Kister are established thermodynamic mixing rules. Select 'Both' to compare their predictions side by side.",
+      "ru": "Выберите метод расчёта критических параметров. Chueh-Prausnitz и Redlich-Kister — устоявшиеся термодинамические правила смешения. Выберите «Оба» для сравнения прогнозов.",
+      "tr": "Kritik parametreler için hesaplama yöntemini seçin. Chueh-Prausnitz ve Redlich-Kister yerleşik termodinamik karıştırma kurallarıdır. Tahminleri yan yana karşılaştırmak için 'İkisi de' seçin."
+    },
+    {
+      "en": "Set the system pressure (bar). This is used to compute the CO\\u2082 density at the specified conditions via the Bender equation of state.",
+      "ru": "Установите system pressure (bar). This is used to compute the CO\\u2082 density at the specified conditions via the Bender equation of state.",
+      "tr": "Ayarlayın: system pressure (bar). This is used to compute the CO\\u2082 density at the specified conditions via the Bender equation of state."
+    },
+    {
+      "en": "Set the system temperature (\\u00B0C). Together with pressure, this determines the thermodynamic state for density and phase calculations.",
+      "ru": "Установите system temperature (\\u00B0C). Together with pressure, this determines the thermodynamic state for density and phase calculations.",
+      "tr": "Ayarlayın: system temperature (\\u00B0C). Together with pressure, this determines the thermodynamic state for density and phase calculations."
+    },
+    {
+      "en": "Click to calculate the mixture critical temperature, critical pressure, and density at the specified conditions. Results appear in the panel on the right.",
+      "ru": "Нажмите, чтобы calculate the mixture critical temperature, critical pressure, and density at the specified conditions. Results appear in the panel on the right.",
+      "tr": "Tıklayarak calculate the mixture critical temperature, critical pressure, and density at the specified conditions. Results appear in the panel on the right."
+    },
+    {
+      "en": "Generate a validation plot showing the predicted critical parameters across the full composition range, compared against published experimental data for the CO\\u2082-ethanol system.",
+      "ru": "Сгенерируйте a validation plot showing the predicted critical parameters across the full composition range, compared against published experimental data for the CO\\u2082-ethanol system.",
+      "tr": "Oluşturun: a validation plot showing the predicted critical parameters across the full composition range, compared against published experimental data for the CO\\u2082-ethanol system."
+    },
+    {
+      "en": "Configure the general solvent mixture. Select solvents from the database and specify their composition in mass or mole fractions. The mixture must include at least two components.",
+      "ru": "Настройте общую смесь растворителей. Выберите растворители из базы данных и укажите их состав в массовых или молярных долях. Смесь должна содержать не менее двух компонентов.",
+      "tr": "Genel çözücü karışımını yapılandırın. Veritabanından çözücüler seçin ve bileşimlerini kütle veya mol fraksiyonları olarak belirtin. Karışım en az iki bileşen içermelidir."
+    },
+    {
+      "en": "Choose the mixing rule for estimating the mixture critical temperature (Tc). Different methods (e.g. Li, Chueh-Prausnitz) may give varying results depending on the mixture ideality.",
+      "ru": "Выберите правило смешения для оценки критической температуры смеси (Tc). Различные методы (напр. Li, Chueh-Prausnitz) могут давать различные результаты в зависимости от идеальности смеси.",
+      "tr": "Karışım kritik sıcaklığını (Tc) tahmin etmek için karıştırma kuralını seçin. Farklı yöntemler (örn. Li, Chueh-Prausnitz) karışımın idealliğine bağlı olarak farklı sonuçlar verebilir."
+    },
+    {
+      "en": "Choose the mixing rule for estimating the mixture critical pressure (Pc). Available methods include Chueh-Prausnitz and Kreglewski-Kay, which differ in how they handle binary interaction parameters.",
+      "ru": "Выберите правило смешения для оценки критического давления смеси (Pc). Доступные методы: Chueh-Prausnitz и Kreglewski-Kay, различающиеся обработкой бинарных параметров взаимодействия.",
+      "tr": "Karışım kritik basıncını (Pc) tahmin etmek için karıştırma kuralını seçin. Mevcut yöntemler ikili etkileşim parametrelerini ele alış biçimlerine göre farklılık gösteren Chueh-Prausnitz ve Kreglewski-Kay'dır."
+    },
+    {
+      "en": "Set the system pressure (bar) for density calculations.",
+      "ru": "Установите давление системы (бар) для расчёта плотности.",
+      "tr": "Yoğunluk hesaplamaları için sistem basıncını (bar) ayarlayın."
+    },
+    {
+      "en": "Set the system temperature (\\u00B0C) for density calculations.",
+      "ru": "Установите system temperature (\\u00B0C) for density calculations.",
+      "tr": "Ayarlayın: system temperature (\\u00B0C) for density calculations."
+    },
+    {
+      "en": "Click to calculate the mixture critical parameters and density using the selected methods and composition.",
+      "ru": "Нажмите, чтобы calculate the mixture critical parameters and density using the selected methods and composition.",
+      "tr": "Tıklayarak calculate the mixture critical parameters and density using the selected methods and composition."
+    },
+    {
+      "en": "OK",
+      "ru": "OK",
+      "tr": "Tamam"
+    },
+    {
+      "en": "CO2 Molar Fraction",
+      "ru": "Молярная доля CO₂",
+      "tr": "CO₂ Mol Fraksiyonu"
+    },
+    {
+      "en": "Pressure",
+      "ru": "Давление",
+      "tr": "Basınç"
+    },
+    {
+      "en": "Critical Temperature Method",
+      "ru": "Метод критической температуры",
+      "tr": "Kritik Sıcaklık Yöntemi"
+    },
+    {
+      "en": "Critical Pressure Method",
+      "ru": "Метод критического давления",
+      "tr": "Kritik Basınç Yöntemi"
+    },
+    {
+      "en": "Molar fraction of CO2 in the binary CO2-Ethanol mixture (0 to 1). A value of 0 is pure ethanol, 1 is pure CO2.",
+      "ru": "Молярная доля CO₂ в бинарной смеси CO₂-Этанол (0-1). Значение 0 — чистый этанол, 1 — чистый CO₂.",
+      "tr": "İkili CO₂-Etanol karışımında CO₂'nin mol fraksiyonu (0-1). 0 saf etanol, 1 saf CO₂'dir."
+    },
+    {
+      "en": "Pressure at which to evaluate the mixture critical parameters (1-1000 bar).",
+      "ru": "Давление для оценки критических параметров смеси (1-1000 бар).",
+      "tr": "Karışım kritik parametrelerini değerlendirmek için basınç (1-1000 bar)."
+    },
+    {
+      "en": "Temperature at which to evaluate the mixture critical parameters (-20 to 200 °C).",
+      "ru": "Температура для оценки критических параметров смеси (-20 до 200 °C).",
+      "tr": "Karışım kritik parametrelerini değerlendirmek için sıcaklık (-20 - 200 °C)."
+    },
+    {
+      "en": "Method for estimating critical parameters of the CO2-Ethanol mixture. Chueh-Prausnitz is valid across the full range but overestimates at high CO2 fractions. Redlich-Kister corrects this overestimation. Both runs both methods for comparison.",
+      "ru": "Метод оценки критических параметров смеси CO₂-Этанол. Chueh-Prausnitz действует во всём диапазоне, но завышает при высоких долях CO₂. Redlich-Kister корректирует это завышение. Оба запускают оба метода для сравнения.",
+      "tr": "CO₂-Etanol karışımının kritik parametrelerini tahmin etme yöntemi. Chueh-Prausnitz tüm aralıkta geçerlidir ancak yüksek CO₂ fraksiyonlarında fazla tahmin eder. Redlich-Kister bu fazla tahmini düzeltir. Her ikisi karşılaştırma için her iki yöntemi çalıştırır."
+    },
+    {
+      "en": "Method for estimating the critical temperature of the mixture. Kay (1938) uses molar averaging. Li (1971) accounts for molecular size differences. He et al. (2017) and Tang et al. (2025) are newer empirical correlations.",
+      "ru": "Метод оценки критической температуры смеси. Kay (1938) — молярное усреднение. Li (1971) — учитывает различия в размерах молекул. He et al. (2017) и Tang et al. (2025) — новые эмпирические корреляции.",
+      "tr": "Karışımın kritik sıcaklığını tahmin etme yöntemi. Kay (1938) molar ortalama kullanır. Li (1971) moleküler boyut farklılıklarını hesaba katar. He et al. (2017) ve Tang et al. (2025) daha yeni ampirik korelasyonlardır."
+    },
+    {
+      "en": "Method for estimating the critical pressure of the mixture. Same approaches as for critical temperature, except the First Extended Chueh-Prausnitz method is not available for pressure.",
+      "ru": "Метод оценки критического давления смеси. Те же подходы, что и для критической температуры, кроме метода First Extended Chueh-Prausnitz, который недоступен для давления.",
+      "tr": "Karışımın kritik basıncını tahmin etme yöntemi. Kritik sıcaklıkla aynı yaklaşımlar, ancak First Extended Chueh-Prausnitz yöntemi basınç için mevcut değildir."
+    },
+    {
+      "en": "Calculating CO₂-EtOH Critical Parameters...",
+      "tr": "CO₂-EtOH Kritik Parametreleri Hesaplanıyor...",
+      "ru": "Расчёт критических параметров CO₂-EtOH..."
+    }
+  ]
+}

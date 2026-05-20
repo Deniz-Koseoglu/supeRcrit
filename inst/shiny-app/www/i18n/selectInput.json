@@ -1,0 +1,379 @@
+{
+  "translation": [
+    {
+      "en": "Stepwise",
+      "ru": "Пошаговый",
+      "tr": "Adım Adım"
+    },
+    {
+      "en": "P-value Cutoff",
+      "ru": "Порог p-значения",
+      "tr": "P-değeri Eşiği"
+    },
+    {
+      "en": "Both",
+      "ru": "Оба",
+      "tr": "Her İkisi"
+    },
+    {
+      "en": "None",
+      "ru": "Нет",
+      "tr": "Yok"
+    },
+    {
+      "en": "Circumscribed (CCC)",
+      "ru": "Описанный (CCC)",
+      "tr": "Çevrelenmiş (CCC)"
+    },
+    {
+      "en": "Face-Centered (CCF)",
+      "ru": "Центрированный по граням (CCF)",
+      "tr": "Yüzey Merkezli (CCF)"
+    },
+    {
+      "en": "Default",
+      "ru": "По умолчанию",
+      "tr": "Varsayılan"
+    },
+    {
+      "en": "Custom",
+      "ru": "Пользовательский",
+      "tr": "Özel"
+    },
+    {
+      "en": "NLopt",
+      "ru": "NLopt",
+      "tr": "NLopt"
+    },
+    {
+      "en": "Optim",
+      "ru": "Optim",
+      "tr": "Optim"
+    },
+    {
+      "en": "Auto",
+      "ru": "Авто",
+      "tr": "Otomatik"
+    },
+    {
+      "en": "Time (minutes)",
+      "ru": "Время (минуты)",
+      "tr": "Zaman (dakika)"
+    },
+    {
+      "en": "Solvent/Material Ratio (q)",
+      "ru": "Соотношение растворитель/материал (q)",
+      "tr": "Çözücü/Malzeme Oranı (q)"
+    },
+    {
+      "en": "Simplified (SIM)",
+      "ru": "Упрощенная (SIM)",
+      "tr": "Basitleştirilmiş (SIM)"
+    },
+    {
+      "en": "Characteristic Times (CT)",
+      "ru": "Характеристические времена (CT)",
+      "tr": "Karakteristik Zamanlar (CT)"
+    },
+    {
+      "en": "Complete 2-Period (CMP2)",
+      "ru": "Полная 2-периодная (CMP2)",
+      "tr": "Tam 2-Dönem (CMP2)"
+    },
+    {
+      "en": "Complete 3-Period (CMP3)",
+      "ru": "Полная 3-периодная (CMP3)",
+      "tr": "Tam 3-Dönem (CMP3)"
+    },
+    {
+      "en": "AARD",
+      "ru": "AARD",
+      "tr": "AARD"
+    },
+    {
+      "en": "Mean",
+      "ru": "Среднее",
+      "tr": "Ortalama"
+    },
+    {
+      "en": "mL/min",
+      "ru": "мл/мин",
+      "tr": "mL/dak"
+    },
+    {
+      "en": "g/min",
+      "ru": "г/мин",
+      "tr": "g/dak"
+    },
+    {
+      "en": "kg/h",
+      "ru": "кг/ч",
+      "tr": "kg/sa"
+    },
+    {
+      "en": "L/h",
+      "ru": "л/ч",
+      "tr": "L/sa"
+    },
+    {
+      "en": "g",
+      "ru": "г",
+      "tr": "g"
+    },
+    {
+      "en": "Percent",
+      "ru": "Процент",
+      "tr": "Yüzde"
+    },
+    {
+      "en": "Permille",
+      "ru": "Промилле",
+      "tr": "Binde"
+    },
+    {
+      "en": "PPM",
+      "ru": "PPM",
+      "tr": "PPM"
+    },
+    {
+      "en": "PPB",
+      "ru": "PPB",
+      "tr": "PPB"
+    },
+    {
+      "en": "NLrob",
+      "ru": "NLrob",
+      "tr": "NLrob"
+    },
+    {
+      "en": "Time",
+      "ru": "Время",
+      "tr": "Zaman"
+    },
+    {
+      "en": "S/M Ratio (q)",
+      "ru": "Соотношение Р/М (q)",
+      "tr": "Ç/M Oranı (q)"
+    },
+    {
+      "en": "Absolute Yield",
+      "ru": "Абсолютный выход",
+      "tr": "Mutlak Verim"
+    },
+    {
+      "en": "Fractional Yield (c/c0)",
+      "ru": "Фракционный выход (c/c0)",
+      "tr": "Fraksiyonel Verim (c/c0)"
+    },
+    {
+      "en": "All",
+      "ru": "Все",
+      "tr": "Tümü"
+    },
+    {
+      "en": "KAY",
+      "ru": "KAY",
+      "tr": "KAY"
+    },
+    {
+      "en": "LI",
+      "ru": "LI",
+      "tr": "LI"
+    },
+    {
+      "en": "FECP",
+      "ru": "FECP",
+      "tr": "FECP"
+    },
+    {
+      "en": "HECP",
+      "ru": "HECP",
+      "tr": "HECP"
+    },
+    {
+      "en": "TANG1",
+      "ru": "TANG1",
+      "tr": "TANG1"
+    },
+    {
+      "en": "TANG2",
+      "ru": "TANG2",
+      "tr": "TANG2"
+    },
+    {
+      "en": "TANG3",
+      "ru": "TANG3",
+      "tr": "TANG3"
+    },
+    {
+      "en": "TANG4",
+      "ru": "TANG4",
+      "tr": "TANG4"
+    },
+    {
+      "en": "Acetone",
+      "ru": "Ацетон",
+      "tr": "Aseton"
+    },
+    {
+      "en": "Benzene",
+      "ru": "Бензол",
+      "tr": "Benzen"
+    },
+    {
+      "en": "CarbonDioxide",
+      "ru": "Углекислый газ",
+      "tr": "Karbondioksit"
+    },
+    {
+      "en": "Cyclohexane",
+      "ru": "Циклогексан",
+      "tr": "Sikloheksan"
+    },
+    {
+      "en": "DiethylEther",
+      "ru": "Диэтиловый эфир",
+      "tr": "Dietil Eter"
+    },
+    {
+      "en": "Ethanol",
+      "ru": "Этанол",
+      "tr": "Etanol"
+    },
+    {
+      "en": "Heptane",
+      "ru": "Гептан",
+      "tr": "Heptan"
+    },
+    {
+      "en": "Hexane",
+      "ru": "Гексан",
+      "tr": "Heksan"
+    },
+    {
+      "en": "Methanol",
+      "ru": "Метанол",
+      "tr": "Metanol"
+    },
+    {
+      "en": "MethylOleate",
+      "ru": "Метилолеат",
+      "tr": "Metil Oleat"
+    },
+    {
+      "en": "Toluene",
+      "ru": "Толуол",
+      "tr": "Toluen"
+    },
+    {
+      "en": "PXylene",
+      "ru": "п-Ксилол",
+      "tr": "p-Ksilen"
+    },
+    {
+      "en": "OXylene",
+      "ru": "о-Ксилол",
+      "tr": "o-Ksilen"
+    },
+    {
+      "en": "Water",
+      "ru": "Вода",
+      "tr": "Su"
+    },
+    {
+      "en": "Hydrogen",
+      "ru": "Водород",
+      "tr": "Hidrojen"
+    },
+    {
+      "en": "Manual Input",
+      "ru": "Ручной ввод",
+      "tr": "Manuel Giriş"
+    },
+    {
+      "en": "Joback-Reid",
+      "ru": "Joback-Reid",
+      "tr": "Joback-Reid"
+    },
+    {
+      "en": "Joback-Reid corrected",
+      "ru": "Joback-Reid corrected",
+      "tr": "Joback-Reid corrected"
+    },
+    {
+      "en": "Stein-Brown",
+      "ru": "Stein-Brown",
+      "tr": "Stein-Brown"
+    },
+    {
+      "en": "Stein-Brown corrected",
+      "ru": "Stein-Brown corrected",
+      "tr": "Stein-Brown corrected"
+    },
+    {
+      "en": "Nannoolal 2004",
+      "ru": "Nannoolal 2004",
+      "tr": "Nannoolal 2004"
+    },
+    {
+      "en": "Nannoolal 2007",
+      "ru": "Nannoolal 2007",
+      "tr": "Nannoolal 2007"
+    },
+    {
+      "en": "Nannoolal 2007 robust",
+      "ru": "Nannoolal 2007 robust",
+      "tr": "Nannoolal 2007 robust"
+    },
+    {
+      "en": "Stefanis-Panayiotou 2008",
+      "ru": "Stefanis-Panayiotou 2008",
+      "tr": "Stefanis-Panayiotou 2008"
+    },
+    {
+      "en": "Stefanis-Panayiotou 2012",
+      "ru": "Stefanis-Panayiotou 2012",
+      "tr": "Stefanis-Panayiotou 2012"
+    },
+    {
+      "en": "Zhao 2003",
+      "ru": "Zhao 2003",
+      "tr": "Zhao 2003"
+    },
+    {
+      "en": "Bondi 1964",
+      "ru": "Bondi 1964",
+      "tr": "Bondi 1964"
+    },
+    {
+      "en": "Slonimskii 1970",
+      "ru": "Slonimskii 1970",
+      "tr": "Slonimskii 1970"
+    },
+    {
+      "en": "Simple",
+      "ru": "Простой",
+      "tr": "Basit"
+    },
+    {
+      "en": "Normal",
+      "ru": "Нормальный",
+      "tr": "Normal"
+    },
+    {
+      "en": "Complex",
+      "ru": "Сложный",
+      "tr": "Karmaşık"
+    },
+    {
+      "en": "Hukkerikar-Stepwise",
+      "ru": "Hukkerikar-Stepwise",
+      "tr": "Hukkerikar-Stepwise"
+    },
+    {
+      "en": "Hukkerikar-Simultaneous",
+      "ru": "Hukkerikar-Simultaneous",
+      "tr": "Hukkerikar-Simultaneous"
+    }
+  ]
+}

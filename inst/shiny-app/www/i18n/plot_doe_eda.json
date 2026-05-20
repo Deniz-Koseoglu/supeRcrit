@@ -1,0 +1,64 @@
+{
+  "translation": [
+    {
+      "en": "Normal Q-Q for ",
+      "ru": "Нормальный Q-Q для ",
+      "tr": "Normal Q-Q grafiği "
+    },
+    {
+      "en": "Histogram - ",
+      "ru": "Гистограмма - ",
+      "tr": "Histogram - "
+    },
+    {
+      "en": "Box Plot of ",
+      "ru": "Коробчатая диаграмма ",
+      "tr": "Kutu Grafiği "
+    },
+    {
+      "en": "Run Order Plot - ",
+      "ru": "График порядка выполнения - ",
+      "tr": "Çalıştırma Sırası Grafiği - "
+    },
+    {
+      "en": "Theoretical Quantiles",
+      "ru": "Теоретические квантили",
+      "tr": "Teorik Kantiller"
+    },
+    {
+      "en": "Sample Quantiles",
+      "ru": "Выборочные квантили",
+      "tr": "Örnek Kantiller"
+    },
+    {
+      "en": "Frequency",
+      "ru": "Частота",
+      "tr": "Frekans"
+    },
+    {
+      "en": "Arbitrary",
+      "ru": "Произвольный",
+      "tr": "Keyfi"
+    },
+    {
+      "en": "Actual Run Order",
+      "ru": "Фактический порядок выполнения",
+      "tr": "Gerçek Çalıştırma Sırası"
+    },
+    {
+      "en": "Initial Model,",
+      "ru": "Начальная модель,",
+      "tr": "Başlangıç Modeli,"
+    },
+    {
+      "en": "Final Model,",
+      "ru": "Конечная модель,",
+      "tr": "Nihai Model,"
+    },
+    {
+      "en": "Residual",
+      "ru": "Остаточный",
+      "tr": "Artık"
+    }
+  ]
+}

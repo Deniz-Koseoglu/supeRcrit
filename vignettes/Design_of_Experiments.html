@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>Design of Experiments (DOE) generation and analysis</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Design of Experiments (DOE) generation and
+analysis</h1>
+
+
+
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>This vignette serves as an introduction for the various modules
+included in <strong>supeRcrit</strong> for <a href="https://doi.org/10.1021/op500169m">Design of Experiments (DOE)</a>
+generation and modelling of associated experimental results
+(i.e. responses) using linear and quadratic models as part of <a href="https://doi.org/10.3390/asi8040099">Response Surface Methodology
+(RSM)</a> and <a href="https://doi.org/10.1016/j.chemolab.2011.04.004">Desirability
+Functions (DF)</a>. The associated functions are able to:</p>
+<ol style="list-style-type: decimal">
+<li><a href="#doegen">Generate various experimental designs</a> with
+different numbers of factors and levels.</li>
+<li><a href="#rsm">Analyze experimental results of DOEs</a> via various
+linear and quadratic models to maximize or minimize a target
+response.</li>
+<li><a href="#desir">Combine models for individual response into
+Desirability Functions</a> to obtain optimum parameters for various
+(optionally weighted) responses.</li>
+</ol>
+</div>
+<div id="worked-examples" class="section level2">
+<h2>Worked examples</h2>
+<div id="doegen" class="section level3">
+<h3>Design of Experiments (DOE) generation</h3>
+<p>Response variable optimization targets, input variables/factors, and
+their possible values are determined by process objectives, expert
+assessment, and capabilities of the extraction system, respectively. On
+the other hand, the fewest number of SFE experiments (and, by extension,
+unique combinations of process variable values or “levels”) required for
+sufficient optimization is most commonly assessed via a statistical
+Design of Experiments (DOE) approach which has largely superseded less
+efficient and non-reproducible <em>ad hoc</em> testing. Various DOE
+generator functions allow for generation of several types of
+experimental designs listed below. The reader of this vignette (and,
+indeed, a proficient user of <strong>supeRcrit</strong>) is assumed to
+have aquired at least a basic understanding of DOE and associated
+terminology from primary literature. For a comprehensive introduction to
+each of these designs and workflows for their analysis, consult the <a href="https://doi.org/10.18434/M32189">NIST/Sematech Engineering
+Handbook</a> and the works of <strong>Baş and Boyacı</strong> (<a href="https://doi.org/10.1016/j.jfoodeng.2005.11.024">2007a</a>, <a href="https://doi.org/10.1016/j.jfoodeng.2005.11.025">2007b</a>, <a href="https://doi.org/10.1016/j.jfoodeng.2006.02.021">2007c</a>,<a href="https://doi.org/10.1016/j.jfoodeng.2006.04.004">2007d</a>). One
+also cannot forget about the excellent <a href="https://doi.org/10.32614/CRAN.package.rsm"><strong>RSM
+package</strong></a> by Russell Lenth, from which some functions are
+adapted for use herein. The DOE generators of <strong>supeRcrit</strong>
+include the following screening and optimization designs:</p>
+<ol style="list-style-type: decimal">
+<li>Full Factorial Designs (FFD) with 2-3 levels and 2-5 factors (the
+<code>doe_ffd</code> function).</li>
+<li>Two-level Fractional Factorial Designs (FrFD) with 2-5 factors (the
+<code>doe_frfd</code> function).</li>
+<li>Central Composite Designs (CCD) with 2-4 factors and including the
+Circumscribed (CCC) and Face-Centered (CCF) designs with 3 or 5 levels,
+respectively (the <code>doe_ccd</code> function).</li>
+<li>Box-Behnken Designs (BBD) with 3-4 factors and 3 levels (the
+function <code>doe_bbd</code>).</li>
+<li>Taguchi Method Orthogonal Array Designs (TM) with 3-5 factors and
+2-4 levels (the function <code>doe_tm</code>).</li>
+</ol>
+<p>Generating a design is exceedingly simple with the respective
+functions. Let’s generate a full factorial design with 3 factors and 3
+levels (i.e. a 3<sup>3</sup> design). We also set the factor names as
+well as lower and upper limits.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co">#Generate design</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>ffd <span class="ot">&lt;-</span> <span class="fu">doe_ffd</span>(<span class="at">levels =</span> <span class="dv">3</span>, <span class="at">factors =</span> <span class="dv">3</span>, <span class="at">fnames =</span> <span class="fu">c</span>(<span class="st">&quot;Pressure&quot;</span>, <span class="st">&quot;Temperature&quot;</span>, <span class="st">&quot;Flow&quot;</span>), <span class="at">flims =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="dv">100</span>,<span class="dv">400</span>), <span class="fu">c</span>(<span class="dv">40</span>,<span class="dv">70</span>), <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">100</span>)))</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="co">#&gt; Note that 3-level FFD designs must contain 3 center points by default! Only ADDITIONAL center points are provided in &#39;cpts&#39;.</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co">#&gt; Calculating uncoded factor levels...</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="co">#Display design</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>ffd[[<span class="st">&quot;doe&quot;</span>]]</span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="co">#&gt; $FFD_3sup3_ResV</span></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="co">#&gt;    Standard_Order  A  B  C A_Pressure B_Temperature C_Flow</span></span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="co">#&gt; 8               8  0  1 -1        250            70     50</span></span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="co">#&gt; 7               7 -1  1 -1        100            70     50</span></span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="co">#&gt; 17             17  0  1  0        250            70     75</span></span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="co">#&gt; 11             11  0 -1  0        250            40     75</span></span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="co">#&gt; 22             22 -1  0  1        100            55    100</span></span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="co">#&gt; 20             20  0 -1  1        250            40    100</span></span>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a><span class="co">#&gt; 9               9  1  1 -1        400            70     50</span></span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a><span class="co">#&gt; 25             25 -1  1  1        100            70    100</span></span>
+<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a><span class="co">#&gt; 10             10 -1 -1  0        100            40     75</span></span>
+<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a><span class="co">#&gt; 14             14  0  0  0        250            55     75</span></span>
+<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a><span class="co">#&gt; 13             13 -1  0  0        100            55     75</span></span>
+<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a><span class="co">#&gt; 2               2  0 -1 -1        250            40     50</span></span>
+<span id="cb1-23"><a href="#cb1-23" tabindex="-1"></a><span class="co">#&gt; 18             18  1  1  0        400            70     75</span></span>
+<span id="cb1-24"><a href="#cb1-24" tabindex="-1"></a><span class="co">#&gt; 3               3  1 -1 -1        400            40     50</span></span>
+<span id="cb1-25"><a href="#cb1-25" tabindex="-1"></a><span class="co">#&gt; 24             24  1  0  1        400            55    100</span></span>
+<span id="cb1-26"><a href="#cb1-26" tabindex="-1"></a><span class="co">#&gt; 21             21  1 -1  1        400            40    100</span></span>
+<span id="cb1-27"><a href="#cb1-27" tabindex="-1"></a><span class="co">#&gt; 23             23  0  0  1        250            55    100</span></span>
+<span id="cb1-28"><a href="#cb1-28" tabindex="-1"></a><span class="co">#&gt; 16             16 -1  1  0        100            70     75</span></span>
+<span id="cb1-29"><a href="#cb1-29" tabindex="-1"></a><span class="co">#&gt; 27             27  1  1  1        400            70    100</span></span>
+<span id="cb1-30"><a href="#cb1-30" tabindex="-1"></a><span class="co">#&gt; 15             15  1  0  0        400            55     75</span></span>
+<span id="cb1-31"><a href="#cb1-31" tabindex="-1"></a><span class="co">#&gt; 1               1 -1 -1 -1        100            40     50</span></span>
+<span id="cb1-32"><a href="#cb1-32" tabindex="-1"></a><span class="co">#&gt; 4               4 -1  0 -1        100            55     50</span></span>
+<span id="cb1-33"><a href="#cb1-33" tabindex="-1"></a><span class="co">#&gt; 12             12  1 -1  0        400            40     75</span></span>
+<span id="cb1-34"><a href="#cb1-34" tabindex="-1"></a><span class="co">#&gt; 19             19 -1 -1  1        100            40    100</span></span>
+<span id="cb1-35"><a href="#cb1-35" tabindex="-1"></a><span class="co">#&gt; 5               5  0  0 -1        250            55     50</span></span>
+<span id="cb1-36"><a href="#cb1-36" tabindex="-1"></a><span class="co">#&gt; 6               6  1  0 -1        400            55     50</span></span>
+<span id="cb1-37"><a href="#cb1-37" tabindex="-1"></a><span class="co">#&gt; 26             26  0  1  1        250            70    100</span></span>
+<span id="cb1-38"><a href="#cb1-38" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-39"><a href="#cb1-39" tabindex="-1"></a><span class="co">#&gt; $call</span></span>
+<span id="cb1-40"><a href="#cb1-40" tabindex="-1"></a><span class="co">#&gt; doe_ffd(levels = 3, factors = 3, fnames = c(&quot;Pressure&quot;, &quot;Temperature&quot;, </span></span>
+<span id="cb1-41"><a href="#cb1-41" tabindex="-1"></a><span class="co">#&gt;     &quot;Flow&quot;), flims = list(c(100, 400), c(40, 70), c(50, 100)))</span></span>
+<span id="cb1-42"><a href="#cb1-42" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" tabindex="-1"></a><span class="co">#Display information about design</span></span>
+<span id="cb1-44"><a href="#cb1-44" tabindex="-1"></a>ffd[<span class="st">&quot;description&quot;</span>]</span>
+<span id="cb1-45"><a href="#cb1-45" tabindex="-1"></a><span class="co">#&gt; $description</span></span>
+<span id="cb1-46"><a href="#cb1-46" tabindex="-1"></a><span class="co">#&gt; [1] &quot;A 3^3 FFD (FULL FACTORIAL) DESIGN OF RESOLUTION V WITH 27 RUNS AND 0 ADDED CENTER POINTS&quot;</span></span></code></pre></div>
+<p>What about a 2-factor fractional factorial design for screening? We
+use 5 factors and a <em>p</em> value of 2 (i.e. a 2<sup>5-2</sup>
+design). Additionally, 3 center points are included.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>frfd <span class="ot">&lt;-</span> <span class="fu">doe_frfd</span>(<span class="at">factors =</span> <span class="dv">5</span>, <span class="at">p =</span> <span class="dv">2</span>, <span class="at">cpts =</span> <span class="dv">3</span>, </span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>                 <span class="at">fnames =</span> <span class="fu">c</span>(<span class="st">&quot;Pressure&quot;</span>, <span class="st">&quot;Temperature&quot;</span>, <span class="st">&quot;Flow&quot;</span>, <span class="st">&quot;EtOH&quot;</span>, <span class="st">&quot;PBD&quot;</span>), <span class="co">#The last two factors are % flow of ethanol co-solvent, and the interval (in minutes) between sudden pressure drop in the extractor (for cell disruption due to rapid expansion of CO2) </span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>                 <span class="at">flims =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="dv">100</span>,<span class="dv">400</span>), <span class="fu">c</span>(<span class="dv">40</span>,<span class="dv">70</span>), <span class="fu">c</span>(<span class="dv">50</span>,<span class="dv">100</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="fu">c</span>(<span class="dv">15</span>,<span class="dv">120</span>))) </span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co">#&gt; Getting defining relation...</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co">#&gt; Adding center points...</span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co">#&gt; Calculating uncoded factor levels...</span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co">#&gt; Finding confounding pattern...</span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>frfd[[<span class="st">&quot;doe&quot;</span>]]</span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">#&gt; $`FrFD_2sup5-2_Res_III`</span></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#&gt;    Standard_Order  A  B  C  D  E A_Pressure B_Temperature C_Flow D_EtOH E_PBD</span></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">#&gt; 8               8  1  1  1  1  1        400            70    100     10 120.0</span></span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co">#&gt; 10             10  0  0  0  0  0        250            55     75      5  67.5</span></span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="co">#&gt; 3               3 -1  1 -1 -1  1        100            70     50      0 120.0</span></span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="co">#&gt; 2               2  1 -1 -1 -1 -1        400            40     50      0  15.0</span></span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a><span class="co">#&gt; 11             11  0  0  0  0  0        250            55     75      5  67.5</span></span>
+<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a><span class="co">#&gt; 5               5 -1 -1  1  1 -1        100            40    100     10  15.0</span></span>
+<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a><span class="co">#&gt; 1               1 -1 -1 -1  1  1        100            40     50     10 120.0</span></span>
+<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a><span class="co">#&gt; 9               9  0  0  0  0  0        250            55     75      5  67.5</span></span>
+<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a><span class="co">#&gt; 4               4  1  1 -1  1 -1        400            70     50     10  15.0</span></span>
+<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a><span class="co">#&gt; 7               7 -1  1  1 -1 -1        100            70    100      0  15.0</span></span>
+<span id="cb2-23"><a href="#cb2-23" tabindex="-1"></a><span class="co">#&gt; 6               6  1 -1  1 -1  1        400            40    100      0 120.0</span></span>
+<span id="cb2-24"><a href="#cb2-24" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-25"><a href="#cb2-25" tabindex="-1"></a><span class="co">#&gt; $`CONFOUNDING PATTERN`</span></span>
+<span id="cb2-26"><a href="#cb2-26" tabindex="-1"></a><span class="co">#&gt;    Effect I=ABD I=ACE</span></span>
+<span id="cb2-27"><a href="#cb2-27" tabindex="-1"></a><span class="co">#&gt; 1       A    BD    CE</span></span>
+<span id="cb2-28"><a href="#cb2-28" tabindex="-1"></a><span class="co">#&gt; 2       B    AD  ABCE</span></span>
+<span id="cb2-29"><a href="#cb2-29" tabindex="-1"></a><span class="co">#&gt; 3       C  ABCD    AE</span></span>
+<span id="cb2-30"><a href="#cb2-30" tabindex="-1"></a><span class="co">#&gt; 4       D    AB  ACDE</span></span>
+<span id="cb2-31"><a href="#cb2-31" tabindex="-1"></a><span class="co">#&gt; 5       E  ABDE    AC</span></span>
+<span id="cb2-32"><a href="#cb2-32" tabindex="-1"></a><span class="co">#&gt; 6      AB     D   BCE</span></span>
+<span id="cb2-33"><a href="#cb2-33" tabindex="-1"></a><span class="co">#&gt; 7      AC   BCD     E</span></span>
+<span id="cb2-34"><a href="#cb2-34" tabindex="-1"></a><span class="co">#&gt; 8      AD     B   CDE</span></span>
+<span id="cb2-35"><a href="#cb2-35" tabindex="-1"></a><span class="co">#&gt; 9      AE   BDE     C</span></span>
+<span id="cb2-36"><a href="#cb2-36" tabindex="-1"></a><span class="co">#&gt; 10     BC   ACD   ABE</span></span>
+<span id="cb2-37"><a href="#cb2-37" tabindex="-1"></a><span class="co">#&gt; 11     BD     A ABCDE</span></span>
+<span id="cb2-38"><a href="#cb2-38" tabindex="-1"></a><span class="co">#&gt; 12     BE   ADE   ABC</span></span>
+<span id="cb2-39"><a href="#cb2-39" tabindex="-1"></a><span class="co">#&gt; 13     CD   ABC   ADE</span></span>
+<span id="cb2-40"><a href="#cb2-40" tabindex="-1"></a><span class="co">#&gt; 14     CE ABCDE     A</span></span>
+<span id="cb2-41"><a href="#cb2-41" tabindex="-1"></a><span class="co">#&gt; 15     DE   ABE   ACD</span></span>
+<span id="cb2-42"><a href="#cb2-42" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-43"><a href="#cb2-43" tabindex="-1"></a><span class="co">#&gt; $call</span></span>
+<span id="cb2-44"><a href="#cb2-44" tabindex="-1"></a><span class="co">#&gt; doe_frfd(factors = 5, p = 2, cpts = 3, fnames = c(&quot;Pressure&quot;, </span></span>
+<span id="cb2-45"><a href="#cb2-45" tabindex="-1"></a><span class="co">#&gt;     &quot;Temperature&quot;, &quot;Flow&quot;, &quot;EtOH&quot;, &quot;PBD&quot;), flims = list(c(100, </span></span>
+<span id="cb2-46"><a href="#cb2-46" tabindex="-1"></a><span class="co">#&gt;     400), c(40, 70), c(50, 100), c(0, 10), c(15, 120)))</span></span>
+<span id="cb2-47"><a href="#cb2-47" tabindex="-1"></a>frfd[[<span class="st">&quot;description&quot;</span>]]</span>
+<span id="cb2-48"><a href="#cb2-48" tabindex="-1"></a><span class="co">#&gt; [1] &quot;A 2^5-2 FrFD (FRACTIONAL FACTORIAL) SCREENING DESIGN OF RESOLUTION III WITH 11 RUNS AND 3 ADDED CENTER POINTS&quot;</span></span></code></pre></div>
+<p>Finally, we can generate a CCC (a type of CCD design), which is
+perhaps the most popular optimization design used for RSM. This designs
+incorporates star points (which test the extremes of the process space)
+and center points. Because star points extend factors beyond their
+maximum and minimum limits, it can be difficult to define sensible
+limits such that star points do not push them beyond the realm of
+possibility (e.g. due to equipment limitations). To avoid this, we
+specify limits for pressure and temperature as <strong>hard</strong>
+limits, which will now represent star points.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>ccd <span class="ot">&lt;-</span> <span class="fu">doe_ccd</span>(<span class="at">design =</span> <span class="st">&quot;CCC&quot;</span>,</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>                   <span class="at">levels =</span> <span class="dv">5</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>                   <span class="at">factors =</span> <span class="dv">3</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>                   <span class="at">cpts =</span> <span class="dv">6</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>                   <span class="at">fnames =</span> <span class="fu">c</span>(<span class="st">&quot;Pressure&quot;</span>, <span class="st">&quot;Temperature&quot;</span>, <span class="st">&quot;EtOH&quot;</span>),</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>                   <span class="at">flims =</span> <span class="fu">list</span>(<span class="st">&quot;hard&quot;</span><span class="ot">=</span><span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">345</span>), <span class="st">&quot;hard&quot;</span><span class="ot">=</span><span class="fu">c</span>(<span class="dv">35</span>, <span class="dv">75</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">8</span>))) <span class="co">#Hard limits specified</span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="co">#&gt; Adding star points...</span></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co">#&gt; Adding center points...</span></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co">#&gt; Calculating uncoded factor levels...</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>ccd[[<span class="st">&quot;doe&quot;</span>]]</span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="co">#&gt; $CCC_5sup3_with_6_starpoints_and_6_centerpoints</span></span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="co">#&gt;    Standard_Order         A         B         C A_Pressure B_Temperature</span></span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="co">#&gt; 15             15  0.000000  0.000000  0.000000   222.5000      55.00000</span></span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a><span class="co">#&gt; 5               5 -1.000000 -1.000000  1.000000   149.6611      43.10793</span></span>
+<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a><span class="co">#&gt; 11             11  0.000000 -1.681793  0.000000   222.5000      35.00000</span></span>
+<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a><span class="co">#&gt; 17             17  0.000000  0.000000  0.000000   222.5000      55.00000</span></span>
+<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a><span class="co">#&gt; 7               7 -1.000000  1.000000  1.000000   149.6611      66.89207</span></span>
+<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a><span class="co">#&gt; 20             20  0.000000  0.000000  0.000000   222.5000      55.00000</span></span>
+<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a><span class="co">#&gt; 13             13  0.000000  0.000000 -1.681793   222.5000      55.00000</span></span>
+<span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a><span class="co">#&gt; 18             18  0.000000  0.000000  0.000000   222.5000      55.00000</span></span>
+<span id="cb3-23"><a href="#cb3-23" tabindex="-1"></a><span class="co">#&gt; 12             12  0.000000  1.681793  0.000000   222.5000      75.00000</span></span>
+<span id="cb3-24"><a href="#cb3-24" tabindex="-1"></a><span class="co">#&gt; 1               1 -1.000000 -1.000000 -1.000000   149.6611      43.10793</span></span>
+<span id="cb3-25"><a href="#cb3-25" tabindex="-1"></a><span class="co">#&gt; 6               6  1.000000 -1.000000  1.000000   295.3389      43.10793</span></span>
+<span id="cb3-26"><a href="#cb3-26" tabindex="-1"></a><span class="co">#&gt; 19             19  0.000000  0.000000  0.000000   222.5000      55.00000</span></span>
+<span id="cb3-27"><a href="#cb3-27" tabindex="-1"></a><span class="co">#&gt; 4               4  1.000000  1.000000 -1.000000   295.3389      66.89207</span></span>
+<span id="cb3-28"><a href="#cb3-28" tabindex="-1"></a><span class="co">#&gt; 14             14  0.000000  0.000000  1.681793   222.5000      55.00000</span></span>
+<span id="cb3-29"><a href="#cb3-29" tabindex="-1"></a><span class="co">#&gt; 3               3 -1.000000  1.000000 -1.000000   149.6611      66.89207</span></span>
+<span id="cb3-30"><a href="#cb3-30" tabindex="-1"></a><span class="co">#&gt; 2               2  1.000000 -1.000000 -1.000000   295.3389      43.10793</span></span>
+<span id="cb3-31"><a href="#cb3-31" tabindex="-1"></a><span class="co">#&gt; 16             16  0.000000  0.000000  0.000000   222.5000      55.00000</span></span>
+<span id="cb3-32"><a href="#cb3-32" tabindex="-1"></a><span class="co">#&gt; 8               8  1.000000  1.000000  1.000000   295.3389      66.89207</span></span>
+<span id="cb3-33"><a href="#cb3-33" tabindex="-1"></a><span class="co">#&gt; 9               9 -1.681793  0.000000  0.000000   100.0000      55.00000</span></span>
+<span id="cb3-34"><a href="#cb3-34" tabindex="-1"></a><span class="co">#&gt; 10             10  1.681793  0.000000  0.000000   345.0000      55.00000</span></span>
+<span id="cb3-35"><a href="#cb3-35" tabindex="-1"></a><span class="co">#&gt;         C_EtOH</span></span>
+<span id="cb3-36"><a href="#cb3-36" tabindex="-1"></a><span class="co">#&gt; 15  5.00000000</span></span>
+<span id="cb3-37"><a href="#cb3-37" tabindex="-1"></a><span class="co">#&gt; 5   8.00000000</span></span>
+<span id="cb3-38"><a href="#cb3-38" tabindex="-1"></a><span class="co">#&gt; 11  5.00000000</span></span>
+<span id="cb3-39"><a href="#cb3-39" tabindex="-1"></a><span class="co">#&gt; 17  5.00000000</span></span>
+<span id="cb3-40"><a href="#cb3-40" tabindex="-1"></a><span class="co">#&gt; 7   8.00000000</span></span>
+<span id="cb3-41"><a href="#cb3-41" tabindex="-1"></a><span class="co">#&gt; 20  5.00000000</span></span>
+<span id="cb3-42"><a href="#cb3-42" tabindex="-1"></a><span class="co">#&gt; 13 -0.04537849</span></span>
+<span id="cb3-43"><a href="#cb3-43" tabindex="-1"></a><span class="co">#&gt; 18  5.00000000</span></span>
+<span id="cb3-44"><a href="#cb3-44" tabindex="-1"></a><span class="co">#&gt; 12  5.00000000</span></span>
+<span id="cb3-45"><a href="#cb3-45" tabindex="-1"></a><span class="co">#&gt; 1   2.00000000</span></span>
+<span id="cb3-46"><a href="#cb3-46" tabindex="-1"></a><span class="co">#&gt; 6   8.00000000</span></span>
+<span id="cb3-47"><a href="#cb3-47" tabindex="-1"></a><span class="co">#&gt; 19  5.00000000</span></span>
+<span id="cb3-48"><a href="#cb3-48" tabindex="-1"></a><span class="co">#&gt; 4   2.00000000</span></span>
+<span id="cb3-49"><a href="#cb3-49" tabindex="-1"></a><span class="co">#&gt; 14 10.04537849</span></span>
+<span id="cb3-50"><a href="#cb3-50" tabindex="-1"></a><span class="co">#&gt; 3   2.00000000</span></span>
+<span id="cb3-51"><a href="#cb3-51" tabindex="-1"></a><span class="co">#&gt; 2   2.00000000</span></span>
+<span id="cb3-52"><a href="#cb3-52" tabindex="-1"></a><span class="co">#&gt; 16  5.00000000</span></span>
+<span id="cb3-53"><a href="#cb3-53" tabindex="-1"></a><span class="co">#&gt; 8   8.00000000</span></span>
+<span id="cb3-54"><a href="#cb3-54" tabindex="-1"></a><span class="co">#&gt; 9   5.00000000</span></span>
+<span id="cb3-55"><a href="#cb3-55" tabindex="-1"></a><span class="co">#&gt; 10  5.00000000</span></span>
+<span id="cb3-56"><a href="#cb3-56" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-57"><a href="#cb3-57" tabindex="-1"></a><span class="co">#&gt; $call</span></span>
+<span id="cb3-58"><a href="#cb3-58" tabindex="-1"></a><span class="co">#&gt; doe_ccd(design = &quot;CCC&quot;, levels = 5, factors = 3, cpts = 6, fnames = c(&quot;Pressure&quot;, </span></span>
+<span id="cb3-59"><a href="#cb3-59" tabindex="-1"></a><span class="co">#&gt;     &quot;Temperature&quot;, &quot;EtOH&quot;), flims = list(hard = c(100, 345), </span></span>
+<span id="cb3-60"><a href="#cb3-60" tabindex="-1"></a><span class="co">#&gt;     hard = c(35, 75), c(2, 8)))</span></span>
+<span id="cb3-61"><a href="#cb3-61" tabindex="-1"></a>ccd[[<span class="st">&quot;description&quot;</span>]]</span>
+<span id="cb3-62"><a href="#cb3-62" tabindex="-1"></a><span class="co">#&gt; [1] &quot;A 5^3 CCC (CENTRAL COMPOSITE) OPTIMIZATION DESIGN WITH 6 STAR POINTS AND 6 CENTER POINTS FOR A TOTAL OF 20 RUNS&quot;</span></span></code></pre></div>
+<p>Any generated design can be exported via the <code>doe_export</code>
+function as shown below (<strong>code not run</strong>). Alternatively,
+designs can be exported directly during generation using the
+<code>export</code> argument.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">doe_export</span>(ccd, <span class="at">expath =</span> <span class="st">&quot;C:/&quot;</span>) <span class="co">#Hypothetical export path</span></span></code></pre></div>
+</div>
+<div id="rsm" class="section level3">
+<h3>Response Surface Methodology (RSM) and other models for DOE
+analysis</h3>
+<p>The key goal of SFE experimental design is process optimization,
+commonly achieved via Response Surface Methodology (RSM) which
+calculates both the interaction and quadratic terms and approximates the
+shape of the local response surface. Because a typical supercritical
+fluid extraction (SFE) rate almost always decreases along a single
+smooth curvature seen in a typical Overall Extraction Curve (OEC), RSM
+is especially suitable for SFE as it predicts a local response surface
+by a single 2nd-order (i.e. quadratic) polynomial function, thus failing
+to describe piece-wise smooth or jagged response trajectories in a
+single experiment.</p>
+<p>At least a 3-level design is required to estimate quadratic
+interactions. This requirement is <strong>not met</strong> by 2-level
+designs with center points, which are positioned within the experimental
+space such that all quadratic effects are aliased. Three-level FFDs are
+useful but are not rotatable and become prohibitive due to the large
+number of runs required for more than 3 factors. Instead, rotatable
+<strong>CCD</strong> or <strong>BBD</strong> designs are used, where
+response is dependent only on the distance of factor levels from the
+center of the experimental space (and not on direction); thus, points at
+an identical distance from the center of the experimental space exhibit
+the same prediction error/variance. A CCD embeds an FFD or FrFD with the
+mandatory addition of up to 6 center points, as well as 2×<em>k</em>
+star points α optionally exceeding both the lower and higher factor
+levels to establish new extremes.</p>
+<p>Let’s analyze CCF results with 6 center points and 3 factors:
+temperature, pressure, and ethanol co-solvent flow rate. The response is
+crude SFE extract yield from spearmint by <a href="https://doi.org/10.1007/s11947-010-0504-4">Bimakr and
+colleagues</a>. We specify a second-order (i.e. quadratic) model. While
+the initial model will be built using all possible main, interaction,
+and quadratic terms, all insignificant terms will subsequently be
+trimmed in the final model based on dual criteria in this case: a
+<em>p</em>-value cutoff of 0.10 and stepwise regression.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>doe_data <span class="ot">&lt;-</span> doex[[<span class="st">&quot;ccd3&quot;</span>]][[<span class="st">&quot;data&quot;</span>]]</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>analysis <span class="ot">&lt;-</span> <span class="fu">doe_analyze</span>(<span class="at">doe =</span> doe_data,</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>                        <span class="at">uc_facs =</span> <span class="fu">c</span>(<span class="st">&quot;P_bar&quot;</span>, <span class="st">&quot;T_degC&quot;</span>, <span class="st">&quot;EtOH_gmin&quot;</span>),</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>                        <span class="at">resp_var =</span> <span class="st">&quot;ExtYield&quot;</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>                        <span class="at">time_var =</span> <span class="st">&quot;Actual_Order&quot;</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>                        <span class="at">mod_order =</span> <span class="dv">2</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>                        <span class="at">p_cutoff =</span> <span class="fl">0.10</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>                        <span class="at">trim_method =</span> <span class="st">&quot;both&quot;</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a>                        <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a><span class="co">#&gt; Preparing data for model building...</span></span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a><span class="co">#&gt; Building initial model...</span></span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a><span class="co">#&gt; Carrying out Lack-of-Fit testing of the initial model...</span></span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a><span class="co">#&gt; Trimming insignificant factors from the initial model using methods: &#39;both&#39;...</span></span>
+<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a><span class="co">#&gt; Applying the Hierarchy Principle to the initial model...</span></span>
+<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a><span class="co">#&gt; Building final model...</span></span>
+<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a><span class="co">#&gt; Carrying out Lack-of-Fit testing of the final model...</span></span>
+<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a><span class="co">#&gt; Compiling summaries and plots for the initial and final models...</span></span>
+<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a><span class="co">#View the equation of the initial model</span></span>
+<span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a><span class="fu">cat</span>(analysis[[<span class="st">&quot;results&quot;</span>]][[<span class="st">&quot;initial&quot;</span>]][[<span class="st">&quot;Misc&quot;</span>]][[<span class="st">&quot;Equation&quot;</span>]][<span class="st">&quot;raw&quot;</span>])</span>
+<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a><span class="co">#&gt; 6.671 + 0.363*A + 0.524*B + 0.356*C - 1.364*A^2 - 0.196*A*B - 0.127*A*C - 0.485*B^2 - 0.097*B*C - 0.217*C^2</span></span>
+<span id="cb5-24"><a href="#cb5-24" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" tabindex="-1"></a><span class="co">#View the equation of the final (i.e. trimmed) model</span></span>
+<span id="cb5-26"><a href="#cb5-26" tabindex="-1"></a><span class="fu">cat</span>(analysis[[<span class="st">&quot;results&quot;</span>]][[<span class="st">&quot;final&quot;</span>]][[<span class="st">&quot;Misc&quot;</span>]][[<span class="st">&quot;Equation&quot;</span>]][<span class="st">&quot;raw&quot;</span>])</span>
+<span id="cb5-27"><a href="#cb5-27" tabindex="-1"></a><span class="co">#&gt; 6.671 + 0.363*A + 0.524*B + 0.356*C - 1.364*A^2 - 0.196*A*B - 0.127*A*C - 0.485*B^2 - 0.097*B*C - 0.217*C^2</span></span>
+<span id="cb5-28"><a href="#cb5-28" tabindex="-1"></a></span>
+<span id="cb5-29"><a href="#cb5-29" tabindex="-1"></a><span class="co">#Confirm that the initial model was not trimmed (equations are identical)</span></span>
+<span id="cb5-30"><a href="#cb5-30" tabindex="-1"></a><span class="fu">cat</span>(analysis[[<span class="st">&quot;statements&quot;</span>]][[<span class="st">&quot;Notrim&quot;</span>]])</span>
+<span id="cb5-31"><a href="#cb5-31" tabindex="-1"></a><span class="co">#&gt; The initial model was not truncated via either a p-value cutoff or stepwise regression.</span></span>
+<span id="cb5-32"><a href="#cb5-32" tabindex="-1"></a></span>
+<span id="cb5-33"><a href="#cb5-33" tabindex="-1"></a><span class="co">#View the p-values and other associated metrics for each term</span></span>
+<span id="cb5-34"><a href="#cb5-34" tabindex="-1"></a>analysis[[<span class="st">&quot;results&quot;</span>]][[<span class="st">&quot;final&quot;</span>]][[<span class="st">&quot;Model_Results&quot;</span>]]</span>
+<span id="cb5-35"><a href="#cb5-35" tabindex="-1"></a><span class="co">#&gt;         Term   Estimate Aliased Stnd_Error    t_value      p_value Signif_Level</span></span>
+<span id="cb5-36"><a href="#cb5-36" tabindex="-1"></a><span class="co">#&gt; 1  Intercept  6.6710364   FALSE 0.03964096 168.286456 1.348672e-18        0.999</span></span>
+<span id="cb5-37"><a href="#cb5-37" tabindex="-1"></a><span class="co">#&gt; 2          A  0.3630200   FALSE 0.03646438   9.955469 1.655899e-06        0.999</span></span>
+<span id="cb5-38"><a href="#cb5-38" tabindex="-1"></a><span class="co">#&gt; 3          B  0.5244300   FALSE 0.03646438  14.381981 5.234881e-08        0.999</span></span>
+<span id="cb5-39"><a href="#cb5-39" tabindex="-1"></a><span class="co">#&gt; 4          C  0.3560500   FALSE 0.03646438   9.764324 1.977068e-06        0.999</span></span>
+<span id="cb5-40"><a href="#cb5-40" tabindex="-1"></a><span class="co">#&gt; 5         AA -1.3643909   FALSE 0.06953484 -19.621688 2.586360e-09        0.999</span></span>
+<span id="cb5-41"><a href="#cb5-41" tabindex="-1"></a><span class="co">#&gt; 6         AB -0.1957375   FALSE 0.04076841  -4.801205 7.223225e-04        0.999</span></span>
+<span id="cb5-42"><a href="#cb5-42" tabindex="-1"></a><span class="co">#&gt; 7         AC -0.1268625   FALSE 0.04076841  -3.111784 1.102713e-02        0.950</span></span>
+<span id="cb5-43"><a href="#cb5-43" tabindex="-1"></a><span class="co">#&gt; 8         BB -0.4846409   FALSE 0.06953484  -6.969757 3.853838e-05        0.999</span></span>
+<span id="cb5-44"><a href="#cb5-44" tabindex="-1"></a><span class="co">#&gt; 9         BC -0.0966625   FALSE 0.04076841  -2.371014 3.920928e-02        0.950</span></span>
+<span id="cb5-45"><a href="#cb5-45" tabindex="-1"></a><span class="co">#&gt; 10        CC -0.2171409   FALSE 0.06953484  -3.122764 1.082294e-02        0.950</span></span>
+<span id="cb5-46"><a href="#cb5-46" tabindex="-1"></a><span class="co">#&gt;    Sum_Sq_ANOVA Mean_Sq_ANOVA F_value_ANOVA</span></span>
+<span id="cb5-47"><a href="#cb5-47" tabindex="-1"></a><span class="co">#&gt; 1    0.13296509    0.01329651            NA</span></span>
+<span id="cb5-48"><a href="#cb5-48" tabindex="-1"></a><span class="co">#&gt; 2    1.31783520    1.31783520     99.111372</span></span>
+<span id="cb5-49"><a href="#cb5-49" tabindex="-1"></a><span class="co">#&gt; 3    2.75026825    2.75026825    206.841385</span></span>
+<span id="cb5-50"><a href="#cb5-50" tabindex="-1"></a><span class="co">#&gt; 4    1.26771603    1.26771603     95.342023</span></span>
+<span id="cb5-51"><a href="#cb5-51" tabindex="-1"></a><span class="co">#&gt; 5   15.93933706   15.93933706   1198.761088</span></span>
+<span id="cb5-52"><a href="#cb5-52" tabindex="-1"></a><span class="co">#&gt; 6    0.30650535    0.30650535     23.051567</span></span>
+<span id="cb5-53"><a href="#cb5-53" tabindex="-1"></a><span class="co">#&gt; 7    0.12875275    0.12875275      9.683200</span></span>
+<span id="cb5-54"><a href="#cb5-54" tabindex="-1"></a><span class="co">#&gt; 8    1.02538826    1.02538826     77.117106</span></span>
+<span id="cb5-55"><a href="#cb5-55" tabindex="-1"></a><span class="co">#&gt; 9    0.07474911    0.07474911      5.621710</span></span>
+<span id="cb5-56"><a href="#cb5-56" tabindex="-1"></a><span class="co">#&gt; 10   0.12966298    0.12966298      9.751656</span></span>
+<span id="cb5-57"><a href="#cb5-57" tabindex="-1"></a></span>
+<span id="cb5-58"><a href="#cb5-58" tabindex="-1"></a><span class="co">#View the R2 and adjusted R2</span></span>
+<span id="cb5-59"><a href="#cb5-59" tabindex="-1"></a>analysis[[<span class="st">&quot;results&quot;</span>]][[<span class="st">&quot;final&quot;</span>]][[<span class="st">&quot;Model_Metrics&quot;</span>]][<span class="fu">c</span>(<span class="st">&quot;R2&quot;</span>, <span class="st">&quot;Adj_R2&quot;</span>)]</span>
+<span id="cb5-60"><a href="#cb5-60" tabindex="-1"></a><span class="co">#&gt; $R2</span></span>
+<span id="cb5-61"><a href="#cb5-61" tabindex="-1"></a><span class="co">#&gt; [1] 0.9942372</span></span>
+<span id="cb5-62"><a href="#cb5-62" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-63"><a href="#cb5-63" tabindex="-1"></a><span class="co">#&gt; $Adj_R2</span></span>
+<span id="cb5-64"><a href="#cb5-64" tabindex="-1"></a><span class="co">#&gt; [1] 0.9890508</span></span>
+<span id="cb5-65"><a href="#cb5-65" tabindex="-1"></a></span>
+<span id="cb5-66"><a href="#cb5-66" tabindex="-1"></a><span class="co">#View decoded canonical analysis results and eigen values/vectors</span></span>
+<span id="cb5-67"><a href="#cb5-67" tabindex="-1"></a>analysis[[<span class="st">&quot;results&quot;</span>]][[<span class="st">&quot;final&quot;</span>]][[<span class="st">&quot;Model_Metrics&quot;</span>]][[<span class="st">&quot;Canonical_Analysis&quot;</span>]][[<span class="st">&quot;xs_decoded&quot;</span>]]</span>
+<span id="cb5-68"><a href="#cb5-68" tabindex="-1"></a><span class="co">#&gt;          A          B          C </span></span>
+<span id="cb5-69"><a href="#cb5-69" tabindex="-1"></a><span class="co">#&gt; 206.774041  54.577433   8.094559</span></span></code></pre></div>
+<p>Canonical analysis results show optimal values of <strong>206.8
+bar</strong>, <strong>54.6 C</strong>, and <strong>8.1 % EtOH
+flow</strong>. From the results above, we see that the initial and final
+models are identical due to the excellent fit when using all possible
+terms (main, interaction, and quadratic). Rather appropriately, the
+<em>p</em>-values for all terms are low, while the Lack-of-Fit is
+insignificant with a <em>p</em>-value of 0.153. However, it is difficult
+to believe the model cannot provide similar performance with at least
+some simplification to improve applicability. Let us check the
+Lack-of-Fit test results, force the model to trim some terms by setting
+a lower <em>p</em>-value cutoff, and re-evaluating the lack of fit.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co">#Check Lack-of-Fit testing p-value</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>analysis[[<span class="st">&quot;results&quot;</span>]][[<span class="st">&quot;initial&quot;</span>]][[<span class="st">&quot;Model_Metrics&quot;</span>]][[<span class="st">&quot;LoF_Pvalue&quot;</span>]]</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="co">#&gt; [1] 0.1530463</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co">#Force model to trim some terms with a 0.005 p-value cutoff</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>analysis_new <span class="ot">&lt;-</span> <span class="fu">doe_analyze</span>(<span class="at">doe =</span> doe_data,</span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>                        <span class="at">uc_facs =</span> <span class="fu">c</span>(<span class="st">&quot;P_bar&quot;</span>, <span class="st">&quot;T_degC&quot;</span>, <span class="st">&quot;EtOH_gmin&quot;</span>),</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>                        <span class="at">resp_var =</span> <span class="st">&quot;ExtYield&quot;</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>                        <span class="at">time_var =</span> <span class="st">&quot;Actual_Order&quot;</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>                        <span class="at">mod_order =</span> <span class="dv">2</span>,</span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a>                        <span class="at">p_cutoff =</span> <span class="fl">0.005</span>,</span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a>                        <span class="at">trim_method =</span> <span class="st">&quot;both&quot;</span>,</span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a>                        <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a><span class="co">#&gt; Preparing data for model building...</span></span>
+<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a><span class="co">#&gt; Building initial model...</span></span>
+<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a><span class="co">#&gt; Carrying out Lack-of-Fit testing of the initial model...</span></span>
+<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a><span class="co">#&gt; Trimming insignificant factors from the initial model using methods: &#39;both&#39;...</span></span>
+<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a><span class="co">#&gt; Applying the Hierarchy Principle to the initial model...</span></span>
+<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a><span class="co">#&gt; Building final model...</span></span>
+<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a><span class="co">#&gt; Carrying out Lack-of-Fit testing of the final model...</span></span>
+<span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a><span class="co">#&gt; Compiling summaries and plots for the initial and final models...</span></span>
+<span id="cb6-23"><a href="#cb6-23" tabindex="-1"></a></span>
+<span id="cb6-24"><a href="#cb6-24" tabindex="-1"></a><span class="co">#Check which factors were removed</span></span>
+<span id="cb6-25"><a href="#cb6-25" tabindex="-1"></a><span class="fu">cat</span>(analysis_new<span class="sc">$</span>statements[<span class="st">&quot;p_cutoff&quot;</span>])</span>
+<span id="cb6-26"><a href="#cb6-26" tabindex="-1"></a><span class="co">#&gt; A p-value cutoff removed 3 factors from the initial model: AC, BC, CC.</span></span>
+<span id="cb6-27"><a href="#cb6-27" tabindex="-1"></a></span>
+<span id="cb6-28"><a href="#cb6-28" tabindex="-1"></a><span class="co">#Check the new Lack-of-Fit</span></span>
+<span id="cb6-29"><a href="#cb6-29" tabindex="-1"></a>analysis_new[[<span class="st">&quot;results&quot;</span>]][[<span class="st">&quot;final&quot;</span>]][[<span class="st">&quot;Model_Metrics&quot;</span>]][[<span class="st">&quot;LoF_Pvalue&quot;</span>]]</span>
+<span id="cb6-30"><a href="#cb6-30" tabindex="-1"></a><span class="co">#&gt; [1] 0.02059133</span></span></code></pre></div>
+<p>We see that the Lack-of-Fit is now significant despite only removing
+3 terms from the model, two of which are interaction terms. In this
+case, rather surprisingly, it appears that keeping all terms in the
+quadratic model is justified and trimming is indeed not appropriate.</p>
+<p>Using the full-featured model, we can predict extraction yield for
+new values of pressure, temperature, and EtOH flow as shown below.
+Remember that new data has to be named appropriately.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co">#Using a single set of values (provided as a vector)</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>preds <span class="ot">&lt;-</span> <span class="fu">predict_doe</span>(analysis, <span class="at">newdata =</span> <span class="fu">c</span>(<span class="at">P_bar =</span> <span class="dv">200</span>, <span class="at">T_degC =</span> <span class="dv">50</span>, <span class="at">EtOH_gmin =</span> <span class="dv">5</span>), <span class="at">coded =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="co">#&gt; Predicting values...</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="co">#&gt; DONE!</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="co">#Using multiple sets of values (as a data.frame)</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>preds_multiple <span class="ot">&lt;-</span> <span class="fu">predict_doe</span>(analysis, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">P_bar =</span> <span class="fu">c</span>(<span class="dv">150</span>, <span class="dv">200</span>, <span class="dv">250</span>, <span class="dv">300</span>), <span class="at">T_degC =</span> <span class="fu">c</span>(<span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">45</span>, <span class="dv">40</span>), <span class="at">EtOH_gmin =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">4</span>)), <span class="at">coded =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="co">#&gt; Predicting values...</span></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="co">#&gt; DONE!</span></span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a><span class="co">#View predictions of the final model</span></span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a>preds_multiple[[<span class="st">&quot;summary&quot;</span>]][[<span class="st">&quot;final&quot;</span>]]</span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a><span class="co">#&gt;      A    B          C P_bar T_degC EtOH_gmin ExtYield</span></span>
+<span id="cb7-16"><a href="#cb7-16" tabindex="-1"></a><span class="co">#&gt; 1 -0.5 -1.0 -2.0000000   150     40         0 3.140638</span></span>
+<span id="cb7-17"><a href="#cb7-17" tabindex="-1"></a><span class="co">#&gt; 2  0.0  0.0 -0.3333333   200     50         5 6.528226</span></span>
+<span id="cb7-18"><a href="#cb7-18" tabindex="-1"></a><span class="co">#&gt; 3  0.5 -0.5  1.3333333   250     45        10 6.245580</span></span>
+<span id="cb7-19"><a href="#cb7-19" tabindex="-1"></a><span class="co">#&gt; 4  1.0 -1.0 -0.6666667   300     40         4 4.542592</span></span></code></pre></div>
+</div>
+<div id="desir" class="section level3">
+<h3>Combining models into Desirability Functions (DF)</h3>
+<p>All examples thus far have dealt with modeling a <strong>single
+response</strong>. What if we want to determine optimum parameters for
+more than one response, and assign weights to each response based on
+their practical importance? For this, <strong>supeRcrit</strong>
+includes <a href="https://doi.org/10.1080/00224065.1980.11980968">Desirability
+Functions (DF)</a>, a more recent review of which may be found in <a href="http://dx.doi.org/10.7769/gesec.v14i1.1536">Cardoso et
+al. (2023)</a>. Our implementation borrows generously from the <a href="https://doi.org/10.32614/CRAN.package.desirability2">desirability2</a>
+package by Max Kuhn. All cited sources are excellent sources of the
+fundamentals.</p>
+<p>For this example, we will first retrieve three separate
+single-response RSM models. The data and results are taken from <a href="https://doi.org/10.3390/plants8010016">Pavic et al. (2019)</a>,
+who carried out extraction of phenolic antioxidants from Dalmatian sage.
+There are three responses: extract yield (%), carnosic acid content (per
+mille extract), carnosol content (per mille extract). The design used is
+a BBD with 3 center points and 3 factors: Pressure (MPa), Temperature
+(C), and CO<sub>2</sub> flow rate (kg/h).</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="co">#Retrievve RSM models</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>doe_lst1 <span class="ot">&lt;-</span> <span class="fu">load_internal</span>(<span class="st">&quot;doe_lst1&quot;</span>)</span></code></pre></div>
+<p>Next, we build a DF using all three models while specifying the lower
+and upper limits to be (beyond which optimization is not attempted), the
+same limits for factors. Our objective is to maximize all three
+responses with equal weighing. We also specify that the data provided is
+uncoded, and process only the final (i.e. trimmed) models.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="co">#Calculate the desirability function that maximizes 3 responses</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>desires <span class="ot">&lt;-</span> <span class="fu">doe_desir</span>(<span class="at">mods =</span> doe_lst1,</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>                     <span class="at">dsrng =</span> <span class="fu">list</span>(<span class="at">CarnosicAcid_mgg =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">150</span>), <span class="at">Carnosol_mgg =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">65</span>), <span class="at">ExtYield =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">7</span>)),</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>                     <span class="at">frng =</span> <span class="fu">list</span>(<span class="at">B =</span> <span class="fu">c</span>(<span class="dv">40</span>,<span class="dv">60</span>), <span class="at">A =</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">30</span>), <span class="at">C =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)),</span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>                     <span class="at">obj =</span> <span class="fu">c</span>(<span class="st">&quot;max&quot;</span>, <span class="st">&quot;max&quot;</span>, <span class="st">&quot;max&quot;</span>),</span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>                     <span class="at">dtype =</span> <span class="st">&quot;uncoded&quot;</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>                     <span class="at">modbase =</span> <span class="st">&quot;final&quot;</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>                     <span class="at">spts =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">10</span>),</span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a>                     <span class="at">silent =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a><span class="co">#View the overall results (all unique solutions found by the optimization algorithm)</span></span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a>desires[[<span class="st">&quot;unique_solutions&quot;</span>]] <span class="sc">%&gt;%</span> </span>
+<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a> <span class="fu">mutate_if</span>(is.numeric, round, <span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb9-15"><a href="#cb9-15" tabindex="-1"></a><span class="co">#&gt;      type str_A str_B str_C str_P_MPa str_T_degC str_Flow_kgh     A     B     C</span></span>
+<span id="cb9-16"><a href="#cb9-16" tabindex="-1"></a><span class="co">#&gt; 30 design -1.00 -1.00  1.00     10.00      40.00         3.00  0.70 -1.00  1.00</span></span>
+<span id="cb9-17"><a href="#cb9-17" tabindex="-1"></a><span class="co">#&gt; 16 random -0.97  0.31 -0.72     10.28      53.07         1.28 -0.97  0.31 -0.72</span></span>
+<span id="cb9-18"><a href="#cb9-18" tabindex="-1"></a><span class="co">#&gt;    P_MPa T_degC Flow_kgh ExtYield CarnosicAcid_mgg Carnosol_mgg di_ExtYield</span></span>
+<span id="cb9-19"><a href="#cb9-19" tabindex="-1"></a><span class="co">#&gt; 30 27.04  40.00     3.00     6.12           118.40        57.14        0.85</span></span>
+<span id="cb9-20"><a href="#cb9-20" tabindex="-1"></a><span class="co">#&gt; 16 10.28  53.07     1.28     0.37             1.64         4.85        0.00</span></span>
+<span id="cb9-21"><a href="#cb9-21" tabindex="-1"></a><span class="co">#&gt;    di_CarnosicAcid_mgg di_Carnosol_mgg   DO</span></span>
+<span id="cb9-22"><a href="#cb9-22" tabindex="-1"></a><span class="co">#&gt; 30                0.79            0.88 0.84</span></span>
+<span id="cb9-23"><a href="#cb9-23" tabindex="-1"></a><span class="co">#&gt; 16                0.01            0.07 0.00</span></span></code></pre></div>
+<p>The information above shows that two unique solutions were obtained
+from a total of 30 optimization trials (which can be viewed in the
+<code>$output_data</code> element). These solutions result in an Overall
+Desirability (DO) of 0.84 and 0.69, of which the former solution
+recommends pressure, temperature, and CO<sub>2</sub> flow of 27.04 MPa,
+40 C, and 3 kg/h, respectively.</p>
+</div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

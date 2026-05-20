@@ -1,0 +1,314 @@
+{
+  "translation": [
+   {
+      "en": "Method",
+      "ru": "Метод",
+      "tr": "Yöntem"
+    },
+    {
+      "en": "Method: ",
+      "ru": "Метод: ",
+      "tr": "Yöntem: "
+    },
+    {
+      "en": "Fraction",
+      "ru": "Фракция",
+      "tr": "Fraksiyon"
+    },
+    {
+      "en": "Critical Temperature (K)",
+      "ru": "Критическая температура (K)",
+      "tr": "Kritik Sıcaklık (K)"
+    },
+    {
+      "en": "Critical Pressure (MPa)",
+      "ru": "Критическое давление (МПа)",
+      "tr": "Kritik Basınç (MPa)"
+    },
+    {
+      "en": "Experimental",
+      "ru": "Экспериментальный",
+      "tr": "Deneysel"
+    },
+    {
+      "en": "Solvent",
+      "ru": "Растворитель",
+      "tr": "Çözücü"
+    },
+    {
+      "en": "Solvent Name",
+      "ru": "Название растворителя",
+      "tr": "Çözücü Adı"
+    },
+    {
+      "en": "Abbr.",
+      "ru": "Сокр.",
+      "tr": "Kısa"
+    },
+    {
+      "en": "Abbreviation for function arguments",
+      "ru": "Сокращение для аргументов функции",
+      "tr": "Fonksiyon argümanları için kısaltma"
+    },
+    {
+      "en": "CAS",
+      "ru": "CAS",
+      "tr": "CAS"
+    },
+    {
+      "en": "CAS Number",
+      "ru": "Номер CAS",
+      "tr": "CAS Numarası"
+    },
+    {
+      "en": "MW",
+      "ru": "ММ",
+      "tr": "MA"
+    },
+    {
+      "en": "Molecular Weight (g/mol)",
+      "ru": "Молекулярная масса (г/моль)",
+      "tr": "Moleküler Ağırlık (g/mol)"
+    },
+    {
+      "en": "MV",
+      "ru": "МО",
+      "tr": "MH"
+    },
+    {
+      "en": "Molar Volume (mL/mol)",
+      "ru": "Молярный объем (мл/моль)",
+      "tr": "Molar Hacim (mL/mol)"
+    },
+    {
+      "en": "ρ",
+      "ru": "ρ",
+      "tr": "ρ"
+    },
+    {
+      "en": "Density (g/mL)",
+      "ru": "Плотность (г/мл)",
+      "tr": "Yoğunluk (g/mL)"
+    },
+    {
+      "en": "δD",
+      "ru": "δD",
+      "tr": "δD"
+    },
+    {
+      "en": "Hansen Parameter: Dispersion",
+      "ru": "Параметр Хансена: Дисперсия",
+      "tr": "Hansen Parametresi: Dispersiyon"
+    },
+    {
+      "en": "δP",
+      "ru": "δP",
+      "tr": "δP"
+    },
+    {
+      "en": "Hansen Parameter: Polar",
+      "ru": "Параметр Хансена: Полярность",
+      "tr": "Hansen Parametresi: Polar"
+    },
+    {
+      "en": "δH",
+      "ru": "δH",
+      "tr": "δH"
+    },
+    {
+      "en": "Hansen Parameter: Hydrogen Bonding",
+      "ru": "Параметр Хансена: Водородная связь",
+      "tr": "Hansen Parametresi: Hidrojen Bağı"
+    },
+    {
+      "en": "Tb",
+      "ru": "Tb",
+      "tr": "Tb"
+    },
+    {
+      "en": "Boiling Point (K)",
+      "ru": "Температура кипения (K)",
+      "tr": "Kaynama Noktası (K)"
+    },
+    {
+      "en": "Ttp",
+      "ru": "Ttp",
+      "tr": "Ttp"
+    },
+    {
+      "en": "Triple Point (K)",
+      "ru": "Тройная точка (K)",
+      "tr": "Üçlü Nokta (K)"
+    },
+    {
+      "en": "Tc",
+      "ru": "Tc",
+      "tr": "Tc"
+    },
+    {
+      "en": "Critical Temperature (K)",
+      "ru": "Критическая температура (K)",
+      "tr": "Kritik Sıcaklık (K)"
+    },
+    {
+      "en": "Pc",
+      "ru": "Pc",
+      "tr": "Pc"
+    },
+    {
+      "en": "Critical Pressure (MPa)",
+      "ru": "Критическое давление (МПа)",
+      "tr": "Kritik Basınç (MPa)"
+    },
+    {
+      "en": "Vc",
+      "ru": "Vc",
+      "tr": "Vc"
+    },
+    {
+      "en": "Critical Volume (L/mol)",
+      "ru": "Критический объем (л/моль)",
+      "tr": "Kritik Hacim (L/mol)"
+    },
+    {
+      "en": "ρc",
+      "ru": "ρc",
+      "tr": "ρc"
+    },
+    {
+      "en": "Critical Density (mol/L)",
+      "ru": "Критическая плотность (моль/л)",
+      "tr": "Kritik Yoğunluk (mol/L)"
+    },
+    {
+      "en": "ω",
+      "ru": "ω",
+      "tr": "ω"
+    },
+    {
+      "en": "Acentric Factor",
+      "ru": "Ацентрический фактор",
+      "tr": "Asentrik Faktör"
+    },
+    {
+      "en": "Group Contribution Method",
+      "ru": "Метод групповых вкладов",
+      "tr": "Grup Katkısı Yöntemi"
+    },
+    {
+      "en": "Order",
+      "ru": "Порядок",
+      "tr": "Sıra"
+    },
+    {
+      "en": "Method Order",
+      "ru": "Порядок метода",
+      "tr": "Yöntem Sırası"
+    },
+    {
+      "en": "Boiling Point",
+      "ru": "Температура кипения",
+      "tr": "Kaynama Noktası"
+    },
+    {
+      "en": "Critical Temperature",
+      "ru": "Критическая температура",
+      "tr": "Kritik Sıcaklık"
+    },
+    {
+      "en": "Critical Pressure",
+      "ru": "Критическое давление",
+      "tr": "Kritik Basınç"
+    },
+    {
+      "en": "Critical Volume",
+      "ru": "Критический объем",
+      "tr": "Kritik Hacim"
+    },
+    {
+      "en": "Dispersion Parameter",
+      "ru": "Параметр дисперсии",
+      "tr": "Dispersiyon Parametresi"
+    },
+    {
+      "en": "Polar Parameter",
+      "ru": "Полярный параметр",
+      "tr": "Polar Parametre"
+    },
+    {
+      "en": "H-Bonding Parameter",
+      "ru": "Параметр водородной связи",
+      "tr": "H-Bağı Parametresi"
+    },
+    {
+      "en": "δP(low)",
+      "ru": "δP(низ)",
+      "tr": "δP(düşük)"
+    },
+    {
+      "en": "Low Polar Parameter",
+      "ru": "Низкий полярный параметр",
+      "tr": "Düşük Polar Parametre"
+    },
+    {
+      "en": "δH(low)",
+      "ru": "δH(низ)",
+      "tr": "δH(düşük)"
+    },
+    {
+      "en": "Low H-Bonding Parameter",
+      "ru": "Низкий параметр H-связи",
+      "tr": "Düşük H-Bağı Parametresi"
+    },
+    {
+      "en": "VDW",
+      "ru": "VDW",
+      "tr": "VDW"
+    },
+    {
+      "en": "Van der Waals Volume",
+      "ru": "Объем Ван-дер-Ваальса",
+      "tr": "Van der Waals Hacmi"
+    },
+    {
+      "en": "AVDW",
+      "ru": "AVDW",
+      "tr": "AVDW"
+    },
+    {
+      "en": "Van der Waals Area",
+      "ru": "Площадь Ван-дер-Ваальса",
+      "tr": "Van der Waals Alanı"
+    },
+    {
+      "en": "Vm",
+      "ru": "Vm",
+      "tr": "Vm"
+    },
+    {
+      "en": "Molar Volume",
+      "ru": "Молярный объем",
+      "tr": "Molar Hacim"
+    },
+    {
+      "en": "Critical Temperature Plot",
+      "ru": "График критической температуры",
+      "tr": "Kritik Sıcaklık Grafiği"
+    },
+    {
+      "en": "Critical Pressure Plot",
+      "ru": "График критического давления",
+      "tr": "Kritik Basınç Grafiği"
+    },
+    {
+      "en": "Data Table",
+      "ru": "Таблица данных",
+      "tr": "Veri Tablosu"
+    },
+    {
+      "en": "CO₂ mole fraction",
+      "ru": "CO₂ мольная доля",
+      "tr": "CO₂ mol fraksiyonu"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+/* Disabled tab styling */
+.nav-tabs > li.disabled > a,
+.nav-tabs-custom > .nav-tabs > li.disabled > a {
+  color: #999 !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+  background-color: #f5f5f5 !important;
+  border-color: #ddd !important;
+  opacity: 0.6;
+}
+
+.nav-tabs > li.disabled > a:hover,
+.nav-tabs-custom > .nav-tabs > li.disabled > a:hover {
+  color: #999 !important;
+  background-color: #f5f5f5 !important;
+  border-color: #ddd !important;
+}
+
+/* Ensure disabled tabs don't show active styling */
+.nav-tabs > li.disabled.active > a,
+.nav-tabs-custom > .nav-tabs > li.disabled.active > a {
+  color: #999 !important;
+  background-color: #f5f5f5 !important;
+  border-color: #ddd !important;
+}

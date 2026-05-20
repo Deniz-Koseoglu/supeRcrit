@@ -1,0 +1,484 @@
+{
+  "translation": [
+    {
+      "en": "Stepwise",
+      "ru": "Пошаговый",
+      "tr": "Adım Adım"
+    },
+    {
+      "en": "Statistic",
+      "ru": "Статистика",
+      "tr": "İstatistik"
+    },
+    {
+      "en": "Value",
+      "ru": "Значение",
+      "tr": "Değer"
+    },
+    {
+      "en": "Type",
+      "ru": "Тип",
+      "tr": "Tür"
+    },
+    {
+      "en": "Parameter",
+      "ru": "Параметр",
+      "tr": "Parametre"
+    },
+    {
+      "en": "Units",
+      "ru": "Единицы",
+      "tr": "Birimler"
+    },
+    {
+      "en": "Description",
+      "ru": "Описание",
+      "tr": "Açıklama"
+    },
+    {
+      "en": "input",
+      "ru": "входной",
+      "tr": "girdi"
+    },
+    {
+      "en": "adjustable",
+      "ru": "регулируемый",
+      "tr": "ayarlanabilir"
+    },
+    {
+      "en": "output",
+      "ru": "выходной",
+      "tr": "çıktı"
+    },
+    {
+      "en": "Extraction pressure (bar)",
+      "ru": "Давление экстракции (бар)",
+      "tr": "Ekstraksiyon basıncı (bar)"
+    },
+    {
+      "en": "Extraction temperature (degC)",
+      "ru": "Температура экстракции (°C)",
+      "tr": "Ekstraksiyon sıcaklığı (°C)"
+    },
+    {
+      "en": "Solvent flow rate (mass or volumetric; kg/s in 'bicmod' output)",
+      "ru": "Расход растворителя (массовый или объемный; кг/с в выходе 'bicmod')",
+      "tr": "Çözücü akış hızı (kütlesel veya hacimsel; 'bicmod' çıktısında kg/s)"
+    },
+    {
+      "en": "Bed porosity (dimensionless)",
+      "ru": "Пористость слоя (безразмерная)",
+      "tr": "Yatak porozitesi (boyutsuz)"
+    },
+    {
+      "en": "Number of experimental data points",
+      "ru": "Количество экспериментальных точек данных",
+      "tr": "Deneysel veri noktası sayısı"
+    },
+    {
+      "en": "Mass of wet sample (g)",
+      "ru": "Масса влажного образца (г)",
+      "tr": "Yaş numune kütlesi (g)"
+    },
+    {
+      "en": "Moisture content (%)",
+      "ru": "Содержание влаги (%)",
+      "tr": "Nem içeriği (%)"
+    },
+    {
+      "en": "Total dry mass (solute + insoluble material)",
+      "ru": "Общая сухая масса (растворенное вещество + нерастворимый материал)",
+      "tr": "Toplam kuru kütle (çözünen + çözünmeyen madde)"
+    },
+    {
+      "en": "Extraction vessel diameter (m)",
+      "ru": "Диаметр экстракционного сосуда (м)",
+      "tr": "Ekstraksiyon kabı çapı (m)"
+    },
+    {
+      "en": "Extraction vessel height (m)",
+      "ru": "Высота экстракционного сосуда (м)",
+      "tr": "Ekstraksiyon kabı yüksekliği (m)"
+    },
+    {
+      "en": "Apparent density of raw material (g/L)",
+      "ru": "Кажущаяся плотность сырья (г/л)",
+      "tr": "Hammaddenin görünür yoğunluğu (g/L)"
+    },
+    {
+      "en": "Real density of raw material (g/L)",
+      "ru": "Реальная плотность сырья (г/л)",
+      "tr": "Hammaddenin gerçek yoğunluğu (g/L)"
+    },
+    {
+      "en": "Average particle diameter (m)",
+      "ru": "Средний диаметр частиц (м)",
+      "tr": "Ortalama partikül çapı (m)"
+    },
+    {
+      "en": "Specific area per unit volume of extraction bed (1/m)",
+      "ru": "Удельная площадь на единицу объема экстракционного слоя (1/м)",
+      "tr": "Ekstraksiyon yatağının birim hacmi başına özgül alan (1/m)"
+    },
+    {
+      "en": "Solvent density under standard conditions (g/L)",
+      "ru": "Плотность растворителя при стандартных условиях (г/л)",
+      "tr": "Standart koşullarda çözücü yoğunluğu (g/L)"
+    },
+    {
+      "en": "EtOH co-solvent flow rate (mL/min, if any)",
+      "ru": "Расход сорастворителя EtOH (мл/мин, если есть)",
+      "tr": "EtOH yardımcı çözücü akış hızı (mL/dk, varsa)"
+    },
+    {
+      "en": "Asymptotic extraction yield at infinite time",
+      "ru": "Асимптотический выход экстракции при бесконечном времени",
+      "tr": "Sonsuz zamanda asimptotik ekstraksiyon verimi"
+    },
+    {
+      "en": "Period corresponding to the end of the CER",
+      "ru": "Период, соответствующий концу CER",
+      "tr": "CER'nin sonuna karşılık gelen periyot"
+    },
+    {
+      "en": "Mass of insoluble material (g)",
+      "ru": "Масса нерастворимого материала (г)",
+      "tr": "Çözünmeyen madde kütlesi (g)"
+    },
+    {
+      "en": "Ratio (concentration) of solute to insoluble material (kg/kg)",
+      "ru": "Соотношение (концентрация) растворенного вещества к нерастворимому материалу (кг/кг)",
+      "tr": "Çözünen maddenin çözünmeyen maddeye oranı (konsantrasyonu) (kg/kg)"
+    },
+    {
+      "en": "CO₂/insoluble solid ratio in the extraction bed",
+      "ru": "Соотношение CO₂/нерастворимое твердое вещество в экстракционном слое",
+      "tr": "Ekstraksiyon yatağında CO₂/çözünmeyen katı oranı"
+    },
+    {
+      "en": "Apparent solubility in the CER (fraction)",
+      "ru": "Кажущаяся растворимость в CER (дробь)",
+      "tr": "CER'de görünür çözünürlük (kesir)"
+    },
+    {
+      "en": "Extraction time of the FER (i.e. solid mass transfer, min)",
+      "ru": "Время экстракции FER (т.е. массоперенос твердой фазы, мин)",
+      "tr": "FER'in ekstraksiyon süresi (yani katı kütle transferi, dk)"
+    },
+    {
+      "en": "Initial fraction of solute in open (broken) cells",
+      "ru": "Начальная доля растворенного вещества в открытых (разрушенных) клетках",
+      "tr": "Açık (kırılmış) hücrelerdeki çözünen maddenin başlangıç kesri"
+    },
+    {
+      "en": "Extraction time at the end of the CER",
+      "ru": "Время экстракции в конце CER",
+      "tr": "CER'nin sonundaki ekstraksiyon süresi"
+    },
+    {
+      "en": "External material (mass) transport resistance",
+      "ru": "Сопротивление внешнего массопереноса",
+      "tr": "Dış madde (kütle) transfer direnci"
+    },
+    {
+      "en": "Fluid phase mass transfer coefficient (1/s)",
+      "ru": "Коэффициент массопереноса в жидкой фазе (1/с)",
+      "tr": "Akışkan faz kütle transfer katsayısı (1/s)"
+    },
+    {
+      "en": "Product of kf and a0 (1/m/s)",
+      "ru": "Произведение kf и a0 (1/м/с)",
+      "tr": "kf ve a0'ın çarpımı (1/m/s)"
+    },
+    {
+      "en": "Grinding efficiency (fraction of broken cells)",
+      "ru": "Эффективность измельчения (доля разрушенных клеток)",
+      "tr": "Öğütme verimliliği (kırılmış hücrelerin oranı)"
+    },
+    {
+      "en": "Solid phase mass transfer coefficient (1/s)",
+      "ru": "Коэффициент массопереноса в твердой фазе (1/с)",
+      "tr": "Katı faz kütle transfer katsayısı (1/s)"
+    },
+    {
+      "en": "Specific area between intact and broken cells (1/m)",
+      "ru": "Удельная площадь между неповрежденными и разрушенными клетками (1/м)",
+      "tr": "Sağlam ve kırık hücreler arasındaki özgül alan (1/m)"
+    },
+    {
+      "en": "Product of ks and as (1/m/s)",
+      "ru": "Произведение ks и as (1/м/с)",
+      "tr": "ks ve as'ın çarpımı (1/m/s)"
+    },
+    {
+      "en": "Solvent passed at the end of the CER (kg/kg of insolubles)",
+      "ru": "Растворитель, прошедший в конце CER (кг/кг нерастворимых веществ)",
+      "tr": "CER'nin sonunda geçen çözücü (kg/kg çözünmeyenler)"
+    },
+    {
+      "en": "Internal material (mass) transport resistance",
+      "ru": "Сопротивление внутреннего массопереноса",
+      "tr": "İç madde (kütle) transfer direnci"
+    },
+    {
+      "en": "Coefficient",
+      "ru": "Коэффициент",
+      "tr": "Katsayı"
+    },
+    {
+      "en": "Solvent passed at the end of the FER (kg/kg of insolubles)",
+      "ru": "Растворитель, прошедший в конце FER (кг/кг нерастворимых веществ)",
+      "tr": "FER'nin sonunda geçen çözücü (kg/kg çözünmeyenler)"
+    },
+    {
+      "en": "Relative amount of passed solvent (kg/kg insoluble solid)",
+      "ru": "Относительное количество прошедшего растворителя (кг/кг нерастворимого твердого вещества)",
+      "tr": "Geçen çözücünün göreceli miktarı (kg/kg çözünmeyen katı)"
+    },
+    {
+      "en": "Fractional yield (g/g insoluble solid)",
+      "ru": "Фракционный выход (г/г нерастворимого твердого вещества)",
+      "tr": "Kesirli verim (g/g çözünmeyen katı)"
+    },
+    {
+      "en": "Fractional yield (g/g total dry solid)",
+      "ru": "Фракционный выход (г/г общего сухого твердого вещества)",
+      "tr": "Kesirli verim (g/g toplam kuru katı)"
+    },
+    {
+      "en": "Constant C₁",
+      "ru": "Константа C₁",
+      "tr": "Sabit C₁"
+    },
+    {
+      "en": "Constant C₂",
+      "ru": "Константа C₂",
+      "tr": "Sabit C₂"
+    },
+    {
+      "en": "Solid phase mass transfer coefficient × specific area (1/m/s)",
+      "ru": "Коэффициент массопереноса в твердой фазе × удельная площадь (1/м/с)",
+      "tr": "Katı faz kütle transfer katsayısı × özgül alan (1/m/s)"
+    },
+    {
+      "en": "Relative amount of solvent expended at end of CER",
+      "ru": "Относительное количество израсходованного растворителя в конце CER",
+      "tr": "CER sonunda harcanan çözücünün göreceli miktarı"
+    },
+    {
+      "en": "External mass transfer coefficient",
+      "ru": "Внешний коэффициент массопереноса",
+      "tr": "Dış kütle transfer katsayısı"
+    },
+    {
+      "en": "Extraction duration of FER (min)",
+      "ru": "Продолжительность экстракции FER (мин)",
+      "tr": "FER'in ekstraksiyon süresi (dk)"
+    },
+    {
+      "en": "Fluid phase mass transfer coefficient",
+      "ru": "Коэффициент массопереноса в жидкой фазе",
+      "tr": "Akışkan faz kütle transfer katsayısı"
+    },
+    {
+      "en": "Constant related to maximum extractable material fraction",
+      "ru": "Константа, связанная с максимальной фракцией извлекаемого материала",
+      "tr": "Maksimum ekstrakte edilebilir madde kesri ile ilgili sabit"
+    },
+    {
+      "en": "Extraction time/duration of FER",
+      "ru": "Время/продолжительность экстракции FER",
+      "tr": "FER'in ekstraksiyon süresi"
+    },
+    {
+      "en": "Yield at end of CER (g/g total dry solid)",
+      "ru": "Выход в конце CER (г/г общего сухого твердого вещества)",
+      "tr": "CER sonundaki verim (g/g toplam kuru katı)"
+    },
+    {
+      "en": "Extraction time/duration of FER (min)",
+      "ru": "Время/продолжительность экстракции FER (мин)",
+      "tr": "FER'in ekstraksiyon süresi (dk)"
+    },
+    {
+      "en": "Characteristic time for CER (min)",
+      "ru": "Характеристическое время для CER (мин)",
+      "tr": "CER için karakteristik zaman (dk)"
+    },
+    {
+      "en": "Characteristic time for DC region (min)",
+      "ru": "Характеристическое время для области DC (мин)",
+      "tr": "DC bölgesi için karakteristik zaman (dk)"
+    },
+    {
+      "en": "FER for 3-period model",
+      "ru": "FER для 3-периодной модели",
+      "tr": "3-dönem modeli için FER"
+    },
+    {
+      "en": "DC for 2-period model",
+      "ru": "DC для 2-периодной модели",
+      "tr": "2-dönem modeli için DC"
+    },
+    {
+      "en": "Coefficient β",
+      "ru": "Коэффициент β",
+      "tr": "Katsayı β"
+    },
+    {
+      "en": "Fluid mass transfer coefficient (1/s)",
+      "ru": "Коэффициент массопереноса жидкости (1/с)",
+      "tr": "Akışkan kütle transfer katsayısı (1/s)"
+    },
+    {
+      "en": "Solvent consumption at end of FER for 3-period model",
+      "ru": "Расход растворителя в конце FER для 3-периодной модели",
+      "tr": "3-dönem modeli için FER sonundaki çözücü tüketimi"
+    },
+    {
+      "en": "Solvent consumption for 2-period DC model",
+      "ru": "Расход растворителя для 2-периодной модели DC",
+      "tr": "2-dönem DC modeli için çözücü tüketimi"
+    },
+    {
+      "en": "Time",
+      "ru": "Время",
+      "tr": "Zaman"
+    },
+    {
+      "en": "S/M Ratio",
+      "ru": "Соотношение Р/М",
+      "tr": "Ç/M Oranı"
+    },
+    {
+      "en": "Observed Yield",
+      "ru": "Наблюдаемый выход",
+      "tr": "Gözlenen Verim"
+    },
+    {
+      "en": "Predicted Yield",
+      "ru": "Прогнозируемый выход",
+      "tr": "Tahmin Edilen Verim"
+    },
+    {
+      "en": "Predicted Yield (3-Period)",
+      "ru": "Прогнозируемый выход (3-периодный)",
+      "tr": "Tahmin Edilen Verim (3-Dönem)"
+    },
+    {
+      "en": "Predicted Yield (2-Period)",
+      "ru": "Прогнозируемый выход (2-периодный)",
+      "tr": "Tahmin Edilen Verim (2-Dönem)"
+    },
+    {
+      "en": "Model",
+      "ru": "Модель",
+      "tr": "Model"
+    },
+    {
+      "en": "Period",
+      "ru": "Период",
+      "tr": "Periyot"
+    },
+    {
+      "en": "sim",
+      "ru": "sim",
+      "tr": "sim"
+    },
+    {
+      "en": "ct",
+      "ru": "ct",
+      "tr": "ct"
+    },
+    {
+      "en": "cmp",
+      "ru": "cmp",
+      "tr": "cmp"
+    },
+    {
+      "en": "cmp2",
+      "ru": "cmp2",
+      "tr": "cmp2"
+    },
+    {
+      "en": "cmp3",
+      "ru": "cmp3",
+      "tr": "cmp3"
+    },
+    {
+      "en": "cer",
+      "ru": "СЭС",
+      "tr": "SES"
+    },
+    {
+      "en": "dc",
+      "ru": "ДК",
+      "tr": "DK"
+    },
+    {
+      "en": "fer",
+      "ru": "СПС",
+      "tr": "DES"
+    },
+    {
+      "en": "Time (min)",
+      "ru": "Время (мин)",
+      "tr": "Zaman (dk)"
+    },
+    {
+      "en": "Solvent/Material Ratio (kg/kg)",
+      "ru": "Соотношение растворитель/материал (кг/кг)",
+      "tr": "Çözücü/Madde Oranı (kg/kg)"
+    },
+    {
+      "en": "Fractional Yield (g/g)",
+      "ru": "Фракционный выход (г/г)",
+      "tr": "Kesirli Verim (g/g)"
+    },
+    {
+      "en": "Yield - Mass (g)",
+      "ru": "Выход - Масса (г)",
+      "tr": "Verim - Kütle (g)"
+    },
+    {
+      "en": "Yield - Percent (%)",
+      "ru": "Выход - Процент (%)",
+      "tr": "Verim - Yüzde (%)"
+    },
+    {
+      "en": "min",
+      "ru": "мин",
+      "tr": "dk"
+    },
+    {
+      "en": "g",
+      "ru": "г",
+      "tr": "g"
+    },
+    {
+      "en": "kg/kg insoluble solid",
+      "ru": "кг/кг нерастворимого твердого вещества",
+      "tr": "kg/kg çözünmeyen katı"
+    },
+    {
+      "en": "dimensionless (S/M ratio)",
+      "ru": "безразмерный (соотношение Р/М)",
+      "tr": "boyutsuz (Ç/M oranı)"
+    },
+    {
+      "en": "g/g insoluble solid",
+      "ru": "г/г нерастворимого твердого вещества",
+      "tr": "g/g çözünmeyen katı"
+    },
+    {
+      "en": "g/g total solid",
+      "ru": "г/г общего твердого вещества",
+      "tr": "g/g toplam katı"
+    },
+    {
+      "en": "percent dry weight",
+      "ru": "процент сухой массы",
+      "tr": "kuru ağırlık yüzdesi"
+    }
+  ]
+}

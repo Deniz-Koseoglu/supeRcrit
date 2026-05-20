@@ -1,0 +1,18 @@
+{
+  "display_name": "Capsaicin | JR-NL07_robust-SP12 | 13:54",
+  "parameters": {
+    "cas_input": "404-86-4",
+    "name_input": "Capsaicin",
+    "smiles_input": "",
+    "specify_smiles": false,
+    "gcm_tb": "JR",
+    "gcm_crit": "NL07_robust",
+    "gcm_hsp": "SP12",
+    "gcm_simplicity": "auto",
+    "gcm_gorder": 0
+  },
+  "metadata": {
+    "created_date": "2025-12-19 13:54:52",
+    "app_version": "0.9.0"
+  }
+}

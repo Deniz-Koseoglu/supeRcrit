@@ -1,0 +1,24 @@
+{
+  "translation": [
+    {
+      "en": "Solute Name",
+      "ru": "Название растворенного вещества",
+      "tr": "Çözünen Madde Adı"
+    },
+    {
+      "en": "Volume Fraction",
+      "ru": "Объемная доля",
+      "tr": "Hacim Fraksiyonu"
+    },
+    {
+      "en": "Pressure (bar)",
+      "ru": "Давление (бар)",
+      "tr": "Basınç (bar)"
+    },
+    {
+      "en": "Miscibility Enhancement (%)",
+      "ru": "Улучшение смешиваемости (%)",
+      "tr": "Karışabilirlik Artırımı (%)"
+    }
+  ]
+}

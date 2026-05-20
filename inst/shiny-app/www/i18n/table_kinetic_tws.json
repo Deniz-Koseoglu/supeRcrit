@@ -1,0 +1,229 @@
+{
+  "translation": [
+    {
+      "en": "Stepwise",
+      "ru": "Пошаговый",
+      "tr": "Adım Adım"
+    },
+    {
+      "en": "Parameter",
+      "ru": "Параметр",
+      "tr": "Parametre"
+    },
+    {
+      "en": "Value",
+      "ru": "Значение",
+      "tr": "Değer"
+    },
+    {
+      "en": "Description",
+      "ru": "Описание",
+      "tr": "Açıklama"
+    },
+    {
+      "en": "AARD",
+      "ru": "AARD",
+      "tr": "AARD"
+    },
+    {
+      "en": "RMSE",
+      "ru": "RMSE",
+      "tr": "RMSE"
+    },
+    {
+      "en": "R²",
+      "ru": "R²",
+      "tr": "R²"
+    },
+    {
+      "en": "Time",
+      "ru": "Время",
+      "tr": "Zaman"
+    },
+    {
+      "en": "Time (min)",
+      "ru": "Время (мин)",
+      "tr": "Zaman (dk)"
+    },
+    {
+      "en": "S/M",
+      "ru": "Р/М",
+      "tr": "Ç/M"
+    },
+    {
+      "en": "S/M Ratio",
+      "ru": "Соотношение Р/М",
+      "tr": "Ç/M Oranı"
+    },
+    {
+      "en": "Yield",
+      "ru": "Выход",
+      "tr": "Verim"
+    },
+    {
+      "en": "c/c₀",
+      "ru": "c/c₀",
+      "tr": "c/c₀"
+    },
+    {
+      "en": "Fractional Yield",
+      "ru": "Относительный выход",
+      "tr": "Kesirli Verim"
+    },
+    {
+      "en": "Pred. Yield",
+      "ru": "Прогноз. выход",
+      "tr": "Tah. Verim"
+    },
+    {
+      "en": "Predicted Yield",
+      "ru": "Прогнозируемый выход",
+      "tr": "Tahmini Verim"
+    },
+    {
+      "en": "Pred. c/c₀",
+      "ru": "Прогноз. c/c₀",
+      "tr": "Tah. c/c₀"
+    },
+    {
+      "en": "Predicted Fractional Yield",
+      "ru": "Прогнозируемый относительный выход",
+      "tr": "Tahmini Kesirli Verim"
+    },
+    {
+      "en": "Model",
+      "ru": "Модель",
+      "tr": "Model"
+    },
+    {
+      "en": "Observed",
+      "ru": "Наблюдаемый",
+      "tr": "Gözlenen"
+    },
+    {
+      "en": "Predicted",
+      "ru": "Прогнозируемый",
+      "tr": "Tahmini"
+    },
+    {
+      "en": "Extraction time (min)",
+      "ru": "Время экстракции (мин)",
+      "tr": "Ekstraksiyon süresi (dk)"
+    },
+    {
+      "en": "Solvent to material ratio (kg/kg)",
+      "ru": "Соотношение растворитель/материал (кг/кг)",
+      "tr": "Çözücü/malzeme oranı (kg/kg)"
+    },
+    {
+      "en": "Fractional yield relative to maximum extractable solute",
+      "ru": "Относительный выход к максимально извлекаемому веществу",
+      "tr": "Maksimum ekstrakte edilebilir maddeye göre kesirli verim"
+    },
+    {
+      "en": "Predicted yield value",
+      "ru": "Прогнозируемое значение выхода",
+      "tr": "Tahmini verim değeri"
+    },
+    {
+      "en": "Predicted fractional yield value",
+      "ru": "Прогнозируемое значение относительного выхода",
+      "tr": "Tahmini kesirli verim değeri"
+    },
+    {
+      "en": "tws",
+      "ru": "Двухсайтовая",
+      "tr": "İki-Bölgeli"
+    },
+    {
+      "en": "Two-Site Model",
+      "ru": "Двухсайтовая модель",
+      "tr": "İki-Bölgeli Model"
+    },
+    {
+      "en": "Yield (‰)",
+      "ru": "Выход (‰)",
+      "tr": "Verim (‰)"
+    },
+    {
+      "en": "Yield (g)",
+      "ru": "Выход (г)",
+      "tr": "Verim (g)"
+    },
+    {
+      "en": "Yield (%)",
+      "ru": "Выход (%)",
+      "tr": "Verim (%)"
+    },
+    {
+      "en": "Yield value in permille",
+      "ru": "Значение выхода в промилле",
+      "tr": "Binde olarak verim değeri"
+    },
+    {
+      "en": "Yield value in grams",
+      "ru": "Значение выхода в граммах",
+      "tr": "Gram olarak verim değeri"
+    },
+    {
+      "en": "Yield value in percentage",
+      "ru": "Значение выхода в процентах",
+      "tr": "Yüzde olarak verim değeri"
+    },
+    {
+      "en": "Type",
+      "ru": "Тип",
+      "tr": "Tip"
+    },
+    {
+      "en": "Units",
+      "ru": "Единицы",
+      "tr": "Birimler"
+    },
+    {
+      "en": "input",
+      "ru": "Вход",
+      "tr": "Girdi"
+    },
+    {
+      "en": "adjustable",
+      "ru": "Настраиваемый",
+      "tr": "Ayarlanabilir"
+    },
+    {
+      "en": "variable",
+      "ru": "переменная",
+      "tr": "değişken"
+    },
+    {
+      "en": "none",
+      "ru": "нет",
+      "tr": "yok"
+    },
+    {
+      "en": "Initial concentration of solute in raw material (e.g. ppm)",
+      "ru": "Начальная концентрация растворенного вещества в сырье (напр., ppm)",
+      "tr": "Ham maddedeki çözünen maddenin başlangıç konsantrasyonu (örn. ppm)"
+    },
+    {
+      "en": "Recovered solute at time t (e.g. ppm of raw material)",
+      "ru": "Извлеченное растворенное вещество в момент времени t (напр., ppm сырья)",
+      "tr": "t zamanında geri kazanılan çözünen madde (örn. ham maddenin ppm'i)"
+    },
+    {
+      "en": "Fraction of quick-desorbing solute",
+      "ru": "Доля быстро десорбирующегося растворенного вещества",
+      "tr": "Hızlı desorbe olan çözünen madde fraksiyonu"
+    },
+    {
+      "en": "First-order rate constant of the quickly-desorbed solute fraction f",
+      "ru": "Константа скорости первого порядка для быстро десорбированной фракции растворенного вещества f",
+      "tr": "Hızlı desorbe olan çözünen madde fraksiyonu f için birinci derece hız sabiti"
+    },
+    {
+      "en": "First-order rate constant of the slowly-desorbed solute fraction (1-f)",
+      "ru": "Константа скорости первого порядка для медленно десорбированной фракции растворенного вещества (1-f)",
+      "tr": "Yavaş desorbe olan çözünen madde fraksiyonu (1-f) için birinci derece hız sabiti"
+    }
+  ]
+}

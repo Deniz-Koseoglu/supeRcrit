@@ -1,0 +1,12 @@
+.shiny-file-input-progress {
+  display: none !important;
+}
+
+.shiny-file-input-validate {
+  display: none !important;
+}
+
+/* Alternatif: Sadece mesajı gizle, progress bar'ı göster */
+.shiny-file-input .progress-message {
+  display: none !important;
+}

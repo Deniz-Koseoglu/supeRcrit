@@ -1,0 +1,2779 @@
+{
+  "translation": [
+    {
+      "en": "Cost of Manufacturing",
+      "ru": "Стоимость производства",
+      "tr": "Üretim Maliyeti"
+    },
+    {
+      "en": "Manage Settings",
+      "ru": "Управление настройками",
+      "tr": "Ayarları Yönet"
+    },
+    {
+      "en": "Save",
+      "ru": "Сохранить",
+      "tr": "Kaydet"
+    },
+    {
+      "en": "Save Current Settings",
+      "ru": "Сохранить текущие настройки",
+      "tr": "Mevcut Ayarları Kaydet"
+    },
+    {
+      "en": "Settings Name",
+      "ru": "Название настроек",
+      "tr": "Ayar Adı"
+    },
+    {
+      "en": "e.g., my_hplc_method",
+      "ru": "например, мой_метод_ВЭЖХ",
+      "tr": "örn., hplc_metodum"
+    },
+    {
+      "en": "Load Saved Settings",
+      "ru": "Загрузить сохраненные настройки",
+      "tr": "Kaydedilmiş Ayarları Yükle"
+    },
+    {
+      "en": "Load",
+      "ru": "Загрузить",
+      "tr": "Yükle"
+    },
+    {
+      "en": "Import Settings from File",
+      "ru": "Импортировать настройки из файла",
+      "tr": "Dosyadan Ayarları İçe Aktar"
+    },
+    {
+      "en": "Choose JSON File",
+      "ru": "Выберите файл JSON",
+      "tr": "JSON Dosyası Seç"
+    },
+    {
+      "en": "Import",
+      "ru": "Импорт",
+      "tr": "İçe Aktar"
+    },
+    {
+      "en": "Filename",
+      "ru": "Имя файла",
+      "tr": "Dosya Adı"
+    },
+    {
+      "en": "Export",
+      "ru": "Экспорт",
+      "tr": "Dışa Aktar"
+    },
+    {
+      "en": "Cancel",
+      "ru": "Отмена",
+      "tr": "İptal"
+    },
+    {
+      "en": "Reset",
+      "ru": "Сброс",
+      "tr": "Sıfırla"
+    },
+    {
+      "en": "Calculate",
+      "ru": "Рассчитать",
+      "tr": "Hesapla"
+    },
+    {
+      "en": "Settings",
+      "ru": "Настройки",
+      "tr": "Ayarlar"
+    },
+    {
+      "en": "Select Input Type",
+      "ru": "Выберите тип ввода",
+      "tr": "Giriş Türünü Seçin"
+    },
+    {
+      "en": "Time (min)",
+      "ru": "Время (мин)",
+      "tr": "Süre (dk)"
+    },
+    {
+      "en": "Response (g)",
+      "ru": "Отклик (г)",
+      "tr": "Yanıt (g)"
+    },
+    {
+      "en": "Upload CSV File",
+      "ru": "Загрузить CSV файл",
+      "tr": "CSV Dosyası Yükle"
+    },
+    {
+      "en": "Enter Time and Yield Data (CSV format, max 10 rows)",
+      "ru": "Введите данные времени и выхода (формат CSV, макс. 10 строк)",
+      "tr": "Zaman ve Verim Verilerini Girin (CSV formatı, maks. 10 satır)"
+    },
+    {
+      "en": "Calculation Mode",
+      "ru": "Режим расчета",
+      "tr": "Hesaplama Modu"
+    },
+    {
+      "en": "Use Pre-defined Coefficients",
+      "ru": "Использовать предопределенные коэффициенты",
+      "tr": "Önceden Tanımlanmış Katsayıları Kullan"
+    },
+    {
+      "en": "General Parameters",
+      "ru": "Общие параметры",
+      "tr": "Genel Parametreler"
+    },
+    {
+      "en": "Extractor Volume (L)",
+      "ru": "Объем экстрактора (л)",
+      "tr": "Ekstraktör Hacmi (L)"
+    },
+    {
+      "en": "Load (kg)",
+      "ru": "Загрузка (кг)",
+      "tr": "Yük (kg)"
+    },
+    {
+      "en": "Pressure (bar)",
+      "ru": "Давление (бар)",
+      "tr": "Basınç (bar)"
+    },
+    {
+      "en": "Temperature (°C)",
+      "ru": "Температура (°C)",
+      "tr": "Sıcaklık (°C)"
+    },
+    {
+      "en": "Flow Rate (mL/min)",
+      "ru": "Скорость потока (мл/мин)",
+      "tr": "Akış Hızı (mL/dk)"
+    },
+    {
+      "en": "Extraction Time (min)",
+      "ru": "Время экстракции (мин)",
+      "tr": "Ekstraksiyon Süresi (dk)"
+    },
+    {
+      "en": "Dilution Factor",
+      "ru": "Коэффициент разбавления",
+      "tr": "Seyreltme Faktörü"
+    },
+    {
+      "en": "Sales Price (USD/kg)",
+      "ru": "Цена продажи (USD/кг)",
+      "tr": "Satış Fiyatı (USD/kg)"
+    },
+    {
+      "en": "Other parameters",
+      "ru": "Другие параметры",
+      "tr": "Diğer parametreler"
+    },
+    {
+      "en": "Auxiliary Materials",
+      "ru": "Вспомогательные материалы",
+      "tr": "Yardımcı Malzemeler"
+    },
+    {
+      "en": "Material Name",
+      "ru": "Название материала",
+      "tr": "Malzeme Adı"
+    },
+    {
+      "en": "Price (USD/kg)",
+      "ru": "Цена (USD/кг)",
+      "tr": "Fiyat (USD/kg)"
+    },
+    {
+      "en": "Fraction",
+      "ru": "Фракция",
+      "tr": "Fraksiyon"
+    },
+    {
+      "en": "Add Material",
+      "ru": "Добавить материал",
+      "tr": "Malzeme Ekle"
+    },
+    {
+      "en": "No auxiliary materials added.",
+      "ru": "Вспомогательные материалы не добавлены.",
+      "tr": "Yardımcı malzeme eklenmedi."
+    },
+    {
+      "en": "Auxiliary Material Price (USD/kg)",
+      "ru": "Цена вспомогательного материала (USD/кг)",
+      "tr": "Yardımcı Madde Fiyatı (USD/kg)"
+    },
+    {
+      "en": "Required Fraction",
+      "ru": "Требуемая фракция",
+      "tr": "Gerekli Fraksiyon"
+    },
+    {
+      "en": "Co-solvent Loss (fraction)",
+      "ru": "Потеря сорастворителя (доля)",
+      "tr": "Yardımcı Çözücü Kaybı (fraksiyon)"
+    },
+    {
+      "en": "Flow Measurement Parameters",
+      "ru": "Параметры измерения потока",
+      "tr": "Akış Ölçüm Parametreleri"
+    },
+    {
+      "en": "Auto (use recovery line conditions)",
+      "ru": "Авто (использовать условия линии восстановления)",
+      "tr": "Otomatik (geri kazanım hattı koşullarını kullan)"
+    },
+    {
+      "en": "Pressure (bar)",
+      "ru": "Давление (бар)",
+      "tr": "Basınç (bar)"
+    },
+    {
+      "en": "Temperature (°C)",
+      "ru": "Температура (°C)",
+      "tr": "Sıcaklık (°C)"
+    },
+    {
+      "en": "Co-solvent Flow Rate (mL/min)",
+      "ru": "Скорость потока сорастворителя (мл/мин)",
+      "tr": "Yardımcı Çözücü Akış Hızı (mL/dk)"
+    },
+    {
+      "en": "Cost of Raw Materials",
+      "ru": "Стоимость сырья",
+      "tr": "Hammadde Maliyeti"
+    },
+    {
+      "en": "Bed Height (cm)",
+      "ru": "Высота слоя (см)",
+      "tr": "Yatak Yüksekliği (cm)"
+    },
+    {
+      "en": "Inner Extractor Diameter (cm)",
+      "ru": "Внутренний диаметр экстрактора (см)",
+      "tr": "Ekstraktör İç Çapı (cm)"
+    },
+    {
+      "en": "Raw Material Price (USD/kg)",
+      "ru": "Цена сырья (USD/кг)",
+      "tr": "Hammadde Fiyatı (USD/кг)"
+    },
+    {
+      "en": "Main Solvent Price (USD/kg)",
+      "ru": "Цена основного растворителя (USD/кг)",
+      "tr": "Ana Çözücü Fiyatı (USD/kg)"
+    },
+    {
+      "en": "Co-solvent Price (USD/kg)",
+      "ru": "Цена сорастворителя (USD/кг)",
+      "tr": "Yardımcı Çözücü Fiyatı (USD/kg)"
+    },
+    {
+      "en": "Recovery Pressure (bar)",
+      "ru": "Давление восстановления (бар)",
+      "tr": "Geri Kazanım Basıncı (bar)"
+    },
+    {
+      "en": "Recovery Temperature (°C)",
+      "ru": "Температура восстановления (°C)",
+      "tr": "Geri Kazanım Sıcaklığı (°C)"
+    },
+    {
+      "en": "Separator Temperature (°C)",
+      "ru": "Температура сепаратора (°C)",
+      "tr": "Ayırıcı Sıcaklığı (°C)"
+    },
+    {
+      "en": "Cost of Utilities",
+      "ru": "Стоимость коммунальных услуг",
+      "tr": "Yardımcı Hizmet Maliyeti"
+    },
+    {
+      "en": "Main Power (kW)",
+      "ru": "Основная мощность (кВт)",
+      "tr": "Ana Güç (kW)"
+    },
+    {
+      "en": "Energy Price (USD/kWh)",
+      "ru": "Цена энергии (USD/кВтч)",
+      "tr": "Enerji Fiyatı (USD/kWh)"
+    },
+    {
+      "en": "Drying Power (kW)",
+      "ru": "Мощность сушки (кВт)",
+      "tr": "Kurutma Gücü (kW)"
+    },
+    {
+      "en": "Drying Capacity (kg/h)",
+      "ru": "Мощность сушки (кг/ч)",
+      "tr": "Kurutma Kapasitesi (kg/sa)"
+    },
+    {
+      "en": "Comminution Power (kW)",
+      "ru": "Мощность измельчения (кВт)",
+      "tr": "Öğütme Gücü (kW)"
+    },
+    {
+      "en": "Comminution Capacity (kg/h)",
+      "ru": "Мощность измельчения (кг/ч)",
+      "tr": "Öğütme Kapasitesi (kg/sa)"
+    },
+    {
+      "en": "Evaporation Power (kW)",
+      "ru": "Мощность испарения (кВт)",
+      "tr": "Buharlaşma Gücü (kW)"
+    },
+    {
+      "en": "Evaporation Capacity (kg/h)",
+      "ru": "Мощность испарения (кг/ч)",
+      "tr": "Buharlaşma Kapasitesi (kg/sa)"
+    },
+    {
+      "en": "Cost of Labor",
+      "ru": "Стоимость труда",
+      "tr": "İşçilik Maliyeti"
+    },
+    {
+      "en": "Number of Operators",
+      "ru": "Количество операторов",
+      "tr": "Operatör Sayısı"
+    },
+    {
+      "en": "Shift Duration (hours)",
+      "ru": "Продолжительность смены (часы)",
+      "tr": "Vardiya Süresi (saat)"
+    },
+    {
+      "en": "Number of Shifts",
+      "ru": "Количество смен",
+      "tr": "Vardiya Sayısı"
+    },
+    {
+      "en": "Monthly Wage (USD)",
+      "ru": "Месячная заработная плата (USD)",
+      "tr": "Aylık Ücret (USD)"
+    },
+    {
+      "en": "Working Days (monthly)",
+      "ru": "Рабочие дни (в месяц)",
+      "tr": "Çalışma Günleri (aylık)"
+    },
+    {
+      "en": "Fixed Costs & Tax Rate",
+      "ru": "Постоянные затраты и налоговая ставка",
+      "tr": "Sabit Maliyetler ve Vergi Oranı"
+    },
+    {
+      "en": "Capital Investment (USD)",
+      "ru": "Капитальные вложения (USD)",
+      "tr": "Sermaye Yatırımı (USD)"
+    },
+    {
+      "en": "Maintenance Cost (USD/month)",
+      "ru": "Затраты на обслуживание (USD/мес)",
+      "tr": "Bakım Maliyeti (USD/ay)"
+    },
+    {
+      "en": "Other Fixed Costs (USD/month)",
+      "ru": "Прочие постоянные затраты (USD/мес)",
+      "tr": "Diğer Sabit Maliyetler (USD/ay)"
+    },
+    {
+      "en": "Depreciation Rate (per year)",
+      "ru": "Норма амортизации (в год)",
+      "tr": "Amortisman Oranı (yıllık)"
+    },
+    {
+      "en": "Tax Rate",
+      "ru": "Налоговая ставка",
+      "tr": "Vergi Oranı"
+    },
+    {
+      "en": "General Results",
+      "ru": "Общие результаты",
+      "tr": "Genel Sonuçlar"
+    },
+    {
+      "en": "*MONTHLY",
+      "ru": "*ЕЖЕМЕСЯЧНО",
+      "tr": "*AYLIK"
+    },
+    {
+      "en": "Select Process Time (min)",
+      "ru": "Выберите время процесса (мин)",
+      "tr": "Proses Süresini Seçin (dk)"
+    },
+    {
+      "en": "5-Year ROI and Payback Period",
+      "ru": "5-летний ROI и срок окупаемости",
+      "tr": "5 Yıllık ROI ve Geri Ödeme Süresi"
+    },
+    {
+      "en": "Monthly Table",
+      "ru": "Ежемесячная таблица",
+      "tr": "Aylık Tablo"
+    },
+    {
+      "en": "Export Monthly Data",
+      "ru": "Экспорт ежемесячных данных",
+      "tr": "Aylık Verileri Dışa Aktar"
+    },
+    {
+      "en": "Optimal Performance Window",
+      "ru": "Оптимальное окно производительности",
+      "tr": "Optimal Performans Penceresi"
+    },
+    {
+      "en": "Plots are available only when multiple time-yield data points are provided.",
+      "ru": "Графики доступны только при наличии нескольких точек данных времени-выхода.",
+      "tr": "Grafikler yalnızca birden fazla zaman-verim veri noktası sağlandığında kullanılabilir."
+    },
+    {
+      "en": "Payback Plot",
+      "ru": "График окупаемости",
+      "tr": "Geri Ödeme Grafiği"
+    },
+    {
+      "en": "Specific Cost Plot",
+      "ru": "График удельных затрат",
+      "tr": "Spesifik Maliyet Grafiği"
+    },
+    {
+      "en": "Y-axis Range",
+      "ru": "Диапазон оси Y",
+      "tr": "Y ekseni Aralığı"
+    },
+    {
+      "en": "Autoscale",
+      "ru": "Автомасштаб",
+      "tr": "Otomatik Ölçek"
+    },
+    {
+      "en": "Autoscale to fit visible data",
+      "ru": "Автомасштаб по видимым данным",
+      "tr": "Görünür verilere sığdır"
+    },
+    {
+      "en": "Reset",
+      "ru": "Сброс",
+      "tr": "Sıfırla"
+    },
+    {
+      "en": "Reset to show all data",
+      "ru": "Сбросить для отображения всех данных",
+      "tr": "Tüm verileri göstermek için sıfırla"
+    },
+    {
+      "en": "Performance Overview",
+      "ru": "Обзор производительности",
+      "tr": "Performans Özeti"
+    },
+    {
+      "en": "Detailed Results",
+      "ru": "Подробные результаты",
+      "tr": "Detaylı Sonuçlar"
+    },
+    {
+      "en": "Detailed Cost Distribution",
+      "ru": "Подробное распределение затрат",
+      "tr": "Detaylı Maliyet Dağılımı"
+    },
+    {
+      "en": "Download All Results",
+      "ru": "Скачать все результаты",
+      "tr": "Tüm Sonuçları İndir"
+    },
+    {
+      "en": "e.g., black cumin",
+      "ru": "например, черный тмин",
+      "tr": "örn., siyah kimyon"
+    },
+    {
+      "en": "Saved Settings",
+      "ru": "Сохраненные настройки",
+      "tr": "Kaydedilmiş Ayarlar"
+    },
+    {
+      "en": "No saved settings found.",
+      "ru": "Сохраненные настройки не найдены.",
+      "tr": "Kaydedilmiş ayar bulunamadı."
+    },
+    {
+      "en": " years",
+      "ru": " лет",
+      "tr": " yıl"
+    },
+    {
+      "en": "Cost of Utilities",
+      "ru": "Стоимость коммунальных услуг",
+      "tr": "Kamu Hizmetleri Maliyeti"
+    },
+    {
+      "en": "Cost of Labor",
+      "ru": "Стоимость рабочей силы",
+      "tr": "İşçilik Maliyeti"
+    },
+    {
+      "en": "Input Parameters",
+      "ru": "Входные параметры",
+      "tr": "Giriş Parametreleri"
+    },
+    {
+      "en": "Input Data",
+      "ru": "Входные данные",
+      "tr": "Giriş Verileri"
+    },
+    {
+      "en": "Close",
+      "ru": "Закрыть",
+      "tr": "Kapat"
+    },
+    {
+      "en": "Single Value",
+      "ru": "Одиночное значение",
+      "tr": "Tek Değer"
+    },
+    {
+      "en": "Upload CSV File",
+      "ru": "Загрузить CSV файл",
+      "tr": "CSV Dosyası Yükle"
+    },
+    {
+      "en": "Manual Text Input",
+      "ru": "Ручной ввод текста",
+      "tr": "Manuel Metin Girişi"
+    },
+    {
+      "en": "Export Current Settings",
+      "ru": "Экспортировать текущие настройки",
+      "tr": "Mevcut Ayarları Dışa Aktar"
+    },
+    {
+      "en": "Month",
+      "ru": "Месяц",
+      "tr": "Ay"
+    },
+    {
+      "en": "Cumulative Gross Profit (USD)",
+      "ru": "Совокупная валовая прибыль (USD)",
+      "tr": "Kümülatif Brüt Kar (USD)"
+    },
+    {
+      "en": "Cumulative Net Profit (USD)",
+      "ru": "Совокупная чистая прибыль (USD)",
+      "tr": "Kümülatif Net Kar (USD)"
+    },
+    {
+      "en": "Sales Volume (USD/month)",
+      "ru": "Объем продаж (USD/месяц)",
+      "tr": "Satış Hacmi (USD/ay)"
+    },
+    {
+      "en": "Cost of Manufacturing (USD/month)",
+      "ru": "Стоимость производства (USD/месяц)",
+      "tr": "Üretim Maliyeti (USD/ay)"
+    },
+    {
+      "en": "Cost of Raw Materials (USD/month)",
+      "ru": "Стоимость сырья (USD/месяц)",
+      "tr": "Hammadde Maliyeti (USD/ay)"
+    },
+    {
+      "en": "Cost of Utilities (USD/month)",
+      "ru": "Стоимость коммунальных услуг (USD/месяц)",
+      "tr": "Altyapı Hizmetleri Maliyeti"
+    },
+    {
+      "en": "Fixed Cost (USD/month)",
+      "ru": "Постоянные затраты (USD/месяц)",
+      "tr": "Sabit Maliyet (USD/ay)"
+    },
+    {
+      "en": "Cost of Labour (USD/month)",
+      "ru": "Стоимость труда (USD/месяц)",
+      "tr": "İşçilik Maliyeti (USD/ay)"
+    },
+    {
+      "en": "Tax Rate (%)",
+      "ru": "Налоговая ставка (%)",
+      "tr": "Vergi Oranı (%)"
+    },
+    {
+      "en": "Time",
+      "ru": "Время",
+      "tr": "Süre"
+    },
+    {
+      "en": "Yield",
+      "ru": "Выход",
+      "tr": "Verim"
+    },
+    {
+      "en": "Monthly Cycles",
+      "ru": "Месячные циклы",
+      "tr": "Aylık Çevrimler"
+    },
+    {
+      "en": "C.U.T. (USD/month)",
+      "ru": "Стоимость коммунальных услуг (USD/месяц)",
+      "tr": "Yardımcı Hizmetler Maliyeti (USD/ay)"
+    },
+    {
+      "en": "C.R.M. (USD/month)",
+      "ru": "Стоимость сырья (USD/месяц)",
+      "tr": "Hammadde Maliyeti (USD/ay)"
+    },
+    {
+      "en": "C.O.M. (USD/month)",
+      "ru": "Стоимость производства (USD/месяц)",
+      "tr": "Üretim Maliyeti (USD/ay)"
+    },
+    {
+      "en": "Sales Volume",
+      "ru": "Объем продаж",
+      "tr": "Satış Hacmi"
+    },
+    {
+      "en": "Extract Produced (kg/month)",
+      "ru": "Произведенный экстракт (кг/месяц)",
+      "tr": "Üretilen Ekstrakt (kg/ay)"
+    },
+    {
+      "en": "Specific Cost (USD/kg)",
+      "ru": "Удельная стоимость (USD/кг)",
+      "tr": "Spesifik Maliyet (USD/kg)"
+    },
+    {
+      "en": "Monthly Profit (USD)",
+      "ru": "Месячная прибыль (USD)",
+      "tr": "Aylık Kar (USD)"
+    },
+    {
+      "en": "Profit Margin (%)",
+      "ru": "Маржа прибыли (%)",
+      "tr": "Kar Marjı (%)"
+    },
+    {
+      "en": "Payback Period (years)",
+      "ru": "Срок окупаемости (лет)",
+      "tr": "Geri Ödeme Süresi (yıl)"
+    },
+    {
+      "en": "Select Time Column",
+      "ru": "Выберите столбец времени",
+      "tr": "Zaman Sütununu Seçin"
+    },
+    {
+      "en": "Select Response Column",
+      "ru": "Выберите столбец отклика",
+      "tr": "Yanıt Sütununu Seçin"
+    },
+    {
+      "en": "SFE",
+      "ru": "СКЭ",
+      "tr": "SFE"
+    },
+    {
+      "en": "SWE",
+      "ru": "ЭГВ",
+      "tr": "SWE"
+    },
+    {
+      "en": "This overview is available only when multiple time-yield data points are provided.",
+      "ru": "Этот обзор доступен только при наличии нескольких точек данных времени-выхода.",
+      "tr": "Bu genel bakış yalnızca birden fazla zaman-verim veri noktası sağlandığında kullanılabilir."
+    },
+    {
+      "en": "Import/Export Settings",
+      "ru": "Импорт/Экспорт настроек",
+      "tr": "Ayarları İçe/Dışa Aktar"
+    },
+    {
+      "en": "Settings imported and applied.",
+      "ru": "Настройки импортированы и применены.",
+      "tr": "Ayarlar içe aktarıldı ve uygulandı."
+    },
+    {
+      "en": "Error importing settings:",
+      "ru": "Ошибка импорта настроек:",
+      "tr": "Ayarları içe aktarırken hata:"
+    },
+    {
+      "en": "Cumulative Gross Profit",
+      "ru": "Совокупная валовая прибыль",
+      "tr": "Kümülatif Brüt Kar"
+    },
+    {
+      "en": "Cumulative Net Profit",
+      "ru": "Совокупная чистая прибыль",
+      "tr": "Kümülatif Net Kar"
+    },
+    {
+      "en": "Error loading default file:",
+      "ru": "Ошибка загрузки файла по умолчанию:",
+      "tr": "Varsayılan dosya yüklenirken hata:"
+    },
+    {
+      "en": "Default data file not found.",
+      "ru": "Файл данных по умолчанию не найден.",
+      "tr": "Varsayılan veri dosyası bulunamadı."
+    },
+    {
+      "en": "Selected time column does not exist in the CSV file.",
+      "ru": "Выбранный столбец времени не существует в CSV файле.",
+      "tr": "Seçilen zaman sütunu CSV dosyasında mevcut değil."
+    },
+    {
+      "en": "Selected yield column does not exist in the CSV file.",
+      "ru": "Выбранный столбец выхода не существует в CSV файле.",
+      "tr": "Seçilen verim sütunu CSV dosyasında mevcut değil."
+    },
+    {
+      "en": "No valid data found in selected columns after removing NA values.",
+      "ru": "Не найдены действительные данные в выбранных столбцах после удаления значений NA.",
+      "tr": "NA değerleri kaldırıldıktan sonra seçilen sütunlarda geçerli veri bulunamadı."
+    },
+    {
+      "en": "Time column contains non-numeric values that cannot be converted.",
+      "ru": "Столбец времени содержит нечисловые значения, которые не могут быть преобразованы.",
+      "tr": "Zaman sütunu dönüştürülemeyen sayısal olmayan değerler içeriyor."
+    },
+    {
+      "en": "Yield column contains non-numeric values that cannot be converted.",
+      "ru": "Столбец выхода содержит нечисловые значения, которые не могут быть преобразованы.",
+      "tr": "Verim sütunu dönüştürülemeyen sayısal olmayan değerler içeriyor."
+    },
+    {
+      "en": "Time values cannot be negative.",
+      "ru": "Значения времени не могут быть отрицательными.",
+      "tr": "Zaman değerleri negatif olamaz."
+    },
+    {
+      "en": "Yield values cannot be negative.",
+      "ru": "Значения выхода не могут быть отрицательными.",
+      "tr": "Verim değerleri negatif olamaz."
+    },
+    {
+      "en": "Error parsing CSV file:",
+      "ru": "Ошибка разбора CSV файла:",
+      "tr": "CSV dosyası ayrıştırılırken hata:"
+    },
+    {
+      "en": "1. Data Source",
+      "ru": "1. Источник данных",
+      "tr": "1. Veri Kaynağı"
+    },
+    {
+      "en": "2. Data Preview",
+      "ru": "2. Предпросмотр данных",
+      "tr": "2. Veri Önizleme"
+    },
+    {
+      "en": "Manual Input",
+      "ru": "Ручной ввод",
+      "tr": "Manuel Giriş"
+    },
+    {
+      "en": "Load Example",
+      "ru": "Загрузить пример",
+      "tr": "Örnek Yükle"
+    },
+    {
+      "en": "Load example data",
+      "ru": "Загрузить пример данных",
+      "tr": "Örnek veri yükle"
+    },
+    {
+      "en": "Example data loaded successfully!",
+      "ru": "Пример данных успешно загружен!",
+      "tr": "Örnek veriler başarıyla yüklendi!"
+    },
+    {
+      "en": "Example data file not found.",
+      "ru": "Файл примера данных не найден.",
+      "tr": "Örnek veri dosyası bulunamadı."
+    },
+    {
+      "en": "Error loading example:",
+      "ru": "Ошибка загрузки примера:",
+      "tr": "Örnek yüklenirken hata:"
+    },
+    {
+      "en": "Clear",
+      "ru": "Очистить",
+      "tr": "Temizle"
+    },
+    {
+      "en": "Clear current data",
+      "ru": "Очистить текущие данные",
+      "tr": "Mevcut verileri temizle"
+    },
+    {
+      "en": "Data cleared.",
+      "ru": "Данные очищены.",
+      "tr": "Veriler temizlendi."
+    },
+    {
+      "en": "Download",
+      "ru": "Скачать",
+      "tr": "İndir"
+    },
+    {
+      "en": "Rename",
+      "ru": "Переименовать",
+      "tr": "Yeniden Adlandır"
+    },
+    {
+      "en": "New name",
+      "ru": "Новое имя",
+      "tr": "Yeni ad"
+    },
+    {
+      "en": "Rename column",
+      "ru": "Переименовать столбец",
+      "tr": "Sütunu yeniden adlandır"
+    },
+    {
+      "en": "Please select a column and enter a new name.",
+      "ru": "Пожалуйста, выберите столбец и введите новое имя.",
+      "tr": "Lütfen bir sütun seçin ve yeni bir ad girin."
+    },
+    {
+      "en": "Column not found.",
+      "ru": "Столбец не найден.",
+      "tr": "Sütun bulunamadı."
+    },
+    {
+      "en": "A column with this name already exists.",
+      "ru": "Столбец с таким именем уже существует.",
+      "tr": "Bu isimde bir sütun zaten mevcut."
+    },
+    {
+      "en": "Column renamed: %s → %s",
+      "ru": "Столбец переименован: %s → %s",
+      "tr": "Sütun yeniden adlandırıldı: %s → %s"
+    },
+    {
+      "en": "Upload a CSV file to preview data.",
+      "ru": "Загрузите файл CSV для предпросмотра данных.",
+      "tr": "Verileri önizlemek için bir CSV dosyası yükleyin."
+    },
+    {
+      "en": "Click in the table to start entering data.",
+      "ru": "Нажмите на таблицу, чтобы начать ввод данных.",
+      "tr": "Veri girmeye başlamak için tabloya tıklayın."
+    },
+    {
+      "en": "Reload",
+      "ru": "Перезагрузить",
+      "tr": "Yeniden Yükle"
+    },
+    {
+      "en": "CSV file reloaded successfully.",
+      "ru": "CSV файл успешно перезагружен.",
+      "tr": "CSV dosyası başarıyla yeniden yüklendi."
+    },
+    {
+      "en": "Error reloading CSV:",
+      "ru": "Ошибка перезагрузки CSV:",
+      "tr": "CSV yeniden yüklenirken hata:"
+    },
+    {
+      "en": "3. Variable Selection",
+      "ru": "3. Выбор переменных",
+      "tr": "3. Değişken Seçimi"
+    },
+    {
+      "en": " Warning: Column '%s' is selected for both Time and Response!",
+      "ru": " Предупреждение: Столбец '%s' выбран и для Времени, и для Отклика!",
+      "tr": " Uyarı: '%s' sütunu hem Zaman hem de Yanıt için seçildi!"
+    },
+    {
+      "en": "Load data to select variables",
+      "ru": "Загрузите данные для выбора переменных",
+      "tr": "Değişkenleri seçmek için veri yükleyin"
+    },
+    {
+      "en": "Please load data before calculating.",
+      "ru": "Пожалуйста, загрузите данные перед расчётом.",
+      "tr": "Lütfen hesaplamadan önce veri yükleyin."
+    },
+    {
+      "en": "Process Type",
+      "ru": "Тип процесса",
+      "tr": "İşlem Türü"
+    },
+    {
+      "en": "Supercritical Fluid Extraction (CO2 as main solvent)",
+      "ru": "Сверхкритическая флюидная экстракция (CO2 как основной растворитель)",
+      "tr": "Süperkritik Akışkan Ekstraksiyonu (ana çözücü olarak CO2)"
+    },
+    {
+      "en": "Subcritical Water Extraction (H2O as main solvent)",
+      "ru": "Субкритическая водная экстракция (H2O как основной растворитель)",
+      "tr": "Subkritik Su Ekstraksiyonu (ana çözücü olarak H2O)"
+    },
+    {
+      "en": "Affects solvent density calculations and co-solvent options (EtOH for SFE, CO2 for SWE).",
+      "ru": "Влияет на расчёт плотности растворителя и выбор со-растворителя (EtOH для SFE, CO2 для SWE).",
+      "tr": "Çözücü yoğunluğu hesaplamalarını ve yardımcı çözücü seçeneklerini etkiler (SFE için EtOH, SWE için CO2)."
+    },
+    {
+      "en": "COM Calculation Method",
+      "ru": "Метод расчёта COM",
+      "tr": "COM Hesaplama Yöntemi"
+    },
+    {
+      "en": "Use Turton et al. (1998) coefficients",
+      "ru": "Использовать коэффициенты Turton et al. (1998)",
+      "tr": "Turton et al. (1998) katsayılarını kullan"
+    },
+    {
+      "en": "Turton et al. (1998) formula with empirical coefficients",
+      "ru": "Формула Turton et al. (1998) с эмпирическими коэффициентами",
+      "tr": "Ampirik katsayılı Turton et al. (1998) formülü"
+    },
+    {
+      "en": "Simple sum of monthly cost components",
+      "ru": "Простая сумма ежемесячных компонентов затрат",
+      "tr": "Aylık maliyet bileşenlerinin basit toplamı"
+    },
+    {
+      "en": "Custom coefficients (default: 1 for simple sum)",
+      "ru": "Настраиваемые коэффициенты (по умолчанию: 1 для простой суммы)",
+      "tr": "Özel katsayılar (varsayılan: basit toplam için 1)"
+    },
+    {
+      "en": " Variable selection cannot be empty.",
+      "ru": " Выбор переменной не может быть пустым.",
+      "tr": " Değişken seçimi boş olamaz."
+    },
+    {
+      "en": "%s must be between %s and %s",
+      "ru": "%s должно быть между %s и %s",
+      "tr": "%s, %s ile %s arasında olmalıdır"
+    },
+    {
+      "en": "Pressure",
+      "ru": "Давление",
+      "tr": "Basınç"
+    },
+    {
+      "en": "Temperature",
+      "ru": "Температура",
+      "tr": "Sıcaklık"
+    },
+    {
+      "en": "Valid range: 1 to 1000 bar",
+      "ru": "Допустимый диапазон: от 1 до 1000 бар",
+      "tr": "Geçerli aralık: 1 ile 1000 bar"
+    },
+    {
+      "en": "Valid range: -50 to 300 °C",
+      "ru": "Допустимый диапазон: от -50 до 300 °C",
+      "tr": "Geçerli aralık: -50 ile 300 °C"
+    },
+    {
+      "en": "Recovery Pressure",
+      "ru": "Давление восстановления",
+      "tr": "Geri Kazanım Basıncı"
+    },
+    {
+      "en": "Recovery Temperature",
+      "ru": "Температура восстановления",
+      "tr": "Geri Kazanım Sıcaklığı"
+    },
+    {
+      "en": "Separator Temperature",
+      "ru": "Температура сепаратора",
+      "tr": "Ayırıcı Sıcaklığı"
+    },
+    {
+      "en": "Flow Measurement Pressure",
+      "ru": "Давление измерения расхода",
+      "tr": "Akış Ölçüm Basıncı"
+    },
+    {
+      "en": "Flow Measurement Temperature",
+      "ru": "Температура измерения расхода",
+      "tr": "Akış Ölçüm Sıcaklığı"
+    },
+    {
+      "en": "Co-solvent Loss",
+      "ru": "Потери сорастворителя",
+      "tr": "Yardımcı Çözücü Kaybı"
+    },
+    {
+      "en": "Valid range: 0 to 1",
+      "ru": "Допустимый диапазон: от 0 до 1",
+      "tr": "Geçerli aralık: 0 ile 1"
+    },
+    {
+      "en": "Depreciation Rate",
+      "ru": "Норма амортизации",
+      "tr": "Amortisman Oranı"
+    },
+    {
+      "en": "Tax Rate",
+      "ru": "Налоговая ставка",
+      "tr": "Vergi Oranı"
+    },
+    {
+      "en": "Tax Rate (%)",
+      "ru": "Налоговая ставка (%)",
+      "tr": "Vergi Oranı (%)"
+    },
+    {
+      "en": "Valid range: 0 to 100%",
+      "ru": "Допустимый диапазон: от 0 до 100%",
+      "tr": "Geçerli aralık: %0 ile %100"
+    },
+    {
+      "en": "Theoretical max: %s cm (based on extractor volume and diameter)",
+      "ru": "Теоретический максимум: %s см (на основе объёма экстрактора и диаметра)",
+      "tr": "Teorik maksimum: %s cm (ekstraktör hacmi ve çapına göre)"
+    },
+    {
+      "en": "Set extractor volume and inner diameter to see valid range",
+      "ru": "Укажите объём экстрактора и внутренний диаметр, чтобы увидеть допустимый диапазон",
+      "tr": "Geçerli aralığı görmek için ekstraktör hacmini ve iç çapı ayarlayın"
+    },
+    {
+      "en": "Bed height (%s cm) exceeds theoretical maximum (%s cm) based on extractor geometry",
+      "ru": "Высота слоя (%s см) превышает теоретический максимум (%s см) на основе геометрии экстрактора",
+      "tr": "Yatak yüksekliği (%s cm), ekstraktör geometrisine göre teorik maksimumu (%s cm) aşıyor"
+    },
+    {
+      "en": "Fixed Costs and Tax Rate",
+      "ru": "Постоянные затраты и налоговая ставка",
+      "tr": "Sabit Maliyetler ve Vergi Oranı"
+    },
+    {
+      "en": "Cost of Manufacturing Breakdown",
+      "ru": "Разбивка затрат на производство",
+      "tr": "Üretim Maliyeti Dağılımı"
+    },
+    {
+      "en": "Monthly Cost Summary",
+      "ru": "Ежемесячная сводка затрат",
+      "tr": "Aylık Maliyet Özeti"
+    },
+    {
+      "en": "Cost Components at a Glance",
+      "ru": "Компоненты затрат с первого взгляда",
+      "tr": "Bir Bakışta Maliyet Bileşenleri"
+    },
+    {
+      "en": "Raw Materials (CRM)",
+      "ru": "Сырьё (CRM)",
+      "tr": "Hammaddeler (CRM)"
+    },
+    {
+      "en": "Utilities (CUT)",
+      "ru": "Коммунальные услуги (CUT)",
+      "tr": "Hizmetler (CUT)"
+    },
+    {
+      "en": "Labour (COL)",
+      "ru": "Труд (COL)",
+      "tr": "İşçilik (COL)"
+    },
+    {
+      "en": "Fixed Costs (FMC)",
+      "ru": "Постоянные затраты (FMC)",
+      "tr": "Sabit Maliyetler (FMC)"
+    },
+    {
+      "en": "of COM",
+      "ru": "от COM",
+      "tr": "COM'un"
+    },
+    {
+      "en": "Amount",
+      "ru": "Сумма",
+      "tr": "Tutar"
+    },
+    {
+      "en": "Share",
+      "ru": "Доля",
+      "tr": "Pay"
+    },
+    {
+      "en": "COM",
+      "ru": "COM",
+      "tr": "COM"
+    },
+    {
+      "en": "Revenue",
+      "ru": "Выручка",
+      "tr": "Gelir"
+    },
+    {
+      "en": "Profit",
+      "ru": "Прибыль",
+      "tr": "Kâr"
+    },
+    {
+      "en": "Total COM",
+      "ru": "Итого COM",
+      "tr": "Toplam COM"
+    },
+    {
+      "en": "Detailed Cost Breakdown",
+      "ru": "Детальная разбивка затрат",
+      "tr": "Detaylı Maliyet Dökümü"
+    },
+    {
+      "en": "Production Overview",
+      "ru": "Обзор производства",
+      "tr": "Üretim Genel Bakışı"
+    },
+    {
+      "en": "Cost of Raw Materials (CRM)",
+      "ru": "Затраты на сырьё (CRM)",
+      "tr": "Hammadde Maliyetleri (CRM)"
+    },
+    {
+      "en": "Cost of Utilities (CUT)",
+      "ru": "Затраты на коммунальные услуги (CUT)",
+      "tr": "Hizmet Maliyetleri (CUT)"
+    },
+    {
+      "en": "Financial Results",
+      "ru": "Финансовые результаты",
+      "tr": "Finansal Sonuçlar"
+    },
+    {
+      "en": "Raw Material Parameters",
+      "ru": "Параметры сырья",
+      "tr": "Hammadde Parametreleri"
+    },
+    {
+      "en": "Utility Parameters",
+      "ru": "Параметры коммунальных услуг",
+      "tr": "Hizmet Parametreleri"
+    },
+    {
+      "en": "Labour Parameters",
+      "ru": "Параметры труда",
+      "tr": "İşçilik Parametreleri"
+    },
+    {
+      "en": "Fixed Cost Parameters",
+      "ru": "Параметры постоянных затрат",
+      "tr": "Sabit Maliyet Parametreleri"
+    },
+    {
+      "en": "Full Data Export",
+      "ru": "Полный экспорт данных",
+      "tr": "Tam Veri Dışa Aktarımı"
+    },
+    {
+      "en": "Complete detailed output data for export purposes.",
+      "ru": "Полные подробные выходные данные для экспорта.",
+      "tr": "Dışa aktarım için tam ayrıntılı çıktı verileri."
+    },
+    {
+      "en": "Parameter",
+      "ru": "Параметр",
+      "tr": "Parametre"
+    },
+    {
+      "en": "Raw Materials",
+      "ru": "Сырьё",
+      "tr": "Hammaddeler"
+    },
+    {
+      "en": "Utilities",
+      "ru": "Коммунальные услуги",
+      "tr": "Hizmetler"
+    },
+    {
+      "en": "Labour",
+      "ru": "Труд",
+      "tr": "İşçilik"
+    },
+    {
+      "en": "Fixed Costs",
+      "ru": "Постоянные затраты",
+      "tr": "Sabit Maliyetler"
+    },
+    {
+      "en": "CRM",
+      "ru": "CRM",
+      "tr": "CRM"
+    },
+    {
+      "en": "CUT",
+      "ru": "CUT",
+      "tr": "CUT"
+    },
+    {
+      "en": "COL",
+      "ru": "COL",
+      "tr": "COL"
+    },
+    {
+      "en": "FMC",
+      "ru": "FMC",
+      "tr": "FMC"
+    },
+    {
+      "en": "4. Response Settings",
+      "ru": "4. Настройки отклика",
+      "tr": "4. Yanıt Ayarları"
+    },
+    {
+      "en": "Response Unit",
+      "ru": "Единица отклика",
+      "tr": "Yanıt Birimi"
+    },
+    {
+      "en": "Raw Material Moisture (%)",
+      "ru": "Влажность сырья (%)",
+      "tr": "Hammadde Nemi (%)"
+    },
+    {
+      "en": "Response",
+      "ru": "Отклик",
+      "tr": "Yanıt"
+    },
+    {
+      "en": "Primary Response",
+      "ru": "Основной отклик",
+      "tr": "Birincil Yanıt"
+    },
+    {
+      "en": "Response Name",
+      "ru": "Название отклика",
+      "tr": "Yanıt Adı"
+    },
+    {
+      "en": "Additional Responses",
+      "ru": "Дополнительные отклики",
+      "tr": "Ek Yanıtlar"
+    },
+    {
+      "en": "Add up to 3 additional responses to calculate combined revenue",
+      "ru": "Добавьте до 3 дополнительных откликов для расчета общей выручки",
+      "tr": "Toplam geliri hesaplamak için 3 adede kadar ek yanıt ekleyin"
+    },
+    {
+      "en": "No additional responses added.",
+      "ru": "Дополнительные отклики не добавлены.",
+      "tr": "Ek yanıt eklenmedi."
+    },
+    {
+      "en": "Add Response",
+      "ru": "Добавить отклик",
+      "tr": "Yanıt Ekle"
+    },
+    {
+      "en": "Maximum of 3 additional responses reached.",
+      "ru": "Достигнут максимум в 3 дополнительных отклика.",
+      "tr": "Maksimum 3 ek yanıta ulaşıldı."
+    },
+    {
+      "en": "Maximum of 3 additional responses allowed.",
+      "ru": "Разрешено не более 3 дополнительных откликов.",
+      "tr": "Maksimum 3 ek yanıta izin verilir."
+    },
+    {
+      "en": "Additional Response",
+      "ru": "Дополнительный отклик",
+      "tr": "Ek Yanıt"
+    },
+    {
+      "en": "Response Value",
+      "ru": "Значение отклика",
+      "tr": "Yanıt Değeri"
+    },
+    {
+      "en": "Response Column",
+      "ru": "Столбец отклика",
+      "tr": "Yanıt Sütunu"
+    },
+    {
+      "en": "Time Variable Selection",
+      "ru": "Выбор переменной времени",
+      "tr": "Zaman Değişkeni Seçimi"
+    },
+    {
+      "en": "Requires mass unit",
+      "ru": "Требуется единица массы",
+      "tr": "Kütle birimi gerekli"
+    },
+    {
+      "en": "This field is only used when at least one response is given in mass units (g or kg)",
+      "ru": "Это поле используется только когда хотя бы один отклик указан в единицах массы (г или кг)",
+      "tr": "Bu alan yalnızca en az bir yanıt kütle birimlerinde (g veya kg) verildiğinde kullanılır"
+    },
+    {
+      "en": "3. Primary Response",
+      "ru": "3. Основной отклик",
+      "tr": "3. Birincil Yanıt"
+    },
+    {
+      "en": "4. Additional Responses",
+      "ru": "4. Дополнительные отклики",
+      "tr": "4. Ek Yanıtlar"
+    },
+    {
+      "en": "Extract Breakdown by Response",
+      "ru": "Разбивка экстракта по откликам",
+      "tr": "Yanıta Göre Ekstrakt Dağılımı"
+    },
+    {
+      "en": "Revenue Breakdown by Response",
+      "ru": "Разбивка выручки по откликам",
+      "tr": "Yanıta Göre Gelir Dağılımı"
+    },
+    {
+      "en": "Extract Produced",
+      "ru": "Произведенный экстракт",
+      "tr": "Üretilen Ekstrakt"
+    },
+    {
+      "en": "Extract (kg)",
+      "ru": "Экстракт (кг)",
+      "tr": "Ekstrakt (kg)"
+    },
+    {
+      "en": "Revenue (USD)",
+      "ru": "Выручка (USD)",
+      "tr": "Gelir (USD)"
+    },
+    {
+      "en": "Total",
+      "ru": "Итого",
+      "tr": "Toplam"
+    },
+    {
+      "en": "Weighted average price",
+      "ru": "Средневзвешенная цена",
+      "tr": "Ağırlıklı ortalama fiyat"
+    },
+    {
+      "en": "Sale price",
+      "ru": "Цена продажи",
+      "tr": "Satış fiyatı"
+    },
+    {
+      "en": "Cost share (proportional)",
+      "ru": "Доля затрат (пропорциональная)",
+      "tr": "Maliyet payı (orantılı)"
+    },
+    {
+      "en": "Gross profit",
+      "ru": "Валовая прибыль",
+      "tr": "Brüt kar"
+    },
+    {
+      "en": "Extract produced (monthly) by response",
+      "ru": "Произведенный экстракт (ежемесячно) по откликам",
+      "tr": "Yanıta göre üretilen ekstrakt (aylık)"
+    },
+    {
+      "en": "Sole production cost",
+      "ru": "Себестоимость при единственном продукте",
+      "tr": "Tek ürün üretim maliyeti"
+    },
+    {
+      "en": "Contribution to payback",
+      "ru": "Вклад в окупаемость",
+      "tr": "Geri ödemeye katkı"
+    },
+    {
+      "en": "Cycle Overhead Time (min)",
+      "ru": "Время подготовки цикла (мин)",
+      "tr": "Döngü Hazırlık Süresi (dk)"
+    },
+    {
+      "en": "COST OF MANUFACTURING ANALYSIS RESULTS",
+      "ru": "РЕЗУЛЬТАТЫ АНАЛИЗА СЕБЕСТОИМОСТИ ПРОИЗВОДСТВА",
+      "tr": "ÜRETİM MALİYETİ ANALİZİ SONUÇLARI"
+    },
+    {
+      "en": "Generated",
+      "ru": "Создано",
+      "tr": "Oluşturulma tarihi"
+    },
+    {
+      "en": "PRODUCTION OVERVIEW",
+      "ru": "ОБЗОР ПРОИЗВОДСТВА",
+      "tr": "ÜRETİM GENEL BAKIŞI"
+    },
+    {
+      "en": "COST OF RAW MATERIALS (CRM)",
+      "ru": "СТОИМОСТЬ СЫРЬЯ (CRM)",
+      "tr": "HAMMADDE MALİYETİ (CRM)"
+    },
+    {
+      "en": "COST OF UTILITIES (CUT)",
+      "ru": "СТОИМОСТЬ УСЛУГ (CUT)",
+      "tr": "HİZMET MALİYETİ (CUT)"
+    },
+    {
+      "en": "FINANCIAL RESULTS (COMBINED SUMMARY)",
+      "ru": "ФИНАНСОВЫЕ РЕЗУЛЬТАТЫ (СВОДКА)",
+      "tr": "FİNANSAL SONUÇLAR (ÖZET)"
+    },
+    {
+      "en": "PER-RESPONSE FINANCIAL BREAKDOWN",
+      "ru": "ФИНАНСОВАЯ РАЗБИВКА ПО ОТКЛИКАМ",
+      "tr": "YANIT BAZINDA FİNANSAL DAĞILIM"
+    },
+    {
+      "en": "PERFORMANCE OVERVIEW (TIME-SERIES DATA)",
+      "ru": "ОБЗОР ПРОИЗВОДИТЕЛЬНОСТИ (ВРЕМЕННЫЕ ДАННЫЕ)",
+      "tr": "PERFORMANS GENEL BAKIŞI (ZAMAN SERİSİ VERİLERİ)"
+    },
+    {
+      "en": "INPUT PARAMETERS",
+      "ru": "ВХОДНЫЕ ПАРАМЕТРЫ",
+      "tr": "GİRİŞ PARAMETRELERİ"
+    },
+    {
+      "en": "ADDITIONAL RESULTS",
+      "ru": "ДОПОЛНИТЕЛЬНЫЕ РЕЗУЛЬТАТЫ",
+      "tr": "EK SONUÇLAR"
+    },
+    {
+      "en": "FUNCTION CALL",
+      "ru": "ВЫЗОВ ФУНКЦИИ",
+      "tr": "FONKSİYON ÇAĞRISI"
+    },
+    {
+      "en": "INPUT DATA PROVIDED BY USER",
+      "ru": "ВХОДНЫЕ ДАННЫЕ ПОЛЬЗОВАТЕЛЯ",
+      "tr": "KULLANICI TARAFINDAN SAĞLANAN GİRİŞ VERİLERİ"
+    },
+    {
+      "en": "DETAILED OUTPUT DATA",
+      "ru": "ДЕТАЛЬНЫЕ ВЫХОДНЫЕ ДАННЫЕ",
+      "tr": "DETAYLI ÇIKIŞ VERİLERİ"
+    },
+    {
+      "en": "ABBREVIATED OUTPUT DATA",
+      "ru": "СОКРАЩЕННЫЕ ВЫХОДНЫЕ ДАННЫЕ",
+      "tr": "KISALTILMIŞ ÇIKIŞ VERİLERİ"
+    },
+    {
+      "en": "Parameter",
+      "ru": "Параметр",
+      "tr": "Parametre"
+    },
+    {
+      "en": "Units",
+      "ru": "Единицы",
+      "tr": "Birim"
+    },
+    {
+      "en": "Type",
+      "ru": "Тип",
+      "tr": "Tür"
+    },
+    {
+      "en": "FMC (Fixed Costs)",
+      "ru": "FMC (Постоянные затраты)",
+      "tr": "FMC (Sabit Maliyetler)"
+    },
+    {
+      "en": "COL (Cost of Labor)",
+      "ru": "COL (Затраты на оплату труда)",
+      "tr": "COL (İşçilik Maliyeti)"
+    },
+    {
+      "en": "Cost of Labor (COL)",
+      "ru": "Затраты на оплату труда (COL)",
+      "tr": "İşçilik Maliyeti (COL)"
+    },
+    {
+      "en": "Fixed Costs (FMC)",
+      "ru": "Постоянные затраты (FMC)",
+      "tr": "Sabit Maliyetler (FMC)"
+    },
+    {
+      "en": "Weighted average price",
+      "ru": "Средневзвешенная цена",
+      "tr": "Ağırlıklı ortalama fiyat"
+    },
+    {
+      "en": "Raw Material Parameters",
+      "ru": "Параметры сырья",
+      "tr": "Hammadde Parametreleri"
+    },
+    {
+      "en": "Utility Parameters",
+      "ru": "Параметры коммунальных услуг",
+      "tr": "Hizmet Parametreleri"
+    },
+    {
+      "en": "Labour Parameters",
+      "ru": "Параметры труда",
+      "tr": "İşçilik Parametreleri"
+    },
+    {
+      "en": "Fixed Cost Parameters",
+      "ru": "Параметры постоянных затрат",
+      "tr": "Sabit Maliyet Parametreleri"
+    },
+    {
+      "en": "shifts/day",
+      "ru": "смен/день",
+      "tr": "vardiya/gün"
+    },
+    {
+      "en": "h/shift",
+      "ru": "ч/смена",
+      "tr": "saat/vardiya"
+    },
+    {
+      "en": "%/year",
+      "ru": "%/год",
+      "tr": "%/yıl"
+    },
+    {
+      "en": "Additional auxiliary power usage",
+      "ru": "Дополнительное потребление электроэнергии",
+      "tr": "Ek yardımcı güç tüketimi"
+    },
+    {
+      "en": "Tax rate (for net profit calculation)",
+      "ru": "Ставка налога (для расчета чистой прибыли)",
+      "tr": "Vergi oranı (net kâr hesaplaması için)"
+    },
+    {
+      "en": "°C",
+      "ru": "°C",
+      "tr": "°C"
+    },
+    {
+      "en": "kW",
+      "ru": "кВт",
+      "tr": "kW"
+    },
+    {
+      "en": "(no name)",
+      "ru": "(без названия)",
+      "tr": "(isimsiz)"
+    },
+    {
+      "en": "No saved settings found. Save your current settings to get started!",
+      "ru": "Сохраненные настройки не найдены. Сохраните текущие настройки, чтобы начать!",
+      "tr": "Kayıtlı ayar bulunamadı. Başlamak için mevcut ayarlarınızı kaydedin!"
+    },
+    {
+      "en": "people",
+      "ru": "чел.",
+      "tr": "kişi"
+    },
+    {
+      "en": "hours",
+      "ru": "ч",
+      "tr": "saat"
+    },
+    {
+      "en": "days/month",
+      "ru": "дн./мес.",
+      "tr": "gün/ay"
+    },
+    {
+      "en": "L/h",
+      "ru": "л/ч",
+      "tr": "L/sa"
+    },
+    {
+      "en": "Time (min)",
+      "ru": "Время (мин)",
+      "tr": "Süre (dk)"
+    },
+    {
+      "en": "Yield (%)",
+      "ru": "Выход (%)",
+      "tr": "Verim (%)"
+    },
+    {
+      "en": "Monthly Profit ($)",
+      "ru": "Ежемесячная прибыль ($)",
+      "tr": "Aylık Kâr ($)"
+    },
+    {
+      "en": "Margin (%)",
+      "ru": "Маржа (%)",
+      "tr": "Marj (%)"
+    },
+    {
+      "en": "Payback (years)",
+      "ru": "Окупаемость (лет)",
+      "tr": "Geri Ödeme (yıl)"
+    },
+    {
+      "en": "Specific Cost ($/kg)",
+      "ru": "Удельные затраты ($/кг)",
+      "tr": "Birim Maliyet ($/kg)"
+    },
+    {
+      "en": "Costs",
+      "ru": "Затраты",
+      "tr": "Maliyetler"
+    },
+    {
+      "en": "dimensionless",
+      "ru": "безразмерная",
+      "tr": "boyutsuz"
+    },
+    {
+      "en": "Select...",
+      "ru": "Выбрать...",
+      "tr": "Seçin..."
+    },
+    {
+      "en": "Cost of Labour (COL) and Fixed Manufacturing Costs (FMC)",
+      "ru": "Затраты на оплату труда (COL) и Постоянные производственные затраты (FMC)",
+      "tr": "İşçilik Maliyeti (COL) ve Sabit Üretim Maliyetleri (FMC)"
+    },
+    {
+      "en": "Cost of Labour (COL)",
+      "ru": "Затраты на оплату труда (COL)",
+      "tr": "İşçilik Maliyeti (COL)"
+    },
+    {
+      "en": "Fixed Manufacturing Costs (FMC)",
+      "ru": "Постоянные производственные затраты (FMC)",
+      "tr": "Sabit Üretim Maliyetleri (FMC)"
+    },
+    {
+      "en": "Cost of Labour",
+      "ru": "Затраты на оплату труда",
+      "tr": "İşçilik Maliyeti"
+    },
+    {
+      "en": "Select the parameters and run the calculation to see results.",
+      "ru": "Выберите параметры и запустите расчёт для просмотра результатов.",
+      "tr": "Parametreleri seçin ve sonuçları görmek için hesaplamayı çalıştırın."
+    },
+    {
+      "en": "Specify the inner diameter of the extractor in centimeters.",
+      "ru": "Укажите внутренний диаметр экстрактора в сантиметрах.",
+      "tr": "Ekstraktörün iç çapını santimetre olarak belirtin."
+    },
+    {
+      "en": "Specify the pressure (in bar) at which the flow rate is measured. Used for converting volumetric flow to mass flow.",
+      "ru": "Укажите давление (бар) измерения расхода. Используется для пересчёта объёмного расхода в массовый.",
+      "tr": "Akış hızının ölçüldüğü basıncı (bar) belirtin. Hacimsel akışı kütlesel akışa dönüştürmek için kullanılır."
+    },
+    {
+      "en": "Specify the power consumption for drying in kilowatts.",
+      "ru": "Укажите потребление энергии на сушку в кВт.",
+      "tr": "Kurutma için güç tüketimini kilowatt olarak belirtin."
+    },
+    {
+      "en": "Specify the duration of each working shift in hours.",
+      "ru": "Укажите продолжительность рабочей смены в часах.",
+      "tr": "Her çalışma vardiyasının süresini saat olarak belirtin."
+    },
+    {
+      "en": "Input the load (amount of material) in kilograms.",
+      "ru": "Введите загрузку (количество материала) в кг.",
+      "tr": "Yükü (malzeme miktarını) kilogram olarak girin."
+    },
+    {
+      "en": "Input the co-solvent loss as a fraction (e.g., 0.05 for 5%).",
+      "ru": "Введите потери со-растворителя в виде доли (напр. 0.05 для 5%).",
+      "tr": "Ko-çözücü kaybını kesir olarak girin (örn. %5 için 0.05)."
+    },
+    {
+      "en": "Input the annual maintenance cost in USD.",
+      "ru": "Введите годовые затраты на техобслуживание в USD.",
+      "tr": "Yıllık bakım maliyetini USD olarak girin."
+    },
+    {
+      "en": "Select how you want to provide your time and yield data: single values, CSV upload, or manual text input.",
+      "ru": "Выберите способ ввода данных: отдельные значения, загрузка CSV или ручной текстовый ввод.",
+      "tr": "Zaman ve verim verilerinizi nasıl sağlayacağınızı seçin: tekli değerler, CSV yükleme veya manuel metin girişi."
+    },
+    {
+      "en": "Enter the depreciation rate as a fraction (e.g., 0.1 for 10%).",
+      "ru": "Введите норму амортизации в виде доли (напр. 0.1 для 10%).",
+      "tr": "Amortisman oranını kesir olarak girin (örn. %10 için 0.1)."
+    },
+    {
+      "en": "Enter the number of operators required for the process.",
+      "ru": "Введите необходимое количество операторов.",
+      "tr": "Proses için gereken operatör sayısını girin."
+    },
+    {
+      "en": "Enter the corresponding single yield value.",
+      "ru": "Введите соответствующее значение выхода.",
+      "tr": "Karşılık gelen tekli verim değerini girin."
+    },
+    {
+      "en": "Enter the co-solvent flow rate in milliliters per minute.",
+      "ru": "Введите расход со-растворителя в миллилитрах в минуту.",
+      "tr": "Ko-çözücü akış hızını mililitre/dakika olarak girin."
+    },
+    {
+      "en": "Enter the main power consumption in kilowatts.",
+      "ru": "Введите основное потребление электроэнергии в кВт.",
+      "tr": "Ana güç tüketimini kilowatt olarak girin."
+    },
+    {
+      "en": "Input the energy price in USD per kilowatt-hour.",
+      "ru": "Введите цену энергии в USD/кВт·ч.",
+      "tr": "Enerji fiyatını USD/kWh olarak girin."
+    },
+    {
+      "en": "Manually enter your time and yield data in CSV format (e.g., time,yield\\\\n5,0.80).",
+      "ru": "Вручную enter your time and yield data in CSV format (e.g., time,yield\\\\n5,0.80).",
+      "tr": "Manuel olarak enter your time and yield data in CSV format (e.g., time,yield\\\\n5,0.80)."
+    },
+    {
+      "en": "Enter the drying capacity in kilograms per hour.",
+      "ru": "Введите производительность сушки в кг/ч.",
+      "tr": "Kurutma kapasitesini kg/saat olarak girin."
+    },
+    {
+      "en": "Input the price of the co-solvent in USD per kilogram.",
+      "ru": "Введите цену со-растворителя в USD/кг.",
+      "tr": "Ko-çözücü fiyatını USD/kg olarak girin."
+    },
+    {
+      "en": "Input the evaporation capacity in kilograms per hour.",
+      "ru": "Введите производительность испарения в кг/ч.",
+      "tr": "Buharlaştırma kapasitesini kg/saat olarak girin."
+    },
+    {
+      "en": "Enter the single time point for your analysis.",
+      "ru": "Введите одну временную точку для анализа.",
+      "tr": "Analiziniz için tek zaman noktasını girin."
+    },
+    {
+      "en": "Specify the operating pressure in bar.",
+      "ru": "Укажите рабочее давление в барах.",
+      "tr": "Çalışma basıncını bar olarak belirtin."
+    },
+    {
+      "en": "Input the flow rate in milliliters per minute.",
+      "ru": "Введите расход в миллилитрах в минуту.",
+      "tr": "Akış hızını mililitre/dakika olarak girin."
+    },
+    {
+      "en": "Input the power consumption for comminution (grinding) in kilowatts.",
+      "ru": "Введите потребление энергии на измельчение в кВт.",
+      "tr": "Öğütme için güç tüketimini kilowatt olarak girin."
+    },
+    {
+      "en": "Upload a CSV file containing your time and yield data. The file should have 'time' and 'yield' columns.",
+      "ru": "Загрузите CSV-файл с данными времени и выхода. Файл должен содержать столбцы «time» и «yield».",
+      "tr": "Zaman ve verim verilerinizi içeren bir CSV dosyası yükleyin. Dosyada 'time' ve 'yield' sütunları bulunmalıdır."
+    },
+    {
+      "en": "Enter the bed height of the extractor in centimeters.",
+      "ru": "Введите высоту слоя экстрактора в сантиметрах.",
+      "tr": "Ekstraktörün yatak yüksekliğini santimetre olarak girin."
+    },
+    {
+      "en": "Enter the operating temperature in degrees Celsius.",
+      "ru": "Введите рабочую температуру в градусах Цельсия.",
+      "tr": "Çalışma sıcaklığını derece Celsius olarak girin."
+    },
+    {
+      "en": "Select the calculation mode: SFE (Supercritical Fluid Extraction) or SWE (Subcritical Water Extraction).",
+      "ru": "Выберите режим расчёта: SFE (сверхкритическая экстракция) или SWE (субкритическая водная экстракция).",
+      "tr": "Hesaplama modunu seçin: SFE (Süperkritik Akışkan Ekstraksiyonu) veya SWE (Subkritik Su Ekstraksiyonu)."
+    },
+    {
+      "en": "Input the tax rate applicable to your profits.",
+      "ru": "Введите налоговую ставку на прибыль.",
+      "tr": "Kârlarınıza uygulanan vergi oranını girin."
+    },
+    {
+      "en": "Specify the recovery pressure in bar.",
+      "ru": "Укажите давление рекуперации в барах.",
+      "tr": "Geri kazanım basıncını bar olarak belirtin."
+    },
+    {
+      "en": "Enter the power consumption for evaporation in kilowatts.",
+      "ru": "Введите потребление энергии на испарение в кВт.",
+      "tr": "Buharlaştırma için güç tüketimini kilowatt olarak girin."
+    },
+    {
+      "en": "Input the sales price of the extracted product in USD per kilogram.",
+      "ru": "Введите отпускную цену экстракта в USD/кг.",
+      "tr": "Ekstrakte edilen ürünün satış fiyatını USD/kg olarak girin."
+    },
+    {
+      "en": "Enter the volume of the extractor in liters.",
+      "ru": "Введите объём экстрактора в литрах.",
+      "tr": "Ekstraktörün hacmini litre olarak girin."
+    },
+    {
+      "en": "Enter the price of auxiliary material in USD per kilogram.",
+      "ru": "Введите цену вспомогательных материалов в USD/кг.",
+      "tr": "Yardımcı malzeme fiyatını USD/kg olarak girin."
+    },
+    {
+      "en": "Enter the dilution factor for your extract.",
+      "ru": "Введите коэффициент разбавления экстракта.",
+      "tr": "Ekstraktınız için seyreltme faktörünü girin."
+    },
+    {
+      "en": "Enter the monthly wage per operator in USD.",
+      "ru": "Введите ежемесячную зарплату оператора в USD.",
+      "tr": "Operatör başına aylık ücreti USD olarak girin."
+    },
+    {
+      "en": "Specify the required fraction of auxiliary material.",
+      "ru": "Укажите необходимую долю вспомогательных материалов.",
+      "tr": "Gerekli yardımcı malzeme fraksiyonunu belirtin."
+    },
+    {
+      "en": "Check this box to automatically use recovery line pressure and temperature for flow density calculations. Uncheck to specify custom values.",
+      "ru": "Проверьте this box to automatically use recovery line pressure and temperature for flow density calculations. Uncheck to specify custom values.",
+      "tr": "Kontrol edin: this box to automatically use recovery line pressure and temperature for flow density calculations. Uncheck to specify custom values."
+    },
+    {
+      "en": "Enter the price of the main solvent in USD per kilogram.",
+      "ru": "Введите цену основного растворителя в USD/кг.",
+      "tr": "Ana çözücü fiyatını USD/kg olarak girin."
+    },
+    {
+      "en": "Review your input data here before proceeding with calculations.",
+      "ru": "Проверьте входные данные перед началом расчётов.",
+      "tr": "Hesaplamalara geçmeden önce giriş verilerinizi burada inceleyin."
+    },
+    {
+      "en": "Input the price of the raw material in USD per kilogram.",
+      "ru": "Введите цену сырья в USD/кг.",
+      "tr": "Ham madde fiyatını USD/kg olarak girin."
+    },
+    {
+      "en": "Specify the comminution capacity in kilograms per hour.",
+      "ru": "Укажите производительность измельчения в кг/ч.",
+      "tr": "Öğütme kapasitesini kg/saat olarak belirtin."
+    },
+    {
+      "en": "Enter the recovery temperature in degrees Celsius.",
+      "ru": "Введите температуру рекуперации в градусах Цельсия.",
+      "tr": "Geri kazanım sıcaklığını derece Celsius olarak girin."
+    },
+    {
+      "en": "Input the total number of shifts per day or period.",
+      "ru": "Введите общее количество смен в день или период.",
+      "tr": "Gün veya dönem başına toplam vardiya sayısını girin."
+    },
+    {
+      "en": "Enter the total capital investment for the project in USD.",
+      "ru": "Введите общие капитальные вложения в проект в USD.",
+      "tr": "Proje için toplam sermaye yatırımını USD olarak girin."
+    },
+    {
+      "en": "Specify the number of working days in a month.",
+      "ru": "Укажите количество рабочих дней в месяце.",
+      "tr": "Bir aydaki çalışma günü sayısını belirtin."
+    },
+    {
+      "en": "Check this box to use pre-defined coefficients for calculations, or uncheck to use custom values.",
+      "ru": "Установите флажок для использования предопределённых коэффициентов или снимите для ввода пользовательских значений.",
+      "tr": "Hesaplamalar için önceden tanımlanmış katsayıları kullanmak için bu kutuyu işaretleyin veya özel değerler kullanmak için kaldırın."
+    },
+    {
+      "en": "Specify the total extraction time in minutes.",
+      "ru": "Укажите общее время экстракции в минутах.",
+      "tr": "Toplam ekstraksiyon süresini dakika olarak belirtin."
+    },
+    {
+      "en": "Input the separator temperature in degrees Celsius.",
+      "ru": "Введите температуру сепаратора в градусах Цельсия.",
+      "tr": "Ayırıcı sıcaklığını derece Celsius olarak girin."
+    },
+    {
+      "en": "Specify any other fixed costs not covered elsewhere, in USD.",
+      "ru": "Укажите прочие постоянные затраты, не учтённые в других разделах, в USD.",
+      "tr": "Başka yerlerde kapsanmayan diğer sabit maliyetleri USD olarak belirtin."
+    },
+    {
+      "en": "Specify the temperature (in °C) at which the flow rate is measured. Used for converting volumetric flow to mass flow.",
+      "ru": "Укажите температуру (°C) измерения расхода. Используется для пересчёта объёмного расхода в массовый.",
+      "tr": "Akış hızının ölçüldüğü sıcaklığı (°C) belirtin. Hacimsel akışı kütlesel akışa dönüştürmek için kullanılır."
+    },
+    {
+      "en": "OK",
+      "ru": "OK",
+      "tr": "Tamam"
+    },
+    {
+      "en": "Separation Temperature",
+      "ru": "Температура сепарации",
+      "tr": "Ayırma Sıcaklığı"
+    },
+    {
+      "en": "Co-Solvent Loss",
+      "ru": "Потери со-растворителя",
+      "tr": "Ko-Çözücü Kaybı"
+    },
+    {
+      "en": "Moisture",
+      "ru": "Влажность",
+      "tr": "Nem"
+    },
+    {
+      "en": "Operating pressure of the supercritical extraction vessel. Used to calculate CO2 density and equipment cost scaling.",
+      "ru": "Рабочее давление экстрактора. Используется для расчёта плотности CO₂ и стоимости оборудования.",
+      "tr": "Süperkritik ekstraksiyon kabının çalışma basıncı. CO₂ yoğunluğu ve ekipman maliyeti hesaplamak için kullanılır."
+    },
+    {
+      "en": "Operating temperature of the extraction vessel. Used alongside pressure to calculate CO2 density.",
+      "ru": "Рабочая температура экстрактора. Используется вместе с давлением для расчёта плотности CO₂.",
+      "tr": "Ekstraksiyon kabının çalışma sıcaklığı. CO₂ yoğunluğunu hesaplamak için basınçla birlikte kullanılır."
+    },
+    {
+      "en": "Pressure in the separator vessel where extracted solute precipitates out of the CO2 stream.",
+      "ru": "Давление в сепараторе, где экстрагированное вещество осаждается из потока CO₂.",
+      "tr": "Ekstrakte edilen çözünenin CO₂ akımından çökeltildiği ayırıcı kabın basıncı."
+    },
+    {
+      "en": "Temperature in the separator vessel. Used to calculate CO2 density at recovery conditions.",
+      "ru": "Температура в сепараторе. Используется для расчёта плотности CO₂ при условиях рекуперации.",
+      "tr": "Ayırıcı kabın sıcaklığı. Geri kazanım koşullarında CO₂ yoğunluğunu hesaplamak için kullanılır."
+    },
+    {
+      "en": "Temperature of the CO2 after separation, before recompression. Used for calculating the energy required to recycle the solvent.",
+      "ru": "Температура CO₂ после сепарации, перед рекомпрессией. Используется для расчёта энергии рециклирования растворителя.",
+      "tr": "Ayrılma sonrası, yeniden sıkıştırma öncesi CO₂'nin sıcaklığı. Çözücüyü geri dönüştürmek için gereken enerjiyi hesaplamak için kullanılır."
+    },
+    {
+      "en": "Annual depreciation rate expressed as a fraction of the total capital expenditure (CAPEX). For example, 0.1 means 10% of CAPEX is depreciated per year.",
+      "ru": "Годовая норма амортизации как доля капитальных затрат (CAPEX). Например, 0.1 означает 10% CAPEX в год.",
+      "tr": "Toplam sermaye harcamasının (CAPEX) bir fraksiyonu olarak ifade edilen yıllık amortisman oranı. Örneğin 0.1, CAPEX'in yılda %10'u anlamına gelir."
+    },
+    {
+      "en": "Corporate income tax rate as a fraction (e.g. 0.20 for 20%). Applied to profits when calculating the payback period.",
+      "ru": "Ставка корпоративного налога как доля (напр. 0.20 для 20%). Применяется к прибыли при расчёте периода окупаемости.",
+      "tr": "Kurumlar vergisi oranı (örn. %20 için 0.20). Geri ödeme süresini hesaplarken kârlara uygulanır."
+    },
+    {
+      "en": "Fraction of co-solvent lost per extraction cycle (0 to 1). For example, 0.05 means 5% of co-solvent is not recovered.",
+      "ru": "Доля потерь со-растворителя за цикл (0-1). Например, 0.05 означает 5% потерь.",
+      "tr": "Ekstraksiyon döngüsü başına kaybedilen ko-çözücü fraksiyonu (0-1). Örneğin 0.05, ko-çözücünün %5'inin geri kazanılmadığı anlamına gelir."
+    },
+    {
+      "en": "Moisture content of the raw material as a percentage. Used to calculate dry mass for yield and drying costs.",
+      "ru": "Влажность сырья в процентах. Используется для расчёта сухой массы для выхода и затрат на сушку.",
+      "tr": "Ham maddenin yüzde olarak nem içeriği. Verim ve kurutma maliyetleri için kuru kütle hesaplamak için kullanılır."
+    },
+    {
+      "en": "Factor by which the extract is diluted during analysis. The measured response is multiplied by this factor to obtain the true yield.",
+      "ru": "Factor by which the extract is diluted during analysis. The measured response is multiplied by this factor to obtain the true yield.",
+      "tr": "Factor by which the extract is diluted during analysis. The measured response is multiplied by this factor to obtain the true yield."
+    },
+    {
+      "en": "Wage",
+      "ru": "Wage",
+      "tr": "Wage"
+    },
+    {
+      "en": "Sales Price",
+      "ru": "Sales Price",
+      "tr": "Sales Price"
+    },
+    {
+      "en": "Working Days",
+      "ru": "Working Days",
+      "tr": "Working Days"
+    },
+    {
+      "en": "Extraction time in minutes for the single-point calculation.",
+      "ru": "Extraction time in minutes for the single-point calculation.",
+      "tr": "Extraction time in minutes for the single-point calculation."
+    },
+    {
+      "en": "Volumetric flow rate of co-solvent (e.g. ethanol) in mL/min. Set to 0 if no co-solvent is used.",
+      "ru": "Volumetric flow rate of co-solvent (e.g. ethanol) in mL/min. Set to 0 if no co-solvent is used.",
+      "tr": "Volumetric flow rate of co-solvent (e.g. ethanol) in mL/min. Set to 0 if no co-solvent is used."
+    },
+    {
+      "en": "Power consumption of the evaporation/solvent recovery unit in kilowatts.",
+      "ru": "Power consumption of the evaporation/solvent recovery unit in kilowatts.",
+      "tr": "Power consumption of the evaporation/solvent recovery unit in kilowatts."
+    },
+    {
+      "en": "Number of work shifts per day.",
+      "ru": "Number of work shifts per day.",
+      "tr": "Number of work shifts per day."
+    },
+    {
+      "en": "Power consumption of the grinding/milling equipment in kilowatts.",
+      "ru": "Power consumption of the grinding/milling equipment in kilowatts.",
+      "tr": "Power consumption of the grinding/milling equipment in kilowatts."
+    },
+    {
+      "en": "Maintenance",
+      "ru": "Maintenance",
+      "tr": "Maintenance"
+    },
+    {
+      "en": "Processing capacity of the evaporator in kilograms per hour.",
+      "ru": "Processing capacity of the evaporator in kilograms per hour.",
+      "tr": "Processing capacity of the evaporator in kilograms per hour."
+    },
+    {
+      "en": "Measured yield or response value at the specified extraction time.",
+      "ru": "Measured yield or response value at the specified extraction time.",
+      "tr": "Measured yield or response value at the specified extraction time."
+    },
+    {
+      "en": "Volumetric flow rate of the main solvent (CO2) in mL/min. Used to calculate solvent consumption per cycle and utility costs.",
+      "ru": "Volumetric flow rate of the main solvent (CO2) in mL/min. Used to calculate solvent consumption per cycle and utility costs.",
+      "tr": "Volumetric flow rate of the main solvent (CO2) in mL/min. Used to calculate solvent consumption per cycle and utility costs."
+    },
+    {
+      "en": "Extractor Volume",
+      "ru": "Extractor Volume",
+      "tr": "Extractor Volume"
+    },
+    {
+      "en": "Purchase price of the main solvent (CO2) per kilogram. Only the non-recovered fraction is costed.",
+      "ru": "Purchase price of the main solvent (CO2) per kilogram. Only the non-recovered fraction is costed.",
+      "tr": "Purchase price of the main solvent (CO2) per kilogram. Only the non-recovered fraction is costed."
+    },
+    {
+      "en": "When enabled, the equipment purchase cost (CAPEX) is estimated automatically from vessel dimensions and operating pressure using the Turton et al. (1998) pressure vessel correlation.",
+      "ru": "When enabled, the equipment purchase cost (CAPEX) is estimated automatically from vessel dimensions and operating pressure using the Turton et al. (1998) pressure vessel correlation.",
+      "tr": "When enabled, the equipment purchase cost (CAPEX) is estimated automatically from vessel dimensions and operating pressure using the Turton et al. (1998) pressure vessel correlation."
+    },
+    {
+      "en": "Processing capacity of the grinder/mill in kilograms per hour.",
+      "ru": "Processing capacity of the grinder/mill in kilograms per hour.",
+      "tr": "Processing capacity of the grinder/mill in kilograms per hour."
+    },
+    {
+      "en": "Other Costs",
+      "ru": "Other Costs",
+      "tr": "Other Costs"
+    },
+    {
+      "en": "Drying Power",
+      "ru": "Drying Power",
+      "tr": "Drying Power"
+    },
+    {
+      "en": "Processing capacity of the dryer in kilograms per hour.",
+      "ru": "Processing capacity of the dryer in kilograms per hour.",
+      "tr": "Processing capacity of the dryer in kilograms per hour."
+    },
+    {
+      "en": "Bed Height",
+      "ru": "Bed Height",
+      "tr": "Bed Height"
+    },
+    {
+      "en": "Number of personnel operating the extraction system per shift. Used to calculate the Cost of Labor (COL).",
+      "ru": "Number of personnel operating the extraction system per shift. Used to calculate the Cost of Labor (COL).",
+      "tr": "Number of personnel operating the extraction system per shift. Used to calculate the Cost of Labor (COL)."
+    },
+    {
+      "en": "Height of the packed material bed inside the extractor. Calculated automatically from vessel volume and diameter, or enter manually.",
+      "ru": "Height of the packed material bed inside the extractor. Calculated automatically from vessel volume and diameter, or enter manually.",
+      "tr": "Height of the packed material bed inside the extractor. Calculated automatically from vessel volume and diameter, or enter manually."
+    },
+    {
+      "en": "Selling price of the extract in US dollars per kilogram. Used to calculate revenue and payback period.",
+      "ru": "Selling price of the extract in US dollars per kilogram. Used to calculate revenue and payback period.",
+      "tr": "Selling price of the extract in US dollars per kilogram. Used to calculate revenue and payback period."
+    },
+    {
+      "en": "Co-solvent Flow",
+      "ru": "Co-solvent Flow",
+      "tr": "Co-solvent Flow"
+    },
+    {
+      "en": "Evaporation Power",
+      "ru": "Evaporation Power",
+      "tr": "Evaporation Power"
+    },
+    {
+      "en": "Inner diameter of the extraction vessel in centimeters. Used with vessel volume to calculate the bed height for equipment cost estimation.",
+      "ru": "Inner diameter of the extraction vessel in centimeters. Used with vessel volume to calculate the bed height for equipment cost estimation.",
+      "tr": "Inner diameter of the extraction vessel in centimeters. Used with vessel volume to calculate the bed height for equipment cost estimation."
+    },
+    {
+      "en": "Comminution Power",
+      "ru": "Comminution Power",
+      "tr": "Comminution Power"
+    },
+    {
+      "en": "Purchase price of the raw material in US dollars per kilogram. The largest contributor to the Cost of Raw Materials (CRM).",
+      "ru": "Purchase price of the raw material in US dollars per kilogram. The largest contributor to the Cost of Raw Materials (CRM).",
+      "tr": "Purchase price of the raw material in US dollars per kilogram. The largest contributor to the Cost of Raw Materials (CRM)."
+    },
+    {
+      "en": "A descriptive name for the primary response (e.g. Total Extract, Beta-Carotene). Shown in results tables and plots.",
+      "ru": "A descriptive name for the primary response (e.g. Total Extract, Beta-Carotene). Shown in results tables and plots.",
+      "tr": "A descriptive name for the primary response (e.g. Total Extract, Beta-Carotene). Shown in results tables and plots."
+    },
+    {
+      "en": "Comminution Capacity",
+      "ru": "Comminution Capacity",
+      "tr": "Comminution Capacity"
+    },
+    {
+      "en": "Extra time per cycle for loading, unloading, pressurization and depressurization. Added to the extraction time to calculate the total cycle duration.",
+      "ru": "Extra time per cycle for loading, unloading, pressurization and depressurization. Added to the extraction time to calculate the total cycle duration.",
+      "tr": "Extra time per cycle for loading, unloading, pressurization and depressurization. Added to the extraction time to calculate the total cycle duration."
+    },
+    {
+      "en": "Electricity cost in US dollars per kilowatt-hour. Applied to all power-consuming operations.",
+      "ru": "Electricity cost in US dollars per kilowatt-hour. Applied to all power-consuming operations.",
+      "tr": "Electricity cost in US dollars per kilowatt-hour. Applied to all power-consuming operations."
+    },
+    {
+      "en": "Solvent Price",
+      "ru": "Solvent Price",
+      "tr": "Solvent Price"
+    },
+    {
+      "en": "Energy Price",
+      "ru": "Energy Price",
+      "tr": "Energy Price"
+    },
+    {
+      "en": "Overhead Time",
+      "ru": "Overhead Time",
+      "tr": "Overhead Time"
+    },
+    {
+      "en": "Power consumption of the main extraction system (pump, heater, cooler) in kilowatts. The primary contributor to the Cost of Utilities (CUT).",
+      "ru": "Power consumption of the main extraction system (pump, heater, cooler) in kilowatts. The primary contributor to the Cost of Utilities (CUT).",
+      "tr": "Power consumption of the main extraction system (pump, heater, cooler) in kilowatts. The primary contributor to the Cost of Utilities (CUT)."
+    },
+    {
+      "en": "Total capital expenditure (CAPEX) for the extraction system in US dollars. Can be estimated automatically using Turton et al. coefficients.",
+      "ru": "Total capital expenditure (CAPEX) for the extraction system in US dollars. Can be estimated automatically using Turton et al. coefficients.",
+      "tr": "Total capital expenditure (CAPEX) for the extraction system in US dollars. Can be estimated automatically using Turton et al. coefficients."
+    },
+    {
+      "en": "Monthly salary per operator in US dollars.",
+      "ru": "Monthly salary per operator in US dollars.",
+      "tr": "Monthly salary per operator in US dollars."
+    },
+    {
+      "en": "Shifts",
+      "ru": "Shifts",
+      "tr": "Shifts"
+    },
+    {
+      "en": "Main Power",
+      "ru": "Main Power",
+      "tr": "Main Power"
+    },
+    {
+      "en": "Internal volume of each extraction vessel in liters. Used to calculate apparent density, bed geometry, and equipment purchase cost.",
+      "ru": "Internal volume of each extraction vessel in liters. Used to calculate apparent density, bed geometry, and equipment purchase cost.",
+      "tr": "Internal volume of each extraction vessel in liters. Used to calculate apparent density, bed geometry, and equipment purchase cost."
+    },
+    {
+      "en": "Duration of one work shift in hours.",
+      "ru": "Duration of one work shift in hours.",
+      "tr": "Duration of one work shift in hours."
+    },
+    {
+      "en": "CAPEX",
+      "ru": "CAPEX",
+      "tr": "CAPEX"
+    },
+    {
+      "en": "Purchase price of the co-solvent per kilogram. Only the lost fraction (set in Other Parameters) is costed.",
+      "ru": "Purchase price of the co-solvent per kilogram. Only the lost fraction (set in Other Parameters) is costed.",
+      "tr": "Purchase price of the co-solvent per kilogram. Only the lost fraction (set in Other Parameters) is costed."
+    },
+    {
+      "en": "Corporate income tax rate as a percentage. Applied to profits when calculating the payback period.",
+      "ru": "Corporate income tax rate as a percentage. Applied to profits when calculating the payback period.",
+      "tr": "Corporate income tax rate as a percentage. Applied to profits when calculating the payback period."
+    },
+    {
+      "en": "Co-solvent Price",
+      "ru": "Co-solvent Price",
+      "tr": "Co-solvent Price"
+    },
+    {
+      "en": "Operators",
+      "ru": "Operators",
+      "tr": "Operators"
+    },
+    {
+      "en": "Evaporation Capacity",
+      "ru": "Evaporation Capacity",
+      "tr": "Evaporation Capacity"
+    },
+    {
+      "en": "Drying Capacity",
+      "ru": "Drying Capacity",
+      "tr": "Drying Capacity"
+    },
+    {
+      "en": "Monthly maintenance and repair costs in US dollars.",
+      "ru": "Monthly maintenance and repair costs in US dollars.",
+      "tr": "Monthly maintenance and repair costs in US dollars."
+    },
+    {
+      "en": "Unit of the response data. Grams for absolute mass, percent or permille for yield relative to raw material.",
+      "ru": "Unit of the response data. Grams for absolute mass, percent or permille for yield relative to raw material.",
+      "tr": "Unit of the response data. Grams for absolute mass, percent or permille for yield relative to raw material."
+    },
+    {
+      "en": "When enabled, the flow measurement pressure and temperature are automatically set to the recovery line conditions.",
+      "ru": "When enabled, the flow measurement pressure and temperature are automatically set to the recovery line conditions.",
+      "tr": "When enabled, the flow measurement pressure and temperature are automatically set to the recovery line conditions."
+    },
+    {
+      "en": "Shift Duration",
+      "ru": "Shift Duration",
+      "tr": "Shift Duration"
+    },
+    {
+      "en": "Mass of raw material loaded into the extractor per cycle, in kilograms.",
+      "ru": "Mass of raw material loaded into the extractor per cycle, in kilograms.",
+      "tr": "Mass of raw material loaded into the extractor per cycle, in kilograms."
+    },
+    {
+      "en": "Flow Rate",
+      "ru": "Расход",
+      "tr": "Akış Hızı"
+    },
+    {
+      "en": "Other monthly fixed costs such as insurance, rent, and administrative overhead.",
+      "ru": "Other monthly fixed costs such as insurance, rent, and administrative overhead.",
+      "tr": "Other monthly fixed costs such as insurance, rent, and administrative overhead."
+    },
+    {
+      "en": "Power consumption of the drying equipment in kilowatts.",
+      "ru": "Power consumption of the drying equipment in kilowatts.",
+      "tr": "Power consumption of the drying equipment in kilowatts."
+    },
+    {
+      "en": "Number of working days per month.",
+      "ru": "Number of working days per month.",
+      "tr": "Number of working days per month."
+    },
+    {
+      "en": "Material Price",
+      "ru": "Material Price",
+      "tr": "Material Price"
+    },
+    {
+      "en": "Flow Meas. Temperature",
+      "ru": "Flow Meas. Temperature",
+      "tr": "Flow Meas. Temperature"
+    },
+    {
+      "en": "Pressure at which the CO2 flow meter was calibrated. Used to convert volumetric flow to mass flow if different from extraction conditions.",
+      "ru": "Pressure at which the CO2 flow meter was calibrated. Used to convert volumetric flow to mass flow if different from extraction conditions.",
+      "tr": "Pressure at which the CO2 flow meter was calibrated. Used to convert volumetric flow to mass flow if different from extraction conditions."
+    },
+    {
+      "en": "Flow Meas. Pressure",
+      "ru": "Flow Meas. Pressure",
+      "tr": "Flow Meas. Pressure"
+    },
+    {
+      "en": "Temperature at which the CO2 flow meter was calibrated. Used to convert volumetric flow to mass flow if different from extraction conditions.",
+      "ru": "Temperature at which the CO2 flow meter was calibrated. Used to convert volumetric flow to mass flow if different from extraction conditions.",
+      "tr": "Temperature at which the CO2 flow meter was calibrated. Used to convert volumetric flow to mass flow if different from extraction conditions."
+    },
+    {
+      "en": "Choose the extraction process type. SFE uses supercritical CO2 as the main solvent with optional ethanol as co-solvent. SWE uses subcritical water as the main solvent with optional CO2 as co-solvent. This affects solvent density calculations and available co-solvent options.",
+      "ru": "Choose the extraction process type. SFE uses supercritical CO2 as the main solvent with optional ethanol as co-solvent. SWE uses subcritical water as the main solvent with optional CO2 as co-solvent. This affects solvent density calculations and available co-solvent options.",
+      "tr": "Choose the extraction process type. SFE uses supercritical CO2 as the main solvent with optional ethanol as co-solvent. SWE uses subcritical water as the main solvent with optional CO2 as co-solvent. This affects solvent density calculations and available co-solvent options."
+    },
+    {
+      "en": "Moisture content of the raw material as a percentage. Used to calculate dry mass for yield and drying costs. Only active when at least one response uses mass units.",
+      "ru": "Moisture content of the raw material as a percentage. Used to calculate dry mass for yield and drying costs. Only active when at least one response uses mass units.",
+      "tr": "Moisture content of the raw material as a percentage. Used to calculate dry mass for yield and drying costs. Only active when at least one response uses mass units."
+    },
+    {
+      "en": "Factor by which the extract was diluted during analysis. The measured response is multiplied by this factor to obtain the true yield.",
+      "ru": "Factor by which the extract was diluted during analysis. The measured response is multiplied by this factor to obtain the true yield.",
+      "tr": "Factor by which the extract was diluted during analysis. The measured response is multiplied by this factor to obtain the true yield."
+    },
+    {
+      "en": "Time Column",
+      "ru": "Time Column",
+      "tr": "Time Column"
+    },
+    {
+      "en": "Selling price of this extract in US dollars per kilogram. Used to calculate revenue and payback period.",
+      "ru": "Selling price of this extract in US dollars per kilogram. Used to calculate revenue and payback period.",
+      "tr": "Selling price of this extract in US dollars per kilogram. Used to calculate revenue and payback period."
+    },
+    {
+      "en": "Select the data column for this additional response. Each additional response contributes to combined revenue.",
+      "ru": "Select the data column for this additional response. Each additional response contributes to combined revenue.",
+      "tr": "Select the data column for this additional response. Each additional response contributes to combined revenue."
+    },
+    {
+      "en": "Name of the auxiliary material (e.g. filter paper, adsorbent, packing material).",
+      "ru": "Name of the auxiliary material (e.g. filter paper, adsorbent, packing material).",
+      "tr": "Name of the auxiliary material (e.g. filter paper, adsorbent, packing material)."
+    },
+    {
+      "en": "Descriptive name for this additional response. Shown in results tables.",
+      "ru": "Descriptive name for this additional response. Shown in results tables.",
+      "tr": "Descriptive name for this additional response. Shown in results tables."
+    },
+    {
+      "en": "Aux. Price",
+      "ru": "Aux. Price",
+      "tr": "Aux. Price"
+    },
+    {
+      "en": "Choose how to provide extraction data. Upload CSV loads a file with time and yield columns. Single Value calculates COM at one specific point. Manual Input lets you type data directly into a table.",
+      "ru": "Choose how to provide extraction data. Upload CSV loads a file with time and yield columns. Single Value calculates COM at one specific point. Manual Input lets you type data directly into a table.",
+      "tr": "Choose how to provide extraction data. Upload CSV loads a file with time and yield columns. Single Value calculates COM at one specific point. Manual Input lets you type data directly into a table."
+    },
+    {
+      "en": "Purchase price of the auxiliary material in US dollars per kilogram.",
+      "ru": "Purchase price of the auxiliary material in US dollars per kilogram.",
+      "tr": "Purchase price of the auxiliary material in US dollars per kilogram."
+    },
+    {
+      "en": "Unit of the primary response data. Percent for yield relative to raw material, grams or kilograms for absolute mass.",
+      "ru": "Unit of the primary response data. Percent for yield relative to raw material, grams or kilograms for absolute mass.",
+      "tr": "Unit of the primary response data. Percent for yield relative to raw material, grams or kilograms for absolute mass."
+    },
+    {
+      "en": "Amount of this auxiliary material consumed per kilogram of extract produced (kg auxiliary / kg extract). For example, if you use 0.5 kg of filter paper to produce 1 kg of extract, enter 0.5. This value is multiplied by the extract yield and the material price to calculate the auxiliary material cost per cycle.",
+      "ru": "Amount of this auxiliary material consumed per kilogram of extract produced (kg auxiliary / kg extract). For example, if you use 0.5 kg of filter paper to produce 1 kg of extract, enter 0.5. This value is multiplied by the extract yield and the material price to calculate the auxiliary material cost per cycle.",
+      "tr": "Amount of this auxiliary material consumed per kilogram of extract produced (kg auxiliary / kg extract). For example, if you use 0.5 kg of filter paper to produce 1 kg of extract, enter 0.5. This value is multiplied by the extract yield and the material price to calculate the auxiliary material cost per cycle."
+    },
+    {
+      "en": "Usage Fraction",
+      "ru": "Usage Fraction",
+      "tr": "Usage Fraction"
+    },
+    {
+      "en": "Operating temperature of the extraction vessel. Used alongside pressure to calculate solvent density.",
+      "ru": "Operating temperature of the extraction vessel. Used alongside pressure to calculate solvent density.",
+      "tr": "Operating temperature of the extraction vessel. Used alongside pressure to calculate solvent density."
+    },
+    {
+      "en": "Column containing extraction time values (minutes). Used as the independent variable for the cost curve.",
+      "ru": "Column containing extraction time values (minutes). Used as the independent variable for the cost curve.",
+      "tr": "Column containing extraction time values (minutes). Used as the independent variable for the cost curve."
+    },
+    {
+      "en": "Unit of this additional response. Same options as the primary response.",
+      "ru": "Unit of this additional response. Same options as the primary response.",
+      "tr": "Unit of this additional response. Same options as the primary response."
+    },
+    {
+      "en": "Column containing the primary response/yield data. This is the main extract whose cost of manufacturing will be calculated.",
+      "ru": "Column containing the primary response/yield data. This is the main extract whose cost of manufacturing will be calculated.",
+      "tr": "Column containing the primary response/yield data. This is the main extract whose cost of manufacturing will be calculated."
+    },
+    {
+      "en": "Selling price of this extract in US dollars per kilogram. Used to calculate revenue from this additional response.",
+      "ru": "Selling price of this extract in US dollars per kilogram. Used to calculate revenue from this additional response.",
+      "tr": "Selling price of this extract in US dollars per kilogram. Used to calculate revenue from this additional response."
+    },
+    {
+      "en": "Measured yield or response value for this additional response at the same extraction time as the primary response.",
+      "ru": "Measured yield or response value for this additional response at the same extraction time as the primary response.",
+      "tr": "Measured yield or response value for this additional response at the same extraction time as the primary response."
+    },
+    {
+      "en": "mL/min",
+      "ru": "мл/мин",
+      "tr": "mL/dak"
+    },
+    {
+      "en": "Subcritical Water Extraction (H\\u2082O as main solvent)",
+      "ru": "Subcritical Water Extraction (H\\u2082O as main solvent)",
+      "tr": "Subcritical Water Extraction (H\\u2082O as main solvent)"
+    },
+    {
+      "en": "USD",
+      "ru": "USD",
+      "tr": "USD"
+    },
+    {
+      "en": "g/min",
+      "ru": "г/мин",
+      "tr": "g/dak"
+    },
+    {
+      "en": "Main solvent loss per cycle (CO2 or water)",
+      "ru": "Потери основного растворителя за цикл (CO₂ или вода)",
+      "tr": "Döngü başına ana çözücü kaybı (CO₂ veya su)"
+    },
+    {
+      "en": "Affects solvent density calculations and co-solvent options (EtOH for SFE, CO\\u2082 for SWE).",
+      "ru": "Affects solvent density calculations and co-solvent options (EtOH for SFE, CO\\u2082 for SWE).",
+      "tr": "Affects solvent density calculations and co-solvent options (EtOH for SFE, CO\\u2082 for SWE)."
+    },
+    {
+      "en": "L",
+      "ru": "л",
+      "tr": "L"
+    },
+    {
+      "en": "cm",
+      "ru": "cm",
+      "tr": "cm"
+    },
+    {
+      "en": "Export Results",
+      "ru": "Экспорт результатов",
+      "tr": "Sonuçları Dışa Aktar"
+    },
+    {
+      "en": "S/M mass ratio (co-solvent)",
+      "ru": "Массовое соотношение Р/М (сорастворитель)",
+      "tr": "S/M kütle oranı (yardımcı çözücü)"
+    },
+    {
+      "en": "kg/h",
+      "ru": "кг/ч",
+      "tr": "kg/sa"
+    },
+    {
+      "en": " Time and Response columns must be different.",
+      "ru": " Time and Response columns must be different.",
+      "tr": " Time and Response columns must be different."
+    },
+    {
+      "en": "S/M mass ratio (CO2)",
+      "ru": "Массовое соотношение Р/М (CO₂)",
+      "tr": "S/M kütle oranı (CO₂)"
+    },
+    {
+      "en": "Supercritical Fluid Extraction (CO\\u2082 as main solvent)",
+      "ru": "Supercritical Fluid Extraction (CO\\u2082 as main solvent)",
+      "tr": "Supercritical Fluid Extraction (CO\\u2082 as main solvent)"
+    },
+    {
+      "en": "Co-solvent loss per batch (EtOH or CO2)",
+      "ru": "Потери сорастворителя за партию (EtOH или CO₂)",
+      "tr": "Parti başına yardımcı çözücü kaybı (EtOH veya CO₂)"
+    },
+    {
+      "en": "kg",
+      "ru": "кг",
+      "tr": "kg"
+    },
+    {
+      "en": "no",
+      "ru": "no",
+      "tr": "no"
+    },
+    {
+      "en": "Supercritical Fluid Extraction (CO₂ as main solvent)",
+      "ru": "Сверхкритическая экстракция (CO₂ в качестве основного растворителя)",
+      "tr": "Süperkritik Akışkan Ekstraksiyonu (ana çözücü olarak CO₂)"
+    },
+    {
+      "en": "Counter-Current CO₂ Extraction (liquid feed)",
+      "ru": "Противоточная CO₂ экстракция (жидкое сырьё)",
+      "tr": "Karşı Akımlı CO₂ Ekstraksiyonu (sıvı besleme)"
+    },
+    {
+      "en": "Subcritical Water Extraction (H₂O as main solvent)",
+      "ru": "Субкритическая водная экстракция (H₂O в качестве основного растворителя)",
+      "tr": "Subkritik Su Ekstraksiyonu (ana çözücü olarak H₂O)"
+    },
+    {
+      "en": "Affects solvent density calculations and co-solvent options (EtOH for SFE/CC-SFE, CO₂ for SWE).",
+      "ru": "Влияет на расчёты плотности растворителя и варианты со-растворителя (EtOH для SFE/CC-SFE, CO₂ для SWE).",
+      "tr": "Çözücü yoğunluğu hesaplamalarını ve ko-çözücü seçeneklerini etkiler (SFE/CC-SFE için EtOH, SWE için CO₂)."
+    },
+    {
+      "en": "Choose the extraction process type. SFE uses supercritical CO2 as the main solvent with optional ethanol as co-solvent. CC-SFE is counter-current supercritical CO2 extraction for liquid feeds. SWE uses subcritical water as the main solvent with optional CO2 as co-solvent.",
+      "ru": "Choose the extraction process type. SFE uses supercritical CO2 as the main solvent with optional ethanol as co-solvent. CC-SFE is counter-current supercritical CO2 extraction for liquid feeds. SWE uses subcritical water as the main solvent with optional CO2 as co-solvent.",
+      "tr": "Choose the extraction process type. SFE uses supercritical CO2 as the main solvent with optional ethanol as co-solvent. CC-SFE is counter-current supercritical CO2 extraction for liquid feeds. SWE uses subcritical water as the main solvent with optional CO2 as co-solvent."
+    },
+    {
+      "en": "Affects solvent density calculations and co-solvent options (EtOH for SFE/CC-SFE, CO\\u2082 for SWE).",
+      "ru": "Affects solvent density calculations and co-solvent options (EtOH for SFE/CC-SFE, CO\\u2082 for SWE).",
+      "tr": "Affects solvent density calculations and co-solvent options (EtOH for SFE/CC-SFE, CO\\u2082 for SWE)."
+    },
+    {
+      "en": "Not needed for CC-SFE",
+      "ru": "Not needed for CC-SFE",
+      "tr": "Not needed for CC-SFE"
+    },
+    {
+      "en": "Counter-Current CO\\u2082 Extraction (liquid feed)",
+      "ru": "Counter-Current CO\\u2082 Extraction (liquid feed)",
+      "tr": "Counter-Current CO\\u2082 Extraction (liquid feed)"
+    },
+    {
+      "en": "Fraction of CO2 lost per recirculation pass in counter-current extraction (0 to 1). Accounts for system leakage, valve losses, and incomplete recovery. Only applicable for CC-SFE mode.",
+      "ru": "Fraction of CO2 lost per recirculation pass in counter-current extraction (0 to 1). Accounts for system leakage, valve losses, and incomplete recovery. Only applicable for CC-SFE mode.",
+      "tr": "Fraction of CO2 lost per recirculation pass in counter-current extraction (0 to 1). Accounts for system leakage, valve losses, and incomplete recovery. Only applicable for CC-SFE mode."
+    },
+    {
+      "en": "CC-SFE only",
+      "ru": "CC-SFE only",
+      "tr": "CC-SFE only"
+    },
+    {
+      "en": "CO\\u2082 Loss Fraction",
+      "ru": "CO\\u2082 Loss Fraction",
+      "tr": "CO\\u2082 Loss Fraction"
+    },
+    {
+      "en": "CO2 Loss Fraction",
+      "ru": "CO2 Loss Fraction",
+      "tr": "CO2 Loss Fraction"
+    },
+    {
+      "en": "Main Solvent Flow",
+      "ru": "Main Solvent Flow",
+      "tr": "Main Solvent Flow"
+    },
+    {
+      "en": "Solvent Flow",
+      "ru": "Solvent Flow",
+      "tr": "Solvent Flow"
+    },
+    {
+      "en": "Main Solvent Flow (mL/min)",
+      "ru": "Main Solvent Flow (mL/min)",
+      "tr": "Main Solvent Flow (mL/min)"
+    },
+    {
+      "en": "Flow rate of the main solvent (CO2 for SFE/CC-SFE, H2O for SWE). Click the unit badge to toggle between mL/min and g/min.",
+      "ru": "Flow rate of the main solvent (CO2 for SFE/CC-SFE, H2O for SWE). Click the unit badge to toggle between mL/min and g/min.",
+      "tr": "Flow rate of the main solvent (CO2 for SFE/CC-SFE, H2O for SWE). Click the unit badge to toggle between mL/min and g/min."
+    },
+    {
+      "en": "Feed Flow",
+      "ru": "Feed Flow",
+      "tr": "Feed Flow"
+    },
+    {
+      "en": "Inner diameter of the extraction vessel in centimeters. Used with vessel volume to calculate the bed height.",
+      "ru": "Inner diameter of the extraction vessel in centimeters. Used with vessel volume to calculate the bed height.",
+      "tr": "Inner diameter of the extraction vessel in centimeters. Used with vessel volume to calculate the bed height."
+    },
+    {
+      "en": "Temperature in the separator vessel. Used to calculate CO2 density at recovery conditions. Not applicable for CC-SFE.",
+      "ru": "Temperature in the separator vessel. Used to calculate CO2 density at recovery conditions. Not applicable for CC-SFE.",
+      "tr": "Temperature in the separator vessel. Used to calculate CO2 density at recovery conditions. Not applicable for CC-SFE."
+    },
+    {
+      "en": "Temperature of the CO2 after separation, before recompression. Not applicable for CC-SFE.",
+      "ru": "Temperature of the CO2 after separation, before recompression. Not applicable for CC-SFE.",
+      "tr": "Temperature of the CO2 after separation, before recompression. Not applicable for CC-SFE."
+    },
+    {
+      "en": "Feed density (g/mL). Click to change.",
+      "ru": "Feed density (g/mL). Click to change.",
+      "tr": "Feed density (g/mL). Click to change."
+    },
+    {
+      "en": "Pressure in the separator vessel where extracted solute precipitates out of the CO2 stream. Not applicable for CC-SFE.",
+      "ru": "Pressure in the separator vessel where extracted solute precipitates out of the CO2 stream. Not applicable for CC-SFE.",
+      "tr": "Pressure in the separator vessel where extracted solute precipitates out of the CO2 stream. Not applicable for CC-SFE."
+    },
+    {
+      "en": "Flow rate of the liquid feed material in mL/min. In counter-current extraction, both the feed and CO2 flow continuously. Set the feed density via the badge.",
+      "ru": "Flow rate of the liquid feed material in mL/min. In counter-current extraction, both the feed and CO2 flow continuously. Set the feed density via the badge.",
+      "tr": "Flow rate of the liquid feed material in mL/min. In counter-current extraction, both the feed and CO2 flow continuously. Set the feed density via the badge."
+    },
+    {
+      "en": "Extra time per cycle for loading, unloading, pressurization and depressurization. Not applicable for CC-SFE.",
+      "ru": "Extra time per cycle for loading, unloading, pressurization and depressurization. Not applicable for CC-SFE.",
+      "tr": "Extra time per cycle for loading, unloading, pressurization and depressurization. Not applicable for CC-SFE."
+    },
+    {
+      "en": "Flow rate of the main solvent (CO2 for SFE/CC-SFE, H2O for SWE) in mL/min.",
+      "ru": "Flow rate of the main solvent (CO2 for SFE/CC-SFE, H2O for SWE) in mL/min.",
+      "tr": "Flow rate of the main solvent (CO2 for SFE/CC-SFE, H2O for SWE) in mL/min."
+    },
+    {
+      "en": "Co-Solvent Flow (mL/min)",
+      "ru": "Co-Solvent Flow (mL/min)",
+      "tr": "Co-Solvent Flow (mL/min)"
+    },
+    {
+      "en": "Height of the packed material bed inside the extractor. Calculated automatically from vessel volume and diameter, or enter manually. Not applicable for CC-SFE.",
+      "ru": "Height of the packed material bed inside the extractor. Calculated automatically from vessel volume and diameter, or enter manually. Not applicable for CC-SFE.",
+      "tr": "Height of the packed material bed inside the extractor. Calculated automatically from vessel volume and diameter, or enter manually. Not applicable for CC-SFE."
+    },
+    {
+      "en": "Feed density (g/mL)",
+      "ru": "Feed density (g/mL)",
+      "tr": "Feed density (g/mL)"
+    },
+    {
+      "en": "Set Feed Density",
+      "ru": "Set Feed Density",
+      "tr": "Set Feed Density"
+    },
+    {
+      "en": "Feed Flow (mL/min)",
+      "ru": "Feed Flow (mL/min)",
+      "tr": "Feed Flow (mL/min)"
+    },
+    {
+      "en": "Temperature at which the CO2 flow meter was calibrated. Not applicable for CC-SFE.",
+      "ru": "Temperature at which the CO2 flow meter was calibrated. Not applicable for CC-SFE.",
+      "tr": "Temperature at which the CO2 flow meter was calibrated. Not applicable for CC-SFE."
+    },
+    {
+      "en": "Valid range: -50 to 300 \\u00b0C",
+      "ru": "Valid range: -50 to 300 \\u00b0C",
+      "tr": "Valid range: -50 to 300 \\u00b0C"
+    },
+    {
+      "en": "Flow rate of the liquid feed material. In counter-current extraction, both the feed and CO2 flow continuously. Click the unit badge to toggle. Set feed density via the density badge.",
+      "ru": "Flow rate of the liquid feed material. In counter-current extraction, both the feed and CO2 flow continuously. Click the unit badge to toggle. Set feed density via the density badge.",
+      "tr": "Flow rate of the liquid feed material. In counter-current extraction, both the feed and CO2 flow continuously. Click the unit badge to toggle. Set feed density via the density badge."
+    },
+    {
+      "en": "Pressure at which the CO2 flow meter was calibrated. Not applicable for CC-SFE.",
+      "ru": "Pressure at which the CO2 flow meter was calibrated. Not applicable for CC-SFE.",
+      "tr": "Pressure at which the CO2 flow meter was calibrated. Not applicable for CC-SFE."
+    },
+    {
+      "en": "Inner diameter of the extraction vessel in centimeters. Not applicable for CC-SFE.",
+      "ru": "Inner diameter of the extraction vessel in centimeters. Not applicable for CC-SFE.",
+      "tr": "Inner diameter of the extraction vessel in centimeters. Not applicable for CC-SFE."
+    },
+    {
+      "en": "Pressure at which the CO2 flow meter was calibrated. Used to convert volumetric flow to mass flow.",
+      "ru": "Pressure at which the CO2 flow meter was calibrated. Used to convert volumetric flow to mass flow.",
+      "tr": "Pressure at which the CO2 flow meter was calibrated. Used to convert volumetric flow to mass flow."
+    },
+    {
+      "en": "Not used for CC-SFE",
+      "ru": "Not used for CC-SFE",
+      "tr": "Not used for CC-SFE"
+    },
+    {
+      "en": "Height of the packed material bed inside the extractor. Not applicable for CC-SFE.",
+      "ru": "Height of the packed material bed inside the extractor. Not applicable for CC-SFE.",
+      "tr": "Height of the packed material bed inside the extractor. Not applicable for CC-SFE."
+    },
+    {
+      "en": "Pressure in the separator vessel. Used for flow measurement calibration in auto mode.",
+      "ru": "Pressure in the separator vessel. Used for flow measurement calibration in auto mode.",
+      "tr": "Pressure in the separator vessel. Used for flow measurement calibration in auto mode."
+    },
+    {
+      "en": "Temperature in the separator vessel. Used for flow measurement calibration in auto mode.",
+      "ru": "Temperature in the separator vessel. Used for flow measurement calibration in auto mode.",
+      "tr": "Temperature in the separator vessel. Used for flow measurement calibration in auto mode."
+    },
+    {
+      "en": "Extraction time in minutes for the single-point calculation. Not used in CC-SFE mode.",
+      "ru": "Extraction time in minutes for the single-point calculation. Not used in CC-SFE mode.",
+      "tr": "Extraction time in minutes for the single-point calculation. Not used in CC-SFE mode."
+    },
+    {
+      "en": "Temperature at which the CO2 flow meter was calibrated. Used to convert volumetric flow to mass flow.",
+      "ru": "Temperature at which the CO2 flow meter was calibrated. Used to convert volumetric flow to mass flow.",
+      "tr": "Temperature at which the CO2 flow meter was calibrated. Used to convert volumetric flow to mass flow."
+    },
+    {
+      "en": "CO₂ Loss Fraction",
+      "ru": "Доля потерь CO₂",
+      "tr": "CO₂ Kayıp Oranı"
+    },
+    {
+      "en": "S/F mass ratio (CO2)",
+      "tr": "S/F kütle oranı (CO₂)",
+      "ru": "Массовое соотношение Р/С (CO₂)"
+    },
+    {
+      "en": "S/F mass ratio (co-solvent)",
+      "tr": "S/F kütle oranı (yardımcı çözücü)",
+      "ru": "Массовое соотношение Р/С (сорастворитель)"
+    },
+    {
+      "en": "Monthly operating time",
+      "tr": "Aylık çalışma süresi",
+      "ru": "Ежемесячное рабочее время"
+    },
+    {
+      "en": "Monthly feed processed",
+      "tr": "Aylık işlenen besleme",
+      "ru": "Обработанное сырьё за месяц"
+    },
+    {
+      "en": "CO2 loss per month",
+      "tr": "Aylık CO₂ kaybı",
+      "ru": "Потери CO₂ за месяц"
+    },
+    {
+      "en": "Co-solvent loss per month",
+      "tr": "Aylık yardımcı çözücü kaybı",
+      "ru": "Потери сорастворителя за месяц"
+    },
+    {
+      "en": "Main solvent loss per cycle",
+      "tr": "Döngü başına ana çözücü kaybı",
+      "ru": "Потери основного растворителя за цикл"
+    },
+    {
+      "en": "Co-solvent loss per batch",
+      "tr": "Parti başına yardımcı çözücü kaybı",
+      "ru": "Потери сорастворителя за партию"
+    },
+    {
+      "en": "Feed flow rate",
+      "tr": "Besleme akış hızı",
+      "ru": "Скорость подачи сырья"
+    },
+    {
+      "en": "Feed density",
+      "tr": "Besleme yoğunluğu",
+      "ru": "Плотность сырья"
+    },
+    {
+      "en": "CC-SFE mode is only available in Single Value mode. Process type has been switched to SFE.",
+      "tr": "CC-SFE modu yalnızca Tek Değer modunda kullanılabilir. İşlem türü SFE olarak değiştirildi.",
+      "ru": "Режим CC-SFE доступен только в режиме одного значения. Тип процесса переключён на SFE."
+    },
+    {
+      "en": "Jump to optimal time",
+      "tr": "Optimal zamana atla",
+      "ru": "Перейти к оптимальному времени"
+    },
+    {
+      "en": "Min. Cost",
+      "tr": "Min. Maliyet",
+      "ru": "Мин. стоимость"
+    },
+    {
+      "en": "Min. Payback",
+      "tr": "Min. Geri Ödeme",
+      "ru": "Мин. окупаемость"
+    },
+    {
+      "en": "Max. Profit",
+      "tr": "Maks. Kâr",
+      "ru": "Макс. прибыль"
+    },
+    {
+      "en": "Export plot data as CSV",
+      "tr": "Grafik verilerini CSV olarak dışa aktar",
+      "ru": "Экспорт данных графика в CSV"
+    },
+    {
+      "en": "Extraction time in minutes for the single-point calculation. Not used in CC-SFE cost calculations.",
+      "tr": "Tek nokta hesaplaması için dakika cinsinden ekstraksiyon süresi. CC-SFE maliyet hesaplamalarında kullanılmaz.",
+      "ru": "Время экстракции в минутах для расчёта в одной точке. Не используется в расчётах стоимости CC-SFE."
+    },
+    {
+      "en": "g/mL",
+      "tr": "g/mL",
+      "ru": "г/мл"
+    }
+  ]
+}

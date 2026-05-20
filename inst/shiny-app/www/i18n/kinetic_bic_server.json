@@ -1,0 +1,359 @@
+{
+  "translation": [
+    {
+      "en": "Constant C₁",
+      "ru": "Константа C₁",
+      "tr": "Sabit C₁"
+    },
+    {
+      "en": "Constant C₂",
+      "ru": "Константа C₂",
+      "tr": "Sabit C₂"
+    },
+    {
+      "en": "Relative amount of expended solvent at end of CER (kg/kg)",
+      "ru": "Относительное количество израсходованного растворителя в конце CER (кг/кг)",
+      "tr": "CER sonunda harcanan çözücünün bağıl miktarı (kg/kg)"
+    },
+    {
+      "en": "Grinding efficiency (fraction of broken cells)",
+      "ru": "Эффективность измельчения (доля разрушенных клеток)",
+      "tr": "Öğütme verimliliği (kırılmış hücrelerin kesri)"
+    },
+    {
+      "en": "Solid phase mass transfer coefficient × area (1/m/s)",
+      "ru": "Коэффициент массообмена твердой фазы × площадь (1/м/с)",
+      "tr": "Katı faz kütle transfer katsayısı × alan (1/m/s)"
+    },
+    {
+      "en": "Initial fraction of solute in broken cells",
+      "ru": "Начальная доля растворенного вещества в разрушенных клетках",
+      "tr": "Kırılmış hücrelerde çözünen maddenin başlangıç kesri"
+    },
+    {
+      "en": "External mass transfer resistance",
+      "ru": "Сопротивление внешнему массообмену",
+      "tr": "Dış kütle transfer direnci"
+    },
+    {
+      "en": "Extraction time/duration of FER",
+      "ru": "Время экстракции/длительность FER",
+      "tr": "Ekstraksiyon süresi/FER süresi"
+    },
+    {
+      "en": "Extraction time at end of CER",
+      "ru": "Время экстракции в конце CER",
+      "tr": "CER sonunda ekstraksiyon süresi"
+    },
+    {
+      "en": "Yield at end of CER (g/g total dry solid)",
+      "ru": "Выход в конце CER (г/г общего сухого твердого вещества)",
+      "tr": "CER sonunda verim (g/g toplam kuru katı)"
+    },
+    {
+      "en": "Fluid phase mass transfer coefficient × area (1/m/s)",
+      "ru": "Коэффициент массообмена жидкой фазы × площадь (1/м/с)",
+      "tr": "Sıvı faz kütle transfer katsayısı × alan (1/m/s)"
+    },
+    {
+      "en": "FER for 3-period model",
+      "ru": "FER для 3-периодной модели",
+      "tr": "3-periyotlu model için FER"
+    },
+    {
+      "en": "DC for 2-period model",
+      "ru": "DC для 2-периодной модели",
+      "tr": "2-periyotlu model için DC"
+    },
+    {
+      "en": "Coefficient β",
+      "ru": "Коэффициент β",
+      "tr": "Katsayı β"
+    },
+    {
+      "en": "Fluid mass transfer coefficient (1/s)",
+      "ru": "Коэффициент массообмена жидкости (1/с)",
+      "tr": "Sıvı kütle transfer katsayısı (1/s)"
+    },
+    {
+      "en": "Please enter prediction data.",
+      "ru": "Пожалуйста, введите данные для прогноза.",
+      "tr": "Lütfen tahmin verilerini girin."
+    },
+    {
+      "en": "Flow Rate",
+      "ru": "Скорость потока",
+      "tr": "Akış Hızı"
+    },
+    {
+      "en": "Time and response columns must be numeric.",
+      "ru": "Столбцы времени и отклика должны быть числовыми.",
+      "tr": "Zaman ve yanıt sütunları sayısal olmalıdır."
+    },
+    {
+      "en": "Default data file not found.",
+      "ru": "Файл данных по умолчанию не найден.",
+      "tr": "Varsayılan veri dosyası bulunamadı."
+    },
+    {
+      "en": "Calculating BIC model...",
+      "ru": "Расчет модели BIC...",
+      "tr": "BIC modeli hesaplanıyor..."
+    },
+    {
+      "en": "BIC model calculated successfully!",
+      "ru": "Модель BIC успешно рассчитана!",
+      "tr": "BIC modeli başarıyla hesaplandı!"
+    },
+    {
+      "en": "Error calculating BIC model:",
+      "ru": "Ошибка расчета модели BIC:",
+      "tr": "BIC modeli hesaplanırken hata:"
+    },
+    {
+      "en": "Simplified Model (solvent/material ratio)",
+      "ru": "Упрощенная модель (соотношение растворитель/материал)",
+      "tr": "Basitleştirilmiş Model (çözücü/malzeme oranı)"
+    },
+    {
+      "en": "Characteristic Times Model (time-based)",
+      "ru": "Модель характеристических времен (на основе времени)",
+      "tr": "Karakteristik Zaman Modeli (zaman tabanlı)"
+    },
+    {
+      "en": "Complete Model - 2 Regions (solvent/material ratio)",
+      "ru": "Полная модель - 2 области (соотношение растворитель/материал)",
+      "tr": "Tam Model - 2 Bölge (çözücü/malzeme oranı)"
+    },
+    {
+      "en": "Complete Model - 3 Regions (solvent/material ratio)",
+      "ru": "Полная модель - 3 области (соотношение растворитель/материал)",
+      "tr": "Tam Model - 3 Bölge (çözücü/malzeme oranı)"
+    },
+    {
+      "en": "Complete Model - 2 Regions (time-based)",
+      "ru": "Полная модель - 2 области (на основе времени)",
+      "tr": "Tam Model - 2 Bölge (zaman tabanlı)"
+    },
+    {
+      "en": "Complete Model - 3 Regions (time-based)",
+      "ru": "Полная модель - 3 области (на основе времени)",
+      "tr": "Tam Model - 3 Bölge (zaman tabanlı)"
+    },
+    {
+      "en": "Solid phase mass transfer coefficient × specific area (1/m/s)",
+      "ru": "Коэффициент массопереноса твердой фазы × удельная площадь (1/м/с)",
+      "tr": "Katı faz kütle transfer katsayısı × özgül alan (1/m/s)"
+    },
+    {
+      "en": "Relative amount of solvent expended at end of CER",
+      "ru": "Относительное количество растворителя, израсходованного в конце CER",
+      "tr": "CER sonunda harcanan çözücü nispi miktarı"
+    },
+    {
+      "en": "External mass transfer coefficient",
+      "ru": "Внешний коэффициент массопереноса",
+      "tr": "Dış kütle transfer katsayısı"
+    },
+    {
+      "en": "Extraction duration of FER (min)",
+      "ru": "Длительность экстракции FER (мин)",
+      "tr": "FER ekstraksiyon süresi (dk)"
+    },
+    {
+      "en": "Fluid phase mass transfer coefficient",
+      "ru": "Коэффициент массопереноса жидкой фазы",
+      "tr": "Akışkan faz kütle transfer katsayısı"
+    },
+    {
+      "en": "Constant related to maximum extractable material fraction",
+      "ru": "Константа, связанная с максимальной экстрагируемой фракцией материала",
+      "tr": "Maksimum ekstrakte edilebilir madde fraksiyonu ile ilgili sabit"
+    },
+    {
+      "en": "Extraction time/duration of FER (min)",
+      "ru": "Время/длительность экстракции FER (мин)",
+      "tr": "FER ekstraksiyon zamanı/süresi (dk)"
+    },
+    {
+      "en": "Characteristic time for CER (min)",
+      "ru": "Характеристическое время для CER (мин)",
+      "tr": "CER için karakteristik zaman (dk)"
+    },
+    {
+      "en": "Characteristic time for DC region (min)",
+      "ru": "Характеристическое время для области DC (мин)",
+      "tr": "DC bölgesi için karakteristik zaman (dk)"
+    },
+    {
+      "en": "External mass transfer coefficient",
+      "ru": "Внешний коэффициент массопереноса",
+      "tr": "Dış kütle transfer katsayısı"
+    },
+    {
+      "en": "Solid phase mass transfer coefficient × specific area (1/m/s)",
+      "ru": "Коэффициент массопереноса твердой фазы × удельная площадь (1/м/с)",
+      "tr": "Katı faz kütle transfer katsayısı × özgül alan (1/m/s)"
+    },
+    {
+      "en": "Fluid phase mass transfer coefficient (1/s)",
+      "ru": "Коэффициент массопереноса жидкой фазы (1/с)",
+      "tr": "Akışkan faz kütle transfer katsayısı (1/s)"
+    },
+    {
+      "en": "Solvent consumption at end of FER for 3-period model",
+      "ru": "Потребление растворителя в конце FER для 3-периодной модели",
+      "tr": "3 dönemli model için FER sonunda çözücü tüketimi"
+    },
+    {
+      "en": "Solvent consumption for 2-period DC model",
+      "ru": "Потребление растворителя для 2-периодной модели DC",
+      "tr": "2 dönemli DC modeli için çözücü tüketimi"
+    },
+    {
+      "en": "BIC Model Parameter Units",
+      "ru": "Единицы параметров модели BIC",
+      "tr": "BIC Model Parametre Birimleri"
+    },
+    {
+      "en": "Enter values (one per line)",
+      "ru": "Введите значения (одно на строку)",
+      "tr": "Değerleri girin (her satıra bir tane)"
+    },
+    {
+      "en": "Error parsing data:",
+      "ru": "Ошибка разбора данных:",
+      "tr": "Veri ayrıştırılırken hata:"
+    },
+    {
+      "en": "Running predict_bic...",
+      "ru": "Выполнение predict_bic...",
+      "tr": "predict_bic çalıştırılıyor..."
+    },
+    {
+      "en": "Predictions calculated successfully!",
+      "ru": "Прогнозы успешно рассчитаны!",
+      "tr": "Tahminler başarıyla hesaplandı!"
+    },
+    {
+      "en": "Error calculating predictions:",
+      "ru": "Ошибка расчета прогнозов:",
+      "tr": "Tahminler hesaplanırken hata:"
+    },
+    {
+      "en": "Predictions reset",
+      "ru": "Прогнозы сброшены",
+      "tr": "Tahminler sıfırlandı"
+    },
+    {
+      "en": "Default template file not found.",
+      "ru": "Файл шаблона по умолчанию не найден.",
+      "tr": "Varsayılan şablon dosyası bulunamadı."
+    },
+    {
+      "en": "Kinetic model results exported successfully!",
+      "ru": "Результаты кинетической модели успешно экспортированы!",
+      "tr": "Kinetik model sonuçları başarıyla dışa aktarıldı!"
+    },
+    {
+      "en": "Error exporting kinetic model results:",
+      "ru": "Ошибка экспорта результатов кинетической модели:",
+      "tr": "Kinetik model sonuçları dışa aktarılırken hata:"
+    },
+    {
+      "en": "\\n=== DEBUG: bicmod() Parameters ===\\n",
+      "ru": "\\n=== DEBUG: bicmod() Parameters ===\\n",
+      "tr": "\\n=== DEBUG: bicmod() Parameters ===\\n"
+    },
+    {
+      "en": "Initial fraction of solute in broken cells)",
+      "ru": "Начальная фракция растворенного вещества в разрушенных клетках)",
+      "tr": "Kırık hücrelerdeki çözünen maddenin başlangıç fraksiyonu)"
+    },
+    {
+      "en": "Simple BIC model",
+      "ru": "Упрощенная модель BIC",
+      "tr": "Basit BIC modeli"
+    },
+    {
+      "en": "Simple BIC model (time-based)",
+      "ru": "Упрощенная модель BIC (на основе времени)",
+      "tr": "Basit BIC modeli (zaman bazlı)"
+    },
+    {
+      "en": "Simple BIC characteristic times model",
+      "ru": "Модель характеристических времен BIC",
+      "tr": "Basit BIC karakteristik zamanlar modeli"
+    },
+    {
+      "en": "Complete BIC model",
+      "ru": "Полная модель BIC",
+      "tr": "Tam BIC modeli"
+    },
+    {
+      "en": "Complete BIC model (time-based)",
+      "ru": "Полная модель BIC (на основе времени)",
+      "tr": "Tam BIC modeli (zaman bazlı)"
+    },
+    {
+      "en": "q (kg/kg)",
+      "ru": "q (кг/кг)",
+      "tr": "q (kg/kg)"
+    },
+    {
+      "en": "e (kg/kg)",
+      "ru": "e (кг/кг)",
+      "tr": "e (kg/kg)"
+    },
+    {
+      "en": "Time (min)",
+      "ru": "Время (мін)",
+      "tr": "Zaman (dk)"
+    },
+    {
+      "en": "period",
+      "ru": "Период",
+      "tr": "Periyot"
+    },
+    {
+      "en": "cer",
+      "ru": "CER",
+      "tr": "CER"
+    },
+    {
+      "en": "dc",
+      "ru": "DC",
+      "tr": "DC"
+    },
+    {
+      "en": "fer",
+      "ru": "FER",
+      "tr": "FER"
+    },
+    {
+      "en": "Download default CSV",
+      "ru": "Скачать CSV по умолчанию",
+      "tr": "Varsayılan CSV'yi indir"
+    },
+    {
+      "en": "All optimization parameters must be valid numbers",
+      "ru": "Все параметры оптимизации должны быть допустимыми числами",
+      "tr": "Tüm optimizasyon parametreleri geçerli sayılar olmalıdır"
+    },
+    {
+      "en": "Upload CSV (single column)",
+      "ru": "Загрузить CSV (один столбец)",
+      "tr": "CSV Yükle (tek sütun)"
+    },
+    {
+      "en": "Characteristic Times (CT) model only accepts 'Time (minutes)' units.",
+      "ru": "Модель характеристических времен (CT) принимает только единицы 'Время (минуты)'.",
+      "tr": "Karakteristik Zaman (CT) modeli yalnızca 'Zaman (dakika)' birimlerini kabul eder."
+    },
+    {
+      "en": "Could not find exported files directory",
+      "ru": "Не удалось найти каталог экспортированных файлов",
+      "tr": "Dışa aktarılan dosyalar dizini bulunamadı"
+    }
+  ]
+}

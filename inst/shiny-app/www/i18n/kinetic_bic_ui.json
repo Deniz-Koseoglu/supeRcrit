@@ -1,0 +1,2364 @@
+{
+  "translation": [
+    {
+      "en": "Mass",
+      "ru": "Масса",
+      "tr": "Kütle"
+    },
+    {
+      "en": "Volume",
+      "ru": "Объём",
+      "tr": "Hacim"
+    },
+    {
+      "en": "Toggle between mass and volume flow rate",
+      "ru": "Переключение между массовым и объёмным расходом",
+      "tr": "Kütle ve hacim akış hızı arasında geçiş yap"
+    },
+    {
+      "en": "Data was converted to cumulative for breakpoint estimation.",
+      "ru": "Данные были преобразованы в кумулятивные для оценки точки перелома.",
+      "tr": "Veriler kırılma noktası tahmini için kümülatife dönüştürüldü."
+    },
+    {
+      "en": "cumulative",
+      "ru": "кумулятивный",
+      "tr": "kümülatif"
+    },
+    {
+      "en": "Preview",
+      "ru": "Просмотр",
+      "tr": "Önizleme"
+    },
+    {
+      "en": "Apply",
+      "ru": "Применить",
+      "tr": "Uygula"
+    },
+    {
+      "en": "Data",
+      "ru": "Данные",
+      "tr": "Veri"
+    },
+    {
+      "en": "CER Endpoint",
+      "ru": "Конец CER",
+      "tr": "CER Bitiş Noktası"
+    },
+    {
+      "en": "Estimated observation number",
+      "ru": "Оценённый номер наблюдения",
+      "tr": "Tahmin edilen gözlem numarası"
+    },
+    {
+      "en": "Please click Preview first to estimate n.",
+      "ru": "Сначала нажмите Просмотр для оценки n.",
+      "tr": "n tahmin etmek için önce Önizleme'ye tıklayın."
+    },
+    {
+      "en": "Please load data first.",
+      "ru": "Сначала загрузите данные.",
+      "tr": "Önce veri yükleyin."
+    },
+    {
+      "en": "Estimate Number of Observations (CER)",
+      "ru": "Оценка числа наблюдений (CER)",
+      "tr": "Gözlem Sayısını Tahmin Et (CER)"
+    },
+    {
+      "en": "This will estimate the observation number at which the Constant Extraction Rate (CER) period ends using segmented regression.",
+      "ru": "Это оценит номер наблюдения, при котором заканчивается период постоянной скорости экстракции (CER), используя сегментированную регрессию.",
+      "tr": "Bu, segmentli regresyon kullanarak Sabit Ekstraksiyon Hızı (CER) döneminin sona erdiği gözlem numarasını tahmin edecektir."
+    },
+    {
+      "en": "Segmentation Method",
+      "ru": "Метод сегментации",
+      "tr": "Segmentasyon Yöntemi"
+    },
+    {
+      "en": "Step Regression",
+      "ru": "Ступенчатая регрессия",
+      "tr": "Adım Regresyonu"
+    },
+    {
+      "en": "Segmented Regression",
+      "ru": "Сегментированная регрессия",
+      "tr": "Segmentli Regresyon"
+    },
+    {
+      "en": "Step regression is generally more robust for extraction curves.",
+      "ru": "Ступенчатая регрессия обычно более устойчива для кривых экстракции.",
+      "tr": "Adım regresyonu genellikle ekstraksiyon eğrileri için daha sağlamdır."
+    },
+    {
+      "en": "Please load data before estimating n.",
+      "ru": "Пожалуйста, загрузите данные перед оценкой n.",
+      "tr": "Lütfen n tahmin etmeden önce veri yükleyin."
+    },
+    {
+      "en": "Estimating CER breakpoint...",
+      "ru": "Оценка точки перелома CER...",
+      "tr": "CER kırılma noktası tahmin ediliyor..."
+    },
+    {
+      "en": "Running segmented regression...",
+      "ru": "Выполнение сегментированной регрессии...",
+      "tr": "Segmentli regresyon çalıştırılıyor..."
+    },
+    {
+      "en": "Finding breakpoint...",
+      "ru": "Поиск точки перелома...",
+      "tr": "Kırılma noktası bulunuyor..."
+    },
+    {
+      "en": "Estimated n: %s",
+      "ru": "Оценённое n: %s",
+      "tr": "Tahmin edilen n: %s"
+    },
+    {
+      "en": "Could not estimate n from data. Try a different segmentation method.",
+      "ru": "Не удалось оценить n по данным. Попробуйте другой метод сегментации.",
+      "tr": "Veriden n tahmin edilemedi. Farklı bir segmentasyon yöntemi deneyin."
+    },
+    {
+      "en": "Error estimating n:",
+      "ru": "Ошибка при оценке n:",
+      "tr": "n tahmin hatası:"
+    },
+    {
+      "en": "Estimate from data",
+      "ru": "Оценить по данным",
+      "tr": "Veriden tahmin et"
+    },
+    {
+      "en": "Estimate Max Extractable Material Fraction",
+      "ru": "Оценка максимальной извлекаемой доли материала",
+      "tr": "Maksimum Çıkarılabilir Malzeme Fraksiyonunu Tahmin Et"
+    },
+    {
+      "en": "This will estimate the maximum extractable material fraction (cu) from your data.",
+      "ru": "Это оценит максимальную извлекаемую долю материала (cu) по вашим данным.",
+      "tr": "Bu, verilerinizden maksimum çıkarılabilir malzeme fraksiyonunu (cu) tahmin edecektir."
+    },
+    {
+      "en": "c3 is used as an initial value for the optimization algorithm.",
+      "ru": "c3 используется как начальное значение для алгоритма оптимизации.",
+      "tr": "c3, optimizasyon algoritması için başlangıç değeri olarak kullanılır."
+    },
+    {
+      "en": "Please load data before calculating.",
+      "ru": "Пожалуйста, загрузите данные перед расчётом.",
+      "tr": "Lütfen hesaplamadan önce veri yükleyin."
+    },
+    {
+      "en": "Time and Response columns must be different.",
+      "ru": "Столбцы времени и отклика должны быть разными.",
+      "tr": "Zaman ve Yanıt sütunları farklı olmalıdır."
+    },
+    {
+      "en": "Please load data before estimating cu.",
+      "ru": "Пожалуйста, загрузите данные перед оценкой cu.",
+      "tr": "Lütfen cu tahmin etmeden önce veri yükleyin."
+    },
+    {
+      "en": "Data validation failed. Please check your data and variable selections.",
+      "ru": "Проверка данных не удалась. Пожалуйста, проверьте данные и выбор переменных.",
+      "tr": "Veri doğrulama başarısız. Lütfen verilerinizi ve değişken seçimlerinizi kontrol edin."
+    },
+    {
+      "en": "Clear",
+      "ru": "Очистить",
+      "tr": "Temizle"
+    },
+    {
+      "en": "Clear current data",
+      "ru": "Очистить текущие данные",
+      "tr": "Mevcut verileri temizle"
+    },
+    {
+      "en": "Data cleared.",
+      "ru": "Данные очищены.",
+      "tr": "Veriler temizlendi."
+    },
+    {
+      "en": "Estimate",
+      "ru": "Коэффициент",
+      "tr": "Tahmin Et"
+    },
+    {
+      "en": "Estimate cu",
+      "ru": "Оценить cu",
+      "tr": "cu Tahmin Et"
+    },
+    {
+      "en": "Estimate cu from data",
+      "ru": "Оценить cu по данным",
+      "tr": "Veriden cu tahmin et"
+    },
+    {
+      "en": "Estimate cu from data using c3 initial value",
+      "ru": "Оценить cu по данным, используя начальное значение c3",
+      "tr": "c3 başlangıç değerini kullanarak veriden cu tahmin et"
+    },
+    {
+      "en": "Estimates Max Extractable Material Fraction from data",
+      "ru": "Оценивает максимальную извлекаемую долю материала по данным",
+      "tr": "Veriden Maksimum Çıkarılabilir Malzeme Fraksiyonunu tahmin eder"
+    },
+    {
+      "en": "c3 (initial estimate)",
+      "ru": "c3 (начальная оценка)",
+      "tr": "c3 (başlangıç tahmini)"
+    },
+    {
+      "en": "Estimating cu...",
+      "ru": "Оценка cu...",
+      "tr": "cu tahmin ediliyor..."
+    },
+    {
+      "en": "Estimated cu: %s",
+      "ru": "Оценённое cu: %s",
+      "tr": "Tahmin edilen cu: %s"
+    },
+    {
+      "en": "Could not estimate cu from data.",
+      "ru": "Не удалось оценить cu по данным.",
+      "tr": "Veriden cu tahmin edilemedi."
+    },
+    {
+      "en": "Error estimating cu:",
+      "ru": "Ошибка при оценке cu:",
+      "tr": "cu tahmin hatası:"
+    },
+    {
+      "en": "Flow Rate is required when Solvent Data is not provided.",
+      "ru": "Скорость потока обязательна, если данные о растворителе не предоставлены.",
+      "tr": "Çözücü Verileri sağlanmadığında Akış Hızı gereklidir."
+    },
+    {
+      "en": "BIC Model Parameters",
+      "ru": "Параметры модели BIC",
+      "tr": "BIC Model Parametreleri"
+    },
+    {
+      "en": "Input Data",
+      "ru": "Входные данные",
+      "tr": "Giriş Verileri"
+    },
+    {
+      "en": "OEC Variables",
+      "ru": "Переменные OEC",
+      "tr": "OEC Değişkenleri"
+    },
+    {
+      "en": "Time Variable (e.g., Time_min)",
+      "ru": "Переменная времени (например, Time_min)",
+      "tr": "Zaman Değişkeni (örn., Time_min)"
+    },
+    {
+      "en": "Response Variable (e.g., Yield_g)",
+      "ru": "Переменная отклика (например, Yield_g)",
+      "tr": "Yanıt Değişkeni (örn., Yield_g)"
+    },
+    {
+      "en": "Solvent Variable (Optional, e.g., Solvent_mL)",
+      "ru": "Переменная растворителя (необязательно, например, Solvent_mL)",
+      "tr": "Çözücü Değişkeni (İsteğe Bağlı, örn., Solvent_mL)"
+    },
+    {
+      "en": "Process Parameters",
+      "ru": "Параметры процесса",
+      "tr": "İşlem Parametreleri"
+    },
+    {
+      "en": "Pressure (bar)",
+      "ru": "Давление (бар)",
+      "tr": "Basınç (bar)"
+    },
+    {
+      "en": "Temperature (°C)",
+      "ru": "Температура (°C)",
+      "tr": "Sıcaklık (°C)"
+    },
+    {
+      "en": "Mass of Raw Material (g)",
+      "ru": "Масса сырья (г)",
+      "tr": "Hammadde Kütlesi (g)"
+    },
+    {
+      "en": "Moisture Content (%)",
+      "ru": "Влажность (%)",
+      "tr": "Nem İçeriği (%)"
+    },
+    {
+      "en": "Extractor Diameter (m)",
+      "ru": "Диаметр экстрактора (м)",
+      "tr": "Ekstraktör Çapı (m)"
+    },
+    {
+      "en": "Extractor Length (m)",
+      "ru": "Длина экстрактора (м)",
+      "tr": "Ekstraktör Uzunluğu (m)"
+    },
+    {
+      "en": "Co-solvent Fraction",
+      "ru": "Доля сорастворителя",
+      "tr": "Yardımcı Çözücü Kesri"
+    },
+    {
+      "en": "Real Density (g/L)",
+      "ru": "Истинная плотность (г/л)",
+      "tr": "Gerçek Yoğunluk (g/L)"
+    },
+    {
+      "en": "Apparent Density (g/L)",
+      "ru": "Кажущаяся плотность (г/л)",
+      "tr": "Görünür Yoğunluk (g/L)"
+    },
+    {
+      "en": "Number of Observations (CER)",
+      "ru": "Количество наблюдений (CER)",
+      "tr": "Gözlem Sayısı (CER)"
+    },
+    {
+      "en": "Number of Observations (CER) must be at least 2.",
+      "ru": "Количество наблюдений (CER) должно быть не менее 2.",
+      "tr": "Gözlem Sayısı (CER) en az 2 olmalıdır."
+    },
+    {
+      "en": "Flow Rate (mL/min or g/min)",
+      "ru": "Скорость потока (мл/мин или г/мин)",
+      "tr": "Akış Hızı (mL/dk veya g/dk)"
+    },
+    {
+      "en": "Max Extractable Material Fraction",
+      "ru": "Максимальная извлекаемая фракция материала",
+      "tr": "Maksimum Ekstrakt Edilebilir Madde Kesri"
+    },
+    {
+      "en": "Cumulative Data",
+      "ru": "Кумулятивные данные",
+      "tr": "Kümülatif Veri"
+    },
+    {
+      "en": "Mass Flow Rate",
+      "ru": "Массовый расход",
+      "tr": "Kütle Akış Hızı"
+    },
+    {
+      "en": "Model Parameters",
+      "ru": "Параметры модели",
+      "tr": "Model Parametreleri"
+    },
+    {
+      "en": "Initial r Estimate",
+      "ru": "Начальная оценка r",
+      "tr": "Başlangıç r Tahmini"
+    },
+    {
+      "en": "Initial ksas Estimate",
+      "ru": "Начальная оценка ksas",
+      "tr": "Başlangıç ksas Tahmini"
+    },
+    {
+      "en": "Initial qc Estimate",
+      "ru": "Начальная оценка qc",
+      "tr": "Başlangıç qc Tahmini"
+    },
+    {
+      "en": "Initial thetaf Estimate",
+      "ru": "Начальная оценка thetaf",
+      "tr": "Başlangıç thetaf Tahmini"
+    },
+    {
+      "en": "Initial ti Estimate",
+      "ru": "Начальная оценка ti",
+      "tr": "Başlangıç ti Tahmini"
+    },
+    {
+      "en": "Initial kf Estimate",
+      "ru": "Начальная оценка kf",
+      "tr": "Başlangıç kf Tahmini"
+    },
+    {
+      "en": "Initial c3 Estimate",
+      "ru": "Начальная оценка c3",
+      "tr": "Başlangıç c3 Tahmini"
+    },
+    {
+      "en": "Model Type",
+      "ru": "Тип модели",
+      "tr": "Model Tipi"
+    },
+    {
+      "en": "Flow Units (e.g., mL/min, g/min)",
+      "ru": "Единицы потока (например, мл/мин, г/мин)",
+      "tr": "Akış Birimleri (örn., mL/dk, g/dk)"
+    },
+    {
+      "en": "Response Units (e.g., permille, g)",
+      "ru": "Единицы отклика (например, промилле, г)",
+      "tr": "Yanıt Birimleri (örn., permille, g)"
+    },
+    {
+      "en": "Model Plot",
+      "ru": "График модели",
+      "tr": "Model Grafiği"
+    },
+    {
+      "en": "Model Summary",
+      "ru": "Сводка модели",
+      "tr": "Model Özeti"
+    },
+    {
+      "en": "Model Data",
+      "ru": "Данные модели",
+      "tr": "Model Verileri"
+    },
+    {
+      "en": "Reset",
+      "ru": "Сброс",
+      "tr": "Sıfırla"
+    },
+    {
+      "en": "Calculate",
+      "ru": "Рассчитать",
+      "tr": "Hesapla"
+    },
+    {
+      "en": "Input Data and Variables",
+      "ru": "Входные данные и переменные",
+      "tr": "Giriş Verileri ve Değişkenler"
+    },
+    {
+      "en": "Select Input Type",
+      "ru": "Выберите тип ввода",
+      "tr": "Giriş Tipini Seçin"
+    },
+    {
+      "en": "Upload CSV File",
+      "ru": "Загрузить CSV файл",
+      "tr": "CSV Dosyası Yükle"
+    },
+    {
+      "en": "Manual Text Input",
+      "ru": "Ручной ввод текста",
+      "tr": "Manuel Metin Girişi"
+    },
+    {
+      "en": "Variables will be automatically detected from your data.",
+      "ru": "Переменные будут автоматически определены из ваших данных.",
+      "tr": "Değişkenler verilerinizden otomatik olarak algılanacaktır."
+    },
+    {
+      "en": "Time Variable",
+      "ru": "Переменная времени",
+      "tr": "Zaman Değişkeni"
+    },
+    {
+      "en": "Time",
+      "ru": "Время",
+      "tr": "Zaman"
+    },
+    {
+      "en": "Response Variable",
+      "ru": "Переменная отклика",
+      "tr": "Yanıt Değişkeni"
+    },
+    {
+      "en": "Response",
+      "ru": "Отклик",
+      "tr": "Yanıt"
+    },
+    {
+      "en": "Solvent Variable (Optional)",
+      "ru": "Переменная растворителя (необязательно)",
+      "tr": "Çözücü Değişkeni (İsteğe Bağlı)"
+    },
+    {
+      "en": "Solvent (Optional)",
+      "ru": "Растворитель (необязательно)",
+      "tr": "Çözücü (İsteğe Bağlı)"
+    },
+    {
+      "en": "Solvent",
+      "ru": "Растворитель",
+      "tr": "Çözücü"
+    },
+    {
+      "en": "Provide Solvent Data",
+      "ru": "Указать данные о растворителе",
+      "tr": "Çözücü Verisi Sağla"
+    },
+    {
+      "en": "Use Solvent Data",
+      "ru": "Использовать данные о растворителе",
+      "tr": "Çözücü Verisini Kullan"
+    },
+    {
+      "en": "Advanced Parameters",
+      "ru": "Расширенные параметры",
+      "tr": "Gelişmiş Parametreler"
+    },
+    {
+      "en": "Ethanol Co-solvent Fraction (0-0.99)",
+      "ru": "Доля этанола-сорастворителя (0-0.99)",
+      "tr": "Etanol Yardımcı Çözücü Kesri (0-0.99)"
+    },
+    {
+      "en": "Flow Measurement Temperature (°C)",
+      "ru": "Температура измерения потока (°C)",
+      "tr": "Akış Ölçüm Sıcaklığı (°C)"
+    },
+    {
+      "en": "Flow Measurement Pressure (bar)",
+      "ru": "Давление измерения потока (бар)",
+      "tr": "Akış Ölçüm Basıncı (bar)"
+    },
+    {
+      "en": "CO₂ Density (g/L, optional)",
+      "ru": "Плотность CO₂ (г/л, необязательно)",
+      "tr": "CO₂ Yoğunluğu (g/L, isteğe bağlı)"
+    },
+    {
+      "en": "Max Time for CT Model (min, optional)",
+      "ru": "Максимальное время для модели CT (мин, необязательно)",
+      "tr": "CT Modeli için Maksimum Süre (dk, isteğe bağlı)"
+    },
+    {
+      "en": "Max Solvent for Other Models (kg/kg, optional)",
+      "ru": "Максимальное количество растворителя для других моделей (кг/кг, необязательно)",
+      "tr": "Diğer Modeller için Maksimum Çözücü (kg/kg, isteğe bağlı)"
+    },
+    {
+      "en": "Model Settings",
+      "ru": "Настройки модели",
+      "tr": "Model Ayarları"
+    },
+    {
+      "en": "Optimization Aggregation",
+      "ru": "Агрегация оптимизации",
+      "tr": "Optimizasyon Agregasyonu"
+    },
+    {
+      "en": "Flow Units",
+      "ru": "Единицы потока",
+      "tr": "Akış Birimleri"
+    },
+    {
+      "en": "Response Units",
+      "ru": "Единицы отклика",
+      "tr": "Yanıt Birimleri"
+    },
+    {
+      "en": "Optimization Parameters",
+      "ru": "Параметры оптимизации",
+      "tr": "Optimizasyon Parametreleri"
+    },
+    {
+      "en": "Initial Parameter Estimates:",
+      "ru": "Начальные оценки параметров:",
+      "tr": "Başlangıç Parametre Tahminleri:"
+    },
+    {
+      "en": "Use Default Values",
+      "ru": "Использовать значения по умолчанию",
+      "tr": "Varsayılan Değerleri Kullan"
+    },
+    {
+      "en": "Custom Values",
+      "ru": "Пользовательские значения",
+      "tr": "Özel Değerler"
+    },
+    {
+      "en": "r (grinding efficiency)",
+      "ru": "r (эффективность измельчения)",
+      "tr": "r (öğütme verimliliği)"
+    },
+    {
+      "en": "ksas (k_s * a_s)",
+      "ru": "ksas (k_s * a_s)",
+      "tr": "ksas (k_s * a_s)"
+    },
+    {
+      "en": "qc (relative solvent at CER end)",
+      "ru": "qc (относительный растворитель в конце CER)",
+      "tr": "qc (CER sonunda bağıl çözücü)"
+    },
+    {
+      "en": "thetaf (external mass transfer)",
+      "ru": "thetaf (внешний массообмен)",
+      "tr": "thetaf (dış kütle transferi)"
+    },
+    {
+      "en": "ti (FER duration)",
+      "ru": "ti (длительность FER)",
+      "tr": "ti (FER süresi)"
+    },
+    {
+      "en": "kf (fluid mass transfer)",
+      "ru": "kf (массообмен жидкости)",
+      "tr": "kf (akışkan kütle transferi)"
+    },
+    {
+      "en": "c3 (for cu estimation)",
+      "ru": "c3 (для оценки cu)",
+      "tr": "c3 (cu tahmini için)"
+    },
+    {
+      "en": "Model Plots",
+      "ru": "Графики модели",
+      "tr": "Model Grafikleri"
+    },
+    {
+      "en": "Simplified Model (SIM)",
+      "ru": "Упрощенная модель (SIM)",
+      "tr": "Basitleştirilmiş Model (SIM)"
+    },
+    {
+      "en": "Fitted Parameters",
+      "ru": "Подобранные параметры",
+      "tr": "Uyarlanan Parametreler"
+    },
+    {
+      "en": "Model Statistics",
+      "ru": "Статистика модели",
+      "tr": "Model İstatistikleri"
+    },
+    {
+      "en": "Observed vs Predicted Data",
+      "ru": "Наблюдаемые и прогнозируемые данные",
+      "tr": "Gözlenen ve Tahmin Edilen Veriler"
+    },
+    {
+      "en": "Detailed Predictions (CER/FER)",
+      "ru": "Подробные прогнозы (CER/FER)",
+      "tr": "Detaylı Tahminler (CER/FER)"
+    },
+    {
+      "en": "Characteristic Times (CT)",
+      "ru": "Характеристические времена (CT)",
+      "tr": "Karakteristik Zamanlar (CT)"
+    },
+    {
+      "en": "Complete Model (CMP)",
+      "ru": "Полная модель (CMP)",
+      "tr": "Tam Model (CMP)"
+    },
+    {
+      "en": "Model Comparison",
+      "ru": "Сравнение моделей",
+      "tr": "Model Karşılaştırması"
+    },
+    {
+      "en": "Model Comparison Statistics",
+      "ru": "Статистика сравнения моделей",
+      "tr": "Model Karşılaştırma İstatistikleri"
+    },
+    {
+      "en": "Simplified",
+      "ru": "Упрощенная",
+      "tr": "Basitleştirilmiş"
+    },
+    {
+      "en": "Characteristic Times",
+      "ru": "Характеристические времена",
+      "tr": "Karakteristik Zamanlar"
+    },
+    {
+      "en": "Complete Model",
+      "ru": "Полная модель",
+      "tr": "Tam Model"
+    },
+    {
+      "en": "Select Model Plot",
+      "ru": "Выбрать график модели",
+      "tr": "Model Grafiği Seç"
+    },
+    {
+      "en": "Simplified Model",
+      "ru": "Упрощенная модель",
+      "tr": "Basitleştirilmiş Model"
+    },
+    {
+      "en": "Characteristic Times Model",
+      "ru": "Модель характеристических времен",
+      "tr": "Karakteristik Zamanlar Modeli"
+    },
+    {
+      "en": "Complete Model (2 Regions)",
+      "ru": "Полная модель (2 области)",
+      "tr": "Tam Model (2 Bölge)"
+    },
+    {
+      "en": "Complete Model (3 Regions)",
+      "ru": "Полная модель (3 области)",
+      "tr": "Tam Model (3 Bölge)"
+    },
+    {
+      "en": "Simplified Model (time-based)",
+      "ru": "Упрощенная модель (по времени)",
+      "tr": "Basitleştirilmiş Model (zamana dayalı)"
+    },
+    {
+      "en": "Complete Model (2 Regions) (time-based)",
+      "ru": "Полная модель (2 области) (по времени)",
+      "tr": "Tam Model (2 Bölge) (zamana dayalı)"
+    },
+    {
+      "en": "Complete Model (3 Regions) (time-based)",
+      "ru": "Полная модель (3 области) (по времени)",
+      "tr": "Tam Model (3 Bölge) (zamana dayalı)"
+    },
+    {
+      "en": "Predictions",
+      "ru": "Прогнозы",
+      "tr": "Tahminler"
+    },
+    {
+      "en": "Prediction Settings",
+      "ru": "Настройки прогноза",
+      "tr": "Tahmin Ayarları"
+    },
+    {
+      "en": "Calculate Predictions",
+      "ru": "Рассчитать прогнозы",
+      "tr": "Tahminleri Hesapla"
+    },
+    {
+      "en": "Reset Predictions",
+      "ru": "Сбросить прогнозы",
+      "tr": "Tahminleri Sıfırla"
+    },
+    {
+      "en": "Input Data Type:",
+      "ru": "Тип входных данных:",
+      "tr": "Giriş Veri Tipi:"
+    },
+    {
+      "en": "Manual Input",
+      "ru": "Ручной ввод",
+      "tr": "Manuel Giriş"
+    },
+    {
+      "en": "Upload CSV",
+      "ru": "Загрузить CSV",
+      "tr": "CSV Yükle"
+    },
+    {
+      "en": "Calculate mass and percentage yields",
+      "ru": "Рассчитать массовые и процентные выходы",
+      "tr": "Kütle ve yüzde verimlerini hesapla"
+    },
+    {
+      "en": "Select Model Type",
+      "ru": "Выбрать тип модели",
+      "tr": "Model Tipini Seç"
+    },
+    {
+      "en": "Input Units",
+      "ru": "Единицы ввода",
+      "tr": "Giriş Birimleri"
+    },
+    {
+      "en": "Solvent/Material Ratio (q)",
+      "ru": "Соотношение растворитель/материал (q)",
+      "tr": "Çözücü/Madde Oranı (q)"
+    },
+    {
+      "en": "Time (minutes)",
+      "ru": "Время (минуты)",
+      "tr": "Zaman (dakika)"
+    },
+    {
+      "en": "Note: Characteristic Times (CT) model only accepts 'Time (minutes)' units.",
+      "ru": "Примечание: Модель характеристических времен (CT) принимает только единицы 'Время (минуты)'.",
+      "tr": "Not: Karakteristik Zamanlar (CT) modeli sadece 'Zaman (dakika)' birimlerini kabul eder."
+    },
+    {
+      "en": "Prediction Results",
+      "ru": "Результаты прогноза",
+      "tr": "Tahmin Sonuçları"
+    },
+    {
+      "en": "Unit Reference Chart",
+      "ru": "Справочная таблица единиц",
+      "tr": "Birim Referans Tablosu"
+    },
+    {
+      "en": "Model Information",
+      "ru": "Информация о модели",
+      "tr": "Model Bilgisi"
+    },
+    {
+      "en": "Co-Solvent Flow Rate (mL/min)",
+      "ru": "Расход сорастворителя (мл/мин)",
+      "tr": "Yardımcı Çözücü Akış Hızı (mL/dk)"
+    },
+    {
+      "en": "Co-Solvent Fraction (0-0.99)",
+      "ru": "Доля сорастворителя (0-0.99)",
+      "tr": "Yardımcı Çözücü Kesri (0-0.99)"
+    },
+    {
+      "en": "Flow Parameters",
+      "ru": "Параметры потока",
+      "tr": "Akış Parametreleri"
+    },
+    {
+      "en": "Flow Rate is disabled because solvent consumption data is provided in the input.",
+      "ru": "Скорость потока отключена, так как данные о расходе растворителя предоставлены во входных данных.",
+      "tr": "Akış Hızı devre dışı bırakıldı çünkü giriş verilerinde çözücü tüketim verileri sağlandı."
+    },
+    {
+      "en": "Solvent Data Provided:",
+      "ru": "Данные о растворителе предоставлены:",
+      "tr": "Çözücü Verisi Sağlandı:"
+    },
+    {
+      "en": "When a Solvent column is selected, the values must represent the amount of solvent expended (cumulative or per interval). The units are determined by the 'Mass Flow Rate' checkbox above.",
+      "ru": "При выборе столбца растворителя значения должны представлять количество израсходованного растворителя (кумулятивно или за интервал). Единицы измерения определяются флажком 'Массовый расход' выше.",
+      "tr": "Bir Çözücü sütunu seçildiğinde, değerler harcanan çözücü miktarını (kümülatif veya aralık başına) temsil etmelidir. Birimler yukarıdaki 'Kütle Akış Hızı' onay kutusu ile belirlenir."
+    },
+    {
+      "en": "Current solvent units:",
+      "ru": "Текущие единицы растворителя:",
+      "tr": "Mevcut çözücü birimleri:"
+    },
+    {
+      "en": "(grams)",
+      "ru": "(граммы)",
+      "tr": "(gram)"
+    },
+    {
+      "en": "(milliliters)",
+      "ru": "(миллилитры)",
+      "tr": "(mililitre)"
+    },
+    {
+      "en": "1. Data Source",
+      "ru": "1. Источник данных",
+      "tr": "1. Veri Kaynağı"
+    },
+    {
+      "en": "2. Variable Selection",
+      "ru": "2. Выбор переменных",
+      "tr": "2. Değişken Seçimi"
+    },
+    {
+      "en": "2. Variables & Options",
+      "ru": "2. Переменные и параметры",
+      "tr": "2. Değişkenler ve Seçenekler"
+    },
+    {
+      "en": "3. Data Preview",
+      "ru": "3. Предпросмотр данных",
+      "tr": "3. Veri Önizleme"
+    },
+    {
+      "en": "Data Preview",
+      "ru": "Предпросмотр данных",
+      "tr": "Veri Önizleme"
+    },
+    {
+      "en": "Example",
+      "ru": "Пример",
+      "tr": "Örnek"
+    },
+    {
+      "en": "Load example data",
+      "ru": "Загрузить пример данных",
+      "tr": "Örnek veri yükle"
+    },
+    {
+      "en": "Download example CSV",
+      "ru": "Скачать пример CSV",
+      "tr": "Örnek CSV indir"
+    },
+    {
+      "en": "Example data loaded successfully!",
+      "ru": "Пример данных успешно загружен!",
+      "tr": "Örnek veri başarıyla yüklendi!"
+    },
+    {
+      "en": "Example data file not found.",
+      "ru": "Файл примера данных не найден.",
+      "tr": "Örnek veri dosyası bulunamadı."
+    },
+    {
+      "en": "Column '%s' is selected in multiple fields.",
+      "ru": "Столбец '%s' выбран в нескольких полях.",
+      "tr": "'%s' sütunu birden fazla alanda seçilmiş."
+    },
+    {
+      "en": "Duplicate column warning:",
+      "ru": "Предупреждение о дублировании столбцов:",
+      "tr": "Yinelenen sütun uyarısı:"
+    },
+    {
+      "en": "Insufficient columns:",
+      "ru": "Недостаточно столбцов:",
+      "tr": "Yetersiz sütun:"
+    },
+    {
+      "en": "Data must have at least 2 columns (Time and Response).",
+      "ru": "Данные должны содержать минимум 2 столбца (Время и Отклик).",
+      "tr": "Veri en az 2 sütun içermelidir (Zaman ve Yanıt)."
+    },
+    {
+      "en": "No columns available for Solvent. Add more columns to data.",
+      "ru": "Нет доступных столбцов для растворителя. Добавьте больше столбцов в данные.",
+      "tr": "Çözücü için kullanılabilir sütun yok. Verilere daha fazla sütun ekleyin."
+    },
+    {
+      "en": "Need 3+ columns",
+      "ru": "Нужно 3+ столбца",
+      "tr": "3+ sütun gerekli"
+    },
+    {
+      "en": "Add more columns to enable solvent selection.",
+      "ru": "Добавьте больше столбцов для выбора растворителя.",
+      "tr": "Çözücü seçimini etkinleştirmek için daha fazla sütun ekleyin."
+    },
+    {
+      "en": "No columns available",
+      "ru": "Нет доступных столбцов",
+      "tr": "Kullanılabilir sütun yok"
+    },
+    {
+      "en": "All columns are in use. Add more columns to data.",
+      "ru": "Все столбцы используются. Добавьте больше столбцов в данные.",
+      "tr": "Tüm sütunlar kullanımda. Verilere daha fazla sütun ekleyin."
+    },
+    {
+      "en": "New name",
+      "ru": "Новое имя",
+      "tr": "Yeni ad"
+    },
+    {
+      "en": "Rename column",
+      "ru": "Переименовать столбец",
+      "tr": "Sütunu yeniden adlandır"
+    },
+    {
+      "en": "Please select a column and enter a new name.",
+      "ru": "Пожалуйста, выберите столбец и введите новое имя.",
+      "tr": "Lütfen bir sütun seçin ve yeni bir ad girin."
+    },
+    {
+      "en": "Column not found.",
+      "ru": "Столбец не найден.",
+      "tr": "Sütun bulunamadı."
+    },
+    {
+      "en": "A column with this name already exists.",
+      "ru": "Столбец с таким именем уже существует.",
+      "tr": "Bu ada sahip bir sütun zaten mevcut."
+    },
+    {
+      "en": "Column renamed: %s → %s",
+      "ru": "Столбец переименован: %s → %s",
+      "tr": "Sütun yeniden adlandırıldı: %s → %s"
+    },
+    {
+      "en": "Rename",
+      "ru": "Переименовать",
+      "tr": "Yeniden adlandır"
+    },
+    {
+      "en": "Manual Input",
+      "ru": "Ручной ввод",
+      "tr": "Manuel Giriş"
+    },
+    {
+      "en": "Download current data",
+      "ru": "Скачать текущие данные",
+      "tr": "Mevcut verileri indir"
+    },
+    {
+      "en": "No data to download.",
+      "ru": "Нет данных для скачивания.",
+      "tr": "İndirilecek veri yok."
+    },
+    {
+      "en": "Download",
+      "ru": "Скачать",
+      "tr": "İndir"
+    },
+    {
+      "en": "Load Example",
+      "ru": "Загрузить пример",
+      "tr": "Örnek Yükle"
+    },
+    {
+      "en": "Add Column",
+      "ru": "Добавить столбец",
+      "tr": "Sütun Ekle"
+    },
+    {
+      "en": "Remove Column",
+      "ru": "Удалить столбец",
+      "tr": "Sütun Kaldır"
+    },
+    {
+      "en": "Add Row",
+      "ru": "Добавить строку",
+      "tr": "Satır Ekle"
+    },
+    {
+      "en": "Remove Row",
+      "ru": "Удалить строку",
+      "tr": "Satır Kaldır"
+    },
+    {
+      "en": "Edit the table below. Right-click for row/column options.",
+      "ru": "Редактируйте таблицу ниже. Щёлкните правой кнопкой мыши для опций строк/столбцов.",
+      "tr": "Aşağıdaki tabloyu düzenleyin. Satır/sütun seçenekleri için sağ tıklayın."
+    },
+    {
+      "en": "Cannot remove column: at least 2 columns required.",
+      "ru": "Невозможно удалить столбец: требуется минимум 2 столбца.",
+      "tr": "Sütun kaldırılamıyor: en az 2 sütun gerekli."
+    },
+    {
+      "en": "Cannot remove row: at least 1 row required.",
+      "ru": "Невозможно удалить строку: требуется минимум 1 строка.",
+      "tr": "Satır kaldırılamıyor: en az 1 satır gerekli."
+    },
+    {
+      "en": "2. Data Preview",
+      "ru": "2. Предпросмотр данных",
+      "tr": "2. Veri Önizleme"
+    },
+    {
+      "en": "Upload a CSV file or enter data manually to preview.",
+      "ru": "Загрузите CSV-файл или введите данные вручную для предпросмотра.",
+      "tr": "Önizleme için bir CSV dosyası yükleyin veya verileri manuel olarak girin."
+    },
+    {
+      "en": "Upload a CSV file to preview data.",
+      "ru": "Загрузите CSV-файл для предпросмотра данных.",
+      "tr": "Verileri önizlemek için bir CSV dosyası yükleyin."
+    },
+    {
+      "en": "Click in the table to start entering data.",
+      "ru": "Нажмите на таблицу, чтобы начать ввод данных.",
+      "tr": "Veri girmeye başlamak için tabloya tıklayın."
+    },
+    {
+      "en": "3. Variables & Options",
+      "ru": "3. Переменные и опции",
+      "tr": "3. Değişkenler ve Seçenekler"
+    },
+    {
+      "en": "4. Data Interpretation",
+      "ru": "4. Интерпретация данных",
+      "tr": "4. Veri Yorumlama"
+    },
+    {
+      "en": "Data mismatch warning:",
+      "ru": "Предупреждение о несоответствии данных:",
+      "tr": "Veri uyuşmazlığı uyarısı:"
+    },
+    {
+      "en": "The 'Cumulative Data' setting will be ignored and the data will be treated as non-cumulative.",
+      "ru": "Настройка 'Кумулятивные данные' будет проигнорирована, и данные будут обработаны как некумулятивные.",
+      "tr": "'Kümülatif Veri' ayarı göz ardı edilecek ve veriler kümülatif olmayan olarak işlenecektir."
+    },
+    {
+      "en": "Response data does not appear to be cumulative (contains decreasing values).",
+      "ru": "Данные отклика не являются кумулятивными (содержат убывающие значения).",
+      "tr": "Yanıt verileri kümülatif görünmüyor (azalan değerler içeriyor)."
+    },
+    {
+      "en": "Response data appears to be cumulative (monotonically increasing).",
+      "ru": "Данные отклика являются кумулятивными (монотонно возрастают).",
+      "tr": "Yanıt verileri kümülatif görünüyor (monoton artan)."
+    },
+    {
+      "en": "Solvent data does not appear to be cumulative (contains decreasing values).",
+      "ru": "Данные о растворителе не являются кумулятивными (содержат убывающие значения).",
+      "tr": "Çözücü verileri kümülatif görünmüyor (azalan değerler içeriyor)."
+    },
+    {
+      "en": "Solvent data appears to be cumulative (monotonically increasing).",
+      "ru": "Данные о растворителе являются кумулятивными (монотонно возрастают).",
+      "tr": "Çözücü verileri kümülatif görünüyor (monoton artan)."
+    },
+    {
+      "en": "Solvent column selected:",
+      "ru": "Выбран столбец растворителя:",
+      "tr": "Çözücü sütunu seçildi:"
+    },
+    {
+      "en": "Solvent units:",
+      "ru": "Единицы растворителя:",
+      "tr": "Çözücü birimleri:"
+    },
+    {
+      "en": "Values must represent solvent amount expended.",
+      "ru": "Значения должны представлять количество израсходованного растворителя.",
+      "tr": "Değerler harcanan çözücü miktarını temsil etmelidir."
+    },
+    {
+      "en": "Error calculating BIC model:",
+      "ru": "Ошибка при расчёте модели BIC:",
+      "tr": "BIC modeli hesaplanırken hata:"
+    },
+    {
+      "en": "Model fitting failed: The solver could not find a valid solution. This often occurs when input parameters are inconsistent (e.g., incorrect Mass Flow Rate setting, mismatched units, or inappropriate parameter values). Please verify your input data and parameters.",
+      "ru": "Не удалось подобрать модель: Решатель не смог найти допустимое решение. Это часто происходит при несогласованных входных параметрах (например, неверная настройка массового расхода, несоответствие единиц измерения или неподходящие значения параметров). Пожалуйста, проверьте входные данные и параметры.",
+      "tr": "Model uydurma başarısız oldu: Çözücü geçerli bir çözüm bulamadı. Bu genellikle giriş parametreleri tutarsız olduğunda meydana gelir (örn. yanlış Kütle Akış Hızı ayarı, uyumsuz birimler veya uygunsuz parametre değerleri). Lütfen giriş verilerinizi ve parametrelerinizi doğrulayın."
+    },
+    {
+      "en": "Invalid Mass Flow Rate setting. Please check the checkbox value.",
+      "ru": "Недопустимая настройка массового расхода. Пожалуйста, проверьте значение флажка.",
+      "tr": "Geçersiz Kütle Akış Hızı ayarı. Lütfen onay kutusu değerini kontrol edin."
+    },
+    {
+      "en": "When Mass Flow Rate is enabled, flow units must be mass-based (g/min or kg/h), not volumetric.",
+      "ru": "Когда включён массовый расход, единицы потока должны быть массовыми (г/мин или кг/ч), а не объёмными.",
+      "tr": "Kütle Akış Hızı etkinleştirildiğinde, akış birimleri hacimsel değil kütle tabanlı (g/dak veya kg/sa) olmalıdır."
+    },
+    {
+      "en": "Pressure value is out of valid range (1-1000 bar).",
+      "ru": "Значение давления вне допустимого диапазона (1-1000 бар).",
+      "tr": "Basınç değeri geçerli aralığın dışında (1-1000 bar)."
+    },
+    {
+      "en": "Temperature value is out of valid range (-50 to 300 °C).",
+      "ru": "Значение температуры вне допустимого диапазона (от -50 до 300 °C).",
+      "tr": "Sıcaklık değeri geçerli aralığın dışında (-50 ile 300 °C arası)."
+    },
+    {
+      "en": "All optimization methods failed. Please check your input data and ensure parameters are reasonable for the BIC model.",
+      "ru": "Все методы оптимизации не сработали. Пожалуйста, проверьте входные данные и убедитесь, что параметры подходят для модели BIC.",
+      "tr": "Tüm optimizasyon yöntemleri başarısız oldu. Lütfen giriş verilerinizi kontrol edin ve parametrelerin BIC modeli için makul olduğundan emin olun."
+    },
+    {
+      "en": "Select the parameters and run the calculation to see results.",
+      "ru": "Выберите параметры и запустите расчёт для просмотра результатов.",
+      "tr": "Parametreleri seçin ve sonuçları görmek için hesaplamayı çalıştırın."
+    },
+    {
+      "en": "grams",
+      "ru": "граммы",
+      "tr": "gram"
+    },
+    {
+      "en": "Density",
+      "ru": "Плотность",
+      "tr": "Yoğunluk"
+    },
+    {
+      "en": "Supercritical CO₂ density. If not specified, it is calculated automatically from pressure and temperature.",
+      "ru": "Плотность сверхкритического CO₂. Если не указана, рассчитывается автоматически по давлению и температуре.",
+      "tr": "Süperkritik CO₂ yoğunluğu. Belirtilmezse basınç ve sıcaklıktan otomatik hesaplanır."
+    },
+    {
+      "en": "Auto (from P and T)",
+      "ru": "Авто (из P и T)",
+      "tr": "Otomatik (P ve T'den)"
+    },
+    {
+      "en": "Max Time (min)",
+      "ru": "Макс. время (мин)",
+      "tr": "Maks. Süre (dk)"
+    },
+    {
+      "en": "Maximum extraction time for CT model predictions (minutes)",
+      "ru": "Максимальное время экстракции для прогнозов модели CT (минуты)",
+      "tr": "CT model tahminleri için maksimum ekstraksiyon süresi (dakika)"
+    },
+    {
+      "en": "Auto (120% of experimental max)",
+      "ru": "Авто (120% от эксп. макс.)",
+      "tr": "Otomatik (deneysel maks. %120'si)"
+    },
+    {
+      "en": "Enable custom value",
+      "ru": "Включить пользовательское значение",
+      "tr": "Özel değer etkinleştir"
+    },
+    {
+      "en": "Max",
+      "ru": "Макс.",
+      "tr": "Maks."
+    },
+    {
+      "en": "Maximum solvent-to-material mass ratio for model predictions",
+      "ru": "Максимальное соотношение масс растворитель/сырьё для прогнозов модели",
+      "tr": "Model tahminleri için maksimum çözücü/malzeme kütle oranı"
+    },
+    {
+      "en": "Max experimental value:",
+      "ru": "Макс. экспериментальное значение:",
+      "tr": "Maks. deneysel değer:"
+    },
+    {
+      "en": "Exp:",
+      "ru": "Эксп:",
+      "tr": "Den:"
+    },
+    {
+      "en": "Max Time must be greater than 0.",
+      "ru": "Макс. время должно быть больше 0.",
+      "tr": "Maks. süre 0'dan büyük olmalıdır."
+    },
+    {
+      "en": "must be greater than 0.",
+      "ru": "должно быть больше 0.",
+      "tr": "0'dan büyük olmalıdır."
+    },
+    {
+      "en": "All",
+      "ru": "Все",
+      "tr": "Tümü"
+    },
+    {
+      "en": "Complete (3 Regions)",
+      "ru": "Полная (3 области)",
+      "tr": "Tam (3 Bölge)"
+    },
+    {
+      "en": "Complete (2 Regions)",
+      "ru": "Полная (2 области)",
+      "tr": "Tam (2 Bölge)"
+    },
+    {
+      "en": "Select model type(s)",
+      "ru": "Выберите тип(ы) модели",
+      "tr": "Model türünü seçin"
+    },
+    {
+      "en": "Co-Solvent Fraction",
+      "ru": "Доля со-растворителя",
+      "tr": "Ko-Çözücü Fraksiyonu"
+    },
+    {
+      "en": "Valid range: 0 to 0.99",
+      "ru": "Допустимый диапазон: 0–0.99",
+      "tr": "Geçerli aralık: 0–0,99"
+    },
+    {
+      "en": "Co-Solvent Fraction was adjusted to the valid range (0–0.99).",
+      "ru": "Доля со-растворителя скорректирована до допустимого диапазона (0–0,99).",
+      "tr": "Ko-çözücü fraksiyonu geçerli aralığa (0–0,99) ayarlandı."
+    },
+    {
+      "en": "Moisture Content was adjusted to the valid range (0–100%).",
+      "ru": "Влажность скорректирована до допустимого диапазона (0–100%).",
+      "tr": "Nem içeriği geçerli aralığa (%0–100) ayarlandı."
+    },
+    {
+      "en": "Apparent Density cannot exceed Real Density. Value was adjusted.",
+      "ru": "Кажущаяся плотность не может превышать реальную. Значение скорректировано.",
+      "tr": "Görünür yoğunluk gerçek yoğunluğu aşamaz. Değer düzeltildi."
+    },
+    {
+      "en": "Max Extractable Fraction must be between 0 and 1. Value was adjusted.",
+      "ru": "Макс. экстрагируемая фракция должна быть от 0 до 1. Значение скорректировано.",
+      "tr": "Maks. ekstrakte edilebilir fraksiyon 0 ile 1 arasında olmalıdır. Değer düzeltildi."
+    },
+    {
+      "en": "Max Extractable Fraction",
+      "ru": "Макс. экстрагируемая фракция",
+      "tr": "Maks. Ekstrakte Edilebilir Fraksiyon"
+    },
+    {
+      "en": "Extractor Diameter",
+      "ru": "Диаметр экстрактора",
+      "tr": "Ekstraktör Çapı"
+    },
+    {
+      "en": "Extractor Length",
+      "ru": "Длина экстрактора",
+      "tr": "Ekstraktör Uzunluğu"
+    },
+    {
+      "en": "Click to cycle units: m, cm, mm",
+      "ru": "Нажмите для смены единиц: м, см, мм",
+      "tr": "Birimleri değiştirmek için tıklayın: m, cm, mm"
+    },
+    {
+      "en": "Grinding efficiency: fraction of broken cells (0–1)",
+      "ru": "Эффективность измельчения: доля разрушенных клеток (0–1)",
+      "tr": "Öğütme verimliliği: kırık hücrelerin oranı (0–1)"
+    },
+    {
+      "en": "Product of solid-phase mass transfer coefficient and specific interfacial area",
+      "ru": "Произведение коэффициента массопереноса твёрдой фазы и удельной площади межфазной поверхности",
+      "tr": "Katı faz kütle aktarım katsayısı ve özgül arayüzey alanının çarpımı"
+    },
+    {
+      "en": "Relative amount of solvent at the end of the CER period",
+      "ru": "Относительное количество растворителя в конце периода CER",
+      "tr": "CER döneminin sonunda göreli çözücü miktarı"
+    },
+    {
+      "en": "External mass transfer coefficient",
+      "ru": "Коэффициент внешнего массопереноса",
+      "tr": "Dış kütle aktarım katsayısı"
+    },
+    {
+      "en": "Duration of the falling extraction rate (FER) period",
+      "ru": "Продолжительность периода падающей скорости экстракции (FER)",
+      "tr": "Düşen ekstraksiyon hızı (FER) dönemi süresi"
+    },
+    {
+      "en": "Fluid-phase mass transfer coefficient",
+      "ru": "Коэффициент массопереноса жидкой фазы",
+      "tr": "Akışkan faz kütle aktarım katsayısı"
+    },
+    {
+      "en": "Must be greater than Apparent Density",
+      "ru": "Должна быть больше кажущейся плотности",
+      "tr": "Görünür yoğunluktan büyük olmalıdır"
+    },
+    {
+      "en": "Real",
+      "ru": "Реал.",
+      "tr": "Gerçek"
+    },
+    {
+      "en": "Cannot exceed Real Density",
+      "ru": "Не может превышать реальную плотность",
+      "tr": "Gerçek yoğunluğu aşamaz"
+    },
+    {
+      "en": "Auto",
+      "ru": "Авто",
+      "tr": "Otomatik"
+    },
+    {
+      "en": "Toggle custom CO₂ density. When off, calculated automatically from pressure and temperature.",
+      "ru": "Переключить пользовательскую плотность CO₂. При отключении рассчитывается автоматически по давлению и температуре.",
+      "tr": "Özel CO₂ yoğunluğunu değiştir. Kapalıyken basınç ve sıcaklıktan otomatik hesaplanır."
+    },
+    {
+      "en": "Volumetric flow rate of ethanol co-solvent. Only applicable when a direct CO₂ flow rate is provided.",
+      "ru": "Объёмный расход этанольного со-растворителя. Применяется только при указании прямого расхода CO₂.",
+      "tr": "Etanol ko-çözücünün hacimsel akış hızı. Yalnızca doğrudan bir CO₂ akış hızı sağlandığında geçerlidir."
+    },
+    {
+      "en": "Volumetric fraction of ethanol in the total solvent mixture (e.g. 0.06 = 6% ethanol). Required when using solvent consumption data or when CO₂ flow rate is not provided.",
+      "ru": "Объёмная доля этанола в общей смеси растворителей (напр. 0,06 = 6% этанол). Требуется при использовании данных расхода растворителя или когда расход CO₂ не указан.",
+      "tr": "Toplam çözücü karışımındaki etanolün hacimsel fraksiyonu (ör. 0,06 = %6 etanol). Çözücü tüketim verileri kullanıldığında veya CO₂ akış hızı sağlanmadığında gereklidir."
+    },
+    {
+      "en": "Model:",
+      "ru": "Модель:",
+      "tr": "Model:"
+    },
+    {
+      "en": "CT model: time-based only",
+      "ru": "Модель CT: только по времени",
+      "tr": "CT modeli: yalnızca zamana dayalı"
+    },
+    {
+      "en": "Time (min)",
+      "ru": "Время (мин)",
+      "tr": "Süre (dk)"
+    },
+    {
+      "en": "Solvent/Material Ratio (kg/kg)",
+      "ru": "Соотношение растворитель/сырьё (кг/кг)",
+      "tr": "Çözücü/Malzeme Oranı (kg/kg)"
+    },
+    {
+      "en": "Observed Yield",
+      "ru": "Наблюдаемый выход",
+      "tr": "Gözlenen Verim"
+    },
+    {
+      "en": "Predicted Yield",
+      "ru": "Прогнозируемый выход",
+      "tr": "Tahmin Edilen Verim"
+    },
+    {
+      "en": "Constant Extraction Rate (CER)",
+      "ru": "Постоянная скорость экстракции (CER)",
+      "tr": "Sabit Ekstraksiyon Hızı (CER)"
+    },
+    {
+      "en": "Falling Extraction Rate (FER)",
+      "ru": "Падающая скорость экстракции (FER)",
+      "tr": "Düşen Ekstraksiyon Hızı (FER)"
+    },
+    {
+      "en": "Diffusion Controlled (DC)",
+      "ru": "Диффузионно-контролируемый (DC)",
+      "tr": "Difüzyon Kontrollü (DC)"
+    },
+    {
+      "en": "Solvent/Material (kg/kg)",
+      "ru": "Растворитель/сырьё (кг/кг)",
+      "tr": "Çözücü/Malzeme (kg/kg)"
+    },
+    {
+      "en": "Yield",
+      "ru": "Выход",
+      "tr": "Verim"
+    },
+    {
+      "en": "Period",
+      "ru": "Период",
+      "tr": "Dönem"
+    },
+    {
+      "en": "Model",
+      "ru": "Модель",
+      "tr": "Model"
+    },
+    {
+      "en": "Detailed Predictions",
+      "ru": "Подробные прогнозы",
+      "tr": "Detaylı Tahminler"
+    },
+    {
+      "en": "Constant",
+      "ru": "Константа",
+      "tr": "Sabit"
+    },
+    {
+      "en": "Solvent at end of CER",
+      "ru": "Растворитель в конце CER",
+      "tr": "CER sonunda çözücü"
+    },
+    {
+      "en": "Grinding efficiency",
+      "ru": "Эффективность измельчения",
+      "tr": "Öğütme verimliliği"
+    },
+    {
+      "en": "Solid-phase MT coefficient × area",
+      "ru": "Коэффициент МП твёрдой фазы × площадь",
+      "tr": "Katı faz KA katsayısı × alan"
+    },
+    {
+      "en": "Initial fraction of solute in broken cells",
+      "ru": "Начальная доля растворённого вещества в разрушенных клетках",
+      "tr": "Kırık hücrelerdeki çözünenin başlangıç fraksiyonu"
+    },
+    {
+      "en": "Initial fraction at CER start",
+      "ru": "Начальная доля в начале CER",
+      "tr": "CER başlangıcındaki başlangıç fraksiyonu"
+    },
+    {
+      "en": "Fluid-phase MT coefficient",
+      "ru": "Коэффициент МП жидкой фазы",
+      "tr": "Akışkan faz KA katsayısı"
+    },
+    {
+      "en": "Fluid-phase MT coefficient × area",
+      "ru": "Коэффициент МП жидкой фазы × площадь",
+      "tr": "Akışkan faz KA katsayısı × alan"
+    },
+    {
+      "en": "External MT resistance",
+      "ru": "Внешнее сопротивление МП",
+      "tr": "Dış KA direnci"
+    },
+    {
+      "en": "External MT coefficient",
+      "ru": "Внешний коэффициент МП",
+      "tr": "Dış KA katsayısı"
+    },
+    {
+      "en": "FER duration",
+      "ru": "Продолжительность FER",
+      "tr": "FER süresi"
+    },
+    {
+      "en": "Solvent at end of FER",
+      "ru": "Растворитель в конце FER",
+      "tr": "FER sonunda çözücü"
+    },
+    {
+      "en": "Specific solubility",
+      "ru": "Удельная растворимость",
+      "tr": "Özgül çözünürlük"
+    },
+    {
+      "en": "Solvent velocity ratio",
+      "ru": "Соотношение скоростей растворителя",
+      "tr": "Çözücü hız oranı"
+    },
+    {
+      "en": "Extraction rate parameter",
+      "ru": "Параметр скорости экстракции",
+      "tr": "Ekstraksiyon hızı parametresi"
+    },
+    {
+      "en": "Complete",
+      "ru": "Полная",
+      "tr": "Tam"
+    },
+    {
+      "en": "Select Model",
+      "ru": "Выберите модель",
+      "tr": "Model Seçin"
+    },
+    {
+      "en": "X-Axis",
+      "ru": "Ось X",
+      "tr": "X Ekseni"
+    },
+    {
+      "en": "Predicted",
+      "ru": "Прогноз",
+      "tr": "Tahmin"
+    },
+    {
+      "en": "Prediction Inputs",
+      "ru": "Входные данные прогноза",
+      "tr": "Tahmin Girdileri"
+    },
+    {
+      "en": "Sequence Input",
+      "ru": "Последовательность",
+      "tr": "Sıralı Giriş"
+    },
+    {
+      "en": "Convert the predicted fractional yield into mass (g) and percentage (%) yield using the raw material mass and response units from the model.",
+      "ru": "Преобразовать предсказанный дробный выход в массовый (г) и процентный (%) выход, используя массу сырья и единицы отклика модели.",
+      "tr": "Tahmin edilen kesirli verimi, modeldeki hammadde kütlesi ve yanıt birimlerini kullanarak kütle (g) ve yüzde (%) verime dönüştürün."
+    },
+    {
+      "en": "Type S/M ratio values and press Enter...",
+      "ru": "Введите значения S/M и нажмите Enter...",
+      "tr": "S/M oranı değerlerini yazın ve Enter'a basın..."
+    },
+    {
+      "en": "Unit Reference Table",
+      "ru": "Таблица единиц измерения",
+      "tr": "Birim Referans Tablosu"
+    },
+    {
+      "en": "Solvent/Material Ratio",
+      "ru": "Растворитель/Сырьё",
+      "tr": "Çözücü/Malzeme Oranı"
+    },
+    {
+      "en": "Fractional Yield",
+      "ru": "Дробный выход",
+      "tr": "Kesirli Verim"
+    },
+    {
+      "en": "Mass Yield",
+      "ru": "Массовый выход",
+      "tr": "Kütle Verimi"
+    },
+    {
+      "en": "Percentage Yield",
+      "ru": "Процентный выход",
+      "tr": "Yüzde Verimi"
+    },
+    {
+      "en": "From",
+      "ru": "От",
+      "tr": "Başlangıç"
+    },
+    {
+      "en": "To",
+      "ru": "До",
+      "tr": "Bitiş"
+    },
+    {
+      "en": "Step",
+      "ru": "Шаг",
+      "tr": "Adım"
+    },
+    {
+      "en": "Convert the predicted fractional yield into mass and percentage yield using the raw material mass and response units from the model.",
+      "ru": "Преобразовать предсказанный дробный выход в массовый и процентный выход, используя массу сырья и единицы отклика модели.",
+      "tr": "Tahmin edilen kesirli verimi, modeldeki hammadde kütlesi ve yanıt birimlerini kullanarak kütle ve yüzde verime dönüştürün."
+    },
+    {
+      "en": "Max S/M Ratio (kg/kg)",
+      "ru": "Макс. соотношение Р/С (кг/кг)",
+      "tr": "Maks. Ç/M Oranı (kg/kg)"
+    },
+    {
+      "en": "Max S/M Ratio must be greater than 0.",
+      "ru": "Макс. соотношение Р/С должно быть больше 0.",
+      "tr": "Maks. Ç/M oranı 0'dan büyük olmalıdır."
+    },
+    {
+      "en": "Time at end of CER",
+      "ru": "Время в конце CER",
+      "tr": "CER sonundaki süre"
+    },
+    {
+      "en": "Yield at end of CER",
+      "ru": "Выход в конце CER",
+      "tr": "CER sonundaki verim"
+    },
+    {
+      "en": "Uploaded values",
+      "ru": "Загруженные значения",
+      "tr": "Yüklenen değerler"
+    },
+    {
+      "en": "Predictions are valid for the following process parameters:",
+      "ru": "Прогнозы действительны для следующих параметров процесса:",
+      "tr": "Tahminler aşağıdaki proses parametreleri için geçerlidir:"
+    },
+    {
+      "en": "of",
+      "ru": "—",
+      "tr": "—"
+    },
+    {
+      "en": "Pressure",
+      "ru": "Давление",
+      "tr": "Basınç"
+    },
+    {
+      "en": "Temperature",
+      "ru": "Температура",
+      "tr": "Sıcaklık"
+    },
+    {
+      "en": "Flow rate",
+      "ru": "Расход",
+      "tr": "Akış hızı"
+    },
+    {
+      "en": "Co-solvent flow rate",
+      "ru": "Расход со-растворителя",
+      "tr": "Ko-çözücü akış hızı"
+    },
+    {
+      "en": "Extractor diameter",
+      "ru": "Диаметр экстрактора",
+      "tr": "Ekstraktör çapı"
+    },
+    {
+      "en": "Extractor length",
+      "ru": "Длина экстрактора",
+      "tr": "Ekstraktör uzunluğu"
+    },
+    {
+      "en": "Extractable fraction",
+      "ru": "Экстрагируемая фракция",
+      "tr": "Ekstrakte edilebilir fraksiyon"
+    },
+    {
+      "en": "Refer to the unit reference table for units of input and predicted data.",
+      "ru": "Обратитесь к таблице единиц для единиц измерения входных и прогнозируемых данных.",
+      "tr": "Giriş ve tahmin edilen verilerin birimleri için birim referans tablosuna bakın."
+    },
+    {
+      "en": "Co-solvent fraction",
+      "ru": "Доля со-растворителя",
+      "tr": "Ko-çözücü fraksiyonu"
+    },
+    {
+      "en": "at",
+      "ru": "при",
+      "tr": "—"
+    },
+    {
+      "en": "and",
+      "ru": "и",
+      "tr": "ve"
+    },
+    {
+      "en": "Not needed with mass flow",
+      "ru": "Не требуется при массовом расходе",
+      "tr": "Kütlesel akışta gerekli değil"
+    },
+    {
+      "en": "Calculated from flow rates",
+      "ru": "Рассчитывается из расходов",
+      "tr": "Akış hızlarından hesaplanır"
+    },
+    {
+      "en": "Reset to Defaults",
+      "ru": "Сбросить по умолчанию",
+      "tr": "Varsayılanlara Sıfırla"
+    },
+    {
+      "en": "Optimization parameters reset to defaults.",
+      "ru": "Параметры оптимизации сброшены по умолчанию.",
+      "tr": "Optimizasyon parametreleri varsayılanlara sıfırlandı."
+    },
+    {
+      "en": "Input Format:",
+      "ru": "Формат ввода:",
+      "tr": "Giriş Formatı:"
+    },
+    {
+      "en": "Input Data Type",
+      "ru": "Тип входных данных",
+      "tr": "Giriş Veri Türü"
+    },
+    {
+      "en": "Percentage of Maximum Yield",
+      "ru": "Процент от максимального выхода",
+      "tr": "Maksimum Verimin Yüzdesi"
+    },
+    {
+      "en": "Percentage of Maximum Yield (%)",
+      "ru": "Процент от максимального выхода (%)",
+      "tr": "Maksimum Verimin Yüzdesi (%)"
+    },
+    {
+      "en": "Type percentage values and press Enter...",
+      "ru": "Введите процентные значения и нажмите Enter...",
+      "tr": "Yüzde değerlerini yazın ve Enter'a basın..."
+    },
+    {
+      "en": "Percentage values were adjusted to the valid range (1–100%).",
+      "ru": "Процентные значения были скорректированы до допустимого диапазона (1–100%).",
+      "tr": "Yüzde değerleri geçerli aralığa (1–100%) ayarlandı."
+    },
+    {
+      "en": "Interpolating yield milestones...",
+      "ru": "Интерполяция контрольных точек выхода...",
+      "tr": "Verim kilometre taşları hesaplanıyor..."
+    },
+    {
+      "en": "Could not find extraction times for the given yield targets.",
+      "ru": "Не удалось найти время экстракции для заданных целевых выходов.",
+      "tr": "Verilen verim hedefleri için ekstraksiyon süreleri bulunamadı."
+    },
+    {
+      "en": "Target (%)",
+      "ru": "Цель (%)",
+      "tr": "Hedef (%)"
+    },
+    {
+      "en": "Particle Diameter (mm)",
+      "ru": "Диаметр частиц (мм)",
+      "tr": "Parçacık Çapı (mm)"
+    },
+    {
+      "en": "Particle Diameter must be greater than 0.",
+      "ru": "Диаметр частиц должен быть больше 0.",
+      "tr": "Parçacık çapı 0'dan büyük olmalıdır."
+    },
+    {
+      "en": "Real Density must be greater than 0.",
+      "ru": "Реальная плотность должна быть больше 0.",
+      "tr": "Gerçek yoğunluk 0'dan büyük olmalıdır."
+    },
+    {
+      "en": "Enter the extraction temperature in degrees Celsius.",
+      "ru": "Введите температуру экстракции в градусах Цельсия.",
+      "tr": "Ekstraksiyon sıcaklığını derece Celsius olarak girin."
+    },
+    {
+      "en": "Provide a custom initial estimate for kf (fluid phase mass transfer coefficient).",
+      "ru": "Введите начальную оценку kf (коэффициент массопереноса в жидкой фазе).",
+      "tr": "kf (akışkan faz kütle transfer katsayısı) için özel bir başlangıç tahmini girin."
+    },
+    {
+      "en": "See a summary of the model results, including estimated parameters and fit statistics.",
+      "ru": "Просмотрите сводку результатов модели, включая оценённые параметры и статистику подгонки.",
+      "tr": "Tahmini parametreler ve uyum istatistikleri dahil model sonuçlarının özetini görün."
+    },
+    {
+      "en": "Provide initial estimate for ksas (solid phase mass transfer coefficient × specific area).",
+      "ru": "Введите начальную оценку ksas (коэффициент массопереноса × удельная площадь).",
+      "tr": "ksas (katı faz kütle transfer katsayısı × spesifik alan) için başlangıç tahmini girin."
+    },
+    {
+      "en": "Provide initial estimate for the grinding efficiency r (or leave as default).",
+      "ru": "Введите начальную оценку эффективности измельчения r (или оставьте по умолчанию).",
+      "tr": "Öğütme verimi r için başlangıç tahmini girin (veya varsayılan olarak bırakın)."
+    },
+    {
+      "en": "Provide a custom initial estimate for ksas (solid phase mass transfer coefficient × specific area).",
+      "ru": "Введите начальную оценку ksas (коэффициент массопереноса в твёрдой фазе × удельная площадь).",
+      "tr": "ksas (katı faz kütle transfer katsayısı × spesifik alan) için özel bir başlangıç tahmini girin."
+    },
+    {
+      "en": "Provide initial estimate for the grinding efficiency r.",
+      "ru": "Введите начальную оценку эффективности измельчения r.",
+      "tr": "Öğütme verimi r için başlangıç tahmini girin."
+    },
+    {
+      "en": "Enter the pressure (bar) at which the flow rate was measured.",
+      "ru": "Введите давление (бар) измерения расхода.",
+      "tr": "Akış hızının ölçüldüğü basıncı (bar) girin."
+    },
+    {
+      "en": "Specify the column name for the response variable in your data.",
+      "ru": "Укажите имя столбца переменной отклика в ваших данных.",
+      "tr": "Verilerinizdeki yanıt değişkeninin sütun adını belirtin."
+    },
+    {
+      "en": "Enter the apparent density of the raw material in g/L.",
+      "ru": "Введите кажущуюся плотность сырья в г/Л.",
+      "tr": "Ham maddenin görünür yoğunluğunu g/L olarak girin."
+    },
+    {
+      "en": "Provide initial estimate for c3 (related to maximum extractable fraction).",
+      "ru": "Введите начальную оценку c3 (максимальная экстрагируемая фракция).",
+      "tr": "c3 (maksimum ekstrakte edilebilir fraksiyon) için başlangıç tahmini girin."
+    },
+    {
+      "en": "View the generated kinetic model plot(s) here.",
+      "ru": "Просмотрите сгенерированные графики кинетической модели.",
+      "tr": "Oluşturulan kinetik model grafiklerini burada görün."
+    },
+    {
+      "en": "Provide a custom initial estimate for qc (relative solvent at CER end).",
+      "ru": "Введите начальную оценку qc (относительное количество растворителя в конце CER).",
+      "tr": "qc (CER sonundaki göreli çözücü) için özel bir başlangıç tahmini girin."
+    },
+    {
+      "en": "Provide a custom initial estimate for thetaf (external mass transfer coefficient).",
+      "ru": "Введите начальную оценку thetaf (коэффициент внешнего массопереноса).",
+      "tr": "thetaf (dış kütle transfer katsayısı) için özel bir başlangıç tahmini girin."
+    },
+    {
+      "en": "Enter the real density of the raw material in g/L.",
+      "ru": "Введите истинную плотность сырья в г/Л.",
+      "tr": "Ham maddenin gerçek yoğunluğunu g/L olarak girin."
+    },
+    {
+      "en": "Enter the Co-solvent fraction (between 0 and 1).",
+      "ru": "Введите долю со-растворителя (от 0 до 1).",
+      "tr": "Ko-çözücü fraksiyonunu (0-1 arası) girin."
+    },
+    {
+      "en": "Specify the units for the flow rate.",
+      "ru": "Укажите единицы измерения расхода.",
+      "tr": "Akış hızı birimlerini belirtin."
+    },
+    {
+      "en": "Upload a CSV file containing your extraction data or enter data manually in CSV format.",
+      "ru": "Загрузите CSV-файл с данными экстракции или введите данные вручную в формате CSV.",
+      "tr": "Ekstraksiyon verilerinizi içeren bir CSV dosyası yükleyin veya CSV formatında manuel olarak girin."
+    },
+    {
+      "en": "Provide initial estimate for ti (FER duration).",
+      "ru": "Введите начальную оценку ti (продолжительность FER).",
+      "tr": "ti (FER süresi) için başlangıç tahmini girin."
+    },
+    {
+      "en": "Enter the CO2 density (g/L) if you want to override the calculated value.",
+      "ru": "Введите плотность CO₂ (г/Л), если хотите переопределить расчётное значение.",
+      "tr": "Hesaplanan değeri geçersiz kılmak istiyorsanız CO₂ yoğunluğunu (g/L) girin."
+    },
+    {
+      "en": "Check if the provided flow rate is a mass flow rate.",
+      "ru": "Отметьте, если указанный расход является массовым.",
+      "tr": "Sağlanan akış hızının kütlesel akış hızı olup olmadığını kontrol edin."
+    },
+    {
+      "en": "Specify the units for the response variable.",
+      "ru": "Укажите единицы измерения переменной отклика.",
+      "tr": "Yanıt değişkeni birimlerini belirtin."
+    },
+    {
+      "en": "Explore the raw and modeled data in a tabular format.",
+      "ru": "Просмотрите исходные и модельные данные в табличном формате.",
+      "tr": "Ham ve modellenmiş verileri tablo formatında inceleyin."
+    },
+    {
+      "en": "Choose how to aggregate optimization results: 'aard' (recommended) or 'mean'.",
+      "ru": "Выберите метод агрегации результатов оптимизации: AARD (рекомендуется) или среднее.",
+      "tr": "Optimizasyon sonuçlarını toplama yöntemini seçin: 'AARD' (önerilen) veya 'ortalama'."
+    },
+    {
+      "en": "Specify the column name for the time variable in your data.",
+      "ru": "Укажите имя столбца временной переменной в ваших данных.",
+      "tr": "Verilerinizdeki zaman değişkeninin sütun adını belirtin."
+    },
+    {
+      "en": "Provide a custom initial estimate for ti (FER extraction duration).",
+      "ru": "Введите начальную оценку ti (продолжительность периода FER).",
+      "tr": "ti (FER ekstraksiyon süresi) için özel bir başlangıç tahmini girin."
+    },
+    {
+      "en": "Provide initial estimate for qc (relative solvent at CER end).",
+      "ru": "Введите начальную оценку qc (растворитель в конце CER).",
+      "tr": "qc (CER sonundaki göreli çözücü) için başlangıç tahmini girin."
+    },
+    {
+      "en": "Enter the Co-solvent fraction for flow calculations (0-0.99). Required when flow rate is not provided but ethanol is non-zero.",
+      "ru": "Введите Co-solvent fraction for flow calculations (0-0.99). Required when flow rate is not provided but ethanol is non-zero.",
+      "tr": "Girin: Co-solvent fraction for flow calculations (0-0.99). Required when flow rate is not provided but ethanol is non-zero."
+    },
+    {
+      "en": "Enter the length of the extraction vessel in meters.",
+      "ru": "Введите длину экстракционного аппарата в метрах.",
+      "tr": "Ekstraksiyon kabının uzunluğunu metre olarak girin."
+    },
+    {
+      "en": "Maximum time (min) for CT model predictions. Leave empty for auto-calculation.",
+      "ru": "Максимальное время (мин) для прогнозов модели CT. Оставьте пустым для авторасчёта.",
+      "tr": "CT model tahminleri için maksimum süre (dak). Otomatik hesaplama için boş bırakın."
+    },
+    {
+      "en": "Enter the extraction pressure in bar.",
+      "ru": "Введите давление экстракции в барах.",
+      "tr": "Ekstraksiyon basıncını bar olarak girin."
+    },
+    {
+      "en": "Provide initial estimate for kf (fluid mass transfer coefficient).",
+      "ru": "Введите начальную оценку kf (коэффициент массопереноса в жидкой фазе).",
+      "tr": "kf (akışkan kütle transfer katsayısı) için başlangıç tahmini girin."
+    },
+    {
+      "en": "Enter the diameter of the extraction vessel in meters.",
+      "ru": "Введите диаметр экстракционного аппарата в метрах.",
+      "tr": "Ekstraksiyon kabının çapını metre olarak girin."
+    },
+    {
+      "en": "Optionally, specify the column name for the solvent usage variable.",
+      "ru": "Опционально укажите имя столбца переменной расхода растворителя.",
+      "tr": "İsteğe bağlı olarak çözücü kullanım değişkeninin sütun adını belirtin."
+    },
+    {
+      "en": "Click here to reset all input parameters to their default values.",
+      "ru": "Нажмите для сброса всех параметров к значениям по умолчанию.",
+      "tr": "Tüm giriş parametrelerini varsayılan değerlerine sıfırlamak için buraya tıklayın."
+    },
+    {
+      "en": "Select your data input method: either upload a CSV file or enter data manually.",
+      "ru": "Выберите метод ввода данных: загрузка CSV-файла или ручной ввод.",
+      "tr": "Veri giriş yönteminizi seçin: CSV dosyası yükleyin veya manuel olarak girin."
+    },
+    {
+      "en": "Enter the temperature (°C) at which the flow rate was measured.",
+      "ru": "Введите температуру (°C) измерения расхода.",
+      "tr": "Akış hızının ölçüldüğü sıcaklığı (°C) girin."
+    },
+    {
+      "en": "Enter the mass of raw material loaded in grams.",
+      "ru": "Введите массу загруженного сырья в граммах.",
+      "tr": "Yüklenen ham madde kütlesini gram olarak girin."
+    },
+    {
+      "en": "Enter the number of observations corresponding to the end of CER.",
+      "ru": "Введите количество наблюдений, соответствующих концу периода CER.",
+      "tr": "CER sonuna karşılık gelen gözlem sayısını girin."
+    },
+    {
+      "en": "Enter the flow rate of the solvent (e.g., mL/min or g/min). Can be NA.",
+      "ru": "Введите расход растворителя (напр. мЛ/мин или г/мин). Может быть NA.",
+      "tr": "Çözücü akış hızını girin (örn. mL/dak veya g/dak). NA olabilir."
+    },
+    {
+      "en": "Select the type(s) of BIC models to generate. Choose 'cu' to estimate the extractable fraction.",
+      "ru": "Выберите тип(ы) моделей BIC для генерации. Выберите «cu» для оценки экстрагируемой фракции.",
+      "tr": "Oluşturulacak BIC model türlerini seçin. Ekstrakte edilebilir fraksiyonu tahmin etmek için 'cu' seçin."
+    },
+    {
+      "en": "Maximum solvent/material ratio for other model predictions. Leave empty for auto-calculation.",
+      "ru": "Максимальное соотношение растворитель/сырьё для прогнозов модели. Оставьте пустым для авторасчёта.",
+      "tr": "Diğer model tahminleri için maksimum çözücü/malzeme oranı. Otomatik hesaplama için boş bırakın."
+    },
+    {
+      "en": "Check if your input data for response and solvent consumption is cumulative.",
+      "ru": "Проверьте, являются ли данные отклика и расхода растворителя кумулятивными.",
+      "tr": "Yanıt ve çözücü tüketimi verilerinizin kümülatif olup olmadığını kontrol edin."
+    },
+    {
+      "en": "Enter the moisture content of the raw material in percentage.",
+      "ru": "Введите влажность сырья в процентах.",
+      "tr": "Ham maddenin nem içeriğini yüzde olarak girin."
+    },
+    {
+      "en": "Provide initial estimate for thetaf (external mass transfer coefficient).",
+      "ru": "Введите начальную оценку thetaf (коэффициент внешнего массопереноса).",
+      "tr": "thetaf (dış kütle transfer katsayısı) için başlangıç tahmini girin."
+    },
+    {
+      "en": "Provide a custom initial estimate for c3 (related to maximum extractable fraction).",
+      "ru": "Введите начальную оценку c3 (связана с максимальной экстрагируемой фракцией).",
+      "tr": "c3 için özel bir başlangıç tahmini girin (maksimum ekstrakte edilebilir fraksiyonla ilişkili)."
+    },
+    {
+      "en": "Enter the maximum extractable material fraction (between 0 and 1). Leave empty if estimating cu with modtype='cu'.",
+      "ru": "Введите максимальную экстрагируемую фракцию (0-1). Оставьте пустым при оценке cu (modtype='cu').",
+      "tr": "Maksimum ekstrakte edilebilir fraksiyon (0-1). cu tahmini yapılıyorsa (modtype='cu') boş bırakın."
+    },
+    {
+      "en": "Click here to calculate the BIC kinetic model.",
+      "ru": "Нажмите для расчёта кинетической модели BIC.",
+      "tr": "BIC kinetik modelini hesaplamak için buraya tıklayın."
+    },
+    {
+      "en": "Units of the CO2 flow rate. Choose mass-based (g/min, kg/h) or volumetric (mL/min, L/h). Volumetric units require CO2 density for conversion.",
+      "ru": "Единицы расхода CO₂. Массовые (г/мин, кг/ч) или объёмные (мЛ/мин, Л/ч). Объёмные единицы требуют плотности CO₂.",
+      "tr": "CO₂ akış hızı birimleri. Kütlesel (g/dak, kg/sa) veya hacimsel (mL/dak, L/sa). Hacimsel birimler CO₂ yoğunluğu gerektirir."
+    },
+    {
+      "en": "How to select the best result from multiple optimization runs. AARD picks the result with the lowest Average Absolute Relative Deviation (recommended). Mean takes the arithmetic average of all results.",
+      "ru": "Как выбирать лучший результат из нескольких запусков оптимизации. AARD выбирает результат с наименьшим средним абсолютным относительным отклонением (рекомендуется). Среднее берёт арифметическое среднее.",
+      "tr": "Birden fazla optimizasyon çalışmasından en iyi sonucu seçme yöntemi. AARD en düşük Ortalama Mutlak Bağıl Sapma ile sonucu seçer (önerilir). Ortalama tüm sonuçların aritmetik ortalamasını alır."
+    },
+    {
+      "en": "Volumetric flow rate of the co-solvent (e.g. ethanol) in mL/min. Set to 0 if no co-solvent is used.",
+      "ru": "Объёмный расход со-растворителя (напр. этанола) в мЛ/мин. Установите 0, если со-растворитель не используется.",
+      "tr": "Ko-çözücünün (örn. etanol) hacimsel akış hızı mL/dak. Ko-çözücü kullanılmıyorsa 0 olarak ayarlayın."
+    },
+    {
+      "en": "Mean diameter of ground raw material particles in millimeters. Used to calculate the specific surface area of the extraction bed.",
+      "ru": "Средний диаметр частиц измельчённого сырья в миллиметрах. Используется для расчёта удельной площади поверхности экстракционного слоя.",
+      "tr": "Öğütülmüş ham madde partiküllerin ortalama çapı (mm). Ekstraksiyon yatağının spesifik yüzey alanını hesaplamak için kullanılır."
+    },
+    {
+      "en": "Volumetric flow rate of ethanol co-solvent. Only applicable when a direct CO\\u2082 flow rate is provided.",
+      "ru": "Volumetric flow rate of ethanol co-solvent. Only applicable when a direct CO\\u2082 flow rate is provided.",
+      "tr": "Volumetric flow rate of ethanol co-solvent. Only applicable when a direct CO\\u2082 flow rate is provided."
+    },
+    {
+      "en": "Volumetric fraction of ethanol in the total solvent mixture (e.g. 0.06 = 6% ethanol). Required when using solvent consumption data or when CO\\u2082 flow rate is not provided.",
+      "ru": "Volumetric fraction of ethanol in the total solvent mixture (e.g. 0.06 = 6% ethanol). Required when using solvent consumption data or when CO\\u2082 flow rate is not provided.",
+      "tr": "Volumetric fraction of ethanol in the total solvent mixture (e.g. 0.06 = 6% ethanol). Required when using solvent consumption data or when CO\\u2082 flow rate is not provided."
+    },
+    {
+      "en": "Total mass of raw material loaded into the extraction vessel (grams). Used to calculate bed porosity, solvent-to-feed ratio, and yield conversions.",
+      "ru": "Масса сырья, загруженного в экстрактор (граммы). Используется для расчёта пористости слоя, соотношения растворитель/сырьё и пересчёта выхода.",
+      "tr": "Ekstraksiyon kabına yüklenen toplam ham madde kütlesi (gram). Yatak gözenekliliği, çözücü/malzeme oranı ve verim dönüşümleri hesaplamak için kullanılır."
+    },
+    {
+      "en": "Extraction temperature in degrees Celsius. Used alongside pressure to calculate CO2 density.",
+      "ru": "Температура экстракции в °C. Используется вместе с давлением для расчёта плотности CO₂.",
+      "tr": "Ekstraksiyon sıcaklığı (°C). CO₂ yoğunluğunu hesaplamak için basınçla birlikte kullanılır."
+    },
+    {
+      "en": "True (skeletal) density of the raw material in g/L. Must be greater than the apparent density. Used together with apparent density to calculate bed porosity.",
+      "ru": "Истинная (скелетная) плотность сырья в г/Л. Должна быть больше кажущейся плотности. Используется для расчёта пористости слоя.",
+      "tr": "Ham maddenin gerçek (iskelet) yoğunluğu g/L. Görünür yoğunluktan büyük olmalıdır. Yatak gözenekliliğini hesaplamak için kullanılır."
+    },
+    {
+      "en": "Inner diameter of the extraction vessel. Click the unit badge to cycle between meters, centimeters, and millimeters. Used to calculate bed volume and porosity.",
+      "ru": "Внутренний диаметр экстрактора. Нажмите на значок единиц для переключения между м, см и мм. Используется для расчёта объёма слоя и пористости.",
+      "tr": "Ekstraksiyon kabının iç çapı. Birim rozeti tıklayarak metre, santimetre ve milimetre arasında geçiş yapın. Yatak hacmini ve gözenekliliğini hesaplamak için kullanılır."
+    },
+    {
+      "en": "Volume fraction of co-solvent in the total solvent mixture (0-0.99). Required when CO2 flow rate is not provided but co-solvent is used, so the mixture density can be calculated.",
+      "ru": "Объёмная доля со-растворителя в общей смеси (0-0.99). Необходима, когда расход CO₂ не указан, но используется со-растворитель, для расчёта плотности смеси.",
+      "tr": "Toplam çözücü karışımındaki ko-çözücü hacim fraksiyonu (0-0.99). CO₂ akış hızı sağlanmadığında ancak ko-çözücü kullanıldığında karışım yoğunluğunu hesaplamak için gereklidir."
+    },
+    {
+      "en": "Enable if your response and solvent data represent cumulative totals. Disable if each row shows the amount collected during that interval only.",
+      "ru": "Включите, если данные отклика и расхода растворителя представляют накопленные суммы. Отключите, если каждая строка — количество, собранное только за этот интервал.",
+      "tr": "Yanıt ve çözücü verileriniz kümülatif toplamları temsil ediyorsa etkinleştirin. Her satır yalnızca o aralıkta toplanan miktarı gösteriyorsa devre dışı bırakın."
+    },
+    {
+      "en": "Extraction pressure in bar. Used to calculate supercritical CO2 density via the Bender equation of state.",
+      "ru": "Давление экстракции в бар. Используется для расчёта плотности сверхкритического CO₂.",
+      "tr": "Ekstraksiyon basıncı (bar). Süperkritik CO₂ yoğunluğunu hesaplamak için kullanılır."
+    },
+    {
+      "en": "Supercritical CO\\u2082 density. If not specified, it is calculated automatically from pressure and temperature.",
+      "ru": "Supercritical CO\\u2082 density. If not specified, it is calculated automatically from pressure and temperature.",
+      "tr": "Supercritical CO\\u2082 density. If not specified, it is calculated automatically from pressure and temperature."
+    },
+    {
+      "en": "Enable to use a solvent consumption column from your data instead of calculating it from flow rate. When enabled, the Flow Parameters section is disabled.",
+      "ru": "Включите для использования столбца расхода растворителя из данных вместо расчёта по расходу. При включении раздел параметров потока отключается.",
+      "tr": "Akış hızından hesaplamak yerine verilerinizdeki çözücü tüketim sütununu kullanmak için etkinleştirin. Etkinleştirildiğinde Akış Parametreleri bölümü devre dışı bırakılır."
+    },
+    {
+      "en": "Moisture content of the raw material as a percentage (0-100). Used to calculate dry mass of material for the model.",
+      "ru": "Влажность сырья в процентах (0-100). Используется для расчёта сухой массы материала.",
+      "tr": "Ham maddenin nem içeriği yüzde olarak (0-100). Model için malzemenin kuru kütlesini hesaplamak için kullanılır."
+    },
+    {
+      "en": "Material Mass",
+      "ru": "Масса сырья",
+      "tr": "Malzeme Kütlesi"
+    },
+    {
+      "en": "CO2 flow rate. Leave as NA if you provide a solvent consumption column in the input data. Required for calculating the solvent-to-material ratio.",
+      "ru": "Расход CO₂. Оставьте NA, если предоставляете столбец расхода растворителя. Необходим для расчёта соотношения растворитель/сырьё.",
+      "tr": "CO₂ akış hızı. Giriş verilerinde çözücü tüketim sütunu sağlıyorsanız NA bırakın. Çözücü/malzeme oranını hesaplamak için gereklidir."
+    },
+    {
+      "en": "Particle Diameter",
+      "ru": "Диаметр частиц",
+      "tr": "Partikül Çapı"
+    },
+    {
+      "en": "Number of data points in your extraction curve that correspond to the end of the Constant Extraction Rate (CER) period. This boundary is used to segment the extraction curve and estimate apparent solubility.",
+      "ru": "Количество точек данных на кривой экстракции, соответствующих концу периода CER. Эта граница используется для сегментации кривой и оценки кажущейся растворимости.",
+      "tr": "Ekstraksiyon eğrinizde Sabit Ekstraksiyon Hızı (CER) döneminin sonuna karşılık gelen veri noktası sayısı. Bu sınır, eğriyi bölümlere ayırmak ve görünür çözünürlüğü tahmin etmek için kullanılır."
+    },
+    {
+      "en": "Collapse all",
+      "ru": "Collapse all",
+      "tr": "Collapse all"
+    },
+    {
+      "en": "Units of your yield/response data. Choose grams for absolute mass, percent or permille for yield relative to raw material mass, or ppm/ppb for trace concentrations.",
+      "ru": "Единицы данных выхода. Граммы для абсолютной массы, проценты или промилле для выхода относительно массы сырья, ppm/ppb для следовых концентраций.",
+      "tr": "Verim/yanıt verilerinizin birimleri. Mutlak kütle için gram, ham madde kütlesine göre verim için yüzde veya binde, eser konsantrasyonlar için ppm/ppb."
+    },
+    {
+      "en": "Flow Rate",
+      "ru": "Расход",
+      "tr": "Akış Hızı"
+    },
+    {
+      "en": "Select which BIC model(s) to build. Simplified fits the CER region only. Complete fits CER + DC (2 regions) or CER + FER + DC (3 regions). Characteristic Times uses an alternative time-based formulation. Choose cu to estimate the maximum extractable fraction.",
+      "ru": "Выберите тип(ы) модели BIC. Упрощённая подгоняет только CER. Полная — CER + DC (2 области) или CER + FER + DC (3 области). Характеристических времён — альтернативная формулировка. cu — оценка максимальной экстрагируемой фракции.",
+      "tr": "Oluşturulacak BIC model(ler)ini seçin. Basitleştirilmiş yalnızca CER bölgesini uydurur. Tam CER + DC (2 bölge) veya CER + FER + DC (3 bölge). Karakteristik Zamanlar alternatif bir formülasyon. cu maksimum ekstrakte edilebilir fraksiyonu tahmin eder."
+    },
+    {
+      "en": "Real Density",
+      "ru": "Истинная плотность",
+      "tr": "Gerçek Yoğunluk"
+    },
+    {
+      "en": "Maximum fraction of solute extractable by the supercritical fluid (0-1). Can be estimated using the cu model type, or set manually based on exhaustive extraction experiments.",
+      "ru": "Максимальная доля вещества, извлекаемого сверхкритической жидкостью (0-1). Может быть оценена с помощью типа модели cu или задана вручную по данным исчерпывающей экстракции.",
+      "tr": "Süperkritik akışkan ile ekstrakte edilebilen maksimum çözünen fraksiyonu (0-1). cu model türü ile tahmin edilebilir veya kapsamlı ekstraksiyon deneylerinden manuel olarak ayarlanabilir."
+    },
+    {
+      "en": "Length of the extraction vessel. Click the unit badge to cycle between meters, centimeters, and millimeters. Used to calculate bed volume and porosity.",
+      "ru": "Длина экстрактора. Нажмите на значок единиц для переключения между м, см и мм. Используется для расчёта объёма слоя и пористости.",
+      "tr": "Ekstraksiyon kabının uzunluğu. Birim rozeti tıklayarak metre, santimetre ve milimetre arasında geçiş yapın. Yatak hacmini ve gözenekliliğini hesaplamak için kullanılır."
+    },
+    {
+      "en": "Aggregation",
+      "ru": "Агрегация",
+      "tr": "Toplama"
+    },
+    {
+      "en": "Moisture",
+      "ru": "Влажность",
+      "tr": "Nem"
+    },
+    {
+      "en": "Co-Solvent Flow",
+      "ru": "Расход со-растворителя",
+      "tr": "Ko-Çözücü Akışı"
+    },
+    {
+      "en": "Pressure at which your flow meter measured the CO2 flow rate. Only relevant when measured at conditions different from extraction.",
+      "ru": "Давление, при котором расходомер измерил расход CO₂. Актуально только при измерении в условиях, отличных от экстракционных.",
+      "tr": "Akış ölçerinizin CO₂ akış hızını ölçtüğü basınç. Yalnızca ekstraksiyondan farklı koşullarda ölçüldüğünde geçerlidir."
+    },
+    {
+      "en": "Supercritical CO2 density at extraction conditions (g/L). Leave empty to calculate automatically from pressure and temperature.",
+      "ru": "Плотность сверхкритического CO₂ при условиях экстракции (г/Л). Оставьте пустым для автоматического расчёта по давлению и температуре.",
+      "tr": "Ekstraksiyon koşullarında süperkritik CO₂ yoğunluğu (g/L). Basınç ve sıcaklıktan otomatik hesaplamak için boş bırakın."
+    },
+    {
+      "en": "OK",
+      "ru": "OK",
+      "tr": "Tamam"
+    },
+    {
+      "en": "Max Time",
+      "ru": "Макс. время",
+      "tr": "Maks. Süre"
+    },
+    {
+      "en": "Flow Meas. T",
+      "ru": "Темп. измер.",
+      "tr": "Akış Ölçüm T"
+    },
+    {
+      "en": "Upper time limit for Characteristic Times model predictions (minutes). Leave empty to automatically use 120% of your longest experimental time point.",
+      "ru": "Верхний предел времени для прогнозов модели характеристических времён (минуты). Оставьте пустым для автоматического использования 120% от максимальной экспериментальной точки.",
+      "tr": "Karakteristik Zamanlar model tahminleri için üst zaman sınırı (dakika). En uzun deneysel zaman noktanızın %120'sini otomatik kullanmak için boş bırakın."
+    },
+    {
+      "en": "Flow Meas. P",
+      "ru": "Давление измер.",
+      "tr": "Akış Ölçüm P"
+    },
+    {
+      "en": "Okay",
+      "ru": "Okay",
+      "tr": "Okay"
+    },
+    {
+      "en": "Max S/M Ratio",
+      "ru": "Макс. С/М",
+      "tr": "Maks. Ç/M Oranı"
+    },
+    {
+      "en": "Upper limit for the solvent-to-material ratio in model predictions. Leave empty to automatically use 120% of your largest experimental q value.",
+      "ru": "Верхний предел соотношения растворитель/сырьё для прогнозов. Оставьте пустым для автоматического использования 120% от максимального экспериментального q.",
+      "tr": "Model tahminlerinde çözücü/malzeme oranı üst sınırı. En büyük deneysel q değerinizin %120'sini otomatik kullanmak için boş bırakın."
+    },
+    {
+      "en": "CO2 Density",
+      "ru": "Плотность CO₂",
+      "tr": "CO₂ Yoğunluğu"
+    },
+    {
+      "en": "Temperature at which your flow meter measured the CO2 flow rate. Only relevant when measured at conditions different from extraction.",
+      "ru": "Температура, при которой расходомер измерил расход CO₂. Актуально только при измерении в условиях, отличных от экстракционных.",
+      "tr": "Akış ölçerinizin CO₂ akış hızını ölçtüğü sıcaklık. Yalnızca ekstraksiyondan farklı koşullarda ölçüldüğünde geçerlidir."
+    },
+    {
+      "en": "Browse",
+      "ru": "Browse",
+      "tr": "Browse"
+    },
+    {
+      "en": "Starting estimate for grinding efficiency r: fraction of cells broken by pre-treatment (0-1). Higher values mean more broken cells and faster initial extraction. Default: 0.4.",
+      "ru": "Начальная оценка эффективности измельчения r: доля клеток, разрушенных предварительной обработкой (0-1). Большие значения — больше разрушенных клеток. По умолчанию: 0.4.",
+      "tr": "Öğütme verimi r için başlangıç tahmini: ön işlemle kırılan hücrelerin oranı (0-1). Daha yüksek değerler daha fazla kırık hücre anlamına gelir. Varsayılan: 0.4."
+    },
+    {
+      "en": "Starting estimate for the product of solid-phase mass transfer coefficient and specific interfacial area between intact and broken cells.",
+      "ru": "Начальная оценка произведения коэффициента массопереноса в твёрдой фазе и удельной межфазной площади между целыми и разрушенными клетками.",
+      "tr": "Sağlam ve kırık hücreler arasındaki katı faz kütle transfer katsayısı ve spesifik arayüzey alanının çarpımı için başlangıç tahmini."
+    },
+    {
+      "en": "Starting estimate for the relative amount of solvent consumed at the end of the CER period (kg solvent per kg insoluble solid).",
+      "ru": "Начальная оценка относительного количества растворителя, израсходованного к концу периода CER (кг растворителя на кг нерастворимого вещества).",
+      "tr": "CER döneminin sonunda tüketilen göreceli çözücü miktarı için başlangıç tahmini (kg çözücü / kg çözünmeyen katı)."
+    },
+    {
+      "en": "Starting estimate for the dimensionless external mass transfer parameter.",
+      "ru": "Начальная оценка безразмерного параметра внешнего массопереноса.",
+      "tr": "Boyutsuz dış kütle transfer parametresi için başlangıç tahmini."
+    },
+    {
+      "en": "Starting estimate for the duration of the falling extraction rate (FER) period in minutes.",
+      "ru": "Начальная оценка продолжительности периода падающей скорости экстракции (FER) в минутах.",
+      "tr": "Düşen ekstraksiyon hızı (FER) döneminin süresi için başlangıç tahmini (dakika)."
+    },
+    {
+      "en": "Starting estimate for the fluid-phase (film) mass transfer coefficient.",
+      "ru": "Начальная оценка коэффициента массопереноса в жидкой фазе (плёночного).",
+      "tr": "Akışkan faz (film) kütle transfer katsayısı için başlangıç tahmini."
+    },
+    {
+      "en": "CO2 flow rate delivered by the pump. Not needed if you provide a Solvent Data column in the Input Data section. Required for calculating the solvent-to-material ratio.",
+      "ru": "Расход CO₂ от насоса. Не требуется при наличии столбца расхода растворителя в разделе входных данных. Необходим для расчёта соотношения растворитель/сырьё.",
+      "tr": "Pompadan CO₂ akış hızı. Giriş Verileri bölümünde Çözücü Verisi sütunu sağlıyorsanız gerekli değildir. Çözücü/malzeme oranını hesaplamak için gereklidir."
+    },
+    {
+      "en": "Select which BIC model(s) to build. Simplified fits the CER region only. Complete fits CER + DC (2 regions) or CER + FER + DC (3 regions). Characteristic Times uses an alternative time-based formulation.",
+      "ru": "Выберите тип(ы) модели BIC. Упрощённая подгоняет только CER. Полная — CER + DC (2 области) или CER + FER + DC (3 области). Характеристических времён — альтернативная формулировка.",
+      "tr": "Oluşturulacak BIC model(ler)ini seçin. Basitleştirilmiş yalnızca CER bölgesini uydurur. Tam CER + DC (2 bölge) veya CER + FER + DC (3 bölge). Karakteristik Zamanlar alternatif bir formülasyon kullanır."
+    },
+    {
+      "en": "Upload CSV (single column)",
+      "tr": "CSV Yükle (tek sütun)",
+      "ru": "Загрузить CSV (один столбец)"
+    },
+    {
+      "en": "min",
+      "tr": "dak",
+      "ru": "мин"
+    },
+    {
+      "en": "Description",
+      "tr": "Açıklama",
+      "ru": "Описание"
+    },
+    {
+      "en": "Value",
+      "tr": "Değer",
+      "ru": "Значение"
+    },
+    {
+      "en": "Unit",
+      "tr": "Birim",
+      "ru": "Единица"
+    },
+    {
+      "en": "Parameter",
+      "tr": "Parametre",
+      "ru": "Параметр"
+    },
+    {
+      "en": "Model Details",
+      "tr": "Model Detayları",
+      "ru": "Детали модели"
+    },
+    {
+      "en": "Model Validity",
+      "tr": "Model Geçerliliği",
+      "ru": "Достоверность модели"
+    },
+    {
+      "en": "kg/kg",
+      "tr": "kg/kg",
+      "ru": "кг/кг"
+    },
+    {
+      "en": "m",
+      "tr": "m",
+      "ru": "м"
+    },
+    {
+      "en": "<em>R</em><sup>2</sup>",
+      "tr": "<em>R</em><sup>2</sup>",
+      "ru": "<em>R</em><sup>2</sup>"
+    },
+    {
+      "en": "Add Zero Row?",
+      "tr": "Sıfır Satırı Ekle?",
+      "ru": "Добавить нулевую строку?"
+    },
+    {
+      "en": "The uploaded data does not appear to start from zero. A zero-row (time = 0, yield = 0) is typically required for BIC model fitting.",
+      "tr": "Yüklenen veriler sıfırdan başlamıyor. BIC model uyumu için genellikle sıfır satırı (zaman = 0, verim = 0) gereklidir.",
+      "ru": "Загруженные данные не начинаются с нуля. Для подгонки модели BIC обычно требуется нулевая строка (время = 0, выход = 0)."
+    },
+    {
+      "en": "The uploaded data does not appear to start from zero. A zero-row (time = 0, yield = 0) is typically required for kinetic model fitting.",
+      "tr": "Yüklenen veriler sıfırdan başlamıyor. Kinetik model uyumu için genellikle sıfır satırı (zaman = 0, verim = 0) gereklidir.",
+      "ru": "Загруженные данные не начинаются с нуля. Для подгонки кинетической модели обычно требуется нулевая строка (время = 0, выход = 0)."
+    },
+    {
+      "en": "Would you like to add a zero-row at the beginning of the data?",
+      "tr": "Verilerin başına sıfır satırı eklemek ister misiniz?",
+      "ru": "Хотите добавить нулевую строку в начало данных?"
+    },
+    {
+      "en": "Yes, add zero row",
+      "tr": "Evet, sıfır satırı ekle",
+      "ru": "Да, добавить нулевую строку"
+    },
+    {
+      "en": "Zero row added successfully.",
+      "tr": "Sıfır satırı başarıyla eklendi.",
+      "ru": "Нулевая строка успешно добавлена."
+    },
+    {
+      "en": "The data does not appear to start from zero. A zero-row (time = 0, yield = 0) is typically required for BIC model fitting.",
+      "tr": "Veriler sıfırdan başlamıyor. BIC model uyumu için genellikle sıfır satırı (zaman = 0, verim = 0) gereklidir.",
+      "ru": "Данные не начинаются с нуля. Для подгонки модели BIC обычно требуется нулевая строка (время = 0, выход = 0)."
+    },
+    {
+      "en": "The data does not appear to start from zero. A zero-row (time = 0, yield = 0) is typically required for kinetic model fitting.",
+      "tr": "Veriler sıfırdan başlamıyor. Kinetik model uyumu için genellikle sıfır satırı (zaman = 0, verim = 0) gereklidir.",
+      "ru": "Данные не начинаются с нуля. Для подгонки кинетической модели обычно требуется нулевая строка (время = 0, выход = 0)."
+    },
+    {
+      "en": "Data does not start from zero. A zero-row (time = 0, yield = 0) is typically required for model fitting.",
+      "tr": "Veriler sıfırdan başlamıyor. Model uyumu için genellikle sıfır satırı (zaman = 0, verim = 0) gereklidir.",
+      "ru": "Данные не начинаются с нуля. Для подгонки модели обычно требуется нулевая строка (время = 0, выход = 0)."
+    },
+    {
+      "en": "Enter ksas values...",
+      "tr": "ksas değerleri girin...",
+      "ru": "Введите значения ksas..."
+    },
+    {
+      "en": "max",
+      "tr": "maks",
+      "ru": "макс"
+    },
+    {
+      "en": "Product of solid-phase mass transfer coefficient and specific interfacial area. Multiple starting values enable multi-start optimization for better convergence.",
+      "tr": "Katı faz kütle transfer katsayısı ve spesifik arayüzey alanının çarpımı. Birden fazla başlangıç değeri, daha iyi yakınsama için çoklu başlangıç optimizasyonunu etkinleştirir.",
+      "ru": "Произведение коэффициента массопереноса в твёрдой фазе и удельной межфазной площади. Несколько начальных значений обеспечивают мультистартовую оптимизацию для лучшей сходимости."
+    },
+    {
+      "en": "Multiple starting values enable multi-start optimization for better convergence.",
+      "tr": "Birden fazla başlangıç değeri, daha iyi yakınsama için çoklu başlangıç optimizasyonunu etkinleştirir.",
+      "ru": "Несколько начальных значений обеспечивают мультистартовую оптимизацию для лучшей сходимости."
+    }
+  ]
+}

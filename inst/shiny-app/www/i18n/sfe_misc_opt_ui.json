@@ -1,0 +1,1019 @@
+{
+  "translation": [
+    {
+      "en": "Optimization Parameters",
+      "ru": "Параметры оптимизации",
+      "tr": "Optimizasyon Parametreleri"
+    },
+    {
+      "en": "Solute Selection",
+      "ru": "Выбор растворенного вещества",
+      "tr": "Çözünen Seçimi"
+    },
+    {
+      "en": "Load Selected Calculation",
+      "ru": "Загрузить выбранный расчет",
+      "tr": "Seçilen Hesaplamayı Yükle"
+    },
+    {
+      "en": "Characterizing Solute (GCM)",
+      "ru": "Характеристика растворенного вещества (МГВ)",
+      "tr": "Çözünen Maddeyi Karakterize Etme (GCM)"
+    },
+    {
+      "en": "GCM Method Selection",
+      "ru": "Выбор метода МГВ",
+      "tr": "GCM Metot Seçimi"
+    },
+    {
+      "en": "Boiling Point (Tb) Method",
+      "ru": "Метод температуры кипения (Tb)",
+      "tr": "Kaynama Noktası (Tb) Metodu"
+    },
+    {
+      "en": "Critical Parameters Method",
+      "ru": "Метод критических параметров",
+      "tr": "Kritik Parametreler Metodu"
+    },
+    {
+      "en": "Hansen Solubility Parameters (HSP) Method",
+      "ru": "Метод параметров растворимости Хансена (HSP)",
+      "tr": "Hansen Çözünürlük Parametreleri (HSP) Metodu"
+    },
+    {
+      "en": "Fragmentation Simplicity",
+      "ru": "Простота фрагментации",
+      "tr": "Parçalanma Basitliği"
+    },
+    {
+      "en": "Maximum Group Order",
+      "ru": "Максимальный порядок группы",
+      "tr": "Maksimum Grup Sırası"
+    },
+    {
+      "en": "Solute Information",
+      "ru": "Информация о растворенном веществе",
+      "tr": "Çözünen Madde Bilgileri"
+    },
+    {
+      "en": "CAS Number",
+      "ru": "Номер CAS",
+      "tr": "CAS Numarası"
+    },
+    {
+      "en": "Solute Name",
+      "ru": "Название растворенного вещества",
+      "tr": "Çözünen Madde Adı"
+    },
+    {
+      "en": "Specify SMILES",
+      "ru": "Указать SMILES",
+      "tr": "SMILES Belirt"
+    },
+    {
+      "en": "SMILES String",
+      "ru": "Строка SMILES",
+      "tr": "SMILES Dizisi"
+    },
+    {
+      "en": "Co-Solvent Selection",
+      "ru": "Выбор сорастворителя",
+      "tr": "Yardımcı Çözücü Seçimi"
+    },
+    {
+      "en": "Select Modifier(s)",
+      "ru": "Выбрать модификатор(ы)",
+      "tr": "Değiştirici(leri) Seçin"
+    },
+    {
+      "en": "Solvent Blends (Optional)",
+      "ru": "Смеси растворителей (необязательно)",
+      "tr": "Çözücü Karışımları (İsteğe Bağlı)"
+    },
+    {
+      "en": "Build a Blend",
+      "ru": "Создать смесь",
+      "tr": "Bir Karışım Oluştur"
+    },
+    {
+      "en": "Select Solvent to Add",
+      "ru": "Выбрать растворитель для добавления",
+      "tr": "Eklenecek Çözücüyü Seçin"
+    },
+    {
+      "en": "Add to Blend",
+      "ru": "Добавить в смесь",
+      "tr": "Karışıma Ekle"
+    },
+    {
+      "en": "Equalize",
+      "ru": "Уравнять",
+      "tr": "Eşitle"
+    },
+    {
+      "en": "Current Blend Composition:",
+      "ru": "Текущий состав смеси:",
+      "tr": "Mevcut Karışım Bileşimi:"
+    },
+    {
+      "en": "Clear",
+      "ru": "Очистить",
+      "tr": "Temizle"
+    },
+    {
+      "en": "Add Blend",
+      "ru": "",
+      "tr": ""
+    },
+    {
+      "en": "Added Blends:",
+      "ru": "Добавленные смеси:",
+      "tr": "Eklenen Karışımlar:"
+    },
+    {
+      "en": "Process Conditions",
+      "ru": "Условия процесса",
+      "tr": "Proses Koşulları"
+    },
+    {
+      "en": "Co-Solvent Volume Fraction (%)",
+      "ru": "Объемная доля сорастворителя (%)",
+      "tr": "Yardımcı Çözücü Hacim Fraksiyonu (%)"
+    },
+    {
+      "en": "Min. Pressure (bar)",
+      "ru": "Мин. давление (бар)",
+      "tr": "Min. Basınç (bar)"
+    },
+    {
+      "en": "Max. Pressure (bar)",
+      "ru": "Макс. давление (бар)",
+      "tr": "Maks. Basınç (bar)"
+    },
+    {
+      "en": "Min. Temperature (°C)",
+      "ru": "Мин. температура (°C)",
+      "tr": "Min. Sıcaklık (°C)"
+    },
+    {
+      "en": "Max. Temperature (°C)",
+      "ru": "Макс. температура (°C)",
+      "tr": "Maks. Sıcaklık (°C)"
+    },
+    {
+      "en": "Optimize Miscibility",
+      "ru": "Оптимизировать смешиваемость",
+      "tr": "Karışabilirliği Optimize Et"
+    },
+    {
+      "en": "Add to Comparison",
+      "ru": "Добавить к сравнению",
+      "tr": "Karşılaştırmaya Ekle"
+    },
+    {
+      "en": "Best Modifier Table",
+      "ru": "Таблица лучших модификаторов",
+      "tr": "En İyi Değiştirici Tablosu"
+    },
+    {
+      "en": "Export Results",
+      "ru": "Экспортировать результаты",
+      "tr": "Sonuçları Dışa Aktar"
+    },
+    {
+      "en": "Summary",
+      "ru": "Сводка",
+      "tr": "Özet"
+    },
+    {
+      "en": "Best Co-Solvent",
+      "ru": "Лучший сорастворитель",
+      "tr": "En İyi Yardımcı Çözücü"
+    },
+    {
+      "en": "Max ME (%)",
+      "ru": "Максимальное ME (%)",
+      "tr": "Maksimum ME (%)"
+    },
+    {
+      "en": "Test Conditions",
+      "ru": "Условия испытаний",
+      "tr": "Test Koşulları"
+    },
+    {
+      "en": "Test Configurations",
+      "ru": "Конфигурации испытаний",
+      "tr": "Test Konfigürasyonları"
+    },
+    {
+      "en": "Co-Solvent Comparison",
+      "ru": "Сравнение сорастворителей",
+      "tr": "Yardımcı Çözücü Karşılaştırması"
+    },
+    {
+      "en": "Miscibility Enhancement",
+      "ru": "Улучшение смешиваемости",
+      "tr": "Karışabilirlik Geliştirme"
+    },
+    {
+      "en": "Select Co-Solvent",
+      "ru": "Выбрать сорастворитель",
+      "tr": "Yardımcı Çözücüyü Seçin"
+    },
+    {
+      "en": "Detailed Results",
+      "ru": "Подробные результаты",
+      "tr": "Detaylı Sonuçlar"
+    },
+    {
+      "en": "Selected calculation not found.",
+      "ru": "Выбранный расчет не найден.",
+      "tr": "Seçilen hesaplama bulunamadı."
+    },
+    {
+      "en": "Calculation loaded successfully.",
+      "ru": "Расчет успешно загружен.",
+      "tr": "Hesaplama başarıyla yüklendi."
+    },
+    {
+      "en": "Solvent already in blend!",
+      "ru": "Растворитель уже в смеси!",
+      "tr": "Çözücü zaten karışımda!"
+    },
+    {
+      "en": "No solvents added yet.",
+      "ru": "Растворители еще не добавлены.",
+      "tr": "Henüz çözücü eklenmedi."
+    },
+    {
+      "en": "Total:",
+      "ru": "Всего:",
+      "tr": "Toplam:"
+    },
+    {
+      "en": "Total percentage must be exactly 100% to save the blend.",
+      "ru": "Общий процент должен быть ровно 100%, чтобы сохранить смесь.",
+      "tr": "Karışımı kaydetmek için toplam yüzde tam olarak %100 olmalıdır."
+    },
+    {
+      "en": "A blend must contain at least 2 solvents.",
+      "ru": "Смесь должна содержать не менее 2 растворителей.",
+      "tr": "Bir karışım en az 2 çözücü içermelidir."
+    },
+    {
+      "en": "Blend saved!",
+      "ru": "Смесь сохранена!",
+      "tr": "Karışım kaydedildi!"
+    },
+    {
+      "en": "No blends saved yet.",
+      "ru": "Смеси еще не сохранены.",
+      "tr": "Henüz karışım kaydedilmedi."
+    },
+    {
+      "en": "Please select at least one GCM method (Boiling Point, Critical Parameters, or HSP).",
+      "ru": "Пожалуйста, выберите хотя бы один метод МГВ (температура кипения, критические параметры или HSP).",
+      "tr": "Lütfen en az bir GCM yöntemi seçin (Kaynama Noktası, Kritik Parametreler veya HSP)."
+    },
+    {
+      "en": "Minimum pressure must be less than maximum pressure.",
+      "ru": "Минимальное давление должно быть меньше максимального давления.",
+      "tr": "Minimum basınç, maksimum basınçtan az olmalıdır."
+    },
+    {
+      "en": "Minimum temperature must be less than maximum temperature.",
+      "ru": "Минимальная температура должна быть меньше максимальной температуры.",
+      "tr": "Minimum sıcaklık, maksimum sıcaklıktan az olmalıdır."
+    },
+    {
+      "en": "Please select at least one co-solvent or define a blend for miscibility optimization.",
+      "ru": "Пожалуйста, выберите хотя бы один сорастворитель или определите смесь для оптимизации смешиваемости.",
+      "tr": "Lütfen karışabilirlik optimizasyonu için en az bir yardımcı çözücü seçin veya bir karışım tanımlayın."
+    },
+    {
+      "en": "Error during miscibility optimization:",
+      "ru": "Ошибка во время оптимизации смешиваемости:",
+      "tr": "Karışabilirlik optimizasyonu sırasında hata oluştu:"
+    },
+    {
+      "en": "Modifier",
+      "ru": "Модификатор",
+      "tr": "Değiştirici"
+    },
+    {
+      "en": "Occurrence (%)",
+      "ru": "Встречаемость (%)",
+      "tr": "Oluşum (%)"
+    },
+    {
+      "en": "Optimization results added to comparison list.",
+      "ru": "Результаты оптимизации добавлены в список сравнения.",
+      "tr": "Optimizasyon sonuçları karşılaştırma listesine eklendi."
+    },
+    {
+      "en": "Export completed successfully!",
+      "ru": "Экспорт успешно завершен!",
+      "tr": "Dışa aktarma başarıyla tamamlandı!"
+    },
+    {
+      "en": "Error exporting results:",
+      "ru": "Ошибка при экспорте результатов:",
+      "tr": "Sonuçlar dışa aktarılırken hata oluştu:"
+    },
+    {
+      "en": "Select a saved calculation",
+      "ru": "Выберите сохраненный расчет",
+      "tr": "Kaydedilmiş bir hesaplama seçin"
+    },
+    {
+      "en": "Showing the last %d of %d calculations from %s.",
+      "ru": "Показаны последние %d из %d расчетов из %s.",
+      "tr": "%3$s'den son %1$d / %2$d hesaplama gösteriliyor."
+    },
+    {
+      "en": "Showing %d calculation(s) from %s.",
+      "ru": "Показано расчетов: %d из %s.",
+      "tr": "%2$s'den %1$d hesaplama gösteriliyor."
+    },
+    {
+      "en": "Calculations from %s will appear here.",
+      "ru": "Здесь появятся расчеты из %s.",
+      "tr": "%s'den hesaplamalar burada görünecek."
+    },
+    {
+      "en": "Select a saved calculation",
+      "ru": "Выберите сохраненный расчет",
+      "tr": "Kaydedilmiş bir hesaplama seçin"
+    },
+    {
+      "en": "Calculation loaded:",
+      "ru": "Расчет загружен:",
+      "tr": "Hesaplama yüklendi:"
+    },
+    {
+      "en": "Loaded calculation has no GCM methods selected. Please load a different calculation.",
+      "ru": "В загруженном расчете не выбраны методы МГВ. Пожалуйста, загрузите другой расчет.",
+      "tr": "Yüklenen hesaplamada GCM yöntemi seçilmemiş. Lütfen farklı bir hesaplama yükleyin."
+    },
+    {
+      "en": "Optimizing Miscibility...",
+      "ru": "Оптимизация смешиваемости...",
+      "tr": "Karışabilirlik optimize ediliyor..."
+    },
+    {
+      "en": "No Best Modifier data available.",
+      "ru": "Данные о лучшем модификаторе недоступны.",
+      "tr": "En İyi Değiştirici verisi mevcut değil."
+    },
+    {
+      "en": "Co-solvent",
+      "ru": "Сорастворитель",
+      "tr": "Eş çözücü"
+    },
+    {
+      "en": "Exporting results...",
+      "ru": "Экспорт результатов...",
+      "tr": "Sonuçlar dışa aktarılıyor..."
+    },
+    {
+      "en": "Generating export files...",
+      "ru": "Генерация файлов экспорта...",
+      "tr": "Dışa aktarma dosyaları oluşturuluyor..."
+    },
+    {
+      "en": "Creating archive...",
+      "ru": "Создание архива...",
+      "tr": "Arşiv oluşturuluyor..."
+    },
+    {
+      "en": "Finalizing...",
+      "ru": "Завершение...",
+      "tr": "Tamamlanıyor..."
+    },
+    {
+      "en": "Miscibility optimization reset to defaults",
+      "ru": "Оптимизация смешиваемости сброшена к значениям по умолчанию",
+      "tr": "Karışabilirlik optimizasyonu varsayılanlara sıfırlandı"
+    },
+    {
+      "en": "Please load a saved calculation first.",
+      "ru": "Пожалуйста, сначала загрузите сохраненный расчет.",
+      "tr": "Lütfen önce kaydedilmiş bir hesaplama yükleyin."
+    },
+    {
+      "en": "Pressure Step (bar)",
+      "ru": "Шаг давления (бар)",
+      "tr": "Basınç Adımı (bar)"
+    },
+    {
+      "en": "Temperature Step (°C)",
+      "ru": "Шаг температуры (°C)",
+      "tr": "Sıcaklık Adımı (°C)"
+    },
+    {
+      "en": "Best Modifier Table Display",
+      "ru": "Отображение таблицы лучшего модификатора",
+      "tr": "En İyi Değiştirici Tablosu Görünümü"
+    },
+    {
+      "en": "Fit to page",
+      "ru": "По размеру страницы",
+      "tr": "Sayfaya sığdır"
+    },
+    {
+      "en": "Show all (scrollable)",
+      "ru": "Показать все (с прокруткой)",
+      "tr": "Tümünü göster (kaydırılabilir)"
+    },
+    {
+      "en": "Load Examples",
+      "ru": "Загрузить примеры",
+      "tr": "Örnekleri Yükle"
+    },
+    {
+      "en": "Load from Disk",
+      "ru": "Загрузить с диска",
+      "tr": "Diskten Yükle"
+    },
+    {
+      "en": "Load Calculation from Disk",
+      "ru": "Загрузить расчёт с диска",
+      "tr": "Hesaplamayı Diskten Yükle"
+    },
+    {
+      "en": "Select JSON file(s)",
+      "ru": "Выберите JSON файл(ы)",
+      "tr": "JSON dosya(ları) seçin"
+    },
+    {
+      "en": "Select one or more .json files exported from Solute Characterization.",
+      "ru": "Выберите один или несколько .json файлов, экспортированных из модуля характеризации растворённого вещества.",
+      "tr": "Çözünen Madde Karakterizasyonu'ndan dışa aktarılan bir veya daha fazla .json dosyası seçin."
+    },
+    {
+      "en": "Load",
+      "ru": "Загрузить",
+      "tr": "Yükle"
+    },
+    {
+      "en": "Remove Selected from Session",
+      "ru": "Удалить выбранные из сессии",
+      "tr": "Seçilenleri Oturumdan Kaldır"
+    },
+    {
+      "en": "Invalid file format: %s",
+      "ru": "Неверный формат файла: %s",
+      "tr": "Geçersiz dosya formatı: %s"
+    },
+    {
+      "en": "Calculation '%s' already loaded.",
+      "ru": "Расчёт '%s' уже загружен.",
+      "tr": "'%s' hesaplaması zaten yüklendi."
+    },
+    {
+      "en": "Error loading %s: %s",
+      "ru": "Ошибка загрузки %s: %s",
+      "tr": "%s yüklenirken hata: %s"
+    },
+    {
+      "en": "Loaded %d calculation(s) from disk.",
+      "ru": "Загружено с диска: %d расчёт(ов).",
+      "tr": "Diskten %d hesaplama yüklendi."
+    },
+    {
+      "en": "No example data available.",
+      "ru": "Нет доступных примеров.",
+      "tr": "Örnek veri mevcut değil."
+    },
+    {
+      "en": "Example data already loaded.",
+      "ru": "Примеры уже загружены.",
+      "tr": "Örnek veriler zaten yüklendi."
+    },
+    {
+      "en": "Loaded %d example calculation(s).",
+      "ru": "Загружено примеров: %d.",
+      "tr": "%d örnek hesaplama yüklendi."
+    },
+    {
+      "en": "Acetone",
+      "ru": "Ацетон",
+      "tr": "Aseton"
+    },
+    {
+      "en": "Benzene",
+      "ru": "Бензол",
+      "tr": "Benzen"
+    },
+    {
+      "en": "Cyclohexane",
+      "ru": "Циклогексан",
+      "tr": "Siklohekzan"
+    },
+    {
+      "en": "Diethyl Ether",
+      "ru": "Диэтиловый эфир",
+      "tr": "Dietil Eter"
+    },
+    {
+      "en": "Ethanol",
+      "ru": "Этанол",
+      "tr": "Etanol"
+    },
+    {
+      "en": "Heptane",
+      "ru": "Гептан",
+      "tr": "Heptan"
+    },
+    {
+      "en": "Hexane",
+      "ru": "Гексан",
+      "tr": "Hekzan"
+    },
+    {
+      "en": "Methanol",
+      "ru": "Метанол",
+      "tr": "Metanol"
+    },
+    {
+      "en": "Methyl Oleate",
+      "ru": "Метилолеат",
+      "tr": "Metil Oleat"
+    },
+    {
+      "en": "Toluene",
+      "ru": "Толуол",
+      "tr": "Tolüen"
+    },
+    {
+      "en": "p-Xylene",
+      "ru": "п-Ксилол",
+      "tr": "p-Ksilen"
+    },
+    {
+      "en": "o-Xylene",
+      "ru": "о-Ксилол",
+      "tr": "o-Ksilen"
+    },
+    {
+      "en": "Water",
+      "ru": "Вода",
+      "tr": "Su"
+    },
+    {
+      "en": "Select All",
+      "ru": "Выбрать все",
+      "tr": "Tümünü Seç"
+    },
+    {
+      "en": "Deselect All",
+      "ru": "Отменить все",
+      "tr": "Tümünü Kaldır"
+    },
+    {
+      "en": "Browse...",
+      "ru": "Обзор...",
+      "tr": "Gözat..."
+    },
+    {
+      "en": "No file selected",
+      "ru": "Файл не выбран",
+      "tr": "Dosya seçilmedi"
+    },
+    {
+      "en": "Loaded: ",
+      "ru": "Загружено: ",
+      "tr": "Yüklendi: "
+    },
+    {
+      "en": "Are you sure you want to delete this calculation?",
+      "ru": "Вы уверены, что хотите удалить этот расчёт?",
+      "tr": "Bu hesaplamayı silmek istediğinizden emin misiniz?"
+    },
+    {
+      "en": "ME Range (%)",
+      "ru": "Диапазон ME (%)",
+      "tr": "ME Aralığı (%)"
+    },
+    {
+      "en": "Solvents Tested",
+      "ru": "Протестировано растворителей",
+      "tr": "Test Edilen Çözücüler"
+    },
+    {
+      "en": "Show Solvent Names",
+      "ru": "Показать растворители",
+      "tr": "Çözücü Adlarını Göster"
+    },
+    {
+      "en": "Show ME Values",
+      "ru": "Показать значения ME",
+      "tr": "ME Değerlerini Göster"
+    },
+    {
+      "en": "Legend",
+      "ru": "Легенда",
+      "tr": "Gösterim"
+    },
+    {
+      "en": "Out of range:",
+      "ru": "Вне диапазона:",
+      "tr": "Aralık dışında:"
+    },
+    {
+      "en": "Preparing export... Please wait.",
+      "ru": "Подготовка экспорта... Пожалуйста, подождите.",
+      "tr": "Dışa aktarma hazırlanıyor... Lütfen bekleyin."
+    },
+    {
+      "en": "SOLUTE",
+      "ru": "РАСТВОРЁННОЕ ВЕЩЕСТВО",
+      "tr": "ÇÖZÜNEN MADDE"
+    },
+    {
+      "en": "GCM FRAGMENTATION RESULTS",
+      "ru": "РЕЗУЛЬТАТЫ ФРАГМЕНТАЦИИ МГВ",
+      "tr": "GCM PARÇALANMA SONUÇLARI"
+    },
+    {
+      "en": "BP AND CRITICAL PARAMETER CALCULATION RESULTS FROM GCM",
+      "ru": "РЕЗУЛЬТАТЫ РАСЧЁТА ТК И КРИТИЧЕСКИХ ПАРАМЕТРОВ ПО МГВ",
+      "tr": "GCM'DEN KN VE KRİTİK PARAMETRE HESAPLAMA SONUÇLARI"
+    },
+    {
+      "en": "HANSEN SOLUBILITY PARAMETER (HSP) CALCULATION RESULTS FROM GCM",
+      "ru": "РЕЗУЛЬТАТЫ РАСЧЁТА ПАРАМЕТРОВ РАСТВОРИМОСТИ ХАНСЕНА (HSP) ПО МГВ",
+      "tr": "GCM'DEN HANSEN ÇÖZÜNÜRLÜK PARAMETRELERİ (HSP) HESAPLAMA SONUÇLARI"
+    },
+    {
+      "en": "GCM METHODS UTILIZED",
+      "ru": "ИСПОЛЬЗОВАННЫЕ МЕТОДЫ МГВ",
+      "tr": "KULLANILAN GCM METOTLARİ"
+    },
+    {
+      "en": "GCM-BASED ESTIMATION OF BOILING POINT AND OTHER PARAMETERS WAS NOT CARRIED OUT.",
+      "ru": "ОЦЕНКА ТЕМПЕРАТУРЫ КИПЕНИЯ И ДРУГИХ ПАРАМЕТРОВ НА ОСНОВЕ МГВ НЕ ПРОВОДИЛАСЬ.",
+      "tr": "GCM TABANLI KAYNAMA NOKTASI VE DİĞER PARAMETRE TAHMİNİ YAPILMADI."
+    },
+    {
+      "en": "SFE MODIFIER OPTIMIZATION RESULTS",
+      "ru": "РЕЗУЛЬТАТЫ ОПТИМИЗАЦИИ МОДИФИКАТОРА SFE",
+      "tr": "SFE DEĞİŞTİRİCİ OPTİMİZASYON SONUÇLARI"
+    },
+    {
+      "en": "SELECTION OF THE BEST scCO2 SFE MODIFIER AMONGST",
+      "ru": "ВЫБОР ЛУЧШЕГО МОДИФИКАТОРА scCO2 SFE СРЕДИ",
+      "tr": "EN İYİ scCO2 SFE DEĞİŞTİRİCİSİNİN SEÇİMİ"
+    },
+    {
+      "en": "SOLUTE HSP VERSUS TEMPERATURE",
+      "ru": "ЗАВИСИМОСТЬ HSP РАСТВОРЁННОГО ВЕЩЕСТВА ОТ ТЕМПЕРАТУРЫ",
+      "tr": "ÇÖZÜNEN HSP - SICAKLIK İLİŞKİSİ"
+    },
+    {
+      "en": "CO2-MODIFIER BLEND HSP VERSUS TEMPERATURE AND PRESSURE (MODIFIER VOL. FRACTION",
+      "ru": "HSP СМЕСИ CO2-МОДИФИКАТОР ПРИ РАЗНЫХ ЗНАЧЕНИЯХ ТЕМПЕРАТУРЫ И ДАВЛЕНИЯ (ОБЪЁМНАЯ ДОЛЯ МОДИФИКАТОРА",
+      "tr": "CO2-DEĞİŞTİRİCİ KARIŞIMI HSP - FARKLI SICAKLIK VE BASINÇ DEĞERLERİNDE (DEĞİŞTİRİCİ HACİM ORANI"
+    },
+    {
+      "en": "HSP DISTANCE Ra BETWEEN SOLUTE AND SOLVENT BLENDS (LOWER = BETTER MISCIBILITY)",
+      "ru": "РАССТОЯНИЕ HSP Ra МЕЖДУ РАСТВОРЁННЫМ ВЕЩЕСТВОМ И СМЕСЯМИ РАСТВОРИТЕЛЕЙ (МЕНЬШЕ = ЛУЧШАЯ СМЕШИВАЕМОСТЬ)",
+      "tr": "ÇÖZÜNEN VE ÇÖZÜCÜ KARIŞIMLARI ARASI HSP MESAFESI Ra (DÜŞÜK = DAHA İYİ KARIŞABILIRLIK)"
+    },
+    {
+      "en": "MISCIBILITY ENHANCEMENT (%) WITH DIFFERENT SOLVENT BLENDS (HIGHER = BETTER)",
+      "ru": "УЛУЧШЕНИЕ СМЕШИВАЕМОСТИ (%) С РАЗЛИЧНЫМИ СМЕСЯМИ РАСТВОРИТЕЛЕЙ (БОЛЬШЕ = ЛУЧШЕ)",
+      "tr": "FARKLI ÇÖZÜCÜ KARIŞIMLARIYLA KARIŞABILIRLIK GELİŞTİRME (%) (YÜKSEK = DAHA İYİ)"
+    },
+    {
+      "en": "BEST SOLVENT OUT OF SELECTION",
+      "ru": "ЛУЧШИЙ РАСТВОРИТЕЛЬ ИЗ ВЫБРАННЫХ",
+      "tr": "SEÇİLENLER ARASINDA EN İYİ ÇÖZÜCÜ"
+    },
+    {
+      "en": "SOLVENT RANKING (HIGHER = BETTER)",
+      "ru": "РЕЙТИНГ РАСТВОРИТЕЛЕЙ (БОЛЬШЕ = ЛУЧШЕ)",
+      "tr": "ÇÖZÜCÜ SIRALAMASI (YÜKSEK = DAHA İYİ)"
+    },
+    {
+      "en": "SFE MODIFIER OPTIMIZATION WAS NOT CARRIED OUT.",
+      "ru": "ОПТИМИЗАЦИЯ МОДИФИКАТОРА SFE НЕ ПРОВОДИЛАСЬ.",
+      "tr": "SFE DEĞİŞTİRİCİ OPTİMİZASYONU YAPILMADI."
+    },
+    {
+      "en": "bar",
+      "ru": "бар",
+      "tr": "bar"
+    },
+    {
+      "en": "GCM contributions to boiling point",
+      "ru": "Вклады МГВ в точку кипения",
+      "tr": "GCM kaynama noktası katkıları"
+    },
+    {
+      "en": "GCM contributions to critical parameters",
+      "ru": "Вклады МГВ в критические параметры",
+      "tr": "GCM kritik parametre katkıları"
+    },
+    {
+      "en": "GCM contributions to Hansen Solubility Parameters",
+      "ru": "Вклады МГВ в параметры растворимости Хансена",
+      "tr": "GCM Hansen Çözünürlük Parametreleri katkıları"
+    },
+    {
+      "en": "GCM contributions to Van der Waals volume",
+      "ru": "Вклады МГВ в объём Ван-дер-Ваальса",
+      "tr": "GCM Van der Waals hacim katkıları"
+    },
+    {
+      "en": "method",
+      "ru": "метод",
+      "tr": "metot"
+    },
+    {
+      "en": "Joback-Reid",
+      "ru": "Джобак-Рид (JR)",
+      "tr": "Joback-Reid"
+    },
+    {
+      "en": "Joback-Reid corrected",
+      "ru": "Джобак-Рид скорр. (JR_corr)",
+      "tr": "Joback-Reid düzeltilmiş (JR_corr)"
+    },
+    {
+      "en": "Stein-Brown",
+      "ru": "Стейн-Браун (SB)",
+      "tr": "Stein-Brown"
+    },
+    {
+      "en": "Stein-Brown corrected",
+      "ru": "Стейн-Браун скорр. (SB_corr)",
+      "tr": "Stein-Brown düzeltilmiş (SB_corr)"
+    },
+    {
+      "en": "Nannoolal 2004",
+      "ru": "Наннулал 2004 (NL04)",
+      "tr": "Nannoolal 2004"
+    },
+    {
+      "en": "Nannoolal 2007",
+      "ru": "Наннулал 2007 (NL07)",
+      "tr": "Nannoolal 2007"
+    },
+    {
+      "en": "Nannoolal 2007 robust",
+      "ru": "Наннулал 2007 робаст. (NL07_robust)",
+      "tr": "Nannoolal 2007 dayanıklı (NL07_robust)"
+    },
+    {
+      "en": "Stefanis-Panayiotou 2008",
+      "ru": "Стефанис-Панайоту 2008 (SP08)",
+      "tr": "Stefanis-Panayiotou 2008"
+    },
+    {
+      "en": "Stefanis-Panayiotou 2012",
+      "ru": "Стефанис-Панайоту 2012 (SP12)",
+      "tr": "Stefanis-Panayiotou 2012"
+    },
+    {
+      "en": "Hukkerikar-Stepwise",
+      "ru": "Хуккерикар пошагов. (HKR_STW)",
+      "tr": "Hukkerikar-Adımsal"
+    },
+    {
+      "en": "Hukkerikar-Simultaneous",
+      "ru": "Хуккерикар одновр. (HKR_SIM)",
+      "tr": "Hukkerikar-Eşzamanlı"
+    },
+    {
+      "en": "Zhao 2003",
+      "ru": "Чжао 2003 (ZHAO)",
+      "tr": "Zhao 2003"
+    },
+    {
+      "en": "Bondi 1964",
+      "ru": "Бонди 1964 (BND)",
+      "tr": "Bondi 1964"
+    },
+    {
+      "en": "Slonimskii 1970",
+      "ru": "Слонимский 1970 (SLON)",
+      "tr": "Slonimskii 1970"
+    },
+    {
+      "en": "Type",
+      "ru": "Тип",
+      "tr": "Tip"
+    },
+    {
+      "en": "Occurrences",
+      "ru": "Кол-во",
+      "tr": "Tekrar"
+    },
+    {
+      "en": "Boiling Point",
+      "ru": "Температура кипения",
+      "tr": "Kaynama Noktası"
+    },
+    {
+      "en": "Critical Parameters",
+      "ru": "Критические параметры",
+      "tr": "Kritik Parametreler"
+    },
+    {
+      "en": "Hansen Solubility Parameters",
+      "ru": "Параметры растворимости Хансена",
+      "tr": "Hansen Çözünürlük Parametreleri"
+    },
+    {
+      "en": "Van der Waals Volume",
+      "ru": "Объем Ван-дер-Ваальса",
+      "tr": "Van der Waals Hacmi"
+    },
+    {
+      "en": "Select the parameters and run optimization to see results.",
+      "ru": "Выберите параметры и запустите оптимизацию для просмотра результатов.",
+      "tr": "Parametreleri seçin ve sonuçları görmek için optimizasyonu çalıştırın."
+    },
+    {
+      "en": "Set the temperature step size (degrees C) for the optimization grid.",
+      "ru": "Установите шаг температуры (°C) для сетки оптимизации.",
+      "tr": "Optimizasyon ızgarası için sıcaklık adım boyutunu (derece C) ayarlayın."
+    },
+    {
+      "en": "Set the maximum group order for GCM calculations. Higher orders provide more accurate results but require more group data. Set to 0 for automatic.",
+      "ru": "Установите maximum group order for МГВ calculations. Higher orders provide more accurate results but require more group data. Set to 0 for automatic.",
+      "tr": "Ayarlayın: maximum group order for GCM calculations. Higher orders provide more accurate results but require more group data. Set to 0 for automatic."
+    },
+    {
+      "en": "Select the method for estimating Hansen Solubility Parameters (HSP). These are used to calculate miscibility between the solute and CO2/co-solvent mixtures.",
+      "ru": "Выберите метод оценки параметров HSP. Используются для расчёта смешиваемости между веществом и смесями CO2/со-растворителя.",
+      "tr": "Hansen Çözünürlük Parametreleri (HSP) tahmini için yöntemi seçin. Çözünen ile CO2/ko-çözücü karışımları arasındaki karışabilirliği hesaplamak için kullanılır."
+    },
+    {
+      "en": "Set the pressure step size (bar) for the optimization grid.",
+      "ru": "Установите шаг давления (бар) для сетки оптимизации.",
+      "tr": "Optimizasyon ızgarası için basınç adım boyutunu (bar) ayarlayın."
+    },
+    {
+      "en": "Choose the GCM for calculating critical temperature, pressure, and volume of the solute.",
+      "ru": "Выберите МГВ для расчёта критической температуры, давления и объёма вещества.",
+      "tr": "Çözünenin kritik sıcaklık, basınç ve hacmini hesaplamak için GKY'yi seçin."
+    },
+    {
+      "en": "Load a previously saved solute characterization from disk. The characterization must have been saved from the Solute Characterization module.",
+      "ru": "Загрузите ранее сохранённую характеризацию вещества с диска. Характеризация должна быть сохранена из модуля характеризации веществ.",
+      "tr": "Daha önce kaydedilmiş bir çözünen karakterizasyonunu diskten yükleyin. Karakterizasyon, Çözünen Karakterizasyonu modülünden kaydedilmiş olmalıdır."
+    },
+    {
+      "en": "Enable to manually provide a SMILES string when the CAS lookup fails.",
+      "ru": "Включите для ручного ввода строки SMILES при неудачном поиске по CAS.",
+      "tr": "CAS araması başarısız olduğunda SMILES dizesini manuel olarak girmek için etkinleştirin."
+    },
+    {
+      "en": "Set the minimum temperature (degrees C) for the optimization range.",
+      "ru": "Установите минимальную температуру (°C) диапазона оптимизации.",
+      "tr": "Optimizasyon aralığı için minimum sıcaklığı (derece C) ayarlayın."
+    },
+    {
+      "en": "Remove all solvents from the current blend and start over.",
+      "ru": "Удалите все растворители из текущей смеси и начните заново.",
+      "tr": "Mevcut karışımdaki tüm çözücüleri kaldırın ve baştan başlayın."
+    },
+    {
+      "en": "Select one or more co-solvents to evaluate. The optimizer will calculate the Hansen Solubility Parameters of each CO2+co-solvent mixture and find conditions that minimize the solubility distance to the solute.",
+      "ru": "Выберите один или несколько со-растворителей для оценки. Оптимизатор рассчитает параметры растворимости Хансена каждой смеси CO2+со-растворитель и найдёт условия минимизации расстояния растворимости.",
+      "tr": "Değerlendirilecek bir veya daha fazla ko-çözücü seçin. Optimize edici her CO2+ko-çözücü karışımının Hansen Çözünürlük Parametrelerini hesaplayacak ve çözünene çözünürlük mesafesini en aza indiren koşulları bulacaktır."
+    },
+    {
+      "en": "Export the optimization results as a file for further analysis or reporting.",
+      "ru": "Экспортируйте результаты оптимизации в файл для дальнейшего анализа или отчётности.",
+      "tr": "Optimizasyon sonuçlarını daha fazla analiz veya raporlama için dosya olarak dışa aktarın."
+    },
+    {
+      "en": "Enter the CAS number of the solute. The molecular structure will be retrieved automatically for GCM calculations.",
+      "ru": "Введите CAS-номер вещества. Молекулярная структура будет получена автоматически для расчётов МГВ.",
+      "tr": "Çözünenin CAS numarasını girin. GKY hesaplamaları için moleküler yapı otomatik olarak alınacaktır."
+    },
+    {
+      "en": "Save the current blend composition so it can be used as a co-solvent option in the optimization.",
+      "ru": "Сохраните текущий состав смеси для использования в качестве варианта со-растворителя при оптимизации.",
+      "tr": "Mevcut karışım bileşimini optimizasyonda ko-çözücü seçeneği olarak kullanılabilmesi için kaydedin."
+    },
+    {
+      "en": "Start the optimization. The algorithm scans all pressure-temperature combinations within the specified ranges and identifies conditions where the solute-solvent miscibility is maximized (minimum HSP distance).",
+      "ru": "Запустите оптимизацию. Алгоритм сканирует все комбинации давления и температуры в заданных диапазонах и определяет условия максимальной смешиваемости (минимальное расстояние HSP).",
+      "tr": "Optimizasyonu başlatın. Algoritm belirtilen aralıklardaki tüm basınç-sıcaklık kombinasyonlarını tarar ve çözünen-çözücü karışabilirliğinin maksimize edildiği koşulları belirler."
+    },
+    {
+      "en": "Provide a display name for the solute (optional). This appears in results and comparison charts.",
+      "ru": "Укажите имя вещества (необязательно). Отображается в результатах и графиках сравнения.",
+      "tr": "Çözünen için bir görüntü adı belirtin (isteğe bağlı). Sonuçlarda ve karşılaştırma grafiklerinde görünür."
+    },
+    {
+      "en": "Select the Group Contribution Method for estimating the normal boiling point (Tb). The boiling point is a prerequisite for critical property estimation.",
+      "ru": "Выберите МГВ для оценки температуры кипения (Tb). Температура кипения необходима для оценки критических свойств.",
+      "tr": "Normal kaynama noktası (Tb) tahmini için GKY'yi seçin. Kaynama noktası kritik özellik tahmini için bir ön koşuldur."
+    },
+    {
+      "en": "Choose a solvent from the database to add to your custom blend. Blends allow you to evaluate multi-component co-solvent mixtures.",
+      "ru": "Выберите растворитель из базы данных для добавления в пользовательскую смесь.",
+      "tr": "Özel karışımınıza eklemek için veritabanından bir çözücü seçin."
+    },
+    {
+      "en": "Select co-solvents (modifiers) to include in the miscibility optimization. Multiple co-solvents can be selected to compare their effectiveness at improving solute-solvent miscibility.",
+      "ru": "Выберите со-растворители для оптимизации смешиваемости. Можно выбрать несколько со-растворителей для сравнения их эффективности.",
+      "tr": "Karışabilirlik optimizasyonuna dahil edilecek ko-çözücüleri seçin. Etkinliklerini karşılaştırmak için birden fazla ko-çözücü seçilebilir."
+    },
+    {
+      "en": "Load example solute characterizations to quickly explore the optimization workflow without entering your own data.",
+      "ru": "Загрузите примеры характеризации веществ для быстрого изучения процесса оптимизации без ввода собственных данных.",
+      "tr": "Kendi verilerinizi girmeden optimizasyon iş akışını hızlıca keşfetmek için örnek çözünen karakterizasyonlarını yükleyin."
+    },
+    {
+      "en": "Set the maximum temperature (degrees C) for the optimization range.",
+      "ru": "Установите максимальную температуру (°C) диапазона оптимизации.",
+      "tr": "Optimizasyon aralığı için maksimum sıcaklığı (derece C) ayarlayın."
+    },
+    {
+      "en": "Set the minimum pressure (bar) for the optimization range. The optimizer will scan conditions from this pressure to the maximum.",
+      "ru": "Установите минимальное давление (бар) диапазона оптимизации. Оптимизатор просканирует условия от этого давления до максимального.",
+      "tr": "Optimizasyon aralığı için minimum basıncı (bar) ayarlayın. Optimize edici bu basınçtan maksimuma kadar koşulları tarayacaktır."
+    },
+    {
+      "en": "Set the co-solvent volume fraction (%) in the CO2+co-solvent mixture. This determines the proportion of co-solvent used in the optimization.",
+      "ru": "Установите объёмную долю со-растворителя (%) в смеси CO2+со-растворитель. Определяет долю со-растворителя при оптимизации.",
+      "tr": "CO2+ko-çözücü karışımında ko-çözücü hacim fraksiyonunu (%) ayarlayın. Optimizasyonda kullanılan ko-çözücü oranını belirler."
+    },
+    {
+      "en": "Control the fragmentation complexity when decomposing the molecule into functional groups.",
+      "ru": "Управляйте сложностью фрагментации при разложении молекулы на функциональные группы.",
+      "tr": "Molekülü fonksiyonel gruplara ayırırken parçalama karmaşıklığını kontrol edin."
+    },
+    {
+      "en": "Set the maximum pressure (bar) for the optimization range.",
+      "ru": "Установите максимальное давление (бар) диапазона оптимизации.",
+      "tr": "Optimizasyon aralığı için maksimum basıncı (bar) ayarlayın."
+    },
+    {
+      "en": "OK",
+      "ru": "OK",
+      "tr": "Tamam"
+    },
+    {
+      "en": "Volume Fraction",
+      "ru": "Объёмная доля",
+      "tr": "Hacim Fraksiyonu"
+    },
+    {
+      "en": "Pressure Range",
+      "ru": "Диапазон давлений",
+      "tr": "Basınç Aralığı"
+    },
+    {
+      "en": "Temperature Range",
+      "ru": "Диапазон температур",
+      "tr": "Sıcaklık Aralığı"
+    },
+    {
+      "en": "Blend Solvent",
+      "ru": "Растворитель для смеси",
+      "tr": "Karışım Çözücüsü"
+    },
+    {
+      "en": "Display Mode",
+      "ru": "Режим отображения",
+      "tr": "Görüntüleme Modu"
+    },
+    {
+      "en": "Choose one or more co-solvents to evaluate alongside pure CO2. The miscibility enhancement of each co-solvent is calculated across the specified pressure and temperature ranges.",
+      "ru": "Выберите один или несколько со-растворителей для оценки наряду с чистым CO₂. Улучшение смешиваемости каждого со-растворителя рассчитывается по заданным диапазонам давлений и температур.",
+      "tr": "Saf CO₂ ile birlikte değerlendirilecek bir veya daha fazla ko-çözücü seçin. Her ko-çözücünün karışabilirlik iyileştirmesi belirlenen basınç ve sıcaklık aralıklarında hesaplanır."
+    },
+    {
+      "en": "Volume percentage of co-solvent in the total solvent mixture. Typically 5-15% for SFE applications. Higher fractions increase solvent polarity but may reduce selectivity.",
+      "ru": "Объёмный процент со-растворителя в общей смеси. Обычно 5-15% для СКЭ. Более высокие доли повышают полярность, но могут снизить селективность.",
+      "tr": "Toplam çözücü karışımındaki ko-çözücü hacim yüzdesi. SFE uygulamaları için tipik olarak %5-15. Daha yüksek fraksiyonlar çözücü polaritesini artırır ancak seçiciliği azaltabilir."
+    },
+    {
+      "en": "Pressure range and step size for the miscibility evaluation grid. The calculation is repeated at each pressure-temperature combination within this range.",
+      "ru": "Диапазон давлений и шаг для сетки оценки смешиваемости. Расчёт повторяется для каждой комбинации давления и температуры.",
+      "tr": "Karışabilirlik değerlendirme ızgarası için basınç aralığı ve adım boyutu. Hesaplama bu aralıktaki her basınç-sıcaklık kombinasyonunda tekrarlanır."
+    },
+    {
+      "en": "Temperature range and step size for the miscibility evaluation grid. Must be above 31°C (the critical temperature of CO2).",
+      "ru": "Диапазон температур и шаг для сетки оценки. Должна быть выше 31°C (критическая температура CO₂).",
+      "tr": "Karışabilirlik değerlendirme ızgarası için sıcaklık aralığı ve adım boyutu. 31°C'nin (CO₂'nin kritik sıcaklığı) üzerinde olmalıdır."
+    },
+    {
+      "en": "Choose a solvent to add to the custom blend. Multiple solvents can be combined with specified volume fractions.",
+      "ru": "Выберите растворитель для добавления в пользовательскую смесь. Несколько растворителей могут быть скомбинированы с заданными объёмными долями.",
+      "tr": "Özel karışıma eklenecek bir çözücü seçin. Birden fazla çözücü belirtilen hacim fraksiyonlarıyla birleştirilebilir."
+    },
+    {
+      "en": "Choose which results to display in the table: Miscibility Enhancement (ME%) shows the percentage improvement over pure CO2, or HSP Distance shows the raw solubility parameter distance values.",
+      "ru": "Выберите результаты для отображения: ME% показывает процентное улучшение по сравнению с чистым CO₂, или расстояние HSP показывает значения расстояния параметров растворимости.",
+      "tr": "Tabloda hangi sonuçları göstereceğinizi seçin: ME% saf CO₂'ye göre yüzde iyileştirmeyi, HSP Mesafesi ham çözünürlük parametresi mesafe değerlerini gösterir."
+    }
+  ]
+}

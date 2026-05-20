@@ -1,0 +1,337 @@
+{
+  "translation": [
+    {
+      "en": "Select Settings",
+      "ru": "Выберите настройки",
+      "tr": "Ayarları Seç"
+    },
+    {
+      "en": "Error",
+      "ru": "Ошибка",
+      "tr": "Hata"
+    },
+    {
+      "en": "Please provide a name for the settings.",
+      "ru": "Пожалуйста, укажите имя для настроек.",
+      "tr": "Lütfen ayarlar için bir ad belirtin."
+    },
+    {
+      "en": "Success!",
+      "ru": "Успех!",
+      "tr": "Başarılı!"
+    },
+    {
+      "en": "Settings saved as",
+      "ru": "Настройки сохранены как",
+      "tr": "Ayarlar kaydedildi:"
+    },
+    {
+      "en": "Failed to save settings:",
+      "ru": "Не удалось сохранить настройки:",
+      "tr": "Ayarlar kaydedilemedi:"
+    },
+    {
+      "en": "No saved settings found.",
+      "ru": "Сохраненные настройки не найдены.",
+      "tr": "Kaydedilmiş ayar bulunamadı."
+    },
+    {
+      "en": "Settings loaded successfully.",
+      "ru": "Настройки успешно загружены.",
+      "tr": "Ayarlar başarıyla yüklendi."
+    },
+    {
+      "en": "Failed to load settings:",
+      "ru": "Не удалось загрузить настройки:",
+      "tr": "Ayarlar yüklenemedi:"
+    },
+    {
+      "en": "Settings imported successfully.",
+      "ru": "Настройки успешно импортированы.",
+      "tr": "Ayarlar başarıyla içe aktarıldı."
+    },
+    {
+      "en": "Failed to import file:",
+      "ru": "Не удалось импортировать файл:",
+      "tr": "Dosya içe aktarılamadı:"
+    },
+    {
+      "en": "Could not update all settings. The settings file might be outdated or corrupted. Error:",
+      "ru": "Не удалось обновить все настройки. Файл настроек может быть устаревшим или поврежденным. Ошибка:",
+      "tr": "Tüm ayarlar güncellenemedi. Ayarlar dosyası eski veya bozuk olabilir. Hata:"
+    },
+    {
+      "en": "No data to preview or invalid format.",
+      "ru": "Нет данных для предварительного просмотра или неверный формат.",
+      "tr": "Önizlenecek veri yok veya geçersiz format."
+    },
+    {
+      "en": "Calculating...",
+      "ru": "Расчет...",
+      "tr": "Hesaplanıyor..."
+    },
+    {
+      "en": "Preparing data...",
+      "ru": "Подготовка данных...",
+      "tr": "Veriler hazırlanıyor..."
+    },
+    {
+      "en": "Preparing parameters...",
+      "ru": "Подготовка параметров...",
+      "tr": "Parametreler hazırlanıyor..."
+    },
+    {
+      "en": "Performing calculations...",
+      "ru": "Выполнение расчетов...",
+      "tr": "Hesaplamalar yapılıyor..."
+    },
+    {
+      "en": "Completed!",
+      "ru": "Завершено!",
+      "tr": "Tamamlandı!"
+    },
+    {
+      "en": "Calculation completed!",
+      "ru": "Расчет завершен!",
+      "tr": "Hesaplama tamamlandı!"
+    },
+    {
+      "en": "Error occurred:",
+      "ru": "Произошла ошибка:",
+      "tr": "Hata oluştu:"
+    },
+    {
+      "en": "Parameters reset",
+      "ru": "Параметры сброшены",
+      "tr": "Parametreler sıfırlandı"
+    },
+    {
+      "en": "Extract produced *",
+      "ru": "Экстракт произведен *",
+      "tr": "Üretilen Ekstrakt *"
+    },
+    {
+      "en": "Profit (After-tax) *",
+      "ru": "Прибыль (после налогов) *",
+      "tr": "Kar (Vergi Sonrası) *"
+    },
+    {
+      "en": "Gross profit (After-tax) *",
+      "ru": "Валовая прибыль (после налогов) *",
+      "tr": "Brüt kar (Vergi Sonrası) *"
+    },
+    {
+      "en": "Profit Margin *",
+      "ru": "Рентабельность *",
+      "tr": "Kar Marjı *"
+    },
+    {
+      "en": "Payback Period",
+      "ru": "Срок окупаемости",
+      "tr": "Geri Ödeme Süresi"
+    },
+    {
+      "en": "Payback Period: ",
+      "ru": "Срок окупаемости: ",
+      "tr": "Geri Ödeme Süresi: "
+    },
+    {
+      "en": "Cumulative Profit Over 5 Years (",
+      "ru": "Накопленная прибыль за 5 лет (",
+      "tr": "5 Yıllık Kümülatif Kar ("
+    },
+    {
+      "en": "Cumulative Profit (USD)",
+      "ru": "Накопленная прибыль (USD)",
+      "tr": "Kümülatif Kar (USD)"
+    },
+    {
+      "en": "  Months)",
+      "ru": "  Месяцы)",
+      "tr": "  Ay)"
+    },
+    {
+      "en": " Months)",
+      "ru": " Месяцы)",
+      "tr": " Ay)"
+    },
+    {
+      "en": "Year",
+      "ru": "Год",
+      "tr": "Yıl"
+    },
+    {
+      "en": " Year",
+      "ru": " Год",
+      "tr": " Yıl"
+    },
+    {
+      "en": "Start",
+      "ru": "Старт",
+      "tr": "Başla"
+    },
+    {
+      "en": "Error exporting results:",
+      "ru": "Ошибка экспорта результатов:",
+      "tr": "Sonuçları dışa aktarma hatası:"
+    },
+    {
+      "en": "Browse",
+      "ru": "Обзор",
+      "tr": "Gözat"
+    },
+    {
+      "en": "Upload CSV File",
+      "ru": "Загрузить файл CSV",
+      "tr": "CSV Dosyası Yükle"
+    },
+    {
+      "en": "No file selected",
+      "ru": "Файл не выбран",
+      "tr": "Dosya seçilmedi"
+    },
+    {
+      "en": "bug-Error occurred:",
+      "ru": "ошибка-Произошла ошибка:",
+      "tr": "hata-Hata oluştu:"
+    },
+    {
+      "en": "This overview is available only when multiple time-yield data points are provided.",
+      "ru": "Этот обзор доступен только при наличии нескольких точек данных времени-выхода.",
+      "tr": "Bu genel bakış yalnızca birden fazla zaman-verim veri noktası sağlandığında kullanılabilir."
+    },
+    {
+      "en": "Default template file not found.",
+      "ru": "Файл шаблона по умолчанию не найден.",
+      "tr": "Varsayılan şablon dosyası bulunamadı."
+    },
+    {
+      "en": "Cost of Manufacturing Parameters",
+      "ru": "Параметры стоимости производства",
+      "tr": "Üretim Maliyeti Parametreleri"
+    },
+    {
+      "en": "Specific Cost plot",
+      "ru": "График удельной стоимости",
+      "tr": "Özel Maliyet Grafiği"
+    },
+    {
+      "en": "Payback time plot",
+      "ru": "График времени окупаемости",
+      "tr": "Geri dönüş süresi grafiği"
+    },
+
+    { "en": "Time (min)", "ru": "Время (мин)", "tr": "Zaman (dak)" },
+
+    {
+      "en": "Payback time (yr)",
+      "ru": "Время окупаемости (год)",
+      "tr": "Geri dönüş süresi (yıl)"
+    },
+    {
+      "en": "Error reading CSV file:",
+      "ru": "Ошибка чтения CSV файла:",
+      "tr": "CSV dosyası okuma hatası:"
+    },
+    {
+      "en": " Warning: Column '%s' is selected in multiple fields!",
+      "ru": " Предупреждение: Столбец '%s' выбран в нескольких полях!",
+      "tr": " Uyarı: '%s' sütunu birden fazla alanda seçildi!"
+    },
+    {
+      "en": "No input data available. Please provide valid input data before calculating.",
+      "ru": "Входные данные недоступны. Пожалуйста, предоставьте действительные входные данные перед расчетом.",
+      "tr": "Giriş verisi mevcut değil. Lütfen hesaplamadan önce geçerli giriş verisi sağlayın."
+    },
+    {
+      "en": "Not Viable",
+      "ru": "Нерентабельно",
+      "tr": "Uygun Değil"
+    },
+    {
+      "en": "Negative profit margin",
+      "ru": "Отрицательная маржа прибыли",
+      "tr": "Negatif kâr marjı"
+    },
+    {
+      "en": "Material",
+      "ru": "Материал",
+      "tr": "Malzeme"
+    },
+    {
+      "en": "Fraction (per kg extract)",
+      "ru": "Доля (на кг экстракта)",
+      "tr": "Oran (kg ekstrakt başına)"
+    },
+    {
+      "en": "Payback plot filtered",
+      "ru": "График окупаемости отфильтрован",
+      "tr": "Geri ödeme grafiği filtrelendi"
+    },
+    {
+      "en": "Negative/infinite payback at: ",
+      "ru": "Отрицательная/бесконечная окупаемость при: ",
+      "tr": "Negatif/sonsuz geri ödeme: "
+    },
+    {
+      "en": "Break-even outliers removed at: ",
+      "ru": "Выбросы точки безубыточности удалены при: ",
+      "tr": "Başabaş aykırı değerleri kaldırıldı: "
+    },
+    {
+      "en": "These points indicate near break-even or unprofitable conditions",
+      "ru": "Эти точки указывают на условия близкие к безубыточности или убыточные",
+      "tr": "Bu noktalar başabaş noktasına yakın veya kârsız koşulları gösterir"
+    },
+    {
+      "en": "No viable payback data to display",
+      "ru": "Нет данных об окупаемости для отображения",
+      "tr": "Görüntülenecek geçerli geri ödeme verisi yok"
+    },
+    {
+      "en": "Gross Profit",
+      "ru": "Валовая прибыль",
+      "tr": "Brüt Kâr"
+    },
+    {
+      "en": "Net Profit",
+      "ru": "Чистая прибыль",
+      "tr": "Net Kâr"
+    },
+    {
+      "en": "Gross",
+      "ru": "Валовая",
+      "tr": "Brüt"
+    },
+    {
+      "en": "Net",
+      "ru": "Чистая",
+      "tr": "Net"
+    },
+    {
+      "en": "Cost of Raw Materials",
+      "ru": "Стоимость сырья",
+      "tr": "Hammadde Maliyeti"
+    },
+    {
+      "en": "Cost of Utilities",
+      "ru": "Стоимость коммунальных услуг",
+      "tr": "Hizmet Maliyeti"
+    },
+    {
+      "en": "Cost of Labour",
+      "ru": "Стоимость труда",
+      "tr": "İşçilik Maliyeti"
+    },
+    {
+      "en": "Fixed Capital Investment",
+      "ru": "Постоянные капитальные затраты",
+      "tr": "Sabit Sermaye Yatırımı"
+    },
+    {
+      "en": "Preparing export... Please wait.",
+      "ru": "Подготовка экспорта... Пожалуйста, подождите.",
+      "tr": "Dışa aktarma hazırlanıyor... Lütfen bekleyin."
+    }
+  ]
+}

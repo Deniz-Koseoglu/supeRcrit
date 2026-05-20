@@ -1,0 +1,549 @@
+{
+  "translation": [
+    {
+      "en": "Stepwise",
+      "ru": "Пошаговый",
+      "tr": "Adım Adım"
+    },
+    {
+      "en": "Parameter",
+      "ru": "Параметр",
+      "tr": "Parametre"
+    },
+    {
+      "en": "Parameter Type",
+      "ru": "Тип параметра",
+      "tr": "Parametre Tipi"
+    },
+    {
+      "en": "Method",
+      "ru": "Метод",
+      "tr": "Yöntem"
+    },
+    {
+      "en": "Estimation Method",
+      "ru": "Метод оценки",
+      "tr": "Tahmin Yöntemi"
+    },
+    {
+      "en": "Simplicity",
+      "ru": "Простота",
+      "tr": "Basitlik"
+    },
+    {
+      "en": "Fragmentation Simplicity Level",
+      "ru": "Уровень простоты фрагментации",
+      "tr": "Parçalanma Basitlik Seviyesi"
+    },
+    {
+      "en": "Order",
+      "ru": "Порядок",
+      "tr": "Derece"
+    },
+    {
+      "en": "Maximum Group Order",
+      "ru": "Максимальный порядок группы",
+      "tr": "Maksimum Grup Derecesi"
+    },
+    {
+      "en": "Tb",
+      "ru": "Tb",
+      "tr": "Tb"
+    },
+    {
+      "en": "Boiling Point (K)",
+      "ru": "Температура кипения (K)",
+      "tr": "Kaynama Noktası (K)"
+    },
+    {
+      "en": "Tb_corr",
+      "ru": "Tb_корр",
+      "tr": "Tb_düz"
+    },
+    {
+      "en": "Corrected Boiling Point (K)",
+      "ru": "Скорректированная температура кипения (K)",
+      "tr": "Düzeltilmiş Kaynama Noktası (K)"
+    },
+    {
+      "en": "Tc",
+      "ru": "Tc",
+      "tr": "Tc"
+    },
+    {
+      "en": "Critical Temperature (K)",
+      "ru": "Критическая температура (K)",
+      "tr": "Kritik Sıcaklık (K)"
+    },
+    {
+      "en": "Pc",
+      "ru": "Pc",
+      "tr": "Pc"
+    },
+    {
+      "en": "Critical Pressure (bar)",
+      "ru": "Критическое давление (бар)",
+      "tr": "Kritik Basınç (bar)"
+    },
+    {
+      "en": "Vc",
+      "ru": "Vc",
+      "tr": "Vc"
+    },
+    {
+      "en": "Critical Volume (cm³/mol)",
+      "ru": "Критический объем (см³/моль)",
+      "tr": "Kritik Hacim (cm³/mol)"
+    },
+    {
+      "en": "dD",
+      "ru": "dD",
+      "tr": "dD"
+    },
+    {
+      "en": "Dispersion Component (√MPa)",
+      "ru": "Дисперсионная компонента (√МПа)",
+      "tr": "Dispersiyon Bileşeni (√MPa)"
+    },
+    {
+      "en": "dP",
+      "ru": "dP",
+      "tr": "dP"
+    },
+    {
+      "en": "Polarity Component (√MPa)",
+      "ru": "Компонента полярности (√МПа)",
+      "tr": "Polarite Bileşeni (√MPa)"
+    },
+    {
+      "en": "dHB",
+      "ru": "dHB",
+      "tr": "dHB"
+    },
+    {
+      "en": "Hydrogen Bonding Component (√MPa)",
+      "ru": "Компонента водородной связи (√МПа)",
+      "tr": "Hidrojen Bağı Bileşeni (√MPa)"
+    },
+    {
+      "en": "VDW",
+      "ru": "VDW",
+      "tr": "VDW"
+    },
+    {
+      "en": "Van der Waals Volume (cm³/mol)",
+      "ru": "Объем Ван-дер-Ваальса (см³/моль)",
+      "tr": "Van der Waals Hacmi (cm³/mol)"
+    },
+    {
+      "en": "Boiling Point",
+      "ru": "Точка кипения",
+      "tr": "Kaynama Noktası"
+    },
+    {
+      "en": "Boiling Point Estimation",
+      "ru": "Оценка температуры кипения",
+      "tr": "Kaynama Noktası Tahmini"
+    },
+    {
+      "en": "Critical Parameters",
+      "ru": "Критические параметры",
+      "tr": "Kritik Parametreler"
+    },
+    {
+      "en": "Critical Parameters Estimation",
+      "ru": "Оценка критических параметров",
+      "tr": "Kritik Parametreler Tahmini"
+    },
+    {
+      "en": "Hansen Solubility Parameters",
+      "ru": "Параметры растворимости Хансена",
+      "tr": "Hansen Çözünürlük Parametreleri"
+    },
+    {
+      "en": "Hansen Solubility Parameters Estimation",
+      "ru": "Оценка параметров растворимости Хансена",
+      "tr": "Hansen Çözünürlük Parametreleri Tahmini"
+    },
+    {
+      "en": "Auto",
+      "ru": "Авто",
+      "tr": "Otomatik"
+    },
+    {
+      "en": "Automatic",
+      "ru": "Автоматический",
+      "tr": "Otomatik"
+    },
+    {
+      "en": "Simple",
+      "ru": "Простой",
+      "tr": "Basit"
+    },
+    {
+      "en": "Normal",
+      "ru": "Нормальный",
+      "tr": "Normal"
+    },
+    {
+      "en": "Complex",
+      "ru": "Сложный",
+      "tr": "Karmaşık"
+    },
+    {
+      "en": "Value",
+      "ru": "Значение",
+      "tr": "Değer"
+    },
+    {
+      "en": "Numeric Value",
+      "ru": "Числовое значение",
+      "tr": "Sayısal Değer"
+    },
+    {
+      "en": "Category",
+      "ru": "Категория",
+      "tr": "Kategori"
+    },
+    {
+      "en": "Parameter Category",
+      "ru": "Категория параметра",
+      "tr": "Parametre Kategorisi"
+    },
+    {
+      "en": "Van der Waals Volume",
+      "ru": "Объем Ван-дер-Ваальса",
+      "tr": "Van der Waals Hacmi"
+    },
+    {
+      "en": "Occurrences",
+      "ru": "Вхождения",
+      "tr": "Tekrar Sayısı"
+    },
+    {
+      "en": "Functional Group Name",
+      "ru": "Название функциональной группы",
+      "tr": "Fonksiyonel Grup Adı"
+    },
+    {
+      "en": "Group Identifier",
+      "ru": "Идентификатор группы",
+      "tr": "Grup Tanımlayıcı"
+    },
+    {
+      "en": "Number of Occurrences",
+      "ru": "Количество вхождений",
+      "tr": "Tekrar Sayısı"
+    },
+    {
+      "en": "Tb_cont",
+      "ru": "Вклад_Tb",
+      "tr": "Tb_katkı"
+    },
+    {
+      "en": "Sum_Tb",
+      "ru": "Сумма_Tb",
+      "tr": "Toplam_Tb"
+    },
+    {
+      "en": "Boiling Point Contribution",
+      "ru": "Вклад температуры кипения",
+      "tr": "Kaynama Noktası Katkısı"
+    },
+    {
+      "en": "Total Tb Contribution",
+      "ru": "Общий вклад Tb",
+      "tr": "Toplam Tb Katkısı"
+    },
+    {
+      "en": "Tc_cont",
+      "ru": "Вклад_Tc",
+      "tr": "Tc_katkı"
+    },
+    {
+      "en": "Sum_Tc",
+      "ru": "Сумма_Tc",
+      "tr": "Toplam_Tc"
+    },
+    {
+      "en": "Tc Contribution",
+      "ru": "Вклад критической температуры",
+      "tr": "Kritik Sıcaklık Katkısı"
+    },
+    {
+      "en": "Total Tc Contribution",
+      "ru": "Общий вклад Tc",
+      "tr": "Toplam Tc Katkısı"
+    },
+    {
+      "en": "Pc_cont",
+      "ru": "Вклад_Pc",
+      "tr": "Pc_katkı"
+    },
+    {
+      "en": "Sum_Pc",
+      "ru": "Сумма_Pc",
+      "tr": "Toplam_Pc"
+    },
+    {
+      "en": "Pc Contribution",
+      "ru": "Вклад критического давления",
+      "tr": "Kritik Basınç Katkısı"
+    },
+    {
+      "en": "Total Pc Contribution",
+      "ru": "Общий вклад Pc",
+      "tr": "Toplam Pc Katkısı"
+    },
+    {
+      "en": "Vc_cont",
+      "ru": "Вклад_Vc",
+      "tr": "Vc_katkı"
+    },
+    {
+      "en": "Sum_Vc",
+      "ru": "Сумма_Vc",
+      "tr": "Toplam_Vc"
+    },
+    {
+      "en": "Vc Contribution",
+      "ru": "Вклад критического объема",
+      "tr": "Kritik Hacim Katkısı"
+    },
+    {
+      "en": "Total Vc Contribution",
+      "ru": "Общий вклад Vc",
+      "tr": "Toplam Vc Katkısı"
+    },
+    {
+      "en": "dD_cont",
+      "ru": "Вклад_dD",
+      "tr": "dD_katkı"
+    },
+    {
+      "en": "Sum_dD",
+      "ru": "Сумма_dD",
+      "tr": "Toplam_dD"
+    },
+    {
+      "en": "dD Contribution",
+      "ru": "Вклад дисперсионной компоненты",
+      "tr": "Dispersiyon Bileşeni Katkısı"
+    },
+    {
+      "en": "Total dD Contribution",
+      "ru": "Общий вклад dD",
+      "tr": "Toplam dD Katkısı"
+    },
+    {
+      "en": "dP_cont",
+      "ru": "Вклад_dP",
+      "tr": "dP_katkı"
+    },
+    {
+      "en": "Sum_dP",
+      "ru": "Сумма_dP",
+      "tr": "Toplam_dP"
+    },
+    {
+      "en": "dP Contribution",
+      "ru": "Вклад компоненты полярности",
+      "tr": "Polarite Bileşeni Katkısı"
+    },
+    {
+      "en": "Total dP Contribution",
+      "ru": "Общий вклад dP",
+      "tr": "Toplam dP Katkısı"
+    },
+    {
+      "en": "dHB_cont",
+      "ru": "Вклад_dHB",
+      "tr": "dHB_katkı"
+    },
+    {
+      "en": "Sum_dHB",
+      "ru": "Сумма_dHB",
+      "tr": "Toplam_dHB"
+    },
+    {
+      "en": "dHB Contribution",
+      "ru": "Вклад водородной связи",
+      "tr": "Hidrojen Bağı Katkısı"
+    },
+    {
+      "en": "Total dHB Contribution",
+      "ru": "Общий вклад dHB",
+      "tr": "Toplam dHB Katkısı"
+    },
+    {
+      "en": "VDW_cont",
+      "ru": "Вклад_VDW",
+      "tr": "VDW_katkı"
+    },
+    {
+      "en": "Sum_VDW",
+      "ru": "Сумма_VDW",
+      "tr": "Toplam_VDW"
+    },
+    {
+      "en": "VDW Contribution",
+      "ru": "Вклад объема Ван-дер-Ваальса",
+      "tr": "Van der Waals Hacim Katkısı"
+    },
+    {
+      "en": "Total VDW Contribution",
+      "ru": "Общий вклад VDW",
+      "tr": "Toplam VDW Katkısı"
+    },
+    {
+      "en": "Boiling Point (Tb) Contributions",
+      "ru": "Вклады в температуру кипения (Tb)",
+      "tr": "Kaynama Noktası (Tb) Katkıları"
+    },
+    {
+      "en": "Critical Parameters Contributions",
+      "ru": "Вклады в критические параметры",
+      "tr": "Kritik Parametreler Katkıları"
+    },
+    {
+      "en": "Hansen Solubility Parameters (HSP) Contributions",
+      "ru": "Вклады в параметры растворимости Хансена (HSP)",
+      "tr": "Hansen Çözünürlük Parametreleri (HSP) Katkıları"
+    },
+    {
+      "en": "Van der Waals Volume Contributions",
+      "ru": "Вклады в объем Ван-дер-Ваальса",
+      "tr": "Van der Waals Hacim Katkıları"
+    },
+    {
+      "en": "dP_low_cont",
+      "ru": "Вклад_dP_низ",
+      "tr": "dP_düşük_katkı"
+    },
+    {
+      "en": "Sum_dP_low",
+      "ru": "Сумма_dP_низ",
+      "tr": "Toplam_dP_düşük"
+    },
+    {
+      "en": "dP Low Contribution",
+      "ru": "Вклад низкой полярности",
+      "tr": "Düşük Polarite Katkısı"
+    },
+    {
+      "en": "Total dP Low Contribution",
+      "ru": "Общий вклад низкой полярности",
+      "tr": "Toplam Düşük Polarite Katkısı"
+    },
+    {
+      "en": "dHB_low_cont",
+      "ru": "Вклад_dHB_низ",
+      "tr": "dHB_düşük_katkı"
+    },
+    {
+      "en": "Sum_dHB_low",
+      "ru": "Сумма_dHB_низ",
+      "tr": "Toplam_dHB_düşük"
+    },
+    {
+      "en": "dHB Low Contribution",
+      "ru": "Вклад низкой водородной связи",
+      "tr": "Düşük Hidrojen Bağı Katkısı"
+    },
+    {
+      "en": "Total dHB Low Contribution",
+      "ru": "Общий вклад низкой водородной связи",
+      "tr": "Toplam Düşük Hidrojen Bağı Katkısı"
+    },
+    {
+      "en": "GCM Comparison for",
+      "ru": "Сравнение МГВ для",
+      "tr": "GCM Karşılaştırması:"
+    },
+    {
+      "en": "Unknown Solute",
+      "ru": "Неизвестный растворитель",
+      "tr": "Bilinmeyen Çözünen"
+    },
+    {
+      "en": "Single group contribution to boiling point",
+      "ru": "Вклад одной группы в температуру кипения",
+      "tr": "Tek grup kaynama noktası katkısı"
+    },
+    {
+      "en": "Cumulative contribution (group × occurrences)",
+      "ru": "Суммарный вклад (группа × повторения)",
+      "tr": "Kümülatif katkı (grup × tekrar sayısı)"
+    },
+    {
+      "en": "Single group contribution to critical temperature",
+      "ru": "Вклад одной группы в критическую температуру",
+      "tr": "Tek grup kritik sıcaklık katkısı"
+    },
+    {
+      "en": "Single group contribution to critical pressure",
+      "ru": "Вклад одной группы в критическое давление",
+      "tr": "Tek grup kritik basınç katkısı"
+    },
+    {
+      "en": "Single group contribution to critical volume",
+      "ru": "Вклад одной группы в критический объем",
+      "tr": "Tek grup kritik hacim katkısı"
+    },
+    {
+      "en": "Single group contribution to dispersion parameter",
+      "ru": "Вклад одной группы в параметр дисперсии",
+      "tr": "Tek grup dispersiyon parametresi katkısı"
+    },
+    {
+      "en": "Single group contribution to polarity parameter",
+      "ru": "Вклад одной группы в параметр полярности",
+      "tr": "Tek grup polarite parametresi katkısı"
+    },
+    {
+      "en": "Single group contribution to hydrogen bonding parameter",
+      "ru": "Вклад одной группы в параметр водородной связи",
+      "tr": "Tek grup hidrojen bağı parametresi katkısı"
+    },
+    {
+      "en": "Single group contribution to polarity parameter (low)",
+      "ru": "Вклад одной группы в параметр полярности (низкий)",
+      "tr": "Tek grup polarite parametresi katkısı (düşük)"
+    },
+    {
+      "en": "Single group contribution to hydrogen bonding parameter (low)",
+      "ru": "Вклад одной группы в параметр водородной связи (низкий)",
+      "tr": "Tek grup hidrojen bağı parametresi katkısı (düşük)"
+    },
+    {
+      "en": "Single group contribution to Van der Waals volume",
+      "ru": "Вклад одной группы в объем Ван-дер-Ваальса",
+      "tr": "Tek grup Van der Waals hacmi katkısı"
+    },
+    {
+      "en": "Group",
+      "ru": "Группа",
+      "tr": "Grup"
+    },
+    {
+      "en": "ID",
+      "ru": "ID",
+      "tr": "ID"
+    },
+    {
+      "en": "Group Order",
+      "ru": "Порядок группы",
+      "tr": "Grup Derecesi"
+    },
+    {
+      "en": "Hukkerikar-Stepwise",
+      "ru": "Hukkerikar-Stepwise",
+      "tr": "Hukkerikar-Stepwise"
+    },
+    {
+      "en": "Hukkerikar-Simultaneous",
+      "ru": "Hukkerikar-Simultaneous",
+      "tr": "Hukkerikar-Simultaneous"
+    }
+  ]
+}

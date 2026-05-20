@@ -1,0 +1,18 @@
+{
+  "display_name": "Thymoquinone | NL04-JR-SP08 | 14:07",
+  "parameters": {
+    "cas_input": "490-91-5",
+    "name_input": "Thymoquinone",
+    "smiles_input": "CC(C)C1=CC(=O)C(C)=CC1=O",
+    "specify_smiles": false,
+    "gcm_tb": "NL04",
+    "gcm_crit": "JR",
+    "gcm_hsp": "SP08",
+    "gcm_simplicity": "simple",
+    "gcm_gorder": 0
+  },
+  "metadata": {
+    "created_date": "2025-12-19 14:07:08",
+    "app_version": "0.9.0"
+  }
+}

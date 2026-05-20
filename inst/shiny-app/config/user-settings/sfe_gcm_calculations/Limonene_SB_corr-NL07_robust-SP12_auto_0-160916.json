@@ -1,0 +1,18 @@
+{
+  "display_name": "Limonene | SB_corr-NL07_robust-SP12 | 16:09",
+  "parameters": {
+    "cas_input": "5989-54-8",
+    "name_input": "Limonene",
+    "smiles_input": "",
+    "specify_smiles": false,
+    "gcm_tb": "SB_corr",
+    "gcm_crit": "NL07_robust",
+    "gcm_hsp": "SP12",
+    "gcm_simplicity": "auto",
+    "gcm_gorder": 0
+  },
+  "metadata": {
+    "created_date": "2025-11-04 16:09:16",
+    "app_version": "0.9.0"
+  }
+}

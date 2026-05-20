@@ -1,0 +1,1519 @@
+{
+  "translation": [
+    {
+      "en": "Please load data before calculating.",
+      "ru": "Пожалуйста, загрузите данные перед расчётом.",
+      "tr": "Lütfen hesaplamadan önce veri yükleyin."
+    },
+    {
+      "en": "Time and Response columns must be different.",
+      "ru": "Столбцы времени и отклика должны быть разными.",
+      "tr": "Zaman ve Yanıt sütunları farklı olmalıdır."
+    },
+    {
+      "en": "Data validation failed. Please check your data and variable selections.",
+      "ru": "Проверка данных не удалась. Пожалуйста, проверьте данные и выбор переменных.",
+      "tr": "Veri doğrulama başarısız. Lütfen verilerinizi ve değişken seçimlerinizi kontrol edin."
+    },
+    {
+      "en": "Example data loaded successfully!",
+      "ru": "Пример данных успешно загружен!",
+      "tr": "Örnek veriler başarıyla yüklendi!"
+    },
+    {
+      "en": "Example data file not found.",
+      "ru": "Файл примера данных не найден.",
+      "tr": "Örnek veri dosyası bulunamadı."
+    },
+    {
+      "en": "Data cleared.",
+      "ru": "Данные очищены.",
+      "tr": "Veriler temizlendi."
+    },
+    {
+      "en": "Mass",
+      "ru": "Масса",
+      "tr": "Kütle"
+    },
+    {
+      "en": "Volume",
+      "ru": "Объём",
+      "tr": "Hacim"
+    },
+    {
+      "en": "Toggle between mass and volume flow rate",
+      "ru": "Переключение между массовым и объёмным расходом",
+      "tr": "Kütle ve hacim akış hızı arasında geçiş yap"
+    },
+    {
+      "en": "Clear",
+      "ru": "Очистить",
+      "tr": "Temizle"
+    },
+    {
+      "en": "Clear current data",
+      "ru": "Очистить текущие данные",
+      "tr": "Mevcut verileri temizle"
+    },
+    {
+      "en": "Load Example",
+      "ru": "Загрузить пример",
+      "tr": "Örnek Yükle"
+    },
+    {
+      "en": "Load example data",
+      "ru": "Загрузить пример данных",
+      "tr": "Örnek veri yükle"
+    },
+    {
+      "en": "Kinetic Model Parameters",
+      "ru": "Параметры кинетической модели",
+      "tr": "Kinetik Model Parametreleri"
+    },
+    {
+      "en": "Input Data",
+      "ru": "Входные данные",
+      "tr": "Giriş Verileri"
+    },
+    {
+      "en": "OEC Variables",
+      "ru": "Переменные OEC",
+      "tr": "OEC Değişkenleri"
+    },
+    {
+      "en": "Time Variable (e.g., Time_min)",
+      "ru": "Переменная времени (например, Time_min)",
+      "tr": "Zaman Değişkeni (örn., Time_min)"
+    },
+    {
+      "en": "Response Variable (e.g., Yield_100C)",
+      "ru": "Переменная отклика (например, Yield_100C)",
+      "tr": "Yanıt Değişkeni (örn., Yield_100C)"
+    },
+    {
+      "en": "Solvent Variable (Optional, e.g., Solvent_mL)",
+      "ru": "Переменная растворителя (необязательно, например, Solvent_mL)",
+      "tr": "Çözücü Değişkeni (İsteğe Bağlı, örn., Solvent_mL)"
+    },
+    {
+      "en": "Process Parameters",
+      "ru": "Параметры процесса",
+      "tr": "İşlem Parametreleri"
+    },
+    {
+      "en": "Fitted Parameters",
+      "ru": "Подогнанные параметры",
+      "tr": "Uyumlaştırılan Parametreler"
+    },
+    {
+      "en": "Model Statistics",
+      "ru": "Статистика модели",
+      "tr": "Model İstatistikleri"
+    },
+    {
+      "en": "Observed vs Predicted Data",
+      "ru": "Наблюдаемые vs предсказанные данные",
+      "tr": "Gözlenen vs Tahmin Edilen Veriler"
+    },
+    {
+      "en": "Flow Rate Meas. Temp (°C)",
+      "ru": "Темп. измер. расхода (°C)",
+      "tr": "Akış Hızı Ölçüm Sıcaklığı (°C)"
+    },
+    {
+      "en": "Flow Rate Meas. Pres (bar)",
+      "ru": "Давл. измер. расхода (bar)",
+      "tr": "Akış Hızı Ölçüm Basıncı (bar)"
+    },
+    {
+      "en": "Water Density (g/L)",
+      "ru": "Плотность воды (г/л)",
+      "tr": "Su Yoğunluğu (g/L)"
+    },
+    {
+      "en": "Max Time (min) (optional)",
+      "ru": "Макс. время (мин) (опционально)",
+      "tr": "Maks. Süre (dak) (İsteğe bağlı)"
+    },
+    {
+      "en": "Max Q (optional)",
+      "ru": "Макс. Q (опционально)",
+      "tr": "Maks. Q (İsteğe bağlı)"
+    },
+    {
+      "en": "Max Time for Predictions (min)",
+      "ru": "Макс. время для прогнозов (мин)",
+      "tr": "Tahminler İçin Maks. Süre (dak)"
+    },
+    {
+      "en": "Pressure (bar)",
+      "ru": "Давление (бар)",
+      "tr": "Basınç (bar)"
+    },
+    {
+      "en": "Temperature (°C)",
+      "ru": "Температура (°C)",
+      "tr": "Sıcaklık (°C)"
+    },
+    {
+      "en": "Mass of Raw Material (g)",
+      "ru": "Масса сырья (г)",
+      "tr": "Hammadde Kütlesi (g)"
+    },
+    {
+      "en": "Max Possible Yield (units of response)",
+      "ru": "Максимально возможный выход (единицы отклика)",
+      "tr": "Maksimum Olası Verim (yanıt birimleri)"
+    },
+    {
+      "en": "Flow Rate (mL/min or g/min)",
+      "ru": "Скорость потока (мл/мин или г/мин)",
+      "tr": "Akış Hızı (mL/dk veya g/dk)"
+    },
+    {
+      "en": "Fraction of Easily Desorbed Solute (F)",
+      "ru": "Доля легко десорбируемого растворенного вещества (F)",
+      "tr": "Kolay Desorbe Edilen Çözünen Madde Kesri (F)"
+    },
+    {
+      "en": "Cumulative Data",
+      "ru": "Кумулятивные данные",
+      "tr": "Kümülatif Veri"
+    },
+    {
+      "en": "Mass Flow Rate",
+      "ru": "Массовый расход",
+      "tr": "Kütle Akış Hızı"
+    },
+    {
+      "en": "Model Parameters",
+      "ru": "Параметры модели",
+      "tr": "Model Parametreleri"
+    },
+    {
+      "en": "Initial k1 Estimate",
+      "ru": "Начальная оценка k1",
+      "tr": "Başlangıç k1 Tahmini"
+    },
+    {
+      "en": "Initial k2 Estimate",
+      "ru": "Начальная оценка k2",
+      "tr": "Başlangıç k2 Tahmini"
+    },
+    {
+      "en": "Initial F Estimate (If not included in Process Parameters)",
+      "ru": "Начальная оценка F (если не включена в параметры процесса)",
+      "tr": "Başlangıç F Tahmini (Proses Parametrelerine dahil değilse)"
+    },
+    {
+      "en": "Optimization Method",
+      "ru": "Метод оптимизации",
+      "tr": "Optimizasyon Yöntemi"
+    },
+    {
+      "en": "Flow Units (e.g., mL/min, g/min)",
+      "ru": "Единицы потока (например, мл/мин, г/мин)",
+      "tr": "Akış Birimleri (örn., mL/dk, g/dk)"
+    },
+    {
+      "en": "Response Units (e.g., permille, g)",
+      "ru": "Единицы отклика (например, промилле, г)",
+      "tr": "Yanıt Birimleri (örn., permille, g)"
+    },
+    {
+      "en": "Plot X-axis Units (time or q)",
+      "ru": "Единицы оси X графика (время или q)",
+      "tr": "Grafik X ekseni Birimleri (zaman veya q)"
+    },
+    {
+      "en": "Plot Y-axis Units (abs or cc0)",
+      "ru": "Единицы оси Y графика (abs veya cc0)",
+      "tr": "Grafik Y ekseni Birimleri (abs veya cc0)"
+    },
+    {
+      "en": "Model Plot",
+      "ru": "График модели",
+      "tr": "Model Grafiği"
+    },
+    {
+      "en": "Model Summary",
+      "ru": "Сводка модели",
+      "tr": "Model Özeti"
+    },
+    {
+      "en": "Model Data",
+      "ru": "Данные модели",
+      "tr": "Model Verileri"
+    },
+    {
+      "en": "Predictions",
+      "ru": "Прогнозы",
+      "tr": "Tahminler"
+    },
+    {
+      "en": "Prediction Inputs",
+      "ru": "Входные данные для прогнозирования",
+      "tr": "Tahmin Girişleri"
+    },
+    {
+      "en": "New Time Values (comma-separated)",
+      "ru": "Новые значения времени (через запятую)",
+      "tr": "Yeni Zaman Değerleri (virgülle ayrılmış)"
+    },
+    {
+      "en": "Calculate Yields",
+      "ru": "Рассчитать выходы",
+      "tr": "Verimleri Hesapla"
+    },
+    {
+      "en": "Moisture Content (%) (Optional)",
+      "ru": "Влажность (%) (необязательно)",
+      "tr": "Nem İçeriği (%) (İsteğe Bağlı)"
+    },
+    {
+      "en": "Calculate Predictions",
+      "ru": "Рассчитать прогнозы",
+      "tr": "Tahminleri Hesapla"
+    },
+    {
+      "en": "Prediction Results",
+      "ru": "Результаты прогнозирования",
+      "tr": "Tahmin Sonuçları"
+    },
+    {
+      "en": "Model Validity",
+      "ru": "Достоверность модели",
+      "tr": "Model Geçerliliği"
+    },
+    {
+      "en": "1. Data Source",
+      "ru": "1. Источник данных",
+      "tr": "1. Veri Kaynağı"
+    },
+    {
+      "en": "2. Data Preview",
+      "ru": "2. Предпросмотр данных",
+      "tr": "2. Veri Önizleme"
+    },
+    {
+      "en": "Upload a CSV file or enter data manually to preview.",
+      "ru": "Загрузите CSV-файл или введите данные вручную для предпросмотра.",
+      "tr": "Önizleme için bir CSV dosyası yükleyin veya verileri manuel olarak girin."
+    },
+    {
+      "en": "Upload a CSV file to preview data.",
+      "ru": "Загрузите CSV-файл для предпросмотра данных.",
+      "tr": "Verileri önizlemek için bir CSV dosyası yükleyin."
+    },
+    {
+      "en": "Click in the table to start entering data.",
+      "ru": "Нажмите на таблицу, чтобы начать ввод данных.",
+      "tr": "Veri girmeye başlamak için tabloya tıklayın."
+    },
+    {
+      "en": "3. Variables & Options",
+      "ru": "3. Переменные и опции",
+      "tr": "3. Değişkenler ve Seçenekler"
+    },
+    {
+      "en": "Use Solvent Data",
+      "ru": "Использовать данные растворителя",
+      "tr": "Çözücü Verisi Kullan"
+    },
+    {
+      "en": "Time",
+      "ru": "Время",
+      "tr": "Zaman"
+    },
+    {
+      "en": "Response",
+      "ru": "Отклик",
+      "tr": "Yanıt"
+    },
+    {
+      "en": "Solvent",
+      "ru": "Растворитель",
+      "tr": "Çözücü"
+    },
+    {
+      "en": "Data Preview",
+      "ru": "Предпросмотр данных",
+      "tr": "Veri Önizleme"
+    },
+    {
+      "en": "Download",
+      "ru": "Скачать",
+      "tr": "İndir"
+    },
+    {
+      "en": "Rename",
+      "ru": "Переименовать",
+      "tr": "Yeniden adlandır"
+    },
+    {
+      "en": "New name",
+      "ru": "Новое имя",
+      "tr": "Yeni ad"
+    },
+    {
+      "en": "Rename column",
+      "ru": "Переименовать столбец",
+      "tr": "Sütunu yeniden adlandır"
+    },
+    {
+      "en": "Please select a column and enter a new name.",
+      "ru": "Пожалуйста, выберите столбец и введите новое имя.",
+      "tr": "Lütfen bir sütun seçin ve yeni bir ad girin."
+    },
+    {
+      "en": "Column not found.",
+      "ru": "Столбец не найден.",
+      "tr": "Sütun bulunamadı."
+    },
+    {
+      "en": "A column with this name already exists.",
+      "ru": "Столбец с таким именем уже существует.",
+      "tr": "Bu ada sahip bir sütun zaten mevcut."
+    },
+    {
+      "en": "Column renamed: %s → %s",
+      "ru": "Столбец переименован: %s → %s",
+      "tr": "Sütun yeniden adlandırıldı: %s → %s"
+    },
+    {
+      "en": "Duplicate column warning:",
+      "ru": "Предупреждение о дублировании столбцов:",
+      "tr": "Yinelenen sütun uyarısı:"
+    },
+    {
+      "en": "Column '%s' is selected in multiple fields.",
+      "ru": "Столбец '%s' выбран в нескольких полях.",
+      "tr": "'%s' sütunu birden fazla alanda seçilmiş."
+    },
+    {
+      "en": "Insufficient columns:",
+      "ru": "Недостаточно столбцов:",
+      "tr": "Yetersiz sütun:"
+    },
+    {
+      "en": "Data must have at least 2 columns (Time and Response).",
+      "ru": "Данные должны содержать минимум 2 столбца (Время и Отклик).",
+      "tr": "Veri en az 2 sütun içermelidir (Zaman ve Yanıt)."
+    },
+    {
+      "en": "Need 3+ columns",
+      "ru": "Нужно 3+ столбца",
+      "tr": "3+ sütun gerekli"
+    },
+    {
+      "en": "Add more columns to enable solvent selection.",
+      "ru": "Добавьте больше столбцов для выбора растворителя.",
+      "tr": "Çözücü seçimini etkinleştirmek için daha fazla sütun ekleyin."
+    },
+    {
+      "en": "No columns available",
+      "ru": "Нет доступных столбцов",
+      "tr": "Kullanılabilir sütun yok"
+    },
+    {
+      "en": "All columns are in use. Add more columns to data.",
+      "ru": "Все столбцы используются. Добавьте больше столбцов в данные.",
+      "tr": "Tüm sütunlar kullanımda. Verilere daha fazla sütun ekleyin."
+    },
+    {
+      "en": "Data mismatch warning:",
+      "ru": "Предупреждение о несоответствии данных:",
+      "tr": "Veri uyuşmazlığı uyarısı:"
+    },
+    {
+      "en": "The 'Cumulative Data' setting will be ignored and the data will be treated as non-cumulative.",
+      "ru": "Настройка 'Кумулятивные данные' будет проигнорирована, и данные будут обработаны как некумулятивные.",
+      "tr": "'Kümülatif Veri' ayarı göz ardı edilecek ve veriler kümülatif olmayan olarak işlenecektir."
+    },
+    {
+      "en": "Response data does not appear to be cumulative (contains decreasing values).",
+      "ru": "Данные отклика не являются кумулятивными (содержат убывающие значения).",
+      "tr": "Yanıt verileri kümülatif görünmüyor (azalan değerler içeriyor)."
+    },
+    {
+      "en": "Response data appears to be cumulative (monotonically increasing).",
+      "ru": "Данные отклика являются кумулятивными (монотонно возрастают).",
+      "tr": "Yanıt verileri kümülatif görünüyor (monoton artan)."
+    },
+    {
+      "en": "Solvent data does not appear to be cumulative (contains decreasing values).",
+      "ru": "Данные о растворителе не являются кумулятивными (содержат убывающие значения).",
+      "tr": "Çözücü verileri kümülatif görünmüyor (azalan değerler içeriyor)."
+    },
+    {
+      "en": "Solvent data appears to be cumulative (monotonically increasing).",
+      "ru": "Данные о растворителе являются кумулятивными (монотонно возрастают).",
+      "tr": "Çözücü verileri kümülatif görünüyor (monoton artan)."
+    },
+    {
+      "en": "Solvent Data Provided:",
+      "ru": "Предоставлены данные о растворителе:",
+      "tr": "Çözücü Verisi Sağlandı:"
+    },
+    {
+      "en": "When a Solvent column is selected, the values must represent the amount of solvent expended (cumulative or per interval). The units are determined by the 'Mass Flow Rate' checkbox above.",
+      "ru": "Когда выбран столбец Растворителя, значения должны представлять количество израсходованного растворителя (кумулятивно или за интервал). Единицы определяются флажком 'Массовый расход' выше.",
+      "tr": "Bir Çözücü sütunu seçildiğinde, değerler harcanan çözücü miktarını (kümülatif veya aralık başına) temsil etmelidir. Birimler yukarıdaki 'Kütle Akış Hızı' onay kutusu tarafından belirlenir."
+    },
+    {
+      "en": "Current solvent units:",
+      "ru": "Текущие единицы растворителя:",
+      "tr": "Mevcut çözücü birimleri:"
+    },
+    {
+      "en": "(grams)",
+      "ru": "(граммы)",
+      "tr": "(gram)"
+    },
+    {
+      "en": "(milliliters)",
+      "ru": "(миллилитры)",
+      "tr": "(mililitre)"
+    },
+    {
+      "en": "Flow Rate is disabled because solvent consumption data is provided in the input.",
+      "ru": "Расход отключён, так как данные о потреблении растворителя предоставлены во входных данных.",
+      "tr": "Akış hızı devre dışı çünkü girdide çözücü tüketim verisi sağlanmış."
+    },
+    {
+      "en": "Flow Parameters",
+      "ru": "Параметры потока",
+      "tr": "Akış Parametreleri"
+    },
+    {
+      "en": "Flow Measurement Pressure (bar)",
+      "ru": "Давление измерения расхода (бар)",
+      "tr": "Akış Ölçüm Basıncı (bar)"
+    },
+    {
+      "en": "Flow Measurement Temperature (°C)",
+      "ru": "Температура измерения расхода (°C)",
+      "tr": "Akış Ölçüm Sıcaklığı (°C)"
+    },
+    {
+      "en": "Advanced Parameters",
+      "ru": "Расширенные параметры",
+      "tr": "Gelişmiş Parametreler"
+    },
+    {
+      "en": "Manual Input",
+      "ru": "Ручной ввод",
+      "tr": "Manuel Giriş"
+    },
+    {
+      "en": "Error loading CSV:",
+      "ru": "Ошибка загрузки CSV:",
+      "tr": "CSV yükleme hatası:"
+    },
+    {
+      "en": "Select the parameters and run the calculation to see results.",
+      "ru": "Выберите параметры и запустите расчёт для просмотра результатов.",
+      "tr": "Parametreleri seçin ve sonuçları görmek için hesaplamayı çalıştırın."
+    },
+    {
+      "en": "grams",
+      "ru": "граммы",
+      "tr": "gram"
+    },
+    {
+      "en": "Maximum Yield",
+      "ru": "Максимальный выход",
+      "tr": "Maksimum Verim"
+    },
+    {
+      "en": "Maximum Yield was adjusted to the valid range.",
+      "ru": "Максимальный выход скорректирован до допустимого диапазона.",
+      "tr": "Maksimum verim geçerli aralığa ayarlandı."
+    },
+    {
+      "en": "Maximum Yield",
+      "ru": "Максимальный выход",
+      "tr": "Maksimum Verim"
+    },
+    {
+      "en": "Robust Non-Linear (Local)",
+      "ru": "Робастный нелинейный (локальный)",
+      "tr": "Gürbüz Doğrusal Olmayan (Lokal)"
+    },
+    {
+      "en": "Non-Linear (Global)",
+      "ru": "Нелинейный (глобальный)",
+      "tr": "Doğrusal Olmayan (Global)"
+    },
+    {
+      "en": "S/M Ratio",
+      "ru": "Соотношение Р/С",
+      "tr": "Ç/M Oranı"
+    },
+    {
+      "en": "Fractional Yield",
+      "ru": "Относительный выход",
+      "tr": "Fraksiyonel Verim"
+    },
+    {
+      "en": "Initial",
+      "ru": "Начальное",
+      "tr": "Başlangıç"
+    },
+    {
+      "en": "Estimate",
+      "ru": "Коэффициент",
+      "tr": "Tahmini"
+    },
+    {
+      "en": "Fraction of Easily Desorbed Solute",
+      "ru": "Доля легко десорбируемого вещества",
+      "tr": "Kolay Desorbe Edilen Çözünen Kesri"
+    },
+    {
+      "en": "Value provided in Process Parameters",
+      "ru": "Значение указано в Параметрах процесса",
+      "tr": "İşlem Parametrelerinde değer verildi"
+    },
+    {
+      "en": "Max Time (min)",
+      "ru": "Макс. время (мин)",
+      "tr": "Maks. Süre (dk)"
+    },
+    {
+      "en": "Max",
+      "ru": "Макс.",
+      "tr": "Maks."
+    },
+    {
+      "en": "Max Time must be greater than 0.",
+      "ru": "Максимальное время должно быть больше 0.",
+      "tr": "Maksimum süre 0'dan büyük olmalıdır."
+    },
+    {
+      "en": "must be greater than 0.",
+      "ru": "должно быть больше 0.",
+      "tr": "0'dan büyük olmalıdır."
+    },
+    {
+      "en": "Mass of Raw Material cannot be less than Maximum Yield when units are grams.",
+      "ru": "Масса сырья не может быть меньше максимального выхода при единицах в граммах.",
+      "tr": "Hammadde kütlesi, birimler gram olduğunda maksimum verimden az olamaz."
+    },
+    {
+      "en": "Exp:",
+      "ru": "Эксп.:",
+      "tr": "Den.:"
+    },
+    {
+      "en": "Max experimental value:",
+      "ru": "Макс. экспериментальное значение:",
+      "tr": "Maks. deneysel değer:"
+    },
+    {
+      "en": "Default (empty): 120% of max.",
+      "ru": "По умолчанию (пусто): 120% от макс.",
+      "tr": "Varsayılan (boş): maks. değerin %120'si."
+    },
+    {
+      "en": "Default (empty): 120% of max experimental value.",
+      "ru": "По умолчанию (пусто): 120% от максимального экспериментального значения.",
+      "tr": "Varsayılan (boş): maksimum deneysel değerin %120'si."
+    },
+    {
+      "en": "Definite",
+      "ru": "Определённое",
+      "tr": "Kesin"
+    },
+    {
+      "en": "Value",
+      "ru": "значение",
+      "tr": "Değer"
+    },
+    {
+      "en": "Definite value (will not be estimated)",
+      "ru": "Определённое значение (не будет оцениваться)",
+      "tr": "Kesin değer (tahmin edilmeyecek)"
+    },
+    {
+      "en": "Initial estimate (will be optimized)",
+      "ru": "Начальное приближение (будет оптимизировано)",
+      "tr": "Başlangıç tahmini (optimize edilecek)"
+    },
+    {
+      "en": "Solvent Density (g/L)",
+      "ru": "Плотность растворителя (г/л)",
+      "tr": "Çözücü Yoğunluğu (g/L)"
+    },
+    {
+      "en": "Not needed",
+      "ru": "Не требуется",
+      "tr": "Gerekli değil"
+    },
+    {
+      "en": "Optional",
+      "ru": "Необязательно",
+      "tr": "İsteğe bağlı"
+    },
+    {
+      "en": "Only needed for volumetric flow. Leave empty to auto-calculate from pressure and temperature (IAPWS-95).",
+      "ru": "Требуется только для объёмного расхода. Оставьте пустым для автоматического расчёта по давлению и температуре (IAPWS-95).",
+      "tr": "Yalnızca hacimsel akış için gereklidir. Basınç ve sıcaklıktan otomatik hesaplama için boş bırakın (IAPWS-95)."
+    },
+    {
+      "en": "Auto (120% of experimental max)",
+      "ru": "Авто (120% от макс. эксп.)",
+      "tr": "Otomatik (deneysel maks. %120)"
+    },
+    {
+      "en": "Enable custom value",
+      "ru": "Включить своё значение",
+      "tr": "Özel değer gir"
+    },
+    {
+      "en": "Maximum extraction time for model predictions (minutes)",
+      "ru": "Максимальное время экстракции для прогнозов модели (минуты)",
+      "tr": "Model tahminleri için maksimum ekstraksiyon süresi (dakika)"
+    },
+    {
+      "en": "Maximum solvent-to-material mass ratio for model predictions (kg/kg)",
+      "ru": "Максимальное соотношение масс растворитель/сырьё для прогнозов модели (кг/кг)",
+      "tr": "Model tahminleri için maksimum çözücü/malzeme kütle oranı (kg/kg)"
+    },
+    {
+      "en": "Flow Meas. Pressure (bar)",
+      "ru": "Давл. изм. расхода (бар)",
+      "tr": "Akış Ölç. Basıncı (bar)"
+    },
+    {
+      "en": "Flow Meas. Temp. (°C)",
+      "ru": "Темп. изм. расхода (°C)",
+      "tr": "Akış Ölç. Sıcaklığı (°C)"
+    },
+    {
+      "en": "Pressure at which the flow rate was measured. Defaults to extraction pressure.",
+      "ru": "Давление, при котором измерялся расход. По умолчанию равно давлению экстракции.",
+      "tr": "Akış hızının ölçüldüğü basınç. Varsayılan: ekstraksiyon basıncı."
+    },
+    {
+      "en": "Temperature at which the flow rate was measured. Defaults to extraction temperature.",
+      "ru": "Температура, при которой измерялся расход. По умолчанию равна температуре экстракции.",
+      "tr": "Akış hızının ölçüldüğü sıcaklık. Varsayılan: ekstraksiyon sıcaklığı."
+    },
+    {
+      "en": "Same as extraction",
+      "ru": "Как при экстракции",
+      "tr": "Ekstraksiyon ile aynı"
+    },
+    {
+      "en": "Mass Solvent Data",
+      "ru": "Масса растворителя (данные)",
+      "tr": "Kütle Çözücü Verisi"
+    },
+    {
+      "en": "Fitted",
+      "ru": "Подобрано",
+      "tr": "Uydurulmuş"
+    },
+    {
+      "en": "Yes",
+      "ru": "Да",
+      "tr": "Evet"
+    },
+    {
+      "en": "First-order rate constant for fast desorption",
+      "ru": "Константа скорости быстрой десорбции первого порядка",
+      "tr": "Hızlı desorpsiyon birinci derece hız sabiti"
+    },
+    {
+      "en": "First-order rate constant for slow desorption",
+      "ru": "Константа скорости медленной десорбции первого порядка",
+      "tr": "Yavaş desorpsiyon birinci derece hız sabiti"
+    },
+    {
+      "en": "Extraction Times (min)",
+      "ru": "Время экстракции (мин)",
+      "tr": "Ekstraksiyon Süreleri (dk)"
+    },
+    {
+      "en": "Experimental range:",
+      "ru": "Экспериментальный диапазон:",
+      "tr": "Deneysel aralık:"
+    },
+    {
+      "en": "Type time values and press Enter...",
+      "ru": "Введите значения времени и нажмите Enter...",
+      "tr": "Zaman değerlerini yazın ve Enter'a basın..."
+    },
+    {
+      "en": "optional",
+      "ru": "необязательно",
+      "tr": "isteğe bağlı"
+    },
+    {
+      "en": "Moisture content of the raw material (% fresh weight). Used to correct percentage yield predictions from wet to dry weight basis. Leave empty if not applicable.",
+      "ru": "Влажность сырья (% от свежей массы). Используется для коррекции прогнозов процентного выхода с влажной на сухую основу. Оставьте пустым, если неприменимо.",
+      "tr": "Hammaddenin nem içeriği (% yaş ağırlık). Yüzde verim tahminlerini yaş bazdan kuru baza düzeltmek için kullanılır. Uygulanmıyorsa boş bırakın."
+    },
+    {
+      "en": "Convert the predicted fractional yield (c/c0) into mass (g) and percentage (%) yield using the raw material mass and response units from the model.",
+      "ru": "Преобразовать предсказанный дробный выход (c/c0) в массовый (г) и процентный (%) выход, используя массу сырья и единицы отклика модели.",
+      "tr": "Tahmin edilen kesirli verimi (c/c0), modeldeki hammadde kütlesi ve yanıt birimlerini kullanarak kütle (g) ve yüzde (%) verime dönüştürün."
+    },
+    {
+      "en": "Negative time values detected. These will be ignored.",
+      "ru": "Обнаружены отрицательные значения времени. Они будут проигнорированы.",
+      "tr": "Negatif zaman değerleri tespit edildi. Bunlar göz ardı edilecek."
+    },
+    {
+      "en": "One or more time values are outside the experimental range. Predictions may be unreliable (extrapolation).",
+      "ru": "Одно или несколько значений времени выходят за пределы экспериментального диапазона. Прогнозы могут быть ненадёжными (экстраполяция).",
+      "tr": "Bir veya daha fazla zaman değeri deneysel aralığın dışında. Tahminler güvenilir olmayabilir (ekstrapolasyon)."
+    },
+    {
+      "en": "Predictions reset.",
+      "ru": "Прогнозы сброшены.",
+      "tr": "Tahminler sıfırlandı."
+    },
+    {
+      "en": "Predictions are valid for the following process parameters:",
+      "ru": "Прогнозы действительны для следующих параметров процесса:",
+      "tr": "Tahminler aşağıdaki proses parametreleri için geçerlidir:"
+    },
+    {
+      "en": "of",
+      "ru": "—",
+      "tr": "—"
+    },
+    {
+      "en": "Flow rate",
+      "ru": "Расход",
+      "tr": "Akış hızı"
+    },
+    {
+      "en": "Maximum yield",
+      "ru": "Максимальный выход",
+      "tr": "Maksimum verim"
+    },
+    {
+      "en": "The units of flow rate and response are",
+      "ru": "Единицы расхода и отклика —",
+      "tr": "Akış hızı ve yanıt birimleri"
+    },
+    {
+      "en": "respectively",
+      "ru": "соответственно",
+      "tr": "sırasıyla"
+    },
+    {
+      "en": "The calculated percentage yield was calculated on a",
+      "ru": "Расчётный процентный выход рассчитан на",
+      "tr": "Hesaplanan yüzde verim"
+    },
+    {
+      "en": "wet",
+      "ru": "влажной",
+      "tr": "yaş"
+    },
+    {
+      "en": "dry",
+      "ru": "сухой",
+      "tr": "kuru"
+    },
+    {
+      "en": "weight basis",
+      "ru": "основе массы",
+      "tr": "ağırlık bazında hesaplanmıştır"
+    },
+    {
+      "en": "Moisture Content (%)",
+      "ru": "Влажность (%)",
+      "tr": "Nem İçeriği (%)"
+    },
+    {
+      "en": "Sequence Input",
+      "ru": "Последовательность",
+      "tr": "Sıralı Giriş"
+    },
+    {
+      "en": "Extraction Time (min) Sequence",
+      "ru": "Последовательность времени экстракции (мин)",
+      "tr": "Ekstraksiyon Süresi (dak) Dizisi"
+    },
+    {
+      "en": "From",
+      "ru": "От",
+      "tr": "Başlangıç"
+    },
+    {
+      "en": "To",
+      "ru": "До",
+      "tr": "Bitiş"
+    },
+    {
+      "en": "Step",
+      "ru": "Шаг",
+      "tr": "Adım"
+    },
+    {
+      "en": "Water density in g/L at extraction conditions. Leave blank to calculate automatically using IAPWS-95 formulation.",
+      "ru": "Плотность воды в г/Л при условиях экстракции. Оставьте пустым для автоматического расчёта по IAPWS-95.",
+      "tr": "Ekstraksiyon koşullarında su yoğunluğu (g/L). IAPWS-95 kullanarak otomatik hesaplamak için boş bırakın."
+    },
+    {
+      "en": "Choose units for the Y-axis of the plot (abs or cc0).",
+      "ru": "Выберите единицы для оси Y графика (абс. или c/c0).",
+      "tr": "Grafiğin Y ekseni birimlerini seçin (mutlak veya c/c0)."
+    },
+    {
+      "en": "Enter the extraction temperature in degrees Celsius.",
+      "ru": "Введите температуру экстракции в градусах Цельсия.",
+      "tr": "Ekstraksiyon sıcaklığını derece Celsius olarak girin."
+    },
+    {
+      "en": "Select the optimization method for iterative curve fitting.",
+      "ru": "Выберите метод оптимизации для итеративной аппроксимации кривой.",
+      "tr": "Yinelemeli eğri uydurma için optimizasyon yöntemini seçin."
+    },
+    {
+      "en": "See a summary of the model results, including estimated parameters and fit statistics.",
+      "ru": "Просмотрите сводку результатов модели, включая оценённые параметры и статистику подгонки.",
+      "tr": "Tahmini parametreler ve uyum istatistikleri dahil model sonuçlarının özetini görün."
+    },
+    {
+      "en": "Set the flow rate of the extraction solvent (water) in mL/min or g/min depending on your units.",
+      "ru": "Установите расход экстракционного растворителя (воды) в мЛ/мин или г/мин в зависимости от единиц.",
+      "tr": "Ekstraksiyon çözücüsünün (su) akış hızını birimlerinize bağlı olarak mL/dak veya g/dak olarak ayarlayın."
+    },
+    {
+      "en": "Select the column containing your time/extraction duration data (e.g., Time_min).",
+      "ru": "Выберите столбец с данными времени/продолжительности экстракции (напр. Time_min).",
+      "tr": "Zaman/ekstraksiyon süresi verilerinizi içeren sütunu seçin (örn. Time_min)."
+    },
+    {
+      "en": "Specify the units for flow rate (e.g., 'mL/min', 'g/min', 'kg/h', 'L/h').",
+      "ru": "Укажите единицы измерения расхода (напр. мЛ/мин, г/мин, кг/ч, Л/ч).",
+      "tr": "Akış hızı birimlerini belirtin (örn. 'mL/dak', 'g/dak', 'kg/sa', 'L/sa')."
+    },
+    {
+      "en": "Provide an initial estimate for fraction F if not specified in Process Parameters. Default is 0.5.",
+      "ru": "Введите начальную оценку фракции F, если не указана в параметрах процесса. По умолчанию 0.5.",
+      "tr": "F fraksiyonu için başlangıç tahmini girin (Proses Parametrelerinde belirtilmemişse). Varsayılan 0.5."
+    },
+    {
+      "en": "Select the column containing your response/yield data (e.g., Yield_100C, permille, g).",
+      "ru": "Выберите столбец с данными отклика/выхода (напр. Yield_100C, промилле, г).",
+      "tr": "Yanıt/verim verilerinizi içeren sütunu seçin (örn. Yield_100C, binde, g)."
+    },
+    {
+      "en": "Specify the column name for the response variable in your data.",
+      "ru": "Укажите имя столбца переменной отклика в ваших данных.",
+      "tr": "Verilerinizdeki yanıt değişkeninin sütun adını belirtin."
+    },
+    {
+      "en": "Choose units for the X-axis of the plot (time or q).",
+      "ru": "Выберите единицы для оси X графика (время или q).",
+      "tr": "Grafiğin X ekseni birimlerini seçin (zaman veya q)."
+    },
+    {
+      "en": "Set the extraction temperature in degrees Celsius. Higher temperatures increase extraction rates but may affect compound stability.",
+      "ru": "Установите extraction temperature in degrees Celsius. Higher temperatures increase extraction rates but may affect compound stability.",
+      "tr": "Ayarlayın: extraction temperature in degrees Celsius. Higher temperatures increase extraction rates but may affect compound stability."
+    },
+    {
+      "en": "Enter the flow rate of the solvent (e.g., mL/min or g/min).",
+      "ru": "Введите расход растворителя (напр. мЛ/мин или г/мин).",
+      "tr": "Çözücü akış hızını girin (örn. mL/dak veya g/dak)."
+    },
+    {
+      "en": "Click here to calculate the two-site kinetic model.",
+      "ru": "Нажмите для расчёта двухзонной кинетической модели.",
+      "tr": "İki bölgeli kinetik modeli hesaplamak için buraya tıklayın."
+    },
+    {
+      "en": "Check if your response data is cumulative (total yield up to each time point) or incremental (yield at each time point).",
+      "ru": "Проверьте if your response data is cumulative (total yield up to each time point) or incremental (yield at each time point).",
+      "tr": "Kontrol edin: if your response data is cumulative (total yield up to each time point) or incremental (yield at each time point)."
+    },
+    {
+      "en": "Select your data input method: either upload a CSV file or enter data manually in CSV format.",
+      "ru": "Выберите метод ввода данных: загрузка CSV-файла или ручной ввод в формате CSV.",
+      "tr": "Veri giriş yönteminizi seçin: CSV dosyası yükleyin veya CSV formatında manuel olarak girin."
+    },
+    {
+      "en": "Enter the pressure (bar) at which the flow rate was measured, if different from extraction pressure.",
+      "ru": "Введите давление (бар) измерения расхода, если оно отличается от давления экстракции.",
+      "tr": "Akış hızının ölçüldüğü basıncı (bar) girin (ekstraksiyon basıncından farklıysa)."
+    },
+    {
+      "en": "Check if the flow rate is measured as mass flow (g/min) rather than volumetric flow (mL/min).",
+      "ru": "Отметьте, если расход измеряется как массовый (г/мин), а не объёмный (мЛ/мин).",
+      "tr": "Akış hızının hacimsel (mL/dak) yerine kütlesel (g/dak) olarak ölçülüp ölçülmediğini kontrol edin."
+    },
+    {
+      "en": "Enter the temperature (°C) at which the flow rate was measured, if different from extraction temperature.",
+      "ru": "Введите температуру (°C) измерения расхода, если она отличается от температуры экстракции.",
+      "tr": "Akış hızının ölçüldüğü sıcaklığı (°C) girin (ekstraksiyon sıcaklığından farklıysa)."
+    },
+    {
+      "en": "Specify the units for the flow rate.",
+      "ru": "Укажите единицы измерения расхода.",
+      "tr": "Akış hızı birimlerini belirtin."
+    },
+    {
+      "en": "Provide an initial estimate for the slow desorption rate constant k2 (min⁻¹). Default is 0.1.",
+      "ru": "Введите начальную оценку константы скорости медленной десорбции k2 (мин⁻¹). По умолчанию 0.1.",
+      "tr": "Yavaş desorpsiyon hız sabiti k2 (dak⁻¹) için başlangıç tahmini girin. Varsayılan 0.1."
+    },
+    {
+      "en": "View the generated prediction results in a tabular format here.",
+      "ru": "Просмотрите результаты прогноза в табличном формате.",
+      "tr": "Oluşturulan tahmin sonuçlarını tablo formatında burada görün."
+    },
+    {
+      "en": "Check if the provided flow rate is a mass flow rate.",
+      "ru": "Отметьте, если указанный расход является массовым.",
+      "tr": "Sağlanan akış hızının kütlesel akış hızı olup olmadığını kontrol edin."
+    },
+    {
+      "en": "Specify the units for the response variable.",
+      "ru": "Укажите единицы измерения переменной отклика.",
+      "tr": "Yanıt değişkeni birimlerini belirtin."
+    },
+    {
+      "en": "Explore the raw and modeled data in a tabular format.",
+      "ru": "Просмотрите исходные и модельные данные в табличном формате.",
+      "tr": "Ham ve modellenmiş verileri tablo formatında inceleyin."
+    },
+    {
+      "en": "Specify the column name for the time variable in your data.",
+      "ru": "Укажите имя столбца временной переменной в ваших данных.",
+      "tr": "Verilerinizdeki zaman değişkeninin sütun adını belirtin."
+    },
+    {
+      "en": "Choose x-axis units for plots: 'time' for extraction time or 'q' for solvent-to-feed ratio.",
+      "ru": "Выберите единицы оси X: «время» для времени экстракции или «q» для соотношения растворитель/сырьё.",
+      "tr": "Grafiklerde X ekseni birimlerini seçin: ekstraksiyon süresi için 'zaman' veya çözücü/ham madde oranı için 'q'."
+    },
+    {
+      "en": "View the generated kinetic model plot here.",
+      "ru": "Просмотрите сгенерированный график кинетической модели.",
+      "tr": "Oluşturulan kinetik model grafiğini burada görün."
+    },
+    {
+      "en": "Choose the optimization method for curve fitting: 'nlopt' (recommended) uses advanced algorithms, 'nlrob' is more robust to outliers.",
+      "ru": "Выберите the optimization method for curve fitting: 'nlopt' (recommended) uses advanced algorithms, 'nlrob' is more robust to outliers.",
+      "tr": "Seçin: the optimization method for curve fitting: 'nlopt' (recommended) uses advanced algorithms, 'nlrob' is more robust to outliers."
+    },
+    {
+      "en": "Enter the maximum possible yield of target compounds from the raw material, in the same units as your response variable.",
+      "ru": "Введите максимально возможный выход целевых соединений из сырья в тех же единицах, что и переменная отклика.",
+      "tr": "Ham maddeden hedef bileşiklerin maksimum verimini, yanıt değişkeninizle aynı birimlerde girin."
+    },
+    {
+      "en": "Set the fraction of easily desorbed solute (F). This represents the portion of compounds that are readily extractable (typically 0-1).",
+      "ru": "Установите fraction of easily desorbed solute (F). This represents the portion of compounds that are readily extractable (typically 0-1).",
+      "tr": "Ayarlayın: fraction of easily desorbed solute (F). This represents the portion of compounds that are readily extractable (typically 0-1)."
+    },
+    {
+      "en": "Specify the units for response variable (e.g., 'g', 'percent', 'permille', 'ppm', 'ppb').",
+      "ru": "Укажите единицы измерения переменной отклика (напр. г, процент, промилле, ppm, ppb).",
+      "tr": "Yanıt değişkeni birimlerini belirtin (örn. 'g', 'yüzde', 'binde', 'ppm', 'ppb')."
+    },
+    {
+      "en": "Upload a CSV file containing your extraction data. The file should have columns for time and response variables.",
+      "ru": "Загрузите a CSV file containing your extraction data. The file should have columns for time and response variables.",
+      "tr": "Yükleyin: a CSV file containing your extraction data. The file should have columns for time and response variables."
+    },
+    {
+      "en": "Provide an initial estimate for the first-order rate constant k2.",
+      "ru": "Введите начальную оценку константы скорости первого порядка k2.",
+      "tr": "Birinci derece hız sabiti k2 için başlangıç tahmini girin."
+    },
+    {
+      "en": "Enter the extraction pressure in bar.",
+      "ru": "Введите давление экстракции в барах.",
+      "tr": "Ekstraksiyon basıncını bar olarak girin."
+    },
+    {
+      "en": "Check this box to convert the default yield into mass and percentage yield.",
+      "ru": "Установите флажок для преобразования стандартного выхода в массовый и процентный выход.",
+      "tr": "Varsayılan verimi kütle ve yüzde verimine dönüştürmek için bu kutuyu işaretleyin."
+    },
+    {
+      "en": "Choose y-axis units for plots: 'abs' for absolute yield or 'cc0' for yield relative to maximum.",
+      "ru": "Выберите единицы оси Y: «абс.» для абсолютного выхода или «c/c0» для относительного.",
+      "tr": "Grafiklerde Y ekseni birimlerini seçin: mutlak verim için 'abs' veya maksimuma göre verim için 'c/c0'."
+    },
+    {
+      "en": "Optionally, specify the column name for the solvent usage variable.",
+      "ru": "Опционально укажите имя столбца переменной расхода растворителя.",
+      "tr": "İsteğe bağlı olarak çözücü kullanım değişkeninin sütun adını belirtin."
+    },
+    {
+      "en": "Click here to reset all input parameters to their default values.",
+      "ru": "Нажмите для сброса всех параметров к значениям по умолчанию.",
+      "tr": "Tüm giriş parametrelerini varsayılan değerlerine sıfırlamak için buraya tıklayın."
+    },
+    {
+      "en": "Select your data input method: either upload a CSV file or enter data manually.",
+      "ru": "Выберите метод ввода данных: загрузка CSV-файла или ручной ввод.",
+      "tr": "Veri giriş yönteminizi seçin: CSV dosyası yükleyin veya manuel olarak girin."
+    },
+    {
+      "en": "Enter the mass of raw material loaded in grams.",
+      "ru": "Введите массу загруженного сырья в граммах.",
+      "tr": "Yüklenen ham madde kütlesini gram olarak girin."
+    },
+    {
+      "en": "Enter your time and yield data manually in CSV format (e.g., Time_min,Yield_100C\\\\n1,10\\\\n2,18).",
+      "ru": "Введите ваши time and yield data manually in CSV format (e.g., Time_min,Yield_100C\\\\n1,10\\\\n2,18).",
+      "tr": "Giriniz: time and yield data manually in CSV format (e.g., Time_min,Yield_100C\\\\n1,10\\\\n2,18)."
+    },
+    {
+      "en": "Optionally, enter the moisture content of the raw material in percent fresh weight. Used for correcting percentage yield predictions.",
+      "ru": "Опционально введите влажность сырья в процентах свежей массы. Используется для коррекции расчёта процентного выхода.",
+      "tr": "İsteğe bağlı olarak ham maddenin nem içeriğini taze ağırlık yüzdesi olarak girin. Yüzde verim hesaplamalarını düzeltmek için kullanılır."
+    },
+    {
+      "en": "Enter the fraction of easily desorbed solute (F).",
+      "ru": "Введите долю легко десорбируемого вещества (F).",
+      "tr": "Kolay desorbe edilen çözünenin fraksiyonunu (F) girin."
+    },
+    {
+      "en": "Enter new time values (comma-separated) for which you want to predict the response.",
+      "ru": "Введите новые значения времени (через запятую) для прогноза отклика.",
+      "tr": "Yanıtı tahmin etmek istediğiniz yeni zaman değerlerini (virgülle ayrılmış) girin."
+    },
+    {
+      "en": "Click here to generate predictions based on the calculated model and your input.",
+      "ru": "Нажмите для генерации прогнозов на основе рассчитанной модели и ваших данных.",
+      "tr": "Hesaplanan modele ve girdinize dayalı tahminler oluşturmak için buraya tıklayın."
+    },
+    {
+      "en": "Set the maximum time for model predictions in minutes. Leave blank to use 120% of your maximum experimental time.",
+      "ru": "Установите максимальное время для прогнозов модели в минутах. Оставьте пустым для 120% максимального экспериментального времени.",
+      "tr": "Model tahminleri için maksimum süreyi dakika olarak ayarlayın. Maksimum deneysel sürenizin %120'sini kullanmak için boş bırakın."
+    },
+    {
+      "en": "Enter the maximum possible yield, in units consistent with your response variable.",
+      "ru": "Введите максимально возможный выход в единицах, соответствующих переменной отклика.",
+      "tr": "Maksimum verimi, yanıt değişkeninizle tutarlı birimlerle girin."
+    },
+    {
+      "en": "Check if your input data for response and solvent consumption is cumulative.",
+      "ru": "Проверьте, являются ли данные отклика и расхода растворителя кумулятивными.",
+      "tr": "Yanıt ve çözücü tüketimi verilerinizin kümülatif olup olmadığını kontrol edin."
+    },
+    {
+      "en": "Provide an initial estimate for the fraction F, if it's not explicitly provided in process parameters.",
+      "ru": "Укажите an initial estimate for the fraction F, if it's not explicitly provided in process parameters.",
+      "tr": "Belirtin: an initial estimate for the fraction F, if it's not explicitly provided in process parameters."
+    },
+    {
+      "en": "Enter the mass of raw material loaded into the extraction vessel in grams.",
+      "ru": "Введите массу сырья, загруженного в экстрактор, в граммах.",
+      "tr": "Ekstraksiyon kabına yüklenen ham madde kütlesini gram olarak girin."
+    },
+    {
+      "en": "Set the maximum solvent-to-feed ratio (q) for predictions. Leave blank to use 120% of your maximum experimental q.",
+      "ru": "Установите maximum solvent-to-feed ratio (q) for predictions. Leave blank to use 120% of your maximum experimental q.",
+      "tr": "Ayarlayın: maximum solvent-to-feed ratio (q) for predictions. Leave blank to use 120% of your maximum experimental q."
+    },
+    {
+      "en": "Optionally select the column containing solvent consumption data. Leave as 'None' if not applicable.",
+      "ru": "Опционально выберите столбец с данными о расходе растворителя. Оставьте «Нет», если не применимо.",
+      "tr": "İsteğe bağlı olarak çözücü tüketim verilerini içeren sütunu seçin. Uygulanmıyorsa 'Hiçbiri' olarak bırakın."
+    },
+    {
+      "en": "Set the extraction pressure in bar. This affects the subcritical water properties and extraction efficiency.",
+      "ru": "Установите давление экстракции в барах. Это влияет на свойства субкритической воды и эффективность экстракции.",
+      "tr": "Ekstraksiyon basıncını bar olarak ayarlayın. Bu subkritik su özelliklerini ve ekstraksiyon verimini etkiler."
+    },
+    {
+      "en": "Provide an initial estimate for the fast desorption rate constant k1 (min⁻¹). Default is 0.1.",
+      "ru": "Введите начальную оценку константы скорости быстрой десорбции k1 (мин⁻¹). По умолчанию 0.1.",
+      "tr": "Hızlı desorpsiyon hız sabiti k1 (dak⁻¹) için başlangıç tahmini girin. Varsayılan 0.1."
+    },
+    {
+      "en": "Provide an initial estimate for the first-order rate constant k1.",
+      "ru": "Введите начальную оценку константы скорости первого порядка k1.",
+      "tr": "Birinci derece hız sabiti k1 için başlangıç tahmini girin."
+    },
+    {
+      "en": "This section provides a description of the model's validity and the process parameters used for prediction.",
+      "ru": "Этот раздел provides a description of the model's validity and the process parameters used for prediction.",
+      "tr": "Bu bölüm provides a description of the model's validity and the process parameters used for prediction."
+    },
+    {
+      "en": "NLopt uses derivative-free global optimization with multiple random starting points (recommended). NLrob uses robust nonlinear regression via M-estimation, more resistant to outliers.",
+      "ru": "NLopt uses derivative-free global optimization with multiple random starting points (recommended). NLrob uses robust nonlinear regression via M-estimation, more resistant to outliers.",
+      "tr": "NLopt uses derivative-free global optimization with multiple random starting points (recommended). NLrob uses robust nonlinear regression via M-estimation, more resistant to outliers."
+    },
+    {
+      "en": "Initial estimate for the slow desorption rate constant k2 (min\\u207B\\u00B9). Describes the slow release of matrix-bound compounds. Default: 0.1.",
+      "ru": "Initial estimate for the slow desorption rate constant k2 (min\\u207B\\u00B9). Describes the slow release of matrix-bound compounds. Default: 0.1.",
+      "tr": "Initial estimate for the slow desorption rate constant k2 (min\\u207B\\u00B9). Describes the slow release of matrix-bound compounds. Default: 0.1."
+    },
+    {
+      "en": "Absolute Yield: extract mass in response units. Fractional Yield (c/c0): ratio of collected extract to the maximum extractable amount.",
+      "ru": "Absolute Yield: extract mass in response units. Fractional Yield (c/c0): ratio of collected extract to the maximum extractable amount.",
+      "tr": "Absolute Yield: extract mass in response units. Fractional Yield (c/c0): ratio of collected extract to the maximum extractable amount."
+    },
+    {
+      "en": "Water density at extraction conditions (g/L). Only needed when flow rate is volumetric. Leave empty to auto-calculate from pressure and temperature using the IAPWS-95 formulation.",
+      "ru": "Water density at extraction conditions (g/L). Only needed when flow rate is volumetric. Leave empty to auto-calculate from pressure and temperature using the IAPWS-95 formulation.",
+      "tr": "Water density at extraction conditions (g/L). Only needed when flow rate is volumetric. Leave empty to auto-calculate from pressure and temperature using the IAPWS-95 formulation."
+    },
+    {
+      "en": "Initial estimate for the fast desorption rate constant k1 (min\\u207B\\u00B9). Describes the rapid release of easily accessible compounds. Default: 0.1.",
+      "ru": "Initial estimate for the fast desorption rate constant k1 (min\\u207B\\u00B9). Describes the rapid release of easily accessible compounds. Default: 0.1.",
+      "tr": "Initial estimate for the fast desorption rate constant k1 (min\\u207B\\u00B9). Describes the rapid release of easily accessible compounds. Default: 0.1."
+    },
+    {
+      "en": "Time: extraction duration in minutes. S/M Ratio (q): cumulative solvent consumed per unit of insoluble raw material (kg/kg).",
+      "ru": "Time: extraction duration in minutes. S/M Ratio (q): cumulative solvent consumed per unit of insoluble raw material (kg/kg).",
+      "tr": "Time: extraction duration in minutes. S/M Ratio (q): cumulative solvent consumed per unit of insoluble raw material (kg/kg)."
+    },
+    {
+      "en": "Units for the response variable: grams (absolute mass), percent or permille (relative to raw material mass), ppm, or ppb.",
+      "ru": "Units for the response variable: grams (absolute mass), percent or permille (relative to raw material mass), ppm, or ppb.",
+      "tr": "Units for the response variable: grams (absolute mass), percent or permille (relative to raw material mass), ppm, or ppb."
+    },
+    {
+      "en": "Total mass of raw material loaded into the extraction vessel, in grams. Used for calculating the solvent-to-feed ratio (q) and mass yield.",
+      "ru": "Total mass of raw material loaded into the extraction vessel, in grams. Used for calculating the solvent-to-feed ratio (q) and mass yield.",
+      "tr": "Total mass of raw material loaded into the extraction vessel, in grams. Used for calculating the solvent-to-feed ratio (q) and mass yield."
+    },
+    {
+      "en": "Choose what to show on the horizontal axis of the kinetic plot. Time shows extraction duration in minutes. S/M Ratio (q) shows cumulative solvent consumed per kilogram of insoluble raw material.",
+      "ru": "Горизонтальная ось графика кинетики. Время — продолжительность экстракции в минутах. С/М (q) — кумулятивный расход растворителя на кг нерастворимого сырья.",
+      "tr": "Kinetik grafiğinin yatay ekseninde ne gösterileceğini seçin. Süre dakika cinsinden. Ç/M Oranı (q) çözülmeyen ham madde kg'ı başına kümülatif çözücü tüketimi."
+    },
+    {
+      "en": "Density of water at your extraction conditions (g/L). Only needed when the flow rate is given in volumetric units (mL/min or L/h). Leave empty to calculate automatically from pressure and temperature.",
+      "ru": "Плотность воды при условиях экстракции (г/Л). Нужна только при объёмных единицах расхода (мЛ/мин или Л/ч). Оставьте пустым для автоматического расчёта по давлению и температуре.",
+      "tr": "Ekstraksiyon koşullarınızda su yoğunluğu (g/L). Yalnızca akış hızı hacimsel birimlerle (mL/dak veya L/sa) verildiğinde gereklidir. Basınç ve sıcaklıktan otomatik hesaplamak için boş bırakın."
+    },
+    {
+      "en": "Units of your yield/response data. Choose grams for absolute mass, percent or permille for yield relative to raw material mass, or ppm/ppb for trace concentrations.",
+      "ru": "Единицы измерения данных выхода. Граммы для абсолютной массы, проценты или промилле для выхода относительно массы сырья, ppm/ppb для следовых концентраций.",
+      "tr": "Verim/yanıt verilerinizin birimleri. Mutlak kütle için gram, ham madde kütlesine göre verim için yüzde veya binde, eser konsantrasyonlar için ppm/ppb seçin."
+    },
+    {
+      "en": "Method for fitting the model curve to your data. Global (recommended) searches broadly for the best fit using multiple starting points. Robust is slower but handles noisy data or outliers better.",
+      "ru": "Метод подгонки модельной кривой. Глобальный (рекомендуется) — широкий поиск с множественными начальными точками. Робастный — медленнее, но лучше работает с зашумлёнными данными и выбросами.",
+      "tr": "Model eğrisini verilerinize uydurma yöntemi. Global (önerilen) çoklu başlangıç noktalarıyla geniş arama yapar. Sağlam daha yavaştır ancak gürültülü verileri veya aykırı değerleri daha iyi işler."
+    },
+    {
+      "en": "Choose what to show on the vertical axis. Absolute Yield shows the extract amount in your response units. Fractional Yield (c/c0) shows the fraction of the maximum possible yield already collected (0 to 1).",
+      "ru": "Вертикальная ось графика. Абсолютный выход — количество экстракта в единицах отклика. Фракционный (c/c0) — доля собранного максимального выхода (0-1).",
+      "tr": "Dikey eksende ne gösterileceğini seçin. Mutlak Verim yanıt birimlerinizde ekstrakt miktarı. Fraksiyon Verimi (c/c0) toplanan maksimum verimin oranı (0-1)."
+    },
+    {
+      "en": "Starting guess for the slow desorption rate constant k\\u2082. This controls how quickly the remaining, harder-to-extract fraction is released from the plant matrix. Typically much smaller than k\\u2081. Leave at default (0.1) if unsure.",
+      "ru": "Starting guess for the slow desorption rate constant k\\u2082. This controls how quickly the remaining, harder-to-extract fraction is released from the plant matrix. Typically much smaller than k\\u2081. Leave at default (0.1) if unsure.",
+      "tr": "Starting guess for the slow desorption rate constant k\\u2082. This controls how quickly the remaining, harder-to-extract fraction is released from the plant matrix. Typically much smaller than k\\u2081. Leave at default (0.1) if unsure."
+    },
+    {
+      "en": "Mass of raw material loaded into the extraction vessel (grams). This is used to calculate the solvent-to-material ratio and to convert between yield units.",
+      "ru": "Масса загруженного в экстрактор сырья (граммы). Используется для расчёта соотношения растворитель/сырьё и пересчёта единиц выхода.",
+      "tr": "Ekstraksiyon kabına yüklenen ham madde kütlesi (gram). Çözücü/malzeme oranını hesaplamak ve verim birimleri arasında dönüştürme yapmak için kullanılır."
+    },
+    {
+      "en": "Starting guess for the fast desorption rate constant k\\u2081. This controls how quickly the easily accessible fraction of solute is extracted. Higher values mean faster initial extraction. Leave at default (0.1) if unsure.",
+      "ru": "Starting guess for the fast desorption rate constant k\\u2081. This controls how quickly the easily accessible fraction of solute is extracted. Higher values mean faster initial extraction. Leave at default (0.1) if unsure.",
+      "tr": "Starting guess for the fast desorption rate constant k\\u2081. This controls how quickly the easily accessible fraction of solute is extracted. Higher values mean faster initial extraction. Leave at default (0.1) if unsure."
+    },
+    {
+      "en": "Upper time limit for model predictions (minutes). Leave empty to automatically use 120% of your longest experimental time point.",
+      "ru": "Верхний предел времени для прогнозов модели (минуты). Оставьте пустым для автоматического использования 120% от максимальной экспериментальной точки.",
+      "tr": "Model tahminleri için üst zaman sınırı (dakika). En uzun deneysel zaman noktanızın %120'sini otomatik kullanmak için boş bırakın."
+    },
+    {
+      "en": "Extraction pressure in bar. Affects solvent density and extraction efficiency. For subcritical water extraction, typically 10-50 bar to keep water in liquid state above 100\\u00B0C.",
+      "ru": "Extraction pressure in bar. Affects solvent density and extraction efficiency. For subcritical water extraction, typically 10-50 bar to keep water in liquid state above 100\\u00B0C.",
+      "tr": "Extraction pressure in bar. Affects solvent density and extraction efficiency. For subcritical water extraction, typically 10-50 bar to keep water in liquid state above 100\\u00B0C."
+    },
+    {
+      "en": "Maximum possible yield of target compounds from the raw material, in the same units as your response variable. This is the asymptotic value the extraction curve approaches.",
+      "ru": "Максимально возможный выход целевых соединений из сырья, в тех же единицах, что и переменная отклика. Это асимптотическое значение, к которому стремится кривая экстракции.",
+      "tr": "Ham maddeden hedef bileşiklerin maksimum verimi, yanıt değişkeninizle aynı birimde. Ekstraksiyon eğrisinin yaklaştığı asimptotik değerdir."
+    },
+    {
+      "en": "Volumetric or mass flow rate of the extraction solvent. Not needed if you provide a Solvent Data column in the Input Data section.",
+      "ru": "Объёмный или массовый расход растворителя. Не требуется при наличии столбца расхода растворителя в разделе входных данных.",
+      "tr": "Ekstraksiyon çözücüsünün hacimsel veya kütlesel akış hızı. Giriş Verileri bölümünde Çözücü Verisi sütunu sağlıyorsanız gerekli değildir."
+    },
+    {
+      "en": "Pressure at which your flow meter measured the solvent flow rate. Only relevant when measured at conditions different from extraction.",
+      "ru": "Давление, при котором расходомер измерил расход. Актуально только при измерении в условиях, отличных от экстракционных.",
+      "tr": "Akış ölçerinizin çözücü akış hızını ölçtüğü basınç. Yalnızca ekstraksiyondan farklı koşullarda ölçüldüğünde geçerlidir."
+    },
+    {
+      "en": "Enable if your response data represents the total accumulated yield up to each time point. Disable if each row shows the yield collected during that interval only.",
+      "ru": "Включите, если данные отклика представляют суммарный выход к каждой точке. Отключите, если каждая строка — выход только за этот интервал.",
+      "tr": "Yanıt verileriniz her zaman noktasına kadar toplam birikmiş verimi temsil ediyorsa etkinleştirin. Her satır yalnızca o aralıkta toplanan verimi gösteriyorsa devre dışı bırakın."
+    },
+    {
+      "en": "Units of the flow rate value. Choose mass-based (g/min, kg/h) if your flow meter measures mass, or volumetric (mL/min, L/h) if it measures volume.",
+      "ru": "Единицы расхода. Массовые (г/мин, кг/ч) при измерении массы, объёмные (мЛ/мин, Л/ч) при измерении объёма.",
+      "tr": "Akış hızı birimleri. Akış ölçeriniz kütle ölçüyorsa kütlesel (g/dak, kg/sa), hacim ölçüyorsa hacimsel (mL/dak, L/sa) seçin."
+    },
+    {
+      "en": "Extraction temperature in degrees Celsius. Higher temperatures increase extraction rates but may cause thermal degradation of sensitive compounds.",
+      "ru": "Температура экстракции в градусах Цельсия. Более высокие температуры увеличивают скорость экстракции, но могут вызвать термическую деградацию чувствительных соединений.",
+      "tr": "Ekstraksiyon sıcaklığı (derece Celsius). Daha yüksek sıcaklıklar ekstraksiyon hızını artırır ancak hassas bileşiklerin termal bozulmasına neden olabilir."
+    },
+    {
+      "en": "Temperature at which your flow meter measured the solvent flow rate. Only relevant when measured at conditions different from extraction.",
+      "ru": "Температура, при которой расходомер измерил расход. Актуально только при измерении в условиях, отличных от экстракционных.",
+      "tr": "Akış ölçerinizin çözücü akış hızını ölçtüğü sıcaklık. Yalnızca ekstraksiyondan farklı koşullarda ölçüldüğünde geçerlidir."
+    },
+    {
+      "en": "Enable to use a solvent consumption column from your data instead of calculating it from flow rate. When enabled, the Flow Parameters section is disabled.",
+      "ru": "Включите для использования столбца расхода растворителя из данных вместо расчёта по расходу. При включении раздел параметров потока отключается.",
+      "tr": "Akış hızından hesaplamak yerine verilerinizdeki çözücü tüketim sütununu kullanmak için etkinleştirin. Etkinleştirildiğinde Akış Parametreleri bölümü devre dışı bırakılır."
+    },
+    {
+      "en": "Fraction of easily desorbed solute (0 to 1). Represents the proportion of compounds quickly released during extraction. The remainder (1-F) is released more slowly from the plant matrix. Toggle the switch to set F as a fixed value or let the model estimate it.",
+      "ru": "Доля легко десорбируемого вещества (0-1). Представляет долю соединений, быстро выделяемых при экстракции. Остаток (1-F) выделяется медленнее из растительной матрицы. Переключатель позволяет задать F как фиксированное значение или позволить модели оценить его.",
+      "tr": "Kolay desorbe edilen çözünen fraksiyonu (0-1). Ekstraksiyon sırasında hızla salınan bileşiklerin oranını temsil eder. Kalan (1-F) bitki matrisinden daha yavaş salınır. Anahtarı kullanarak F'yi sabit bir değer olarak ayarlayın veya modelin tahmin etmesine izin verin."
+    },
+    {
+      "en": "OK",
+      "ru": "OK",
+      "tr": "Tamam"
+    },
+    {
+      "en": "Pressure",
+      "ru": "Давление",
+      "tr": "Basınç"
+    },
+    {
+      "en": "Temperature",
+      "ru": "Температура",
+      "tr": "Sıcaklık"
+    },
+    {
+      "en": "Flow Rate",
+      "ru": "Расход",
+      "tr": "Akış Hızı"
+    },
+    {
+      "en": "Flow Units",
+      "ru": "Единицы расхода",
+      "tr": "Akış Birimleri"
+    },
+    {
+      "en": "Response Units",
+      "ru": "Единицы отклика",
+      "tr": "Yanıt Birimleri"
+    },
+    {
+      "en": "Material Mass",
+      "ru": "Масса сырья",
+      "tr": "Malzeme Kütlesi"
+    },
+    {
+      "en": "F",
+      "ru": "F",
+      "tr": "F"
+    },
+    {
+      "en": "Max Time",
+      "ru": "Макс. время",
+      "tr": "Maks. Süre"
+    },
+    {
+      "en": "Max S/M Ratio",
+      "ru": "Макс. С/М",
+      "tr": "Maks. Ç/M Oranı"
+    },
+    {
+      "en": "Flow Measurement P",
+      "ru": "Давление измер. расхода",
+      "tr": "Akış Ölçüm Basıncı"
+    },
+    {
+      "en": "Flow Measurement T",
+      "ru": "Темп. измер. расхода",
+      "tr": "Akış Ölçüm Sıcaklığı"
+    },
+    {
+      "en": "Plot X-axis",
+      "ru": "Ось X графика",
+      "tr": "Grafik X Ekseni"
+    },
+    {
+      "en": "Plot Y-axis",
+      "ru": "Ось Y графика",
+      "tr": "Grafik Y Ekseni"
+    },
+    {
+      "en": "Solvent Density",
+      "ru": "Плотность растворителя",
+      "tr": "Çözücü Yoğunluğu"
+    },
+    {
+      "en": "Extraction pressure in bar. Affects solvent density and extraction efficiency. For subcritical water extraction, typically 10-50 bar to keep water in liquid state above 100°C.",
+      "ru": "Давление экстракции в бар. Влияет на плотность растворителя и эффективность экстракции. Для субкритической водной экстракции обычно 10-50 бар.",
+      "tr": "Ekstraksiyon basıncı (bar). Çözücü yoğunluğunu ve ekstraksiyon verimini etkiler. Subkritik su ekstraksiyonu için tipik olarak 10-50 bar."
+    },
+    {
+      "en": "Starting guess for the fast desorption rate constant k₁. This controls how quickly the easily accessible fraction of solute is extracted. Higher values mean faster initial extraction. Leave at default (0.1) if unsure.",
+      "ru": "Начальная оценка константы быстрой десорбции k₁. Определяет скорость извлечения легкодоступной фракции. Большие значения — быстрее начальная экстракция. Оставьте 0.1, если не уверены.",
+      "tr": "Hızlı desorpsiyon hız sabiti k₁ için başlangıç tahmini. Kolay erişilebilir çözünen fraksiyonunun ne kadar hızlı ekstrakte edileceğini kontrol eder. Emin değilseniz varsayılan (0.1) bırakın."
+    },
+    {
+      "en": "Starting guess for the slow desorption rate constant k₂. This controls how quickly the remaining, harder-to-extract fraction is released from the plant matrix. Typically much smaller than k₁. Leave at default (0.1) if unsure.",
+      "ru": "Начальная оценка константы медленной десорбции k₂. Определяет скорость высвобождения оставшейся фракции из матрицы. Обычно значительно меньше k₁. Оставьте 0.1, если не уверены.",
+      "tr": "Yavaş desorpsiyon hız sabiti k₂ için başlangıç tahmini. Kalan, ekstrakte edilmesi zor fraksiyonun bitki matrisinden ne kadar hızlı salındığını kontrol eder. Tipik olarak k₁'den çok küçüktür. Emin değilseniz varsayılan (0.1) bırakın."
+    },
+    {
+      "en": "Upper limit for the solvent-to-material ratio in model predictions. Leave empty to automatically use 120% of your largest experimental q value.",
+      "ru": "Верхний предел соотношения растворитель/сырьё для прогнозов. Оставьте пустым для автоматического использования 120% от максимального экспериментального q.",
+      "tr": "Model tahminlerinde çözücü/malzeme oranı üst sınırı. En büyük deneysel q değerinizin %120'sini otomatik kullanmak için boş bırakın."
+    },
+    {
+      "en": "Starting guess for the easily desorbed fraction F, used only when F is not explicitly set in Process Parameters. Default is 0.5.",
+      "ru": "Начальная оценка доли F, используется только когда F не задан явно в параметрах процесса. По умолчанию 0.5.",
+      "tr": "Kolay desorbe edilen fraksiyon F için başlangıç tahmini, yalnızca F Proses Parametrelerinde açıkça ayarlanmadığında kullanılır. Varsayılan 0.5."
+    },
+    {
+      "en": "Enable if the solvent consumption column in your data is in mass units (grams). Disable if it is in volume units (mL).",
+      "ru": "Включите, если столбец расхода растворителя в массовых единицах (граммы). Отключите, если в объёмных (мЛ).",
+      "tr": "Verilerinizdeki çözücü tüketim sütunu kütle birimindeyse (gram) etkinleştirin. Hacim birimindeyse (mL) devre dışı bırakın."
+    },
+    {
+      "en": "Max S/M Ratio (kg/kg)",
+      "ru": "Макс. С/М (кг/кг)",
+      "tr": "Maks. Ç/M Oranı (kg/kg)"
+    },
+    {
+      "en": "k₁",
+      "tr": "k₁",
+      "ru": "k₁"
+    },
+    {
+      "en": "k₂",
+      "tr": "k₂",
+      "ru": "k₂"
+    },
+    {
+      "en": "Description",
+      "tr": "Açıklama",
+      "ru": "Описание"
+    },
+    {
+      "en": "Unit",
+      "tr": "Birim",
+      "ru": "Единица"
+    },
+    {
+      "en": "Parameter",
+      "tr": "Parametre",
+      "ru": "Параметр"
+    },
+    {
+      "en": "Model Details",
+      "tr": "Model Detayları",
+      "ru": "Детали модели"
+    },
+    {
+      "en": "min",
+      "tr": "dak",
+      "ru": "мин"
+    },
+    {
+      "en": "Add Zero Row?",
+      "tr": "Sıfır Satırı Ekle?",
+      "ru": "Добавить нулевую строку?"
+    },
+    {
+      "en": "The uploaded data does not appear to start from zero. A zero-row (time = 0, yield = 0) is typically required for BIC model fitting.",
+      "tr": "Yüklenen veriler sıfırdan başlamıyor. BIC model uyumu için genellikle sıfır satırı (zaman = 0, verim = 0) gereklidir.",
+      "ru": "Загруженные данные не начинаются с нуля. Для подгонки модели BIC обычно требуется нулевая строка (время = 0, выход = 0)."
+    },
+    {
+      "en": "The uploaded data does not appear to start from zero. A zero-row (time = 0, yield = 0) is typically required for kinetic model fitting.",
+      "tr": "Yüklenen veriler sıfırdan başlamıyor. Kinetik model uyumu için genellikle sıfır satırı (zaman = 0, verim = 0) gereklidir.",
+      "ru": "Загруженные данные не начинаются с нуля. Для подгонки кинетической модели обычно требуется нулевая строка (время = 0, выход = 0)."
+    },
+    {
+      "en": "Would you like to add a zero-row at the beginning of the data?",
+      "tr": "Verilerin başına sıfır satırı eklemek ister misiniz?",
+      "ru": "Хотите добавить нулевую строку в начало данных?"
+    },
+    {
+      "en": "Yes, add zero row",
+      "tr": "Evet, sıfır satırı ekle",
+      "ru": "Да, добавить нулевую строку"
+    },
+    {
+      "en": "Zero row added successfully.",
+      "tr": "Sıfır satırı başarıyla eklendi.",
+      "ru": "Нулевая строка успешно добавлена."
+    },
+    {
+      "en": "The data does not appear to start from zero. A zero-row (time = 0, yield = 0) is typically required for BIC model fitting.",
+      "tr": "Veriler sıfırdan başlamıyor. BIC model uyumu için genellikle sıfır satırı (zaman = 0, verim = 0) gereklidir.",
+      "ru": "Данные не начинаются с нуля. Для подгонки модели BIC обычно требуется нулевая строка (время = 0, выход = 0)."
+    },
+    {
+      "en": "The data does not appear to start from zero. A zero-row (time = 0, yield = 0) is typically required for kinetic model fitting.",
+      "tr": "Veriler sıfırdan başlamıyor. Kinetik model uyumu için genellikle sıfır satırı (zaman = 0, verim = 0) gereklidir.",
+      "ru": "Данные не начинаются с нуля. Для подгонки кинетической модели обычно требуется нулевая строка (время = 0, выход = 0)."
+    },
+    {
+      "en": "Data does not start from zero. A zero-row (time = 0, yield = 0) is typically required for model fitting.",
+      "tr": "Veriler sıfırdan başlamıyor. Model uyumu için genellikle sıfır satırı (zaman = 0, verim = 0) gereklidir.",
+      "ru": "Данные не начинаются с нуля. Для подгонки модели обычно требуется нулевая строка (время = 0, выход = 0)."
+    },
+    {
+      "en": "Starting Values",
+      "tr": "Başlangıç Değerleri",
+      "ru": "Начальные значения"
+    },
+    {
+      "en": "max",
+      "tr": "maks",
+      "ru": "макс"
+    },
+    {
+      "en": "Starting guess(es) for the fast desorption rate constant k₁. Multiple values enable multi-start optimization. Higher values mean faster initial extraction.",
+      "tr": "Hızlı desorpsiyon hız sabiti k₁ için başlangıç tahmini(leri). Birden fazla değer çoklu başlangıç optimizasyonunu etkinleştirir.",
+      "ru": "Начальное(ые) приближение(я) для константы скорости быстрой десорбции k₁. Несколько значений включают мультистартовую оптимизацию."
+    },
+    {
+      "en": "Starting guess(es) for the slow desorption rate constant k₂. Multiple values enable multi-start optimization. Typically much smaller than k₁.",
+      "tr": "Yavaş desorpsiyon hız sabiti k₂ için başlangıç tahmini(leri). Birden fazla değer çoklu başlangıç optimizasyonunu etkinleştirir. Genellikle k₁'den çok daha küçüktür.",
+      "ru": "Начальное(ые) приближение(я) для константы скорости медленной десорбции k₂. Несколько значений включают мультистартовую оптимизацию. Обычно значительно меньше k₁."
+    },
+    {
+      "en": "Number of Fits",
+      "tr": "Uydurma Sayısı",
+      "ru": "Количество подгонок"
+    },
+    {
+      "en": "Number of times to repeat the entire fitting process. When > 1, the best fit is used for the model, and fitted parameter standard deviations are shown in the summary.",
+      "tr": "Tüm uydurma işleminin tekrarlanma sayısı. > 1 olduğunda, en iyi uyum model için kullanılır ve uydurulmuş parametrelerin standart sapmaları özette gösterilir.",
+      "ru": "Количество повторений всего процесса подгонки. При > 1 для модели используется лучшая подгонка, а стандартные отклонения параметров показываются в итогах."
+    },
+    {
+      "en": "SD",
+      "tr": "SS",
+      "ru": "СО"
+    },
+    {
+      "en": "Multiple starting values enable multi-start optimization for better convergence.",
+      "tr": "Birden fazla başlangıç değeri, daha iyi yakınsama için çoklu başlangıç optimizasyonunu etkinleştirir.",
+      "ru": "Несколько начальных значений обеспечивают мультистартовую оптимизацию для лучшей сходимости."
+    },
+    {
+      "en": "Starting Values of",
+      "tr": "Başlangıç Değerleri",
+      "ru": "Начальные значения"
+    }
+  ]
+}

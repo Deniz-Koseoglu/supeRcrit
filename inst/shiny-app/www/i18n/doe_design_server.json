@@ -1,0 +1,424 @@
+{
+  "translation": [
+    {
+      "en": "Center Points",
+      "ru": "Центральные точки",
+      "tr": "Merkez Noktaları"
+    },
+    {
+      "en": "Requirements:",
+      "ru": "Требования:",
+      "tr": "Gereksinimler:"
+    },
+    {
+      "en": "Information:",
+      "ru": "Информация:",
+      "tr": "Bilgi:"
+    },
+    {
+      "en": "Invalid Configuration:",
+      "ru": "Неверная конфигурация:",
+      "tr": "Geçersiz Yapılandırma:"
+    },
+    {
+      "en": "Factor",
+      "ru": "Фактор",
+      "tr": "Faktör"
+    },
+    {
+      "en": "Name",
+      "ru": "Название",
+      "tr": "Ad"
+    },
+    {
+      "en": "Min",
+      "ru": "Мин",
+      "tr": "Min"
+    },
+    {
+      "en": "Max",
+      "ru": "Макс",
+      "tr": "Maks"
+    },
+    {
+      "en": "CCD Type",
+      "ru": "Тип ЦКП",
+      "tr": "CCD Tipi"
+    },
+    {
+      "en": "Levels",
+      "ru": "Уровни",
+      "tr": "Seviyeler"
+    },
+    {
+      "en": "Use Default Center Points",
+      "ru": "Использовать центральные точки по умолчанию",
+      "tr": "Varsayılan Merkez Noktalarını Kullan"
+    },
+    {
+      "en": "Fraction (p)",
+      "ru": "Доля (p)",
+      "tr": "Kesir (p)"
+    },
+    {
+      "en": "Aliasing",
+      "ru": "Смешение",
+      "tr": "Örtüşme"
+    },
+    {
+      "en": "Generating design...",
+      "ru": "Генерация дизайна...",
+      "tr": "Tasarım oluşturuluyor..."
+    },
+    {
+      "en": "Preparing parameters...",
+      "ru": "Подготовка параметров...",
+      "tr": "Parametreler hazırlanıyor..."
+    },
+    {
+      "en": "Generating design matrix...",
+      "ru": "Генерация матрицы дизайна...",
+      "tr": "Tasarım matrisi oluşturuluyor..."
+    },
+    {
+      "en": "Completed!",
+      "ru": "Завершено!",
+      "tr": "Tamamlandı!"
+    },
+    {
+      "en": "Design generated successfully!",
+      "ru": "Дизайн успешно сгенерирован!",
+      "tr": "Tasarım başarıyla oluşturuldu!"
+    },
+    {
+      "en": "Error:",
+      "ru": "Ошибка:",
+      "tr": "Hata:"
+    },
+    {
+      "en": "Total Runs",
+      "ru": "Всего прогонов",
+      "tr": "Toplam Çalışma"
+    },
+    {
+      "en": "Design Type",
+      "ru": "Тип дизайна",
+      "tr": "Tasarım Tipi"
+    },
+    {
+      "en": "Factors",
+      "ru": "Факторы",
+      "tr": "Faktörler"
+    },
+    {
+      "en": "Final filename:",
+      "ru": "Итоговое имя файла:",
+      "tr": "Son dosya adı:"
+    },
+    {
+      "en": "Design saved successfully!",
+      "ru": "Дизайн успешно сохранен!",
+      "tr": "Tasarım başarıyla kaydedildi!"
+    },
+    {
+      "en": "Error saving design:",
+      "ru": "Ошибка сохранения дизайна:",
+      "tr": "Tasarım kaydedilirken hata oluştu:"
+    },
+    {
+      "en": "Parameters reset",
+      "ru": "Параметры сброшены",
+      "tr": "Parametreler sıfırlandı"
+    },
+    {
+      "en": "Additional Center Points",
+      "ru": "Дополнительные центральные точки",
+      "tr": "Ek Merkez Noktaları"
+    },
+    {
+      "en": "Levels",
+      "ru": "Уровни",
+      "tr": "Seviyeler"
+    },
+    {
+      "en": "Custom Aliasing Patterns:",
+      "ru": "Пользовательская схема смешения:",
+      "tr": "Özel Örtüşme Desenleri:"
+    },
+    {
+      "en": "Levels",
+      "ru": "Уровни",
+      "tr": "Seviyeler"
+    },
+    {
+      "en": "Design exported successfully!",
+      "ru": "Дизайн успешно экспортирован!",
+      "tr": "Tasarım başarıyla dışa aktarıldı!"
+    },
+    {
+      "en": "Error exporting design:",
+      "ru": "Ошибка экспорта дизайна:",
+      "tr": "Tasarım dışa aktarılırken hata:"
+    },
+    {
+      "en": "Box-Behnken Design requires 3-4 factors only!",
+      "ru": "Дизайн Бокса-Бенкена требует только 3-4 фактора!",
+      "tr": "Box-Behnken Tasarımı yalnızca 3-4 faktör gerektirir!"
+    },
+    {
+      "en": "BBD designs include 3 center points by default. Additional center points can be added.",
+      "ru": "Дизайны BBD включают 3 центральные точки по умолчанию. Можно добавить дополнительные центральные точки.",
+      "tr": "BBD tasarımları varsayılan olarak 3 merkez noktası içerir. Ek merkez noktaları eklenebilir."
+    },
+    {
+      "en": "Central Composite Design requires 2-4 factors only!",
+      "ru": "Центральный композитный дизайн требует только 2-4 фактора!",
+      "tr": "Merkezi Bileşik Tasarım yalnızca 2-4 faktör gerektirir!"
+    },
+    {
+      "en": "CCD includes star points automatically. Recommended center points: %d",
+      "ru": "CCD автоматически включает звездные точки. Рекомендуемые центральные точки: %d",
+      "tr": "CCD otomatik olarak yıldız noktalarını içerir. Önerilen merkez noktaları: %d"
+    },
+    {
+      "en": "Only 2- and 3-level FFDs are available at present!",
+      "ru": "В настоящее время доступны только 2- и 3-уровневые FFD!",
+      "tr": "Şu anda yalnızca 2 ve 3 seviyeli FFD'ler mevcuttur!"
+    },
+    {
+      "en": "Only FFDs for 2 to 3 factors are available for 3-level FFD!",
+      "ru": "Для 3-уровневого FFD доступны только FFD для 2-3 факторов!",
+      "tr": "3 seviyeli FFD için yalnızca 2 ila 3 faktör için FFD'ler mevcuttur!"
+    },
+    {
+      "en": "Note that 3-level FFD designs must contain 3 center points by default! Only ADDITIONAL center points are provided in 'cpts'.",
+      "ru": "Обратите внимание: 3-уровневые FFD дизайны содержат 3 центральные точки по умолчанию! В соответствующем поле указываются только ДОПОЛНИТЕЛЬНЫЕ центральные точки.",
+      "tr": "3 seviyeli FFD tasarımlarının varsayılan olarak 3 merkez noktası içerdiğini unutmayın! İlgili alanda yalnızca EK merkez noktaları belirtilir."
+    },
+    {
+      "en": "Only FFDs for 2 to 5 factors are available for 2-level FFD!",
+      "ru": "Для 2-уровневого FFD доступны только FFD для 2-5 факторов!",
+      "tr": "2 seviyeli FFD için yalnızca 2 ila 5 faktör için FFD'ler mevcuttur!"
+    },
+    {
+      "en": "2-level FFD designs do not include default center points.",
+      "ru": "2-уровневые FFD дизайны не включают центральные точки по умолчанию.",
+      "tr": "2 seviyeli FFD tasarımları varsayılan merkez noktalarını içermez."
+    },
+    {
+      "en": "Fractional Factorial Design requires 3-5 factors!",
+      "ru": "Дробный факторный дизайн требует 3-5 факторов!",
+      "tr": "Kesirli Faktöriyel Tasarım 3-5 faktör gerektirir!"
+    },
+    {
+      "en": "Fraction (p) must be %s for %d factors.",
+      "ru": "Доля (p) должна быть %s для %d факторов.",
+      "tr": "Kesir (p), %d faktör için %s olmalıdır."
+    },
+    {
+      "en": " Custom aliasing patterns will be used if provided.",
+      "ru": " Пользовательская схема смешения будет использована, если указана.",
+      "tr": " Sağlanırsa özel örtüşme desenleri kullanılacaktır."
+    },
+    {
+      "en": "Taguchi Method requires 3-5 factors!",
+      "ru": "Метод Тагучи требует 3-5 факторов!",
+      "tr": "Taguchi Yöntemi 3-5 faktör gerektirir!"
+    },
+    {
+      "en": "For Taguchi designs, 2-4 factor 'levels' are currently supported!",
+      "ru": "Для дизайнов Тагучи в настоящее время поддерживаются 2-4 'уровня' факторов!",
+      "tr": "Taguchi tasarımları için şu anda 2-4 faktör 'seviyeleri' desteklenmektedir!"
+    },
+    {
+      "en": "Taguchi designs do not support additional center points.",
+      "ru": "Дизайны Тагучи не поддерживают дополнительные центральные точки.",
+      "tr": "Taguchi tasarımları ek merkez noktalarını desteklemez."
+    },
+    {
+      "en": "Star points extend beyond factor range (±1.414)",
+      "ru": "Звездные точки выходят за пределы диапазона факторов (±1.414)",
+      "tr": "Yıldız noktaları faktör aralığının ötesine uzanır (±1.414)"
+    },
+    {
+      "en": "Star points are at factor faces (±1.0)",
+      "ru": "Звездные точки находятся на гранях факторов (±1.0)",
+      "tr": "Yıldız noktaları faktör yüzlerindedir (±1.0)"
+    },
+    {
+      "en": "Enter aliasing patterns separated by commas, e.g., AB=C, AC=B",
+      "ru": "Введите схему смешения через запятую, например, AB=C, AC=B",
+      "tr": "Örtüşme desenlerini virgülle ayırarak girin, örn. AB=C, AC=B"
+    },
+    {
+      "en": "Enter aliasing patterns as a comma-separated character vector (e.g., 'AB=C', 'AC=B')",
+      "ru": "Введите схему смешения как символьный вектор, разделённый запятыми (например, 'AB=C', 'AC=B')",
+      "tr": "Örtüşme desenlerini virgülle ayrılmış karakter vektörü olarak girin (örn. 'AB=C', 'AC=B')"
+    },
+    {
+      "en": "Circumscribed (CCC)",
+      "ru": "Ротатабельный (CCC)",
+      "tr": "Çevrelenmiş (CCC)"
+    },
+    {
+      "en": "Face-Centered (CCF)",
+      "ru": "Гранецентрированный (CCF)",
+      "tr": "Yüz Merkezli (CCF)"
+    },
+    {
+      "en": "Default",
+      "ru": "По умолчанию",
+      "tr": "Varsayılan"
+    },
+    {
+      "en": "Custom",
+      "ru": "Пользовательский",
+      "tr": "Özel"
+    },
+    {
+      "en": "Effect",
+      "ru": "Эффект",
+      "tr": "Etki"
+    },
+    {
+      "en": "I=ABC",
+      "ru": "I=ABC",
+      "tr": "I=ABC"
+    },
+    {
+      "en": "Error: Could not find the exported file to rename.",
+      "ru": "Ошибка: Не удалось найти экспортированный файл для переименования.",
+      "tr": "Hata: Yeniden adlandırılacak dışa aktarılan dosya bulunamadı."
+    },
+    {
+      "en": "Factor {n} Name",
+      "ru": "Название фактора {n}",
+      "tr": "Faktör {n} Adı"
+    },
+    {
+      "en": "Box-Behnken",
+      "ru": "Бокса-Бенкена",
+      "tr": "Box-Behnken"
+    },
+    {
+      "en": "Circumscribed Central Composite",
+      "ru": "Ротатабельный центральный композиционный",
+      "tr": "Çevrelenmiş Merkezi Bileşik"
+    },
+    {
+      "en": "Face-Centered Central Composite",
+      "ru": "Гранецентрированный центральный композиционный",
+      "tr": "Yüz Merkezli Merkezi Bileşik"
+    },
+    {
+      "en": "Central Composite",
+      "ru": "Центральный композиционный",
+      "tr": "Merkezi Bileşik"
+    },
+    {
+      "en": "Fractional Factorial",
+      "ru": "Дробный факторный",
+      "tr": "Kesirli Faktöriyel"
+    },
+    {
+      "en": "Full Factorial",
+      "ru": "Полный факторный",
+      "tr": "Tam Faktöriyel"
+    },
+    {
+      "en": "Taguchi Method",
+      "ru": "Метод Тагути",
+      "tr": "Taguchi Yöntemi"
+    },
+    {
+      "en": "Alias",
+      "ru": "Смешение",
+      "tr": "Örtüşme"
+    },
+    {
+      "en": "Preparing export...",
+      "ru": "Подготовка экспорта...",
+      "tr": "Dışa aktarma hazırlanıyor..."
+    },
+    {
+      "en": "Done!",
+      "ru": "Готово!",
+      "tr": "Tamamlandı!"
+    },
+    {
+      "en": "auto-set",
+      "ru": "авто",
+      "tr": "otomatik"
+    },
+    {
+      "en": "Optimization {design} design {lf} ({type}) with {runs} runs",
+      "ru": "{design} план оптимизации {lf} ({type}); {runs} опытов",
+      "tr": "{lf} ({type}) {design} optimizasyon tasarımı, {runs} çalışma"
+    },
+    {
+      "en": "Screening {design} design {lf} ({type}) with {runs} runs",
+      "ru": "{design} план скрининга {lf} ({type}); {runs} опытов",
+      "tr": "{lf} ({type}) {design} tarama tasarımı, {runs} çalışma"
+    },
+    {
+      "en": "Optimization {design} design {lf} ({type}) with {star} star points and {center} center points; {runs} runs total",
+      "ru": "{design} план оптимизации {lf} ({type}); {star} звёздных и {center} центральных точек; всего {runs} опытов",
+      "tr": "{lf} ({type}) {design} optimizasyon tasarımı; {star} yıldız ve {center} merkez noktası ile toplam {runs} çalışma"
+    },
+    {
+      "en": "Screening {design} design {lf} ({type}) with {star} star points and {center} center points; {runs} runs total",
+      "ru": "{design} план скрининга {lf} ({type}); {star} звёздных и {center} центральных точек; всего {runs} опытов",
+      "tr": "{lf} ({type}) {design} tarama tasarımı; {star} yıldız ve {center} merkez noktası ile toplam {runs} çalışma"
+    },
+    {
+      "en": "Standard Order",
+      "ru": "Стандартный порядок",
+      "tr": "Standart Sıra"
+    },
+    {
+      "en": "Expand all",
+      "ru": "Развернуть все",
+      "tr": "Tümünü genişlet"
+    },
+    {
+      "en": "Collapse all",
+      "ru": "Свернуть все",
+      "tr": "Tümünü daralt"
+    },
+    {
+      "en": "Number of levels per factor. 2 levels test linear effects only. 3 levels can detect curvature (quadratic effects).",
+      "tr": "Faktör başına seviye sayısı. 2 seviye yalnızca doğrusal etkileri test eder. 3 seviye eğriliği (ikinci dereceden etkileri) tespit edebilir.",
+      "ru": "Количество уровней на фактор. 2 уровня проверяют только линейные эффекты. 3 уровня позволяют обнаружить кривизну (квадратичные эффекты)."
+    },
+    {
+      "en": "Fractionation level. A 2^(k-p) design uses 1/2^p of the full factorial runs. Higher p = fewer runs but more aliased (confounded) effects.",
+      "tr": "Fraksiyonlama seviyesi. 2^(k-p) tasarımı, tam faktöriyel çalışmaların 1/2^p'sini kullanır. Daha yüksek p = daha az çalışma ama daha fazla karışan etkiler.",
+      "ru": "Уровень дробления. План 2^(k-p) использует 1/2^p от полного факторного. Больше p = меньше опытов, но больше смешанных эффектов."
+    },
+    {
+      "en": "Number of levels per factor in the Taguchi orthogonal array. More levels capture more complex factor effects but require more runs.",
+      "tr": "Taguchi ortogonal dizisindeki faktör başına seviye sayısı. Daha fazla seviye daha karmaşık faktör etkilerini yakalar ancak daha fazla çalışma gerektirir.",
+      "ru": "Количество уровней на фактор в ортогональном массиве Тагути. Больше уровней — более сложные эффекты факторов, но больше опытов."
+    },
+    {
+      "en": "A descriptive name for this factor (e.g. Pressure, Temperature, Time). Used in design matrix column headers and analysis outputs.",
+      "tr": "Bu faktör için açıklayıcı bir ad (örn. Basınç, Sıcaklık, Süre). Tasarım matrisi sütun başlıklarında ve analiz çıktılarında kullanılır.",
+      "ru": "Описательное название фактора (напр. Давление, Температура, Время). Используется в заголовках столбцов матрицы плана и результатах анализа."
+    },
+    {
+      "en": "Factor Name",
+      "tr": "Faktör Adı",
+      "ru": "Название фактора"
+    },
+    {
+      "en": "The minimum (low) level of this factor in the experimental design. For CCD designs, star points may extend beyond this range.",
+      "tr": "Bu faktörün deneysel tasarımdaki minimum (düşük) seviyesi. CCD tasarımlarında yıldız noktaları bu aralığın ötesine uzanabilir.",
+      "ru": "Минимальный (нижний) уровень фактора в экспериментальном плане. Для планов CCD звёздные точки могут выходить за этот диапазон."
+    },
+    {
+      "en": "The maximum (high) level of this factor in the experimental design. For CCD designs, star points may extend beyond this range.",
+      "tr": "Bu faktörün deneysel tasarımdaki maksimum (yüksek) seviyesi. CCD tasarımlarında yıldız noktaları bu aralığın ötesine uzanabilir.",
+      "ru": "Максимальный (верхний) уровень фактора в экспериментальном плане. Для планов CCD звёздные точки могут выходить за этот диапазон."
+    }
+  ]
+}

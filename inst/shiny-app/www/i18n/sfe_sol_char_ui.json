@@ -1,0 +1,969 @@
+{
+  "translation": [
+    {
+      "en": "Solute Information",
+      "ru": "Информация о растворенном веществе",
+      "tr": "Çözünen Madde Bilgileri"
+    },
+    {
+      "en": "CAS Number",
+      "ru": "Номер CAS",
+      "tr": "CAS Numarası"
+    },
+    {
+      "en": "Display Name",
+      "ru": "Отображаемое имя",
+      "tr": "Görünen Ad"
+    },
+    {
+      "en": "Specify SMILES",
+      "ru": "Указать SMILES",
+      "tr": "SMILES Belirt"
+    },
+    {
+      "en": "SMILES String",
+      "ru": "Строка SMILES",
+      "tr": "SMILES Dizisi"
+    },
+    {
+      "en": "Solute Characterization (GCM)",
+      "ru": "Характеристика растворенного вещества (МГВ)",
+      "tr": "Çözünen Madde Karakterizasyonu (GCM)"
+    },
+    {
+      "en": "GCM Method Selection",
+      "ru": "Выбор метода МГВ",
+      "tr": "GCM Metot Seçimi"
+    },
+    {
+      "en": "Boiling Point Method",
+      "ru": "Метод температуры кипения",
+      "tr": "Kaynama Noktası Metodu"
+    },
+    {
+      "en": "Critical Parameters Method",
+      "ru": "Метод критических параметров",
+      "tr": "Kritik Parametreler Metodu"
+    },
+    {
+      "en": "Hansen Solubility (HSP) Method",
+      "ru": "Метод параметров Хансена (HSP)",
+      "tr": "Hansen Çözünürlük (HSP) Metodu"
+    },
+    {
+      "en": "Van der Waals Volume Method",
+      "ru": "Метод объема Ван-дер-Ваальса",
+      "tr": "Van der Waals Hacim Metodu"
+    },
+    {
+      "en": "Fragmentation Simplicity",
+      "ru": "Простота фрагментации",
+      "tr": "Parçalanma Basitliği"
+    },
+    {
+      "en": "Maximum Group Order",
+      "ru": "Максимальный порядок группы",
+      "tr": "Maksimum Grup Sırası"
+    },
+    {
+      "en": "Characterize Solute (GCM)",
+      "ru": "Характеризовать растворенное вещество (МГВ)",
+      "tr": "Çözünen Maddeyi Karakterize Et (GCM)"
+    },
+    {
+      "en": "GCM Comparison",
+      "ru": "Сравнение МГВ",
+      "tr": "GCM Karşılaştırması"
+    },
+    {
+      "en": "Compare GCM",
+      "ru": "Сравнить МГВ",
+      "tr": "GCM Karşılaştır"
+    },
+    {
+      "en": "Solute Characterization Results",
+      "ru": "Результаты характеристики растворенного вещества",
+      "tr": "Çözünen Madde Karakterizasyon Sonuçları"
+    },
+    {
+      "en": "Show HSP Visualization",
+      "ru": "Показать визуализацию HSP",
+      "tr": "HSP Görselleştirmesini Göster"
+    },
+    {
+      "en": "Show Critical Visualization",
+      "ru": "Показать критическую визуализацию",
+      "tr": "Kritik Görselleştirmeyi Göster"
+    },
+    {
+      "en": "Show Tb Visualization",
+      "ru": "Показать визуализацию Tb",
+      "tr": "Tb Görselleştirmesini Göster"
+    },
+    {
+      "en": "Predicted Parameters (HSP and Critical)",
+      "ru": "Предсказанные параметры (HSP и критические)",
+      "tr": "Tahmini Parametreler (HSP ve Kritik)"
+    },
+    {
+      "en": "Group Contributions",
+      "ru": "Групповые вклады",
+      "tr": "Grup Katkıları"
+    },
+    {
+      "en": "HSP Visualization",
+      "ru": "Визуализация HSP",
+      "tr": "HSP Görselleştirme"
+    },
+    {
+      "en": "Close",
+      "ru": "Закрыть",
+      "tr": "Kapat"
+    },
+    {
+      "en": "Critical Parameters Visualization",
+      "ru": "Визуализация критических параметров",
+      "tr": "Kritik Parametreler Görselleştirme"
+    },
+    {
+      "en": "Tb Visualization",
+      "ru": "Визуализация Tb",
+      "tr": "Tb Görselleştirme"
+    },
+    {
+      "en": "Error during GCM characterization:",
+      "ru": "Ошибка во время характеристики МГВ:",
+      "tr": "GCM karakterizasyonu sırasında hata oluştu:"
+    },
+    {
+      "en": "GCM calculation saved.",
+      "ru": "Расчет МГВ сохранен.",
+      "tr": "GCM hesaplaması kaydedildi."
+    },
+    {
+      "en": "Error during GCM comparison:",
+      "ru": "Ошибка во время сравнения МГВ:",
+      "tr": "GCM karşılaştırması sırasında hata oluştu:"
+    },
+    {
+      "en": "Characterizing Solute (GCM)...",
+      "ru": "Характеризация растворенного вещества (МГВ)...",
+      "tr": "Çözünen Madde (GCM) karakterize ediliyor..."
+    },
+    {
+      "en": "GCM characterization completed and saved to session.",
+      "ru": "Характеризация МГВ завершена и сохранена в сессию.",
+      "tr": "GCM karakterizasyonu tamamlandı ve oturuma kaydedildi."
+    },
+    {
+      "en": "Comparing GCM...",
+      "ru": "Сравнение МГВ...",
+      "tr": "GCM karşılaştırılıyor..."
+    },
+    {
+      "en": "GCM comparison completed",
+      "ru": "Сравнение МГВ завершено",
+      "tr": "GCM karşılaştırması tamamlandı"
+    },
+    {
+      "en": "No comparison results",
+      "ru": "Нет результатов сравнения",
+      "tr": "Karşılaştırma sonucu yok"
+    },
+    {
+      "en": "Debug Tb",
+      "ru": "Отладка Tb",
+      "tr": "Tb Hata Ayıklama"
+    },
+    {
+      "en": "Calculate",
+      "ru": "Рассчитать",
+      "tr": "Hesapla"
+    },
+    {
+      "en": "Compare",
+      "ru": "Сравнить",
+      "tr": "Karşılaştır"
+    },
+    {
+      "en": "Save to Disk",
+      "ru": "Сохранить на диск",
+      "tr": "Diske Kaydet"
+    },
+    {
+      "en": "Save Calculation to Disk",
+      "ru": "Сохранить расчёт на диск",
+      "tr": "Hesaplamayı Diske Kaydet"
+    },
+    {
+      "en": "Saving:",
+      "ru": "Сохранение:",
+      "tr": "Kaydediliyor:"
+    },
+    {
+      "en": "Filename:",
+      "ru": "Имя файла:",
+      "tr": "Dosya adı:"
+    },
+    {
+      "en": "No calculations to save. Run a calculation first.",
+      "ru": "Нет расчётов для сохранения. Сначала выполните расчёт.",
+      "tr": "Kaydedilecek hesaplama yok. Önce bir hesaplama yapın."
+    },
+    {
+      "en": "Calculation saved to:",
+      "ru": "Расчёт сохранён в:",
+      "tr": "Hesaplama kaydedildi:"
+    },
+    {
+      "en": "Error saving file:",
+      "ru": "Ошибка сохранения файла:",
+      "tr": "Dosya kaydedilirken hata:"
+    },
+    {
+      "en": "Final filename:",
+      "ru": "Итоговое имя файла:",
+      "tr": "Son dosya adı:"
+    },
+    {
+      "en": "Boiling Point (K):",
+      "ru": "Температура кипения (K):",
+      "tr": "Kaynama Noktası (K):"
+    },
+    {
+      "en": "Molecular Descriptors",
+      "ru": "Молекулярные дескрипторы",
+      "tr": "Moleküler Tanımlayıcılar"
+    },
+    {
+      "en": "Display Name:",
+      "ru": "Отображаемое имя:",
+      "tr": "Görünen Ad:"
+    },
+    {
+      "en": "Names from CAS: ",
+      "ru": "Имена из CAS: ",
+      "tr": "CAS'tan isimler: "
+    },
+    {
+      "en": "Show",
+      "ru": "Показать",
+      "tr": "Göster"
+    },
+    {
+      "en": "Visualization",
+      "ru": "визуализация",
+      "tr": "Görselleştirme"
+    },
+    {
+      "en": "Boiling Point",
+      "ru": "Температура кипения",
+      "tr": "Kaynama Noktası"
+    },
+    {
+      "en": "Contributions",
+      "ru": "Вклады",
+      "tr": "Katkılar"
+    },
+    {
+      "en": "Corrected Boiling Point",
+      "ru": "Скорректированная точка кипения",
+      "tr": "Düzeltilmiş Kaynama Noktası"
+    },
+    {
+      "en": "Critical Temperature",
+      "ru": "Критическая температура",
+      "tr": "Kritik Sıcaklık"
+    },
+    {
+      "en": "Critical Pressure",
+      "ru": "Критическое давление",
+      "tr": "Kritik Basınç"
+    },
+    {
+      "en": "Critical Volume",
+      "ru": "Критический объём",
+      "tr": "Kritik Hacim"
+    },
+    {
+      "en": "Dispersion",
+      "ru": "Дисперсия",
+      "tr": "Dispersiyon"
+    },
+    {
+      "en": "Polarity",
+      "ru": "Полярность",
+      "tr": "Polarite"
+    },
+    {
+      "en": "Hydrogen Bonding",
+      "ru": "Водородная связь",
+      "tr": "Hidrojen Bağı"
+    },
+    {
+      "en": "Group Order:",
+      "ru": "Порядок групп:",
+      "tr": "Grup Sırası:"
+    },
+    {
+      "en": "1st order only",
+      "ru": "Только 1-го порядка",
+      "tr": "Yalnızca 1. derece"
+    },
+    {
+      "en": "Group",
+      "ru": "Группа",
+      "tr": "Grup"
+    },
+    {
+      "en": "ID",
+      "ru": "ID",
+      "tr": "ID"
+    },
+    {
+      "en": "Group Order",
+      "ru": "Порядок группы",
+      "tr": "Grup Derecesi"
+    },
+    {
+      "en": "Valid range",
+      "ru": "Допустимый диапазон",
+      "tr": "Geçerli aralık"
+    },
+    {
+      "en": "Hukkerikar-Stepwise",
+      "ru": "Hukkerikar-Stepwise",
+      "tr": "Hukkerikar-Stepwise"
+    },
+    {
+      "en": "Hukkerikar-Simultaneous",
+      "ru": "Hukkerikar-Simultaneous",
+      "tr": "Hukkerikar-Simultaneous"
+    },
+    {
+      "en": "Select the parameters and run characterization to see results.",
+      "ru": "Выберите параметры и запустите характеризацию для просмотра результатов.",
+      "tr": "Parametreleri seçin ve sonuçları görmek için karakterizasyonu çalıştırın."
+    },
+    {
+      "en": "Valid range:",
+      "ru": "Допустимый диапазон:",
+      "tr": "Geçerli aralık:"
+    },
+    {
+      "en": "Enter the CAS number of the target solute (e.g. 85-01-8 for phenanthrene). The CAS number is used to look up the molecular structure and decompose it into functional groups for Group Contribution Method (GCM) calculations.",
+      "ru": "Введите CAS-номер целевого вещества (напр. 85-01-8 для фенантрена). CAS-номер используется для поиска молекулярной структуры и разложения на функциональные группы для расчётов методом групповых вкладов (МГВ).",
+      "tr": "Hedef çözünenin CAS numarasını girin (örn. fenantren için 85-01-8). CAS numarası, Grup Katkı Yöntemi (GKY) hesaplamaları için moleküler yapıyı aramak ve fonksiyonel gruplara ayırmak için kullanılır."
+    },
+    {
+      "en": "Provide a display name for the solute. This name will appear in results tables and comparison charts. It is optional and does not affect calculations.",
+      "ru": "Укажите отображаемое имя вещества. Это имя появится в таблицах результатов и графиках сравнения. Необязательно и не влияет на расчёты.",
+      "tr": "Çözünen için bir görüntü adı belirtin. Bu ad sonuç tablolarında ve karşılaştırma grafiklerinde görünecektir. İsteğe bağlıdır ve hesaplamaları etkilemez."
+    },
+    {
+      "en": "Enable this to manually provide a SMILES (Simplified Molecular Input Line Entry System) string. Use this when the CAS number lookup fails or when you want to characterize a molecule not in public databases.",
+      "ru": "Включите для ручного ввода строки SMILES. Используйте, когда поиск по CAS-номеру не даёт результатов или для молекул, отсутствующих в публичных базах данных.",
+      "tr": "SMILES dizesini manuel olarak girmek için etkinleştirin. CAS numarası araması başarısız olduğunda veya genel veritabanlarında bulunmayan bir molekülü karakterize etmek istediğinizde kullanın."
+    },
+    {
+      "en": "Select the Group Contribution Method for estimating the normal boiling point (Tb). Available methods include Joback-Reid, Constantinou-Gani, and Marrero-Pardillo. The boiling point is a key input for calculating critical properties.",
+      "ru": "Выберите метод групповых вкладов для оценки нормальной температуры кипения (Tb). Доступные методы: Joback-Reid, Constantinou-Gani, Marrero-Pardillo. Температура кипения — ключевой параметр для расчёта критических свойств.",
+      "tr": "Normal kaynama noktası (Tb) tahmini için Grup Katkı Yöntemini seçin. Mevcut yöntemler: Joback-Reid, Constantinou-Gani ve Marrero-Pardillo. Kaynama noktası, kritik özelliklerin hesaplanması için temel bir girdidir."
+    },
+    {
+      "en": "Set the maximum group order for the boiling point GCM. First-order (1) uses only simple functional groups; second-order (2) adds correction terms for group interactions. Set to 0 for automatic selection based on available group data.",
+      "ru": "Установите максимальный порядок групп для МГВ температуры кипения. Первый порядок (1) использует только простые функциональные группы; второй (2) добавляет поправки на межгрупповые взаимодействия. 0 — автоматический выбор.",
+      "tr": "Kaynama noktası GKY'si için maksimum grup sırasını ayarlayın. Birinci derece (1) yalnızca basit fonksiyonel grupları kullanır; ikinci derece (2) grup etkileşimleri için düzeltme terimleri ekler. Otomatik seçim için 0 ayarlayın."
+    },
+    {
+      "en": "Choose the GCM for calculating critical temperature, pressure, and volume. These critical properties are essential for equation-of-state calculations used in supercritical fluid extraction process design.",
+      "ru": "Выберите МГВ для расчёта критической температуры, давления и объёма. Эти критические свойства необходимы для расчётов уравнения состояния при проектировании процессов сверхкритической экстракции.",
+      "tr": "Kritik sıcaklık, basınç ve hacim hesaplamak için GKY'yi seçin. Bu kritik özellikler, süperkritik akışkan ekstraksiyonu proses tasarımında kullanılan durum denklemleri hesaplamaları için gereklidir."
+    },
+    {
+      "en": "Select the method for estimating Hansen Solubility Parameters (HSP): dispersion, polarity, and hydrogen bonding components. HSPs are used to predict solute-solvent miscibility in the Miscibility modules.",
+      "ru": "Выберите метод оценки параметров растворимости Хансена (HSP): дисперсионная, полярная и водородная составляющие. HSP используются для прогнозирования смешиваемости растворённого вещества и растворителя.",
+      "tr": "Hansen Çözünürlük Parametreleri (HSP) tahmini için yöntemi seçin: dispersiyon, polarite ve hidrojen bağı bileşenleri. HSP'ler Karışabilirlik modüllerinde çözünen-çözücü karışabilirliğini tahmin etmek için kullanılır."
+    },
+    {
+      "en": "Choose the method for calculating the Van der Waals volume of the molecule. This is used internally by some GCM methods for critical property estimation.",
+      "ru": "Выберите метод расчёта объёма Ван-дер-Ваальса молекулы. Используется внутренне некоторыми МГВ для оценки критических свойств.",
+      "tr": "Molekülün Van der Waals hacmini hesaplamak için yöntemi seçin. Bazı GKY yöntemleri tarafından kritik özellik tahmini için dahili olarak kullanılır."
+    },
+    {
+      "en": "Control the fragmentation complexity when decomposing the molecule into functional groups. Simple uses fewer, larger groups; Complete uses the finest decomposition. Simpler fragmentation may work better for molecules with limited group data.",
+      "ru": "Управление сложностью фрагментации при разложении молекулы на функциональные группы. «Простая» использует меньше крупных групп; «Полная» — самое тонкое разложение. Простая фрагментация может лучше работать для молекул с ограниченными данными о группах.",
+      "tr": "Molekülü fonksiyonel gruplara ayırırken parçalama karmaşıklığını kontrol edin. Basit daha az, büyük gruplar kullanır; Tam en ince ayrıştırmayı kullanır. Sınırlı grup verisi olan moleküller için daha basit parçalama daha iyi çalışabilir."
+    },
+    {
+      "en": "Click to run the solute characterization. This decomposes the molecule into functional groups, estimates the boiling point, critical properties, and Hansen Solubility Parameters using the selected GCM methods. Results appear in the tabs on the right.",
+      "ru": "Нажмите, чтобы run the solute characterization. This decomposes the molecule into functional groups, estimates the boiling point, critical properties, and Hansen Solubility Parameters using the selected МГВ methods. Results appear in the tabs on the right.",
+      "tr": "Tıklayarak run the solute characterization. This decomposes the molecule into functional groups, estimates the boiling point, critical properties, and Hansen Solubility Parameters using the selected GCM methods. Results appear in the tabs on the right."
+    },
+    {
+      "en": "Enter the CAS number of the solute for which you want to compare different GCM methods.",
+      "ru": "Введите CAS-номер вещества для сравнения различных методов МГВ.",
+      "tr": "Farklı GKY yöntemlerini karşılaştırmak istediğiniz çözünenin CAS numarasını girin."
+    },
+    {
+      "en": "Provide a display name for the solute (optional).",
+      "ru": "Укажите отображаемое имя вещества (необязательно).",
+      "tr": "Çözünen için bir görüntü adı belirtin (isteğe bağlı)."
+    },
+    {
+      "en": "Enable to manually specify the molecular structure via SMILES notation.",
+      "ru": "Включите для ручного ввода молекулярной структуры через нотацию SMILES.",
+      "tr": "SMILES gösterimi ile moleküler yapıyı manuel olarak belirtmek için etkinleştirin."
+    },
+    {
+      "en": "Set the maximum group order used across all GCM methods in the comparison. Higher orders include more interaction correction terms but require more group data.",
+      "ru": "Установите максимальный порядок групп для всех методов МГВ в сравнении. Более высокие порядки включают больше поправок на взаимодействия.",
+      "tr": "Karşılaştırmada tüm GKY yöntemlerinde kullanılan maksimum grup sırasını ayarlayın. Daha yüksek sıralar daha fazla etkileşim düzeltme terimi içerir."
+    },
+    {
+      "en": "Select the fragmentation complexity for the comparison. This setting applies uniformly to all methods being compared.",
+      "ru": "Выберите сложность фрагментации для сравнения. Настройка применяется одинаково ко всем сравниваемым методам.",
+      "tr": "Karşılaştırma için parçalama karmaşıklığını seçin. Bu ayar karşılaştırılan tüm yöntemlere eşit olarak uygulanır."
+    },
+    {
+      "en": "Click to run all available GCM methods and compare their predictions for boiling point, critical properties, and Hansen Solubility Parameters side by side.",
+      "ru": "Нажмите, чтобы run all available МГВ methods and compare their predictions for boiling point, critical properties, and Hansen Solubility Parameters side by side.",
+      "tr": "Tıklayarak run all available GCM methods and compare their predictions for boiling point, critical properties, and Hansen Solubility Parameters side by side."
+    },
+    {
+      "en": "OK",
+      "ru": "OK",
+      "tr": "Tamam"
+    },
+    {
+      "en": "Boiling Point Method",
+      "ru": "Метод температуры кипения",
+      "tr": "Kaynama Noktası Yöntemi"
+    },
+    {
+      "en": "Critical Parameters Method",
+      "ru": "Метод критических параметров",
+      "tr": "Kritik Parametreler Yöntemi"
+    },
+    {
+      "en": "HSP Method",
+      "ru": "Метод HSP",
+      "tr": "HSP Yöntemi"
+    },
+    {
+      "en": "VdW Volume Method",
+      "ru": "Метод объёма ВдВ",
+      "tr": "VdW Hacim Yöntemi"
+    },
+    {
+      "en": "Fragmentation",
+      "ru": "Фрагментация",
+      "tr": "Parçalanma"
+    },
+    {
+      "en": "Max Group Order",
+      "ru": "Макс. порядок групп",
+      "tr": "Maks. Grup Sırası"
+    },
+    {
+      "en": "Chemical Abstracts Service registry number of the target solute (e.g. 7235-40-7 for beta-carotene). Used to retrieve molecular structure and SMILES automatically.",
+      "ru": "Регистрационный номер CAS целевого вещества (напр. 7235-40-7 для бета-каротина). Используется для автоматического получения молекулярной структуры и SMILES.",
+      "tr": "Hedef çözünenin CAS kayıt numarası (örn. beta-karoten için 7235-40-7). Moleküler yapı ve SMILES'ı otomatik almak için kullanılır."
+    },
+    {
+      "en": "A descriptive name for the solute, shown in plots and results tables. Can be any text.",
+      "ru": "Описательное имя вещества, показываемое на графиках и в таблицах результатов. Может быть любым текстом.",
+      "tr": "Çözünen için açıklayıcı bir ad, grafiklerde ve sonuç tablolarında gösterilir. Herhangi bir metin olabilir."
+    },
+    {
+      "en": "Enable to manually enter the SMILES string instead of retrieving it automatically from the CAS number.",
+      "ru": "Включите для ручного ввода строки SMILES вместо автоматического получения по номеру CAS.",
+      "tr": "CAS numarasından otomatik almak yerine SMILES dizesini manuel olarak girmek için etkinleştirin."
+    },
+    {
+      "en": "Simplified Molecular Input Line Entry System notation describing the molecular structure of the solute. Required for Group Contribution Method calculations.",
+      "ru": "Нотация SMILES, описывающая молекулярную структуру вещества. Необходима для расчётов методами групповых вкладов.",
+      "tr": "Çözünenin moleküler yapısını tanımlayan SMILES notasyonu. Grup Katkı Yöntemi hesaplamaları için gereklidir."
+    },
+    {
+      "en": "Normal boiling point of the solute in Kelvin. Provide this when the Boiling Point Method is set to Manual Input instead of a GCM estimation.",
+      "ru": "Нормальная температура кипения вещества в Кельвинах. Укажите, когда метод температуры кипения установлен на ручной ввод.",
+      "tr": "Çözünenin Kelvin cinsinden normal kaynama noktası. Kaynama Noktası Yöntemi GKY tahmini yerine Manuel Giriş olarak ayarlandığında belirtin."
+    },
+    {
+      "en": "Group Contribution Method for estimating the normal boiling point. Choose Manual Input to enter a known value directly. Each method uses different structural group databases and correlation equations.",
+      "ru": "Метод групповых вкладов для оценки температуры кипения. Выберите ручной ввод для известного значения. Каждый метод использует разные базы структурных групп и корреляционные уравнения.",
+      "tr": "Normal kaynama noktasını tahmin etmek için Grup Katkı Yöntemi. Bilinen bir değeri doğrudan girmek için Manuel Giriş seçin. Her yöntem farklı yapısal grup veritabanları ve korelasyon denklemleri kullanır."
+    },
+    {
+      "en": "Group Contribution Method for estimating critical temperature, pressure, and volume. These are needed for temperature-dependent HSP corrections. Set to None if not needed.",
+      "ru": "Метод групповых вкладов для оценки критической температуры, давления и объёма. Необходимы для температурных поправок HSP. Установите «Нет», если не требуется.",
+      "tr": "Kritik sıcaklık, basınç ve hacmi tahmin etmek için Grup Katkı Yöntemi. Sıcaklığa bağlı HSP düzeltmeleri için gereklidir. Gerekli değilse Yok olarak ayarlayın."
+    },
+    {
+      "en": "Group Contribution Method for estimating Hansen Solubility Parameters (dispersion, polarity, and hydrogen bonding components). Required for co-solvent miscibility evaluation. Set to None if not needed.",
+      "ru": "Метод групповых вкладов для оценки параметров Хансена (дисперсионная, полярная и водородно-связывающая компоненты). Необходим для оценки смешиваемости. Установите «Нет», если не требуется.",
+      "tr": "Hansen Çözünürlük Parametrelerini (dispersiyon, polarite ve hidrojen bağı bileşenleri) tahmin etmek için Grup Katkı Yöntemi. Ko-çözücü karışabilirlik değerlendirmesi için gereklidir. Gerekli değilse Yok olarak ayarlayın."
+    },
+    {
+      "en": "Group Contribution Method for estimating the Van der Waals molecular volume. Used for molar volume calculations. Set to None if not needed.",
+      "ru": "Метод групповых вкладов для оценки объёма Ван-дер-Ваальса. Используется для расчётов молярного объёма. Установите «Нет», если не требуется.",
+      "tr": "Van der Waals moleküler hacmini tahmin etmek için Grup Katkı Yöntemi. Molar hacim hesaplamaları için kullanılır. Gerekli değilse Yok olarak ayarlayın."
+    },
+    {
+      "en": "Controls how the molecule is broken into GCM groups. Auto selects the best setting for each method. Simple allows overlapping groups. Normal prevents overlaps. Complex tries all possible fragmentations (slower but more thorough).",
+      "ru": "Управляет разложением молекулы на группы МГВ. Авто — лучшая настройка для каждого метода. Простая — допускает перекрытие. Нормальная — запрещает перекрытие. Сложная — все варианты фрагментации (медленнее, но тщательнее).",
+      "tr": "Molekülün GKY gruplarına nasıl ayrıştırıldığını kontrol eder. Otomatik her yöntem için en iyi ayarı seçer. Basit örtüşen gruplara izin verir. Normal örtüşmeleri engeller. Karmaşık tüm olası parçalanmaları dener (daha yavaş ama daha kapsamlı)."
+    },
+    {
+      "en": "Controls how the molecule is broken into GCM groups for the comparison. Same options as in the characterization section.",
+      "ru": "Управляет разложением молекулы на группы МГВ для сравнения. Те же параметры, что и в разделе характеризации.",
+      "tr": "Karşılaştırma için molekülün GKY gruplarına nasıl ayrıştırıldığını kontrol eder. Karakterizasyon bölümüyle aynı seçenekler."
+    },
+    {
+      "en": "Maximum order of structural groups to consider in the fragmentation. 0 uses all available orders. Higher orders capture more complex structural features but may not be available for all methods.",
+      "ru": "Максимальный порядок структурных групп для фрагментации. 0 — все доступные порядки. Более высокие порядки учитывают сложные структурные особенности, но могут быть недоступны для всех методов.",
+      "tr": "Parçalanmada dikkate alınacak maksimum yapısal grup sırası. 0 tüm mevcut sıraları kullanır. Daha yüksek sıralar daha karmaşık yapısal özellikleri yakalar ancak tüm yöntemler için mevcut olmayabilir."
+    },
+    {
+      "en": "Property",
+      "ru": "Property",
+      "tr": "Property"
+    },
+    {
+      "en": "Molecular Formula:",
+      "ru": "Molecular Formula:",
+      "tr": "Molecular Formula:"
+    },
+    {
+      "en": "mL/mol",
+      "ru": "mL/mol",
+      "tr": "mL/mol"
+    },
+    {
+      "en": "Simple",
+      "ru": "Simple",
+      "tr": "Simple"
+    },
+    {
+      "en": "CAS:",
+      "ru": "CAS:",
+      "tr": "CAS:"
+    },
+    {
+      "en": "Nannoolal 2007",
+      "ru": "Nannoolal 2007",
+      "tr": "Nannoolal 2007"
+    },
+    {
+      "en": "Cumulative contribution (group × occurrences)",
+      "ru": "Суммарный вклад (группа × кол-во)",
+      "tr": "Kümülatif katkı (grup × tekrar)"
+    },
+    {
+      "en": "sfe_sol_char_help_en",
+      "ru": "sfe_sol_char_help_en",
+      "tr": "sfe_sol_char_help_en"
+    },
+    {
+      "en": "GCM Comparison for",
+      "ru": "Сравнение МГВ для",
+      "tr": "GCM Karşılaştırması:"
+    },
+    {
+      "en": "Simplicity",
+      "ru": "Простота",
+      "tr": "Basitlik"
+    },
+    {
+      "en": "L/mol",
+      "ru": "L/mol",
+      "tr": "L/mol"
+    },
+    {
+      "en": "Aromaticity:",
+      "ru": "Aromaticity:",
+      "tr": "Aromaticity:"
+    },
+    {
+      "en": "Nannoolal 2004",
+      "ru": "Nannoolal 2004",
+      "tr": "Nannoolal 2004"
+    },
+    {
+      "en": "VDW Volume:",
+      "ru": "VDW Volume:",
+      "tr": "VDW Volume:"
+    },
+    {
+      "en": "Normal",
+      "ru": "Normal",
+      "tr": "Normal"
+    },
+    {
+      "en": "Single group contribution to hydrogen bonding parameter",
+      "ru": "Вклад одной группы в параметр водородной связи",
+      "tr": "Hidrojen bağı parametresine tek grup katkısı"
+    },
+    {
+      "en": "Hansen Solubility Parameters (HSP) Contributions",
+      "ru": "Вклады параметров растворимости Хансена (HSP)",
+      "tr": "Hansen Çözünürlük Parametreleri (HSP) Katkıları"
+    },
+    {
+      "en": "Van der Waals Volume (cm³/mol)",
+      "ru": "Объём Ван-дер-Ваальса (см³/моль)",
+      "tr": "Van der Waals Hacmi (cm³/mol)"
+    },
+    {
+      "en": "Collapse all",
+      "ru": "Collapse all",
+      "tr": "Collapse all"
+    },
+    {
+      "en": "Maximum Group Order",
+      "ru": "Макс. порядок группы",
+      "tr": "Maksimum Grup Sırası"
+    },
+    {
+      "en": "Van der Waals Volume",
+      "ru": "Van der Waals Volume",
+      "tr": "Van der Waals Volume"
+    },
+    {
+      "en": "Stefanis-Panayiotou 2012",
+      "ru": "Stefanis-Panayiotou 2012",
+      "tr": "Stefanis-Panayiotou 2012"
+    },
+    {
+      "en": "Numeric Value",
+      "ru": "Numeric Value",
+      "tr": "Numeric Value"
+    },
+    {
+      "en": "K",
+      "ru": "K",
+      "tr": "K"
+    },
+    {
+      "en": "Expand all",
+      "ru": "Expand all",
+      "tr": "Expand all"
+    },
+    {
+      "en": "Critical Parameters",
+      "ru": "Critical Parameters",
+      "tr": "Critical Parameters"
+    },
+    {
+      "en": "Single group contribution to hydrogen bonding parameter (low)",
+      "ru": "Вклад одной группы в параметр водородной связи (низ.)",
+      "tr": "Hidrojen bağı parametresine tek grup katkısı (düşük)"
+    },
+    {
+      "en": "Parameter Category",
+      "ru": "Parameter Category",
+      "tr": "Parameter Category"
+    },
+    {
+      "en": "Single group contribution to dispersion parameter",
+      "ru": "Вклад одной группы в параметр дисперсии",
+      "tr": "Dispersiyon parametresine tek grup katkısı"
+    },
+    {
+      "en": "Single group contribution to critical pressure",
+      "ru": "Вклад одной группы в критическое давление",
+      "tr": "Kritik basınca tek grup katkısı"
+    },
+    {
+      "en": "Critical Volume (cm³/mol)",
+      "ru": "Критический объём (см³/моль)",
+      "tr": "Kritik Hacim (cm³/mol)"
+    },
+    {
+      "en": "Complex",
+      "ru": "Complex",
+      "tr": "Complex"
+    },
+    {
+      "en": "Single group contribution to critical volume",
+      "ru": "Вклад одной группы в критический объём",
+      "tr": "Kritik hacme tek grup katkısı"
+    },
+    {
+      "en": "Category",
+      "ru": "Категория",
+      "tr": "Kategori"
+    },
+    {
+      "en": "Stefanis-Panayiotou 2008",
+      "ru": "Stefanis-Panayiotou 2008",
+      "tr": "Stefanis-Panayiotou 2008"
+    },
+    {
+      "en": "Bondi 1964",
+      "ru": "Bondi 1964",
+      "tr": "Bondi 1964"
+    },
+    {
+      "en": "Hydrogen Bonding Component (√MPa)",
+      "ru": "Компонент водородной связи (√МПа)",
+      "tr": "Hidrojen Bağı Bileşeni (√MPa)"
+    },
+    {
+      "en": "Critical Parameters Contributions",
+      "ru": "Вклады критических параметров",
+      "tr": "Kritik Parametre Katkıları"
+    },
+    {
+      "en": "Joback-Reid corrected",
+      "ru": "Joback-Reid corrected",
+      "tr": "Joback-Reid corrected"
+    },
+    {
+      "en": "Single group contribution to boiling point",
+      "ru": "Вклад одной группы в температуру кипения",
+      "tr": "Kaynama noktasına tek grup katkısı"
+    },
+    {
+      "en": "Stein-Brown corrected",
+      "ru": "Stein-Brown corrected",
+      "tr": "Stein-Brown corrected"
+    },
+    {
+      "en": "Molecular Weight:",
+      "ru": "Molecular Weight:",
+      "tr": "Molecular Weight:"
+    },
+    {
+      "en": "Value",
+      "ru": "Value",
+      "tr": "Value"
+    },
+    {
+      "en": "Polarity Component (√MPa)",
+      "ru": "Компонент полярности (√МПа)",
+      "tr": "Polarite Bileşeni (√MPa)"
+    },
+    {
+      "en": "Dispersion Component (√MPa)",
+      "ru": "Компонент дисперсии (√МПа)",
+      "tr": "Dispersiyon Bileşeni (√MPa)"
+    },
+    {
+      "en": "Stein-Brown",
+      "ru": "Stein-Brown",
+      "tr": "Stein-Brown"
+    },
+    {
+      "en": "Critical Pressure (bar)",
+      "ru": "Критическое давление (бар)",
+      "tr": "Kritik Basınç (bar)"
+    },
+    {
+      "en": "Group Identifier",
+      "ru": "Идентификатор группы",
+      "tr": "Grup Tanımlayıcı"
+    },
+    {
+      "en": "Copy",
+      "ru": "Copy",
+      "tr": "Copy"
+    },
+    {
+      "en": "VDW",
+      "ru": "VDW",
+      "tr": "VDW"
+    },
+    {
+      "en": "Single group contribution to polarity parameter (low)",
+      "ru": "Вклад одной группы в параметр полярности (низ.)",
+      "tr": "Polarite parametresine tek grup katkısı (düşük)"
+    },
+    {
+      "en": "Atom Count:",
+      "ru": "Atom Count:",
+      "tr": "Atom Count:"
+    },
+    {
+      "en": "Zhao 2003",
+      "ru": "Zhao 2003",
+      "tr": "Zhao 2003"
+    },
+    {
+      "en": "Parameter",
+      "ru": "Parameter",
+      "tr": "Parameter"
+    },
+    {
+      "en": "InChIKey:",
+      "ru": "InChIKey:",
+      "tr": "InChIKey:"
+    },
+    {
+      "en": "Auto",
+      "ru": "Auto",
+      "tr": "Auto"
+    },
+    {
+      "en": "Van der Waals Volume Contributions",
+      "ru": "Вклады объёма Ван-дер-Ваальса",
+      "tr": "Van der Waals Hacim Katkıları"
+    },
+    {
+      "en": "MPa",
+      "ru": "MPa",
+      "tr": "MPa"
+    },
+    {
+      "en": "Occurrences",
+      "ru": "Occurrences",
+      "tr": "Occurrences"
+    },
+    {
+      "en": "Parameter Type",
+      "ru": "Тип параметра",
+      "tr": "Parametre Türü"
+    },
+    {
+      "en": "InChI:",
+      "ru": "InChI:",
+      "tr": "InChI:"
+    },
+    {
+      "en": "Critical Temperature (K)",
+      "ru": "Критическая температура (K)",
+      "tr": "Kritik Sıcaklık (K)"
+    },
+    {
+      "en": "Hansen Solubility Parameters",
+      "ru": "Hansen Solubility Parameters",
+      "tr": "Hansen Solubility Parameters"
+    },
+    {
+      "en": "Single group contribution to Van der Waals volume",
+      "ru": "Вклад одной группы в объём Ван-дер-Ваальса",
+      "tr": "Van der Waals hacmine tek grup katkısı"
+    },
+    {
+      "en": "Nannoolal 2007 robust",
+      "ru": "Nannoolal 2007 robust",
+      "tr": "Nannoolal 2007 robust"
+    },
+    {
+      "en": "Type",
+      "ru": "Type",
+      "tr": "Type"
+    },
+    {
+      "en": "Number of Occurrences",
+      "ru": "Количество вхождений",
+      "tr": "Tekrar Sayısı"
+    },
+    {
+      "en": "Method",
+      "ru": "Method",
+      "tr": "Method"
+    },
+    {
+      "en": "Single group contribution to critical temperature",
+      "ru": "Вклад одной группы в критическую температуру",
+      "tr": "Kritik sıcaklığa tek grup katkısı"
+    },
+    {
+      "en": "Order",
+      "ru": "Order",
+      "tr": "Order"
+    },
+    {
+      "en": "Unknown Solute",
+      "ru": "Unknown Solute",
+      "tr": "Unknown Solute"
+    },
+    {
+      "en": "Boiling Point (K)",
+      "ru": "Температура кипения (K)",
+      "tr": "Kaynama Noktası (K)"
+    },
+    {
+      "en": "Functional Group Name",
+      "ru": "Название функциональной группы",
+      "tr": "Fonksiyonel Grup Adı"
+    },
+    {
+      "en": "√MPa",
+      "ru": "√MPa",
+      "tr": "√MPa"
+    },
+    {
+      "en": "Slonimskii 1970",
+      "ru": "Slonimskii 1970",
+      "tr": "Slonimskii 1970"
+    },
+    {
+      "en": "Corrected Boiling Point (K)",
+      "ru": "Скорр. температура кипения (K)",
+      "tr": "Düzeltilmiş Kaynama Noktası (K)"
+    },
+    {
+      "en": "Joback-Reid",
+      "ru": "Joback-Reid",
+      "tr": "Joback-Reid"
+    },
+    {
+      "en": "Hydrogen Count:",
+      "ru": "Hydrogen Count:",
+      "tr": "Hydrogen Count:"
+    },
+    {
+      "en": "Single group contribution to polarity parameter",
+      "ru": "Вклад одной группы в параметр полярности",
+      "tr": "Polarite parametresine tek grup katkısı"
+    },
+    {
+      "en": "Estimation Method",
+      "ru": "Метод оценки",
+      "tr": "Tahmin Yöntemi"
+    },
+    {
+      "en": "Fragmentation Simplicity Level",
+      "ru": "Уровень простоты фрагментации",
+      "tr": "Parçalanma Basitlik Düzeyi"
+    },
+    {
+      "en": "Okay",
+      "ru": "Okay",
+      "tr": "Okay"
+    },
+    {
+      "en": "Copied!",
+      "ru": "Copied!",
+      "tr": "Copied!"
+    },
+    {
+      "en": "g/mol",
+      "ru": "g/mol",
+      "tr": "g/mol"
+    },
+    {
+      "en": "SMILES:",
+      "ru": "SMILES:",
+      "tr": "SMILES:"
+    },
+    {
+      "en": "Maximum order of structural groups to consider in the GCM comparison. 0 uses all available orders.",
+      "ru": "Максимальный порядок структурных групп для сравнения МГВ. 0 — все доступные порядки.",
+      "tr": "GKY karşılaştırmasında dikkate alınacak maksimum yapısal grup sırası. 0 tüm mevcut sıraları kullanır."
+    },
+    {
+      "en": "Maximum order of molecular fragment groups used in the group contribution method. 0 = first-order only (fastest, least accurate). Higher values use higher-order corrections for better accuracy but slower computation.",
+      "tr": "Grup katkı yönteminde kullanılan moleküler parça gruplarının maksimum derecesi. 0 = yalnızca birinci derece (en hızlı, en az doğru). Daha yüksek değerler daha iyi doğruluk için yüksek dereceli düzeltmeler kullanır.",
+      "ru": "Максимальный порядок групп молекулярных фрагментов в методе групповых вкладов. 0 = только первый порядок (быстрее, менее точно). Более высокие значения используют коррекции высших порядков для лучшей точности."
+    },
+    {
+      "en": "Controls how molecules are broken into functional groups. Simple uses fewer, larger groups. Complex uses more detailed fragmentation. Auto selects automatically based on molecule complexity.",
+      "tr": "Moleküllerin fonksiyonel gruplara nasıl ayrılacağını kontrol eder. Basit daha az, daha büyük gruplar kullanır. Karmaşık daha ayrıntılı parçalama kullanır. Otomatik, molekül karmaşıklığına göre seçer.",
+      "ru": "Управляет разбиением молекул на функциональные группы. Простой — меньше крупных групп. Сложный — более детальная фрагментация. Авто — автоматический выбор по сложности молекулы."
+    }
+  ]
+}

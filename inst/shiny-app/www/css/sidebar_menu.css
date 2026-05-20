@@ -1,0 +1,19 @@
+/* Ana menü öğeleri için text wrapping */
+.sidebar-menu li a span {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  line-height: 1.2 !important;
+}
+
+/* Alt menü öğeleri için */
+.sidebar-menu .treeview-menu li a {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  padding: 5px 5px 5px 15px !important;
+  line-height: 1.2 !important;
+}
+
+/* Menü yüksekliğini ayarla */
+.sidebar-menu li {
+  min-height: auto !important;
+}

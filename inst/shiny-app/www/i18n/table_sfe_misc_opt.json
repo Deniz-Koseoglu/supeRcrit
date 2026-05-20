@@ -1,0 +1,59 @@
+{
+  "translation": [
+    {
+      "en": "Stepwise",
+      "ru": "Пошаговый",
+      "tr": "Adım Adım"
+    },
+    {
+      "en": "Modifier",
+      "ru": "Модификатор",
+      "tr": "Modifikatör"
+    },
+    {
+      "en": "Occurrence (%)",
+      "ru": "Встречаемость (%)",
+      "tr": "Oluşum (%)"
+    },
+    {
+      "en": "Co-solvent",
+      "ru": "Сорастворитель",
+      "tr": "Ko-çözücü"
+    },
+    {
+      "en": "Min",
+      "ru": "Мин",
+      "tr": "Min"
+    },
+    {
+      "en": "Max",
+      "ru": "Макс",
+      "tr": "Maks"
+    },
+    {
+      "en": "Pressure (bar)",
+      "ru": "Давление (бар)",
+      "tr": "Basınç (bar)"
+    },
+    {
+      "en": "Temperature (°C)",
+      "ru": "Температура (°C)",
+      "tr": "Sıcaklık (°C)"
+    },
+    {
+      "en": "Miscibility Enhancement (%)",
+      "ru": "Улучшение смешиваемости (%)",
+      "tr": "Karışabilirlik İyileştirmesi (%)"
+    },
+    {
+      "en": "Pressure (MPa)",
+      "ru": "Давление (МПа)",
+      "tr": "Basınç (MPa)"
+    },
+    {
+      "en": "Temperature (K)",
+      "ru": "Температура (K)",
+      "tr": "Sıcaklık (K)"
+    }
+  ]
+}

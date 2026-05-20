@@ -1,0 +1,59 @@
+{
+  "translation": [
+    {
+      "en": "Stepwise",
+      "ru": "Пошаговый",
+      "tr": "Adım Adım"
+    },
+    {
+      "en": "Term",
+      "ru": "Фактор",
+      "tr": "Terim"
+    },
+    {
+      "en": "Estimate",
+      "ru": "Коэффициент",
+      "tr": "Tahmin"
+    },
+    {
+      "en": "Stnd_Error",
+      "ru": "Стандартная ошибка",
+      "tr": "Standart Hata"
+    },
+    {
+      "en": "t_value",
+      "ru": "t-значение",
+      "tr": "t Değeri"
+    },
+    {
+      "en": "p_value",
+      "ru": "p-значение",
+      "tr": "p Değeri"
+    },
+    {
+      "en": "Signif_Level",
+      "ru": "Уровень значимости",
+      "tr": "Anlamlılık Seviyesi"
+    },
+    {
+      "en": "Intercept",
+      "ru": "Перехват",
+      "tr": "Sabit Terim"
+    },
+    {
+      "en": "Positive (+)",
+      "ru": "Положительный (+)",
+      "tr": "Pozitif (+)"
+    },
+    {
+      "en": "Negative (-)",
+      "ru": "Отрицательный (-)",
+      "tr": "Negatif (-)"
+    },
+    {
+      "en": "Zero (0)",
+      "ru": "Нулевой (0)",
+      "tr": "Sıfır (0)"
+    }
+  ]
+}

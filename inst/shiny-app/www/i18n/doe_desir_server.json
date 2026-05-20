@@ -1,0 +1,174 @@
+{
+      "translation": [
+            {
+                  "en": "No responses found in loaded analyses.",
+                  "ru": "В загруженных анализах не найдено ответов.",
+                  "tr": "Yüklenen analizlerde yanıt bulunamadı."
+            },
+            {
+                  "en": "Error in desirability calculation:",
+                  "ru": "Ошибка при расчете желательности:",
+                  "tr": "Arzu edilebilirlik hesaplamasında hata:"
+            },
+            {
+                  "en": "Desirability analysis completed successfully!",
+                  "ru": "Анализ желательности успешно завершен!",
+                  "tr": "Arzu edilebilirlik analizi başarıyla tamamlandı!"
+            },
+            {
+                  "en": "Maximize",
+                  "ru": "Максимизация",
+                  "tr": "Maksimizasyon"
+            },
+            {
+                  "en": "Minimize",
+                  "ru": "Минимизация",
+                  "tr": "Minimizasyon"
+            },
+            {
+                  "en": "Target",
+                  "ru": "Целевое значение",
+                  "tr": "Hedef Değer"
+            },
+            {
+                  "en": "Analysis list refreshed!",
+                  "ru": "Список анализов обновлен!",
+                  "tr": "Analiz listesi yenilendi!"
+            },
+            {
+                  "en": "Loading saved analyses...",
+                  "ru": "Загрузка сохраненных анализов...",
+                  "tr": "Kaydedilen analizler yükleniyor..."
+            },
+            {
+                  "en": "Processing",
+                  "ru": "Обработка",
+                  "tr": "İşleniyor"
+            },
+            {
+                  "en": "No valid analyses were loaded. Please check your saved analysis files.",
+                  "ru": "Не загружены действительные анализы. Пожалуйста, проверьте ваши файлы анализов.",
+                  "tr": "Geçerli analiz yüklenmedi. Lütfen kaydedilmiş analiz dosyalarınızı kontrol edin."
+            },
+            {
+                  "en": "Desirability function requires at least 2 responses. Only found:",
+                  "ru": "Функция желательности требует минимум 2 отклика. Найдено только:",
+                  "tr": "İstenilirlik fonksiyonu en az 2 yanıt gerektirir. Yalnızca bulundu:"
+            },
+            {
+                  "en": "Calculated response ranges:",
+                  "ru": "Рассчитайтеd response ranges:",
+                  "tr": "Hesaplayınd response ranges:"
+            },
+            {
+                  "en": "All available inputs:",
+                  "ru": "All available inputs:",
+                  "tr": "All available inputs:"
+            },
+            {
+                  "en": "Desirability-related inputs:",
+                  "ru": "Desirability-related inputs:",
+                  "tr": "Desirability-related inputs:"
+            },
+            {
+                  "en": "Using default factor ranges",
+                  "ru": "Использование диапазонов факторов по умолчанию",
+                  "tr": "Varsayılan faktör aralıkları kullanılıyor"
+            },
+            {
+                  "en": "Building custom factor ranges",
+                  "ru": "Построение пользовательских диапазонов факторов",
+                  "tr": "Özel faktör aralıkları oluşturuluyor"
+            },
+            {
+                  "en": "frng structure:",
+                  "ru": "frng structure:",
+                  "tr": "frng structure:"
+            },
+            {
+                  "en": "Final weights vector:",
+                  "ru": "Final weights vector:",
+                  "tr": "Final weights vector:"
+            },
+            {
+                  "en": "\\n=== DEBUG: doe_desir parameters ===\\n",
+                  "ru": "\\n=== DEBUG: doe_desir parameters ===\\n",
+                  "tr": "\\n=== DEBUG: doe_desir parameters ===\\n"
+            },
+            {
+                  "en": "mods:\\n",
+                  "ru": "mods:\\n",
+                  "tr": "mods:\\n"
+            },
+            {
+                  "en": "dsrng:\\n",
+                  "ru": "dsrng:\\n",
+                  "tr": "dsrng:\\n"
+            },
+            {
+                  "en": "frng:\\n",
+                  "ru": "frng:\\n",
+                  "tr": "frng:\\n"
+            },
+            {
+                  "en": "obj:\\n",
+                  "ru": "obj:\\n",
+                  "tr": "obj:\\n"
+            },
+            {
+                  "en": "dtype:\\n",
+                  "ru": "dtype:\\n",
+                  "tr": "dtype:\\n"
+            },
+            {
+                  "en": "wts:\\n",
+                  "ru": "wts:\\n",
+                  "tr": "wts:\\n"
+            },
+            {
+                  "en": "spts:\\n",
+                  "ru": "spts:\\n",
+                  "tr": "spts:\\n"
+            },
+            {
+                  "en": "modbase:\\n",
+                  "ru": "modbase:\\n",
+                  "tr": "modbase:\\n"
+            },
+            {
+                  "en": "optmet:\\n",
+                  "ru": "optmet:\\n",
+                  "tr": "optmet:\\n"
+            },
+            {
+                  "en": "kmed:\\n",
+                  "ru": "kmed:\\n",
+                  "tr": "kmed:\\n"
+            },
+            {
+                  "en": "silent: TRUE\\n",
+                  "ru": "silent: TRUE\\n",
+                  "tr": "silent: TRUE\\n"
+            },
+            {
+                  "en": "2",
+                  "ru": "2",
+                  "tr": "2"
+            },
+            {
+                  "en": "3",
+                  "ru": "3",
+                  "tr": "3"
+            },
+            {
+                  "en": "4",
+                  "ru": "4",
+                  "tr": "4"
+            },
+            {
+                  "en": "5",
+                  "ru": "5",
+                  "tr": "5"
+            }
+      ]
+}

@@ -1,0 +1,269 @@
+{
+  "translation": [
+    {
+      "en": "Reset",
+      "ru": "Сброс",
+      "tr": "Sıfırla"
+    },
+    {
+      "en": "Generate Design",
+      "ru": "Генерировать дизайн",
+      "tr": "Tasarım Oluştur"
+    },
+    {
+      "en": "Design Parameters",
+      "ru": "Параметры дизайна",
+      "tr": "Tasarım Parametreleri"
+    },
+    {
+      "en": "Select Design Type",
+      "ru": "Выберите тип дизайна",
+      "tr": "Tasarım Türünü Seçin"
+    },
+    {
+      "en": "Number of Factors",
+      "ru": "Количество факторов",
+      "tr": "Faktör Sayısı"
+    },
+    {
+      "en": "Randomize Run Order",
+      "ru": "Рандомизировать порядок выполнения",
+      "tr": "Çalışma Sırasını Rastgele Yap"
+    },
+    {
+      "en": "Design Matrix",
+      "ru": "Матрица дизайна",
+      "tr": "Tasarım Matrisi"
+    },
+    {
+      "en": "Experimental Design Matrix",
+      "ru": "Матрица экспериментального дизайна",
+      "tr": "Deneysel Tasarım Matrisi"
+    },
+    {
+      "en": "Save Design",
+      "ru": "Сохранить дизайн",
+      "tr": "Tasarımı Kaydet"
+    },
+    {
+      "en": "Design Summary",
+      "ru": "Сводка дизайна",
+      "tr": "Tasarım Özeti"
+    },
+    {
+      "en": "Design Properties",
+      "ru": "Свойства дизайна",
+      "tr": "Tasarım Özellikleri"
+    },
+    {
+      "en": "Enter a name for your design",
+      "ru": "Введите имя для вашего дизайна",
+      "tr": "Tasarımınız için bir ad girin"
+    },
+    {
+      "en": "Design Description",
+      "ru": "Описание дизайна",
+      "tr": "Tasarım Açıklaması"
+    },
+    {
+      "en": "Export Design",
+      "ru": "Экспорт дизайна",
+      "tr": "Tasarımı Dışa Aktar"
+    },
+    {
+      "en": "Confounding Pattern",
+      "ru": "Схема смешения эффектов",
+      "tr": "Karıştırma Deseni"
+    },
+    {
+      "en": "Cancel",
+      "ru": "Отмена",
+      "tr": "İptal"
+    },
+    {
+      "en": "Save",
+      "ru": "Сохранить",
+      "tr": "Kaydet"
+    },
+    {
+      "en": "Config Data",
+      "ru": "Данные конфигурации",
+      "tr": "Yapılandırma Verileri"
+    },
+    {
+      "en": "Confounding pattern is only available for Fractional Factorial Designs.",
+      "ru": "Схема смешения эффектов доступна только для дробных факторных планов.",
+      "tr": "Karıştırma deseni yalnızca Kesirli Faktöriyel Tasarımlar için kullanılabilir."
+    },
+    {
+      "en": "Box-Behnken Design (BBD)",
+      "ru": "Дизайн Бокса-Бенкена (BBD)",
+      "tr": "Box-Behnken Tasarımı (BBD)"
+    },
+    {
+      "en": "Central Composite Design (CCD)",
+      "ru": "Центральный композитный дизайн (CCD)",
+      "tr": "Merkezi Bileşik Tasarım (CCD)"
+    },
+    {
+      "en": "Full Factorial Design (FFD)",
+      "ru": "Полный факторный (FFD)",
+      "tr": "Tam Faktöriyel Tasarım (FFD)"
+    },
+    {
+      "en": "Fractional Factorial Design (FrFD)",
+      "ru": "Дробный факторный (FrFD)",
+      "tr": "Kesirli Faktöriyel Tasarım (FrFD)"
+    },
+    {
+      "en": "Taguchi Method (TM)",
+      "ru": "Метод Тагути (TM)",
+      "tr": "Taguchi Yöntemi (TM)"
+    },
+    {
+      "en": "Select the parameters and generate a design to see results.",
+      "ru": "Выберите параметры и сгенерируйте план для просмотра результатов.",
+      "tr": "Parametreleri seçin ve sonuçları görmek için bir tasarım oluşturun."
+    },
+    {
+      "en": "Design Settings",
+      "ru": "Настройки дизайна",
+      "tr": "Tasarım Ayarları"
+    },
+    {
+      "en": "Factor Settings",
+      "ru": "Настройки факторов",
+      "tr": "Faktör Ayarları"
+    },
+    {
+      "en": "Hard",
+      "ru": "Жёстк.",
+      "tr": "Sabit"
+    },
+    {
+      "en": "Constrain star points within factor range",
+      "ru": "Ограничить звёздные точки пределами фактора",
+      "tr": "Yıldız noktalarını faktör aralığında sınırla"
+    },
+    {
+      "en": "Select the type of experimental design you want to create. Each design type has different characteristics and requirements.",
+      "ru": "Выберите тип экспериментального плана. Каждый тип имеет свои характеристики и требования.",
+      "tr": "Oluşturmak istediğiniz deneysel tasarım türünü seçin. Her tasarım türü farklı özelliklere ve gereksinimlere sahiptir."
+    },
+    {
+      "en": "Set the number of additional center points. Center points help estimate experimental error and check for curvature.",
+      "ru": "Установите number of additional center points. Center points help estimate experimental error and check for curvature.",
+      "tr": "Ayarlayın: number of additional center points. Center points help estimate experimental error and check for curvature."
+    },
+    {
+      "en": "Specify the number of factors (variables) in your experiment. Current selection: %d factors.",
+      "ru": "Укажите the number of factors (variables) in your experiment. Current selection: %d factors.",
+      "tr": "Belirtin: the number of factors (variables) in your experiment. Current selection: %d factors."
+    },
+    {
+      "en": "Set the number of levels for each factor and choose whether to use default center points.",
+      "ru": "Установите number of levels for each factor and choose whether to use default center points.",
+      "tr": "Ayarlayın: number of levels for each factor and choose whether to use default center points."
+    },
+    {
+      "en": "Choose between Circumscribed (CCC) or Face-Centered (CCF) CCD. CCC extends star points beyond the factor range, CCF places them at the faces.",
+      "ru": "Выберите between Circumscribed (CCC) or Face-Centered (CCF) CCD. CCC extends star points beyond the factor range, CCF places them at the faces.",
+      "tr": "Seçin: between Circumscribed (CCC) or Face-Centered (CCF) CCD. CCC extends star points beyond the factor range, CCF places them at the faces."
+    },
+    {
+      "en": "Save your design configuration and results for later use.",
+      "ru": "Сохранить конфигурацию плана и результаты для дальнейшего использования.",
+      "tr": "Tasarım yapılandırmanızı ve sonuçlarınızı daha sonra kullanmak üzere kaydedin."
+    },
+    {
+      "en": "Specify the fraction size (p) and aliasing structure for the fractional factorial design.",
+      "ru": "Укажите the fraction size (p) and aliasing structure for the fractional factorial design.",
+      "tr": "Belirtin: the fraction size (p) and aliasing structure for the fractional factorial design."
+    },
+    {
+      "en": "Review any specific requirements or information for your selected design type and factor configuration.",
+      "ru": "Просмотрите any specific requirements or information for your selected design type and factor configuration.",
+      "tr": "İnceleyin: any specific requirements or information for your selected design type and factor configuration."
+    },
+    {
+      "en": "Enable randomization of run order to minimize systematic bias and confounding effects.",
+      "ru": "Включите рандомизацию порядка запусков для минимизации систематических ошибок и смешивающих эффектов.",
+      "tr": "Sistematik sapma ve karıştırıcı etkileri en aza indirmek için çalışma sırasını rastgeleleştirin."
+    },
+    {
+      "en": "Set the number of levels for the Taguchi orthogonal array design.",
+      "ru": "Установите number of levels for the Taguchi orthogonal array design.",
+      "tr": "Ayarlayın: number of levels for the Taguchi orthogonal array design."
+    },
+    {
+      "en": "Generate the experimental design matrix based on your specifications.",
+      "ru": "Сгенерировать матрицу экспериментального плана по вашим спецификациям.",
+      "tr": "Özelliklerinize göre deneysel tasarım matrisini oluşturun."
+    },
+    {
+      "en": "Define names and value ranges for each of your %d factors. These will be used to create the experimental design matrix.",
+      "ru": "Определите names and value ranges for each of your %d factors. These will be used to create the experimental design matrix.",
+      "tr": "Tanımlayın: names and value ranges for each of your %d factors. These will be used to create the experimental design matrix."
+    },
+    {
+      "en": "Reset all parameters to their default values.",
+      "ru": "Сбросить все параметры к значениям по умолчанию.",
+      "tr": "Tüm parametreleri varsayılan değerlerine sıfırlayın."
+    },
+    {
+      "en": "OK",
+      "ru": "OK",
+      "tr": "Tamam"
+    },
+    {
+      "en": "Design Type",
+      "ru": "Тип плана",
+      "tr": "Tasarım Türü"
+    },
+    {
+      "en": "Center Points",
+      "ru": "Центральные точки",
+      "tr": "Merkez Noktaları"
+    },
+    {
+      "en": "CCD Type",
+      "ru": "Тип CCD",
+      "tr": "CCD Türü"
+    },
+    {
+      "en": "Aliasing",
+      "ru": "Смешивание",
+      "tr": "Takma Ad"
+    },
+    {
+      "en": "Choose the type of experimental design to generate. Box-Behnken and Central Composite are response surface designs. Full and Fractional Factorial are screening designs. Taguchi uses orthogonal arrays for robust design.",
+      "ru": "Выберите тип экспериментального плана. Box-Behnken и центральный композиционный — планы поверхности отклика. Полный и дробный факторный — скрининговые планы. Тагучи — ортогональные массивы.",
+      "tr": "Oluşturulacak deneysel tasarım türünü seçin. Box-Behnken ve Merkezi Bileşik yanıt yüzeyi tasarımlarıdır. Tam ve Kesirli Faktöriyel tarama tasarımlarıdır. Taguchi sağlam tasarım için ortogonal diziler kullanır."
+    },
+    {
+      "en": "Number of independent variables (factors) in the experimental design. The valid range depends on the selected design type.",
+      "ru": "Число независимых переменных (факторов) в эксперименте. Допустимый диапазон зависит от выбранного типа плана.",
+      "tr": "Deneysel tasarımdaki bağımsız değişken (faktör) sayısı. Geçerli aralık seçilen tasarım türüne bağlıdır."
+    },
+    {
+      "en": "Number of extra center point runs to add to the design. Center points help detect curvature and estimate pure error. Three-level designs already include 3 center points by default.",
+      "ru": "Число дополнительных центральных точек. Помогают обнаружить кривизну и оценить чистую ошибку. Трёхуровневые планы уже включают 3 центральные точки по умолчанию.",
+      "tr": "Tasarıma eklenecek ek merkez noktası çalışma sayısı. Merkez noktaları eğriliği tespit etmeye ve saf hatayı tahmin etmeye yardımcı olur. Üç seviyeli tasarımlar varsayılan olarak zaten 3 merkez noktası içerir."
+    },
+    {
+      "en": "Circumscribed (CCC) places star points outside the factor range at a distance of ±1.414, creating 5 levels. Face-Centered (CCF) places star points at the factor faces (±1.0), creating 3 levels.",
+      "ru": "Описной (CCC) размещает звёздные точки за пределами диапазона (±1.414, 5 уровней). Гранецентрированный (CCF) размещает звёздные точки на гранях (±1.0, 3 уровня).",
+      "tr": "Çevresel (CCC) yıldız noktaları ±1.414 mesafede faktör aralığının dışına yerleştirir (5 seviye). Yüz Merkezli (CCF) yıldız noktaları faktör yüzlerine yerleştirir (±1.0, 3 seviye)."
+    },
+    {
+      "en": "Aliasing pattern for the fractional factorial design. Default uses the standard generator. Custom allows you to specify your own aliasing structure.",
+      "ru": "Структура смешивания для дробного факторного плана. По умолчанию — стандартный генератор. Пользовательский позволяет задать собственную структуру.",
+      "tr": "Kesirli faktöriyel tasarım için takma ad yapısı. Varsayılan standart oluşturucuyu kullanır. Özel kendi takma ad yapınızı belirlemenize olanak tanır."
+    },
+    {
+      "en": "Randomize the order of experimental runs. Highly recommended to reduce the effect of systematic errors and time-dependent variability.",
+      "ru": "Рандомизировать порядок опытов. Настоятельно рекомендуется для снижения влияния систематических ошибок и временной изменчивости.",
+      "tr": "Deneysel çalışmaların sırasını rastgeleleştirin. Sistematik hataların ve zamana bağlı değişkenliğin etkisini azaltmak için şiddetle tavsiye edilir."
+    }
+  ]
+}

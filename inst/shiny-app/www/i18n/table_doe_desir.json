@@ -1,0 +1,169 @@
+{
+      "translation": [
+            {
+                  "en": "Stepwise",
+                  "ru": "Пошаговый",
+                  "tr": "Adım Adım"
+            },
+            {
+                  "en": "Code Name",
+                  "ru": "Кодовое имя",
+                  "tr": "Kod Adı"
+            },
+            {
+                  "en": "Name",
+                  "ru": "Название",
+                  "tr": "İsim"
+            },
+            {
+                  "en": "Goal",
+                  "ru": "Цель",
+                  "tr": "Hedef"
+            },
+            {
+                  "en": "Lower Limit",
+                  "ru": "Нижний предел",
+                  "tr": "Alt Limit"
+            },
+            {
+                  "en": "Upper Limit",
+                  "ru": "Верхний предел",
+                  "tr": "Üst Limit"
+            },
+            {
+                  "en": "Lower Limit (Uncoded)",
+                  "ru": "Нижний предел (не закодир.)",
+                  "tr": "Alt Limit (Kodlanmamış)"
+            },
+            {
+                  "en": "Upper Limit (Uncoded)",
+                  "ru": "Верхний предел (не закодир.)",
+                  "tr": "Üst Limit (Kodlanmamış)"
+            },
+            {
+                  "en": "In Range",
+                  "ru": "В диапазоне",
+                  "tr": "Aralıkta"
+            },
+            {
+                  "en": "Lower Limit",
+                  "ru": "Нижний предел",
+                  "tr": "Alt Limit"
+            },
+            {
+                  "en": "Upper Limit",
+                  "ru": "Верхний предел",
+                  "tr": "Üst Limit"
+            },
+            {
+                  "en": "Lower Weight",
+                  "ru": "Нижний вес",
+                  "tr": "Alt Ağırlık"
+            },
+            {
+                  "en": "Maximize",
+                  "ru": "Максимизация",
+                  "tr": "Maksimizasyon"
+            },
+            {
+                  "en": "Minimize",
+                  "ru": "Минимизация",
+                  "tr": "Minimizasyon"
+            },
+            {
+                  "en": "Target",
+                  "ru": "Целевое значение",
+                  "tr": "Hedef Değer"
+            },
+            {
+                  "en": "Response",
+                  "ru": "Отклик",
+                  "tr": "Yanıт"
+            },
+            {
+                  "en": "Model Type",
+                  "ru": "Тип модели",
+                  "tr": "Model Tipi"
+            },
+            {
+                  "en": "Order",
+                  "ru": "Порядок",
+                  "tr": "Derece"
+            },
+            {
+                  "en": "R²",
+                  "ru": "R²",
+                  "tr": "R²"
+            },
+            {
+                  "en": "Adjusted R²",
+                  "ru": "Скорр. R²",
+                  "tr": "Düzeltilmiş R²"
+            },
+            {
+                  "en": "Standard Error",
+                  "ru": "Стандартная ошибка",
+                  "tr": "Standart Hata"
+            },
+            {
+                  "en": "F",
+                  "ru": "F",
+                  "tr": "F"
+            },
+            {
+                  "en": "Degrees of Freedom 1",
+                  "ru": "Степень свободы 1",
+                  "tr": "Serbestlik Derecesi 1"
+            },
+            {
+                  "en": "Degrees of Freedom 2",
+                  "ru": "Степень свободы 2",
+                  "tr": "Serbestlik Derecesi 2"
+            },
+            {
+                  "en": "Lack of Fit p-value",
+                  "ru": "p-знач. отсутств. подгонки",
+                  "tr": "Uyum Eksikliği p-değeri"
+            },
+            {
+                  "en": "Model Equation",
+                  "ru": "Уравнение модели",
+                  "tr": "Model Denklemi"
+            },
+            {
+                  "en": "Initial",
+                  "ru": "Начальная",
+                  "tr": "Başlangıç"
+            },
+            {
+                  "en": "Final",
+                  "ru": "Конечная",
+                  "tr": "Son"
+            },
+            {
+                  "en": "View full equation",
+                  "ru": "Показать полное уравнение",
+                  "tr": "Tam denklemi göster"
+            },
+            {
+                  "en": "View",
+                  "ru": "Просмотр",
+                  "tr": "Görüntüle"
+            },
+            {
+                  "en": "Mathematical Notation:",
+                  "ru": "Математическая запись:",
+                  "tr": "Matematiksel Gösterim:"
+            },
+            {
+                  "en": "Raw Equation:",
+                  "ru": "Исходное уравнение:",
+                  "tr": "Ham Denklem:"
+            },
+            {
+                  "en": "Close",
+                  "ru": "Закрыть",
+                  "tr": "Kapat"
+            }
+      ]
+}
