@@ -25,7 +25,9 @@ est_gcm(
 \code{"SB"} (Stein-Brown), \code{"SB_corr"} (corrected Stein-Brown 1994), or \code{"NL04"} (Nannoolal 2004). Units are K.
 \item \strong{For critical parameters} (\code{crit}): \code{"JR"} (Joback-Reid 1987), \code{"NL07"}, or \code{"NL07_robust"} (Nannoolal 2007).
 The units are K, MPa, and mL/mol for critical temperature, critical pressure, and critical volume, respectively.
-\item \strong{For HSP} (\code{hsp}): \code{"SP08"}, \code{"SP12"} (Stefanis & Panayiotou 2008-2012). The units for these
+\item \strong{For HSP} (\code{hsp}): \code{"SP08"}, \code{"SP12"} (Stefanis & Panayiotou 2008-2012), or
+\code{"SP_ENK"} (Enekvist et al. 2021 - SP group scheme re-regressed simultaneously with new group values
+and a dedicated conjugated keto-hydrazone group, targeted at organic pigments). The units for these
 parameters are MPa^(1/2).
 \item \strong{For all of the above}: \code{"HKR_STW"}, \code{"HKR_SIM"} (Hukkerikar 2012).
 \item \strong{For van der Waals volume} (\code{vdw}): \code{"ZHAO"} (Zhao 2003), \code{"BND"} (Bondi 1964), or \code{"SLON"} (Slonimskii 1970).
@@ -34,8 +36,7 @@ The units are L/mole (i.e. SI units).
 
 \item{hlight}{A \code{logical} indicating whether substructures are highlighted (see \code{\link{plot_gcm}}).}
 
-\item{simplicity}{A \code{character} string indicating whether overlapping sub-structures should be allowed (\code{"auto"} by default).
-See \code{\link{sub_smarts}} for details on available degrees of simplicity.}
+\item{simplicity}{A \code{character} string indicating whether overlapping sub-structures should be allowed (\code{"auto"} by default).}
 
 \item{gorder}{A \code{numeric} value or \strong{named} vector denoting the maximum order of groups to be considered. Defaults to \code{0}, which
 considers all group orders. When length > 1, names corresponding to those provided in \code{tb}, \code{crit},
@@ -155,5 +156,5 @@ Stein, S.E., Brown, R.L. (1994), 'Estimation of normal boiling points from group
 Zhao, Y.H., Abraham, M.H., Zissimos, A.M. (2003), 'Fast Calculation of van der Waals Volume as a Sum of Atomic and Bond Contributions and Its Application to Drug Compounds', \emph{The Journal of Organic Chemistry} \strong{68} (19), DOI: \url{https://doi.org/10.1021/jo034808o}.
 }
 \seealso{
-\code{\link{mol_find}}, \code{\link{sfe_mod}}, \code{\link{plot_gcm}}, \code{\link{sub_smarts}}
+\code{\link{mol_find}}, \code{\link{sfe_mod}}, \code{\link{plot_gcm}}
 }

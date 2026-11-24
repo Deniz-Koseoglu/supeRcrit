@@ -29,7 +29,8 @@ calcom(
   moisture_content = 0,
   response_name = "Primary",
   additional_responses = NULL,
-  feed_density = 1
+  feed_density = 1,
+  eos = "bender"
 )
 }
 \arguments{
@@ -64,7 +65,8 @@ Both default to \code{NA} (no auxiliary materials used).}
 
 \item{flowpar}{The parameters of temperature and pressure at which flow rate is given.
 Used for conversion of volumetric flow to mass flow when \code{!mass_flow}.
-If set to \code{"auto"} (default), uses the temperature and pressure specified for the recovery line in \code{crm[c("recp","rect")]}.}
+If set to \code{"auto"} (default), uses the extraction (process) pressure and temperature
+\code{gen[c("pres","temp")]}, since the solvent-to-material (S/M) ratio is a process-based quantity.}
 
 \item{draw}{A \code{logical} switch specifying whether to plot the results.
 Only works if \strong{an extraction curve is provided as } \code{input}.}
@@ -109,6 +111,11 @@ Defaults to \code{NULL} (no additional responses).}
 \item{feed_density}{A \strong{single} \code{numeric} value denoting the feed liquid density in g/mL,
 used for volumetric-to-mass conversion of the feed flow rate in CC-SFE mode. Only used when
 \code{comode = "cc_sfe"} and \code{mass_flow[3] = FALSE} (volumetric feed flow). Defaults to 1.}
+
+\item{eos}{The equation of state used to calculate CO2 density (and thus main/co-solvent
+mass flow and recovery losses). One of: \code{"bender"} (\strong{default}) or
+\code{"spanwagner"} (the Span-Wagner 1996 reference EoS, more accurate near the critical
+point). Only affects CO2 (SFE/CC-SFE main solvent and SWE co-solvent). See \code{\link{co2dens}}.}
 }
 \value{
 A named \code{list} containing the input parameters (\code{$input}), the calculated output values (\code{$output})

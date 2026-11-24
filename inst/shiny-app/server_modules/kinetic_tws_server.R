@@ -508,8 +508,7 @@ kinetic_tws_server <- function(input, output, session, defaults, i18n, tablang) 
           class = "control-label",
           HTML(paste0(
             if (is_definite) i18n_r()$t("Definite") else i18n_r()$t("Initial"),
-            " <i>F</i> ",
-            if (is_definite) i18n_r()$t("Value") else i18n_r()$t("Estimate")
+            " <i>F</i>"
           )),
           input_help(i18n_r()$t("Fraction of easily desorbed solute (0 to 1). Represents the proportion of compounds quickly released during extraction. The remainder (1-F) is released more slowly from the plant matrix. Toggle the switch to set F as a fixed value or let the model estimate it."),
                      title = i18n_r()$t("F"), buttonLabel = i18n_r()$t("OK"))
@@ -922,7 +921,7 @@ kinetic_tws_server <- function(input, output, session, defaults, i18n, tablang) 
 
   # Observer for loading example data
   observeEvent(input$load_example_data, {
-    default_path <- system.file("extdata", "gui-kinetic_tws_oec-1.csv", package = "supeRcrit")
+    default_path <- system.file("extdata", "examples", "gui-kinetic_tws_oec-1.csv", package = "supeRcrit")
     if (file.exists(default_path)) {
       raw_data <- read.csv(default_path, stringsAsFactors = FALSE)
       
@@ -1845,13 +1844,13 @@ kinetic_tws_server <- function(input, output, session, defaults, i18n, tablang) 
           # Try ggplotly with error handling
           tryCatch(
             {
-              ggplotly(plot_obj, tooltip = "all")
+              quiet_ggplotly(plot_obj, tooltip = "all")
             },
             error = function(e1) {
               # If ggplotly fails, try with minimal tooltip
               tryCatch(
                 {
-                  ggplotly(plot_obj, tooltip = c("x", "y"))
+                  quiet_ggplotly(plot_obj, tooltip = c("x", "y"))
                 },
                 error = function(e2) {
                   # If still fails, create a simple plotly plot
@@ -2657,7 +2656,7 @@ kinetic_tws_server <- function(input, output, session, defaults, i18n, tablang) 
       "kinetic_tws_default.csv"
     },
     content = function(file) {
-      default_path <- system.file("extdata", "gui-kinetic_tws_oec-1.csv", package = "supeRcrit")
+      default_path <- system.file("extdata", "examples", "gui-kinetic_tws_oec-1.csv", package = "supeRcrit")
       if (file.exists(default_path)) {
         file.copy(default_path, file)
       } else {
@@ -2666,6 +2665,123 @@ kinetic_tws_server <- function(input, output, session, defaults, i18n, tablang) 
     },
     contentType = "text/csv"
   )
+
+  # ---- Unified Export (CSV / PDF) — mirrors the on-screen KPI badges + parameters + obs/pred + model plot ----
+  .tws_sym    <- c(pres = "P", temp = "T", flow = "Q", c0 = "c₀", m_in = "mᵢₙ", m = "m",
+                k1 = "k₁", k2 = "k₂", f = "F")
+  # Plotmath (true math notation) variants for the PDF Parameter column — italic variables + real subscripts.
+  .tws_sym_pm <- c(pres = "italic(P)", temp = "italic(T)", flow = "italic(Q)", c0 = "italic(c)[0]",
+                m_in = "italic(m)[inp]", m = "italic(m)", k1 = "italic(k)[1]", k2 = "italic(k)[2]", f = "italic(F)")
+  # Display symbol for the response/yield units (c0 is expressed in these units); mirrors the resp_units input.
+  .tws_resp_disp <- function() switch(input$resp_units %||% defaults$resp_units %||% "g",
+    "g" = "g", "percent" = "%", "permille" = "‰", "ppm" = "ppm", "ppb" = "ppb", input$resp_units %||% "g")
+  # pm = TRUE -> Parameter column holds plotmath SOURCE (for the PDF math_col); pm = FALSE -> readable Unicode
+  # symbols (for CSV / anything that shows the string verbatim).
+  .tws_params_df <- function(pm = FALSE) {
+    ms <- kinetic_results$model_summary; if (is.null(ms) || is.null(ms$mod_pars) || !length(ms$mod_pars)) return(NULL)
+    mp <- ms$mod_pars; pn <- names(mp); fit_pars <- ms$fit_pars %||% character(0)
+    # Every parameter carries a unit (or is marked dimensionless) so a bare number is never ambiguous.
+    desc <- vapply(pn, function(p) switch(p,
+      "pres" = i18n_r()$t("Pressure (bar)"), "temp" = i18n_r()$t("Temperature (°C)"),
+      "flow" = i18n_r()$t("Flow rate (kg/s)"),
+      "c0" = paste0(i18n_r()$t("Maximum Yield"), " (", .tws_resp_disp(), ")"),
+      "m_in" = i18n_r()$t("Mass of raw material loaded (g)"),
+      "m" = paste0(i18n_r()$t("Number of experimental observations"), " (", i18n_r()$t("dimensionless"), ")"),
+      "k1" = paste0(i18n_r()$t("First-order rate constant for fast desorption"), " (", i18n_r()$t("min"), "⁻¹)"),
+      "k2" = paste0(i18n_r()$t("First-order rate constant for slow desorption"), " (", i18n_r()$t("min"), "⁻¹)"),
+      "f" = paste0(i18n_r()$t("Fraction of easily desorbed solute"), " (", i18n_r()$t("dimensionless"), ")"),
+      p), character(1), USE.NAMES = FALSE)
+    desc <- gsub("<[^>]+>", "", desc)
+    sym <- if (pm) .tws_sym_pm else .tws_sym
+    param <- ifelse(pn %in% names(sym), sym[pn], if (pm) vapply(pn, rp_pm_quote, character(1)) else pn)
+    out <- data.frame(
+      Parameter = param,
+      Value = as.numeric(mp),                                   # numeric -> smart-formatted by the PDF builder
+      Fitted = ifelse(pn %in% fit_pars, i18n_r()$t("Yes"), ""),
+      Description = desc, check.names = FALSE, stringsAsFactors = FALSE)
+    names(out) <- c(i18n_r()$t("Parameter"), i18n_r()$t("Value"), i18n_r()$t("Fitted"), i18n_r()$t("Description"))
+    out
+  }
+  # Model data table — mirror the on-screen table exactly: source = model_summary$mdt, drop the always-"tws"
+  # model column, and apply the same positional user-facing headers (Time / S/M / Yield / c/c₀).
+  .tws_model_df <- function() {
+    ms <- kinetic_results$model_summary; d <- ms$mdt; if (is.null(d) || !nrow(d)) return(NULL)
+    d <- as.data.frame(d, check.names = FALSE); d$model <- NULL
+    d[] <- lapply(d, function(c) if (is.numeric(c)) signif(c, 5) else c)
+    has_sm <- "q" %in% names(d)
+    hdr <- c(i18n_r()$t("Time"), if (has_sm) i18n_r()$t("S/M"), i18n_r()$t("Yield"), i18n_r()$t("c/c₀"))
+    if (length(hdr) == ncol(d)) names(d) <- hdr
+    d
+  }
+  # Observed-vs-predicted table — mirror the on-screen positional headers (Time / S/M / Yield / c/c₀ / Pred. …).
+  .tws_obspred_df <- function() {
+    ms <- kinetic_results$model_summary; d <- ms$ordt; if (is.null(d) || !nrow(d)) return(NULL)
+    d <- as.data.frame(d, check.names = FALSE)
+    d[] <- lapply(d, function(c) if (is.numeric(c)) signif(c, 5) else c)
+    has_sm <- "q" %in% names(d)
+    hdr <- c(i18n_r()$t("Time"), if (has_sm) i18n_r()$t("S/M"), i18n_r()$t("Yield"), i18n_r()$t("c/c₀"),
+             i18n_r()$t("Pred. Yield"), i18n_r()$t("Pred. c/c₀"))
+    if (length(hdr) == ncol(d)) names(d) <- hdr
+    d
+  }
+  .tws_kpis <- function() {
+    r <- kinetic_results$model_summary$resid; if (is.null(r)) return(list())
+    gv <- function(k) if (k %in% names(r)) as.numeric(r[[k]]) else NA_real_   # named-vector-safe lookup
+    aard <- gv("aard"); rmse <- gv("rmse"); r2 <- gv("r2")
+    cc <- function(v, g, m) if (is.na(v)) "#607d8b" else if (v < g) "#2e7d32" else if (v < m) "#f9a825" else "#c62828"
+    list(
+      list(label = i18n_r()$t("AARD"), value = if (is.na(aard)) "—" else paste0(round(aard, 2), "%"), color = cc(aard, 5, 10)),
+      list(label = i18n_r()$t("RMSE"), value = if (is.na(rmse)) "—" else rp_num(rmse, 5), color = "#1565c0"),
+      list(label = i18n_r()$t("R²"), value = if (is.na(r2)) "—" else rp_num(r2, 4),
+           color = if (is.na(r2)) "#607d8b" else if (r2 > 0.99) "#2e7d32" else if (r2 > 0.95) "#f9a825" else "#c62828"))
+  }
+  .tws_setup <- function() {
+    ms <- kinetic_results$model_summary; if (is.null(ms) || is.null(ms$mod_pars)) return(list())
+    mp <- ms$mod_pars
+    g <- function(k, lbl) { if (!(k %in% names(mp))) return(NULL); v <- suppressWarnings(as.numeric(mp[[k]]))
+      if (is.finite(v)) list(label = lbl, value = rp_num(v, 4)) else NULL }
+    Filter(Negate(is.null), list(
+      g("pres", i18n_r()$t("Pressure (bar)")), g("temp", i18n_r()$t("Temperature (°C)")),
+      g("flow", i18n_r()$t("Flow rate (kg/s)")), g("c0", paste0(i18n_r()$t("Maximum Yield"), " (", .tws_resp_disp(), ")")),
+      g("m_in", i18n_r()$t("Mass of raw material loaded (g)"))))
+  }
+  output$export_pdf <- downloadHandler(
+    filename = function() paste0(generate_filename_with_timestamp("supercrit_kinetic_tws_report"), ".pdf"),
+    content = function(file) {
+      req(kinetic_results$model_summary)
+      pid <- showNotification(i18n$t("Preparing export..."), type = "message", duration = NULL); on.exit(removeNotification(pid), add = TRUE)
+      tryCatch({
+        logo <- if (file.exists("www/altraflora-15-min.png")) "www/altraflora-15-min.png" else NULL
+        ver  <- tryCatch(paste0("supeRcrit v", as.character(utils::packageVersion("supeRcrit"))), error = function(e) "supeRcrit")
+        secs <- list(list(title = i18n_r()$t("Model fit"), kpis = .tws_kpis(),
+          table = .tws_params_df(pm = TRUE), table_title = i18n_r()$t("Model parameters"),
+          math_col = 1L, body_size = 10,
+          # title = NULL: the ggplot already carries its own title ON the plot — avoid the duplicate block title.
+          plots = list(list(plot = tryCatch(kinetic_results$model_plot, error = function(e) NULL),
+            title = NULL, height = 3.6))))
+        op <- .tws_obspred_df(); if (!is.null(op))
+          secs <- c(secs, list(list(title = i18n_r()$t("Observed vs predicted"), table = op, digits = 5, body_size = 9.5)))
+        md <- .tws_model_df(); if (!is.null(md))
+          secs <- c(secs, list(list(title = i18n_r()$t("Model data"), table = md, digits = 5, body_size = 9.5)))
+        export <- list(title = i18n_r()$t("Two-Site Desorption — Report"),
+          intro = i18n_r()$t("Two-site kinetic desorption model fit and parameters."),
+          setup = .tws_setup(), sections = secs)
+        build_module_pdf_report(export, i18n_r(), file, company = ver, logo = logo)
+      }, error = function(e) showNotification(paste(i18n$t("Error exporting plots:"), e$message), type = "error", duration = 8))
+    })
+  output$export_csv <- downloadHandler(
+    filename = function() paste0(generate_filename_with_timestamp("supercrit_kinetic_tws_results"), ".csv"),
+    content = function(file) {
+      con <- file(file, "wb"); on.exit(close(con), add = TRUE); writeBin(as.raw(c(0xEF, 0xBB, 0xBF)), con)
+      wblock <- function(title, df) { if (is.null(df) || !nrow(df)) return(invisible())
+        writeBin(charToRaw(enc2utf8(paste0('"', gsub('"', '""', title), '"\r\n'))), con)
+        tmp <- tempfile(fileext = ".csv"); on.exit(unlink(tmp), add = TRUE)
+        utils::write.csv(df, tmp, row.names = FALSE, na = "", fileEncoding = "UTF-8")
+        writeBin(readBin(tmp, "raw", n = file.info(tmp)$size), con); writeBin(charToRaw("\r\n"), con) }
+      wblock(i18n_r()$t("Model parameters"), .tws_params_df())
+      wblock(i18n_r()$t("Observed vs predicted"), .tws_obspred_df())
+      wblock(i18n_r()$t("Model data"), .tws_model_df())
+    }, contentType = "text/csv")
 
   # Export kinetic model results
   output$export_kinetic <- downloadHandler(

@@ -36,7 +36,10 @@
 #' @param flowpar Either \code{NA} (default) or a \code{numeric} vector of length 2 providing temperature and pressure
 #' at which flow rate of CO2 is measured.
 #' @param ro_co2 The supercritical CO2 density (in g/L). If not provided (\code{NA}; default),
-#' it is calculated via the Bender Equation of State (see \code{\link{bendens}}).
+#' it is calculated from pressure and temperature via the equation of state selected by \code{eos}.
+#' @param eos The equation of state used to calculate CO2 density when \code{ro_co2 = NA}.
+#' One of: \code{"bender"} (\strong{default}) or \code{"spanwagner"} (the Span-Wagner 1996 reference
+#' EoS, more accurate near the critical point). See \code{\link{co2dens}}.
 #' @param tmax Maximum x-axis value (time, min) to use for model predictions \strong{exclusively} for \code{modtype = "ct"}.
 #' Setting to \code{NA} defaults to 120% of the maximum experimental value.
 #' @param qmax Maximum x-axis value (solvent expended, kg/kg insoluble solid) to use for model predictions for all models except
@@ -134,7 +137,7 @@
 #'
 bicmod <- function(oec, oec_vars, pars, opt_est = "default", etoh_frac = 0, flowpar = rep(NA,2), ro_co2 = NA, tmax = NA, qmax = NA,
                    cumulative = FALSE, mass_flow = FALSE, draw = TRUE, aggreg = "aard", modtype = "all",
-                   units = "default", silent = FALSE, ksas0 = NULL) {
+                   units = "default", silent = FALSE, ksas0 = NULL, eos = "bender") {
 
   #Preliminary checks
   modtps <- c("sim", "cu", "ct", "cmp3", "cmp2")
@@ -251,7 +254,7 @@ bicmod <- function(oec, oec_vars, pars, opt_est = "default", etoh_frac = 0, flow
   } else Nmg <- Nm <- xu <- NA
 
   #Computation of the CO2 density
-  if(is.na(ro_co2)) ro_co2 <- bendens(pres, temp)[["rho"]] #[kg/m3] CO2 density
+  if(is.na(ro_co2)) ro_co2 <- co2dens(pres, temp, eos = eos)[["rho"]] #[kg/m3] CO2 density
 
   #Calculate fraction of CO2 and EtOH, and final density of solvent
   etoh_chk <- c(pars["etoh"]>0 & etoh_frac==0, etoh_frac>0)
@@ -282,7 +285,7 @@ bicmod <- function(oec, oec_vars, pars, opt_est = "default", etoh_frac = 0, flow
   } else {
     pres_flow <- if(is.na(flowpar[1])) pres else flowpar[1] #[bar] Pressure of flow rate measurement
     temp_flow <- if(is.na(flowpar[2])) temp else flowpar[2] #[°C] Temperature of flow rate measurement
-    ro_co2f <- bendens(pres_flow, temp_flow)[["rho"]] # [kg/m3] CO2 density of flow rate measurement
+    ro_co2f <- co2dens(pres_flow, temp_flow, eos = eos)[["rho"]] # [kg/m3] CO2 density of flow rate measurement
     mass_slv <- uslv*(ro_co2f/1000)/1000 #Cumulative mass of solvent passed (kg)
     #qaver <- co2_flow*(ro_co2f/1000)/60/1000 #Else convert mL/min to kg/s
   }

@@ -15,16 +15,36 @@ miscomp_ui <- function(id, defaults, i18n) {
     fluidRow(
       column(
         width = 4,
-        # Top buttons row
+        # Top buttons row: Reset | Run Comparison | Export ▾ (PDF = all graphs, CSV = data). The Export
+        # dropdown sits to the RIGHT of the primary action and is a disabled placeholder until a comparison
+        # has been run (output.has_results), mirroring the Cost Analysis / Co-Solvent Selection modules.
         fluidRow(
-          column(6, actionButton(ns("reset"), i18n$t("Reset"), class = "btn btn-default btn-block")),
-          column(6, actionButton(ns("run_miscomp"), i18n$t("Run Comparison"), class = "btn btn-primary btn-block", style = "color: white;"))
+          column(4, actionButton(ns("reset"), i18n$t("Reset"), class = "btn btn-default btn-block")),
+          column(4, actionButton(ns("run_miscomp"), i18n$t("Run Comparison"), class = "btn btn-primary btn-block", style = "color: white;")),
+          column(4,
+            conditionalPanel(
+              condition = "!output.has_results", ns = ns,
+              tags$button(class = "btn btn-success dropdown-toggle", disabled = NA,
+                style = "color:white; opacity:0.65; width:100%;",
+                icon("download"), " ", i18n$t("Export"), " ", tags$span(class = "caret"))),
+            conditionalPanel(
+              condition = "output.has_results", ns = ns,
+              div(class = "btn-group", style = "width:100%;",
+                tags$button(type = "button", class = "btn btn-success dropdown-toggle",
+                  `data-toggle` = "dropdown", `aria-haspopup` = "true", `aria-expanded` = "false",
+                  style = "color:white; width:100%;",
+                  icon("download"), " ", i18n$t("Export"), " ", tags$span(class = "caret")),
+                tags$ul(class = "dropdown-menu dropdown-menu-right", style = "min-width:100%;",
+                  tags$li(downloadLink(ns("export_comp_pdf"), tagList(icon("file-pdf"), " ", i18n$t("Export PDF")),
+                    style = "padding:5px 15px; display:block;")),
+                  tags$li(downloadLink(ns("export_comp_csv"), tagList(icon("file-csv"), " ", i18n$t("Export CSV")),
+                    style = "padding:5px 15px; display:block;"))))))
         ),
         br(),
         box(
           title = div(
             style = "display: flex; align-items: center;",
-            span(i18n$t("Miscibility Comparison")),
+            span(i18n$t("Co-Solvent Comparison")),
             div(uiOutput(ns("sfe_misc_comp_HELP"))),
             div(style = "position: absolute; right: 40px;", uiOutput(ns("accordion_toggle_btn")))
           ),
@@ -32,6 +52,9 @@ miscomp_ui <- function(id, defaults, i18n) {
           status = "success",
           solidHeader = TRUE,
           collapsible = TRUE,
+          # 15px horizontal margin = the accordion panels' own padding, so this top selector aligns
+          # with the accordion content below it.
+          div(style = "margin: 2px 15px 10px 15px;", uiOutput(ns("comp_method_ui"))),
           shinydashboardPlus::accordion(
             id = ns("comp_accordion"),
 
@@ -40,7 +63,7 @@ miscomp_ui <- function(id, defaults, i18n) {
               title = i18n$t("Solute Selection"),
               value = "solute_selection",
               collapsed = FALSE,
-              # Load Examples and Load from Disk buttons
+              # Load Examples, Load from Disk and Load from Database buttons (one line)
               div(
                 style = "margin-bottom: 10px;",
                 actionButton(ns("load_example_data"), i18n$t("Load Examples"),
@@ -51,7 +74,8 @@ miscomp_ui <- function(id, defaults, i18n) {
                   icon = icon("folder-open"),
                   class = "btn btn-default btn-sm",
                   style = "margin-left: 5px;"
-                )
+                ),
+                uiOutput(ns("db_load_btn"), inline = TRUE)
               ),
 
               # Select Solutes from Saved Calculations
@@ -87,14 +111,26 @@ miscomp_ui <- function(id, defaults, i18n) {
               collapsed = TRUE,
               div(id = ns("pres_input_wrapper"), uiOutput(ns("pres_input_ui"))),
               div(id = ns("temp_wrapper"), uiOutput(ns("temp_ui"))),
-              div(id = ns("vfrac_input_wrapper"), uiOutput(ns("vfrac_input_ui")))
+              conditionalPanel(
+                condition = sprintf("input['%s'] != 'solubility'", ns("comp_method")),
+                div(id = ns("vfrac_input_wrapper"), uiOutput(ns("vfrac_input_ui")))
+              ),
+              conditionalPanel(
+                condition = sprintf("input['%s'] == 'solubility'", ns("comp_method")),
+                uiOutput(ns("comp_engine_ui")),
+                uiOutput(ns("engine_coverage_ui")),
+                div(id = ns("comp_molfrac_wrapper"), uiOutput(ns("comp_molfrac_ui"))),
+                div(id = ns("comp_unit_wrapper"), uiOutput(ns("comp_unit_ui")))
+              )
             ),
 
-            # Advanced Plot Options Section
+            # Advanced Options Section
             accordionItem(
-              title = i18n$t("Advanced Plot Options"),
+              title = i18n$t("Advanced Options"),
               value = "advanced_options",
               collapsed = TRUE,
+              # Parallel-evaluation toggle (Solubility mode only; server-rendered so the tooltip translates live).
+              uiOutput(ns("sol_parallel_ui")),
               div(id = ns("plt_title_wrapper"), checkboxInput(ns("plt_title"), i18n$t("Show Plot Titles"), value = defaults$plt_title)),
               div(id = ns("use_custom_colors_wrapper"), checkboxInput(ns("use_custom_colors"), i18n$t("Use Custom Colors"), value = defaults$use_custom_colors)),
               conditionalPanel(
@@ -133,17 +169,12 @@ miscomp_ui <- function(id, defaults, i18n) {
                   p(i18n$t("Select the parameters and run comparison to see results."))
                 )
               ),
-              # Actual content when results are available
+              # Actual content when results are available. The Export buttons now sit INLINE on the right
+              # of each plot tab's selector row (rendered in plots_tabs_ui), so no separate button row here.
               conditionalPanel(
                 condition = "output.has_results",
                 ns = ns,
-                # Export buttons row
-                div(
-                  style = "margin-bottom: 15px; display: flex; gap: 10px; justify-content: center;",
-                  downloadButton(ns("export_current_plot"), i18n$t("Export Current Plot"), class = "btn btn-success btn-lg"),
-                  downloadButton(ns("export_all_plots"), i18n$t("Export All Plots"), class = "btn btn-success btn-lg")
-                ),
-                uiOutput(ns("plots_tabs_ui")) # Dynamic tabs for plots
+                uiOutput(ns("plots_tabs_ui")) # Dynamic tabs for plots (with inline export buttons)
               )
             ),
             tabPanel(

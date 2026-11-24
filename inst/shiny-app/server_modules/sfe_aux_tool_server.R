@@ -24,13 +24,13 @@ auxiliary_tools_server <- function(input, output, session, defaults, i18n, tabla
 
   # GCM method code to readable name mapping
   gcm_method_codes <- c("JR_corr", "JR", "SB_corr", "SB", "NL07_robust", "NL07", "NL04",
-    "HKR_STW", "HKR_SIM", "SP08", "SP12", "ZHAO", "BND", "SLON")
+    "HKR_STW", "HKR_SIM", "SP08", "SP12", "SP_ENK", "ZHAO", "BND", "SLON")
   gcm_method_display_keys <- c(
     "Joback-Reid corrected", "Joback-Reid",
     "Stein-Brown corrected", "Stein-Brown",
     "Nannoolal 2007 robust", "Nannoolal 2007", "Nannoolal 2004",
     "Hukkerikar-Stepwise", "Hukkerikar-Simultaneous",
-    "Stefanis-Panayiotou 2008", "Stefanis-Panayiotou 2012",
+    "Stefanis-Panayiotou 2008", "Stefanis-Panayiotou 2012", "Enekvist 2021",
     "Zhao 2003", "Bondi 1964", "Slonimskii 1970"
   )
 
@@ -224,13 +224,9 @@ auxiliary_tools_server <- function(input, output, session, defaults, i18n, tabla
 
   # Track whether results exist for conditional panels
   rv_has_crit_results <- reactiveVal(FALSE)
-  rv_has_demo_results <- reactiveVal(FALSE)
 
   output$has_crit_results <- reactive({ rv_has_crit_results() })
   outputOptions(output, "has_crit_results", suspendWhenHidden = FALSE)
-
-  output$has_demo_results <- reactive({ rv_has_demo_results() })
-  outputOptions(output, "has_demo_results", suspendWhenHidden = FALSE)
 
   # Reactive values for general solvent mixture (iscrit_gen)
   rv_gen_solvents <- reactiveVal(list("CO₂", "Ethanol")) # Start with 2 solvents
@@ -243,8 +239,8 @@ auxiliary_tools_server <- function(input, output, session, defaults, i18n, tabla
     # Translate solvent names
     solvents_data$Solvent <- sapply(solvents_data$Solvent, function(s) translate_solvent(s, i18n_r()))
 
-    # Remove Abbreviation column (redundant)
-    solvents_data <- solvents_data[, !names(solvents_data) %in% "Abbreviation"]
+    # Remove Abbreviation column (redundant) and SMILES (used internally by the solubility model, not for display)
+    solvents_data <- solvents_data[, !names(solvents_data) %in% c("Abbreviation", "SMILES")]
 
     # Short column names (for display) - with proper HTML formatting
     # Using italics for variables, subscripts where needed, translated units
@@ -567,7 +563,7 @@ auxiliary_tools_server <- function(input, output, session, defaults, i18n, tabla
             style = "margin-bottom: 15px;",
             actionButton(ns(paste0("remove_solv_", i)), label = NULL,
               icon = icon("times"),
-              class = "btn btn-default btn-sm"
+              class = "btn btn-danger btn-sm", style = "color: white;"
             )
           )
         }
@@ -844,7 +840,6 @@ auxiliary_tools_server <- function(input, output, session, defaults, i18n, tabla
   # Reset Critical Parameters
   observeEvent(input$reset_crit, {
     rv_has_crit_results(FALSE)
-    rv_has_demo_results(FALSE)
     # Reset inputs to defaults
     updateSliderInput(session, "etoh_co2_frac", value = defaults$etoh_co2_frac)
     showNotification(i18n$t("Results cleared."), type = "message")
@@ -1030,139 +1025,44 @@ auxiliary_tools_server <- function(input, output, session, defaults, i18n, tabla
     }
   })
 
-  # Handle iscrit_demo execution (integrated into etoh tab)
-  observeEvent(input$run_etoh_demo, {
-    withProgress(message = i18n$t("Running CO₂-Ethanol Demo..."), {
-      demo_results <- tryCatch(
-        {
-          iscrit_demo()
-        },
-        error = function(e) {
-          showNotification(paste(i18n$t("Error running demo:"), e$message), type = "error")
-          return(NULL)
-        }
-      )
-
-      if (!is.null(demo_results)) {
-        # Render Tc plot separately
-        output$iscrit_etoh_demo_tc_plot <- renderPlot({
-          plot <- demo_results$plots$Tc
-
-          # Translate method names for legend labels
-          method_labels <- c(
-            "Chueh-Prausnitz" = "Chueh-Prausnitz",
-            "Experimental" = i18n_r()$t("Experimental"),
-            "Redlich-Kister" = "Redlich-Kister"
-          )
-
-          # Apply translations and override scales
-          plot <- translate_plot_labels(
-            plot,
-            i18n_r(),
-            x = "CO₂ mole fraction",
-            y = "Critical Temperature (K)",
-            colour = "Method: ",
-            linetype = "Method: "
-          ) +
-            ggplot2::scale_colour_manual(
-              values = c("darkred", "darkorange", "darkorange"),
-              labels = method_labels
-            ) +
-            ggplot2::scale_linetype_manual(
-              values = c(4, 1, 1),
-              labels = method_labels
-            )
-
-          plot
-        })
-
-        # Render Pc plot separately
-        output$iscrit_etoh_demo_pc_plot <- renderPlot({
-          plot <- demo_results$plots$Pc
-
-          # Translate method names for legend labels
-          method_labels <- c(
-            "Chueh-Prausnitz" = "Chueh-Prausnitz",
-            "Experimental" = i18n_r()$t("Experimental"),
-            "Redlich-Kister" = "Redlich-Kister"
-          )
-
-          # Apply translations and override scales
-          plot <- translate_plot_labels(
-            plot,
-            i18n_r(),
-            x = "CO₂ mole fraction",
-            y = "Critical Pressure (MPa)",
-            colour = "Method: ",
-            linetype = "Method: "
-          ) +
-            ggplot2::scale_colour_manual(
-              values = c("darkred", "darkorange", "darkorange"),
-              labels = method_labels
-            ) +
-            ggplot2::scale_linetype_manual(
-              values = c(4, 1, 1),
-              labels = method_labels
-            )
-
-          plot
-        })
-
-        # Render data table
-        output$iscrit_etoh_demo_table <- DT::renderDataTable({
-          # Column names translation
-          add_prettynames <- c(
-            i18n_r()$t("Method"),
-            i18n_r()$t("Fraction"),
-            i18n_r()$t("Critical Temperature (K)"),
-            i18n_r()$t("Critical Pressure (MPa)")
-          )
-
-          # Method values translation (exclude abbreviations)
-          method_translations <- c(
-            "Experimental" = i18n_r()$t("Experimental")
-          )
-
-          # Apply translations
-          dt_data <- demo_results$data
-          dt_data$Method <- my_mapvalues(dt_data$Method, names(method_translations), method_translations, warn_missing = FALSE)
-
-          dt <- DT::datatable(
-            dt_data,
-            extensions = "Buttons",
-            colnames = add_prettynames,
-            options = list(
-              scrollX = TRUE,
-              paging = FALSE,
-              dom = "Bfrtip",
-              language = tablang(),
-              buttons = create_dt_export_buttons(i18n_r, "co2_ethanol_demo")
-            ),
-            rownames = FALSE
-          )
-          numeric_columns <- names(dt_data)[sapply(dt_data, is.numeric)]
-          if (length(numeric_columns) > 0) {
-            dt <- dt %>% DT::formatRound(columns = numeric_columns, digits = 2)
-          }
-          dt
-        })
-
-        # Render UI container
-        rv_has_demo_results(TRUE)
-        output$iscrit_etoh_demo_results <- renderUI({
-          tagList(
-            h4(i18n_r()$t("Critical Temperature Plot")),
-            plotOutput(ns("iscrit_etoh_demo_tc_plot")),
-            hr(),
-            h4(i18n_r()$t("Critical Pressure Plot")),
-            plotOutput(ns("iscrit_etoh_demo_pc_plot")),
-            hr(),
-            h4(i18n_r()$t("Data Table")),
-            DT::dataTableOutput(ns("iscrit_etoh_demo_table"))
-          )
-        })
-      }
-    })
+  # CO₂-Ethanol "model vs experimental" demo. Computed LAZILY the first time the (collapsed) accordion box is
+  # opened — the plot/table outputs suspend while the box is hidden, so expanding it triggers iscrit_demo().
+  # No separate "Display and plot data" button is needed.
+  demo_results_r <- reactive({
+    withProgress(message = i18n$t("Running CO₂-Ethanol Demo..."),
+      tryCatch(iscrit_demo(), error = function(e) {
+        showNotification(paste(i18n$t("Error running demo:"), e$message), type = "error"); NULL }))
+  })
+  .demo_method_labels <- function() c("Chueh-Prausnitz" = "Chueh-Prausnitz",
+    "Experimental" = i18n_r()$t("Experimental"), "Redlich-Kister" = "Redlich-Kister")
+  output$iscrit_etoh_demo_tc_plot <- renderPlot({
+    demo_results <- demo_results_r(); req(!is.null(demo_results))
+    translate_plot_labels(demo_results$plots$Tc, i18n_r(), x = "CO₂ mole fraction",
+      y = "Critical Temperature (K)", colour = "Method: ", linetype = "Method: ") +
+      ggplot2::scale_colour_manual(values = c("darkred", "darkorange", "darkorange"), labels = .demo_method_labels()) +
+      ggplot2::scale_linetype_manual(values = c(4, 1, 1), labels = .demo_method_labels())
+  })
+  output$iscrit_etoh_demo_pc_plot <- renderPlot({
+    demo_results <- demo_results_r(); req(!is.null(demo_results))
+    translate_plot_labels(demo_results$plots$Pc, i18n_r(), x = "CO₂ mole fraction",
+      y = "Critical Pressure (MPa)", colour = "Method: ", linetype = "Method: ") +
+      ggplot2::scale_colour_manual(values = c("darkred", "darkorange", "darkorange"), labels = .demo_method_labels()) +
+      ggplot2::scale_linetype_manual(values = c(4, 1, 1), labels = .demo_method_labels())
+  })
+  output$iscrit_etoh_demo_table <- DT::renderDataTable({
+    demo_results <- demo_results_r(); req(!is.null(demo_results))
+    add_prettynames <- c(i18n_r()$t("Method"), i18n_r()$t("Fraction"), "<i>T</i><sub>c</sub> (K)",
+                         paste0("<i>P</i><sub>c</sub> (", i18n_r()$t("MPa"), ")"))
+    dt_data <- demo_results$data
+    dt_data$Method <- my_mapvalues(dt_data$Method, "Experimental", i18n_r()$t("Experimental"), warn_missing = FALSE)
+    dt <- DT::datatable(dt_data, extensions = "Buttons", colnames = add_prettynames, escape = FALSE,
+      options = list(scrollX = TRUE, paging = TRUE, pageLength = 20,
+        lengthMenu = list(c(10, 20, 50, 100, -1), c("10", "20", "50", "100", i18n_r()$t("All"))),
+        dom = "Blfrtip", language = tablang(), buttons = create_dt_export_buttons(i18n_r, "co2_ethanol_demo")),
+      rownames = FALSE)
+    numeric_columns <- names(dt_data)[sapply(dt_data, is.numeric)]
+    if (length(numeric_columns) > 0) dt <- dt %>% DT::formatRound(columns = numeric_columns, digits = 2)
+    dt
   })
 
   # Helper renderUI outputs
@@ -1194,5 +1094,203 @@ auxiliary_tools_server <- function(input, output, session, defaults, i18n, tabla
   outputOptions(output, "sfe_aux_tool_gcm_chart_HELP", suspendWhenHidden = FALSE)
   outputOptions(output, "sfe_aux_tool_gen_crit_params_HELP", suspendWhenHidden = FALSE)
   outputOptions(output, "sfe_aux_tool_solvents_db_HELP", suspendWhenHidden = FALSE)
+
+  # ================= Solubility Source Data viewer =================
+  # Bundled raw scCO2 solubility measurements (solubility_source_data()): browse per-compound isotherms with a
+  # switchable unit (mole fraction / g-per-kg-CO2 / g-per-L / mass fraction). g/L & g/kg use Span-Wagner density.
+  # Persistent DOI per source citation (bundled lookup) + proper citations for internally-tagged sources.
+  .ssrc_doi <- reactive(tryCatch(readRDS(system.file("extdata", "solubility", "solubility_source_doi.rds", package = "supeRcrit")), error = function(e) character(0)))
+  .ssrc_src_display <- c("Makarov2020_curated" = "Makarov, D. M.; Kalikin, N. N.; Budkov, Y. A.; Gurikov, P.; Kruchinin, S. E.; Jouyban, A.; Kiselev, M. G. Improved Solubility Predictions in scCO₂ Using Thermodynamics-Informed Machine Learning Models. J. Chem. Inf. Model. 65 (2025) 4043-4056.")
+  .ssrc_src_label <- function(src) ifelse(src %in% names(.ssrc_src_display), unname(.ssrc_src_display[src]), src)
+  # Grammatically-consistent compound display: capitalise the leading word (the Makarov dataset stores many names
+  # lowercase), while KEEPING lowercase chemical locant / stereo prefixes (n-, o-, p-, cis-, tert-, ...) and
+  # converting ASCII-mangled Greek ("a -"/"b -"/"alpha-"/"beta-") to proper symbols. Idempotent on Title-case names.
+  .pretty_compound <- function(x) {
+    greek <- c(alpha = "α", beta = "β", gamma = "γ", delta = "δ", omega = "ω",
+               a = "α", b = "β", g = "γ")
+    locant <- c("n","o","m","p","sec","tert","iso","neo","cis","trans","syn","anti","ortho","meta","para","d","l","dl","r","s","e","z")
+    cap1 <- function(z) if (nchar(z)) paste0(toupper(substr(z, 1, 1)), substr(z, 2, nchar(z))) else z
+    vapply(unname(x), function(s) {
+      if (is.na(s) || !nzchar(s)) return(s)
+      m <- regmatches(s, regexec("^([0-9][0-9,'’ .-]*-)([a-z].*)$", s))[[1]]          # "2,4-dichlorophenol"
+      if (length(m) == 3) return(paste0(m[2], cap1(m[3])))
+      m <- regmatches(s, regexec("^([a-z]) ?-(.*)$", s))[[1]]                              # "a -Cyclodextrin" / "p -Cresol"
+      if (length(m) == 3) {
+        if (!is.na(greek[m[2]])) return(paste0(greek[[m[2]]], "-", cap1(m[3])))            # mangled Greek -> symbol
+        if (m[2] %in% locant)   return(paste0(m[2], "-", cap1(m[3])))                      # single-letter locant (keep lowercase, drop stray space)
+      }
+      m <- regmatches(s, regexec("^([a-z]+)-(.*)$", s))[[1]]                               # "alpha-tocopherol" / "cis-stilbene"
+      if (length(m) == 3) {
+        if (!is.na(greek[m[2]])) return(paste0(greek[[m[2]]], "-", cap1(m[3])))
+        if (m[2] %in% locant)   return(paste0(m[2], "-", cap1(m[3])))
+      }
+      if (grepl("^[A-ZΑ-Ωα-ω]", s) || grepl("^[0-9(\\[]", s)) return(s)                    # already capital / Greek symbol / digit / bracket (idempotent)
+      cap1(s)                                                                               # plain lowercase name
+    }, character(1), USE.NAMES = FALSE)
+  }
+  ssrc_data <- reactive({
+    d <- tryCatch(solubility_source_data(), error = function(e) NULL)
+    if (is.null(d) || !nrow(d)) return(NULL)
+    d$display <- ifelse(!is.na(d$matched_name) & nzchar(d$matched_name), d$matched_name, d$solute)
+    # Merge near-duplicate compound names (case / punctuation variants of the SAME compound): canonical display
+    # = the most frequent variant within each normalised group, then capitalise for grammatical consistency, so
+    # the picker + filter use ONE properly-capitalised name per compound.
+    key <- gsub("[^a-z0-9]", "", tolower(d$display))
+    canon <- tapply(d$display, key, function(v) names(sort(table(v), decreasing = TRUE))[1])
+    canon[] <- .pretty_compound(canon)
+    d$display <- unname(canon[key]); d
+  })
+  output$ssrc_compound_ui <- renderUI({
+    d <- ssrc_data()
+    if (is.null(d)) return(div(class = "alert alert-warning", i18n_r()$t("Solubility source dataset not found — reinstall the package.")))
+    # Server-side selectize: the (large) compound list is pushed from the server via updateSelectizeInput
+    # below rather than embedded in the page, so the client only fetches matching options as the user types.
+    selectizeInput(ns("ssrc_compound"), i18n_r()$t("Compound"), choices = NULL, width = "100%")
+  })
+  # Populate the compound selectize server-side (avoids the "large number of options" client-side warning).
+  observeEvent(ssrc_data(), {
+    d <- ssrc_data(); req(d)
+    comps <- sort(unique(d$display))
+    updateSelectizeInput(session, "ssrc_compound", choices = comps,
+      selected = if ("Naphthalene" %in% comps) "Naphthalene" else comps[1], server = TRUE)
+  }, ignoreNULL = TRUE)
+  output$ssrc_units_ui <- renderUI({
+    w <- ns("ssrc_units_wrap")
+    tags$div(id = w,
+      tags$style(HTML(paste0(
+        "#", w, " .shiny-options-group{display:grid;grid-template-columns:1fr 1fr;grid-gap:6px 16px;margin-top:6px;align-items:start;}",
+        "#", w, " .shiny-options-group .radio{margin:0;min-height:0;}",                 # drop Bootstrap radio margins so the grid aligns
+        "#", w, " .shiny-options-group .radio label{font-weight:normal;}"))),
+      radioButtons(ns("ssrc_units"), i18n_r()$t("Solubility unit"),
+        choiceValues = c("y", "gkg", "gL", "wfrac"),
+        choiceNames = list(
+          HTML(paste0(i18n_r()$t("Mole fraction"), " (<i>y</i><sub>2</sub>)")),
+          HTML(paste0(i18n_r()$t("g solute / kg"), " CO<sub>2</sub>")),
+          HTML("g / L"),
+          HTML(i18n_r()$t("Mass fraction"))),
+        selected = "y"))
+  })
+  outputOptions(output, "ssrc_compound_ui", suspendWhenHidden = FALSE)
+  outputOptions(output, "ssrc_units_ui", suspendWhenHidden = FALSE)
+
+  ssrc_sel <- reactive({
+    d <- ssrc_data(); req(d, input$ssrc_compound)
+    s <- d[d$display == input$ssrc_compound, , drop = FALSE]
+    if (!isTRUE(input$ssrc_cosolv)) s <- s[is.na(s$cosolvent), , drop = FALSE]
+    s[is.finite(s$y) & s$y > 0 & is.finite(s$P_bar) & is.finite(s$T_K), , drop = FALSE]
+  })
+  output$ssrc_has <- reactive({ s <- tryCatch(ssrc_sel(), error = function(e) NULL); !is.null(s) && nrow(s) > 0 })
+  outputOptions(output, "ssrc_has", suspendWhenHidden = FALSE)
+
+  # convert mole fraction y -> selected unit (MW from the dataset, NA-safe; CO2 density from Span-Wagner)
+  .ssrc_conv <- function(s, unit) {
+    y <- s$y; mw <- suppressWarnings(as.numeric(s$mw)); if (unit == "y") return(y)
+    rho <- mapply(function(P, T) tryCatch(unname(co2dens(P, T - 273.15, "g/L", "spanwagner")[["rho"]]), error = function(e) NA_real_),
+                  s$P_bar, s$T_K)                                                   # g/L
+    switch(unit, gkg = y * mw / ((1 - y) * 44.01) * 1000, gL = y * (mw / 44.01) * rho,
+           wfrac = y * mw / (y * mw + (1 - y) * 44.01))
+  }
+  .ssrc_ylab <- function(unit) switch(unit, y = "<i>y</i><sub>2</sub> (mole fraction)", gkg = "g / kg CO<sub>2</sub>",
+                                      gL = "solubility (g / L)", wfrac = "mass fraction", "<i>y</i><sub>2</sub>")
+
+  output$ssrc_plot <- plotly::renderPlotly({
+    s <- ssrc_sel(); req(nrow(s) > 0); unit <- input$ssrc_units %||% "y"
+    s$val <- .ssrc_conv(s, unit); s <- s[is.finite(s$val) & s$val > 0, , drop = FALSE]; req(nrow(s) > 0)
+    # Colour + legend by isotherm (temperature), but draw ONE line per (isotherm, SOURCE) so different studies
+    # measured at the same nominal temperature are NOT connected into a single zig-zagging curve (the apparent
+    # "inconsistency" — it is really inter-study scatter). Hover shows the proper source citation.
+    s$tgrp  <- paste0(sprintf("%.0f K", s$T_K), ifelse(is.na(s$cosolvent), "", paste0(" +", s$cosolvent)))
+    s$trace <- paste0(s$tgrp, "||", s$source)
+    s <- s[order(s$T_K, s$source, s$P_bar), ]
+    temps <- unique(s$tgrp[order(s$T_K)])
+    pal <- stats::setNames(grDevices::hcl.colors(max(length(temps), 2L), "Spectral"), temps)
+    p <- plotly::plot_ly(); seen <- character(0)
+    for (tr in unique(s$trace)) {
+      sg <- s[s$trace == tr, , drop = FALSE]; tg <- sg$tgrp[1]
+      show <- !(tg %in% seen); seen <- c(seen, tg)
+      p <- plotly::add_trace(p, x = sg$P_bar, y = sg$val, name = tg, legendgroup = tg, showlegend = show,
+        type = "scatter", mode = "markers+lines",
+        line = list(color = pal[[tg]]), marker = list(color = pal[[tg]], size = 5),
+        text = .ssrc_src_label(sg$source), hoverinfo = "x+y+name+text")
+    }
+    plotly::layout(p, xaxis = list(title = "<i>P</i> (bar)"),
+      yaxis = list(title = .ssrc_ylab(unit), type = if (isTRUE(input$ssrc_logy)) "log" else "linear"),
+      legend = list(title = list(text = i18n_r()$t("Isotherm / system"))), title = input$ssrc_compound)
+  })
+  outputOptions(output, "ssrc_plot", suspendWhenHidden = FALSE)
+
+  output$ssrc_info <- renderUI({
+    d <- ssrc_data(); req(d, input$ssrc_compound); s <- ssrc_sel()
+    all_s <- d[d$display == input$ssrc_compound, ]; mw <- suppressWarnings(as.numeric(all_s$mw[1]))
+    if (!nrow(s)) return(HTML(paste0("<i>", i18n_r()$t("No pure-CO₂ points (enable co-solvent systems)."), "</i>")))
+    HTML(paste0(
+      "<b>", i18n_r()$t("Points"), ":</b> ", nrow(s), " &nbsp; <b>", i18n_r()$t("Sources"), ":</b> ", length(unique(all_s$source)),
+      "<br><b><i>T</i>:</b> ", sprintf("%.0f–%.0f K", min(s$T_K), max(s$T_K)),
+      " &nbsp; <b><i>P</i>:</b> ", sprintf("%.0f–%.0f bar", min(s$P_bar), max(s$P_bar)),
+      "<br><b><i>M</i><sub>W</sub>:</b> ", if (is.finite(mw)) sprintf("%.2f g/mol", mw) else i18n_r()$t("unknown (mole fraction only)")))
+  })
+  outputOptions(output, "ssrc_info", suspendWhenHidden = FALSE)
+
+  output$ssrc_table <- DT::renderDataTable({
+    s <- ssrc_sel(); req(nrow(s) > 0)
+    doi_map <- .ssrc_doi(); lab <- .ssrc_src_label(s$source)            # proper citation (override tagged sources)
+    doi <- unname(doi_map[s$source])
+    src_cell <- ifelse(!is.na(doi) & nzchar(doi),                       # persistent DOI link when known
+      sprintf('<a href="https://doi.org/%s" target="_blank" rel="noopener">%s</a>', doi, htmltools::htmlEscape(lab)),
+      htmltools::htmlEscape(lab))
+    tab <- data.frame(Source = src_cell, T = round(s$T_K, 1), P = round(s$P_bar, 1),
+      y2 = signif(s$y, 4), gkg = signif(.ssrc_conv(s, "gkg"), 4),
+      Cosolvent = ifelse(is.na(s$cosolvent), "", s$cosolvent), Phase = ifelse(is.na(s$phase), "", s$phase),
+      check.names = FALSE, stringsAsFactors = FALSE)
+    DT::datatable(tab, rownames = FALSE, escape = FALSE, extensions = "Buttons",
+      colnames = c(i18n_r()$t("Source"), "<i>T</i> (K)", "<i>P</i> (bar)", "<i>y</i><sub>2</sub>",
+                   "g / kg CO<sub>2</sub>", i18n_r()$t("Cosolvent"), i18n_r()$t("Phase")),
+      options = list(pageLength = 10, scrollX = TRUE, dom = "Bfrtip", language = tablang(),
+        buttons = create_dt_export_buttons(i18n_r, "solubility_source_data"),   # Copy / CSV / Excel / PDF (strips the link HTML)
+        columnDefs = list(list(targets = 0, width = "340px"))))                 # widen Source for the full citation
+  })
+
+  # ggplot twin of the isotherm plot, for the "Export plot (PDF)" download (plotly has no server-side PDF).
+  # Same source-separated isotherms as the on-screen plotly; matches the LLE per-plot ggsave approach.
+  .ssrc_ylab_plain <- function(unit) switch(unit, y = "y2 (mole fraction)", gkg = "g / kg CO2",
+                                            gL = "solubility (g / L)", wfrac = "mass fraction", "y2")
+  ssrc_gg <- reactive({
+    s <- ssrc_sel(); req(nrow(s) > 0); unit <- input$ssrc_units %||% "y"
+    s$val <- .ssrc_conv(s, unit); s <- s[is.finite(s$val) & s$val > 0, , drop = FALSE]; req(nrow(s) > 0)
+    s$tgrp <- paste0(sprintf("%.0f K", s$T_K), ifelse(is.na(s$cosolvent), "", paste0(" +", s$cosolvent)))
+    s$trace <- paste0(s$tgrp, "||", s$source)
+    s <- s[order(s$T_K, s$source, s$P_bar), ]
+    s$tgrp <- factor(s$tgrp, levels = unique(s$tgrp))
+    g <- ggplot2::ggplot(s, ggplot2::aes(x = P_bar, y = val, colour = tgrp, group = trace)) +
+      ggplot2::geom_line(linewidth = 0.5) + ggplot2::geom_point(size = 1.3) +
+      ggplot2::labs(x = "P (bar)", y = .ssrc_ylab_plain(unit), colour = i18n_r()$t("Isotherm / system"),
+                    title = input$ssrc_compound) +
+      ggplot2::theme_minimal(base_size = 12)
+    if (isTRUE(input$ssrc_logy)) g <- g + ggplot2::scale_y_log10()
+    g
+  })
+  output$ssrc_plot_export <- downloadHandler(
+    filename = function() paste0(generate_filename_with_timestamp(paste0("solubility_plot_", gsub("[^A-Za-z0-9]", "_", input$ssrc_compound %||% "data"))), ".pdf"),
+    content = function(file) { g <- tryCatch(ssrc_gg(), error = function(e) NULL); req(!is.null(g))
+      ggplot2::ggsave(file, plot = g, device = cairo_pdf, width = 10, height = 7, units = "in") },
+    contentType = "application/pdf")
+
+  # Full-data CSV export: proper source citation (NOT the "Makarov2020_curated" tag), DOI, prettified compound
+  # name, all unit conversions, and a UTF-8 BOM so Excel renders the symbols / citations correctly.
+  output$ssrc_export <- downloadHandler(
+    filename = function() paste0("solubility_", gsub("[^A-Za-z0-9]", "_", input$ssrc_compound %||% "data"), ".csv"),
+    content = function(file) { s <- ssrc_sel(); doi_map <- .ssrc_doi()
+      out <- data.frame(
+        Compound = s$display, Source = .ssrc_src_label(s$source), DOI = unname(doi_map[s$source]),
+        Cosolvent = s$cosolvent, T_K = s$T_K, P_bar = s$P_bar, y2_mole_fraction = s$y,
+        g_per_kg_CO2 = .ssrc_conv(s, "gkg"), g_per_L = .ssrc_conv(s, "gL"),
+        mass_fraction = .ssrc_conv(s, "wfrac"), phase = s$phase,
+        check.names = FALSE, stringsAsFactors = FALSE)
+      con <- file(file, "wb"); on.exit(close(con), add = TRUE)
+      writeBin(as.raw(c(0xEF, 0xBB, 0xBF)), con)
+      tmp <- tempfile(fileext = ".csv"); on.exit(unlink(tmp), add = TRUE)
+      utils::write.csv(out, tmp, row.names = FALSE, na = "", fileEncoding = "UTF-8")
+      writeBin(readBin(tmp, "raw", n = file.info(tmp)$size), con) },
+    contentType = "text/csv")
 
 }

@@ -20,6 +20,10 @@
 #' @param feed_density A \strong{single} \code{numeric} value denoting the feed liquid density in g/mL,
 #' used for volumetric-to-mass conversion of the feed flow rate in CC-SFE mode. Only used when
 #' \code{comode = "cc_sfe"} and \code{mass_flow[3] = FALSE} (volumetric feed flow). Defaults to 1.
+#' @param eos The equation of state used to calculate CO2 density (and thus main/co-solvent
+#' mass flow and recovery losses). One of: \code{"bender"} (\strong{default}) or
+#' \code{"spanwagner"} (the Span-Wagner 1996 reference EoS, more accurate near the critical
+#' point). Only affects CO2 (SFE/CC-SFE main solvent and SWE co-solvent). See \code{\link{co2dens}}.
 #' @param gen,crm,cut,col,fci \strong{Named} numeric vectors of input parameters required for \strong{general calculations} (\code{gen}),
 #' \strong{Cost of Raw Materials} (\code{crm}), \strong{Cost of Labour} (\code{col}), \strong{Cost of Utilities} (\code{cut}),
 #' and/or \strong{Fixed Costs} (\code{fci}). Some parameters are mandatory, while others are optional.
@@ -32,7 +36,8 @@
 #' @param taxrate The \code{fraction of gross profit} to be removed as tax to calculate \strong{net profit}.
 #' @param flowpar The parameters of temperature and pressure at which flow rate is given.
 #' Used for conversion of volumetric flow to mass flow when \code{!mass_flow}.
-#' If set to \code{"auto"} (default), uses the temperature and pressure specified for the recovery line in \code{crm[c("recp","rect")]}.
+#' If set to \code{"auto"} (default), uses the extraction (process) pressure and temperature
+#' \code{gen[c("pres","temp")]}, since the solvent-to-material (S/M) ratio is a process-based quantity.
 #' @param draw A \code{logical} switch specifying whether to plot the results.
 #' Only works if \strong{an extraction curve is provided as } \code{input}.
 #' @param mass_flow A \code{logical} vector specifying whether flow rates are in \strong{mass (g/min)}
@@ -181,7 +186,7 @@ calcom <- function(input, invars = c(names(input)[1], names(input)[2]), pltlab =
                    draw = TRUE, mass_flow = FALSE, comode = "sfe", use_coefs = FALSE,
                    coefs = c(fci = 1, col = 1, crm = 1, cut = 1), export = "none",
                    response_unit = "percent", moisture_content = 0, response_name = "Primary",
-                   additional_responses = NULL, feed_density = 1) {
+                   additional_responses = NULL, feed_density = 1, eos = "bender") {
 
   #Preliminary checks
   if(length(invars)!=2) stop("Argument 'invars' must be a character vector or list of length 2!")
@@ -323,17 +328,14 @@ calcom <- function(input, invars = c(names(input)[1], names(input)[2]), pltlab =
   if(!mass_flow[1]) {
     #Set up flow parameters
     if(any(flowpar %in% "auto")) {
-      #Use recovery line parameters if available, otherwise use sensible defaults
-      if(!is.na(crm[["recp"]]) && !is.na(crm[["rect"]])) {
-        flowpar_main <- c(crm[["recp"]], crm[["rect"]])
-      } else {
-        #Default: 60 bar, 10 C for SFE; 1 bar, 25 C for SWE
-        flowpar_main <- if(sfechk) c(60, 10) else c(1, 25)
-      }
+      #S/M is a PROCESS variable: convert the volumetric main-solvent flow to mass
+      #using the density at the EXTRACTION (process) conditions (gen[pres,temp]),
+      #not the recovery line.
+      flowpar_main <- c(gen[["pres"]], gen[["temp"]])
     } else flowpar_main <- flowpar[[1]]
 
     #Calculate CO2 or water density
-    main_dens <- if(sfechk) bendens(flowpar_main[1], flowpar_main[2])[[1]] else h2o_dens(flowpar_main[1], flowpar_main[2])
+    main_dens <- if(sfechk) co2dens(flowpar_main[1], flowpar_main[2], eos = eos)[[1]] else h2o_dens(flowpar_main[1], flowpar_main[2])
     main_flow <- main_dens/1000*gen[["flow"]]
 
   } else main_flow <- gen[["flow"]]
@@ -344,17 +346,13 @@ calcom <- function(input, invars = c(names(input)[1], names(input)[2]), pltlab =
     if(!mass_flow[2]) {
       #Set up flow parameters
       if(any(flowpar %in% "auto")) {
-        #Use recovery line parameters if available, otherwise use sensible defaults
-        if(!is.na(crm[["recp"]]) && !is.na(crm[["rect"]])) {
-          flowpar_csol <- c(crm[["recp"]], crm[["rect"]])
-        } else {
-          #Default: 60 bar, 10 C for CO2 co-solvent in SWE; for SFE EtOH, density is calculated at 25 C
-          flowpar_csol <- c(60, 10)
-        }
+        #Process (extraction) conditions for the SWE CO2 co-solvent; for SFE the
+        #co-solvent is EtOH whose density is taken at 25 C (flowpar_csol unused).
+        flowpar_csol <- c(gen[["pres"]], gen[["temp"]])
       } else if(comode!="sfe") flowpar_csol <- flowpar[[2]]
 
       #Calculate CO2 density for SWE (EtOH density is a constant value at STP)
-      csol_dens <- if(!sfechk) bendens(flowpar_csol[1], flowpar_csol[2])[[1]] else etoh_dens(25)[[1]]
+      csol_dens <- if(!sfechk) co2dens(flowpar_csol[1], flowpar_csol[2], eos = eos)[[1]] else etoh_dens(25)[[1]]
       csol_flow <- csol_dens/1000*cur_csol
 
     } else csol_flow <- cur_csol
@@ -531,11 +529,11 @@ calcom <- function(input, invars = c(names(input)[1], names(input)[2]), pltlab =
     dlst[["msol_loss"]] <- msol_loss <- monthly_co2_kg * msol_loss_frac
     dlst[["csol_loss"]] <- csol_loss <- if(!is.na(csol_flow) && csol_flow > 0) csol_flow/1000 * monthly_minutes * cosol_loss else NA
   } else if(comode=="sfe") {
-    dlst[["msol_loss"]] <- msol_loss <- if(!is.na(crm[["recp"]])) bendens(crm[["recp"]], crm[["sept"]])[[1]]/1000*gen[["volex"]] else main_flow/1000*tm
+    dlst[["msol_loss"]] <- msol_loss <- if(!is.na(crm[["recp"]])) co2dens(crm[["recp"]], crm[["sept"]], eos = eos)[[1]]/1000*gen[["volex"]] else main_flow/1000*tm
     dlst[["csol_loss"]] <- csol_loss <- csol_flow/1000*tm*cosol_loss
   } else {
     dlst[["msol_loss"]] <- msol_loss <- main_flow/1000*tm
-    dlst[["csol_loss"]] <- csol_loss <- if(!is.na(crm[["recp"]])) bendens(crm[["recp"]], crm[["sept"]])[[1]]/1000*((csol_flow/(csol_flow+main_flow))*gen[["volex"]]) else csol_flow/1000*tm
+    dlst[["csol_loss"]] <- csol_loss <- if(!is.na(crm[["recp"]])) co2dens(crm[["recp"]], crm[["sept"]], eos = eos)[[1]]/1000*((csol_flow/(csol_flow+main_flow))*gen[["volex"]]) else csol_flow/1000*tm
   }
 
   #Calculate main material requirements and costs (monthly)
@@ -581,7 +579,11 @@ calcom <- function(input, invars = c(names(input)[1], names(input)[2]), pltlab =
   pwnms <- c("dry", "com", "evap")
   aux_req <- sapply(pwnms, function(x) {
     matype <- if(x=="evap" & sfechk) dlst[["csol_req"]]/cosol_loss else if(x=="evap" & !sfechk) dlst[["msol_req"]] else dlst[["raw_req"]]
-    res <- cut[[paste0("pw_",x)]]*(matype/cut[[paste0("cap_",x)]])
+    cap <- cut[[paste0("cap_",x)]]
+    # A zero/undefined throughput capacity means this pre/post-processing step is NOT USED — its power draw
+    # is not applicable (dividing by it would give NaN). Return NA so every output renders it as "—"/N.A.
+    # rather than a bogus "NaN" (issue 7). A genuine zero power rate with a real capacity still yields 0.
+    res <- if(!isTRUE(is.finite(cap)) || cap <= 0) NA_real_ else cut[[paste0("pw_",x)]]*(matype/cap)
     return(res)
   })
 
@@ -591,8 +593,10 @@ calcom <- function(input, invars = c(names(input)[1], names(input)[2]), pltlab =
     dlst[[paste0("pw",pwnms[i],"_cost")]] <- curreq*cut[["pr_kwh"]]
   }
 
-  #Total aux power requirement
-  aux_req <- if(length(tm)>1) rowSums(aux_req) else sum(aux_req)
+  #Total aux power requirement. na.rm so a NOT-USED step (NA, e.g. drying with zero capacity) is skipped
+  #rather than poisoning the whole aux total to NA — previously an unused step silently dropped the OTHER
+  #aux utilities (e.g. milling) from total electricity / CUT / COM (issue 7 total-consistency fix).
+  aux_req <- if(length(tm)>1) rowSums(aux_req, na.rm = TRUE) else sum(aux_req, na.rm = TRUE)
   dlst[["pwa_req"]] <- pwa_req <- sapply(aux_req, function(x) sum(c(x, cut[["pw_aux"]]), na.rm = TRUE))
   dlst[["pwa_cost"]] <- pwa_req * cut[["pr_kwh"]]
 
@@ -776,146 +780,160 @@ calcom <- function(input, invars = c(names(input)[1], names(input)[2]), pltlab =
 
   #Create organized tables for structured output (matching Shiny UI)
   cat("\nCompiling structured tables...")
-  tables <- list()
-
   #Helper function to create a table row
   make_row <- function(desc, val, unit) {
     data.frame(Description = desc, Value = val, Unit = unit, stringsAsFactors = FALSE)
   }
 
-  #1. Production Overview table
-  prod_rows <- list()
-  if(ccchk) {
-    prod_rows[[length(prod_rows) + 1]] <- make_row("Monthly operating time", round(monthly_minutes / 60, 1), "hours")
-    prod_rows[[length(prod_rows) + 1]] <- make_row("Monthly feed processed", round(cc_monthly_feed_kg, 2), "kg")
-  } else {
-    prod_rows[[length(prod_rows) + 1]] <- make_row("Extraction cycles per month", round(mean(dlst[["cycles"]]), 2), "none")
-  }
-  prod_rows[[length(prod_rows) + 1]] <- make_row(if(ccchk) "S/F mass ratio (CO2)" else "S/M mass ratio (CO2)", round(mean(dlst[["sm"]]), 2), "none")
+  # Build the structured summary tables (production / CRM / CUT / financial / per-response) from a value
+  # aggregator `pick`. With pick = across-time MEAN (the default, `tables`) each row is the sweep average;
+  # with pick = value AT A SINGLE extraction-time index (`tables_bytime[[i]]`) the rows reflect that one
+  # operating point. The per-time variant is what the app's single-point tables, KPI boxes and the PDF/CSV
+  # report use, so a metric like the payback period (capex / 12·profit, which blows up to huge/negative
+  # values at non-viable short extraction times) is reported for the SELECTED time rather than as a mean
+  # dominated by those outliers. `pick(x, na.rm=)` must accept the na.rm flag used at some call sites.
+  build_core_tables <- function(pick) {
+    tables <- list()
 
-  #Add co-solvent S/M ratio if applicable
-  if(!all(is.na(dlst[["sm_csol"]])) && any(dlst[["sm_csol"]] > 0, na.rm = TRUE)) {
-    prod_rows[[length(prod_rows) + 1]] <- make_row(if(ccchk) "S/F mass ratio (co-solvent)" else "S/M mass ratio (co-solvent)", round(mean(dlst[["sm_csol"]], na.rm = TRUE), 2), "none")
-  }
-
-  #Add per-response extract breakdown if multiple responses
-  if(n_additional > 0) {
-    #Add header row
-    prod_rows[[length(prod_rows) + 1]] <- make_row("--- Extract produced (monthly) by response ---", "", "")
-
-    #Add each response
-    for(i in seq_along(response_details)) {
-      resp_detail <- response_details[[i]]
-      prod_rows[[length(prod_rows) + 1]] <- make_row(
-        paste0("  ", resp_detail$name),
-        round(mean(resp_detail$extract), 2),
-        "kg/month"
-      )
+    #1. Production Overview table
+    prod_rows <- list()
+    if(ccchk) {
+      prod_rows[[length(prod_rows) + 1]] <- make_row("Monthly operating time", round(monthly_minutes / 60, 1), "hours")
+      prod_rows[[length(prod_rows) + 1]] <- make_row("Monthly feed processed", round(cc_monthly_feed_kg, 2), "kg")
+    } else {
+      prod_rows[[length(prod_rows) + 1]] <- make_row("Extraction cycles per month", round(pick(dlst[["cycles"]]), 2), "none")
     }
-    #Add total
-    prod_rows[[length(prod_rows) + 1]] <- make_row("  Total", round(mean(total_extract), 2), "kg/month")
-  } else {
-    prod_rows[[length(prod_rows) + 1]] <- make_row("Extract produced (monthly)", round(mean(dlst[["extract"]]), 2), "kg/month")
-  }
-  tables[["production"]] <- do.call(rbind, prod_rows)
+    prod_rows[[length(prod_rows) + 1]] <- make_row(if(ccchk) "S/F mass ratio (CO2)" else "S/M mass ratio (CO2)", round(pick(dlst[["sm"]]), 2), "none")
 
-  #2. Cost of Raw Materials (CRM) table
-  crm_rows <- list(
-    make_row(if(ccchk) "CO2 loss per month" else "Main solvent loss per cycle",
-             round(mean(dlst[["msol_loss"]]), 4), if(ccchk) "kg/month" else "kg/cycle"),
-    make_row(if(ccchk) "Co-solvent loss per month" else "Co-solvent loss per batch",
-             round(mean(dlst[["csol_loss"]]), 4), if(ccchk) "kg/month" else "kg/cycle"),
-    make_row("Raw material requirement (monthly)", round(mean(dlst[["raw_req"]]), 2), "kg/month"),
-    make_row("Main solvent requirement (monthly)", round(mean(dlst[["msol_req"]]), 2), "kg/month"),
-    make_row("Co-solvent requirement (monthly)", round(mean(dlst[["csol_req"]]), 2), "kg/month"),
-    make_row("Raw material cost (monthly)", round(mean(dlst[["raw_cost"]]), 2), "USD/month"),
-    make_row("Main solvent cost (monthly)", round(mean(dlst[["msol_cost"]]), 2), "USD/month"),
-    make_row("Co-solvent cost (monthly)", round(mean(dlst[["csol_cost"]]), 2), "USD/month"),
-    make_row("Auxiliary material cost (monthly)", round(mean(dlst[["aux_cost"]]), 2), "USD/month"),
-    make_row("Cost of Raw Materials (CRM)", round(mean(dlst[["crm"]]), 2), "USD/month")
-  )
-  tables[["crm"]] <- do.call(rbind, crm_rows)
-
-  #3. Cost of Utilities (CUT) table
-  cut_rows <- list(
-    make_row("Main power consumption (monthly)", round(mean(dlst[["pwm_req"]]), 2), "kWh/month"),
-    make_row("Main power cost (monthly)", round(mean(dlst[["pwm_cost"]]), 2), "USD/month"),
-    make_row("Drying power consumption (monthly)", round(mean(dlst[["pwdry_req"]]), 2), "kWh/month"),
-    make_row("Drying power cost (monthly)", round(mean(dlst[["pwdry_cost"]]), 2), "USD/month"),
-    make_row("Compression power consumption (monthly)", round(mean(dlst[["pwcom_req"]]), 2), "kWh/month"),
-    make_row("Compression power cost (monthly)", round(mean(dlst[["pwcom_cost"]]), 2), "USD/month"),
-    make_row("Evaporation power consumption (monthly)", round(mean(dlst[["pwevap_req"]]), 2), "kWh/month"),
-    make_row("Evaporation power cost (monthly)", round(mean(dlst[["pwevap_cost"]]), 2), "USD/month"),
-    make_row("Total electricity consumption (monthly)", round(mean(dlst[["elec_cons"]]), 2), "kWh/month"),
-    make_row("Total electricity cost (monthly)", round(mean(dlst[["elec_cost"]]), 2), "USD/month"),
-    make_row("Cost of Utilities (CUT)", round(mean(dlst[["cut"]]), 2), "USD/month")
-  )
-  tables[["cut"]] <- do.call(rbind, cut_rows)
-
-  #4. Financial Results table (combined summary)
-  fin_rows <- list(
-    make_row("Cost of Raw Materials (CRM)", round(mean(dlst[["crm"]]), 2), "USD/month"),
-    make_row("Cost of Utilities (CUT)", round(mean(dlst[["cut"]]), 2), "USD/month"),
-    make_row("Cost of Labor (COL)", round(COL, 2), "USD/month"),
-    make_row("Fixed Costs (FMC)", round(FCI, 2), "USD/month"),
-    make_row("Cost of Manufacturing (COM)", round(mean(dlst[["com"]]), 2), "USD/month"),
-    make_row("Specific extract cost", round(mean(dlst[["sc"]]), 2), "USD/kg"),
-    make_row("Sales volume (monthly)", round(mean(total_svol), 2), "USD/month"),
-    make_row("Monthly gross profit (pre-tax)", round(mean(dlst[["mgp"]]), 2), "USD/month")
-  )
-  if(!is.na(taxrate)) {
-    fin_rows[[length(fin_rows) + 1]] <- make_row("Monthly profit (after tax)", round(mean(dlst[["mnp"]]), 2), "USD/month")
-  }
-  fin_rows[[length(fin_rows) + 1]] <- make_row("Profit margin", round(mean(dlst[["pmargin"]]), 2), "percent")
-  fin_rows[[length(fin_rows) + 1]] <- make_row("Payback period", round(mean(dlst[["payback"]]), 2), "years")
-
-  #Add weighted average price if multiple responses
-  if(n_additional > 0) {
-    weighted_avg_price <- mean(total_svol) / mean(total_extract)
-    fin_rows[[length(fin_rows) + 1]] <- make_row("Weighted average price", round(weighted_avg_price, 2), "USD/kg")
-  }
-  tables[["financial"]] <- do.call(rbind, fin_rows)
-
-  #5. Per-response financial tables (only if multiple responses)
-  if(n_additional > 0) {
-    tables[["per_response"]] <- list()
-    com_total <- mean(dlst[["com"]])
-    total_profit <- mean(dlst[["mgp"]])  # Total gross profit
-    overall_payback <- mean(dlst[["payback"]])  # Overall payback period
-
-    for(i in seq_along(response_details)) {
-      resp_detail <- response_details[[i]]
-      resp_extract <- mean(resp_detail$extract)
-      resp_svol <- mean(resp_detail$svol)
-
-      #Calculate proportional cost share
-      extract_share <- resp_extract / mean(total_extract)
-      resp_cost <- com_total * extract_share
-
-      #Sole production cost: COM / this response's extract alone
-      sole_prod_cost <- com_total / resp_extract
-
-      resp_profit <- resp_svol - resp_cost
-      resp_margin <- (resp_profit / resp_svol) * 100
-
-      #Contribution to payback: percentage of total profit this response provides
-      profit_contribution_pct <- if(total_profit > 0) (resp_profit / total_profit) * 100 else 0
-
-      resp_rows <- list(
-        make_row("Extract produced (monthly)", round(resp_extract, 2), "kg/month"),
-        make_row("Sale price", round(resp_detail$pr_sale, 2), "USD/kg"),
-        make_row("Sole production cost", round(sole_prod_cost, 2), "USD/kg"),
-        make_row("Sales volume (monthly)", round(resp_svol, 2), "USD/month"),
-        make_row("Cost share (proportional)", round(resp_cost, 2), "USD/month"),
-        make_row("Gross profit", round(resp_profit, 2), "USD/month"),
-        make_row("Profit margin", round(resp_margin, 2), "percent"),
-        make_row("Contribution to payback", round(profit_contribution_pct, 1), "percent")
-      )
-      tables[["per_response"]][[resp_detail$name]] <- do.call(rbind, resp_rows)
+    #Add co-solvent S/M ratio if applicable (structural check kept on the full sweep so the row set is
+    #stable across time points; only the displayed value follows `pick`).
+    if(!all(is.na(dlst[["sm_csol"]])) && any(dlst[["sm_csol"]] > 0, na.rm = TRUE)) {
+      prod_rows[[length(prod_rows) + 1]] <- make_row(if(ccchk) "S/F mass ratio (co-solvent)" else "S/M mass ratio (co-solvent)", round(pick(dlst[["sm_csol"]], na.rm = TRUE), 2), "none")
     }
+
+    #Add per-response extract breakdown if multiple responses
+    if(n_additional > 0) {
+      #Add header row
+      prod_rows[[length(prod_rows) + 1]] <- make_row("--- Extract produced (monthly) by response ---", "", "")
+
+      #Add each response
+      for(i in seq_along(response_details)) {
+        resp_detail <- response_details[[i]]
+        prod_rows[[length(prod_rows) + 1]] <- make_row(
+          paste0("  ", resp_detail$name),
+          round(pick(resp_detail$extract), 2),
+          "kg/month"
+        )
+      }
+      #Add total
+      prod_rows[[length(prod_rows) + 1]] <- make_row("  Total", round(pick(total_extract), 2), "kg/month")
+    } else {
+      prod_rows[[length(prod_rows) + 1]] <- make_row("Extract produced (monthly)", round(pick(dlst[["extract"]]), 2), "kg/month")
+    }
+    tables[["production"]] <- do.call(rbind, prod_rows)
+
+    #2. Cost of Raw Materials (CRM) table
+    crm_rows <- list(
+      make_row(if(ccchk) "CO2 loss per month" else "Main solvent loss per cycle",
+               round(pick(dlst[["msol_loss"]]), 4), if(ccchk) "kg/month" else "kg/cycle"),
+      make_row(if(ccchk) "Co-solvent loss per month" else "Co-solvent loss per batch",
+               round(pick(dlst[["csol_loss"]]), 4), if(ccchk) "kg/month" else "kg/cycle"),
+      make_row("Raw material requirement (monthly)", round(pick(dlst[["raw_req"]]), 2), "kg/month"),
+      make_row("Main solvent requirement (monthly)", round(pick(dlst[["msol_req"]]), 2), "kg/month"),
+      make_row("Co-solvent requirement (monthly)", round(pick(dlst[["csol_req"]]), 2), "kg/month"),
+      make_row("Raw material cost (monthly)", round(pick(dlst[["raw_cost"]]), 2), "USD/month"),
+      make_row("Main solvent cost (monthly)", round(pick(dlst[["msol_cost"]]), 2), "USD/month"),
+      make_row("Co-solvent cost (monthly)", round(pick(dlst[["csol_cost"]]), 2), "USD/month"),
+      make_row("Auxiliary material cost (monthly)", round(pick(dlst[["aux_cost"]]), 2), "USD/month"),
+      make_row("Cost of Raw Materials (CRM)", round(pick(dlst[["crm"]]), 2), "USD/month")
+    )
+    tables[["crm"]] <- do.call(rbind, crm_rows)
+
+    #3. Cost of Utilities (CUT) table
+    cut_rows <- list(
+      make_row("Main power consumption (monthly)", round(pick(dlst[["pwm_req"]]), 2), "kWh/month"),
+      make_row("Main power cost (monthly)", round(pick(dlst[["pwm_cost"]]), 2), "USD/month"),
+      make_row("Drying power consumption (monthly)", round(pick(dlst[["pwdry_req"]]), 2), "kWh/month"),
+      make_row("Drying power cost (monthly)", round(pick(dlst[["pwdry_cost"]]), 2), "USD/month"),
+      make_row("Milling power consumption (monthly)", round(pick(dlst[["pwcom_req"]]), 2), "kWh/month"),
+      make_row("Milling power cost (monthly)", round(pick(dlst[["pwcom_cost"]]), 2), "USD/month"),
+      make_row("Evaporation power consumption (monthly)", round(pick(dlst[["pwevap_req"]]), 2), "kWh/month"),
+      make_row("Evaporation power cost (monthly)", round(pick(dlst[["pwevap_cost"]]), 2), "USD/month"),
+      make_row("Total electricity consumption (monthly)", round(pick(dlst[["elec_cons"]]), 2), "kWh/month"),
+      make_row("Total electricity cost (monthly)", round(pick(dlst[["elec_cost"]]), 2), "USD/month"),
+      make_row("Cost of Utilities (CUT)", round(pick(dlst[["cut"]]), 2), "USD/month")
+    )
+    tables[["cut"]] <- do.call(rbind, cut_rows)
+
+    #4. Financial Results table (combined summary)
+    fin_rows <- list(
+      make_row("Cost of Raw Materials (CRM)", round(pick(dlst[["crm"]]), 2), "USD/month"),
+      make_row("Cost of Utilities (CUT)", round(pick(dlst[["cut"]]), 2), "USD/month"),
+      make_row("Cost of Labor (COL)", round(COL, 2), "USD/month"),
+      make_row("Fixed Costs (FMC)", round(FCI, 2), "USD/month"),
+      make_row("Cost of Manufacturing (COM)", round(pick(dlst[["com"]]), 2), "USD/month"),
+      make_row("Specific extract cost", round(pick(dlst[["sc"]]), 2), "USD/kg"),
+      make_row("Sales volume (monthly)", round(pick(total_svol), 2), "USD/month"),
+      make_row("Monthly gross profit (pre-tax)", round(pick(dlst[["mgp"]]), 2), "USD/month")
+    )
+    if(!is.na(taxrate)) {
+      fin_rows[[length(fin_rows) + 1]] <- make_row("Monthly profit (after tax)", round(pick(dlst[["mnp"]]), 2), "USD/month")
+    }
+    fin_rows[[length(fin_rows) + 1]] <- make_row("Profit margin", round(pick(dlst[["pmargin"]]), 2), "percent")
+    fin_rows[[length(fin_rows) + 1]] <- make_row("Payback period", round(pick(dlst[["payback"]]), 2), "years")
+
+    #Add weighted average price if multiple responses
+    if(n_additional > 0) {
+      weighted_avg_price <- pick(total_svol) / pick(total_extract)
+      fin_rows[[length(fin_rows) + 1]] <- make_row("Weighted average price", round(weighted_avg_price, 2), "USD/kg")
+    }
+    tables[["financial"]] <- do.call(rbind, fin_rows)
+
+    #5. Per-response financial tables (only if multiple responses)
+    if(n_additional > 0) {
+      tables[["per_response"]] <- list()
+      com_total <- pick(dlst[["com"]])
+      total_profit <- pick(dlst[["mgp"]])  # Total gross profit
+
+      for(i in seq_along(response_details)) {
+        resp_detail <- response_details[[i]]
+        resp_extract <- pick(resp_detail$extract)
+        resp_svol <- pick(resp_detail$svol)
+
+        #Calculate proportional cost share
+        extract_share <- resp_extract / pick(total_extract)
+        resp_cost <- com_total * extract_share
+
+        #Sole production cost: COM / this response's extract alone
+        sole_prod_cost <- com_total / resp_extract
+
+        resp_profit <- resp_svol - resp_cost
+        resp_margin <- (resp_profit / resp_svol) * 100
+
+        #Contribution to payback: percentage of total profit this response provides
+        profit_contribution_pct <- if(total_profit > 0) (resp_profit / total_profit) * 100 else 0
+
+        resp_rows <- list(
+          make_row("Extract produced (monthly)", round(resp_extract, 2), "kg/month"),
+          make_row("Sale price", round(resp_detail$pr_sale, 2), "USD/kg"),
+          make_row("Sole production cost", round(sole_prod_cost, 2), "USD/kg"),
+          make_row("Sales volume (monthly)", round(resp_svol, 2), "USD/month"),
+          make_row("Cost share (proportional)", round(resp_cost, 2), "USD/month"),
+          make_row("Gross profit", round(resp_profit, 2), "USD/month"),
+          make_row("Profit margin", round(resp_margin, 2), "percent"),
+          make_row("Contribution to payback", round(profit_contribution_pct, 1), "percent")
+        )
+        tables[["per_response"]][[resp_detail$name]] <- do.call(rbind, resp_rows)
+      }
+    }
+    tables
   }
 
-  #6. Performance Overview (time-series data) - only for multi-value input
+  #Mean-across-the-sweep summary (unchanged default): used as the whole-curve overview.
+  pick_mean <- function(x, na.rm = FALSE) mean(x, na.rm = na.rm)
+  tables <- build_core_tables(pick_mean)
+
+  #6. Performance Overview (time-series data) - only for multi-value input (inherently the whole curve)
   if(length(tm) > 1) {
     perf_data <- data.frame(
       Time = tm,
@@ -930,6 +948,16 @@ calcom <- function(input, invars = c(names(input)[1], names(input)[2]), pltlab =
   }
 
   finres[["tables"]] <- tables
+
+  #Per-extraction-time summary tables so the UI/report can show values for the SELECTED time (consistent
+  #with the KPI boxes) rather than the sweep mean. Indexed to match `simple_output`/`tm` row order.
+  nt <- length(tm)
+  if(nt >= 1) {
+    finres[["tables_bytime"]] <- lapply(seq_len(nt), function(.i) {
+      pick_i <- function(x, na.rm = FALSE) if(length(x) <= 1L) x[1] else x[.i]
+      build_core_tables(pick_i)
+    })
+  }
 
   #Create plots if an extraction curve is provided
   if(length(tm)>1) {

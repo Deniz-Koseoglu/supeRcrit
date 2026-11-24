@@ -21,7 +21,8 @@ bicmod(
   modtype = "all",
   units = "default",
   silent = FALSE,
-  ksas0 = NULL
+  ksas0 = NULL,
+  eos = "bender"
 )
 }
 \arguments{
@@ -59,7 +60,7 @@ Must be non-zero if \strong{flow rate} is not provided in \code{pars} and \code{
 at which flow rate of CO2 is measured.}
 
 \item{ro_co2}{The supercritical CO2 density (in g/L). If not provided (\code{NA}; default),
-it is calculated via the Bender Equation of State (see \code{\link{bendens}}).}
+it is calculated from pressure and temperature via the equation of state selected by \code{eos}.}
 
 \item{tmax}{Maximum x-axis value (time, min) to use for model predictions \strong{exclusively} for \code{modtype = "ct"}.
 Setting to \code{NA} defaults to 120\% of the maximum experimental value.}
@@ -96,6 +97,10 @@ When a vector of length > 1 is provided, multi-start optimization is performed: 
 generates its own search bounds, and the best result (lowest AARD) is selected.
 Overrides the \code{ksas} element of \code{opt_est} when provided. Defaults to \code{NULL}
 (uses the single value from \code{opt_est}).}
+
+\item{eos}{The equation of state used to calculate CO2 density when \code{ro_co2 = NA}.
+One of: \code{"bender"} (\strong{default}) or \code{"spanwagner"} (the Span-Wagner 1996 reference
+EoS, more accurate near the critical point). See \code{\link{co2dens}}.}
 }
 \value{
 The output takes two forms. When \code{modtype} includes \code{"cu"} (for estimation of the maximum extractable fraction \eqn{c_u}),

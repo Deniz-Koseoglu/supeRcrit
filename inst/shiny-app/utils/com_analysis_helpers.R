@@ -167,11 +167,11 @@ render_roi_monthly_table <- function(detailed_data, is_multi_value, time_slider,
   DT::datatable(
     display_data,
     extensions = 'Buttons',
+    rownames = FALSE,   # top-level DT::datatable() arg; inside options=list() it is inert (row numbers show)
     options = list(
       scrollX = TRUE,
       scrollY = "400px", # Add vertical scroll for all data
       pageLength = -1, # Display all entries
-      rownames = FALSE,
       language=tablang(),
       dom = 'Bfrtip',  # visible buttons
       buttons = list(

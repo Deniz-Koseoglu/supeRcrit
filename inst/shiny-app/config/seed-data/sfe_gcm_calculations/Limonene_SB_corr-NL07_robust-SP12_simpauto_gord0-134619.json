@@ -3,7 +3,7 @@
   "parameters": {
     "cas_input": "5989-54-8",
     "name_input": "Limonene",
-    "smiles_input": "",
+    "smiles_input": "CC1=CCC(CC1)C(=C)C",
     "specify_smiles": false,
     "gcm_tb": "SB_corr",
     "gcm_crit": "NL07_robust",

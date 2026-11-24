@@ -11,7 +11,7 @@ intro_steps_general <- function(ns, i18n) {
       ),
       list(
         element = ".sidebar-menu > li:nth-child(2)",
-        intro = i18n$t("SFE Co-Solvent Selection: characterize target solutes using Group Contribution Methods, optimize co-solvent selection via Hansen Solubility Parameters, compare miscibility across conditions, and calculate mixture critical parameters."),
+        intro = i18n$t("Solubility & Fractionation: characterize target solutes using Group Contribution Methods, optimize co-solvent selection via Hansen Solubility Parameters, compare miscibility across conditions, and calculate mixture critical parameters."),
         position = "right"
       ),
       list(

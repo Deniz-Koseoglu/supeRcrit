@@ -98,12 +98,12 @@
     {
       "en": "mL/min",
       "ru": "мл/мин",
-      "tr": "mL/dak"
+      "tr": "mL/dk"
     },
     {
       "en": "g/min",
       "ru": "г/мин",
-      "tr": "g/dak"
+      "tr": "g/dk"
     },
     {
       "en": "kg/h",

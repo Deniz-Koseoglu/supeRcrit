@@ -5,9 +5,11 @@ kinetic_tws_ui <- function(id, defaults, i18n) {
   tagList(
     column(
       width = 5,
+      # Action row: Reset | Calculate | Export (CSV + PDF dropdown, enabled once results exist).
       fluidRow(
         column(4, actionButton(ns("reset"), i18n$t("Reset"), class = "btn btn-default btn-block")),
-        column(4, actionButton(ns("calculate"), i18n$t("Calculate"), class = "btn btn-primary btn-block", style = "color: white;"))
+        column(4, actionButton(ns("calculate"), i18n$t("Calculate"), class = "btn btn-primary btn-block", style = "color: white;")),
+        rp_export_dropdown_col(ns, i18n, "has_results", width = 4)
       ),
       br(),
       box(
@@ -168,20 +170,7 @@ kinetic_tws_ui <- function(id, defaults, i18n) {
           conditionalPanel(
             condition = "output.has_results",
             ns = ns,
-            # Export button (top)
-            div(
-              id = ns("export_button_wrapper"),
-              fluidRow(
-                column(12,
-                  style = "display: flex; justify-content: center; margin-bottom: 15px;",
-                  downloadButton(ns("export_kinetic"),
-                    i18n$t("Export Results"),
-                    class = "btn btn-success btn-lg",
-                    style = "margin-left:5px;"
-                  )
-                )
-              )
-            ),
+            # (Export moved to the action row at the top as a CSV/PDF dropdown.)
             # Model Plot
             fluidRow(
               column(12, plotlyOutput(ns("kinetic_plot")))

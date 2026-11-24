@@ -13,6 +13,36 @@ test_that("Estimation of CO2 density works...", {
   expect_true(length(res)==4 & is.numeric(res))
 })
 
+#FUNCTION 2b
+test_that("Span-Wagner CO2 density (swdens) matches reference values...", {
+  # Density (kg/m3 = g/L) from the Span-Wagner (1996) reference EoS / NIST WebBook
+  expect_equal(unname(swdens(100, 40)["rho"]), 628.61,  tolerance = 1e-3)
+  expect_equal(unname(swdens(150, 40)["rho"]), 780.23,  tolerance = 1e-3)
+  expect_equal(unname(swdens(200, 50)["rho"]), 784.29,  tolerance = 1e-3)
+  # g/mL unit conversion
+  expect_equal(unname(swdens(100, 40, "g/mL")["rho"]), 0.62861, tolerance = 1e-3)
+  # specific enthalpy (kJ/kg), referenced to the ideal gas = 0 at 298.15 K (as bendens)
+  expect_equal(unname(swdens(100, 40)["ent"]), -193.74, tolerance = 1e-2)
+  # subcritical input is outside scope -> error
+  expect_error(swdens(60, 20))
+})
+
+#FUNCTION 2c
+test_that("co2dens dispatches between equations of state and falls back safely...", {
+  # default is Bender, identical to bendens()
+  expect_identical(co2dens(300, 45), bendens(300, 45))
+  expect_identical(co2dens(300, 45, eos = "bender"), bendens(300, 45))
+  # spanwagner routes to swdens()
+  expect_equal(co2dens(300, 45, eos = "spanwagner"), swdens(300, 45))
+  # near-critical: the two EoS differ by >2% (Bender's weak spot)
+  rb <- unname(co2dens(80, 36, eos = "bender")["rho"])
+  rs <- unname(co2dens(80, 36, eos = "spanwagner")["rho"])
+  expect_gt(abs(rb - rs) / rs, 0.02)
+  # subcritical + spanwagner -> warns and falls back to Bender (no error)
+  expect_warning(r <- co2dens(60, 20, eos = "spanwagner"))
+  expect_equal(suppressWarnings(co2dens(60, 20, eos = "spanwagner")), bendens(60, 20))
+})
+
 #FUNCTION 3
 test_that("Estimation of EtOH density works...", {
   res <- c(etoh_dens(55), etoh_dens(55, 0.90, 880))

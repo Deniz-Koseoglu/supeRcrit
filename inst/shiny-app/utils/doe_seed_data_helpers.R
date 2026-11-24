@@ -48,6 +48,15 @@ load_doe_analysis_seed_data <- function() {
       display_name <- sub("\\.RData$", "", filename)
       # Remove timestamp pattern _YYYYMMDD_HHMMSS
       display_name <- sub("_\\d{8}_\\d{6}$", "", display_name)
+      # Map the cryptic seed filenames to proper, descriptive example names.
+      .seed_pretty <- c(
+        "example1_bbd5_CarnosicAsid"        = "Carnosic acid yield — Rosemary (BBD, 5-factor)",
+        "example1_bbd5_Carnosol"            = "Carnosol yield — Rosemary (BBD, 5-factor)",
+        "example1_bbd5_ExtYield"            = "Extraction yield — Rosemary (BBD, 5-factor)",
+        "example2_ccd1_ergosterol_purity"   = "Ergosterol purity — Yeast (CCD, 2-factor)",
+        "example2_ccd1_ergosterol_recovery" = "Ergosterol recovery — Yeast (CCD, 2-factor)",
+        "example2_ccd1_ExtYield"            = "Extraction yield — Yeast ergosterol (CCD, 2-factor)")
+      if (display_name %in% names(.seed_pretty)) display_name <- unname(.seed_pretty[display_name])
 
       # Get timestamp from metadata if available
       timestamp <- if (!is.null(analysis_obj$metadata$timestamp)) {

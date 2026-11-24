@@ -10,7 +10,7 @@ parsed_input_data_util <- function(input, results, i18n) {
     # Check if user uploaded a file OR load default
     if (is.null(input$csv_file)) {
       # Load default CSV
-      default_path <- system.file("extdata", "gui_com_input-test-data-0.csv", package = "supeRcrit")
+      default_path <- system.file("extdata", "examples", "gui_com_input-test-data-0.csv", package = "supeRcrit")
       if (file.exists(default_path)) {
         tryCatch({
           data <- read.csv(default_path, header = TRUE, stringsAsFactors = FALSE,

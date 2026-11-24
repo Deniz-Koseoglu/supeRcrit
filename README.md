@@ -37,9 +37,14 @@ includes functions for:
 
 3.  Predicting the effect of various co-solvents (as supercritical
     CO<sub>2</sub> polarity modifiers) on the solubility of a target
-    compound(s) using the [Hansen Solubility Parameters
-    (HSP)](https://www.doi.org/10.1016/j.jfoodeng.2025.112538). See help
-    documentation for `?sfe_mod`.
+    compound(s), either with the [Hansen Solubility Parameters
+    (HSP)](https://www.doi.org/10.1016/j.jfoodeng.2025.112538)
+    (`?sfe_mod`) or with a native-R machine-learning model that predicts
+    the **absolute** supercritical-CO<sub>2</sub> solubility and
+    co-solvent enhancement directly from a SMILES string
+    (`?predict_solubility`, `?solub_optim`). Predicted solubilities
+    additionally drive an ideal **separator-cascade fractionation**
+    simulator (`?chrastil_cascade`, `?solub_cascade`).
 
 4.  Estimating the boiling point, critical temperature, critical
     pressure, and Hansen Solubility Parameters using various methods
@@ -49,7 +54,10 @@ includes functions for:
     [Nannoolal](https://www.doi.org/10.1016/j.fluid.2006.11.014),
     [Stefanis &
     Panayiotou](https://www.doi.org/10.1016/j.ijpharm.2012.01.001) and
-    other approaches. See help documentation for `?est_gcm`.
+    other approaches. See help documentation for `?est_gcm`. The melting
+    point and enthalpy of vaporization can also be estimated from a
+    SMILES string alone via the machine-learned `?gcm_mp` and
+    `?gcm_hvap`.
 
 5.  Generating [Design of Experiments
     (DoE)](https://www.doi.org/10.18434/M32189) for both screening or
@@ -64,6 +72,33 @@ includes functions for:
 7.  Calculating the \[Cost of Manufacturing (COM)\] for optimized SFE
     and SWE processes to maximize profit margin and finalize process
     extraction time. See help documentation for `?calcom`.
+
+8.  Rigorous modeling of supercritical-CO<sub>2</sub> **phase equilibria
+    and counter-current fractionation** with the group-contribution
+    equation of state
+    [GC-EOS](https://www.doi.org/10.1016/0378-3812(88)80059-0) and its
+    association-enabled superset
+    [GCA-EOS](https://www.doi.org/10.1016/S0378-3812(96)03093-8). This
+    covers multicomponent vapour-liquid (and liquid-liquid) flash, phase
+    envelopes and mixture critical points, and full equilibrium-stage
+    **fractionation-column** simulation with external reflux — for
+    processes such as essential-oil deterpenation, squalene
+    purification, and free-fatty-acid deacidification. See
+    `?gceos_flash`, `?gceos_pxy`, `?gceos_critical`, and
+    `?gceos_column_ns_solve`.
+
+9.  Screening solvents for **liquid–liquid extraction** of a target
+    solute from a feed phase, ranked by distribution coefficient,
+    capacity and selectivity. Activity coefficients come from a native,
+    bit-exact
+    [COSMO-SAC-dsp](https://www.doi.org/10.1021/acs.jctc.0c00077) engine
+    using σ-profiles from a curated 2,259-compound database or the
+    53,088-compound
+    [CHAOS](https://www.doi.org/10.5281/zenodo.17691924) database; **any
+    other molecule** is handled by the built-in **FastSigma** predictor,
+    which estimates a COSMO-SAC σ-profile directly from a SMILES string.
+    See `?csac_lle`, `?csac_gamma`, `?fastsigma_profile`, and
+    `?plot_sigma_profile`.
 
 ## Installation
 
@@ -90,6 +125,33 @@ The package documentation can be accessed with:
 ``` r
 ?supeRcrit # documentation
 ```
+
+## Launching the interactive app
+
+`supeRcrit` ships with an interactive Shiny dashboard that bundles all of
+the package’s modules (Cost Analysis, Solute Characterization, Co-Solvent
+Selection/Comparison, Solubility & Separator Cascade, Liquid-Liquid
+Extraction, Design of
+Experiments, and Kinetic Modeling) into a single interface. The
+co-solvent and cascade modules offer both the Hansen-Solubility and the
+machine-learned solubility workflows side by side. Launch it with:
+
+``` r
+library(supeRcrit)
+run_app()
+```
+
+`run_app()` opens the full dashboard; switch between modules using the
+sidebar. You can also choose the starting module and pass any argument on
+to `shiny::runApp()` (for example a fixed port):
+
+``` r
+run_app("doe_analysis")            # start on the DoE Analysis module
+run_app("com_analysis", port = 3838)
+```
+
+The interface is available in **English, Russian, and Turkish** — pick the
+language from the selector in the top-right corner of the dashboard.
 
 ## Main functions
 
@@ -131,7 +193,25 @@ are those which are mandatory for completion of the main workflow):
       combinations of pressure and temperature within **75-1000 bar**
       and **31-200 degrees Celsius**, respectively.
     - `show_solv` displays reference HSP parameters and other data used
-      by the workflow for various solvents. <br/><br/>
+      by the workflow for various solvents.
+    - `gcm_mp` and `gcm_hvap` estimate the **melting point** and
+      **enthalpy of vaporization** of a compound from its SMILES string
+      using native-R machine-learning models; `abraham_params` returns
+      the five Abraham LSER solute descriptors.
+    - `predict_solubility` predicts the **absolute** supercritical-CO<sub>2</sub>
+      solubility (solute mole fraction) of a compound over a
+      temperature/pressure grid, with or without a liquid co-solvent,
+      from SMILES alone. `solub_gkg` converts mole fraction to a
+      g-of-solute-per-kg-of-CO<sub>2</sub> loading.
+    - `solub_optim` ranks candidate co-solvents for a single solute by
+      the **predicted solubility enhancement** they provide (the
+      machine-learning counterpart of `hsp_optim`).
+    - `chrastil_solubility`/`chrastil_db` provide the
+      [Chrastil](https://www.doi.org/10.1021/j150612a012) density-based
+      solubility correlation and a bundled database of fitted
+      coefficients; `chrastil_cascade` and the model-agnostic
+      `solub_cascade` simulate an **ideal depressurisation separator
+      cascade** for fractionating a mixture of solutes. <br/><br/>
 3.  `doe_analyze` systematically creates, analyzes, and (where
     appropriate) simplifies Design of Experiments models, including
     linear models using for screening experiments, as well as the more
@@ -157,7 +237,47 @@ are those which are mandatory for completion of the main workflow):
     - `show_pars` is a helper function explaining the **input and output
       terms** of the workflow
     - `com_export` compiles and exports all workflow output as a
-      **.CSV** file.
+      **.CSV** file. <br/><br/>
+5.  `gceos_column_ns_solve` simulates a counter-current
+    supercritical-CO<sub>2</sub> **fractionation column** with the
+    GC-EOS / GCA-EOS group-contribution equation of state, reproducing
+    literature deterpenation columns to within a fraction of a percent.
+    Supporting functions:
+    - `gceos_decompose` fragments a molecule (from SMILES) into GC-EOS /
+      GCA-EOS groups, and `gceos_params` returns the bundled parameter
+      sets (Fornari, association, and the validated Diaz deterpenation
+      set).
+    - `gceos_fit_dc` regresses the pure-component energy parameter from a
+      known saturation point, and `gceos_psat` returns the
+      pure-component saturation pressure.
+    - `gceos_flash` performs a multicomponent **vapour-liquid (and
+      liquid-liquid) flash**; `gceos_saturation`, `gceos_pxy`,
+      `gceos_critical`, and `gceos_critical_locus` trace bubble/dew
+      points, P-x envelopes, and mixture **critical points/loci**.
+    - `gceos_column` (sum-rates) and `gceos_column_ns_solve` (robust
+      Naphtali-Sandholm) run the **equilibrium-stage column** with
+      external reflux and optional thermal gradients;
+      `gceos_column_sizing` and `gceos_column_optimize` add hydraulic
+      sizing and operating-window optimisation. With the `"gcaeos"` model
+      the optional association term enables **free-fatty-acid, water, and
+      alcohol** systems. <br/><br/>
+
+6.  `csac_lle` ranks candidate solvents for **liquid–liquid extraction**
+    of a target solute from a feed phase by distribution coefficient
+    (`D`), capacity, and selectivity, using a native, bit-exact
+    **COSMO-SAC-dsp** activity-coefficient engine. Supporting functions:
+    - `csac_gamma` returns the infinite-dilution activity coefficient
+      γ∞ of a solute in a solvent; `csac_compounds` lists the compounds
+      available in either the curated 2,259-compound (`"ud"`) database or
+      the 53,088-compound `"chaos"` database.
+    - `fastsigma_profile` estimates a COSMO-SAC σ-profile **directly from
+      a SMILES string** (a machine-learning model trained on the CHAOS
+      database), so any molecule can be screened even when it is absent
+      from the databases; `csac_gamma`/`csac_lle` fall back to it
+      automatically.
+    - `plot_sigma_profile` draws the σ-profile in the standard COSMO-SAC
+      style, optionally overlaying the FastSigma estimate on a database
+      profile to visualise the model's accuracy.
 
 For **detailed examples** of all workflows outlined herein, please
 consult package vignettes.
@@ -829,7 +949,7 @@ doe_optres$results$final$Model_Metrics$Trad_Opt
 
 ## Further Details
 
-The **.PDF vignettes** included with the package are:
+The **vignettes** included with the package are:
 
 1.  *Kinetic Modeling of SFE and SWE* - all aspects of SFE and SWE
     kinetic modeling available in `supeRcrit`.
@@ -840,6 +960,12 @@ The **.PDF vignettes** included with the package are:
     generation and their analysis via RSM.
 4.  *Cost of Manufacturing calculation* - all parameters and examples of
     COM calculations for SFE and SWE processes.
+5.  *Phase equilibria and counter-current fractionation (GC-EOS /
+    GCA-EOS)* - rigorous group-contribution equation-of-state modeling of
+    supercritical-CO<sub>2</sub> phase behaviour, from molecular
+    decomposition through flash, phase envelopes and critical points, to
+    full fractionation-column simulation (deterpenation, FFA
+    deacidification, and more).
 
 These provide detailed information for all co-solvent selection, process
 parameter optimization, cost of manufacturing calculation, and other

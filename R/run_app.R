@@ -27,7 +27,7 @@
 run_app <- function(app_name = "com_analysis", ...) {
   # Check if required packages are available
   required_packages <- c("shiny", "shinydashboard", "shinyWidgets", "DT", "plotly", "dplyr", "ggplot2", "shinydashboardPlus", "jsonlite", "shiny.i18n", "rhandsontable", "rintrojs", "shinyjs")
-  missing_packages <- required_packages[!(required_packages %in% installed.packages()[,"Package"])]
+  missing_packages <- required_packages[!(required_packages %in% utils::installed.packages()[,"Package"])]
 
   if(length(missing_packages) > 0) {
     stop("The following required packages are missing: ",

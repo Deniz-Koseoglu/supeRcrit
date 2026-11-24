@@ -158,7 +158,7 @@ my_mapvalues <- function(x, from, to, warn_missing = TRUE) {
     stop("`x` must be an atomic vector.")
   }
   if (is.factor(x)) {
-    levels(x) <- mapvalues(levels(x), from, to, warn_missing)
+    levels(x) <- my_mapvalues(levels(x), from, to, warn_missing)
     return(x)
   }
   mapidx <- match(x, from)

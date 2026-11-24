@@ -80,6 +80,21 @@ kinetic_aux_tool_server <- function(input, output, session, defaults, i18n, tabl
   })
   outputOptions(output, "units_ui", suspendWhenHidden = FALSE)
 
+  # CO2 density Equation of State selector (server-rendered so the Bender /
+  # Span-Wagner choice labels are translated). Shown only for CO2.
+  output$eos_ui <- renderUI({
+    selectInput(
+      ns("eos"),
+      tags$span(i18n_r()$t("CO2 EoS"),
+        input_help(i18n_r()$t("Equation of state used to compute CO2 density. Bender is fast and accurate over a wide range; Span-Wagner is the IUPAC/NIST reference equation, more accurate near the critical point."),
+                   title = i18n_r()$t("Equation of State"), buttonLabel = i18n_r()$t("OK"))),
+      choices = setNames(c("bender", "spanwagner"),
+                         c(i18n_r()$t("Bender"), i18n_r()$t("Span-Wagner"))),
+      selected = isolate(input$eos) %||% "bender"
+    )
+  })
+  outputOptions(output, "eos_ui", suspendWhenHidden = FALSE)
+
   # Pressure: numericInput with range badge in label. Rendered with the
   # disabled attribute baked in for the initial state on substance change;
   # the shinyjs observer below handles flips during slider/numeric changes.
@@ -276,7 +291,8 @@ kinetic_aux_tool_server <- function(input, output, session, defaults, i18n, tabl
   fmt_num <- function(x, digits = 3) {
     if (is.null(x) || is.na(x)) return("\u2014")
     s <- formatC(round(x, digits), format = "f", digits = digits)
-    sub("\\.?0+$", "", s)
+    if (grepl(".", s, fixed = TRUE)) s <- sub("\\.?0+$", "", s)   # strip trailing zeros only past the decimal (else "100" -> "1")
+    s
   }
 
   # =========================================================================
@@ -292,7 +308,7 @@ kinetic_aux_tool_server <- function(input, output, session, defaults, i18n, tabl
       if (sub == "co2") {
         req(input$pres)
         results <- tryCatch(
-          bendens(pres = input$pres, temp = input$temp, units = units_sel),
+          co2dens(pres = input$pres, temp = input$temp, units = units_sel, eos = input$eos %||% "bender"),
           error = function(e) {
             showNotification(
               paste(i18n$t("Error calculating CO\u2082 density:"), e$message),
@@ -336,7 +352,7 @@ kinetic_aux_tool_server <- function(input, output, session, defaults, i18n, tabl
         if (isTRUE(co2f > 0)) {
           req(input$pres)
           co2_rho_g_per_L <- tryCatch(
-            unname(bendens(pres = input$pres, temp = input$temp, units = "g/L")["rho"]),
+            unname(co2dens(pres = input$pres, temp = input$temp, units = "g/L", eos = input$eos %||% "bender")["rho"]),
             error = function(e) {
               showNotification(
                 paste(i18n$t("Could not compute CO\u2082 density for the mixture:"), e$message),

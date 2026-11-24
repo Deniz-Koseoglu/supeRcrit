@@ -17,7 +17,9 @@ sfe_mod(
   pres = seq_last(80, 400, 20),
   temps = seq_last(32, 70, 3),
   vfrac = 0.1,
-  silent = FALSE
+  silent = FALSE,
+  crit_value = NULL,
+  hsp_values = NULL
 )
 }
 \arguments{
@@ -41,8 +43,7 @@ made up to a total of 100). The total number of list elements must equal the num
 
 \item{hlight}{A \code{logical} indicating whether substructures are highlighted (see \code{\link{plot_gcm}}).}
 
-\item{simplicity}{A \code{character} string indicating whether overlapping sub-structures should be allowed (\code{"auto"} by default).
-See \code{\link{sub_smarts}}.}
+\item{simplicity}{A \code{character} string indicating whether overlapping sub-structures should be allowed (\code{"auto"} by default).}
 
 \item{pres, temps}{Both are \code{numeric} values \strong{or sequences} of pressures (75-1000 bar) and temperatures (32-200 Celsius)
 at which to evaluate solute and solvent HSPs. Defaults are \code{seq(80,300,20)} and \code{seq(32,65,3)} for pressure and
@@ -51,6 +52,11 @@ temperature, respectively.}
 \item{vfrac}{The volume fraction of co-solvent to use (defaults to \code{0.10}, or 10\%).}
 
 \item{silent}{A \code{logical}. When \code{FALSE} (default), additional information is printed in the console.}
+
+\item{crit_value, hsp_values}{Optional experimental override. When both are supplied — a measured critical
+temperature \code{crit_value} (in K) and Hansen parameters \code{hsp_values} as \code{c(dD, dP, dHB)} —
+these are used directly and the GCM estimation (\code{tb}/\code{crit}/\code{hsp}) is skipped. Used when a
+compound's measured properties are loaded from the experimental database. \code{NULL} (default) uses GCM.}
 }
 \value{
 A named \code{list} with the following elements:

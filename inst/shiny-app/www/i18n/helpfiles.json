@@ -1,6 +1,16 @@
 {
       "translation": [
             {
+                  "en": "sep_cascade_help_en",
+                  "ru": "sep_cascade_help_ru",
+                  "tr": "sep_cascade_help_tr"
+            },
+            {
+                  "en": "lle_help_en",
+                  "ru": "lle_help_ru",
+                  "tr": "lle_help_tr"
+            },
+            {
                   "en": "com_analysis_help_en",
                   "ru": "com_analysis_help_ru",
                   "tr": "com_analysis_help_tr"
@@ -84,6 +94,21 @@
                   "en": "sfe_aux_tool_crit_params_help_en",
                   "ru": "sfe_aux_tool_crit_params_help_ru",
                   "tr": "sfe_aux_tool_crit_params_help_tr"
+            },
+            {
+                  "en": "eos_components_help_en",
+                  "ru": "eos_components_help_ru",
+                  "tr": "eos_components_help_tr"
+            },
+            {
+                  "en": "eos_phase_help_en",
+                  "ru": "eos_phase_help_ru",
+                  "tr": "eos_phase_help_tr"
+            },
+            {
+                  "en": "eos_column_help_en",
+                  "ru": "eos_column_help_ru",
+                  "tr": "eos_column_help_tr"
             }
       ]
 }

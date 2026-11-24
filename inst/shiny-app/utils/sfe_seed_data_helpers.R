@@ -34,11 +34,18 @@ load_sfe_gcm_seed_data <- function() {
     tryCatch({
       json_data <- jsonlite::fromJSON(files[i], simplifyVector = FALSE)
 
+      # Display name = compound name + created date only (methods are intentionally NOT listed —
+      # they conflated "manual" across properties). Falls back to the stored display_name if the
+      # compound name is missing.
+      created <- json_data$metadata$created_date %||% format(Sys.time(), "%Y-%m-%d %H:%M:%S")
+      disp <- if (!is.null(json_data$parameters$name_input) && nzchar(json_data$parameters$name_input))
+        sprintf("%s | %s", json_data$parameters$name_input, created) else json_data$display_name
+
       # Return standardized structure
       list(
         id = i,
-        display_name = json_data$display_name,
-        timestamp = json_data$metadata$created_date %||% format(Sys.time(), "%Y-%m-%d %H:%M:%S"),
+        display_name = disp,
+        timestamp = created,
         parameters = json_data$parameters,
         is_seed = TRUE  # Flag to identify seed data
       )

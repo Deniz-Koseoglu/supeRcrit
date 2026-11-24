@@ -1,0 +1,18 @@
+{
+  "display_name": "Anthracene | NL04-JR-SP08 | 15:00",
+  "parameters": {
+    "cas_input": "120-12-7",
+    "name_input": "Anthracene",
+    "smiles_input": "c1ccc2cc3ccccc3cc2c1",
+    "specify_smiles": false,
+    "gcm_tb": "NL04",
+    "gcm_crit": "JR",
+    "gcm_hsp": "SP08",
+    "gcm_simplicity": "simple",
+    "gcm_gorder": 0
+  },
+  "metadata": {
+    "created_date": "2025-12-19 15:00:04",
+    "app_version": "0.9.0"
+  }
+}

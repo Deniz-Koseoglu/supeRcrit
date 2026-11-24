@@ -39,18 +39,41 @@ mol_find <- function(mol) {
   #Vector to store solute identifiers
   solute_ids <- c()
 
-  #Checking/generating solute identifiers
-  for(i in mol) {
-    if(grepl("^[0-9-]+$", i)) {
-      if(!"CAS" %in% names(solute_ids)) solute_ids["CAS"] <- i else stop("Check provided solute identifiers for repeated information!")
+  #Checking/generating solute identifiers.
+  #Honour explicit names on the input vector ("CAS"/"SMILES"/"Name") when supplied:
+  #the app always tags the roles, and re-deriving them from string patterns
+  #misclassifies e.g. a CAS-valued display name (from the "auto name" toggle) as a
+  #second CAS, which raised "repeated information". Unnamed elements still auto-detect.
+  in_names <- names(mol)
+  for(idx in seq_along(mol)) {
+    i <- as.character(mol[[idx]])
+    tag <- if(!is.null(in_names) && !is.na(in_names[idx]) && in_names[idx] %in% c("CAS", "SMILES", "Name")) {
+      in_names[idx]
+    } else if(grepl("^[0-9-]+$", i)) {
+      "CAS"
     } else if(!suppressWarnings(is.null(rcdk::parse.smiles(i)[[1]]))) {
-      if(!"SMILES" %in% names(solute_ids)) solute_ids["SMILES"] <- i else stop("Check provided solute identifiers for repeated information!")
+      "SMILES"
     } else if(grepl("[A-Z]+|[a-z]+", i)) {
-      if(!"Name" %in% names(solute_ids)) solute_ids["Name"] <- i else stop("Check provided solute identifiers for repeated information!")
+      "Name"
+    } else {
+      NA_character_
     }
+    if(is.na(tag)) next
+    if(!tag %in% names(solute_ids)) solute_ids[tag] <- i else stop("Check provided solute identifiers for repeated information!")
   }
-  #CAS Check
-  if(!all(c("CAS", "Name") %in% names(solute_ids))) stop("CAS number and Name are required and were not provided!")
+  # If ONLY a SMILES was provided, build the molecule entirely OFFLINE - the structure is
+  # already known, so no PubChem/ChEBI resolution is needed (CAS/Name/InChI are left blank).
+  smiles_only <- "SMILES" %in% names(solute_ids) && !any(c("CAS", "Name") %in% names(solute_ids))
+
+  if(smiles_only) {
+    solute_ids["CAS"]  <- "-"
+    solute_ids["Name"] <- "- (SMILES input)"
+    synonyms <- character(0)
+  } else {
+
+  #CAS Check - only the CAS is mandatory for the online lookup; the Name is optional and is
+  #auto-resolved from ChEBI further below (see "Checking Name...") when the caller omits it.
+  if(!"CAS" %in% names(solute_ids)) stop("A CAS number is required and was not provided!")
 
   #Obtaining identifying information from CI (Chemical Identifier DB)
   qu_name <- "CAS"
@@ -71,7 +94,7 @@ mol_find <- function(mol) {
       all_syns <- syn_result[[1]]
       # Filter out CAS-like patterns and empty strings
       filtered_syns <- all_syns[!grepl("^[0-9]+-[0-9]+-[0-9]+$", all_syns) & nchar(all_syns) > 0]
-      head(filtered_syns, 5)
+      utils::head(filtered_syns, 5)
     } else {
       character(0)
     }
@@ -79,24 +102,25 @@ mol_find <- function(mol) {
     character(0)
   })
 
-  #Checking Name, attempting to find one through ChEBI if missing...
+  #Checking Name, resolving one when the caller did not supply it.
   if(!"Name" %in% names(solute_ids)) {
-    cat("\nSolute name not provided, attempting to retrieve name from ChEBI using ChEBI ID...")
-
-    csname <- webchem::get_chebiid(solute_ids[qu_name])
-    namecond <- any(colnames(csname) %in% "chebiasciiname")
-    namecond <- if(namecond) !is.na(csname[1,"chebiasciiname"]) else FALSE
-    if(namecond) {
-      solute_ids["Name"] <- gsub("[[:punct:]]", "", csname[1,"chebiasciiname"]) #gsub() to remove illegal characters
-      cat("\nSolute name successfully retrieved!")
-    } else {
-      solute_ids["Name"] <- "- (not found)"
-      cat("\nNo name for solute could be found through ChEBI...")
+    #Prefer the PubChem synonyms already fetched above - the first non-CAS synonym is the common
+    #name (e.g. "caffeine"). Only fall back to ChEBI if PubChem gave nothing, and wrap it so a name
+    #lookup NEVER aborts the whole characterization: the ChEBI service is frequently unavailable and
+    #signals an error with an empty message (which surfaced as a blank "Error during GCM..." toast).
+    resolved_name <- if(length(synonyms) > 0 && !is.na(synonyms[1]) && nzchar(synonyms[1])) synonyms[1] else NA_character_
+    if(is.na(resolved_name)) {
+      csname <- tryCatch(webchem::get_chebiid(solute_ids[qu_name]), error = function(e) NULL, warning = function(w) NULL)
+      if(!is.null(csname) && any(colnames(csname) %in% "chebiasciiname") && !is.na(csname[1, "chebiasciiname"]))
+        resolved_name <- gsub("[[:punct:]]", "", csname[1, "chebiasciiname"])
     }
+    solute_ids["Name"] <- if(!is.na(resolved_name) && nzchar(resolved_name)) .capitalize_auto_name(resolved_name) else "- (not found)"
   }
+  }   # end of offline (SMILES-only) / online (CAS/Name) branch
 
   #Parse SMILES and get molecular structure (package rcdk)
   solute_mol <- rcdk::parse.smiles(solute_ids["SMILES"])[[1]]
+  .normalize_nitro(solute_mol)   # canonicalise non-standard pentavalent nitro N(=O)=O -> [N+](=O)[O-]
   solute_mol <- rcdk::generate.2d.coordinates(solute_mol) #Generates reasonable 2D coordinates for solute
 
   #Clean up the generated IAtomContainer and get basic descriptors
@@ -108,4 +132,48 @@ mol_find <- function(mol) {
   solute_ids["Aromaticity"] <- rcdk::do.aromaticity(solute_mol)
 
   return(list("IDs"=solute_ids, "Molfile"=solute_mol, "Synonyms"=synonyms))
+}
+
+# Capitalise the first letter of an AUTO-RESOLVED compound name (e.g. PubChem's "caffeine" -> "Caffeine"),
+# leaving chemical prefixes untouched: a name that starts with a number/locant, a parenthetical or Greek-
+# symbol stereodescriptor ("(R)-...", "beta-..."), or a leading single-letter / spelled-out locant-stereo-
+# Greek token before a hyphen (o-, m-, p-, n-, d-, l-, cis-, trans-, sec-, tert-, alpha-, beta-, gamma-, ...)
+# is returned verbatim, as is a name already starting upper-case. Applied ONLY to auto-resolved names; a
+# user-typed name is used exactly as entered.
+.capitalize_auto_name <- function(nm) {
+  if (length(nm) != 1 || is.na(nm) || !nzchar(nm)) return(nm)
+  if (!grepl("^[a-z]", nm)) return(nm)                              # starts with number / symbol / already upper
+  pref <- regmatches(nm, regexpr("^[a-z]+(?=-)", nm, perl = TRUE))  # leading lowercase token before a '-'
+  keep <- c("cis", "trans", "sec", "tert", "syn", "anti", "exo", "endo", "ortho", "meta", "para",
+            "alpha", "beta", "gamma", "delta", "epsilon", "zeta", "eta", "theta", "iota", "kappa",
+            "lambda", "mu", "nu", "xi", "omicron", "pi", "rho", "sigma", "tau", "upsilon", "phi",
+            "chi", "psi", "omega")
+  if (length(pref) == 1L && (nchar(pref) == 1L || pref %in% keep)) return(nm)   # locant / stereo / Greek prefix
+  paste0(toupper(substr(nm, 1, 1)), substring(nm, 2))
+}
+
+# Canonicalise the non-standard pentavalent-nitrogen nitro/nitrate representation N(=O)=O to the
+# charge-separated [N+](=O)[O-] form. Many databases write nitro/nitrate/nitramine groups the first
+# way, which leaves the group unmatched by GCM SMARTS (calibrated on the charge-separated form), e.g.
+# JR drops nitrobenzene to 6/9 coverage. Triggers only on an N with >=2 double-bonded O (no-op on the
+# already-charge-separated form, on nitrites O-N=O, or on N-oxides). Modifies the molecule in place.
+.normalize_nitro <- function(mol) {
+  SINGLE <- rJava::J("org.openscience.cdk.interfaces.IBond$Order")$SINGLE
+  for (a in rcdk::get.atoms(mol)) {
+    if (rcdk::get.symbol(a) != "N") next
+    dO <- Filter(function(o) {
+      if (rcdk::get.symbol(o) != "O") return(FALSE)
+      b <- rJava::.jcall(mol, "Lorg/openscience/cdk/interfaces/IBond;", "getBond", a, o)
+      !is.null(b) && grepl("DOUBLE", rJava::.jcall(rJava::.jcall(b,
+        "Lorg/openscience/cdk/interfaces/IBond$Order;", "getOrder"), "S", "toString"))
+    }, rcdk::get.connected.atoms(a, mol))
+    if (length(dO) >= 2) {
+      o <- dO[[1]]
+      b <- rJava::.jcall(mol, "Lorg/openscience/cdk/interfaces/IBond;", "getBond", a, o)
+      rJava::.jcall(b, "V", "setOrder", SINGLE)
+      rJava::.jcall(a, "V", "setFormalCharge", rJava::.jnew("java/lang/Integer", 1L))
+      rJava::.jcall(o, "V", "setFormalCharge", rJava::.jnew("java/lang/Integer", -1L))
+    }
+  }
+  invisible(mol)
 }

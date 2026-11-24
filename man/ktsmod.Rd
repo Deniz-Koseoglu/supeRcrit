@@ -19,7 +19,10 @@ ktsmod(
   mass_flow = FALSE,
   draw = TRUE,
   optmet = "nlopt",
-  silent = FALSE
+  silent = FALSE,
+  k1_0 = NULL,
+  k2_0 = NULL,
+  nfits = 1
 )
 }
 \arguments{
@@ -74,6 +77,16 @@ One of \code{"nlopt"} (Non-Linear Optimization via \code{\link[nloptr]{nloptr}};
 via \code{\link[robustbase]{nlrob}}).}
 
 \item{silent}{Should console output be silenced? Defaults to \code{FALSE}).}
+
+\item{k1_0}{Optional \code{numeric} vector of starting value(s) for \eqn{k_1}. When a vector of
+length > 1 is provided, multi-start optimization is performed. Overrides the \code{k1} element of
+\code{opt_est}. Defaults to \code{NULL} (uses \code{opt_est}).}
+
+\item{k2_0}{Optional \code{numeric} vector of starting value(s) for \eqn{k_2}. Same behavior as \code{k1_0}.}
+
+\item{nfits}{Number of times to repeat the entire fitting process (default \code{1}).
+When > 1, the best fit (lowest AARD) is used for the model, and standard deviations across fits
+are reported in the output \code{$tws$fit_summary}.}
 }
 \value{
 A named \code{list} with the following elements:

@@ -1,0 +1,2 @@
+PKG_CXXFLAGS = -O3 -funroll-loops -Wa,-mbig-obj
+CXX_STD = CXX17

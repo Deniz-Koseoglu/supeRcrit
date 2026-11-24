@@ -7,7 +7,7 @@
 # ============================================================================
 
 test_that("kinetic_tws example data exists and is valid", {
-  example_path <- system.file("extdata", "gui-kinetic_tws_oec-1.csv", package = "supeRcrit")
+  example_path <- system.file("extdata", "examples", "gui-kinetic_tws_oec-1.csv", package = "supeRcrit")
   expect_true(file.exists(example_path), info = "TWS example data file should exist")
 
   data <- read.csv(example_path, stringsAsFactors = FALSE)
@@ -21,7 +21,7 @@ test_that("kinetic_tws example data exists and is valid", {
 })
 
 test_that("kinetic_bic example data exists and is valid", {
-  example_path <- system.file("extdata", "gui-kinetic_bic_oec.csv", package = "supeRcrit")
+  example_path <- system.file("extdata", "examples", "gui-kinetic_bic_oec.csv", package = "supeRcrit")
   expect_true(file.exists(example_path), info = "BIC example data file should exist")
 
   data <- read.csv(example_path, stringsAsFactors = FALSE)
@@ -38,7 +38,7 @@ test_that("com_analysis example data files exist and are valid", {
 
   found_count <- 0
   for (file in example_files) {
-    example_path <- system.file("extdata", file, package = "supeRcrit")
+    example_path <- system.file("extdata", "examples", file, package = "supeRcrit")
     if (file.exists(example_path)) {
       found_count <- found_count + 1
       data <- read.csv(example_path, stringsAsFactors = FALSE)
@@ -59,7 +59,7 @@ test_that("doe_analysis example data files exist and are valid", {
 
   found_count <- 0
   for (file in example_files) {
-    example_path <- system.file("extdata", file, package = "supeRcrit")
+    example_path <- system.file("extdata", "examples", file, package = "supeRcrit")
     if (file.exists(example_path)) {
       found_count <- found_count + 1
       data <- read.csv(example_path, stringsAsFactors = FALSE)
@@ -79,7 +79,7 @@ test_that("ktsmod function and example data are compatible", {
   skip_if_not_installed("supeRcrit")
 
   # Read example data
-  example_path <- system.file("extdata", "gui-kinetic_tws_oec-1.csv", package = "supeRcrit")
+  example_path <- system.file("extdata", "examples", "gui-kinetic_tws_oec-1.csv", package = "supeRcrit")
   skip_if(!file.exists(example_path), "Example data not found")
 
   data <- read.csv(example_path, stringsAsFactors = FALSE)
@@ -106,7 +106,7 @@ test_that("ktsmod function and example data are compatible", {
 test_that("bicmod function works with example data pattern", {
   skip_if_not_installed("supeRcrit")
 
-  example_path <- system.file("extdata", "gui-kinetic_bic_oec.csv", package = "supeRcrit")
+  example_path <- system.file("extdata", "examples", "gui-kinetic_bic_oec.csv", package = "supeRcrit")
   skip_if(!file.exists(example_path), "Example data not found")
 
   data <- read.csv(example_path, stringsAsFactors = FALSE)
@@ -134,7 +134,7 @@ test_that("bicmod function works with example data pattern", {
 test_that("doe_analyze function works with example data", {
   skip_if_not_installed("supeRcrit")
 
-  example_path <- system.file("extdata", "gui-doe-analysis-default.csv", package = "supeRcrit")
+  example_path <- system.file("extdata", "examples", "gui-doe-analysis-default.csv", package = "supeRcrit")
   skip_if(!file.exists(example_path), "Example data not found")
 
   data <- read.csv(example_path, stringsAsFactors = FALSE)
@@ -150,9 +150,7 @@ test_that("doe_analyze function works with example data", {
 
 test_that("general_helpers functions work together", {
   skip_if(shiny_app_dir == "", "Shiny app directory not found")
-  skip_if_not_installed("shiny")
-  skip_if_not_installed("DT")
-  skip_if_not_installed("rhandsontable")
+  for (p in c("shiny", "DT", "rhandsontable", "shinyhelper")) skip_if_not_installed(p)
 
   # Load packages and helpers
   suppressPackageStartupMessages({
@@ -189,7 +187,7 @@ test_that("general_helpers functions work together", {
 
 test_that("all server modules can be sourced together without conflicts", {
   skip_if(shiny_app_dir == "", "Shiny app directory not found")
-  skip_if_not_installed("shiny")
+  for (p in c("shiny", "DT", "plotly", "ggplot2", "rhandsontable", "shinyjs", "shinyhelper")) skip_if_not_installed(p)
 
   # Create a clean environment
   test_env <- new.env()
@@ -274,7 +272,7 @@ test_that("all server modules can be sourced together without conflicts", {
 
 test_that("all UI modules can be sourced without errors", {
   skip_if(shiny_app_dir == "", "Shiny app directory not found")
-  skip_if_not_installed("shiny")
+  for (p in c("shiny", "shinydashboard", "shinyWidgets", "DT", "shinyhelper")) skip_if_not_installed(p)
 
   test_env <- new.env()
 
@@ -318,7 +316,7 @@ test_that("all UI modules can be sourced without errors", {
 # ============================================================================
 
 test_that("kinetic data can be processed for model fitting", {
-  example_path <- system.file("extdata", "gui-kinetic_tws_oec-1.csv", package = "supeRcrit")
+  example_path <- system.file("extdata", "examples", "gui-kinetic_tws_oec-1.csv", package = "supeRcrit")
   skip_if(!file.exists(example_path), "Example data not found")
 
   data <- read.csv(example_path, stringsAsFactors = FALSE)
@@ -337,7 +335,7 @@ test_that("kinetic data can be processed for model fitting", {
 })
 
 test_that("DOE data has required structure for analysis", {
-  example_path <- system.file("extdata", "gui-doe-analysis-default.csv", package = "supeRcrit")
+  example_path <- system.file("extdata", "examples", "gui-doe-analysis-default.csv", package = "supeRcrit")
   skip_if(!file.exists(example_path), "Example data not found")
 
   data <- read.csv(example_path, stringsAsFactors = FALSE)

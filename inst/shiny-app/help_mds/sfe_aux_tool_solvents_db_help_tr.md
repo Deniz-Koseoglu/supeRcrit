@@ -1,6 +1,8 @@
 ## Mevcut Çözücüler Veritabanı
 
-Bu tablo, Karışabilirlik Optimizasyonu, Karışabilirlik Karşılaştırması ve Kritik Parametreler modüllerinde kullanılabilecek çözücü ve ko-çözücülerin termofiziksel özelliklerini listeler.
+> **Kapsam — yalnızca HSP ko-çözücü modu.** Bu tablo **yalnızca Hansen Çözünürlük Parametresi (HSP) ko-çözücü modu** için mevcut çözücüleri listeler (Ko-Çözücü Seçimi / Karşılaştırması modülleri). Uygulamanın işleyebildiği her bileşiğin tam listesi **değildir**: çözünürlük ve sıvı-sıvı ekstraksiyon modelleri çok daha büyük bileşik veritabanlarını (binlerce bileşik) kullanır. Bunu, HSP parametreleri tanımlanmış, seçilmiş çözücü kümesi olarak değerlendirin.
+
+Bu tablo, Karışabilirlik Optimizasyonu, Karışabilirlik Karşılaştırması ve Kritik Parametreler modüllerinin HSP ko-çözücü modunda kullanılabilecek çözücü ve ko-çözücülerin termofiziksel özelliklerini listeler.
 
 ### Görüntülenen Özellikler
 

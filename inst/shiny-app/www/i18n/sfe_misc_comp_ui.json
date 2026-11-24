@@ -1,6 +1,176 @@
 {
   "translation": [
     {
+      "en": "Multi-solute co-solvent comparison for supercritical-CO2 extraction: each graph compares the selected solutes (or pressures/temperatures) against the co-solvent fraction, under the screening conditions below.",
+      "ru": "Сравнение со-растворителей для нескольких веществ при сверхкритической экстракции CO2: каждый график сопоставляет выбранные вещества (или давления/температуры) с долей со-растворителя при указанных ниже условиях скрининга.",
+      "tr": "Süperkritik CO2 ekstraksiyonu için çoklu-çözünen yardımcı çözücü karşılaştırması: her grafik, aşağıdaki tarama koşullarında seçilen çözünenleri (veya basınçları/sıcaklıkları) yardımcı çözücü fraksiyonuna karşı karşılaştırır."
+    },
+    {
+      "en": "Comparison setup",
+      "ru": "Параметры сравнения",
+      "tr": "Karşılaştırma ayarları"
+    },
+    {
+      "en": "No graphs available — run a comparison first.",
+      "ru": "Графики недоступны — сначала запустите сравнение.",
+      "tr": "Grafik yok — önce bir karşılaştırma çalıştırın."
+    },
+    {
+      "en": "Co-Solvent Comparison — Report",
+      "ru": "Сравнение со-растворителей — Отчёт",
+      "tr": "Yardımcı Çözücü Karşılaştırması — Rapor"
+    },
+    {
+      "en": "Mode",
+      "ru": "Режим",
+      "tr": "Mod"
+    },
+    {
+      "en": "Temperature(s)",
+      "ru": "Температура(ы)",
+      "tr": "Sıcaklık(lar)"
+    },
+    {
+      "en": "Pressure(s)",
+      "ru": "Давление(я)",
+      "tr": "Basınç(lar)"
+    },
+    {
+      "en": "Co-Solvent Volume Fractions",
+      "ru": "Объёмные доли со-растворителя",
+      "tr": "Yardımcı çözücü hacim fraksiyonları"
+    },
+    {
+      "en": "Comparison",
+      "ru": "Сравнение",
+      "tr": "Karşılaştırma"
+    },
+    {
+      "en": "available in %s — switch engine",
+      "ru": "доступно в %s — переключите движок",
+      "tr": "%s içinde mevcut — motoru değiştirin"
+    },
+    {
+      "en": "in neither COSMO database",
+      "ru": "нет ни в одной базе COSMO",
+      "tr": "hiçbir COSMO veritabanında yok"
+    },
+    {
+      "en": "Engine coverage of %d loaded solute(s): CSP-2021 %d, openCOSMO-RS-Phi %d. Each comparison uses a single engine.",
+      "ru": "Охват движков для %d загруженных веществ: CSP-2021 %d, openCOSMO-RS-Phi %d. Каждое сравнение использует один движок.",
+      "tr": "%d yüklü çözünen için motor kapsamı: CSP-2021 %d, openCOSMO-RS-Phi %d. Her karşılaştırma tek bir motor kullanır."
+    },
+    {
+      "en": "Temperatures (°C)",
+      "ru": "Температуры (°C)",
+      "tr": "Sıcaklıklar (°C)"
+    },
+    {
+      "en": "Blend solubilities are extrapolated (the ML model is validated for single co-solvents) — use them for ranking; treat absolute values as indicative.",
+      "ru": "Растворимости смесей экстраполируются (ML-модель проверена для одиночных со-растворителей) — используйте их для ранжирования; абсолютные значения считайте ориентировочными.",
+      "tr": "Karışım çözünürlükleri ekstrapolasyondur (ML modeli tekli yardımcı çözücüler için doğrulanmıştır) — bunları sıralama için kullanın; mutlak değerleri gösterge olarak değerlendirin."
+    },
+    {
+      "en": "Blend percentages must be positive.",
+      "ru": "Процентные доли смеси должны быть положительными.",
+      "tr": "Karışım yüzdeleri pozitif olmalıdır."
+    },
+    {
+      "en": "Please add at least 2 solvents to the blend.",
+      "ru": "Пожалуйста, добавьте в смесь не менее 2 растворителей.",
+      "tr": "Lütfen karışıma en az 2 çözücü ekleyin."
+    },
+    {
+      "en": "Miscibility enhancement at",
+      "ru": "Улучшение смешиваемости при",
+      "tr": "Karışabilirlik artışı"
+    },
+    {
+      "en": "Blends are unavailable in Solubility (ML) mode — the model evaluates a single co-solvent at a time.",
+      "ru": "Смеси недоступны в режиме растворимости (ML) — модель оценивает по одному со-растворителю за раз.",
+      "tr": "Karışımlar Çözünürlük (ML) modunda kullanılamaz — model her seferinde tek bir yardımcı çözücüyü değerlendirir."
+    },
+    {
+      "en": "Temperature Comparisons",
+      "ru": "Сравнение по температуре",
+      "tr": "Sıcaklık Karşılaştırmaları"
+    },
+    {
+      "en": "Type temperature values...",
+      "ru": "Введите значения температуры...",
+      "tr": "Sıcaklık değerlerini girin..."
+    },
+    {
+      "en": "One or more extraction temperatures for the comparison. Each must be above 31°C (the critical temperature of CO2).",
+      "ru": "Одна или несколько температур экстракции для сравнения. Каждая должна быть выше 31°C (критическая температура CO2).",
+      "tr": "Karşılaştırma için bir veya daha fazla ekstraksiyon sıcaklığı. Her biri 31°C'nin (CO2'nin kritik sıcaklığı) üzerinde olmalıdır."
+    },
+    {
+      "en": "Maximum 6 temperature values are allowed.",
+      "ru": "Допускается не более 6 значений температуры.",
+      "tr": "En fazla 6 sıcaklık değerine izin verilir."
+    },
+    {
+      "en": "Please enter valid temperature values.",
+      "ru": "Пожалуйста, введите допустимые значения температуры.",
+      "tr": "Lütfen geçerli sıcaklık değerleri girin."
+    },
+    {
+      "en": "Co-Solvent Mole Fractions",
+      "ru": "Мольные доли со-растворителя",
+      "tr": "Yardımcı çözücü mol kesirleri"
+    },
+    {
+      "en": "Mole Fraction",
+      "ru": "Мольная доля",
+      "tr": "Mol kesri"
+    },
+    {
+      "en": "Co-solvent mole fraction",
+      "ru": "Мольная доля со-растворителя",
+      "tr": "Yardımcı çözücü mol kesri"
+    },
+    {
+      "en": "One or more co-solvent mole fractions (0.01-0.99) at which to compare solubility. Each fraction is evaluated separately. Typical loadings are 0.01-0.10; the model was trained up to ~0.50.",
+      "ru": "Одна или несколько мольных долей со-растворителя (0,01–0,99), при которых сравнивается растворимость. Каждая доля оценивается отдельно. Типичные значения 0,01–0,10; модель обучена до ~0,50.",
+      "tr": "Çözünürlüğün karşılaştırılacağı bir veya daha fazla yardımcı çözücü mol kesri (0,01-0,99). Her kesir ayrı değerlendirilir. Tipik yüklemeler 0,01-0,10; model ~0,50'ye kadar eğitildi."
+    },
+    {
+      "en": "Co-Solvent Mole Fractions (%)",
+      "ru": "Мольные доли со-растворителя (%)",
+      "tr": "Yardımcı çözücü mol kesirleri (%)"
+    },
+    {
+      "en": "One or more co-solvent mole percentages (%) at which to compare solubility. Each fraction is evaluated separately. Typical loadings are 1-10 mol%; the model was trained up to ~50 mol%.",
+      "ru": "Один или несколько мольных процентов со-растворителя (%), при которых сравнивается растворимость. Каждая доля оценивается отдельно. Типичные значения 1–10 мол%; модель обучена до ~50 мол%.",
+      "tr": "Çözünürlüğün karşılaştırılacağı bir veya daha fazla yardımcı çözücü mol yüzdesi (%). Her kesir ayrı değerlendirilir. Tipik yüklemeler %1-10 mol; model ~%50 mol'e kadar eğitildi."
+    },
+    {
+      "en": "Mole Fractions",
+      "ru": "Мольные доли",
+      "tr": "Mol kesirleri"
+    },
+    {
+      "en": "Type mole fractions...",
+      "ru": "Введите мольные доли...",
+      "tr": "Mol kesirlerini yazın..."
+    },
+    {
+      "en": "Mole Fraction (%)",
+      "ru": "Мольная доля (%)",
+      "tr": "Mol kesri (%)"
+    },
+    {
+      "en": "Co-solvent mole fraction (%)",
+      "ru": "Мольная доля со-растворителя (%)",
+      "tr": "Yardımcı çözücü mol kesri (%)"
+    },
+    {
+      "en": "Solubility at",
+      "ru": "Растворимость при",
+      "tr": "Çözünürlük"
+    },
+    {
       "en": "Comparison Parameters",
       "ru": "Параметры сравнения",
       "tr": "Karşılaştırma Parametreleri"
@@ -164,11 +334,6 @@
       "en": "Volume Fractions (comma-separated)",
       "ru": "Объемные доли (через запятую)",
       "tr": "Hacim Fraksiyonları (virgülle ayrılmış)"
-    },
-    {
-      "en": "Advanced Plot Options",
-      "ru": "Расширенные параметры графика",
-      "tr": "Gelişmiş Grafik Seçenekleri"
     },
     {
       "en": "Show Plot Titles",
@@ -794,6 +959,86 @@
       "en": "Select Analyte",
       "tr": "Analit Seçin",
       "ru": "Выберите аналит"
+    },
+    {
+      "en": "Comparison Method",
+      "ru": "Метод сравнения",
+      "tr": "Karşılaştırma Yöntemi"
+    },
+    {
+      "en": "HSP (Miscibility) compares solutes by Hansen solubility-parameter distance. Solubility (ML) compares them by the predicted enhancement of each solute's scCO₂ solubility (and reports the absolute solubility), using the machine-learned model. Solubility mode needs each solute's SMILES and is valid for roughly 308-373 K and 80-360 bar.",
+      "ru": "«HSP (смешиваемость)» сравнивает вещества по расстоянию параметров растворимости Хансена. «Растворимость (ML)» сравнивает их по прогнозируемому усилению растворимости каждого вещества в скCO2 (и приводит абсолютную растворимость) с помощью модели машинного обучения. Режим растворимости требует SMILES каждого вещества и применим примерно для 308-373 K и 80-360 бар.",
+      "tr": "«HSP (Karışabilirlik)» çözünenleri Hansen çözünürlük-parametre uzaklığına göre karşılaştırır. «Çözünürlük (ML)» onları, makine öğrenmeli model kullanarak her çözünenin scCO₂ çözünürlüğündeki öngörülen artışa göre karşılaştırır (ve mutlak çözünürlüğü bildirir). Çözünürlük modu her çözünenin SMILES'ini gerektirir ve yaklaşık 308-373 K ile 80-360 bar için geçerlidir."
+    },
+    {
+      "en": "Enhancement (×)",
+      "ru": "Усиление (×)",
+      "tr": "Artış (×)"
+    },
+    {
+      "en": "Solubility (mol/mol)",
+      "ru": "Растворимость (моль/моль)",
+      "tr": "Çözünürlük (mol/mol)"
+    },
+    {
+      "en": "No solubility results were produced. Ensure the selected solutes have SMILES.",
+      "ru": "Результаты растворимости не получены. Убедитесь, что у выбранных веществ есть SMILES.",
+      "tr": "Çözünürlük sonucu üretilmedi. Seçilen çözünenlerin SMILES'i olduğundan emin olun."
+    },
+    {
+      "en": "Some pressure/temperature points are outside the solubility model's reliable range (308-373 K, 80-360 bar).",
+      "ru": "Некоторые точки давления/температуры находятся вне надёжного диапазона модели растворимости (308-373 K, 80-360 бар).",
+      "tr": "Bazı basınç/sıcaklık noktaları, çözünürlük modelinin güvenilir aralığının (308-373 K, 80-360 bar) dışındadır."
+    },
+    {
+      "en": "Unit for the absolute solubility shown in the results table and plot: mole fraction (mol/mol) or grams of solute per kilogram of CO2 (g/kg). The enhancement factor is unitless.",
+      "ru": "Единица абсолютной растворимости в таблице результатов и на графике: мольная доля (моль/моль) или граммы вещества на килограмм CO2 (г/кг). Коэффициент усиления безразмерен.",
+      "tr": "Sonuç tablosunda ve grafikte gösterilen mutlak çözünürlüğün birimi: mol kesri (mol/mol) veya kg CO2 başına gram çözünen (g/kg). Artış faktörü birimsizdir."
+    },
+    {
+      "en": "Load from Database",
+      "ru": "Загрузить из базы данных",
+      "tr": "Veritabanından Yükle"
+    },
+    {
+      "en": "DB (exp HSP)",
+      "ru": "БД (эксп. HSP)",
+      "tr": "VT (deneysel HSP)"
+    },
+    {
+      "en": "DB (ML)",
+      "ru": "БД (МО)",
+      "tr": "VT (ML)"
+    },
+    {
+      "en": "Select a compound first.",
+      "ru": "Сначала выберите соединение.",
+      "tr": "Önce bir bileşik seçin."
+    },
+    {
+      "en": "Loaded '%s' from the database.",
+      "ru": "«%s» загружено из базы данных.",
+      "tr": "'%s' veritabanından yüklendi."
+    },
+    {
+      "en": "Makarov (ML) predicts scCO2 solubility from SMILES for any solute/co-solvent (training domain ~308-373 K, 80-360 bar) but evaluates one co-solvent at a time (no blends). CSP-2021 and openCOSMO-RS-Phi are predictive COSMO-SAC-Phi equations of state; each needs the solute(s) AND every co-solvent to be in its database and has no hard T/P domain. Being genuine n-component models, they can also compare blends.",
+      "ru": "Makarov (ML) прогнозирует растворимость в scCO2 по SMILES для любого вещества/сорастворителя (область обучения ~308-373 K, 80-360 бар), но оценивает по одному сорастворителю за раз (без смесей). CSP-2021 и openCOSMO-RS-Phi — прогностические уравнения состояния COSMO-SAC-Phi; каждому требуется наличие вещества(-в) И каждого сорастворителя в его базе данных, при этом нет жёсткой области по T/P. Будучи настоящими n-компонентными моделями, они также могут сравнивать смеси.",
+      "tr": "Makarov (ML), herhangi bir çözünen/yardımcı çözücü için SMILES'ten scCO2 çözünürlüğünü tahmin eder (eğitim aralığı ~308-373 K, 80-360 bar) ancak her seferinde tek bir yardımcı çözücüyü değerlendirir (karışım yok). CSP-2021 ve openCOSMO-RS-Phi, öngörücü COSMO-SAC-Phi hal denklemleridir; her biri çözünen(ler)in VE her yardımcı çözücünün kendi veritabanında bulunmasını gerektirir ve katı bir T/P alanı yoktur. Gerçek n-bileşenli modeller olduklarından karışımları da karşılaştırabilirler."
+    },
+    {
+      "en": "Blends are compared with the selected COSMO-SAC-Phi EoS engine (CSP-2021 / openCOSMO-RS-Phi) as genuine n-component mixtures.",
+      "ru": "Смеси сравниваются с помощью выбранного уравнения состояния COSMO-SAC-Phi (CSP-2021 / openCOSMO-RS-Phi) как истинные n-компонентные смеси.",
+      "tr": "Karışımlar, seçili COSMO-SAC-Phi EoS motoruyla (CSP-2021 / openCOSMO-RS-Phi) gerçek n-bileşenli karışımlar olarak karşılaştırılır."
+    },
+    {
+      "en": "The Makarov ML model has no blend-mixing rule; choose CSP-2021 or openCOSMO-RS-Phi to compare a blend (or use HSP mode).",
+      "ru": "У модели Makarov ML нет правила смешивания; выберите CSP-2021 или openCOSMO-RS-Phi для сравнения смеси (или используйте режим HSP).",
+      "tr": "Makarov ML modelinin karışım karıştırma kuralı yoktur; bir karışımı karşılaştırmak için CSP-2021 veya openCOSMO-RS-Phi seçin (veya HSP modunu kullanın)."
+    },
+    {
+      "en": "Advanced Options",
+      "ru": "Дополнительные параметры",
+      "tr": "Gelişmiş Seçenekler"
     }
   ]
 }

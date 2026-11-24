@@ -180,7 +180,11 @@ doe_analysis_server <- function(input, output, session, defaults, i18n, tablang,
     cur <- isolate(if (!is.null(input$p_cutoff)) input$p_cutoff else 0.1)
     tags$div(
       tags$label(
-        HTML(gsub("P-", "<em>p</em>-", gsub("p-", "<em>p</em>-", i18n_r()$t("P-value Cutoff")))),
+        # Wrap the (gsub-italicised) text in a single <span> so this whole
+        # phrase is ONE flex item. Without the span, display:flex turns the
+        # inline <em>p</em> into its own flex item and trims the space of the
+        # adjacent text run, gluing "Порог" to the italic p ("Порогp-значения").
+        tags$span(HTML(gsub("P-", "<em>p</em>-", gsub("p-", "<em>p</em>-", i18n_r()$t("P-value Cutoff"))))),
         input_help(i18n_r()$t("Significance threshold for retaining model terms. Terms with p-values above this cutoff are considered insignificant and may be removed during trimming. Common values are 0.05 or 0.10."),
                    title = i18n_r()$t("P-value Cutoff"), buttonLabel = i18n_r()$t("OK")),
         class = "control-label",
@@ -269,7 +273,7 @@ doe_analysis_server <- function(input, output, session, defaults, i18n, tablang,
         )
       } else {
         div(
-          style = "background-color: #f5f5f5; border: 1px solid #ddd; border-radius: 4px; padding: 6px 12px; color: #888; height: 34px; line-height: 22px;",
+          style = "background-color: #f5f5f5; border: 1px solid #ddd; border-radius: 4px; padding: 6px 12px; color: #888; min-height: 34px; line-height: 22px;",
           tags$span(i18n$t("Auto (10% of max eigenvalue)"))
         )
       }
@@ -1009,7 +1013,7 @@ doe_analysis_server <- function(input, output, session, defaults, i18n, tablang,
 
   # Load Example Data button handler
   observeEvent(input$load_example_data, {
-    default_path <- system.file("extdata", "gui-doe-analysis-default.csv", package = "supeRcrit")
+    default_path <- system.file("extdata", "examples", "gui-doe-analysis-default.csv", package = "supeRcrit")
     if (file.exists(default_path)) {
       tryCatch({
         data <- parse_design_file(default_path)
@@ -1059,17 +1063,14 @@ doe_analysis_server <- function(input, output, session, defaults, i18n, tablang,
   observeEvent(input$save_analysis, {
     req(analysis_results$input_data) # Require data to be loaded
     # Get default directory for save dialog
-    default_dir <- file.path(
-      system.file(package = "supeRcrit"), 
-      "shiny-app", "config", "user-settings", "doe_analysis"
-    )
+    default_dir <- supercrit_user_dir(file.path("user-settings", "doe_analysis"))
     showModal(doe_analysis_save_modal_ui(ns("save_modal"), i18n, default_directory = default_dir))
   })
   
   # Set up shinyFiles directory chooser with system volumes
   volumes <- c(
     Home = Sys.getenv("HOME"),
-    shinyFiles::getVolumes()()
+    supercrit_get_volumes()
   )
   shinyFiles::shinyDirChoose(
     input, 
@@ -3118,7 +3119,7 @@ doe_analysis_server <- function(input, output, session, defaults, i18n, tablang,
         x = "Predicted Response",
         y = "Actual Response"
       )
-      plotly_p <- ggplotly(p)
+      plotly_p <- quiet_ggplotly(p)
       plotly_p <- add_formula_annotations(plotly_p, p)
       plotly_p
     } else {
@@ -3159,7 +3160,7 @@ doe_analysis_server <- function(input, output, session, defaults, i18n, tablang,
         x = "Predicted Response",
         y = "Residuals"
       )
-      ggplotly(p)
+      quiet_ggplotly(p)
     } else {
       plotly_empty(type = "scatter", mode = "markers") %>%
         layout(title = list(text = i18n$t("No plot available or not a ggplot object")))
@@ -3192,7 +3193,7 @@ doe_analysis_server <- function(input, output, session, defaults, i18n, tablang,
         x = "Observation",
         y = "Cook's Distance"
       )
-      plotly_p <- ggplotly(p)
+      plotly_p <- quiet_ggplotly(p)
       plotly_p <- add_layer_labels(plotly_p, p, layers_to_check = c(4, 5))
       plotly_p
     } else {
@@ -3210,7 +3211,7 @@ doe_analysis_server <- function(input, output, session, defaults, i18n, tablang,
       title = "Pareto Plot - Initial Model",
       y = "Absolute effects"
     )
-    plotly_p <- ggplotly(p)
+    plotly_p <- quiet_ggplotly(p)
     plotly_p <- add_legend_and_caption(plotly_p, p)
     plotly_p
   })
@@ -3230,7 +3231,7 @@ doe_analysis_server <- function(input, output, session, defaults, i18n, tablang,
         x = "Factor Level",
         y = "Response"
       )
-      plotly_p <- ggplotly(p)
+      plotly_p <- quiet_ggplotly(p)
     } else {
       plotly_empty(type = "scatter", mode = "markers") %>%
         layout(title = list(text = i18n$t("No plot available")))
@@ -3252,7 +3253,7 @@ doe_analysis_server <- function(input, output, session, defaults, i18n, tablang,
         x = "Factor Level",
         y = "Response"
       )
-      plotly_p <- ggplotly(p)
+      plotly_p <- quiet_ggplotly(p)
     } else {
       plotly_empty(type = "scatter", mode = "markers") %>%
         layout(title = list(text = i18n$t("No plot available")))
@@ -3273,7 +3274,7 @@ doe_analysis_server <- function(input, output, session, defaults, i18n, tablang,
         x = "Factor Level",
         y = "Residual"
       )
-      plotly_p <- ggplotly(p)
+      plotly_p <- quiet_ggplotly(p)
     } else {
       plotly_empty(type = "scatter", mode = "markers") %>%
         layout(title = list(text = i18n$t("No plot available")))
@@ -3292,7 +3293,7 @@ doe_analysis_server <- function(input, output, session, defaults, i18n, tablang,
         x = "Factor Level",
         y = "Residual"
       )
-      plotly_p <- ggplotly(p)
+      plotly_p <- quiet_ggplotly(p)
     } else {
       plotly_empty(type = "scatter", mode = "markers") %>%
         layout(title = list(text = i18n$t("No plot available")))
@@ -3318,7 +3319,7 @@ doe_analysis_server <- function(input, output, session, defaults, i18n, tablang,
         x = "Predicted Response",
         y = "Actual Response"
       )
-      plotly_p <- ggplotly(p)
+      plotly_p <- quiet_ggplotly(p)
       plotly_p <- add_formula_annotations(plotly_p, p)
       plotly_p
     } else {
@@ -3359,7 +3360,7 @@ doe_analysis_server <- function(input, output, session, defaults, i18n, tablang,
         x = "Predicted Response",
         y = "Residuals"
       )
-      ggplotly(p)
+      quiet_ggplotly(p)
     } else {
       plotly_empty(type = "scatter", mode = "markers") %>%
         layout(title = list(text = i18n$t("No plot available or not a ggplot object")))
@@ -3392,7 +3393,7 @@ doe_analysis_server <- function(input, output, session, defaults, i18n, tablang,
         x = "Observation",
         y = "Cook's Distance"
       )
-      plotly_p <- ggplotly(p)
+      plotly_p <- quiet_ggplotly(p)
       plotly_p <- add_layer_labels(plotly_p, p, layers_to_check = c(4, 5))
       plotly_p
     } else {
@@ -3410,7 +3411,7 @@ doe_analysis_server <- function(input, output, session, defaults, i18n, tablang,
       title = "Pareto Plot - Final Model",
       y = "Absolute effects"
     )
-    plotly_p <- ggplotly(p)
+    plotly_p <- quiet_ggplotly(p)
     plotly_p <- add_legend_and_caption(plotly_p, p)
     plotly_p
   })
@@ -3430,7 +3431,7 @@ doe_analysis_server <- function(input, output, session, defaults, i18n, tablang,
         x = "Factor Level",
         y = "Response"
       )
-      plotly_p <- ggplotly(p)
+      plotly_p <- quiet_ggplotly(p)
     } else {
       plotly_empty(type = "scatter", mode = "markers") %>%
         layout(title = list(text = i18n$t("No plot available")))
@@ -3452,7 +3453,7 @@ doe_analysis_server <- function(input, output, session, defaults, i18n, tablang,
         x = "Factor Level",
         y = "Response"
       )
-      plotly_p <- ggplotly(p)
+      plotly_p <- quiet_ggplotly(p)
     } else {
       plotly_empty(type = "scatter", mode = "markers") %>%
         layout(title = list(text = i18n$t("No plot available")))
@@ -3473,7 +3474,7 @@ doe_analysis_server <- function(input, output, session, defaults, i18n, tablang,
         x = "Factor Level",
         y = "Residual"
       )
-      plotly_p <- ggplotly(p)
+      plotly_p <- quiet_ggplotly(p)
     } else {
       plotly_empty(type = "scatter", mode = "markers") %>%
         layout(title = list(text = i18n$t("No plot available")))
@@ -3492,7 +3493,7 @@ doe_analysis_server <- function(input, output, session, defaults, i18n, tablang,
         x = "Factor Level",
         y = "Residual"
       )
-      plotly_p <- ggplotly(p)
+      plotly_p <- quiet_ggplotly(p)
     } else {
       plotly_empty(type = "scatter", mode = "markers") %>%
         layout(title = list(text = i18n$t("No plot available")))
@@ -3618,7 +3619,7 @@ doe_analysis_server <- function(input, output, session, defaults, i18n, tablang,
       "doe_analysis_default.csv"
     },
     content = function(file) {
-      default_path <- system.file("extdata", "gui-doe-analysis-default.csv", package = "supeRcrit")
+      default_path <- system.file("extdata", "examples", "gui-doe-analysis-default.csv", package = "supeRcrit")
       if (file.exists(default_path)) {
         file.copy(default_path, file)
       } else {
@@ -3629,6 +3630,205 @@ doe_analysis_server <- function(input, output, session, defaults, i18n, tablang,
   )
 
   # Download All Results
+  # ======================= Unified Export (CSV / PDF) =======================
+  # Comprehensive report mirroring the on-screen output for BOTH the Initial and Final models: summary metrics
+  # (+ R²/adj-R² badges), model equation, coefficients, canonical/optimal/eigenvalue/min-max/steepest tables,
+  # EVERY diagnostic ggplot, and the model data. (The ZIP export below is kept for the raw per-table bundle.)
+  .doea_res <- function() analysis_results$analysis_result
+  .doea_num <- function(d) { if (is.null(d)) return(NULL); d <- as.data.frame(d, check.names = FALSE)
+    d[] <- lapply(d, function(c) if (is.numeric(c)) signif(c, 6) else c); d }
+  .doea_coef_df <- function(m) {
+    mr <- .doea_res()$results[[m]]$Model_Results; if (is.null(mr)) return(NULL)
+    keep <- intersect(c("Term", "Estimate", "Stnd_Error", "t_value", "p_value", "Signif_Level"), names(mr))
+    d <- as.data.frame(mr[, keep, drop = FALSE], check.names = FALSE)
+    for (cc in c("Estimate", "Stnd_Error", "t_value", "p_value")) if (cc %in% names(d)) d[[cc]] <- round(d[[cc]], 4)
+    nm <- c(Term = i18n_r()$t("Term"), Estimate = i18n_r()$t("Estimate"), Stnd_Error = i18n_r()$t("Standard Error"),
+            t_value = "t", p_value = "p", Signif_Level = i18n_r()$t("Significance Level"))
+    names(d) <- unname(nm[names(d)]); d
+  }
+  .doea_summary_kv <- function(m) {
+    mm <- .doea_res()$results[[m]]$Model_Metrics; if (is.null(mm)) return(list())
+    list(list(label = i18n_r()$t("Response Variable"), value = analysis_results$response_var %||% ""),
+         list(label = i18n_r()$t("Model Order"), value = as.character(mm$Order %||% "")))
+  }
+  # ALL fit statistics as one row of coloured badges (F-statistic, Residual Std Error, Lack-of-Fit p, R², adj R²).
+  .doea_kpis <- function(m) {
+    mm <- .doea_res()$results[[m]]$Model_Metrics; if (is.null(mm)) return(list())
+    num <- function(x) suppressWarnings(as.numeric(x)[1]); fmt <- function(v, d = 4) if (is.na(v)) "—" else rp_num(v, d)
+    r2 <- num(mm$R2); ar2 <- num(mm$Adj_R2); fst <- num(mm$F_Statistic); rse <- num(mm$Residual_Stnd_Error); lof <- num(mm$LoF_Pvalue)
+    cc <- function(v) if (is.na(v)) "#607d8b" else if (v > 0.9) "#2e7d32" else if (v > 0.75) "#f9a825" else "#c62828"
+    k <- list(list(label = i18n_r()$t("F-statistic"), value = fmt(fst, 2), color = "#1565c0"),
+              list(label = i18n_r()$t("Residual Std Error"), value = fmt(rse), color = "#1565c0"))
+    if (!is.na(lof)) k <- c(k, list(list(label = i18n_r()$t("Lack-of-Fit p-value"), value = fmt(lof),
+      color = if (lof > 0.05) "#2e7d32" else "#c62828")))
+    c(k, list(list(label = "R²", value = fmt(r2), color = cc(r2)),
+              list(label = i18n_r()$t("Adjusted R²"), value = fmt(ar2), color = cc(ar2))))
+  }
+  # Translate a diagnostic ggplot's existing (English) labels via the current i18n dictionary.
+  .doea_tr_plot <- function(p) {
+    if (!inherits(p, "ggplot")) return(p)
+    for (k in c("title", "subtitle", "x", "y", "colour", "color", "fill", "linetype"))
+      if (!is.null(p$labels[[k]]) && is.character(p$labels[[k]]) && nzchar(p$labels[[k]])) p$labels[[k]] <- i18n_r()$t(p$labels[[k]])
+    p
+  }
+  # Canonical-analysis conclusions / optimisation notes for this model (preserve the on-screen inferences).
+  .doea_statements <- function(m) {
+    st <- .doea_res()$statements; if (is.null(st)) return(NULL)
+    idx <- grep(paste0("_", m, "$"), names(st)); if (!length(idx)) return(NULL)
+    # Preserve the natural line structure: turn block-level HTML (<br>, <p>, <li>, ...) into line breaks BEFORE
+    # stripping the rest, then render one bullet per inference — rather than collapsing into one giant blob.
+    raw <- unlist(st[idx])
+    raw <- gsub("<br ?/?>|</p>|<p[^>]*>|</div>|</li>|<li[^>]*>", "\n", raw, ignore.case = TRUE)
+    txt <- gsub("<[^>]+>", "", raw)
+    txt <- unlist(strsplit(txt, "\n", fixed = TRUE))
+    txt <- trimws(txt[nzchar(trimws(txt))])
+    if (!length(txt)) return(NULL)
+    paste(paste0("•  ", txt), collapse = "\n")
+  }
+  .doea_optimal_df <- function(m) {
+    ca <- .doea_res()$results[[m]]$Model_Metrics$Canonical_Analysis; if (is.null(ca) || is.null(ca$xs)) return(NULL)
+    real <- tryCatch(.doea_res()$models[[m]]$realnames, error = function(e) NULL)
+    d <- data.frame(Factor = names(ca$xs), Coded = round(as.vector(ca$xs), 4), check.names = FALSE, stringsAsFactors = FALSE)
+    if (!is.null(real) && length(real) == nrow(d)) d[[i18n_r()$t("Factor Name")]] <- real
+    if (!is.null(ca$xs_decoded)) d$Decoded <- round(as.vector(ca$xs_decoded), 4)
+    names(d)[names(d) == "Factor"] <- i18n_r()$t("Factor"); names(d)[names(d) == "Coded"] <- i18n_r()$t("Coded Value")
+    names(d)[names(d) == "Decoded"] <- i18n_r()$t("Decoded Value"); d
+  }
+  .doea_ca <- function(m) tryCatch(.doea_res()$results[[m]]$Model_Metrics$Canonical_Analysis, error = function(e) NULL)
+  # Nature of the stationary point from the eigenvalue signs — mirrors the app (all neg -> Maximum, all pos ->
+  # Minimum, else Saddle Point) with the app's colour coding (green / blue / amber).
+  .doea_verdict <- function(ca) {
+    ev <- ca$eigen$values
+    if (all(ev < 0)) list(type = i18n_r()$t("Maximum"), col = "#2e7d32", signs = i18n_r()$t("all eigenvalues negative"))
+    else if (all(ev > 0)) list(type = i18n_r()$t("Minimum"), col = "#1565c0", signs = i18n_r()$t("all eigenvalues positive"))
+    else list(type = i18n_r()$t("Saddle Point"), col = "#f9a825", signs = i18n_r()$t("mixed eigenvalue signs"))
+  }
+  # Eigenvalues table WITH the Sign column (Positive/Negative/Zero), as on-screen; .doea_eigen_fill returns the
+  # matching per-cell green/red/yellow background matrix (#d4edda / #f8d7da / #fff3cd) for the Sign column.
+  .doea_eigen_df <- function(m) {
+    ca <- .doea_ca(m); if (is.null(ca) || is.null(ca$eigen) || is.null(ca$eigen$values)) return(NULL)
+    ev <- ca$eigen$values
+    sgn <- ifelse(ev > 0, i18n_r()$t("Positive (+)"), ifelse(ev < 0, i18n_r()$t("Negative (-)"), i18n_r()$t("Zero (0)")))
+    d <- data.frame(Factor = names(ca$xs), Eigenvalue = round(ev, 6), Sign = sgn, check.names = FALSE, stringsAsFactors = FALSE)
+    names(d) <- c(i18n_r()$t("Factor"), i18n_r()$t("Eigenvalue"), i18n_r()$t("Sign")); d
+  }
+  .doea_eigen_fill <- function(m) {
+    ca <- .doea_ca(m); if (is.null(ca) || is.null(ca$eigen$values)) return(NULL)
+    ev <- ca$eigen$values; fill <- matrix("", length(ev), 3)
+    fill[, 3] <- ifelse(ev > 0, "#d4edda", ifelse(ev < 0, "#f8d7da", "#fff3cd")); fill
+  }
+  # Optimization-methods summary (Method | Description & Results) — mirrors the on-screen comparison table:
+  # canonical analysis (purpose/best-for + verdict @ predicted response) and traditional optimisation (min/max).
+  .doea_methods_df <- function(m) {
+    ca <- .doea_ca(m); to <- tryCatch(.doea_res()$results[[m]]$Model_Metrics$Trad_Opt, error = function(e) NULL)
+    can_desc <- if (!is.null(ca)) { v <- .doea_verdict(ca)
+      paste0(i18n_r()$t("Purpose:"), " ", i18n_r()$t("Finds stationary point via eigenvalue decomposition"), ". ",
+             i18n_r()$t("Best for:"), " ", i18n_r()$t("Quadratic models (order = 2)"), ". ",
+             i18n_r()$t("Result:"), " ", v$type, " ", i18n_r()$t("at response ="), " ", rp_num(ca$predicted, 4))
+    } else i18n_r()$t("Not available (requires quadratic model)")
+    trad_desc <- if (!is.null(to) && !is.null(to$coded)) {
+      cd <- to$coded; rv <- analysis_results$response_var
+      mn <- suppressWarnings(as.numeric(cd[[rv]][1])); mx <- suppressWarnings(as.numeric(cd[[rv]][2]))
+      paste0(i18n_r()$t("Purpose:"), " ", i18n_r()$t("Finds min/max via numerical optimization (L-BFGS-B)"), ". ",
+             i18n_r()$t("Best for:"), " ", i18n_r()$t("All model types (linear, interaction, quadratic)"), ". ",
+             i18n_r()$t("Results:"), " ", i18n_r()$t("Minimum"), " = ", rp_num(mn, 4), "; ", i18n_r()$t("Maximum"), " = ", rp_num(mx, 4))
+    } else i18n_r()$t("Not available")
+    d <- data.frame(Method = c(i18n_r()$t("Canonical Analysis"), i18n_r()$t("Traditional Optimization")),
+                    Desc = c(can_desc, trad_desc), check.names = FALSE, stringsAsFactors = FALSE)
+    names(d) <- c(i18n_r()$t("Method"), i18n_r()$t("Description & Results")); d
+  }
+  .doea_minmax_df <- function(m) {
+    to <- .doea_res()$results[[m]]$Model_Metrics$Trad_Opt; if (is.null(to) || is.null(to$coded)) return(NULL)
+    cd <- as.data.frame(to$coded, check.names = FALSE)
+    cd <- cbind(data.frame(Type = c(i18n_r()$t("Minimum"), i18n_r()$t("Maximum"))[seq_len(nrow(cd))], check.names = FALSE), cd)
+    names(cd)[1] <- i18n_r()$t("Type"); .doea_num(cd)
+  }
+  .doea_eq <- function(m) tryCatch(.doea_res()$results[[m]]$Misc$Equation[["raw"]], error = function(e) NULL)
+  .doea_plots <- function(m) {   # translated ggplots, for the 2-column diagnostic grid
+    pl <- .doea_res()$plots[[m]]; if (is.null(pl) || !length(pl)) return(list())
+    out <- list()
+    for (nm in names(pl)) { g <- pl[[nm]]; if (inherits(g, "ggplot")) out[[length(out) + 1L]] <- .doea_tr_plot(g) }
+    out
+  }
+  .doea_model_sections <- function(m, label) {
+    secs <- list(list(title = label, context = .doea_summary_kv(m), kpis = .doea_kpis(m)))
+    eq <- .doea_eq(m); if (!is.null(eq) && nzchar(eq)) {
+      # Proper math notation (plotmath): strip any leading "Y =" so only the RHS is parsed into wrapped lines.
+      rhs <- trimws(sub("^\\s*[A-Za-z0-9_.]+\\s*=\\s*", "", eq))
+      mlines <- rp_eq_to_plotmath(analysis_results$response_var %||% "Y", rhs)
+      if (length(mlines)) secs <- c(secs, list(list(title = i18n_r()$t("Model equation"), math = mlines, math_size = 12)))
+    }
+    if (!is.null(.doea_coef_df(m)) && nrow(.doea_coef_df(m)))
+      secs <- c(secs, list(list(title = i18n_r()$t("Model coefficients"), table = .doea_coef_df(m), digits = 4)))
+    # Optimization results — STRUCTURED like the on-screen output (not the raw source-code statements):
+    #   (1) methods-summary table, (2) canonical stationary point = predicted + colour-coded NATURE badges +
+    #   optimal conditions + eigenvalues with the colour-coded Sign column, (3) traditional min/max, (4) steepest.
+    ca <- .doea_ca(m)
+    to <- tryCatch(.doea_res()$results[[m]]$Model_Metrics$Trad_Opt, error = function(e) NULL)
+    sa <- tryCatch(.doea_res()$results[[m]]$Model_Metrics$Steepest_Ascent, error = function(e) NULL)
+    msum <- .doea_methods_df(m)
+    if (!is.null(msum) && nrow(msum))
+      secs <- c(secs, list(list(title = i18n_r()$t("Optimization methods summary"), table = msum, col_frac = c(0.24, 0.76))))
+    if (!is.null(ca)) {
+      v <- .doea_verdict(ca)
+      kpis <- list(
+        list(label = paste0(i18n_r()$t("Predicted"), " ", analysis_results$response_var %||% "Y"),
+             value = rp_num(ca$predicted, 4), sub = i18n_r()$t("at stationary point"), color = "#3c8dbc"),
+        list(label = i18n_r()$t("Nature of stationary point"), value = v$type, sub = v$signs, color = v$col))
+      secs <- c(secs, list(list(title = i18n_r()$t("Stationary point (canonical analysis)"), kpis = kpis)))
+      od <- .doea_optimal_df(m); if (!is.null(od) && nrow(od))
+        secs <- c(secs, list(list(title = i18n_r()$t("Optimal conditions (stationary point)"), table = od, digits = 4)))
+      ed <- .doea_eigen_df(m); if (!is.null(ed) && nrow(ed))
+        secs <- c(secs, list(list(title = i18n_r()$t("Eigenvalues"), table = ed, digits = 6, cell_fill = .doea_eigen_fill(m))))
+    }
+    mm <- .doea_minmax_df(m); if (!is.null(mm) && nrow(mm))
+      secs <- c(secs, list(list(title = i18n_r()$t("Traditional optimization (min / max)"), table = mm, digits = 4)))
+    if (!is.null(sa) && is.data.frame(sa) && nrow(sa))
+      secs <- c(secs, list(list(title = i18n_r()$t("Steepest ascent path"), table = .doea_num(sa), digits = 4)))
+    # Diagnostics FULL-WIDTH (one per row) — bar/Pareto charts and faceted response plots are unreadable and
+    # title-clipped in a 2-column grid; full width also de-crowds the x-axis. Each ggplot keeps its own title.
+    pg <- .doea_plots(m)
+    if (length(pg)) secs <- c(secs, list(list(title = i18n_r()$t("Diagnostic plots"),
+      plots = lapply(pg, function(g) list(plot = g, title = NULL, height = 3.0)))))
+    md <- .doea_num(.doea_res()$results[[m]]$Model_Data)
+    if (!is.null(md) && nrow(md)) secs <- c(secs, list(list(title = i18n_r()$t("Model data"), table = md, digits = 4)))
+    secs
+  }
+  output$export_pdf <- downloadHandler(
+    filename = function() paste0(generate_filename_with_timestamp("supercrit_doe_analysis_report"), ".pdf"),
+    content = function(file) {
+      req(.doea_res())
+      pid <- showNotification(i18n$t("Preparing export..."), type = "message", duration = NULL); on.exit(removeNotification(pid), add = TRUE)
+      tryCatch({
+        logo <- if (file.exists("www/altraflora-15-min.png")) "www/altraflora-15-min.png" else NULL
+        ver  <- tryCatch(paste0("supeRcrit v", as.character(utils::packageVersion("supeRcrit"))), error = function(e) "supeRcrit")
+        secs <- c(.doea_model_sections("initial", i18n_r()$t("Initial Model")),
+                  .doea_model_sections("final", i18n_r()$t("Final Model")))
+        export <- list(title = i18n_r()$t("DOE Analysis — Report"),
+          intro = i18n_r()$t("Response-surface analysis: initial and final models with diagnostics and optimisation."),
+          sections = secs)
+        build_module_pdf_report(export, i18n_r(), file, company = ver, logo = logo)
+      }, error = function(e) showNotification(paste(i18n$t("Error exporting plots:"), e$message), type = "error", duration = 8))
+    })
+  output$export_csv <- downloadHandler(
+    filename = function() paste0(generate_filename_with_timestamp("supercrit_doe_analysis_results"), ".csv"),
+    content = function(file) {
+      con <- file(file, "wb"); on.exit(close(con), add = TRUE); writeBin(as.raw(c(0xEF, 0xBB, 0xBF)), con)
+      wblock <- function(title, df) { if (is.null(df) || !nrow(df)) return(invisible())
+        writeBin(charToRaw(enc2utf8(paste0('"', gsub('"', '""', title), '"\r\n'))), con)
+        tmp <- tempfile(fileext = ".csv"); on.exit(unlink(tmp), add = TRUE)
+        utils::write.csv(df, tmp, row.names = FALSE, na = "", fileEncoding = "UTF-8")
+        writeBin(readBin(tmp, "raw", n = file.info(tmp)$size), con); writeBin(charToRaw("\r\n"), con) }
+      for (m in c("initial", "final")) {
+        lbl <- if (m == "initial") i18n_r()$t("Initial Model") else i18n_r()$t("Final Model")
+        wblock(paste0(lbl, " — ", i18n_r()$t("Model coefficients")), .doea_coef_df(m))
+        wblock(paste0(lbl, " — ", i18n_r()$t("Optimal conditions (stationary point)")), .doea_optimal_df(m))
+        wblock(paste0(lbl, " — ", i18n_r()$t("Eigenvalues")), .doea_eigen_df(m))
+        wblock(paste0(lbl, " — ", i18n_r()$t("Min / Max comparison")), .doea_minmax_df(m))
+        wblock(paste0(lbl, " — ", i18n_r()$t("Model data")), .doea_num(.doea_res()$results[[m]]$Model_Data))
+      }
+    }, contentType = "text/csv")
+
   output$export_all_results <- downloadHandler(
     filename = function() {
       paste0(generate_filename_with_timestamp("supercrit_doe_analysis_results"), ".zip")

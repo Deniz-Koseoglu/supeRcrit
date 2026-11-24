@@ -1,11 +1,8 @@
 # Helper functions for saving and loading GCM calculations
 
-# Storage path
+# Storage path (writable per-user dir; the installed package dir is read-only when hosted)
 get_gcm_storage_dir <- function() {
-  file.path(
-    system.file(package = "supeRcrit"),
-    "shiny-app", "config", "user-settings", "sfe_gcm_calculations"
-  )
+  supercrit_user_dir(file.path("user-settings", "sfe_gcm_calculations"))
 }
 
 # Dosya adı oluştur (timestamp ile)

@@ -32,802 +32,6 @@ show_gcm <- function() {
   gcm_opts
 }
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#FUNCTION: Match SMARTS substrings
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#' @title Identify GCM groups in a molecule
-#'
-#' @description Part of the \code{\link{sfe_mod}} workflow. Identifies GCM groups in a solute provided SMARTS substrings.
-#'
-#' @param solute Molecular descriptors and MOL file output from function \code{\link{mol_find}}.
-#' @param method The GCM method to use as a character string. One of:
-#' Joback & Reid (\code{"JR"}), Stein & Brown (\code{"SB"}), their corrected counterparts (\code{"JR_corr"} and \code{"SB_corr"}),
-#' Nannoolal (2004; \code{"NL04"}), Nannoolal (2007; \code{"NL07"}) and its robust counterpart (\code{"NL07_robust"},
-#' Stefanis & Panayiotou (2008 and 2012; \code{"SP08"} and \code{"SP12"}, respectively),
-#' Hukkerikar (2012; \code{"HKR_STW"} and \code{"HKR_SIM"}),
-#' Zhao (2003; \code{"ZHAO"}), Bondi (1964; \code{"BND"}), and Slonimskii (1970; \code{"SLON"}).
-#' See \code{\link{est_gcm}} for details.
-#' @param gorder A \code{numeric} value denoting the maximum order of groups to be considered. Defaults to \code{0}, which
-#' considers all available group orders.
-#' @param simplicity A \code{character} string indicating the level of fragmentation simplicity. One of:
-#' \code{"simple"} (overlapping patterns are allowed), \code{"normal"} (overlaps not allowed with the first fragmentation accepted),
-#' or \code{"complex"} (overlaps not allowed with every possible fragmentation pattern computed).
-#' When set to \code{"auto"} (default), selects the most appropriate simplicity level based on \code{method}.
-#' @param tlim A single \code{numeric} value setting the time limit (in seconds) of fragmentation iterations
-#' when \code{simplicity} is set to \code{"complex"}. Exceeding the time limit without completing fragmentation
-#' results in an error. Computing all possible fragmentation patterns for some molecules may take an impractically
-#' long time.
-#' @param silent Should console output be silenced? Defaults to \code{FALSE}).
-#'
-#' @return A \code{data.frame} of all GCM group contributions for the chosen \code{method} (\code{$contrib_data}),
-#' corresponding SMARTS strings (\code{$smarts_data}), group occurrences in the input molecule (\code{$occurrences}),
-#' and additional settings (\code{$method} and \code{$simplicity}). Also included is a \code{data.frame} of atom indices for
-#' each group match (\code{$atoms}), and the function \code{call}.
-#' @export
-#'
-#' @examples
-#' mol <- mol_find(c("CC1=CCC(CC1)C(=C)C", "5989-54-8", "Limonene"))
-#' res <- sub_smarts(mol, "JR")
-#'
-#' @seealso \code{\link{mol_find}}, \code{\link{sfe_mod}}, \code{\link{est_gcm}}
-#'
-#' @importFrom rcdk get.fingerprint matches
-#' @importFrom dplyr bind_rows group_split group_by_all mutate_all mutate
-#' @importFrom data.table rbindlist
-#' @importFrom tidyr unnest
-#' @importFrom tibble as_tibble
-#' @importFrom purrr map pluck
-#' @importFrom utils combn
-#' @importFrom magrittr "%>%"
-sub_smarts <- function(solute, method, gorder = 0, simplicity = "auto", tlim = 20, silent = FALSE) {
-
-  #Preliminary checks
-  if(!is.list(solute) | !all(c("IDs","Molfile") %in% names(solute))) stop("The solute argument must be a list output from function 'mol_find' containing at least 'IDs' and 'Molfile'!")
-  defmethods <- c("JR", "JR_corr", "SB", "SB_corr", "NL04", "NL07", "NL07_robust", "SP08", "SP12",
-                  "HKR_STW", "HKR_SIM", "ZHAO", "BND", "SLON")
-  defsim <- c("auto", "simple", "normal", "complex")
-  if(!any(defsim %in% simplicity)) stop(paste0("Fragmentation 'simplicity' must be one of: ", paste0("'", defsim, "'", collapse = ", "), "!"))
-  if(!any(method %in% defmethods)) stop(paste0("Method ('method') not recognized. Possible values are:" , paste0("'", defmethods, "'", collapse = ", "), "!"))
-  if(!is.numeric(gorder)) gorder <- 0 else if(gorder > 3 | gorder < 0) stop("The maximum group order `gorder` must be less than or equal to 3!")
-
-  #Determine 'simplicity' automatically
-  if(any(simplicity %in% "auto")) simplicity <- if(any(grepl("^HKR_", method))) "normal" else "simple"
-
-  #Unpacking solute identifiers and getting basic descriptors
-  solute_desc <- solute[["IDs"]]
-  solute_mol <- solute[["Molfile"]]
-  atom_count <- as.numeric(solute_desc["Atom_Count"])
-  is_arom <- as.logical(solute_desc[["Aromaticity"]])
-  atoms <- get.atoms(solute_mol)
-  atom_inds <- sapply(atoms, get.atom.index, mol = solute_mol)
-  atom_masses <- setNames(sapply(atoms, function(x) {res <- get.atomic.number(x); ifelse(res==1, res, res*2)}),
-                          atom_inds)
-  arom_sans <- which(sapply(atoms, is.aromatic))
-  arom_H <- which(eval.atomic.desc(solute_mol, which.desc = c("org.openscience.cdk.qsar.descriptors.atomic.IsProtonInAromaticSystemDescriptor",
-                                                              "org.openscience.cdk.qsar.descriptors.atomic.VdWRadiusDescriptor"))[,1]==1)-1
-  arom_atoms <- c(arom_sans, arom_H)
-
-  #Determine the filenames to be loaded
-  loadtext <- c(rep("JR_1987",2), rep("SB_1994",2), rep("NL_2004_2007",3), "SP_2008", "SP_2012",
-                "HKR_2012_STW", "HKR_2012_SIM", "ZHAO_2003", "BND_1964", "SLON_1970")
-  loadtext <- loadtext[which(defmethods %in% method)]
-
-  #Load data
-  gcm_df <- gcm_cnt[[paste0(loadtext, "_cnt")]]
-  gcm_df <- gcm_df[!gcm_df[,"SMARTS"]=="Excluded",]
-  gcm_smartstr <- gcm_smarts[[paste0(gsub("_STW|_SIM", "", loadtext), "_SMARTS")]][1:2]
-  all_grps <- gcm_smartstr[,grepl("^ID$", colnames(gcm_smartstr))]
-
-  #Format data to include group order and remove unevaluated group order(s)
-  multiorder_chk <- "Type" %in% colnames(gcm_df)
-  if(gorder==0 & multiorder_chk) gorder <- max(gcm_df[,"Type"], na.rm =TRUE)
-  if(!multiorder_chk) gcm_df[,"Type"] <- 1 else {
-    gcm_smartstr <- gcm_smartstr[which(gcm_smartstr[,"ID"] %in% gcm_df[gcm_df[,"Type"] %in% 1:gorder,"ID"] |
-                                         !gcm_smartstr[,"ID"] %in% gcm_df[,"ID"]),]
-    gcm_df <- gcm_df[gcm_df[,"Type"] %in% 1:gorder,]
-  }
-
-  #Substructure matching from the SMARTS file
-  atomlst <- subst <- list()
-  occr <- setNames(rep(0, length(all_grps)), all_grps) #Vector of occurrences
-
-  #Get all matches
-  for(i in seq(nrow(gcm_smartstr))) {
-    subname <- as.character(gcm_smartstr[i,"ID"])
-    subst[[subname]] <- this_sub <- rcdk::matches(gcm_smartstr[i,"SMARTS"], solute_mol, return.matches = TRUE)[[1]]
-    occr[subname] <- length(this_sub[["mapping"]])
-
-    #subst[[subname]] <- rcdk::get.fingerprint(solute_mol, type='substructure',
-    #                                          fp.mode='count', substructure.pattern = gcm_smartstr[i,"SMARTS"])
-    #occr[subname] <- as.numeric(gsub("^[^:]*:", "", subst[[subname]]@features[[1]]))
-
-  }
-
-    #Evaluate each group order separately. INCOMPLETE overlaps are only allowed for higher-order groups!
-    for(j in sort(unique(gcm_df[,"Type"]))) {
-      if(!silent) cat("\nWorking on groups of order: ", j, "...")
-      atomdf <- setNames(as.data.frame(matrix(ncol = 3, nrow = 0)), c("Order", "ID", "Atom_1"))    #List of matched atoms
-      order_inds <- which(gcm_smartstr[,"ID"] %in% gcm_df[gcm_df[,"Type"]==j,"ID"])
-
-      for(i in gcm_smartstr[order_inds,"ID"]) {
-        #subst <- rcdk::get.fingerprint(solute_mol, type='substructure', fp.mode='count', substructure.pattern = smartpatt)
-        #occr[as.character(i)] <- as.numeric(gsub("^[^:]*:", "", subst@features[[1]]))
-
-        #Get ALL matching atom vectors and their occurrences
-        this_sub <- subst[[as.character(i)]]
-        if(this_sub[["match"]]) {
-          submap <- this_sub[["mapping"]]
-          cursub <- sapply(submap, "length<-", max(lengths(submap)))
-          if(!all(lengths(submap)==1)) cursub <- t(cursub)
-          newmatch <- cbind.data.frame(rep(j, length(submap)), rep(i, length(submap)), cursub)
-          #names(newmatch) <- names(atomdf)
-          atomdf <- rbindlist(list(atomdf, newmatch), use.names = FALSE, fill = TRUE)
-        } else occr[as.character(i)] <- 0
-      }
-      atomdf <- setNames(as.data.frame(atomdf), c("Order", "ID", paste0("Atom_", 1:(ncol(atomdf)-2))))
-      unique_groups <- sort(unique(atomdf[,"ID"]))
-
-      if(j==1 & simplicity != "simple") {
-
-        #Check if there is any duplication in atom assignments (there may not be)
-        dupl_atoms <- unlist(atomdf[,!colnames(atomdf) %in% "ID"], use.names = FALSE)
-        any_dupl <- any(duplicated(dupl_atoms, incomparables = NA))
-        which_best <- table(atomdf[,"ID"]) #The DEFAULT which_best object
-
-        if(any_dupl) {
-          if(!silent) cat("\nDuplications found in atom assignments. Attempting to select the best fragmentation pattern...")
-        if(simplicity == "complex") {
-          #Checks for first-order groups (NO OVERLAP ALLOWED)
-          unique_atoms <- as.vector(na.omit(unique(dupl_atoms)))
-          unique_atom_count <- length(unique_atoms)
-
-            #Compute combined matrix of all possible match combinations
-            #Shameless hack to retain group ID's
-            k_rng <- length(unique(atomdf[,"ID"])):min(c(nrow(atomdf), atom_count)) #max(apply(atomdf, 1, function(x) length(which(!is.na(x[-1])))))
-            atom_copy <- atomdf
-            atom_copy[is.na(atom_copy)] <- -1
-            atom_copy[,-1] <- t(sapply(1:nrow(atom_copy), function(x) paste0(atom_copy[x,"ID"], "_", x, ";", atom_copy[x,-1])))
-
-            good_match <- FALSE
-            i <- 1
-            prev_match <- prev_diff <- c()
-            rows <- atom_copy[-c(1:2)] %>% group_by_all %>% group_split()
-
-            while(!good_match) {
-
-              cat(if(i>1) "\r" else "\n", "Working on match combination ", i, " out of ", length(k_rng), " (", k_rng[i], " atoms at a time)...", sep = "")
-              active_k <- k_rng[i]
-
-              #Set for loop time limit for complex fragmentation (in seconds)
-              time_limit <- tlim
-
-              setTimeLimit(cpu = time_limit, elapsed = time_limit, transient = TRUE)
-              on.exit({
-                setTimeLimit(cpu = Inf, elapsed = Inf, transient = FALSE)
-              })
-
-              tryCatch({
-
-                atom_combos <- t(combn(x = 1:nrow(atom_copy), m = active_k))
-                colnames(atom_combos) <- paste0("Atom_", seq(1,active_k,1))
-                atom_combos <- atom_combos %>%
-                  as_tibble(.name_repair = "minimal") %>%
-                  mutate_all(~ map(., ~ pluck(rows, .x))) %>%
-                  unnest(cols = paste0("Atom_",seq(1,active_k,1)), names_sep = "_") %>%
-                  mutate_all(list(ID = ~ gsub(";.*", "", .))) %>%
-                  mutate_all(list(~ gsub(".*;","",.)))
-
-              }, error = function(cond) {
-                cat("\n")
-                stop(simpleError("Time limit reached for complex fragmentation... Try setting argument 'simplicity' to 'normal' or 'simple'!"))
-              })
-
-              id_patt <- grep(".*_ID$", colnames(atom_combos))
-
-              #Get atom number sums
-              matched_atoms <- atom_combos[,-id_patt]
-              matched_atoms <- apply(matched_atoms, 1:2, as.numeric)
-              matched_atoms[matched_atoms==-1] <- NA
-
-              #Correct matched group IDs to remove NAs
-              matched_groups <- atom_combos[,id_patt]
-              matched_groups[is.na(matched_atoms)] <- NA
-
-              matched_atoms <- apply(matched_atoms, 1, function(x) if(!any(duplicated(x, incomparables = NA))) length(unique(na.omit(x))) else 0)
-
-              #Calculate the difference between unique matched atoms between this and previous iteration
-              max_match <- prev_match[i] <- max(matched_atoms)
-              if(i>1) prev_diff <- c(prev_diff, max_match-prev_match[i-1])
-
-              #Check if all atoms of the molecule were completely matched
-              if(max_match<unique_atom_count & i<length(k_rng) & if(i<3) TRUE else !all(prev_diff[c(i-1,i-2)]==0)) { #If not, move on to the next iteration
-                i <- i+1
-                next
-              } else {
-                if(!silent) cat("\nCorrect match found. Proceeding...")
-
-                #Retrieve sequence of groups from each row
-                which_complete <- which(matched_atoms==max_match)
-                group_rle <- apply(matched_groups[which_complete,], 1, function(x) rle(x[!is.na(x)]))
-                group_rle <- lapply(group_rle, function(x) sort(unname(x[["values"]])))
-                group_rle <- group_rle[!duplicated(group_rle)]
-                group_counts <- lapply(group_rle, function(x) table(gsub("_.*", "", x)))
-
-                mt_atoms <- lapply(group_rle, function(x) {
-                  res <- atomdf[as.numeric(gsub(".*_","",x)),]
-                  res <- lapply(split(res[,!colnames(res) %in% "ID"], x), function(y) res <- unlist(y, use.names = FALSE))
-                  res <- setNames(unlist(res, use.names = FALSE), rep(names(res), lengths(res)))
-                  res <- res[!is.na(res)]
-                })
-
-                #If more than one complete match is present, ascertain the best one
-                if(length(group_counts)>1) {
-
-                  grading <- setNames(as.data.frame(matrix(0, ncol = 4, nrow = length(group_counts))), c("match", "grp", "numgrp", "arom_override"))
-
-                  #Check mass condition (heavier groups = better)
-                  if(!silent) cat("\nApplying mass condition...")
-                    mass_matches <- lapply(mt_atoms, function(x) {
-                      atoms_in_x <- atom_masses[match(x, names(atom_masses))]
-                      matchres <- tapply(atoms_in_x, names(x), sum, na.rm = TRUE)
-                      maxmatch <- sum(sort(matchres, decreasing = TRUE)[1:2])
-                      names(x) <- gsub("_.*", "", names(x))
-                      grpres <- tapply(atoms_in_x, names(x), sum, na.rm = TRUE)
-                      maxgrp <- max(grpres)
-                      numgrp <- length(unique(names(x)))
-                      return(c(maxmatch, maxgrp, numgrp))
-                    })
-
-                    #Global definitions to prevent devtools::check() from complaining
-                    utils::globalVariables(c("grp", "numgrp"))
-
-                    mass_matches <- setNames(Reduce(rbind.data.frame, mass_matches), c("match", "grp", "numgrp"))
-                    grading[,1:3] <- apply(mass_matches %>% mutate(match = match==max(match, na.rm = TRUE), #Greatest mass matched by the top 2 matches
-                                                                   grp = grp==max(grp, na.rm = TRUE), #Greatest mass matched by top 2 GROUPS
-                                                                   numgrp = numgrp==min(numgrp,na.rm = TRUE)), 1:2, as.numeric) #Fewest number of total groups
-
-                  #Check for aromaticity condition (aromatic substituents = aromatic groups) - TAKES PRECEDENCE OVER MASS CONDITION
-                  if(grepl("^HKR.*", method) & is_arom) {
-                    if(!silent) cat("\nApplying aromaticity condition (currently only for Hukkerikar methods...")
-
-                    #Count the percentage of aromatic atoms matched by aromatic groups
-                    arom_matches <- sapply(mt_atoms, function(x) {
-                      res <- x[which(x %in% arom_atoms)]
-                      grpnums <- as.numeric(gsub("_.*", "", names(res)))
-                      mean(gcm_df[gcm_df[,"ID"] %in% unique(grpnums),"Aromatic"]=="Y", na.rm = TRUE)
-                    })
-                    grading[,4] <- as.numeric(arom_matches==max(arom_matches))
-
-                  } else if(!is_arom & !silent) cat("\nAromaticity condition was not applied since there are no aromatic atoms in the molecule.")
-
-                  #Finally, select groups based on total number of points
-                  if(any(grading[,4]!=0)) {
-                    which_arom <- which(grading[,4]==1)
-                    rowsums_arom <- rowSums(grading[which_arom,])
-                    best_ind <- as.numeric(rownames(grading[which_arom,])[which.max(rowsums_arom)])
-                    which_best <- group_counts[[best_ind]]
-                  } else which_best <- group_counts[[which.max(rowSums(grading))]]
-
-
-                } else if(length(group_counts)==1) {
-                  if(!silent) cat("\nFragmentation pattern checks were skipped since only one possible pattern was identified.")
-                  which_best <- group_counts[[1]]
-                }
-
-                }
-                good_match <- TRUE
-              }
-
-          } else if(simplicity == "normal") {
-
-          #For standard simplicity of fragmentation
-          #List of exceptions
-          ovex <- c(830,831,856)
-
-          #Retrieve mapping values and group numbers (as element names) from 'subst'
-          subst_whole <- lapply(subst[sapply(subst, function(x) x[["match"]])], function(y) y[["mapping"]])
-          subst_nms <- unlist(sapply(seq_along(subst_whole), function(x) rep(names(subst_whole)[x], length(subst_whole[[x]]))))
-          subst_fl <- setNames(unlist(subst_whole, recursive = FALSE, use.names = FALSE), subst_nms)
-          subst_fl <- subst_fl[names(subst_fl) %in% gcm_smartstr[order_inds,"ID"] & !names(subst_fl) %in% ovex]
-          keep_inds <- c()
-
-          for(i in seq_along(subst_fl)) {
-            curgrp <- subst_fl[[i]]
-            duplmatches <- sapply(seq_along(subst_fl), function(x) any(curgrp %in% subst_fl[[x]]))
-
-            if(!any(duplmatches)) {
-              keep_inds <- c(keep_inds, i)
-              next
-            } else {
-              duplinds <- which(duplmatches)
-              dupls <- subst_fl[duplmatches]
-              aromvec <- massvec <- rep(FALSE, length(duplinds))
-              initvec <- !aromvec
-
-              #Aromaticity check
-              if(grepl("^HKR.*", method) & is_arom) {
-                arom_matches <- sapply(dupls, function(x) any(x %in% arom_atoms))
-                arom_grps <- names(dupls) %in% gcm_df[gcm_df[,"Aromatic"] == "Y","ID"]
-                arom_scores <- sapply(dupls, function(x) {
-                  res <- length(which(x %in% arom_atoms))/length(x)
-                  if(length(res)==0) res <- 0
-                  return(res)
-                })
-                arom_keep <- arom_grps & arom_matches & (arom_scores == max(arom_scores, na.rm = TRUE))
-                if(length(arom_keep)==1) aromvec <- !arom_keep else if(any(arom_keep)) aromvec <- arom_matches & !arom_grps
-              }
-
-              #Number of atoms and mass checks
-              if(length(which(aromvec))!=1) {
-                match_nums <- lengths(dupls)
-                match_masses <- sapply(dupls, function(x) sum(atom_masses[names(atom_masses) %in% x], na.rm = TRUE))
-
-                massvec <- match_nums != max(match_nums)
-                if(length(which(massvec))!=1) massvec <- massvec & match_masses!=max(match_masses)
-              }
-
-              keepvec <- !aromvec & !massvec
-              if(length(which(keepvec))==0) keepvec <- initvec
-              keep_inds <- unique(c(keep_inds, duplinds[keepvec]))
-            }
-          }
-          atomdf <- atomdf[keep_inds,]
-          which_best <- table(atomdf[,"ID"])
-          }
-        }
-
-      } else if(j>1 & simplicity != "simple") {
-
-        #For higher-order groups (only COMPLETE OVERLAP is not allowed)
-        #The below also removes NAs
-        atomsplit <- lapply(split(atomdf[,grep("Atom_", colnames(atomdf))],
-                                  sort(as.numeric(rownames(atomdf)))), function(x) sort(unlist(unname(x)))) #[,grep("Atom_", colnames(atomdf))]
-
-        keep_inds <- c()
-
-        for(i in seq_along(atomsplit)) {
-          if(i %in% keep_inds) next
-          curgrp <- atomsplit[[i]]
-          duplmatches <- sapply(seq_along(atomsplit), function(x) any(curgrp %in% atomsplit[[x]]))
-
-          if(!any(duplmatches)) {
-            keep_inds <- c(keep_inds, i)
-            next
-          } else {
-            duplinds <- which(duplmatches)
-            dupls <- atomsplit[duplmatches]
-            initvec <- rep(TRUE, length(duplinds))
-
-            #Number of atoms and mass checks
-            match_nums <- lengths(dupls)
-            match_masses <- sapply(dupls, function(x) sum(atom_masses[names(atom_masses) %in% x], na.rm = TRUE))
-
-            massvec <- match_nums != max(match_nums)
-            if(length(which(massvec))!=1) massvec <- massvec & match_masses!=max(match_masses)
-
-            keepvec <- !massvec
-            if(length(which(keepvec))==0) keepvec <- initvec
-            keep_inds <- unique(c(keep_inds, duplinds[keepvec]))
-          }
-        }
-        atomdf <- atomdf[keep_inds,]
-        which_best <- table(atomdf[,"ID"])
-    }
-
-      #Correct matched atom data.frame and occurrences to account for removed groups
-      if(simplicity != "simple") {
-        missing_groups <- unique_groups[which(!unique_groups %in% names(which_best))]
-        occr[names(which_best)] <- which_best
-        occr[names(occr) %in% missing_groups] <- 0
-        atomlst[[j]] <- atomdf <- atomdf[!atomdf[,"ID"] %in% missing_groups,]
-      }
-    }
-  #Row-bind the list of matched atoms
-  atomres <- if(simplicity == "simple") atomdf else rbindlist(atomlst, use.names = TRUE, fill = TRUE)
-
-  #Final check for missing values in 'occr' to replace these with zeroes
-  occr[is.na(occr) | is.nan(occr)] <- 0
-
-  #Compile output data
-  output <- list(contrib_data = gcm_df, smarts_data = gcm_smartstr, atoms = atomres, occurrences = occr,
-                 method = method, simplicity = simplicity, call = match.call())
-  return(output)
-}
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#FUNCTION: Modify/Process SMARTS substrings matches to remove conflicts/double ids
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#' @title Modify/Process SMARTS substrings matches to remove conflicts
-#'
-#' @description Part of the \code{\link{sfe_mod}} workflow.
-#' \strong{This function manual is hidden from the Index}.
-#'
-#' @param occr The output of function \code{\link{sub_smarts}}.
-#'
-#' @return A \code{list} of all GCM groups and their contributions (\code{$contrib_data}),
-#' corresponding SMARTS strings (\code{$smarts_data}), a \strong{corrected} vector of \code{$occurrences},
-#' group \code{$interactions} (only relevant to certain GCMs), and the chosen \code{$method}.
-#'
-#' @export
-#' @keywords internal
-#'
-#' @seealso \code{\link{sub_smarts}}
-define_grps <- function(occr) {
-
-  #Preliminary checks
-  if(length(occr)!=7 | !all(c("contrib_data", "smarts_data", "atoms", "occurrences", "method", "simplicity", "call") %in% names(occr))) stop("Argument 'occr' must be output from the function 'sub_smarts'!")
-
-  #Unpack input data 'occr'
-  gcm_df <- occr[["contrib_data"]]
-  gcm_smartstr <- occr[["smarts_data"]]
-  method <- occr[["method"]]
-  simplicity <- occr[["simplicity"]]
-  inters <- paste0("Group interactions are not a part of the chosen method ('", method,"') and were not calculated.")
-  occ <- occr[["occurrences"]]
-
-  #Derive corrected occurrences by testing for alternatives, subtracting or adding other SMARTS matches
-  if(any(c("JR", "JR_corr") %in% method)) {
-
-    #ALTERNATIVES
-    occ["26"] <- max(occ[c("26", "261")], na.rm = TRUE)
-
-  } else if(any(c("SB", "SB_corr") %in% method)) {
-
-    #ALTERNATIVES
-    occ["54"] <- max(as.numeric(occ[c("54", "107")]), na.rm=TRUE)
-    occ["101"] <- max(as.numeric(occ[c("101", "108", "700")]), na.rm=TRUE)
-    occ["106"] <- max(as.numeric(occ[c("106", "109")]), na.rm=TRUE)
-    occ["700"] <- max(as.numeric(occ[c("700","7001")]), na.rm=TRUE)
-
-    #ADDITIONS
-    occ["3"] <- pmax(0, sum(as.numeric(occ[c("3", "704")]), na.rm = TRUE))
-    occ["23"] <- pmax(0, sum(as.numeric(occ[c("23", "700")]), na.rm = TRUE))
-    occ["24"] <- pmax(0, sum(as.numeric(occ[c("24", "305", "306")]), na.rm = TRUE))
-    occ["26"] <- pmax(0, sum(as.numeric(occ[c("26","310", "702", "705", "706")]), na.rm = TRUE))
-    occ["27"] <- pmax(0, sum(as.numeric(occ[c("27", "304", "308", "309", "703")]), na.rm = TRUE))
-    occ["28"] <- pmax(0, sum(as.numeric(occ[c("28", "311")]), na.rm = TRUE))
-    occ["29"] <- pmax(0, sum(as.numeric(occ[c("29", "303", "305", "308", "309", "310")], 2*occ["307"], 2*occ["705"]), na.rm = TRUE))
-    occ["30"] <- pmax(0, sum(as.numeric(occ[c("30", "306", "311")]), na.rm = TRUE))
-    occ["31"] <- pmax(0, sum(as.numeric(occ[c("31", "701")]), na.rm = TRUE))
-    occ["103"] <- pmax(0, sum(as.numeric(occ[c("103", "706")], 2*occ["703"]), na.rm = TRUE))
-
-    #SUBTRACTIONS
-    #None for this method (SB)
-
-  } else if(any(c("NL04", "NL07", "NL07_robust") %in% method)) {
-
-    #ALTERNATIVES
-    occ["4"] <- max(as.numeric(occ[c("4","400")]), na.rm=TRUE)
-    occ["5"] <- max(as.numeric(occ[c("5","500")]), na.rm=TRUE)
-    occ["6"] <- max(as.numeric(occ[c("6","600")]), na.rm=TRUE)
-    occ["8"] <- max(as.numeric(occ[c("8","800")]), na.rm=TRUE)
-    occ["9"] <- max(as.numeric(occ[c("9","900")]), na.rm=TRUE)
-    occ["10"] <- max(as.numeric(occ[c("10","1000")]), na.rm=TRUE)
-    occ["11"] <- max(as.numeric(occ[c("11","1100")]), na.rm=TRUE)
-    occ["58"] <- max(as.numeric(occ[c("58","580")]), na.rm=TRUE)
-    occ["59"] <- max(as.numeric(occ[c("59","590")]), na.rm=TRUE)
-    occ["60"] <- max(as.numeric(occ[c("60","601")]), na.rm=TRUE)
-    occ["62"] <- max(as.numeric(occ[c("62","620", "630")]), na.rm=TRUE)
-    occ["68"] <- max(as.numeric(occ[c("68","681")]), na.rm=TRUE)
-    occ["69"] <- max(as.numeric(occ[c("69", "691")]), na.rm=TRUE)
-    occ["72"] <- max(as.numeric(occ[c("72", "721", "70021")]), na.rm=TRUE)
-    occ["89"] <- max(as.numeric(occ[c("89", "8900")]), na.rm=TRUE)
-    occ["801"] <- max(as.numeric(occ[c("801","803")]), na.rm=TRUE)
-    occ["802"] <- max(as.numeric(occ[c("802","804")]), na.rm=TRUE)
-
-    #ADDITIONS
-    occ["1"] <- pmax(0, sum(as.numeric(c(occ[c("1", "7000")], 2*occ["7001"])), na.rm = TRUE))
-    occ["2"] <- pmax(0, sum(as.numeric(occ[c("2", "7002")]), na.rm = TRUE))
-    occ["7"] <- pmax(0, sum(as.numeric(occ[c("7", "703", "706","708","7007")]), na.rm = TRUE)) #"701", "702", "704", "705", and "707" excluded
-    occ["12"] <- pmax(0, sum(as.numeric(occ[c("12", "1201", "1202")]), na.rm = TRUE))
-    occ["13"] <- pmax(0, sum(as.numeric(occ[c("13", "1301", "1302", "1303",
-                                              "1304", "1305", "1306", "1307")]), na.rm = TRUE))
-    occ["14"] <- pmax(0, sum(as.numeric(occ[c("14", "1401", "1402")]), na.rm = TRUE))
-    occ["25"] <- pmax(0, sum(as.numeric(occ[c("25", "2501", "2502","2503")]), na.rm = TRUE))
-    occ["26"] <- pmax(0, 2*(sum(as.numeric(occ[c("26", "2601", "2602")]), na.rm = TRUE)))
-    occ["27"] <- pmax(0, 3*(sum(as.numeric(occ[c("27", "2701", "2702")]), na.rm = TRUE)))
-    occ["29"] <- pmax(0, sum(as.numeric(c(occ[c("29", "2902", "7005")], 2*occ["2901"])), na.rm = TRUE))
-    occ["34"] <- pmax(0, sum(as.numeric(c(occ[c("34", "3401")], 2*occ["7007"])), na.rm = TRUE))
-    occ["38"] <- pmax(0, sum(as.numeric(occ[c("38", "7002", "7009", "7010")]), na.rm = TRUE))
-    occ["39"] <- pmax(0, sum(as.numeric(occ[c("39", "3901", "3902", "3903",
-                                              "3904", "3905")]), na.rm = TRUE))
-    occ["44"] <- pmax(0, sum(as.numeric(occ[c("44", "7003", "7009")]), na.rm = TRUE))
-    occ["52"] <- pmax(0, sum(as.numeric(c(occ[c("52", "304", "7004")], 2*occ["7008"])), na.rm = TRUE))
-    occ["58"] <- pmax(0, sum(as.numeric(occ[c("58", "5801", "5802")]), na.rm = TRUE))
-    occ["59"] <- pmax(0, sum(as.numeric(occ[c("59", "5901", "5902", "5903")]), na.rm = TRUE))
-    occ["60"] <- pmax(0, sum(as.numeric(occ[c("60", "6001", "6002", "6003",
-                                              "6004", "6005", "6006", "6007",
-                                              "6008", "6009")]), na.rm = TRUE))
-    occ["61"] <- pmax(0, sum(as.numeric(occ[c("61", "6101", "6102")]), na.rm = TRUE))
-    occ["62"] <- pmax(0, sum(as.numeric(occ[c("62", "6201", "6202", "6203",
-                                              "6204", "6205", "7006")]), na.rm = TRUE))
-    occ["64"] <- pmax(0, sum(as.numeric(occ[c("64", "6401")]), na.rm = TRUE))
-    occ["72"] <- pmax(0, sum(as.numeric(occ[c("72", "7002")]), na.rm = TRUE))
-    occ["76"] <- pmax(0, sum(as.numeric(occ[c("76", "7601", "7602")]), na.rm = TRUE))
-    occ["77"] <- pmax(0, sum(as.numeric(occ[c("77", "7005", "7701")]), na.rm = TRUE))
-    occ["88"] <- pmax(0, sum(as.numeric(occ[c("88", "7006", "8801", "8802",
-                                              "8803", "8804", "8805", "8806",
-                                              "8807", "8808", "8809")]), na.rm = TRUE))
-    occ["89"] <- pmax(0, sum(as.numeric(occ[c("89", "8901", "8902", "8903",
-                                              "8904", "8905", "8906", "8907",
-                                              "8908", "8909", "8910", "8911",
-                                              "8912", "8913", "8914", "8915",
-                                              "8916", "8917", "8918", "8919")]), na.rm = TRUE))
-    occ["103"] <- pmax(0, sum(as.numeric(occ[c("103", "304", "7008")]), na.rm = TRUE))
-    occ["125"] <- pmax(0, sum(as.numeric(c(occ["125"], occ["1251"])), na.rm = TRUE))
-    occ["131"] <- pmax(0, sum(as.numeric(occ[c("131", "1311", "1312", "1313")]), na.rm = TRUE))
-    occ["132"] <- pmax(0, sum(as.numeric(occ[c("132", "1321")]), na.rm = TRUE))
-
-    #SUBTRACTIONS
-    occ["38"] <- pmax(0, occ["38"] - occ["65"])
-    occ["62"] <- pmax(0, occ["62"] - occ["96"])
-    occ["76"] <- pmax(0, occ["76"] - occ["96"])
-    occ["118"] <- pmax(0, occ["118"] - occ["1181"])
-
-    #SPECIAL CASES
-    occ["35"] <- if(occ["36"]==occ["3601"] & occ["36"]==occ["3602"] &
-                    occ["36"]==occ["3603"] & occ["36"]==occ["3604"] &
-                    occ["10000"]<=4) 0 else occ["36"]
-    occ["36"] <- if(occ["36"]==occ["3601"] & occ["36"]==occ["3602"] &
-                    occ["36"]==occ["3603"] & occ["36"]==occ["3604"] &
-                    occ["10000"]<=4) occ["36"] else 0
-    occ["123"] <- if(occ["123"]==1) 1 else 0
-    occ["124"] <- if(occ["124"]==1) 1 else 0
-    #occ["126"] <- occ["126"]
-    occ["127"] <- if(occ["127"]>0 & occ["128"]==0 & occ["129"]==0) 1 else 0
-    occ["128"] <- if(occ["127"]==0 & any(c(1,3) %in% occ["128"]) & occ["129"]==0) 1 else 0
-    occ["129"] <- if(occ["127"]==0 & occ["128"]==0 & occ["129"]==2) 1 else 0
-
-
-    #Calculate group interaction contributions
-    #Interacting groups
-    inters <- c()
-    inters["OH"] <- sum(as.numeric(occ[c("33","34","35","35","36","301")]), na.rm = TRUE) #Includes hydroperoxides
-    inters["OH_a"] <- occ["37"]
-    inters["COOH"] <- sum(as.numeric(occ[c("44","302")]), na.rm = TRUE)
-    inters["EtherO"] <- occ["38"]
-    inters["Epox"] <- occ["39"]
-    inters["Ester"] <- sum(as.numeric(occ[c("45","46","47","303")]), na.rm = TRUE)
-    inters["Ketone"] <- sum(as.numeric(occ[c("51","92")]), na.rm = TRUE)
-    inters["Alde"] <- sum(as.numeric(occ[c("52","90")]), na.rm = TRUE)
-    inters["AO"] <- occ["65"]
-    inters["Teth"] <- occ["54"]
-    inters["Ats"] <- occ["56"]
-    inters["SH"] <- occ["53"]
-    inters["NH2"] <- sum(as.numeric(occ[c("40","41")]), na.rm = TRUE)
-    inters["NH"] <- sum(as.numeric(occ[c("42","97")]), na.rm = TRUE)
-    inters["OCN"] <- occ["80"]
-    inters["CN"] <- occ["57"]
-    inters["Nitro"] <- occ["69"]
-    inters["AN5"] <- occ["66"]
-    inters["AN6"] <- occ["67"]
-
-  } else if(any(c("SP08", "SP12") %in% method)) {
-
-    sp12chk <- any(grepl("SP12", method))
-
-    #ALTERNATIVES
-    #None for these methods (SP08 and SP12)
-
-    #SPECIAL CASES
-    occ["31"] <- min(occ[c("31", "3001")], na.rm = TRUE)
-    occ["32"] <- min(c(occ["32"], occ["3001"]-occ["31"]), na.rm = TRUE)
-    if(sp12chk) occ["33"] <- min(c(occ["33"], occ["3001"]-occ["31"]-occ["32"]), na.rm = TRUE)
-    occ["34"] <- min(occ[c("34", "3002")], na.rm = TRUE)
-    occ["35"] <- min(c(occ["35"], occ["3002"]-occ["34"]), na.rm = TRUE)
-    #occ["830"] <- occ["830"]/5
-    #occ["831"] <- occ["831"]/6
-    #occ["856"] <- occ["856"]/3
-
-    #ADDITIONS
-    if(sp12chk) occ["13"] <- pmax(0, sum(occ[c("13", "1301")], na.rm = TRUE))
-    occ["14"] <- pmax(0, sum(occ[c("14", "301")], na.rm = TRUE))
-    occ["19"] <- pmax(0, sum(occ[c("19", "5301","308","703")]
-                             -sum(occ[c("1901", "1902", "1903")], na.rm=TRUE), na.rm=TRUE))
-    occ["20"] <- pmax(0, sum(occ[c("20","309", "310", "702", "705")], na.rm = TRUE))
-    occ["23"] <- pmax(0, sum(occ[c("23", "307", "310", "705")], na.rm = TRUE))
-    occ["42"] <- pmax(0, sum(occ[c("42", "302", "43")], na.rm = TRUE))
-
-    #SUBTRACTIONS
-    if(simplicity=="simple") {
-      occ["22"] <- pmax(0, sum(occ[c("22", "303", "306", "307", "308", "309", "705")]
-                               -sum(occ[c("2201","2202")], na.rm = TRUE), na.rm = TRUE))
-      occ["802"] <- pmax(0, sum(c(occ[c("802", "301", "302", "303", "304", "306")],
-                                  2*occ[c("305", "700")])
-                                -sum(occ[c("2501", "2502")], na.rm = TRUE), na.rm = TRUE))
-      occ["814"] <- pmax(0, occ["814"]-sum(occ[c("71", "813")], na.rm = TRUE)-occ["810"]*3-occ["812"]*2)
-      occ["816"] <- pmax(0, occ["816"]-sum(occ[c("42", "55", "56", "57", "2201", "2202", "23", "22", "803")], na.rm = TRUE)*2-
-                           sum(occ[c("97","822","825", "19", "10", "1901", "1902","20", "14", "17", "2501", "2502","802", "804", "94")], na.rm = TRUE))
-      occ["817"] <- pmax(0, occ["817"]-sum(occ[c("44", "45", "46", "53", "69")], na.rm = TRUE)-sum(occ[c("48", "49", "51")], na.rm = TRUE)*2)
-      occ["820"] <- pmax(0, occ["820"]-sum(occ[c("31", "32", if(sp12chk) "33" else NULL)], na.rm = TRUE))
-      occ["821"] <- pmax(0, occ["821"]-occ["811"])
-      occ["823"] <- pmax(0, occ["823"]-occ["805"])
-      occ["824"] <- pmax(0, occ["824"]-sum(occ[c("805","806", "807", "823", "826")], na.rm = TRUE))
-      occ["827"] <- pmax(0, occ["827"]-sum(occ[c("55", "56", "57", "811", "818",
-                                                 "819", "822", "29", "30", "31",
-                                                 "32", if(sp12chk) "33" else NULL, "34", "35", "36",
-                                                 "94", "97", "820", "821")], na.rm = TRUE))
-      occ["1"] <- pmax(0, occ["1"]-sum(occ[c("11", "28", "31", "34", "40", "54",
-                                             "1901", "2201", "2501", "806")], na.rm = TRUE)-occ["97"]*2)
-      occ["2"] <- pmax(0, occ["2"]-sum(occ[c("12", "19", "22", "25", "29",
-                                             "32", "35", "41", "44", "47",
-                                             "55", "1902", "2202", "2502",
-                                             "805", "807")], na.rm = TRUE))
-      occ["3"] <- pmax(0, sum(occ[c("3", "704")], na.rm = TRUE)-sum(occ[c(if(sp12chk)"13" else NULL, "30", if(sp12chk) "33" else NULL,
-                                                                          "45", "48", "50",
-                                                                          "56", "801")], na.rm = TRUE))
-      occ["4"] <- pmax(0, occ["4"]-sum(occ[c("1301", "46", "49", "51", "52")], na.rm = TRUE))
-    }
-  } else if("SLON" %in% method) {
-
-    #ADDITIONS
-    occ["18"] <- pmax(0, sum(occ[c("18", "1801", "1802", "1803", "1804", "1805", "1806", "1807", "1808")], na.rm = TRUE))
-    occ["19"] <- pmax(0, sum(occ[c("19", "1901", "1902", "1903", "1904", "1905", "1906", "1907", "1908")], na.rm = TRUE))
-
-  } else if("ZHAO" %in% method) {
-
-    #ADDITIONS
-    occ["16"] <- pmax(0, sum(occ[c("16", "1601", "1602", "1603", "1604", "1605", "1606", "1607", "1608")], na.rm = TRUE))
-    occ["17"] <- pmax(0, sum(occ[c("17", "1701", "1702", "1703", "1704", "1705", "1706", "1707", "1708")], na.rm = TRUE))
-
-  } else if("BND" %in% method) {
-
-    #ADDITIONS
-    occ["38"] <- pmax(0, sum(occ[c("38","3801")], na.rm=TRUE))
-    occ["42"] <- pmax(0, sum(occ[c("42","4201")], na.rm=TRUE))
-    occ["45"] <- pmax(0, sum(occ[c("45","4501")], na.rm=TRUE))
-    occ["47"] <- pmax(0, sum(occ[c("47","4701")], na.rm=TRUE))
-    occ["50"] <- pmax(0, sum(occ[c("50","5001", "5002")], na.rm=TRUE))
-
-  }
-
-  #Filter non-existent group occurrences
-  occ <- occ[!is.na(occ) & !is.null(occ) & !is.nan(occ)]
-
-  #Other methods like HKR_STW and HKR_SIM do not require any group definitions
-  #Compile output data
-  output <- list(contrib_data = gcm_df, smarts_data = gcm_smartstr, occurrences = occ, interactions = inters, method = method)
-  return(output)
-}
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#FUNCTION: Compile group contributions
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#' @title Compile GCM group contributions
-#'
-#' @description Part of the \code{\link{sfe_mod}} workflow.
-#' \strong{This function manual is hidden from the Index}.
-#'
-#' @param solute Output from function \code{\link{mol_find}}.
-#' @param occr Output from function \code{\link{define_grps}}.
-#'
-#' @return A \code{list} of the summarized group contributions for the input molecule (\code{$results}),
-#' solute descriptors and MOL representation (\code{$solute}), SMARTS strings of all \strong{detected} groups
-#' (\code{$smarts}), and the applied \code{$method}.
-#'
-#' @export
-#' @keywords internal
-#'
-#' @seealso \code{\link{mol_find}}, \code{\link{sfe_mod}}
-gcm_contribs <- function(solute, occr) {
-
-  #Preliminary checks
-  if(length(occr)!=5 | !all(c("contrib_data", "smarts_data", "occurrences","interactions","method") %in% names(occr))) stop("Argument 'occr' must be output from the function 'define_grps'!")
-  if(!is.list(solute) | !all(c("IDs","Molfile") %in% names(solute))) stop("The solute argument must be a list output from function 'mol_find' containing at least 'IDs' and 'Molfile'!")
-  method <- occr[["method"]]
-
-  #Unpack solute atoms count information
-  solute_ids <- solute[["IDs"]]
-  atom_count <- as.numeric(solute_ids["Atom_Count"])
-  h_count <- as.numeric(solute_ids["H_Count"])
-  atoms_sans_H <- atom_count - h_count
-
-  #Unpack the SMARTS sub-structure search results
-  gcm_data <- occr[["contrib_data"]]
-  gcm_smartstr <- occr[["smarts_data"]]
-  inters <- occr[["interactions"]]
-  occr <- occr[["occurrences"]]
-
-  #Parsing SMILES and SMARTS substructure searching
-  #Add occurrences to SMARTS DF
-  gcm_smartstr[, "Occurrences"] <- as.numeric(occr)[match(gcm_smartstr[,"ID"], names(occr), nomatch = 0)]
-
-  #Merge SMARTS occurrences with contribution data
-  mergecols <- c("Group", "ID", "Type", grep("*_cont$", colnames(gcm_data), value = TRUE))
-
-  gcm_data <- merge(gcm_data[,mergecols], gcm_smartstr[,c("ID", "SMARTS","Occurrences")], by = "ID", all.x = FALSE)
-  gcm_data <- gcm_data[as.numeric(gcm_data[,"Occurrences"])>0,]
-
-  #Get abbreviated names of parameters
-  parnames <- gsub("_cont$", "", colnames(gcm_data)[grep("_cont$", colnames(gcm_data))])
-
-  #Compile summed contributions
-  for(i in parnames) gcm_data[,paste0("Sum_", i, "_cont")] <- gcm_data[,paste0(i, "_cont")]*gcm_data[,"Occurrences"]
-
-  #Reordering columns in specific cases
-  if(!any(c("JR","JR_corr") %in% method)) gcm_data <- gcm_data[,c(2,1,3:ncol(gcm_data))]
-
-  #Calculate group interaction contributions if method is in the 'NL' group
-  if(any(c("NL04","NL07","NL07_robust") %in% method)) {
-    #Calculate group interaction contributions
-    ID_vec <- c("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S")
-    names(ID_vec) <- names(inters)
-
-    #Load Group Interaction Matrix and filter non-occurring groups
-    suffix <- if(any(method %in% "NL07_robust")) "_robust" else ""
-    nl_interact <- gcm_int[grep(paste0("\\Cint", suffix), names(gcm_int))]
-    nl_interact <- nl_interact[c(grep("PCint", names(nl_interact)), grep("TCint", names(nl_interact)), grep("VCint", names(nl_interact)))]
-    names(nl_interact) <- c("Pc_cont", "Tc_cont", "Vc_cont")
-
-    nl_interact[[length(nl_interact)+1]] <- gcm_int[["NL_2004_BPint"]]
-    names(nl_interact)[length(nl_interact)] <- "Tb_cont"
-
-    #Change order of list elements
-    nl_interact <- nl_interact[c(which(names(nl_interact)==colnames(gcm_data)[4]),
-                                 which(names(nl_interact)==colnames(gcm_data)[5]),
-                                 which(names(nl_interact)==colnames(gcm_data)[6]),
-                                 which(names(nl_interact)==colnames(gcm_data)[7]))]
-
-    example_interact <- nl_interact[[1]]
-    nl_intres <- expand.grid(rownames(example_interact), colnames(example_interact))
-    nl_intres <- nl_intres[!duplicated(apply(nl_intres,1,function(x) paste(sort(x),collapse="_"))),]
-    colnames(nl_intres) <- c("Group1", "Group2")
-
-    for(i in names(inters)) {
-      nl_intres[nl_intres[,"Group1"]==i,"Group1_Occ"] <- inters[i]
-      nl_intres[nl_intres[,"Group2"]==i,"Group2_Occ"] <- inters[i]
-      nl_intres[nl_intres[,"Group1"]==i,"Group1_ID"] <- ID_vec[i]
-      nl_intres[nl_intres[,"Group2"]==i,"Group2_ID"] <- ID_vec[i]
-    }
-
-    nl_intres <- nl_intres[!nl_intres[,"Group1_Occ"]==0 & !nl_intres[,"Group2_Occ"]==0 & !any(is.na(nl_intres[,c("Group1_Occ", "Group2_Occ")])),]
-
-    if(nrow(nl_intres)!=0) {
-
-      nl_intres[,"Occurrences"] <- sapply(1:nrow(nl_intres), function(x){ #Meaning occurrences of interactions
-        if(nl_intres[x,"Group1"]==nl_intres[x,"Group2"] & nl_intres[x,"Group1_Occ"]>1) {
-          res <- as.numeric(nl_intres[x,"Group1_Occ"])/2
-        } else if(nl_intres[x,"Group1"]==nl_intres[x,"Group2"] & nl_intres[x,"Group1_Occ"]==1) {
-          res <- 0
-        } else if(nl_intres[x,"Group1"]!=nl_intres[x,"Group2"]) {
-          res <- nrow(expand.grid(rep(nl_intres[x,"Group1"], as.numeric(nl_intres[x,"Group1_Occ"])),
-                                  rep(nl_intres[x,"Group2"], as.numeric(nl_intres[x,"Group2_Occ"]))))
-        }
-        res <- res/atoms_sans_H
-        return(res)
-      })
-
-      nl_intres <- nl_intres[!nl_intres[,"Occurrences"]==0,]
-
-      if(nrow(nl_intres)>0) {
-        nl_intres[,"Group"] <- paste0(nl_intres[,"Group1"], " to ", nl_intres[,"Group2"])
-        nl_intres[,"Type"] <- 3
-        nl_intres[,"ID"] <- paste0(nl_intres[,"Group1_ID"], "-", nl_intres[,"Group2_ID"])
-        nl_intres[,"Plot_Colour"] <- "None"
-
-        for(i in names(nl_interact)) {
-          for(j in 1:nrow(nl_intres)) {
-            nl_intres[j,i] <- nl_interact[[i]][rownames(nl_interact[[i]])==nl_intres[j,"Group1"],colnames(nl_interact[[i]])==nl_intres[j,"Group2"]]
-          }
-          nl_intres[,paste0("Sum_",i)] <- nl_intres[,i]*nl_intres[,"Occurrences"]
-        }
-      }
-    }
-  } else nl_intres <- as.data.frame(matrix(nrow = 0, ncol = 0))
-
-  #Isolate SMARTS data
-  group_smarts <- gcm_data[,"SMARTS"]
-  names(group_smarts) <- gcm_data[,"Type"] #if(method %in% c("NL04","NL07","NL07_robust")) gcm_data[,"Type"] else rep(1, length(group_smarts))
-
-  #Finally, compile all results together
-  if(method %in% c("NL04","NL07", "NL07_robust") & nrow(nl_intres)>0) {
-    res <- rbind.data.frame(gcm_data[,!colnames(gcm_data) %in% "SMARTS"],
-                            nl_intres[,c("Group", "ID", "Type", names(nl_interact), "Occurrences", paste0("Sum_", names(nl_interact)))])
-  } else res <- gcm_data[,!colnames(gcm_data) %in% c("SMARTS", "Tf_cont")]
-  output <- list(results = res, solute = solute, smarts = group_smarts, method = method)
-  return(output)
-}
-
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #FUNCTION: Visualize SMARTS substring matching on top of molecular structure
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -858,7 +62,7 @@ gcm_contribs <- function(solute, occr) {
 #' @import depict
 #' @importFrom grid grid.raster
 #'
-plot_gcm <- function(solute, smarts, hlight = TRUE, draw_plot = TRUE, plot_title = TRUE) {
+plot_gcm <- function(solute, smarts, hlight = TRUE, draw_plot = TRUE, plot_title = TRUE, method = NULL, order = 1L) {
 
   #ALTERNATE PLOTTING OPTION
   #grid::grid.raster(rcdk::view.image.2d(solute$Molfile, depictor = rcdk::get.depictor(sma = gcm_smartstr[1,"SMARTS"]))) #or graphics::rasterImage()
@@ -908,15 +112,35 @@ plot_gcm <- function(solute, smarts, hlight = TRUE, draw_plot = TRUE, plot_title
 
   #Create and store visualisation in list
   dep_obj <- depict::depiction()
-  plotcols <- c()
 
   if(hlight) {
-    vis_match <- list()
-    #Add colour labels for each matched group into the results table
-    plotcols <- names(jcol_vals)[seq(length(vis_vec))]
-    vis_match <- lapply(vis_vec, function(x) depict::match_smarts(x, draw_mol, limit = 100))
-    for(i in seq_along(vis_match)) dep_obj <- depict::highlight_atoms(dep_obj, vis_match[[i]], jcol_vals[[i]])
-  } else if(!hlight) plotcols <- rep("Not shown",length(smarts))
+    # Highlight by ATOM INDEX, not by re-matching SMARTS through the depictor. depict::match_smarts uses a
+    # different aromaticity model than the engine (it does NOT de-aromatize ring carbonyls), so it silently
+    # missed de-aromatized groups (e.g. caffeine's ring C=O / pyrimidinedione N's looked "uncovered" even
+    # though they ARE assigned). draw_mol is a CDK AtomContainer; cast to IAtomContainer so the engine
+    # matcher / fragmenter resolve, then colour atoms by index.
+    draw_iface <- rJava::.jcast(draw_mol, "org/openscience/cdk/interfaces/IAtomContainer")
+    hl <- function(dep, idx, col) {                       # colour a set of 0-based atom indices on draw_mol
+      idx <- unique(idx[!is.na(idx)]); if(!length(idx)) return(dep)
+      hs <- rJava::.jnew("java.util.HashSet")
+      for(a in idx) { atm <- tryCatch(rJava::.jcall(draw_mol, "Lorg/openscience/cdk/interfaces/IAtom;", "getAtom", as.integer(a)), error = function(e) NULL)
+        if(!is.null(atm)) rJava::.jcall(hs, "Z", "add", rJava::.jcast(atm, "java.lang.Object")) }
+      tryCatch(depict::highlight_atoms(dep, hs, col), error = function(e) dep)
+    }
+    if(!is.null(method)) {
+      # MAXIMALLY ROBUST: take the EXACT group->atom assignment the fragmentation produced for this group
+      # ORDER (order 1 = the disjoint first-order partition; 2/3 = the correction groups). One colour per
+      # group, by atom index — no SMARTS re-matching. A higher order with no spatial groups -> no image.
+      ga <- tryCatch(.frag_group_atoms(draw_iface, method, order), error = function(e) list())
+      if(order > 1L && !length(ga)) return(NULL)
+      for(k in seq_along(ga)) dep_obj <- hl(dep_obj, ga[[k]], jcol_vals[[((k - 1L) %% length(jcol_vals)) + 1L]])
+    } else {
+      # Fallback (caller supplied no method): engine-match each passed group SMARTS and colour its atoms.
+      for(i in seq_along(vis_vec))
+        dep_obj <- hl(dep_obj, unlist(tryCatch(.group_matches(vis_vec[i], draw_iface), error = function(e) list())),
+                      jcol_vals[[((i - 1L) %% length(jcol_vals)) + 1L]])
+    }
+  }
 
   dep_obj <- depict::set_size(dep_obj, 1200, 1200)
   dep_obj <- depict::set_zoom(dep_obj, 18)
@@ -930,13 +154,44 @@ plot_gcm <- function(solute, smarts, hlight = TRUE, draw_plot = TRUE, plot_title
 }
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#FUNCTION: Physical-plausibility (applicability-domain) guard for GCM outputs
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Values outside these bounds are non-physical for any real condensed-phase organic, so a GCM that emits
+# them is extrapolating out of its applicability domain (uncovered/atypical group composition). We void
+# them to NA and flag it (see gcm_domain_flags) rather than hand back an impossible number such as dD=0,
+# Pc=380 bar, or Tb>1500 K. Bounds are DELIBERATELY GENEROUS - they catch gross extrapolation, not ordinary
+# method error: empirically <0.25% of clean-method (SP/NL/JR/HKR-criticals) predictions are voided, versus
+# ~11% of the known-pathological HKR dD tail (alkynes/perfluoroalkanes) and the HKR_STW Pc perfluoro blow-up.
+# This complements the structural coverage flag (which only catches UNcovered atoms): ~82% of the voided
+# compounds are fully covered but PARAMETRICALLY out of domain, which coverage alone cannot detect.
+# Floors/ceilings are the TRUE physical extremes of real matter, NOT the typical-organic range, so the
+# envelope can never clip a correct prediction of a real value (chemical out-of-domain, e.g. non-organics,
+# is caught separately by coverage/element flags). Calibrated against the experimental test-set extremes:
+# Tb floor < D2 (23.6 K), Tc floor < D2 (38 K), Pc ceiling > water/H2O2 (218-220 bar). Everything voided
+# beyond these is a genuine GCM blow-up (Tb>1500 overprediction, perfluoro Pc 256-380, HKR dD 0/65).
+.gcm_phys_bounds <- list(Tb = c(20,1500), Tb_corr = c(20,1500), Tc = c(30,2000), Pc = c(1,250),
+                         Vc = c(30,6000), dD = c(10,30), dP = c(0,35), dHB = c(0,55))
+# Void out-of-range elements of a named GCM result vector; record the voided names in attribute "phys_oob".
+.guard_physical <- function(res) {
+  oob <- character(0)
+  for(nm in names(res)) {
+    b <- .gcm_phys_bounds[[nm]]
+    if(!is.null(b) && !is.na(res[[nm]]) && is.finite(res[[nm]]) && (res[[nm]] < b[1] || res[[nm]] > b[2])) {
+      oob <- c(oob, nm); res[[nm]] <- NA_real_
+    }
+  }
+  if(length(oob)) attr(res, "phys_oob") <- oob
+  res
+}
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #FUNCTION: Calculate GCM-based boiling point
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #' @noRd
 gcm_bp <- function(contribs, method = NA) {
 
   #Preliminary checks
-  if(length(contribs)!=4 | !all(c("results", "solute", "smarts", "method") %in% names(contribs))) stop("Argument 'contribs' must be output from the function 'gcm_contribs'!")
+  if(length(contribs)<4 | !all(c("results", "solute", "smarts", "method") %in% names(contribs))) stop("Argument 'contribs' must be output from the function 'gcm_contribs'!")
   #Retrieve solute info
   solute <- contribs[["solute"]]
   if(!is.list(solute) | !all(c("IDs","Molfile") %in% names(solute))) stop("The solute argument must be a list output from function 'mol_find' containing at least 'IDs' and 'Molfile'!")
@@ -974,9 +229,13 @@ gcm_bp <- function(contribs, method = NA) {
 
   } else if(any(method %in% c("HKR_STW", "HKR_SIM"))) {
 
-    bpoint["Tb"] <- ifelse(any(grepl("_STW", method)), 244.5165, 244.7889)*log(total_cont)
+    # Marrero-Gani Tb = a*ln(sum of contributions): only physical when the sum > 1 (=> Tb > 0). For
+    # very small/exotic molecules the sum can be <=1 (or <=0 with NA-contribution groups), which would
+    # otherwise yield a NEGATIVE (impossible) boiling point. Return NA (out-of-domain) instead.
+    bpoint["Tb"] <- if(is.finite(total_cont) && total_cont > 1)
+      ifelse(any(grepl("_STW", method)), 244.5165, 244.7889)*log(total_cont) else NA_real_
   }
-  return(bpoint)
+  return(.guard_physical(bpoint))
 }
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -986,7 +245,7 @@ gcm_bp <- function(contribs, method = NA) {
 gcm_crit <- function(bp = NA, contribs, method = NA) {
 
   #Preliminary checks
-  if(length(contribs)!=4 | !all(c("results", "solute", "smarts", "method") %in% names(contribs))) stop("Argument 'contribs' must be output from the function 'gcm_contribs'!")
+  if(length(contribs)<4 | !all(c("results", "solute", "smarts", "method") %in% names(contribs))) stop("Argument 'contribs' must be output from the function 'gcm_contribs'!")
   #Retrieve solute info
   solute <- contribs[["solute"]]
   if(!is.list(solute) | !all(c("IDs","Molfile") %in% names(solute))) stop("The solute argument must be a list output from function 'mol_find' containing at least 'IDs' and 'Molfile'!")
@@ -1030,12 +289,16 @@ gcm_crit <- function(bp = NA, contribs, method = NA) {
 
   } else if(any(method %in% c("HKR_STW", "HKR_SIM"))) {
     univcon <- if(any(grepl("_STW", method))) c(244.5165, 181.6716, 0.0519, 0.1347, 28.0018) else c(244.7889, 181.6738, 0.0519, 0.1155, 14.6182)
-    if(is.na(bp)) critres["Tb"] <- univcon[1]*log(total_cont["Tb"])
-    critres["Tc"] <- univcon[2]*log(total_cont["Tc"])
+    # Tb/Tc use a*ln(sum-of-contributions); this is only defined (and physical) when the summed
+    # contribution exceeds 1 (otherwise ln<=0 gives a non-physical <=0 K). Such cases (very small
+    # molecules, or substituents with small/negative contributions) are outside the model's domain,
+    # so return NA rather than an impossible negative temperature.
+    if(is.na(bp)) critres["Tb"] <- if(isTRUE(total_cont["Tb"] > 1)) univcon[1]*log(total_cont["Tb"]) else NA_real_
+    critres["Tc"] <- if(isTRUE(total_cont["Tc"] > 1)) univcon[2]*log(total_cont["Tc"]) else NA_real_
     critres["Pc"] <- (univcon[4] + total_cont["Pc"])^-2 + univcon[3]
     critres["Vc"] <- univcon[5] + total_cont["Vc"]
   }
-  return(critres)
+  return(.guard_physical(critres))
 }
 
 #~~~~~~~~~~~~~~~~~~~~~~~
@@ -1045,17 +308,20 @@ gcm_crit <- function(bp = NA, contribs, method = NA) {
 gcm_hsp <- function(contribs, method = NA) {
 
   #Preliminary checks
-  if(length(contribs)!=4 | !all(c("results", "solute", "smarts", "method") %in% names(contribs))) stop("Argument 'contribs' must be output from the function 'gcm_contribs'!")
+  if(length(contribs)<4 | !all(c("results", "solute", "smarts", "method") %in% names(contribs))) stop("Argument 'contribs' must be output from the function 'gcm_contribs'!")
   #Retrieve method
   if(any(is.na(method))) method <- contribs[["method"]]
-  posmets <- c("SP08", "SP12", "HKR_STW", "HKR_SIM")
+  posmets <- c("SP08", "SP12", "SP_ENK", "HKR_STW", "HKR_SIM")
   if(!any(method %in% posmets)) stop(paste0("Incorrect HSP GCM method ('method') chosen! Possible values: ", paste0("'", posmets, "'", collapse = ", "), "!"))
 
   #Retrieve data frame with group contributions
   cdata <- contribs[["results"]]
 
   #Set coefficients based on which SP method (2008 or 2012) is used
-  cf <- if(any(grepl("SP08", method))) c(17.3231, 1, 7.3548, 7.9793, 2.7467, 1.3720)
+  # SP_ENK = Enekvist et al. (2021) new HSP GCM (simultaneous regression, Eqs 13-15): single additive
+  # constants for dD/dP/dHB, no power form and no separate low-value (<3) equation.
+  cf <- if(any(grepl("SP_ENK", method))) c(16.4677, 1, 7.1519, 6.7601)
+  else if(any(grepl("SP08", method))) c(17.3231, 1, 7.3548, 7.9793, 2.7467, 1.3720)
   else if(any(grepl("SP12", method))) c(959.11, 0.4126, 7.6134, 7.7003, 2.6560, 1.3720)
   else if(any(grepl("HKR_", method))) c(0,1,0,0) #Effectively no coefficients
 
@@ -1065,27 +331,86 @@ gcm_hsp <- function(contribs, method = NA) {
   hspres["dP"] <- sum(cdata[,"Sum_dP_cont"], na.rm = TRUE)+cf[3]
   hspres["dHB"] <- sum(cdata[,"Sum_dHB_cont"], na.rm = TRUE)+cf[4]
 
-  #Perform checks for dP and dHB values <3 MPa^0.5
-  if(any(grepl("^SP", method))) {
+  # Stefanis-Panayiotou LOW-VALUE equation. The paper states Eqs (A.3)/(A.4) for dP/dHB "are valid ONLY for
+  # Hansen solubility parameter values greater than 3 MPa^0.5"; when the regular value is < 3 it must be
+  # REPLACED by the low-value equation (Eqs A.5/A.6): the SAME molecule re-summed with the SEPARATE low-value
+  # first- + second-order contributions (cols dP_low_cont/dHB_low_cont, Tables A.5/A.6) plus the low constant
+  # (cf[5]/cf[6]). Groups absent from the low tables contribute 0 (standard additive convention). SP_ENK has
+  # no low-value form. (Earlier this value was computed but never substituted, and a fallback wrongly mixed
+  # in the REGULAR contribution for groups lacking a low value - both fixed.)
+  if(any(grepl("^SP", method)) && !any(grepl("SP_ENK", method))) {
     for(i in c("dP","dHB")) {
-      addval <- if(i=="dP") cf[5] else if(i=="dHB") cf[6]
-      if(hspres[i]<3 & !any(is.na(cdata[,paste0(paste0(i,"_low_cont"))]))) {
-        cdata[,paste0("Sum_",i,"_low_cont")] <- cdata[,paste0(i,"_low_cont")]*cdata[,"Occurrences"]
-        hspres[paste0(i,"_low")] <- sum(cdata[,paste0("Sum_",i,"_low_cont")], na.rm = TRUE)+addval
-      } else if(hspres[i]<3) {
-        lownas <- which(is.na(cdata[,paste0(i,"_low_cont")]))
-        lowsum <- vector("numeric",length = nrow(cdata))
-        lowsum[-lownas] <- cdata[-lownas,paste0(i,"_low_cont")]*cdata[-lownas,"Occurrences"]
-        lowsum[lownas] <- cdata[lownas,paste0(i,"_cont")]*cdata[lownas,"Occurrences"]
-        cdata[,paste0("Sum_",i,"_low_cont")] <- lowsum
-        hspres[paste0(i,"_low")] <- sum(cdata[,paste0("Sum_",i,"_low_cont")], na.rm = TRUE)+addval
+      if(isTRUE(hspres[i] < 3)) {
+        addval <- if(i=="dP") cf[5] else cf[6]
+        hspres[i] <- sum(cdata[, paste0(i, "_low_cont")] * cdata[, "Occurrences"], na.rm = TRUE) + addval
       }
     }
   }
 
   #Making negative values 0
   hspres[which(hspres<0)] <- 0
-  return(hspres)
+
+  # Physical-plausibility guard (see .guard_physical). Bites mainly on HKR HSP, which is an UNcalibrated
+  # raw group-sum (cf above = c(0,1,0,0), no intercept): in-domain molecules already sum to a physical HSP
+  # (mean dD ~16), but out-of-domain structures (alkynes, perfluoroalkanes, diazo, ...) sum to non-physical
+  # values the negative->0 clamp turns into an impossible dD=0 (or over-count to ~65). SP/SP_ENK carry an
+  # intercept so they are essentially untouched (<0.1% voided). dD/dP/dHB are guarded; the SP low-value
+  # *_low elements are not in the bounds table and pass through unchanged.
+  return(.guard_physical(hspres))
+}
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#FUNCTION: Slonimskii (1970) intrinsic atomic volume via the sphere-cap formula
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Faithful re-implementation of Slonimskii, Askadskii & Kitaigorodskii (1970) eqs (2)+(3): each atom's
+# intrinsic volume = full vdW sphere minus the spherical caps cut off by every covalent bond. This computes
+# every Table-3 increment from first principles (verified: CH2=17.07, aromatic CH=14.71, quaternary C=5.01,
+# carbonyl O=5.83, etc.) so it generalises to any bonding environment. Returns A^3/molecule (NA if any element
+# lacks a tabulated radius -> out of domain). Radii = Table 1; bond lengths = Table 2.
+.slon_bondlen <- function(si, sj, ord, barom, ai, aj) {
+  p <- paste(sort(c(si, sj)), collapse = "-")
+  if (barom) { if (p == "C-C") return(1.40); if (grepl("N", p)) return(1.37); if (grepl("O", p)) return(1.36); return(1.40) }
+  if (ord == "DOUBLE") { if (grepl("O", p)) return(1.28); return(1.34) }
+  if (ord == "TRIPLE") { if (grepl("N", p)) return(1.16); return(1.20) }
+  if (grepl("H", p)) return(1.08)                                  # C-H / O-H / N-H
+  if (p == "C-C") return(if (ai || aj) 1.48 else 1.54)             # 1.48 if a carbon is aromatic
+  if (p == "C-O") return(if ((si == "C" && ai) || (sj == "C" && aj)) 1.36 else 1.50)
+  if (p == "C-N") return(1.37); if (p == "C-Cl") return(1.77); if (p == "C-F") return(1.34)
+  1.54
+}
+.slon_intrinsic <- function(mol) {
+  RAD <- c(C = 1.80, H = 1.17, O = 1.36, N = 1.57, Cl = 1.78, F = 1.50)
+  atoms <- rcdk::get.atoms(mol); n <- length(atoms)
+  sym <- vapply(atoms, rcdk::get.symbol, character(1))
+  if (any(!sym %in% names(RAD))) return(NA_real_)                  # element without a Slonimskii radius
+  arA <- vapply(atoms, function(a) tryCatch(rJava::.jcall(a, "Z", "getFlag", 32L), error = function(e) FALSE), logical(1))
+  hsh <- vapply(atoms, function(a) rJava::.jcall(a, "I", "hashCode"), integer(1)); idx <- setNames(seq_len(n), hsh)
+  caps <- numeric(n)
+  for (b in rcdk::get.bonds(mol)) {
+    ba <- rcdk::get.atoms(b)
+    i <- idx[[as.character(rJava::.jcall(ba[[1]], "I", "hashCode"))]]; j <- idx[[as.character(rJava::.jcall(ba[[2]], "I", "hashCode"))]]
+    ord <- rJava::.jcall(rJava::.jcall(b, "Lorg/openscience/cdk/interfaces/IBond$Order;", "getOrder"), "S", "toString")
+    barom <- tryCatch(rJava::.jcall(b, "Z", "getFlag", 32L), error = function(e) FALSE)
+    d <- .slon_bondlen(sym[i], sym[j], ord, barom, arA[i], arA[j]); Ri <- RAD[sym[i]]; Rj <- RAD[sym[j]]
+    hi <- Ri - (Ri^2 + d^2 - Rj^2) / (2 * d); caps[i] <- caps[i] + (1/3) * pi * hi^2 * (3 * Ri - hi)
+    hj <- Rj - (Rj^2 + d^2 - Ri^2) / (2 * d); caps[j] <- caps[j] + (1/3) * pi * hj^2 * (3 * Rj - hj)
+  }
+  sum((4/3) * pi * RAD[sym]^3 - caps)
+}
+
+# Zhao (2003) VABC computed directly from the structure (element counts + bond/ring corrections), so ZHAO
+# needs no group decomposition. V = Sum(atomic vols) - 5.92*NB - 14.7*RA - 3.8*RNR. NA if any element lacks a
+# Zhao atomic volume. (The "Br=40.48" row in the legacy table is an OCR typo for Boron; corrected to B here.)
+.zhao_vabc <- function(mol) {
+  ZV <- c(H=7.24, C=20.58, N=15.60, O=14.71, F=13.31, Cl=22.45, Br=26.52, I=32.52, P=24.43, S=24.43,
+          As=26.52, B=40.48, Si=38.79, Se=28.73, Te=36.62)
+  sym <- vapply(rcdk::get.atoms(mol), rcdk::get.symbol, character(1))
+  if (any(!sym %in% names(ZV))) return(NA_real_)
+  rd <- tryCatch(rcdk::eval.desc(mol, "org.openscience.cdk.qsar.descriptors.molecular.SmallRingDescriptor"),
+                 error = function(e) NULL)
+  RA  <- if (!is.null(rd)) as.numeric(rd[["nAromRings"]]) else 0
+  RNR <- if (!is.null(rd)) as.numeric(rd[["nSmallRings"]]) - RA else 0
+  sum(ZV[sym]) - 5.92 * length(rcdk::get.bonds(mol)) - 14.7 * RA - 3.8 * RNR
 }
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1095,7 +420,7 @@ gcm_hsp <- function(contribs, method = NA) {
 gcm_vdw <- function(contribs, method = NA) {
 
   #Preliminary checks
-  if(length(contribs)!=4 | !all(c("results", "solute", "smarts", "method") %in% names(contribs))) stop("Argument 'contribs' must be output from the function 'gcm_contribs'!")
+  if(length(contribs)<4 | !all(c("results", "solute", "smarts", "method") %in% names(contribs))) stop("Argument 'contribs' must be output from the function 'gcm_contribs'!")
   #Retrieve method
   if(any(is.na(method))) method <- contribs[["method"]]
   posmets <- c("ZHAO", "SLON", "BND")
@@ -1107,13 +432,24 @@ gcm_vdw <- function(contribs, method = NA) {
 
   #Retrieve auxiliary data
   mol <- contribs[["solute"]][[2]]
-  numbonds <- length(get.bonds(mol)) #Number of bonds
+  numbonds <- length(get.bonds(mol)) #Total bonds (mol_find makes H explicit, so C-H bonds are included)
 
-  #Calculate summed group contributions
+  #Summed atomic/group contributions
   VDW_res <- sum(cdata[,"Sum_VDW_cont"], na.rm = TRUE)
-  if(!any(method %in% "BND")) VDW_res - 5.92*numbonds
-
-  #Convert to SI units of m3/mole (Bondi gives results in cm3/mole, others in Angstroms/MOLECULE)
+  #ZHAO (2003) VABC: V = sum(atomic) - 5.92*NB - 14.7*RA - 3.8*RNR  (NB=bonds, RA=aromatic rings,
+  #RNR=non-aromatic rings). Previously the -5.92*NB term was computed but never assigned (no-op) and the
+  #ring terms were missing entirely -> ~2x over-estimate; fixed here.
+  if(any(method %in% "ZHAO")) {
+    # ZHAO VABC computed directly from the structure (element counts + bond/ring corrections); no group
+    # decomposition needed. NA when an element has no Zhao atomic volume -> out of domain.
+    VDW_res <- .zhao_vabc(mol)
+  } else if(any(method %in% "SLON")) {
+    #SLON (Slonimskii 1970): the intrinsic volume is the sphere-cap sum computed directly from molecular
+    #geometry (eqs 2+3), NOT a group/atom-increment sum. Compute it from the structure, ignoring the
+    #(legacy) results table. NA when an element has no tabulated radius (Br/I/S/P/...) -> out of domain.
+    VDW_res <- .slon_intrinsic(mol)
+  }
+  #Convert to SI m3/mole. Bondi tabulates cm3/mole directly; ZHAO/SLON give Angstrom^3/molecule -> *0.602 (=N_A*1e-24) = cm3/mole.
   res["VDW"] <- if(any(method %in% "BND")) VDW_res * 1e-6 else VDW_res * 0.602 * 1e-6
   return(res)
 }
@@ -1134,7 +470,9 @@ gcm_vdw <- function(contribs, method = NA) {
 #' \code{"SB"} (Stein-Brown), \code{"SB_corr"} (corrected Stein-Brown 1994), or \code{"NL04"} (Nannoolal 2004). Units are K.
 #' \item \strong{For critical parameters} (\code{crit}): \code{"JR"} (Joback-Reid 1987), \code{"NL07"}, or \code{"NL07_robust"} (Nannoolal 2007).
 #' The units are K, MPa, and mL/mol for critical temperature, critical pressure, and critical volume, respectively.
-#' \item \strong{For HSP} (\code{hsp}): \code{"SP08"}, \code{"SP12"} (Stefanis & Panayiotou 2008-2012). The units for these
+#' \item \strong{For HSP} (\code{hsp}): \code{"SP08"}, \code{"SP12"} (Stefanis & Panayiotou 2008-2012), or
+#' \code{"SP_ENK"} (Enekvist et al. 2021 - SP group scheme re-regressed simultaneously with new group values
+#' and a dedicated conjugated keto-hydrazone group, targeted at organic pigments). The units for these
 #' parameters are MPa^(1/2).
 #' \item \strong{For all of the above}: \code{"HKR_STW"}, \code{"HKR_SIM"} (Hukkerikar 2012).
 #' \item \strong{For van der Waals volume} (\code{vdw}): \code{"ZHAO"} (Zhao 2003), \code{"BND"} (Bondi 1964), or \code{"SLON"} (Slonimskii 1970).
@@ -1142,7 +480,6 @@ gcm_vdw <- function(contribs, method = NA) {
 #' }
 #' @param hlight A \code{logical} indicating whether substructures are highlighted (see \code{\link{plot_gcm}}).
 #' @param simplicity A \code{character} string indicating whether overlapping sub-structures should be allowed (\code{"auto"} by default).
-#' See \code{\link{sub_smarts}} for details on available degrees of simplicity.
 #' @param gorder A \code{numeric} value or \strong{named} vector denoting the maximum order of groups to be considered. Defaults to \code{0}, which
 #' considers all group orders. When length > 1, names corresponding to those provided in \code{tb}, \code{crit},
 #' \code{hsp}, and/or \code{vdw} must be provided.
@@ -1254,7 +591,7 @@ gcm_vdw <- function(contribs, method = NA) {
 #' #Estimate parameters by GCMs
 #' estres <- est_gcm(mol, "JR", "JR", "SP08")
 #'
-#' @seealso \code{\link{mol_find}}, \code{\link{sfe_mod}}, \code{\link{plot_gcm}}, \code{\link{sub_smarts}}
+#' @seealso \code{\link{mol_find}}, \code{\link{sfe_mod}}, \code{\link{plot_gcm}}
 #'
 est_gcm <- function(solute, tb = NA, crit = NA, hsp = NA, vdw = NA, hlight = TRUE, simplicity = "auto", gorder = 0, silent = FALSE) {
 
@@ -1264,6 +601,22 @@ est_gcm <- function(solute, tb = NA, crit = NA, hsp = NA, vdw = NA, hlight = TRU
 
   if(all(is.na(gcm_conds))) stop("No GCMs were specified! At least one of 'tb', 'crit', 'hsp', and/or 'vdw' must be provided.") else metlst <- gcm_conds[!is.na(gcm_conds)]
   if(is.numeric(hsp) & length(hsp)!=3) stop("When numeric, 'hsp' must be of length 3!")
+
+  # Validate method strings up front so an unrecognized / non-GCM method ("manual", "none", "", a typo, or a
+  # database "experimental" marker) fails here with a clear message, instead of a cryptic "get1index" crash
+  # deep inside gcm_contribs_route/plot_gcm. Each GCM property has its own set of valid methods (mirrors the
+  # 'posmets' checks in gcm_bp/gcm_crit/gcm_hsp/gcm_vdw). Numeric values (direct/experimental) are exempt.
+  posmets_by_par <- list(
+    tb   = c("JR", "JR_corr", "SB", "SB_corr", "NL04", "HKR_STW", "HKR_SIM"),
+    crit = c("JR", "JR_corr", "NL07", "NL07_robust", "HKR_STW", "HKR_SIM"),
+    hsp  = c("SP08", "SP12", "SP_ENK", "HKR_STW", "HKR_SIM"),
+    vdw  = c("ZHAO", "SLON", "BND"))
+  for(.par in names(metlst)) {
+    .m <- metlst[[.par]]
+    if(!is.numeric(.m) && !is.na(.m) && !(.m %in% posmets_by_par[[.par]]))
+      stop(sprintf("Unknown %s GCM method '%s'. Valid methods: %s. A non-GCM value (e.g. \"manual\"/\"none\") must be supplied as a numeric value or via an experimental override, not as a method name.",
+                   .par, as.character(.m), paste0("'", posmets_by_par[[.par]], "'", collapse = ", ")), call. = FALSE)
+  }
 
   if(length(gorder)>1 & is.null(names(gorder))) {
     stop("When group order 'gorder' is of length > 1, names corresponding to available GCM methods must be provided!")
@@ -1278,8 +631,9 @@ est_gcm <- function(solute, tb = NA, crit = NA, hsp = NA, vdw = NA, hlight = TRU
   tb_forcrit <- NA
 
   #Create output lists
-  visres <- pares <- conts <- list()
+  visres <- pares <- conts <- covmap <- list()
   estmets <- c()
+  phys_oob_all <- character(0)   # parameter ids voided by the physical-plausibility guard (.guard_physical)
 
   #Get solute data from CAS or SMILES
   if(!all(sapply(list(tb,crit,hsp,vdw),is.numeric))) {
@@ -1298,19 +652,25 @@ est_gcm <- function(solute, tb = NA, crit = NA, hsp = NA, vdw = NA, hlight = TRU
 
     if(!is.numeric(metlst[[i]]) & !is.na(metlst[[i]])) {
       #Parse SMILES to get molecular descriptors and MOL file
-      occr <- sub_smarts(solute_data, metlst[[i]], simplicity = simplicity, gorder = unique(gorder[names(gorder)==metlst[[i]]]), silent = TRUE)
-      #Define SMARTS sub-groups
-      occr <- define_grps(occr)
-      #Get group contributions for GCM methods
-      contribs <- gcm_contribs(solute_data, occr)
+      #Get group contributions: Müller engine for migrated methods (HKR), legacy chain otherwise
+      contribs <- gcm_contribs_route(solute_data, metlst[[i]], simplicity = simplicity,
+                                     gorder = unique(gorder[names(gorder)==metlst[[i]]]), silent = TRUE)
       conts[[curnm]] <- contribs[["results"]]
+      covmap[[curnm]] <- contribs[["coverage"]]      # engine coverage (covered/n_heavy); NULL for legacy path
       #Create plot of identified groups
-      visres[[curnm]] <- plot_gcm(solute_data, contribs[["smarts"]], hlight, draw_plot = FALSE, plot_title = TRUE)
+      # Render one depiction per available group ORDER (1st-order partition + any 2nd/3rd-order correction
+      # groups), so the UI can switch between them. visres[[curnm]] becomes a named list "1"/"2"/"3" -> image.
+      vis_imgs <- list()
+      for (.o in 1:3) { .im <- plot_gcm(solute_data, contribs[["smarts"]], hlight, draw_plot = FALSE,
+                                        plot_title = TRUE, method = metlst[[i]], order = .o)
+        if (!is.null(.im)) vis_imgs[[as.character(.o)]] <- .im }
+      visres[[curnm]] <- if (length(vis_imgs)) vis_imgs else NA
       #Calculate parameter(s)
       res <- if(i=="tb") gcm_bp(contribs)
       else if(i=="crit") gcm_crit(tb_forcrit, contribs)
       else if(i=="hsp") gcm_hsp(contribs)
       else if(i=="vdw") gcm_vdw(contribs)
+      phys_oob_all <- c(phys_oob_all, attr(res, "phys_oob"))   # non-physical params voided to NA
 
       if(i!="tb") pares[[curnm]] <- res
       #Subset tb for critical parameter calculation
@@ -1328,8 +688,61 @@ est_gcm <- function(solute, tb = NA, crit = NA, hsp = NA, vdw = NA, hlight = TRU
   if(all(sapply(conts, function(x) all(is.na(x))))) conts <- NA else conts <- conts[!is.na(conts)]
   pares[["Methods"]] <- estmets
   pares[["Contribs"]] <- conts
+  #Domain flags: which estimated parameters use a detected group that has NO calibrated contribution
+  #(e.g. Nannoolal leaves Tc/Pc/Vc unparameterised for dienes/amides/...). The estimate is still
+  #produced (best-effort) but flagged so the UI can warn the user it is uncalibrated/rough.
+  pares[["Domain"]] <- gcm_domain_flags(conts, covmap, phys_oob = phys_oob_all)
 
   return(list(solute_data = solute_data, pares = pares, visres = visres))
+}
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#FUNCTION: Flag estimated parameters whose detected groups lack a calibrated contribution
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#' @title Out-of-domain flags for GCM-estimated parameters
+#' @description For each estimated parameter, returns the detected group(s) (if any) that have NO
+#'   calibrated contribution for that parameter in the source method. Such estimates are computed
+#'   best-effort (the missing group contributes 0) but should be treated as rough/uncalibrated.
+#' @param conts The \code{Contribs} list from \code{\link{est_gcm}} (group-contribution tables keyed by
+#'   parameter group: \code{Tb}, \code{Critical}, \code{HSP}, \code{VDW}).
+#' @return A named \code{list}: parameter id (e.g. \code{"Vc"}) -> character vector of uncalibrated
+#'   group names. Parameters that are fully in-domain are absent from the list.
+#' @param phys_oob Optional \code{character} vector of parameter ids (e.g. \code{"Pc"}, \code{"dD"}) whose
+#'   estimate was voided to \code{NA} by the physical-plausibility guard (\code{.guard_physical}) - i.e. the
+#'   method produced a non-physical value (out of applicability domain). These are merged into the flags.
+#' @keywords internal
+gcm_domain_flags <- function(conts, coverage = NULL, phys_oob = NULL) {
+  empty <- (!is.list(conts) || !length(conts))
+  if(empty && !length(phys_oob)) return(list())
+  if(empty) conts <- list()
+  pm <- list(Tb = c("Tb","Tb_cont"), Tb_corr = c("Tb","Tb_cont"),
+             Tc = c("Critical","Tc_cont"), Pc = c("Critical","Pc_cont"), Vc = c("Critical","Vc_cont"),
+             dD = c("HSP","dD_cont"), dP = c("HSP","dP_cont"), dHB = c("HSP","dHB_cont"),
+             VDW = c("VDW","Vm_cont"))
+  out <- list()
+  for(p in names(pm)) {
+    grp <- pm[[p]][1]; df <- conts[[grp]]; col <- pm[[p]][2]
+    if(is.null(df) || !is.data.frame(df) || !all(c(col,"Group","Occurrences") %in% names(df))) next
+    occ <- suppressWarnings(as.numeric(df[["Occurrences"]]))
+    base <- suppressWarnings(as.numeric(df[[col]]))
+    # (a) detected FIRST-ORDER group(s) with NO calibrated contribution -> out-of-domain. A second-order
+    #     (Type 2/3) group with *** is merely a missing CORRECTION (skipped, treated 0), NOT out-of-domain,
+    #     so it must not flag (e.g. SP >C{H or C}-C= has no dP, C6-ring no dHB; the compound is still predictable).
+    is_first <- if("Type" %in% names(df)) suppressWarnings(as.numeric(df[["Type"]])) == 1 else rep(TRUE, nrow(df))
+    is_first[is.na(is_first)] <- TRUE
+    bad <- df[["Group"]][is.na(base) & !is.na(occ) & occ > 0 & is_first]
+    # (b) INCOMPLETE first-order atom coverage: the molecule has atom(s) outside the method's group set,
+    #     so the estimate silently omits their contribution -> out-of-domain (engine path only; covmap[grp]).
+    cov <- if(is.list(coverage)) coverage[[grp]] else NULL
+    if(is.list(cov) && length(cov$covered) && length(cov$n_heavy) &&
+       !is.na(cov$covered) && !is.na(cov$n_heavy) && cov$covered < cov$n_heavy)
+      bad <- c(bad, sprintf("<%d/%d atoms uncovered>", cov$n_heavy - cov$covered, cov$n_heavy))
+    if(length(bad)) out[[p]] <- unique(as.character(bad))
+  }
+  # (c) parameters voided by the physical-plausibility guard: the method emitted a non-physical value and
+  #     the estimate was set to NA (out of applicability domain). Coverage may be complete (parametric OOD).
+  for(p in unique(phys_oob)) out[[p]] <- unique(c(out[[p]], "<non-physical value (out of applicability domain)>"))
+  out
 }
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1423,8 +836,10 @@ iscrit_gen <- function(solv, fracs, pres = NA, temp = NA, units = "mass", tc = "
 
     if(!all(is.na(c(pres, temp))) & any(is.na(c(pres, temp)))) {
       stop("If reference pressure 'pres' is provided, temperature 'temp' must be given as well (and vice versa)!")
-    } else {
-
+    } else if(!all(is.na(c(pres, temp)))) {
+      # Only validate/expand a reference (pres, temp) when one is actually supplied. The default call
+      # (pres = temp = NA, i.e. no reference condition) must NOT run these range checks: min(NA) is NA and
+      # `if(NA)` errors ("missing value where TRUE/FALSE needed"), which crashed the default mode.
       if(min(temp)<(-20) | max(temp)>200) stop("Minimum and maximum allowed temperature ('temp') is between -20 and 200 degrees celsius!")
       if(min(pres)<5 | max(pres)>1000) stop("Minimum and maximum allowed pressure ('pres') is between 5 and 1000 bar!")
       if(length(pres)==1 & length(temp)==1) {

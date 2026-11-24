@@ -32,14 +32,22 @@ kinetic_aux_tool_ui <- function(id, defaults, i18n) {
           div(
             id = paste0(id, "_inputs"),
 
-            # --- Row 1: Substance | Output Units | Calculate ----------
+            # --- Row 1: CO2 EoS (CO2 only) | Substance | Units | Calculate ---
             fluidRow(
               column(
-                4,
+                3,
+                conditionalPanel(
+                  condition = "input.substance == 'co2'",
+                  ns = ns,
+                  uiOutput(ns("eos_ui"))
+                )
+              ),
+              column(
+                3,
                 div(id = ns("substance_wrapper"), uiOutput(ns("substance_ui")))
               ),
               column(
-                4,
+                2,
                 div(id = ns("units_wrapper"), uiOutput(ns("units_ui")))
               ),
               column(

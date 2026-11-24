@@ -129,11 +129,16 @@ global_settings_modal_ui <- function(id, i18n) {
             fluidRow(
               column(6,
                 make_group_box("mod_com_analysis", i18n$t("Cost Analysis")),
-                make_group_box("mod_sfe_co_sel", i18n$t("SFE Co-Solvent Selection"), list(
+                make_group_box("mod_sfe_co_sel", i18n$t("Solubility & Fractionation"), list(
                   list(id = "mod_solute_characterization", label = "Solute Characterization"),
-                  list(id = "mod_miscibility_optimization", label = "Miscibility Optimization"),
-                  list(id = "mod_miscibility_comparison", label = "Miscibility Comparison"),
+                  list(id = "mod_miscibility_optimization", label = "Co-Solvent Selection"),
+                  list(id = "mod_miscibility_comparison", label = "Co-Solvent Comparison"),
+                  list(id = "mod_lle", label = "Liquid-Liquid Extraction"),
                   list(id = "mod_auxiliary_tools", label = "Auxiliary Tools")
+                )),
+                make_group_box("mod_eos", i18n$t("Process Simulation"), list(
+                  list(id = "mod_eos_components", label = "Components & Parameters"),
+                  list(id = "mod_eos_phase", label = "Phase Behaviour")
                 ))
               ),
               column(6,
@@ -176,7 +181,7 @@ global_settings_modal_ui <- function(id, i18n) {
             tags$strong(i18n$t("Filename")),
             textInput(ns("export_filename"), NULL, value = "supercrit_settings.json"),
             downloadButton(ns("export_to_json"),
-                         tagList(icon("file-export"), " ", i18n$t("Export")),
+                         i18n$t("Export"),   # downloadButton supplies its own download icon; a 2nd here = double icon
                          class = "btn-success")
           )
         )

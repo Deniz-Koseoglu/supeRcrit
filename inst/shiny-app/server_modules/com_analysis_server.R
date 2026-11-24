@@ -68,8 +68,8 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
       "Main power cost (monthly)" = ensure_utf8(translator$t("Main power cost (monthly)")),
       "Drying power consumption (monthly)" = ensure_utf8(translator$t("Drying power consumption (monthly)")),
       "Drying power cost (monthly)" = ensure_utf8(translator$t("Drying power cost (monthly)")),
-      "Compression power consumption (monthly)" = ensure_utf8(translator$t("Compression power consumption (monthly)")),
-      "Compression power cost (monthly)" = ensure_utf8(translator$t("Compression power cost (monthly)")),
+      "Milling power consumption (monthly)" = ensure_utf8(translator$t("Milling power consumption (monthly)")),
+      "Milling power cost (monthly)" = ensure_utf8(translator$t("Milling power cost (monthly)")),
       "Evaporation power consumption (monthly)" = ensure_utf8(translator$t("Evaporation power consumption (monthly)")),
       "Evaporation power cost (monthly)" = ensure_utf8(translator$t("Evaporation power cost (monthly)")),
       "Total electricity consumption (monthly)" = ensure_utf8(translator$t("Total electricity consumption (monthly)")),
@@ -248,10 +248,10 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
           if (d %in% names(input_desc_translations)) {
             return(input_desc_translations[[d]])
           }
-          # Fallback to translator$t
-          trans <- translator$t(d)
-          if (trans != d) return(trans)
-          return(d)
+          # Auxiliary-material rows are "<prefix>: <user material name>"; the name is user text and must
+          # not be looked up as a translation key. com_translate_desc honours the full "...: oil" default,
+          # otherwise translates only the prefix and keeps the name verbatim (no "does not exist" warning).
+          com_translate_desc(d, function(x) translator$t(x))
         })
       }
       
@@ -484,21 +484,22 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
     if(is.na(cur)) cur <- defaults$load %||% 0
     if(cc) {
       feed_unit <- if(feed_flow_mass()) "g/min" else "mL/min"
+      feed_unit_disp <- i18n_r()$t(feed_unit)   # translated unit for display
       tags$div(
         tags$label(
           tags$span(
-            paste0(i18n_r()$t("Feed Flow"), " (", feed_unit, ")"),
+            paste0(i18n_r()$t("Feed Flow"), " (", feed_unit_disp, ")"),
             input_help(i18n_r()$t("Flow rate of the liquid feed material. In counter-current extraction, both the feed and CO2 flow continuously. Click the unit badge to toggle. Set feed density via the density badge."),
                        title = i18n_r()$t("Feed Flow"), buttonLabel = i18n_r()$t("OK"))),
           class = "control-label",
           style = "display: flex; align-items: center; justify-content: space-between; width: 100%;",
           tags$span(style = "display: flex; gap: 4px; margin-left: auto;",
-            tags$span(feed_unit,
+            tags$span(feed_unit_disp,
               style = paste0("font-size: 10px; padding: 1px 5px; border-radius: 3px; cursor: pointer; background-color: ",
                 if(feed_flow_mass()) "#17a2b8" else "#28a745", "; color: white; font-weight: normal;"),
               onclick = sprintf("event.stopPropagation(); Shiny.setInputValue('%s', Math.random());", ns("toggle_feed_flow"))),
             tags$span(
-              paste0(feed_density(), " g/mL"),
+              paste0(feed_density(), " ", i18n_r()$t("g/mL")),
               style = "font-size: 10px; padding: 1px 5px; border-radius: 3px; background-color: #17a2b8; color: white; font-weight: normal; cursor: pointer;",
               title = i18n_r()$t("Feed density (g/mL). Click to change."),
               onclick = sprintf("event.stopPropagation(); Shiny.setInputValue('%s', Math.random())", ns("change_feed_density")))
@@ -558,15 +559,16 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
     cur <- isolate(input$flow) %||% defaults$flow
     if(is.na(cur)) cur <- defaults$flow %||% 0
     flow_unit <- if(main_flow_mass()) "g/min" else "mL/min"
+    flow_unit_disp <- i18n_r()$t(flow_unit)   # translated unit for display (e.g. мл/мин)
     tags$div(
       tags$label(
         tags$span(
-          paste0(i18n_r()$t("Main Solvent Flow"), " (", flow_unit, ")"),
+          paste0(i18n_r()$t("Main Solvent Flow"), " (", flow_unit_disp, ")"),
           input_help(i18n_r()$t("Flow rate of the main solvent (CO2 for SFE/CC-SFE, H2O for SWE). Click the unit badge to toggle between mL/min and g/min."),
                      title = i18n_r()$t("Solvent Flow"), buttonLabel = i18n_r()$t("OK"))),
         class = "control-label",
         style = "display: flex; align-items: center; justify-content: space-between; width: 100%;",
-        tags$span(flow_unit,
+        tags$span(flow_unit_disp,
           style = paste0("font-size: 10px; padding: 1px 5px; border-radius: 3px; cursor: pointer; background-color: ",
             if(main_flow_mass()) "#17a2b8" else "#28a745", "; color: white; margin-left: auto; font-weight: normal;"),
           onclick = sprintf("event.stopPropagation(); Shiny.setInputValue('%s', Math.random());", ns("toggle_main_flow")))
@@ -793,16 +795,16 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
     tags$span(
       checkboxInput(ns("use_coefs"), i18n_r()$t("Use Turton et al. (1998) coefficients"),
                     value = isolate(input$use_coefs) %||% defaults$use_coefs),
-      title = i18n_r()$t("When enabled, the equipment purchase cost (CAPEX) is estimated automatically from vessel dimensions and operating pressure using the Turton et al. (1998) pressure vessel correlation.")
+      title = i18n_r()$t("When enabled, the Cost of Manufacturing uses the Turton et al. (1998) coefficient formula — COM = 1.23·(CRM + CUT) + 2.73·COL + 0.304·FCI — applied to your entered fixed-capital (FCI), labour, raw-material and utility costs. When disabled, your own custom COM coefficients are used instead.")
     )
   })
   outputOptions(output, "use_coefs_ui", suspendWhenHidden = FALSE)
 
   output$flowpar_auto_ui <- renderUI({
     tags$span(
-      checkboxInput(ns("flowpar_auto"), i18n_r()$t("Auto (use recovery line conditions)"),
+      checkboxInput(ns("flowpar_auto"), i18n_r()$t("Auto (use process conditions)"),
                     value = isTRUE(isolate(input$flowpar_auto) %||% defaults$flowpar_auto)),
-      title = i18n_r()$t("When enabled, the flow measurement pressure and temperature are automatically set to the recovery line conditions.")
+      title = i18n_r()$t("When enabled, the flow measurement pressure and temperature are automatically set to the extraction (process) conditions.")
     )
   })
   outputOptions(output, "flowpar_auto_ui", suspendWhenHidden = FALSE)
@@ -1047,9 +1049,9 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
         style = "background-color: #f9f9f9; padding: 8px 10px; margin-bottom: 8px; border-radius: 5px; border: 1px solid #ddd;",
         fluidRow(
           style = "margin-left: -8px; margin-right: -8px;",
-          column(4, style = "padding-left: 8px; padding-right: 4px;", 
+          column(3, style = "padding-left: 8px; padding-right: 4px;",
             textInput(ns(paste0("aux_name_", mat_id)),
-              tags$span(i18n$t("Material Name"),
+              tags$span(i18n$t("Name"),
                 if (mat_id == material_ids[1]) input_help(i18n_r()$t("Name of the auxiliary material (e.g. filter paper, adsorbent, packing material)."),
                            title = i18n_r()$t("Material"), buttonLabel = i18n_r()$t("OK"))),
               value = current_name)),
@@ -1059,9 +1061,9 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
                 if (mat_id == material_ids[1]) input_help(i18n_r()$t("Purchase price of the auxiliary material in US dollars per kilogram."),
                            title = i18n_r()$t("Aux. Price"), buttonLabel = i18n_r()$t("OK"))),
               value = current_price, min = 0, step = 0.1)),
-          column(4, style = "padding-left: 4px; padding-right: 4px;",
+          column(5, style = "padding-left: 4px; padding-right: 4px;",
             numericInput(ns(paste0("aux_fraction_", mat_id)),
-              tags$span(i18n$t("Fraction (per kg extract)"),
+              tags$span(i18n$t("Fraction (kg/kg)"),
                 if (mat_id == material_ids[1]) input_help(i18n_r()$t("Amount of this auxiliary material consumed per kilogram of extract produced (kg auxiliary / kg extract). For example, if you use 0.5 kg of filter paper to produce 1 kg of extract, enter 0.5. This value is multiplied by the extract yield and the material price to calculate the auxiliary material cost per cycle."),
                            title = i18n_r()$t("Usage Fraction"), buttonLabel = i18n_r()$t("OK"))),
               value = current_fraction, min = 0, max = 10, step = 0.01)),
@@ -1745,7 +1747,7 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
 
   # Observer for loading example data
   observeEvent(input$load_example_data, {
-    default_path <- system.file("extdata", "gui_com_input-test-data-0.csv", package = "supeRcrit")
+    default_path <- system.file("extdata", "examples", "gui_com_input-test-data-0.csv", package = "supeRcrit")
     if (file.exists(default_path)) {
       tryCatch({
         raw_data <- read.csv(default_path, stringsAsFactors = FALSE)
@@ -2372,7 +2374,9 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
       })
       aux_names <- sapply(material_ids, function(mat_id) {
         name_val <- input[[paste0("aux_name_", mat_id)]]
-        if (is.null(name_val) || name_val == "") paste0("material_", mat_id) else gsub("[^A-Za-z0-9_]", "_", name_val)
+        # Keep the material's real display name (including Turkish/Cyrillic characters, spaces and
+        # punctuation) — it is only used as a label, never as an identifier, so no sanitisation needed.
+        if (is.null(name_val) || trimws(name_val) == "") paste0(i18n$t("Material"), " ", mat_id) else trimws(name_val)
       })
       names(auxpr_vals) <- aux_names
       names(auxfr_vals) <- aux_names
@@ -2614,6 +2618,7 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
               moisture_content = params$moisture_content,
               response_name = params$response_name,
               additional_responses = params$additional_responses,
+              eos = if (is.null(input$eos)) "bender" else input$eos,
               pltlab = "Time (min)",
               draw = TRUE # Ensure plots are generated for multi-value input
             )
@@ -2642,6 +2647,7 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
               moisture_content = params$moisture_content,
               response_name = params$response_name,
               additional_responses = params$additional_responses,
+              eos = if (is.null(input$eos)) "bender" else input$eos,
               pltlab = "Time (min)",
               draw = FALSE # No plots for single value input
             )
@@ -2669,6 +2675,23 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
           results$call <- format(com_result[["call"]])
           #  results$call <- deparse(com_result[["call"]], width.cutoff = 500)
           # results$call <- pretty_call
+
+          # Inject the product/response name(s) as a top-level input parameter so the product is visible
+          # everywhere the input table is consumed: the on-screen Input Parameters tab, the PDF report and
+          # the CSV/ZIP export (all read com_result$input). Prepended so it sits at the very top.
+          if (!is.null(com_result$input)) {
+            prod_nm <- if (!is.null(com_result$response_details))
+              vapply(com_result$response_details, function(r) as.character(r$name %||% ""), character(1))
+            else as.character(params$response_name %||% "")
+            prod_nm <- prod_nm[nzchar(prod_nm)]
+            if (length(prod_nm)) {
+              .inp <- com_result$input; .inp$value <- as.character(.inp$value)
+              .prow <- data.frame(parameter = "response_names", value = paste(prod_nm, collapse = ", "),
+                                  units = "none", type = "gen", description = "Product name(s)",
+                                  stringsAsFactors = FALSE)[, colnames(.inp), drop = FALSE]
+              com_result$input <- rbind(.prow, .inp); rownames(com_result$input) <- NULL
+            }
+          }
 
           # Store results
           results$com_result <- com_result
@@ -2969,6 +2992,30 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
     }
   })
 
+  # com_result with its summary tables swapped to the SELECTED extraction time (from the engine's
+  # tables_bytime), so the PDF/CSV exports report the same single-point values as the on-screen tables and
+  # KPI boxes — not the across-time mean, which is meaningless for the payback period (it explodes to
+  # huge/negative values at non-viable short extraction times and drags the mean away from any real point).
+  # The whole-curve "performance" table is preserved from the mean set. Falls back to the mean tables if
+  # tables_bytime is absent (older cached results).
+  com_result_selected <- reactive({
+    cr <- results$com_result
+    if (is.null(cr)) return(NULL)
+    bt <- cr$tables_bytime
+    if (!is.null(bt) && length(bt) > 0) {
+      ri <- 1L
+      sv <- input$time_slider %||% input$time_slider_detailed
+      if (!is.null(sv) && !is.null(results$simple_data) && nrow(results$simple_data) > 0)
+        ri <- which.min(abs(results$simple_data$time - sv))
+      if (isTRUE(is.finite(ri)) && ri >= 1 && ri <= length(bt)) {
+        perf <- cr$tables$performance            # keep the whole-curve time-series table
+        cr$tables <- bt[[ri]]
+        if (!is.null(perf)) cr$tables$performance <- perf
+      }
+    }
+    cr
+  })
+
   # Reactive for selected detailed data
   selected_detailed_data <- reactive({
     req(results$detailed_data)
@@ -3107,8 +3154,9 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
       req(results$params) # Ensure params is available
       render_roi_monthly_table(results$detailed_data, results$is_multi_value, input$time_slider, input$capex, results$com_result, results$params$taxrate, i18n, tablang)
     },
-    server = FALSE,
-    options = list(rownames = FALSE)
+    # render_roi_monthly_table() returns a fully-built DT::datatable, so passing further datatable args
+    # here (options/rownames/...) would be ignored by DT with a warning — keep only `server`.
+    server = FALSE
   )
   # Export Monthly Data
   output$export_monthly <- download_roi_monthly_processed_data(
@@ -3188,6 +3236,7 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
         dt_data,
         extensions = "Buttons",
         colnames = add_prettynames,
+        escape = FALSE,
         options = list(
           scrollX = TRUE,
           pageLength = 32,
@@ -3197,8 +3246,9 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
         )
       )
     },
-    server = FALSE,
-    escape = FALSE
+    # escape belongs on DT::datatable() above (not here): the expr yields a datatable, so a render-level
+    # `...` arg is both ignored (with a warning) AND never applies the intended un-escaping.
+    server = FALSE
   )
 
   # Reactive for input parameters data
@@ -3206,7 +3256,9 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
     req(results$com_result)
     input_params <- results$com_result$input
 
-    # Format the dataframe for display: Description, Value, Unit, Type
+    # Select/rename the dataframe for display: Description, Value, Unit, Type. Formatting is applied LAST
+    # (after appending the flow-measurement rows below) so every numeric value shares the same width and
+    # decimal padding — otherwise separately-formatted rows misalign in the rendered table.
     display_data <- input_params %>%
       select(description, value, units, type) %>%
       rename(
@@ -3214,8 +3266,8 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
         "Value" = value,
         "Unit" = units,
         "Type" = type
-      ) %>%
-      mutate(Value = format(Value, big.mark = ",", digits = 4, scientific = FALSE)) # Format Value column with more decimals
+      )
+    display_data$Value <- as.character(display_data$Value)
 
     # Add flow measurement parameters from stored params
     if (!is.null(results$params)) {
@@ -3226,20 +3278,15 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
         flowpar_pres <- flowpar[[1]][1]
         flowpar_temp <- flowpar[[1]][2]
       } else if (identical(flowpar, "auto")) {
-        # Auto mode - get values from recovery line parameters or defaults
-        crm <- results$params$crm
-        if (!is.null(crm) && !is.na(crm[["recp"]]) && !is.na(crm[["rect"]])) {
-          flowpar_pres <- crm[["recp"]]
-          flowpar_temp <- crm[["rect"]]
+        # Auto mode: the volumetric flow is converted to mass at the EXTRACTION
+        # (process) conditions, since the S/M ratio is a process-based variable.
+        gen <- results$params$gen
+        if (!is.null(gen) && !is.na(gen[["pres"]]) && !is.na(gen[["temp"]])) {
+          flowpar_pres <- gen[["pres"]]
+          flowpar_temp <- gen[["temp"]]
         } else {
-          # Defaults based on mode
-          if (!is.null(results$params$comode) && results$params$comode == "swe") {
-            flowpar_pres <- 1
-            flowpar_temp <- 25
-          } else {
-            flowpar_pres <- 60
-            flowpar_temp <- 10
-          }
+          flowpar_pres <- 300
+          flowpar_temp <- 40
         }
       } else {
         # Fallback defaults
@@ -3247,19 +3294,27 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
         flowpar_temp <- 10
       }
       
-      # Create rows for flow parameters
+      # Create rows for flow parameters (raw values — formatted together with the rest below)
       flow_params_rows <- data.frame(
         Description = c("Flow measurement pressure", "Flow measurement temperature"),
-        Value = c(format(flowpar_pres, big.mark = ",", digits = 4, scientific = FALSE),
-                  format(flowpar_temp, big.mark = ",", digits = 4, scientific = FALSE)),
+        Value = as.character(c(flowpar_pres, flowpar_temp)),
         Unit = c("bar", "°C"),
         Type = c("gen", "gen"),
         stringsAsFactors = FALSE
       )
-      
+
       # Append flow parameters to display data
       display_data <- rbind(display_data, flow_params_rows)
     }
+
+    # Format all numeric values uniformly (shared width/decimal padding); keep non-numeric values
+    # (e.g. the product name row) as text.
+    display_data <- display_data %>%
+      mutate(Value = {
+        .num <- suppressWarnings(as.numeric(Value))
+        ifelse(is.na(.num), as.character(Value),
+               format(.num, big.mark = ",", digits = 4, scientific = FALSE))
+      })
 
     return(display_data)
   })
@@ -3367,6 +3422,11 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
       # Apply translations to data
       dt_data <- display_data
       dt_data$Description <- my_mapvalues(dt_data$Description, names(description_translations), description_translations, warn_missing = FALSE)
+      # Localise any auxiliary-material rows carrying a custom (non-default) name the table above could not map:
+      # translate the prefix, keep the user-supplied name verbatim (mapvalues leaves the English prefix intact).
+      aux_mask <- grepl("^(Price of auxiliary material|Required fraction of auxiliary material): ", dt_data$Description)
+      if (any(aux_mask)) dt_data$Description[aux_mask] <- vapply(dt_data$Description[aux_mask],
+        function(x) com_translate_desc(x, function(k) i18n_r()$t(k)), character(1), USE.NAMES = FALSE)
       dt_data$Unit <- my_mapvalues(dt_data$Unit, names(unit_translations), unit_translations, warn_missing = FALSE)
       dt_data$Type <- my_mapvalues(dt_data$Type, names(type_translations), type_translations, warn_missing = FALSE)
 
@@ -4219,96 +4279,31 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
       row_idx <- which.min(abs(results$simple_data$time - slider_value))
     }
     
-    # Get COM from simple_data (SC_per_kg * total_extract = COM)
-    simple <- selected_simple_data()
-    total_extract <- sum(sapply(response_details, function(r) {
-      if (length(r$extract) > 1) r$extract[row_idx] else r$extract
-    }))
-    total_revenue <- sum(sapply(response_details, function(r) {
-      if (length(r$svol) > 1) r$svol[row_idx] else r$svol
-    }))
-    # Overall specific cost (same for all responses since it's a shared production process)
-    overall_specific_cost <- if (!is.null(simple)) simple$SC_per_kg else 0
-    com_total <- overall_specific_cost * total_extract
-    
-    # Calculate total gross profit for contribution to payback calculation
-    total_gross_profit <- total_revenue - com_total
-    
-    # Build UI with a table for each response
-    table_list <- lapply(seq_along(response_details), function(i) {
-      resp <- response_details[[i]]
-      extract_val <- if (length(resp$extract) > 1) resp$extract[row_idx] else resp$extract
-      svol_val <- if (length(resp$svol) > 1) resp$svol[row_idx] else resp$svol
-      
-      # Calculate this response's share of COM (proportional to extract)
-      extract_share <- if (total_extract > 0) extract_val / total_extract else 0
-      resp_com <- com_total * extract_share
-      resp_profit <- svol_val - resp_com
-      resp_margin <- if (svol_val > 0) (resp_profit / svol_val) * 100 else 0
-      
-      # Calculate Sole Production Cost: what would the specific cost be if this response were the only one produced?
-      # This is total COM divided by this response's extract alone
-      sole_production_cost <- if (extract_val > 0) com_total / extract_val else 0
-      
-      # Calculate contribution to payback: percentage of total profit this response provides
-      payback_contribution <- if (total_gross_profit > 0) (resp_profit / total_gross_profit) * 100 else 0
-      
-      # Build data frame for this response
-      resp_data <- data.frame(
-        Description = c(
-          i18n$t("Extract produced (monthly)"),
-          i18n$t("Sale price"),
-          i18n$t("Sole production cost"),
-          i18n$t("Sales volume (monthly)"),
-          i18n$t("Cost share (proportional)"),
-          i18n$t("Gross profit"),
-          i18n$t("Profit margin"),
-          i18n$t("Contribution to payback")
-        ),
-        Value = c(
-          round(extract_val, 2),
-          round(resp$pr_sale, 2),
-          round(sole_production_cost, 2),
-          round(svol_val, 2),
-          round(resp_com, 2),
-          round(resp_profit, 2),
-          round(resp_margin, 2),
-          round(payback_contribution, 1)
-        ),
-        Unit = c(
-          i18n$t("kg/month"),
-          i18n$t("USD/kg"),
-          i18n$t("USD/kg"),
-          i18n$t("USD/month"),
-          i18n$t("USD/month"),
-          i18n$t("USD/month"),
-          i18n$t("percent"),
-          i18n$t("percent")
-        ),
-        stringsAsFactors = FALSE
-      )
-      
-      tagList(
-        tags$hr(style = "margin: 15px 0; border-top: 1px dashed #ccc;"),
-        tags$label(resp$name, style = "font-weight: bold; margin-bottom: 8px; display: block; font-size: 14px; color: #2c3e50;"),
-        DT::renderDataTable({
-          DT::datatable(
-            resp_data,
-            colnames = c(i18n$t("Parameter"), i18n$t("Value"), i18n$t("Unit")),
-            options = list(
-              dom = "t",
-              paging = FALSE,
-              searching = FALSE,
-              ordering = FALSE
-            ),
-            rownames = FALSE
-          ) %>%
-            formatRound(columns = "Value", digits = 2)
-        }, server = FALSE)
-      )
-    })
-    
-    do.call(tagList, table_list)
+    # Per-product financial COMPARISON matrix — shared with the PDF export via com_response_comparison()
+    # so the two can never diverge (sole vs alongside-others, COM split by revenue; issue 12/14). The
+    # primary product's two rows and the Total row are bold to match the PDF.
+    comp <- com_response_comparison(response_details, selected_simple_data(), row_idx, i18n,
+                                    com_total = tryCatch(cost_components_data()$COM, error = function(e) NULL))
+    if (is.null(comp) || is.null(comp$df) || !nrow(comp$df)) return(NULL)
+    df <- comp$df
+    numcols <- 2:ncol(df)                        # every column except the leading Product/scenario column
+    df[["__bold"]] <- as.integer(comp$bold)      # hidden 1/0 flag used only to style the emphasised rows
+    tagList(
+      tags$hr(style = "margin: 15px 0; border-top: 1px dashed #ccc;"),
+      tags$label(i18n$t("Per-product financial comparison"),
+                 style = "font-weight: bold; margin-bottom: 8px; display: block; font-size: 14px; color: #2c3e50;"),
+      DT::renderDataTable({
+        DT::datatable(
+          df,
+          options = list(dom = "t", paging = FALSE, searching = FALSE, ordering = FALSE,
+            columnDefs = list(list(visible = FALSE, targets = ncol(df) - 1))),  # hide __bold (0-based last col)
+          rownames = FALSE
+        ) %>%
+          DT::formatRound(columns = numcols, digits = 2, mark = ",") %>%
+          DT::formatStyle("__bold", target = "row", fontWeight = DT::styleEqual(1, "bold"))
+      }, server = FALSE),
+      tags$p(comp$note, style = "font-size: 12px; color: #6c757d; margin-top: 8px;")
+    )
   })
 
   # INPUT PARAMETERS TABLES - Organized by category
@@ -4354,6 +4349,7 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
     
     # Translate descriptions
     desc_trans <- c(
+      "Product name(s)" = i18n$t("Product name(s)"),
       "Extraction vessel volume" = i18n$t("Extraction vessel volume"),
       "Material loading per batch" = i18n$t("Material loading per batch"),
       "Feed flow rate" = i18n$t("Feed flow rate"),
@@ -4397,15 +4393,20 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
       "Fraction of collected co-solvent lost during post-processing" = i18n$t("Fraction of collected co-solvent lost during post-processing")
     )
     data$Description <- my_mapvalues(data$Description, names(desc_trans), desc_trans, warn_missing = FALSE)
-    
+    # This per-category table includes crm_aux rows ("<prefix>: <user material name>"); localise the prefix
+    # while keeping the user-supplied name verbatim (mapvalues above cannot, as the name is not a key).
+    aux_mask <- grepl("^(Price of auxiliary material|Required fraction of auxiliary material): ", data$Description)
+    if (any(aux_mask)) data$Description[aux_mask] <- vapply(data$Description[aux_mask],
+      function(x) com_translate_desc(x, function(k) i18n$t(k)), character(1), USE.NAMES = FALSE)
+
     # Translate units
     data <- translate_units(data, i18n)
-    
+
     data <- data %>% select(-Type)
-    
+
     render_compact_dt(data, c(i18n$t("Parameter"), i18n$t("Value"), i18n$t("Unit")))
   }, server = FALSE)
-  
+
   # CUT Input Parameters Table
   output$input_cut_table <- DT::renderDataTable({
     req(input_params_data())
@@ -4843,8 +4844,8 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
       x = "Time (min)",
       y = "Payback time (yr)"
     )
-    
-    plot
+
+    quiet_ggplotly(plot)   # convert here, muffling plotly's cosmetic geom_label / aspect.ratio warnings
   } else {
     plotly_empty()
   }
@@ -4900,8 +4901,8 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
       x = "Time (min)",
       y = "Specific Cost (USD/kg)"
     )
-    
-    plot
+
+    quiet_ggplotly(plot)   # convert here, muffling plotly's cosmetic geom_label / aspect.ratio warnings
   } else {
     plotly_empty()
   }
@@ -5024,6 +5025,97 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
 
 
   # Download All Results
+  # ---- Export Results as PDF (branded report via the pure-R report_pdf.R toolkit) ----
+  output$download_pdf_report <- downloadHandler(
+    filename = function() paste0(generate_filename_with_timestamp("supercrit_com_analysis_report"), ".pdf"),
+    content = function(file) {
+      req(results$com_result)
+      pid <- showNotification(i18n$t("Building PDF report..."), type = "message", duration = NULL, closeButton = FALSE)
+      on.exit(removeNotification(pid), add = TRUE)
+      tryCatch({
+        comres <- translate_com_results(com_result_selected(), i18n)   # selected-time tables, localised (as the CSV export)
+        costs  <- cost_components_data()
+        sel    <- tryCatch(selected_simple_data(), error = function(e) NULL)
+        # Headline profit & margin are shown GROSS (pre-tax) so the tax rate does not alter them (issue 2):
+        # gross = revenue - COM, independent of sel$monthly_profit (which is net when a tax rate is set).
+        gross_profit_hl <- gross_margin_hl <- NA_real_
+        if (!is.null(sel)) {
+          rev_hl <- suppressWarnings(as.numeric(sel$sales_volume))
+          com_hl <- suppressWarnings(as.numeric(sel$COM))
+          if (!isTRUE(is.finite(com_hl))) com_hl <- suppressWarnings(as.numeric(costs$COM))
+          gross_profit_hl <- rev_hl - com_hl
+          gross_margin_hl <- if (isTRUE(is.finite(rev_hl) && rev_hl > 0)) gross_profit_hl / rev_hl * 100 else NA_real_
+        }
+        # Total one-time capital investment (CAPEX) — surfaced as a footnote under the payback KPI.
+        capex_hl <- suppressWarnings(as.numeric(tryCatch(results$params$fci[["capex"]], error = function(e) NA)))
+        if (!isTRUE(is.finite(capex_hl))) capex_hl <- suppressWarnings(as.numeric(input$capex))
+        headline <- if (!is.null(sel)) list(
+          extract = suppressWarnings(as.numeric(sel$extract_made)),
+          profit  = gross_profit_hl,
+          margin  = gross_margin_hl,
+          payback = suppressWarnings(as.numeric(sel$payback_yr)),
+          sc      = suppressWarnings(as.numeric(sel$SC_per_kg)),
+          revenue = suppressWarnings(as.numeric(sel$sales_volume)),
+          capex   = capex_hl) else NULL
+        logo <- if (file.exists("www/altraflora-15-min.png")) "www/altraflora-15-min.png" else NULL
+        appver <- tryCatch(paste0("supeRcrit v", as.character(utils::packageVersion("supeRcrit"))),
+                           error = function(e) "supeRcrit")
+
+        # Input parameters (grouped, translated) — the exact scenario inputs.
+        input_sections <- tryCatch(
+          com_input_param_sections(input_params_data(), i18n), error = function(e) NULL)
+
+        # Per-product financial results AT THE SELECTED extraction time (same maths as the on-screen tables).
+        sel_time <- if (!is.null(sel)) suppressWarnings(as.numeric(sel$time)) else NULL
+        row_idx <- 1L
+        if (!is.null(sel_time) && !is.null(results$simple_data) && nrow(results$simple_data) > 0)
+          row_idx <- which.min(abs(results$simple_data$time - sel_time))
+        per_response <- tryCatch(
+          com_response_comparison(results$com_result$response_details, sel, row_idx, i18n, com_total = costs$COM),
+          error = function(e) NULL)
+
+        # Financial bar data: stack Revenue/Gross/Net Profit per product when there are multiple responses.
+        rd <- results$com_result$response_details
+        waterfall <- NULL
+        if (!is.null(rd) && length(rd) > 1)
+          waterfall <- tryCatch(
+            com_waterfall_data(costs, sel, rd, row_idx,
+                               tryCatch(results$params$taxrate, error = function(e) NULL), i18n),
+            error = function(e) NULL)
+
+        # Extraction-curve graphs (only when a multi-time curve exists): specific-cost curve from the
+        # engine plot + a filtered payback curve rebuilt like the app, each marked at the selected time.
+        curves <- NULL
+        if (isTRUE(results$is_multi_value) && !is.null(results$simple_data) && nrow(results$simple_data) > 1) {
+          curves <- tryCatch(
+            com_build_curve_plots(results$simple_data, results$com_result, i18n, sel_time),
+            error = function(e) NULL)
+        }
+
+        # Process summary (top of report): product name(s), vessel volume, T/P, selected extraction time.
+        process_summary <- tryCatch({
+          gen <- results$params$gen
+          prod <- if (!is.null(rd)) paste(vapply(rd, function(r) as.character(r$name %||% ""), character(1)),
+                                          collapse = ", ") else NULL
+          list(product  = prod,
+               volume   = if (!is.null(gen)) suppressWarnings(as.numeric(gen[["volex"]])) else NULL,
+               temp     = if (!is.null(gen)) suppressWarnings(as.numeric(gen[["temp"]]))  else NULL,
+               pressure = if (!is.null(gen)) suppressWarnings(as.numeric(gen[["pres"]]))  else NULL,
+               time     = sel_time)
+        }, error = function(e) NULL)
+
+        build_com_pdf_report(comres, costs, i18n, file, company = appver, logo = logo,
+                             headline = headline, input_sections = input_sections,
+                             per_response = per_response, curves = curves, sel_time = sel_time,
+                             waterfall = waterfall, process_summary = process_summary)
+      }, error = function(e) {
+        showNotification(sprintf(i18n$t("PDF export failed: %s"), conditionMessage(e)), type = "error", duration = 10)
+        # write a minimal valid PDF so the download does not error out
+        grDevices::cairo_pdf(file); grid::grid.text(i18n$t("Report generation failed.")); grDevices::dev.off()
+      })
+    }
+  )
+
   output$download_all_results <- downloadHandler(
     filename = function() {
       paste0(generate_filename_with_timestamp("supercrit_com_analysis_export"), ".zip")
@@ -5048,10 +5140,28 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
 
       # Export results using com_export with translated results
       tryCatch({
-        # Translate results to current language
-        translated_results <- translate_com_results(results$com_result, i18n)
-        
-        # Export 
+        # Translate results to current language (selected-time summary tables, as in the PDF export)
+        translated_results <- translate_com_results(com_result_selected(), i18n)
+
+        # Replace the per-response breakdown with the sole-vs-alongside comparison MATRIX (issue 12/14),
+        # reusing the SAME helper as the on-screen table and the PDF so all three outputs stay in lock-step
+        # (COM split by revenue; primary shown both alongside-others and "if produced alone"). Dynamic
+        # translation is preserved: com_response_comparison() returns translated headers/labels and the
+        # section title is localised here. Falls back to the engine's per_response tables on any error.
+        comp_csv <- tryCatch({
+          sel_csv  <- tryCatch(selected_simple_data(), error = function(e) NULL)
+          ridx_csv <- 1L
+          st_csv   <- if (!is.null(sel_csv)) suppressWarnings(as.numeric(sel_csv$time)) else NULL
+          if (!is.null(st_csv) && !is.null(results$simple_data) && nrow(results$simple_data) > 0)
+            ridx_csv <- which.min(abs(results$simple_data$time - st_csv))
+          com_response_comparison(results$com_result$response_details, sel_csv, ridx_csv, i18n,
+                                  com_total = tryCatch(cost_components_data()$COM, error = function(e) NULL))
+        }, error = function(e) NULL)
+        if (!is.null(comp_csv) && !is.null(comp_csv$df))
+          translated_results$tables$per_response <-
+            stats::setNames(list(comp_csv$df), i18n$t("Per-product financial comparison"))
+
+        # Export
         com_export(comres = translated_results, expath = temp_dir, silent = TRUE)
         
         # Post-process .csv files: add UTF-8 BOM and translate section headers
@@ -5127,7 +5237,7 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
       "com_analysis_default.csv"
     },
     content = function(file) {
-      default_path <- system.file("extdata", "gui_com_input-test-data-0.csv", package = "supeRcrit")
+      default_path <- system.file("extdata", "examples", "gui_com_input-test-data-0.csv", package = "supeRcrit")
       if (file.exists(default_path)) {
         file.copy(default_path, file)
       } else {
@@ -5331,6 +5441,10 @@ com_analysis_server <- function(input, output, session, defaults, i18n, tablang)
         }
         if ("description" %in% names(dt_data)) {
           dt_data$description <- my_mapvalues(dt_data$description, names(description_translations), description_translations, warn_missing = FALSE)
+          # Localise auxiliary-material rows with a custom name (prefix translated, user name kept verbatim).
+          aux_mask <- grepl("^(Price of auxiliary material|Required fraction of auxiliary material): ", dt_data$description)
+          if (any(aux_mask)) dt_data$description[aux_mask] <- vapply(dt_data$description[aux_mask],
+            function(x) com_translate_desc(x, function(k) i18n_r()$t(k)), character(1), USE.NAMES = FALSE)
         }
         if ("source" %in% names(dt_data)) {
           dt_data$source <- my_mapvalues(dt_data$source, names(source_translations), source_translations, warn_missing = FALSE)

@@ -1,0 +1,17 @@
+{
+  "name": "Limonene",
+  "model": "gceos",
+  "smiles": "CC1=CCC(CC1)C(=C)C",
+  "cas": "5989-27-5",
+  "groups": {
+    "CH2=C": 1,
+    "CH=C": 1,
+    "cyCH2": 3,
+    "cyCH": 1,
+    "CH3": 2
+  },
+  "Tc": 657.4487,
+  "Tb": 448.65,
+  "dc": 5.6212,
+  "timestamp": "2026-06-12 23:12:13"
+}

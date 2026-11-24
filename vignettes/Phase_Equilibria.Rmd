@@ -1,0 +1,151 @@
+---
+title: "Phase equilibria and counter-current fractionation with GC-EOS / GCA-EOS"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Phase Equilibria and Fractionation}
+  %\VignetteEngine{knitr::rmarkdown_notangle}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+is_check <- ("CheckExEnv" %in% search()) || any(c("_R_CHECK_TIMINGS_",
+             "_R_CHECK_LICENSE_") %in% names(Sys.getenv()))
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  eval = !is_check,
+  comment = "#>",
+  out.width = "100%"
+)
+```
+
+```{r setup, message = FALSE, include = FALSE}
+library(supeRcrit)
+```
+
+## Introduction
+
+Besides the empirical Hansen-Solubility and machine-learning solubility workflows (see the *Co-Solvent Choice* vignette), `supeRcrit` includes a rigorous **group-contribution equation of state** for supercritical-CO~2~ phase equilibria — the [GC-EOS](https://doi.org/10.1016/0378-3812(88)80059-0) of Skjold-Jorgensen, and its association-enabled superset **GCA-EOS** ([Gros, Sanchez, Brignole](https://doi.org/10.1016/S0378-3812(96)03093-8)). The same model that estimates a pure-component saturation pressure also predicts multicomponent vapour-liquid (and liquid-liquid) equilibria, phase envelopes and mixture critical points, and — through an equilibrium-stage cascade — the performance of a **counter-current SC-CO~2~ fractionation column**.
+
+This is the engine for processes such as **deterpenation** of citrus and other essential oils, **squalene** purification, **free-fatty-acid (FFA) deacidification**, and aroma concentration. When a molecule contains associating groups (carboxylic acids, alcohols, water), the optional Wertheim/SAFT association term (GCA-EOS) captures the hydrogen-bonding that drives, e.g., acid dimerisation; with no associating groups present GCA-EOS reduces exactly to GC-EOS.
+
+The numerical core is implemented in C++ (with analytic fugacity derivatives) for speed. This vignette walks through the workflow from a molecular structure to a fully simulated fractionation column, reproducing the limonene/linalool deterpenation of [Diaz et al. (2005)](https://doi.org/10.1016/j.supflu.2004.09.005).
+
+## Group decomposition and parameter sets
+
+A molecule is decomposed into GC-EOS groups directly from its SMILES with `gceos_decompose`. The two models use slightly different group definitions — GCA-EOS uses whole associating groups (e.g. a single `CH3COOH`) where GC-EOS splits them:
+
+```{r decomp, message = FALSE}
+gceos_decompose("CC(=O)O", model = "gcaeos")     # acetic acid -> one CH3COOH group
+gceos_decompose("CC(=O)O", model = "gceos")      # GC-EOS splits it into CH3 + COOH
+```
+
+The bundled parameter sets are returned by `gceos_params`: the consolidated Fornari (`"fornari2007"`, 59 groups), the association set (`"gcaeos"`), and the literature-validated Diaz limonene/linalool/CO~2~ deterpenation set (`"diaz2005"`). Each set carries the group-interaction parameters plus a table of pure-component critical temperatures and energy parameters (`dc`):
+
+```{r params, message = FALSE}
+diaz <- gceos_params("diaz2005")
+
+#A small helper to assemble a component (group counts + dc + Tc) from the parameter set
+mk <- function(p, nm) {
+  g <- p$decomp[nm, ]; g <- g[g > 0]
+  list(groups = g, dc = p$components[nm, "dc"], Tc = p$components[nm, "Tc"])
+}
+limonene <- mk(diaz, "limonene")
+linalool <- mk(diaz, "linalool")
+CO2      <- mk(diaz, "CO2")
+
+limonene$groups          # the GC-EOS groups making up limonene
+```
+
+For a **new** molecule, the energy parameter `dc` is regressed from a known boiling point (or other saturation point) with `gceos_fit_dc`, given the group decomposition and critical temperature (the latter from `est_gcm`):
+
+```{r fitdc, eval = FALSE}
+grp <- gceos_decompose("CCCCCCCCCC")                       # n-decane
+gceos_fit_dc(groups = grp, Tc = 617.7, Tsat = 447.3)       # -> dc ~ 6.02, reproduces the boiling point
+```
+
+## Pure-component saturation pressure
+
+`gceos_psat` returns the saturation (vapour) pressure of a pure component at a given temperature by locating the vapour and liquid volume roots of the equal-fugacity condition. As a check, evaluating it at a compound's normal boiling point should return ~1 atm:
+
+```{r psat, message = FALSE}
+gceos_psat(449.65, limonene, diaz)     # limonene at its boiling point -> ~1 atm
+```
+
+## Vapour-liquid equilibria and selectivity
+
+`gceos_flash` performs an isothermal-isobaric flash on a multicomponent feed, returning the K-values and the vapour/liquid compositions. The ratio of two K-values is the **relative volatility** (selectivity), the key quantity for a separation. For the limonene/linalool/CO~2~ system at 10 MPa and 334 K:
+
+```{r flash, message = FALSE}
+comps <- list(limonene = limonene, linalool = linalool, CO2 = CO2)
+
+fl <- gceos_flash(T = 334, P = 10e6 / 101325,           # P in atm
+                  z = c(0.123, 0.027, 0.85), comps = comps, model = diaz)
+
+fl$K                                                    # K-values
+fl$K["limonene"] / fl$K["linalool"]                     # selectivity ~ 1.75
+```
+
+A selectivity of ~1.75 is modest — exactly the regime Diaz reported — which is why deterpenation needs a multistage column with reflux rather than a single flash.
+
+## Phase envelopes and the mixture critical point
+
+Because selectivity collapses toward unity as a CO~2~-rich mixture approaches its critical point, knowing **where** that critical point sits is operationally crucial. `gceos_saturation` gives a single bubble- or dew-point, `gceos_pxy` traces a binary P-x envelope, and `gceos_critical` locates the mixture critical point (the envelope apex):
+
+```{r envelope, message = FALSE}
+binary <- list(CO2 = CO2, limonene = limonene)
+
+#Bubble pressure of a 50:50 CO2/limonene liquid at 323 K
+b <- gceos_saturation(323.15, c(0.5, 0.5), binary, model = diaz, type = "bubble")
+b$P * 0.101325                          # MPa
+
+#Mixture critical point at 323 K
+cr <- gceos_critical(323.15, binary, model = diaz)
+c(x_CO2 = cr$x[1], P_MPa = cr$P * 0.101325)
+```
+
+The critical pressure here (~10.2 MPa at 323 K) sits right at typical deterpenation conditions — which is precisely why a column operated at 10 MPa and 323 K struggles (selectivity collapses), whereas raising the temperature to ~334 K lifts the critical pressure well above 10 MPa and restores a workable two-phase window. `gceos_critical_locus` traces this critical line across temperatures to map the safe operating region.
+
+## Counter-current fractionation column
+
+`gceos_column_ns_solve` simulates an isothermal (or thermal-gradient) equilibrium-stage counter-current column with external reflux, using a Naphtali-Sandholm simultaneous-correction (block-tridiagonal Newton) solver. The oil feed enters near the top, supercritical CO~2~ enters at the bottom, the raffinate (heavy, less-volatile product) leaves the bottom, and the solvent-rich extract leaves the top. Reflux purifies the extract.
+
+Run at the optimum of Diaz et al. (2005, Table 6) — 10 MPa, 334 K, 28 stages, feed at stage 11, reflux ratio 2.27, and a large solvent-to-feed ratio — the column reproduces the published high-purity deterpenation. Because the operating point sits in a narrow near-critical window, the solver is warm-started along a solvent-to-feed continuation (the `init` argument carries the previous solution forward):
+
+```{r column, eval = FALSE}
+zoil <- c(0.9823, 0.0177, 0)            # 98/2 wt% limonene/linalool feed (mole fractions)
+P    <- 10e6 / 101325                   # 10 MPa in atm
+prev <- NULL
+for (SF in c(seq(20, 560, by = 40), 567)) {
+  r <- gceos_column_ns_solve(N = 28, T = 334.06, P = P, comps = comps,
+                             FL = 1, zL = zoil, FV = SF, zV = c(0, 0, 1),
+                             feedL = 11, reflux = 2.27, solvent = "CO2",
+                             model = diaz, init = prev)
+  if (r$status == "converged") prev <- r
+}
+r <- prev
+
+#Raffinate is almost pure linalool; the extract is almost pure limonene
+MW <- c(136.24, 154.25)
+w  <- r$raffinate$x[1:2] * MW
+100 * w[2] / sum(w)            # raffinate linalool ~ 97.7 wt%  (Diaz 98.18)
+r$recovery["limonene"]        # limonene recovery ~ 0.9996      (Diaz 0.9996)
+```
+
+This matches Diaz's reported raffinate purity (~98 wt% linalool), linalool recovery (~95–97 %), and top limonene purity (~99.9 wt%), with the mass balance closed to within 1e-3. The hydraulic column dimensions (diameter, height) that fit these stages into a real vessel are obtained from `gceos_column_sizing`, and `gceos_column_optimize` searches the operating window (T, P, S/F, reflux) directly. A per-stage temperature vector passed to `T` simulates a thermal-gradient column (internal reflux).
+
+## Association: free fatty acids, water and alcohols
+
+When associating groups are present, switching to the `"gcaeos"` parameter set adds the hydrogen-bonding term. This is essential for systems where association changes the phase topology — for example a fatty acid is held more strongly in the liquid phase by dimerisation, lowering its K-value, and water/hydrocarbon mixtures split into two liquid phases (a three-phase vapour-liquid-liquid flash is available via the simulator core). The same `gceos_flash`, envelope and column functions accept the `"gcaeos"` model; with no associating groups the results are identical to GC-EOS.
+
+```{r assoc, eval = FALSE}
+gca <- gceos_params("gcaeos")
+comps_ffa <- list(
+  CO2    = list(groups = c(CO2 = 1), dc = 3.1289, Tc = 304.2),
+  lauric = list(groups = c(CH3 = 1, CH2 = 9, CH2COOH = 1), dc = 6.3945, Tc = 743)
+)
+gceos_flash(333, 5e6 / 101325, z = c(0.9, 0.1), comps = comps_ffa, model = gca)
+```
+
+## The interactive Process Simulation module
+
+Every function above is also exposed in the Shiny dashboard (`run_app()`) under **Process Simulation**, split into three tabs: **Components** (build and decompose a component, fit or look up its `dc`), **Phase Behaviour** (flash, P-x envelopes, critical loci), and **Column** (configure and run the counter-current fractionation column, with reflux, thermal gradients, sizing, and operating-window optimisation), each with interactive figures and downloadable tables.

@@ -6,8 +6,30 @@ com_analysis_ui <- function(id, defaults, i18n) {
     column(
       width = 5,
       fluidRow(
-        column(6, actionButton(ns("reset"), i18n$t("Reset"), class = "btn btn-default btn-block")),
-        column(6, actionButton(ns("calculate"), i18n$t("Calculate"), class = "btn btn-primary btn-block", style = "color: white;"))
+        column(4, actionButton(ns("reset"), i18n$t("Reset"), class = "btn btn-default btn-block")),
+        column(4, actionButton(ns("calculate"), i18n$t("Calculate"), class = "btn btn-primary btn-block", style = "color: white;")),
+        # Export dropdown (PDF / CSV) — sits to the RIGHT of Calculate and is active ONLY after a calculation
+        # has been run (contextual, same gate as the results panel). Reuses the existing, already-functional
+        # download handlers (download_pdf_report / download_all_results); no separate JSON save for this module.
+        column(4,
+          conditionalPanel(condition = "!output.show_export_all_results", ns = ns,
+            tags$button(class = "btn btn-success dropdown-toggle", disabled = NA,
+              style = "color:white; opacity:0.65; width:100%;",
+              icon("download"), " ", i18n$t("Export"), " ", tags$span(class = "caret"))),
+          conditionalPanel(condition = "output.show_export_all_results", ns = ns,
+            div(class = "btn-group", style = "width:100%;",
+              tags$button(type = "button", class = "btn btn-success dropdown-toggle",
+                `data-toggle` = "dropdown", `aria-haspopup` = "true", `aria-expanded` = "false",
+                style = "color:white; width:100%;",
+                icon("download"), " ", i18n$t("Export"), " ", tags$span(class = "caret")),
+              tags$ul(class = "dropdown-menu dropdown-menu-right", style = "min-width:100%;",
+                tags$li(downloadLink(ns("download_pdf_report"), tagList(icon("file-pdf"), " ", i18n$t("Export PDF")),
+                  style = "padding:5px 15px; display:block;")),
+                tags$li(downloadLink(ns("download_all_results"), tagList(icon("file-csv"), " ", i18n$t("Export CSV")),
+                  style = "padding:5px 15px; display:block;"))
+              ))
+          )
+        )
       ),
       br(),
       # Help button ile başlık ekle
@@ -146,6 +168,20 @@ com_analysis_ui <- function(id, defaults, i18n) {
             fluidRow(
               column(12,
                 uiOutput(ns("comode_ui"))
+              )
+            ),
+            tags$hr(style = "margin: 10px 0;"),
+            # CO2 Density Equation of State
+            fluidRow(
+              column(12,
+                tags$p(tags$strong(i18n$t("CO2 Density Equation of State")),
+                  input_help(i18n$t("Equation of state used to compute CO2 density. Bender is fast and accurate over a wide range; Span-Wagner is the IUPAC/NIST reference equation, more accurate near the critical point."),
+                             title = i18n$t("Equation of State"), buttonLabel = i18n$t("OK")),
+                  style = "margin-top: 10px; margin-bottom: 8px; font-size: 14px; color: #333;"),
+                radioButtons(ns("eos"), NULL,
+                  choiceNames = list(i18n$t("Bender"), i18n$t("Span-Wagner")),
+                  choiceValues = c("bender", "spanwagner"),
+                  selected = "bender", inline = TRUE)
               )
             ),
             tags$hr(style = "margin: 10px 0;"),
@@ -377,17 +413,9 @@ com_analysis_ui <- function(id, defaults, i18n) {
             condition = "output.show_export_all_results",
             ns = ns,
             
-            # Export All Results Button (MOVED HERE)
-            div(
-              id = ns("export_button_wrapper_detailed"),
-              fluidRow(
-                column(12,
-                  style = "display: flex; justify-content: center; margin-bottom: 15px;",
-                  downloadButton(ns("download_all_results"), i18n$t("Export Results"), class = "btn btn-success btn-lg", style = "margin-left:5px;")
-                )
-              )
-            ),
-            
+            # (The Export CSV / Generate PDF buttons were moved out of the output tab into the Export
+            #  dropdown beside Calculate — same download handlers, contextual on a completed calculation.)
+
             # Time selection slider (only shown for multi-value data)
             conditionalPanel(
               condition = "output.has_multi_data",

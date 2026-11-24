@@ -3,6 +3,11 @@
 
 # Helper to load dependencies needed by server modules
 load_module_dependencies <- function(env) {
+  # Skip (don't fail) when any optional shiny-stack package is unavailable, e.g. on a
+  # minimal check machine. Called from within each test_that(), so the skip propagates.
+  for (p in c("shiny", "DT", "plotly", "ggplot2", "rhandsontable", "shinyjs", "shinyhelper")) {
+    skip_if_not_installed(p)
+  }
   # Load required packages
   suppressPackageStartupMessages({
     library(shiny)

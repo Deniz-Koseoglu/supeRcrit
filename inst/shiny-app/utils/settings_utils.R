@@ -12,16 +12,9 @@
 # user’s environment lacks it they can replace fs::dir_create with
 # dir.create(..., recursive = TRUE).)
 
-# Determine settings root based on whether package is installed or in dev mode
-settings_root <- if (nchar(system.file(package = "supeRcrit")) > 0) {
-  # Installed package mode
-  file.path(system.file(package = "supeRcrit"), "shiny-app", "config", "user-settings")
-} else {
-  # Development mode: assume we're running from inst/shiny-app/
-  file.path("config", "user-settings")
-}
-
 #----- internal helpers --------------------------------------------------------
+# Settings live in the WRITABLE per-user data dir (supercrit_user_dir), not the installed
+# package directory, which is read-only on shinyapps.io / system-library installs.
 
 .ensure_dir <- function(path) {
   if (!dir.exists(path)) dir.create(path, recursive = TRUE, showWarnings = FALSE)
@@ -29,8 +22,7 @@ settings_root <- if (nchar(system.file(package = "supeRcrit")) > 0) {
 }
 
 .settings_dir <- function(app_name) {
-  dir_path <- file.path(settings_root, app_name)
-  .ensure_dir(dir_path)
+  .ensure_dir(supercrit_user_dir(file.path("user-settings", app_name)))
 }
 
 .settings_path <- function(app_name, settings_name) {
@@ -46,7 +38,7 @@ save_settings <- function(app_name, settings, settings_name) {
     jsonlite::write_json(settings, path, auto_unbox = TRUE, pretty = TRUE)
     invisible(path)
   }, error = function(e) {
-    warning(paste(i18n$t("Error saving settings:"), e$message))
+    warning("Error saving settings: ", e$message)
     invisible(NULL) # Return NULL on error
   })
 }
@@ -94,23 +86,18 @@ save_doe_analysis <- function(app_name, analysis_obj, analysis_name) {
 
   # Create directory if needed
   dir_path <- .settings_dir(app_name)
-  print(paste("DEBUG save_doe_analysis: Saving to directory:", dir_path))
 
   # Generate timestamped filename
   timestamp <- format(Sys.time(), "%d-%m-%Y_%Hhrs-%Mmin-%Ssec")
   filename <- paste0(analysis_name, "_", timestamp, ".RData")
   filepath <- file.path(dir_path, filename)
-  print(paste("DEBUG save_doe_analysis: Full filepath:", filepath))
 
   # Save using save() to create .RData file
   tryCatch({
     save(analysis_obj, file = filepath)
-    print(paste("DEBUG save_doe_analysis: File saved successfully"))
-    print(paste("DEBUG save_doe_analysis: File exists?", file.exists(filepath)))
     invisible(filepath)
   }, error = function(e) {
     warning(paste("Error saving DOE analysis:", e$message))
-    print(paste("DEBUG save_doe_analysis: ERROR -", e$message))
     invisible(NULL)
   })
 }
@@ -120,11 +107,7 @@ save_doe_analysis <- function(app_name, analysis_obj, analysis_name) {
 #' @return Named vector: names are display names, values are full file paths
 list_doe_analyses <- function(app_name) {
   dir <- .settings_dir(app_name)
-  print(paste("DEBUG list_doe_analyses: Looking in directory:", dir))
-  print(paste("DEBUG list_doe_analyses: Directory exists?", dir.exists(dir)))
-
   files <- list.files(dir, pattern = "\\.RData$", full.names = TRUE)
-  print(paste("DEBUG list_doe_analyses: Found", length(files), "RData files"))
 
   if (length(files) == 0) {
     return(setNames(character(0), character(0)))

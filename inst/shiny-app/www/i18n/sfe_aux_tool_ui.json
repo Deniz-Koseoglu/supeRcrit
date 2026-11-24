@@ -1,6 +1,41 @@
 {
   "translation": [
     {
+      "en": "Export plot (PDF)",
+      "ru": "Экспорт графика (PDF)",
+      "tr": "Grafiği dışa aktar (PDF)"
+    },
+    {
+      "en": "Export data (CSV)",
+      "ru": "Экспорт данных (CSV)",
+      "tr": "Verileri dışa aktar (CSV)"
+    },
+    {
+      "en": "Available Solvents Data (HSP co-solvent mode only)",
+      "ru": "Данные о доступных растворителях (только режим HSP со-растворителей)",
+      "tr": "Mevcut Çözücü Verileri (yalnızca HSP ko-çözücü modu)"
+    },
+    {
+      "en": "Mole fraction",
+      "ru": "Мольная доля",
+      "tr": "Mol kesri"
+    },
+    {
+      "en": "g solute / kg",
+      "ru": "г растворённого в-ва / кг",
+      "tr": "g çözünen / kg"
+    },
+    {
+      "en": "Cosolvent",
+      "ru": "Со-растворитель",
+      "tr": "Ko-çözücü"
+    },
+    {
+      "en": "Phase",
+      "ru": "Фаза",
+      "tr": "Faz"
+    },
+    {
       "en": "CO₂-Ethanol Critical Parameters",
       "ru": "Критические параметры CO₂-этанола",
       "tr": "CO₂-Etanol Kritik Parametreleri"

@@ -16,7 +16,12 @@ A positive ME% indicates that the co-solvent brings the solvent mixture closer t
 
 ### Solvent Blends
 
-Custom co-solvent blends can be created by combining two or more solvents at specified volume fractions. The blend HSPs are calculated as volume-weighted averages of the individual solvent HSPs.
+Custom co-solvent blends (two or more solvents at specified proportions) can be built and screened, and the **Automatic Solvent Finder** can additionally recommend enhancing blends when *"Also screen enhancing blends"* is ticked. How a blend is evaluated depends on the model:
+
+- **HSP (Miscibility)** — the blend HSPs are the volume-weighted averages of the individual solvent HSPs (Hansen-distance blending).
+- **CSP-2021 / openCOSMO-RS-Phi** — each blend is evaluated directly as a genuine *n*-component COSMO-SAC-Phi solve (the solute in CO₂ + the co-solvents at their mole fractions), not an extrapolation.
+
+Both Solubility-mode engines (**CSP-2021** and **openCOSMO-RS-Phi**) are genuine *n*-component models, so blends are screened directly in either engine as well as in HSP (Miscibility) mode.
 
 ### References
 

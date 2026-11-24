@@ -3,7 +3,7 @@
   "parameters": {
     "cas_input": "7235-40-7",
     "name_input": "β-Carotene",
-    "smiles_input": "",
+    "smiles_input": "CC1=C(/C=C/C(C)=C/C=C/C(C)=C/C=C/C=C(C)/C=C/C=C(C)/C=C/C2=C(C)CCCC2(C)C)C(C)(C)CCC1",
     "specify_smiles": false,
     "gcm_tb": "SB_corr",
     "gcm_crit": "NL07_robust",

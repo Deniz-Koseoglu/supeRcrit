@@ -93,24 +93,63 @@ auxiliary_tools_ui <- function(id, defaults, i18n) {
                     width = NULL,
                     collapsible = TRUE,
                     collapsed = TRUE,
-                    # Placeholder when no demo results
-                    conditionalPanel(
-                      condition = "!output.has_demo_results",
-                      ns = ns,
-                      div(
-                        style = "text-align: center; padding: 30px; color: #888;",
-                        icon("chart-area", style = "font-size: 36px; margin-bottom: 10px;"),
-                        p(i18n$t("Click the button below to display model data."))
-                      )
-                    ),
-                    conditionalPanel(
-                      condition = "output.has_demo_results",
-                      ns = ns,
-                      uiOutput(ns("iscrit_etoh_demo_results"))
-                    ),
-                    actionButton(ns("run_etoh_demo"), i18n$t("Display and plot data"), class = "btn btn-primary", style = "color: white;")
+                    # Generated the first time this accordion is opened (the outputs are lazy while collapsed).
+                    h4(i18n$t("Critical Temperature Plot")),
+                    plotOutput(ns("iscrit_etoh_demo_tc_plot")),
+                    hr(),
+                    h4(i18n$t("Critical Pressure Plot")),
+                    plotOutput(ns("iscrit_etoh_demo_pc_plot")),
+                    hr(),
+                    h4(i18n$t("Data Table")),
+                    DT::dataTableOutput(ns("iscrit_etoh_demo_table"))
                   )
                 )
+              )
+            )
+          ),
+          # ---- Raw scCO2 solubility source data (experimental measurements from 69 primary papers) ----
+          tabPanel(
+            title = i18n$t("Solubility Source Data"),
+            value = "solub_source",
+            fluidRow(
+              column(
+                width = 4,
+                box(
+                  title = i18n$t("Experimental scCO₂ solubility"),
+                  status = "success", solidHeader = TRUE, width = NULL,
+                  uiOutput(ns("ssrc_compound_ui")),
+                  uiOutput(ns("ssrc_units_ui")),
+                  # Two toggles inline on one row; each label is kept on a single line (no wrapping in any language).
+                  div(style = "display:flex; flex-wrap:nowrap; gap:18px; margin-top:6px;",
+                    div(class = "ck-flush", style = "white-space:nowrap;",
+                      checkboxInput(ns("ssrc_cosolv"), i18n$t("Include co-solvent systems"), value = FALSE)),
+                    div(class = "ck-flush", style = "white-space:nowrap;",
+                      checkboxInput(ns("ssrc_logy"), i18n$t("Logarithmic y-axis"), value = TRUE))),
+                  hr(),
+                  uiOutput(ns("ssrc_info"))
+                )
+              ),
+              column(
+                width = 8,
+                box(
+                  title = i18n$t("Solubility isotherms"),
+                  status = "primary", solidHeader = TRUE, width = NULL,
+                  conditionalPanel("output.ssrc_has == false", ns = ns,
+                    div(style = "text-align:center; padding:40px; color:#888;",
+                      icon("chart-line", style = "font-size:42px; margin-bottom:12px;"),
+                      h4(i18n$t("Select a compound to view its measured solubility.")))),
+                  conditionalPanel("output.ssrc_has == true", ns = ns,
+                    div(style = "display:flex; justify-content:flex-end; gap:8px; margin-bottom:6px;",
+                      downloadButton(ns("ssrc_plot_export"), i18n$t("Export plot (PDF)"), class = "btn btn-success btn-sm", style = "color:white;"),
+                      downloadButton(ns("ssrc_export"), i18n$t("Export data (CSV)"), class = "btn btn-success btn-sm", style = "color:white;")),
+                    plotly::plotlyOutput(ns("ssrc_plot"), height = "440px"))
+                ),
+                conditionalPanel("output.ssrc_has == true", ns = ns,
+                  box(
+                    title = i18n$t("Measured data points"),
+                    status = "primary", solidHeader = TRUE, width = NULL, collapsible = TRUE,
+                    DT::dataTableOutput(ns("ssrc_table"))
+                  ))
               )
             )
           ),
@@ -120,7 +159,7 @@ auxiliary_tools_ui <- function(id, defaults, i18n) {
             box(
               title = div(
                 style = "display: flex; align-items: center;",
-                span(i18n$t("Available Solvents Data")),
+                span(i18n$t("Available Solvents Data (HSP co-solvent mode only)")),
                 div(uiOutput(ns("sfe_aux_tool_solvents_db_HELP")))
               ),
               status = "primary",

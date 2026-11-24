@@ -1,0 +1,1039 @@
+{
+  "translation": [
+    {
+      "en": "Fractionation Column",
+      "ru": "Фракционирующая колонна",
+      "tr": "Fraksiyonlama Kolonu"
+    },
+    {
+      "en": "An optimisation is already running.",
+      "ru": "Оптимизация уже выполняется.",
+      "tr": "Bir optimizasyon zaten çalışıyor."
+    },
+    {
+      "en": "Cancel optimisation",
+      "ru": "Отменить оптимизацию",
+      "tr": "Optimizasyonu iptal et"
+    },
+    {
+      "en": "Optimisation cancelled.",
+      "ru": "Оптимизация отменена.",
+      "tr": "Optimizasyon iptal edildi."
+    },
+    {
+      "en": "Run Column",
+      "ru": "Рассчитать колонну",
+      "tr": "Kolonu Çalıştır"
+    },
+    {
+      "en": "Column Setup",
+      "ru": "Настройка колонны",
+      "tr": "Kolon Kurulumu"
+    },
+    {
+      "en": "Feed solutes",
+      "ru": "Растворённые вещества питания",
+      "tr": "Besleme çözünenleri"
+    },
+    {
+      "en": "The liquid feed (oil) is fractionated counter-currently with CO2 as the supercritical solvent.",
+      "ru": "Жидкое питание (масло) фракционируется в противотоке с CO2 в качестве сверхкритического растворителя.",
+      "tr": "Sıvı besleme (yağ), süperkritik çözücü olarak CO2 ile karşı akışlı olarak fraksiyonlanır."
+    },
+    {
+      "en": "Feed composition (oil)",
+      "ru": "Состав питания (масло)",
+      "tr": "Besleme bileşimi (yağ)"
+    },
+    {
+      "en": "Column parameters",
+      "ru": "Параметры колонны",
+      "tr": "Kolon parametreleri"
+    },
+    {
+      "en": "Select up to %d feed solutes",
+      "ru": "Выберите до %d растворённых веществ питания",
+      "tr": "En fazla %d besleme çözüneni seçin"
+    },
+    {
+      "en": "At most %d feed solutes can be selected.",
+      "ru": "Можно выбрать не более %d растворённых веществ питания.",
+      "tr": "En fazla %d besleme çözüneni seçilebilir."
+    },
+    {
+      "en": "Solute %d",
+      "ru": "Вещество %d",
+      "tr": "Çözünen %d"
+    },
+    {
+      "en": "Stages",
+      "ru": "Ступени",
+      "tr": "Kademeler"
+    },
+    {
+      "en": "Number of equilibrium stages (stage 1 = top).",
+      "ru": "Число равновесных ступеней (ступень 1 = верх).",
+      "tr": "Denge kademelerinin sayısı (kademe 1 = üst)."
+    },
+    {
+      "en": "Feed stage",
+      "ru": "Ступень питания",
+      "tr": "Besleme kademesi"
+    },
+    {
+      "en": "Stage where the liquid (oil) feed enters; below it is the rectifying section.",
+      "ru": "Ступень входа жидкого питания (масла); ниже неё — укрепляющая секция.",
+      "tr": "Sıvı (yağ) beslemenin girdiği kademe; altında zenginleştirme bölümü bulunur."
+    },
+    {
+      "en": "Reflux ratio",
+      "ru": "Флегмовое число",
+      "tr": "Geri akış oranı"
+    },
+    {
+      "en": "External reflux ratio R/E (0 = no reflux). Higher reflux sharpens the separation. Reflux and product are the same solvent-free condensate, so this ratio is identical on a molar or mass basis (no unit toggle needed).",
+      "ru": "Внешнее флегмовое число R/E (0 = без флегмы). Большее значение усиливает разделение. Флегма и продукт представляют собой один и тот же конденсат без растворителя, поэтому это отношение одинаково в мольных и массовых единицах (переключение единиц не требуется).",
+      "tr": "Dış geri akış oranı R/E (0 = geri akış yok). Yüksek değer ayrımı keskinleştirir. Geri akış ve ürün aynı çözücüsüz yoğuşmadır, bu nedenle bu oran molar veya kütle bazında aynıdır (birim değişimi gerekmez)."
+    },
+    {
+      "en": "Solvent-to-feed molar ratio (CO2 flow / oil feed flow). Higher S/F extracts more.",
+      "ru": "Мольное отношение растворителя к питанию (поток CO2 / поток масла). Большее S/F извлекает больше.",
+      "tr": "Çözücü/besleme mol oranı (CO2 akışı / yağ besleme akışı). Yüksek S/F daha çok ekstrakte eder."
+    },
+    {
+      "en": "Column temperature (isothermal, or the reference for the gradient).",
+      "ru": "Температура колонны (изотермическая или опорная для градиента).",
+      "tr": "Kolon sıcaklığı (izotermal veya gradyan için referans)."
+    },
+    {
+      "en": "Column pressure.",
+      "ru": "Давление колонны.",
+      "tr": "Kolon basıncı."
+    },
+    {
+      "en": "Impose a temperature gradient (top -> bottom)",
+      "ru": "Задать температурный градиент (сверху вниз)",
+      "tr": "Sıcaklık gradyanı uygula (üstten alta)"
+    },
+    {
+      "en": "Temperature at the top stage (stage 1).",
+      "ru": "Температура на верхней ступени (ступень 1).",
+      "tr": "Üst kademedeki sıcaklık (kademe 1)."
+    },
+    {
+      "en": "Temperature at the bottom stage (stage N).",
+      "ru": "Температура на нижней ступени (ступень N).",
+      "tr": "Alt kademedeki sıcaklık (kademe N)."
+    },
+    {
+      "en": "Select at least one feed solute.",
+      "ru": "Выберите хотя бы одно растворённое вещество питания.",
+      "tr": "En az bir besleme çözüneni seçin."
+    },
+    {
+      "en": "The feed stage cannot exceed the number of stages.",
+      "ru": "Ступень питания не может превышать число ступеней.",
+      "tr": "Besleme kademesi, kademe sayısını aşamaz."
+    },
+    {
+      "en": "Column solve failed:",
+      "ru": "Ошибка расчёта колонны:",
+      "tr": "Kolon çözümü başarısız:"
+    },
+    {
+      "en": "Solving the column...",
+      "ru": "Расчёт колонны...",
+      "tr": "Kolon çözülüyor..."
+    },
+    {
+      "en": "Column status: %s",
+      "ru": "Статус колонны: %s",
+      "tr": "Kolon durumu: %s"
+    },
+    {
+      "en": "Set up the column and click Run.",
+      "ru": "Настройте колонну и нажмите «Рассчитать».",
+      "tr": "Kolonu kurun ve Çalıştır'a basın."
+    },
+    {
+      "en": "Run the column first, then size it.",
+      "ru": "Сначала рассчитайте колонну, затем определите габариты.",
+      "tr": "Önce kolonu çalıştırın, sonra boyutlandırın."
+    },
+    {
+      "en": "Products",
+      "ru": "Продукты",
+      "tr": "Ürünler"
+    },
+    {
+      "en": "Stage Profiles",
+      "ru": "Профили по ступеням",
+      "tr": "Kademe Profilleri"
+    },
+    {
+      "en": "Sizing",
+      "ru": "Габариты",
+      "tr": "Boyutlandırma"
+    },
+    {
+      "en": "Feed",
+      "ru": "Питание",
+      "tr": "Besleme"
+    },
+    {
+      "en": "Extract",
+      "ru": "Экстракт",
+      "tr": "Ekstrakt"
+    },
+    {
+      "en": "Raffinate",
+      "ru": "Рафинат",
+      "tr": "Rafinat"
+    },
+    {
+      "en": "Recovery",
+      "ru": "Извлечение",
+      "tr": "Geri kazanım"
+    },
+    {
+      "en": "stages",
+      "ru": "ступеней",
+      "tr": "kademe"
+    },
+    {
+      "en": "iters",
+      "ru": "итер.",
+      "tr": "iter."
+    },
+    {
+      "en": "converged",
+      "ru": "сошлось",
+      "tr": "yakınsadı"
+    },
+    {
+      "en": "flooded",
+      "ru": "захлёбывание",
+      "tr": "taştı"
+    },
+    {
+      "en": "max_iter",
+      "ru": "макс. итераций",
+      "tr": "maks. iterasyon"
+    },
+    {
+      "en": "Compositions are on a solvent (CO2)-free basis. Recovery is the fraction of each solute leaving in the extract.",
+      "ru": "Составы приведены без растворителя (CO2). Извлечение — доля каждого вещества, уходящая в экстракт.",
+      "tr": "Bileşimler çözücüsüz (CO2) bazdadır. Geri kazanım, her çözünenin ekstrakta giden kesridir."
+    },
+    {
+      "en": "Solvent-free liquid mole fraction of each solute along the column (stage 1 = top / extract end, stage N = bottom / raffinate end).",
+      "ru": "Мольная доля каждого вещества в жидкости (без растворителя) по высоте колонны (ступень 1 = верх / сторона экстракта, ступень N = низ / сторона рафината).",
+      "tr": "Her çözünenin kolon boyunca çözücüsüz sıvı mol kesri (kademe 1 = üst / ekstrakt ucu, kademe N = alt / rafinat ucu)."
+    },
+    {
+      "en": "Stage (1 = top)",
+      "ru": "Ступень (1 = верх)",
+      "tr": "Kademe (1 = üst)"
+    },
+    {
+      "en": "solvent-free liquid mole fraction",
+      "ru": "мольная доля в жидкости без растворителя",
+      "tr": "çözücüsüz sıvı mol kesri"
+    },
+    {
+      "en": "Oil feed rate (kg/h)",
+      "ru": "Расход масла (кг/ч)",
+      "tr": "Yağ besleme hızı (kg/sa)"
+    },
+    {
+      "en": "Mass feed rate of the oil; sets the absolute flow scale for sizing.",
+      "ru": "Массовый расход масла; задаёт абсолютный масштаб потока для расчёта габаритов.",
+      "tr": "Yağın kütlesel besleme hızı; boyutlandırma için mutlak akış ölçeğini belirler."
+    },
+    {
+      "en": "Phase densities",
+      "ru": "Плотности фаз",
+      "tr": "Faz yoğunlukları"
+    },
+    {
+      "en": "Budich-Brunner (oil)",
+      "ru": "Бьюдич-Бруннер (масло)",
+      "tr": "Budich-Brunner (yağ)"
+    },
+    {
+      "en": "Height equivalent to a theoretical plate (packing-specific).",
+      "ru": "Высота, эквивалентная теоретической тарелке (зависит от насадки).",
+      "tr": "Bir teorik tabakaya eşdeğer yükseklik (paketlemeye özgü)."
+    },
+    {
+      "en": "Fraction of flooding",
+      "ru": "Доля захлёбывания",
+      "tr": "Taşma kesri"
+    },
+    {
+      "en": "Design vapour velocity as a fraction of the flooding velocity.",
+      "ru": "Расчётная скорость пара как доля скорости захлёбывания.",
+      "tr": "Taşma hızının kesri olarak tasarım buhar hızı."
+    },
+    {
+      "en": "Sizing could not be computed for these inputs.",
+      "ru": "Не удалось рассчитать габариты для этих входных данных.",
+      "tr": "Bu girdiler için boyutlandırma hesaplanamadı."
+    },
+    {
+      "en": "Column diameter",
+      "ru": "Диаметр колонны",
+      "tr": "Kolon çapı"
+    },
+    {
+      "en": "Packed height",
+      "ru": "Высота насадки",
+      "tr": "Paket yüksekliği"
+    },
+    {
+      "en": "Flooding velocity",
+      "ru": "Скорость захлёбывания",
+      "tr": "Taşma hızı"
+    },
+    {
+      "en": "Vapour density",
+      "ru": "Плотность пара",
+      "tr": "Buhar yoğunluğu"
+    },
+    {
+      "en": "Liquid density",
+      "ru": "Плотность жидкости",
+      "tr": "Sıvı yoğunluğu"
+    },
+    {
+      "en": "CO2 density",
+      "ru": "Плотность CO2",
+      "tr": "CO2 yoğunluğu"
+    },
+    {
+      "en": "Quantity",
+      "ru": "Величина",
+      "tr": "Büyüklük"
+    },
+    {
+      "en": "Oil feed stage",
+      "ru": "Ступень питания (масло)",
+      "tr": "Yağ besleme kademesi"
+    },
+    {
+      "en": "Stage where the liquid (oil) feed enters; above it is the rectifying section.",
+      "ru": "Ступень входа жидкого питания (масла); выше неё — укрепляющая секция.",
+      "tr": "Sıvı (yağ) beslemenin girdiği kademe; üstünde zenginleştirme bölümü bulunur."
+    },
+    {
+      "en": "Solvent feed stage",
+      "ru": "Ступень питания растворителя",
+      "tr": "Çözücü besleme kademesi"
+    },
+    {
+      "en": "Stage where the CO2 solvent enters (default = bottom stage N).",
+      "ru": "Ступень входа растворителя CO2 (по умолчанию = нижняя ступень N).",
+      "tr": "CO2 çözücüsünün girdiği kademe (varsayılan = alt kademe N)."
+    },
+    {
+      "en": "The solvent feed stage must be between 1 and the number of stages.",
+      "ru": "Ступень питания растворителя должна быть от 1 до числа ступеней.",
+      "tr": "Çözücü besleme kademesi 1 ile kademe sayısı arasında olmalıdır."
+    },
+    {
+      "en": "Show advanced solver options",
+      "ru": "Показать дополнительные параметры решателя",
+      "tr": "Gelişmiş çözücü seçeneklerini göster"
+    },
+    {
+      "en": "Max iterations",
+      "ru": "Макс. итераций",
+      "tr": "Maks. iterasyon"
+    },
+    {
+      "en": "Maximum Naphtali-Sandholm iterations before giving up.",
+      "ru": "Максимальное число итераций Нафтали-Сандхольма до остановки.",
+      "tr": "Vazgeçmeden önceki maksimum Naphtali-Sandholm iterasyon sayısı."
+    },
+    {
+      "en": "Convergence tolerance",
+      "ru": "Допуск сходимости",
+      "tr": "Yakınsama toleransı"
+    },
+    {
+      "en": "Residual tolerance for stage convergence (smaller = stricter).",
+      "ru": "Допуск по невязке для сходимости ступеней (меньше = строже).",
+      "tr": "Kademe yakınsaması için kalıntı toleransı (küçük = daha katı)."
+    },
+    {
+      "en": "Retrying via S/F continuation...",
+      "ru": "Повтор через продолжение по S/F...",
+      "tr": "S/F sürdürmesiyle yeniden deneniyor..."
+    },
+    {
+      "en": "Optimization (optional)",
+      "ru": "Оптимизация (необязательно)",
+      "tr": "Optimizasyon (isteğe bağlı)"
+    },
+    {
+      "en": "Optimization",
+      "ru": "Оптимизация",
+      "tr": "Optimizasyon"
+    },
+    {
+      "en": "Select feed solutes first, then choose an objective and the variables to optimise.",
+      "ru": "Сначала выберите растворённые вещества питания, затем задайте цель и переменные для оптимизации.",
+      "tr": "Önce besleme çözünenlerini seçin, ardından bir amaç ve optimize edilecek değişkenleri seçin."
+    },
+    {
+      "en": "Tune operating variables to maximise a separation objective. Variables left unchecked are held at the Column-parameters values; optimisation is isothermal (uses the Temperature field).",
+      "ru": "Подбор рабочих переменных для максимизации цели разделения. Невыбранные переменные удерживаются на значениях из параметров колонны; оптимизация изотермическая (использует поле температуры).",
+      "tr": "Bir ayırma amacını en üst düzeye çıkarmak için işletme değişkenlerini ayarlayın. İşaretlenmeyen değişkenler Kolon parametreleri değerlerinde tutulur; optimizasyon izotermaldir (Sıcaklık alanını kullanır)."
+    },
+    {
+      "en": "Objective",
+      "ru": "Цель",
+      "tr": "Amaç"
+    },
+    {
+      "en": "Quantity to maximise. Recovery = fraction of the target solute leaving in the extract; purity = its solvent-free mole fraction in that product.",
+      "ru": "Величина для максимизации. Извлечение = доля целевого вещества, уходящая в экстракт; чистота = его мольная доля без растворителя в этом продукте.",
+      "tr": "En üst düzeye çıkarılacak büyüklük. Geri kazanım = hedef çözünenin ekstrakta giden kesri; saflık = o üründeki çözücüsüz mol kesri."
+    },
+    {
+      "en": "Maximise extract recovery",
+      "ru": "Максимизировать извлечение в экстракт",
+      "tr": "Ekstrakt geri kazanımını en üst düzeye çıkar"
+    },
+    {
+      "en": "Maximise extract purity",
+      "ru": "Максимизировать чистоту экстракта",
+      "tr": "Ekstrakt saflığını en üst düzeye çıkar"
+    },
+    {
+      "en": "Maximise raffinate purity",
+      "ru": "Максимизировать чистоту рафината",
+      "tr": "Rafinat saflığını en üst düzeye çıkar"
+    },
+    {
+      "en": "Target solute",
+      "ru": "Целевое вещество",
+      "tr": "Hedef çözünen"
+    },
+    {
+      "en": "Variables to optimise",
+      "ru": "Переменные для оптимизации",
+      "tr": "Optimize edilecek değişkenler"
+    },
+    {
+      "en": "S/F",
+      "ru": "S/F",
+      "tr": "S/F"
+    },
+    {
+      "en": "Reflux",
+      "ru": "Флегма",
+      "tr": "Geri akış"
+    },
+    {
+      "en": "min",
+      "ru": "мин",
+      "tr": "dk"
+    },
+    {
+      "en": "max",
+      "ru": "макс",
+      "tr": "maks"
+    },
+    {
+      "en": "Bounds",
+      "ru": "Границы",
+      "tr": "Sınırlar"
+    },
+    {
+      "en": "Optimize",
+      "ru": "Оптимизировать",
+      "tr": "Optimize Et"
+    },
+    {
+      "en": "Select at least one variable to optimise.",
+      "ru": "Выберите хотя бы одну переменную для оптимизации.",
+      "tr": "Optimize edilecek en az bir değişken seçin."
+    },
+    {
+      "en": "Invalid bounds for %s (max must exceed min).",
+      "ru": "Недопустимые границы для %s (макс. должен превышать мин.).",
+      "tr": "%s için geçersiz sınırlar (maks, min'i aşmalıdır)."
+    },
+    {
+      "en": "Optimising the column (this can take a while)...",
+      "ru": "Оптимизация колонны (это может занять время)...",
+      "tr": "Kolon optimize ediliyor (biraz zaman alabilir)..."
+    },
+    {
+      "en": "Optimization failed:",
+      "ru": "Ошибка оптимизации:",
+      "tr": "Optimizasyon başarısız:"
+    },
+    {
+      "en": "Optimization finished but the best point did not fully converge.",
+      "ru": "Оптимизация завершена, но лучшая точка не полностью сошлась.",
+      "tr": "Optimizasyon bitti ancak en iyi nokta tam olarak yakınsamadı."
+    },
+    {
+      "en": "Set an objective in the Optimization box and click Optimize.",
+      "ru": "Задайте цель в блоке «Оптимизация» и нажмите «Оптимизировать».",
+      "tr": "Optimizasyon kutusunda bir amaç belirleyin ve Optimize Et'e tıklayın."
+    },
+    {
+      "en": "Objective:",
+      "ru": "Цель:",
+      "tr": "Amaç:"
+    },
+    {
+      "en": "Extract recovery",
+      "ru": "Извлечение в экстракт",
+      "tr": "Ekstrakt geri kazanımı"
+    },
+    {
+      "en": "Extract purity",
+      "ru": "Чистота экстракта",
+      "tr": "Ekstrakt saflığı"
+    },
+    {
+      "en": "Raffinate purity",
+      "ru": "Чистота рафината",
+      "tr": "Rafinat saflığı"
+    },
+    {
+      "en": "Optimal operating conditions",
+      "ru": "Оптимальные рабочие условия",
+      "tr": "Optimal işletme koşulları"
+    },
+    {
+      "en": "Variable",
+      "ru": "Переменная",
+      "tr": "Değişken"
+    },
+    {
+      "en": "* optimised; others held at the Column-parameters values.",
+      "ru": "* оптимизировано; остальные удерживаются на значениях параметров колонны.",
+      "tr": "* optimize edildi; diğerleri Kolon parametreleri değerlerinde tutuldu."
+    },
+    {
+      "en": "Products at the optimum",
+      "ru": "Продукты в оптимуме",
+      "tr": "Optimumdaki ürünler"
+    },
+    {
+      "en": "No fully-converged column at the optimum; tighten the bounds or adjust the fixed conditions.",
+      "ru": "В оптимуме нет полностью сошедшейся колонны; сузьте границы или измените фиксированные условия.",
+      "tr": "Optimumda tam yakınsamış bir kolon yok; sınırları daraltın veya sabit koşulları ayarlayın."
+    },
+    {
+      "en": "Enter these values in the Column-parameters fields and click Run Column for the full profiles and sizing.",
+      "ru": "Введите эти значения в поля параметров колонны и нажмите «Рассчитать колонну» для полных профилей и габаритов.",
+      "tr": "Bu değerleri Kolon parametreleri alanlarına girin ve tam profiller ile boyutlandırma için Kolonu Çalıştır'a tıklayın."
+    },
+    {
+      "en": "example",
+      "ru": "пример",
+      "tr": "örnek"
+    },
+    {
+      "en": "Min",
+      "ru": "Мин",
+      "tr": "Min"
+    },
+    {
+      "en": "Max",
+      "ru": "Макс",
+      "tr": "Maks"
+    },
+    {
+      "en": "mol/mol",
+      "ru": "моль/моль",
+      "tr": "mol/mol"
+    },
+    {
+      "en": "kg/kg",
+      "ru": "кг/кг",
+      "tr": "kg/kg"
+    },
+    {
+      "en": "Feed molecular weight unavailable; the S/F mass basis needs component MW.",
+      "ru": "Молекулярная масса питания недоступна; для массового базиса S/F нужна MW компонентов.",
+      "tr": "Besleme molekül ağırlığı yok; S/F kütle bazı için bileşen MA gerekir."
+    },
+    {
+      "en": "No physical two-phase solution at this S/F: the liquid product vanishes (column over-solvented). Reduce the S/F ratio.",
+      "ru": "При этом S/F нет физического двухфазного решения: жидкий продукт исчезает (колонна перенасыщена растворителем). Уменьшите отношение S/F.",
+      "tr": "Bu S/F değerinde fiziksel iki fazlı çözüm yok: sıvı ürün kayboluyor (kolon aşırı çözücülü). S/F oranını azaltın."
+    },
+    {
+      "en": "mol",
+      "ru": "моль",
+      "tr": "mol"
+    },
+    {
+      "en": "mass",
+      "ru": "масса",
+      "tr": "kütle"
+    },
+    {
+      "en": "Feed fractions of components 2+ exceed 1; component 1 (the balance) would be negative.",
+      "ru": "Доли компонентов 2+ в питании превышают 1; компонент 1 (баланс) стал бы отрицательным.",
+      "tr": "Bileşen 2+ besleme oranları 1'i aşıyor; bileşen 1 (denge) negatif olurdu."
+    },
+    {
+      "en": "Solvent-to-feed ratio (CO2 / oil feed). Higher S/F extracts more. Choose mol (mol/mol) or mass (kg/kg); toggling converts the value.",
+      "ru": "Отношение растворитель/питание (CO2 / масляное питание). Большее S/F извлекает больше. Выберите моль (моль/моль) или массу (кг/кг); переключение пересчитывает значение.",
+      "tr": "Çözücü-besleme oranı (CO2 / yağ beslemesi). Daha yüksek S/F daha fazla ekstrakte eder. Mol (mol/mol) veya kütle (kg/kg) seçin; değiştirmek değeri dönüştürür."
+    },
+    {
+      "en": "Specify column by",
+      "ru": "Задать колонну через",
+      "tr": "Kolonu şununla belirle"
+    },
+    {
+      "en": "Theoretical stages",
+      "ru": "Теоретические ступени",
+      "tr": "Teorik kademeler"
+    },
+    {
+      "en": "theoretical stages",
+      "ru": "теоретических ступеней",
+      "tr": "teorik kademe"
+    },
+    {
+      "en": "Diameter",
+      "ru": "Диаметр",
+      "tr": "Çap"
+    },
+    {
+      "en": "Size for throughput",
+      "ru": "Расчёт по производительности",
+      "tr": "Kapasiteye göre boyutlandır"
+    },
+    {
+      "en": "Rate a given diameter",
+      "ru": "Оценить заданный диаметр",
+      "tr": "Verilen çapı değerlendir"
+    },
+    {
+      "en": "Column diameter (m)",
+      "ru": "Диаметр колонны (м)",
+      "tr": "Kolon çapı (m)"
+    },
+    {
+      "en": "Packed volume",
+      "ru": "Объём насадки",
+      "tr": "Dolgu hacmi"
+    },
+    {
+      "en": "Aspect ratio (H/D)",
+      "ru": "Отношение H/D",
+      "tr": "En-boy oranı (H/D)"
+    },
+    {
+      "en": "Superficial vapour velocity",
+      "ru": "Приведённая скорость пара",
+      "tr": "Görünür buhar hızı"
+    },
+    {
+      "en": "Superficial liquid velocity",
+      "ru": "Приведённая скорость жидкости",
+      "tr": "Görünür sıvı hızı"
+    },
+    {
+      "en": "Vapour residence time",
+      "ru": "Время пребывания пара",
+      "tr": "Buhar bekleme süresi"
+    },
+    {
+      "en": "Feed rate at flooding",
+      "ru": "Расход питания при захлёбывании",
+      "tr": "Su basmasında besleme debisi"
+    },
+    {
+      "en": "Height equivalent to a theoretical plate: enter a measured or otherwise calculated value for your packing and system. It links theoretical stages and packed height (height = stages x HETP). There is no reliable first-principles HETP for SCF columns.",
+      "ru": "Высота, эквивалентная теоретической тарелке: введите измеренное или иным способом рассчитанное значение для вашей насадки и системы. Связывает число теоретических ступеней и высоту насадки (высота = ступени x ВЭТТ). Надёжной теоретической оценки ВЭТТ для сверхкритических колонн нет.",
+      "tr": "Bir teorik tabakaya eşdeğer yükseklik: dolgunuz ve sisteminiz için ölçülmüş veya başka bir şekilde hesaplanmış bir değer girin. Teorik kademeler ile dolgu yüksekliğini ilişkilendirir (yükseklik = kademe x HETP). SCF kolonları için güvenilir bir ilk-ilke HETP yoktur."
+    },
+    {
+      "en": "Total packed height of the column; the theoretical stage count is the height divided by the packing HETP.",
+      "ru": "Полная высота насадки колонны; число теоретических ступеней равно высоте, делённой на ВЭТТ насадки.",
+      "tr": "Kolonun toplam dolgu yüksekliği; teorik kademe sayısı, yüksekliğin dolgu HETP'sine bölünmesidir."
+    },
+    {
+      "en": "The packed height is too small for even two theoretical stages at this HETP.",
+      "ru": "Высота насадки слишком мала даже для двух теоретических ступеней при этой ВЭТТ.",
+      "tr": "Dolgu yüksekliği, bu HETP'de iki teorik kademe için bile çok küçük."
+    },
+    {
+      "en": "Diameter of an existing column to rate; the tool reports the resulting fraction of flooding.",
+      "ru": "Диаметр существующей колонны для оценки; инструмент выдаёт получаемую долю захлёбывания.",
+      "tr": "Değerlendirilecek mevcut kolonun çapı; araç, ortaya çıkan su basması oranını bildirir."
+    },
+    {
+      "en": "This diameter floods at the current feed rate and S/F. Increase the diameter or lower the feed rate / S/F.",
+      "ru": "Этот диаметр захлёбывается при текущем расходе питания и S/F. Увеличьте диаметр или уменьшите расход питания / S/F.",
+      "tr": "Bu çap, mevcut besleme debisi ve S/F'de su basmasına uğrar. Çapı artırın veya besleme debisini / S/F'yi düşürün."
+    },
+    {
+      "en": "Operating at %s%% of flooding; up to %s kg/h could be fed before flooding.",
+      "ru": "Работа при %s%% захлёбывания; до %s кг/ч можно подавать до захлёбывания.",
+      "tr": "Su basmasının %%%s'inde çalışıyor; su basmasından önce %s kg/sa'ya kadar beslenebilir."
+    },
+    {
+      "en": "HETP is the value set in Column parameters; sizing uses the worst-loaded stage.",
+      "ru": "ВЭТТ — это значение, заданное в параметрах колонны; расчёт использует наиболее нагруженную ступень.",
+      "tr": "HETP, Kolon parametrelerinde belirlenen değerdir; boyutlandırma en yüklü kademeyi kullanır."
+    },
+    {
+      "en": "Tip: the CO2 solvent normally enters at the bottom stage (= the number of stages). Stages below the solvent feed are starved of vapour and often prevent convergence.",
+      "ru": "Совет: растворитель CO2 обычно вводится на нижней ступени (= число ступеней). Ступени ниже ввода растворителя лишены пара и часто мешают сходимости.",
+      "tr": "İpucu: CO2 çözücüsü normalde en alt kademeden girer (= kademe sayısı). Çözücü beslemesinin altındaki kademeler buhardan yoksun kalır ve genellikle yakınsamayı engeller."
+    },
+    {
+      "en": "Oil feed height",
+      "ru": "Высота ввода масла",
+      "tr": "Yağ besleme yüksekliği"
+    },
+    {
+      "en": "Solvent feed height",
+      "ru": "Высота ввода растворителя",
+      "tr": "Çözücü besleme yüksekliği"
+    },
+    {
+      "en": "Height from the top at which the liquid (oil) feed enters; converted to the nearest stage via the HETP.",
+      "ru": "Высота от верха, на которой вводится жидкое (масляное) питание; пересчитывается в ближайшую ступень через ВЭТТ.",
+      "tr": "Sıvı (yağ) beslemesinin girdiği, tepeden ölçülen yükseklik; HETP ile en yakın kademeye dönüştürülür."
+    },
+    {
+      "en": "Height from the top at which the CO2 solvent enters; the default is the bottom (= the packed height).",
+      "ru": "Высота от верха, на которой вводится растворитель CO2; по умолчанию — низ (= высота насадки).",
+      "tr": "CO2 çözücüsünün girdiği, tepeden ölçülen yükseklik; varsayılan, alt kısımdır (= dolgu yüksekliği)."
+    },
+    {
+      "en": "Optimising the column...",
+      "ru": "Оптимизация колонны...",
+      "tr": "Kolon optimize ediliyor..."
+    },
+    {
+      "en": "starting…",
+      "ru": "запуск…",
+      "tr": "başlıyor…"
+    },
+    {
+      "en": "Evaluation",
+      "ru": "Оценка",
+      "tr": "Değerlendirme"
+    },
+    {
+      "en": "best so far:",
+      "ru": "лучшее на данный момент:",
+      "tr": "şu ana kadarki en iyi:"
+    },
+    {
+      "en": "done",
+      "ru": "готово",
+      "tr": "tamam"
+    },
+    {
+      "en": "No feasible column was found anywhere in the optimisation bounds — usually the pressure or S/F range spans a region with no two-phase solution. Narrow the bounds around conditions where the column converges (e.g. your current operating point).",
+      "ru": "В пределах границ оптимизации нигде не найдено сходящегося решения колонны — обычно диапазон давления или S/F охватывает область без двухфазного решения. Сузьте границы вокруг условий, при которых колонна сходится (например, вокруг вашей текущей рабочей точки).",
+      "tr": "Optimizasyon sınırlarının hiçbir yerinde yakınsayan bir kolon bulunamadı — genellikle basınç veya S/F aralığı iki fazlı çözümün olmadığı bir bölgeyi kapsar. Sınırları kolonun yakınsadığı koşulların etrafında daraltın (örn. mevcut çalışma noktanız)."
+    },
+    {
+      "en": "No feasible operating point found.",
+      "ru": "Сходящаяся рабочая точка не найдена.",
+      "tr": "Uygun bir çalışma noktası bulunamadı."
+    },
+    {
+      "en": "The column did not converge anywhere in the optimisation bounds (often a pressure or S/F range with no two-phase solution). Narrow the bounds around conditions where the column converges — e.g. start from your current operating point — then optimise again.",
+      "ru": "Колонна не сошлась нигде в пределах границ оптимизации (часто это диапазон давления или S/F без двухфазного решения). Сузьте границы вокруг условий, при которых колонна сходится — например, начните с вашей текущей рабочей точки — и оптимизируйте снова.",
+      "tr": "Kolon, optimizasyon sınırlarının hiçbir yerinde yakınsamadı (çoğunlukla iki fazlı çözümü olmayan bir basınç veya S/F aralığı). Sınırları kolonun yakınsadığı koşulların etrafında daraltın — örn. mevcut çalışma noktanızdan başlayın — ve tekrar optimize edin."
+    },
+    {
+      "en": "mole",
+      "ru": "моль",
+      "tr": "mol"
+    },
+    {
+      "en": "Components",
+      "ru": "Компоненты",
+      "tr": "Bileşenler"
+    },
+    {
+      "en": "CO2 feed stage",
+      "ru": "Ступень подачи CO2",
+      "tr": "CO2 besleme kademesi"
+    },
+    {
+      "en": "Temperature (°C)",
+      "ru": "Температура (°C)",
+      "tr": "Sıcaklık (°C)"
+    },
+    {
+      "en": "Pressure (bar)",
+      "ru": "Давление (бар)",
+      "tr": "Basınç (bar)"
+    },
+    {
+      "en": "HETP (m)",
+      "ru": "ВЭТТ (м)",
+      "tr": "HETP (m)"
+    },
+    {
+      "en": "Status",
+      "ru": "Статус",
+      "tr": "Durum"
+    },
+    {
+      "en": "Objectives (combined by desirability)",
+      "ru": "Цели (объединены через желательность)",
+      "tr": "Hedefler (istenirlik ile birleştirilir)"
+    },
+    {
+      "en": "Select one or more responses to maximise for the target solute. With several, each is on a 0-1 larger-is-better scale and combined into a weighted geometric-mean desirability that the optimiser maximises. Recovery = fraction of the solute leaving in the extract; purity = its solvent-free mole fraction in that product.",
+      "ru": "Выберите один или несколько откликов для максимизации по целевому веществу. При нескольких каждый приводится к шкале 0–1 (больше — лучше) и объединяется во взвешенную геометрическую желательность, которую максимизирует оптимизатор. Извлечение = доля вещества, уходящего в экстракт; чистота = его мольная доля без растворителя в этом продукте.",
+      "tr": "Hedef çözünen için maksimize edilecek bir veya daha fazla yanıt seçin. Birden fazla olduğunda, her biri 0–1 (büyük daha iyi) ölçeğine getirilir ve optimize edicinin maksimize ettiği ağırlıklı geometrik ortalama istenirlikte birleştirilir. Geri kazanım = çözünenin ekstraktta çıkan kesri; saflık = bu üründeki çözücüsüz mol kesridir."
+    },
+    {
+      "en": "Relative weights (importance) for the desirability:",
+      "ru": "Относительные веса (важность) для желательности:",
+      "tr": "İstenirlik için göreli ağırlıklar (önem):"
+    },
+    {
+      "en": "weight",
+      "ru": "вес",
+      "tr": "ağırlık"
+    },
+    {
+      "en": "Weight",
+      "ru": "Вес",
+      "tr": "Ağırlık"
+    },
+    {
+      "en": "Response",
+      "ru": "Отклик",
+      "tr": "Yanıt"
+    },
+    {
+      "en": "Select at least one objective to optimise.",
+      "ru": "Выберите хотя бы одну цель для оптимизации.",
+      "tr": "Optimize edilecek en az bir hedef seçin."
+    },
+    {
+      "en": "Desirability:",
+      "ru": "Желательность:",
+      "tr": "İstenirlik:"
+    },
+    {
+      "en": "overall (%d responses)",
+      "ru": "итог (%d откликов)",
+      "tr": "genel (%d yanıt)"
+    },
+    {
+      "en": "Overall desirability D = the weighted geometric mean of the responses below (each on a 0-1 larger-is-better scale). It reaches 100% only if every response is at its best; it is NOT a simple average.",
+      "ru": "Общая желательность D = взвешенное геометрическое среднее откликов ниже (каждый по шкале 0–1, больше — лучше). Она достигает 100% только если каждый отклик максимален; это НЕ простое среднее.",
+      "tr": "Genel istenirlik D = aşağıdaki yanıtların ağırlıklı geometrik ortalamasıdır (her biri 0–1, büyük daha iyi ölçeğinde). Yalnızca her yanıt en iyi değerindeyken %100'e ulaşır; bu basit bir ortalama DEĞİLDİR."
+    },
+    {
+      "en": "Overall desirability",
+      "ru": "Общая желательность",
+      "tr": "Genel istenirlik"
+    },
+    {
+      "en": "Run with optimum values",
+      "ru": "Рассчитать с оптимальными значениями",
+      "tr": "Optimum değerlerle çalıştır"
+    },
+    {
+      "en": "Loads the optimum into the Products / Sizing tabs without changing your Column-parameters inputs.",
+      "ru": "Загружает оптимум во вкладки «Продукты»/«Габариты», не изменяя поля параметров колонны.",
+      "tr": "Optimumu, Kolon parametreleri girişlerinizi değiştirmeden Ürünler / Boyutlandırma sekmelerine yükler."
+    },
+    {
+      "en": "Loaded the optimum operating point into Products / Sizing.",
+      "ru": "Оптимальная рабочая точка загружена во вкладки «Продукты»/«Габариты».",
+      "tr": "Optimum çalışma noktası Ürünler / Boyutlandırma sekmelerine yüklendi."
+    },
+    {
+      "en": "Flooding (%)",
+      "ru": "Захлёбывание (%)",
+      "tr": "Taşma (%)"
+    },
+    {
+      "en": "Design vapour velocity as a percentage of the flooding velocity (typically 70-85%).",
+      "ru": "Расчётная скорость пара в процентах от скорости захлёбывания (обычно 70–85%).",
+      "tr": "Taşma hızının yüzdesi olarak tasarım buhar hızı (genellikle %70–85)."
+    },
+    {
+      "en": "Export All Results",
+      "ru": "Экспортировать все результаты",
+      "tr": "Tüm Sonuçları Dışa Aktar"
+    },
+    {
+      "en": "Error exporting results:",
+      "ru": "Ошибка экспорта результатов:",
+      "tr": "Sonuçları dışa aktarma hatası:"
+    },
+    {
+      "en": "Solvent-to-feed ratio (CO2 / oil feed). Higher S/F extracts more. Choose mol (mol/mol) or mass (kg/kg); toggling converts the value. The Optimization S/F unit follows this toggle.",
+      "ru": "Отношение растворитель/питание (CO2 / масло). Большее S/F извлекает больше. Выберите моль (моль/моль) или массу (кг/кг); переключение пересчитывает значение. Единица S/F во вкладке «Оптимизация» следует этому переключателю.",
+      "tr": "Çözücü/besleme oranı (CO2 / yağ beslemesi). Yüksek S/F daha çok ekstrakte eder. mol (mol/mol) veya kütle (kg/kg) seçin; geçiş değeri dönüştürür. Optimizasyon S/F birimi bu geçişi izler."
+    },
+    {
+      "en": "Packed height (m)",
+      "ru": "Высота насадки (м)",
+      "tr": "Dolgu yüksekliği (m)"
+    },
+    {
+      "en": "Packed volume (m³)",
+      "ru": "Объём насадки (м³)",
+      "tr": "Dolgu hacmi (m³)"
+    },
+    {
+      "en": "Superficial vapour velocity (m/s)",
+      "ru": "Приведённая скорость пара (м/с)",
+      "tr": "Yüzeysel buhar hızı (m/s)"
+    },
+    {
+      "en": "Superficial liquid velocity (m/s)",
+      "ru": "Приведённая скорость жидкости (м/с)",
+      "tr": "Yüzeysel sıvı hızı (m/s)"
+    },
+    {
+      "en": "Flooding velocity (m/s)",
+      "ru": "Скорость захлёбывания (м/с)",
+      "tr": "Taşma hızı (m/s)"
+    },
+    {
+      "en": "Vapour residence time (s)",
+      "ru": "Время пребывания пара (с)",
+      "tr": "Buhar bekleme süresi (s)"
+    },
+    {
+      "en": "Feed rate at flooding (kg/h)",
+      "ru": "Расход питания при захлёбывании (кг/ч)",
+      "tr": "Taşmadaki besleme debisi (kg/sa)"
+    },
+    {
+      "en": "Vapour density (kg/m³)",
+      "ru": "Плотность пара (кг/м³)",
+      "tr": "Buhar yoğunluğu (kg/m³)"
+    },
+    {
+      "en": "Liquid density (kg/m³)",
+      "ru": "Плотность жидкости (кг/м³)",
+      "tr": "Sıvı yoğunluğu (kg/m³)"
+    },
+    {
+      "en": "CO2 density (kg/m³)",
+      "ru": "Плотность CO2 (кг/м³)",
+      "tr": "CO2 yoğunluğu (kg/m³)"
+    },
+    {
+      "en": "Run conditions",
+      "ru": "Условия расчёта",
+      "tr": "Çalışma koşulları"
+    },
+    {
+      "en": "Products (solvent-free basis)",
+      "ru": "Продукты (без растворителя)",
+      "tr": "Ürünler (çözücüsüz)"
+    },
+    {
+      "en": "Stage composition profile (solvent-free liquid mole fraction)",
+      "ru": "Профиль состава по ступеням (мольная доля в жидкости без растворителя)",
+      "tr": "Kademe bileşim profili (çözücüsüz sıvı mol kesri)"
+    },
+    {
+      "en": "Hydraulic sizing",
+      "ru": "Гидравлические габариты",
+      "tr": "Hidrolik boyutlandırma"
+    },
+    {
+      "en": "Optimisation - responses",
+      "ru": "Оптимизация — отклики",
+      "tr": "Optimizasyon - yanıtlar"
+    },
+    {
+      "en": "Optimisation - optimal conditions",
+      "ru": "Оптимизация — оптимальные условия",
+      "tr": "Optimizasyon - optimum koşullar"
+    },
+    {
+      "en": "Raffinate recovery",
+      "ru": "Извлечение в рафинат",
+      "tr": "Rafinat geri kazanımı"
+    },
+    {
+      "en": "Search method",
+      "ru": "Метод поиска",
+      "tr": "Arama yöntemi"
+    },
+    {
+      "en": "Local (gradient, fast)",
+      "ru": "Локальный (градиентный, быстрый)",
+      "tr": "Yerel (gradyan, hızlı)"
+    },
+    {
+      "en": "Global (thorough, slower)",
+      "ru": "Глобальный (тщательный, медленнее)",
+      "tr": "Küresel (kapsamlı, daha yavaş)"
+    },
+    {
+      "en": "Local (gradient): fast - descends from your current operating point; best for fine-tuning. Global (thorough): scans the whole bound box first, then polishes the best point - slower but avoids local optima (use when the result looks trapped or you want the global best).",
+      "ru": "Локальный (градиентный): быстрый — спускается из текущей рабочей точки; лучше для тонкой настройки. Глобальный (тщательный): сначала сканирует весь диапазон границ, затем уточняет лучшую точку — медленнее, но избегает локальных оптимумов (используйте, когда результат кажется застрявшим или нужен глобальный оптимум).",
+      "tr": "Yerel (gradyan): hızlı — mevcut çalışma noktanızdan iner; ince ayar için en iyisi. Küresel (kapsamlı): önce tüm sınır kutusunu tarar, ardından en iyi noktayı iyileştirir — daha yavaştır ancak yerel optimumlardan kaçınır (sonuç sıkışmış göründüğünde veya küresel en iyiyi istediğinizde kullanın)."
+    },
+    {
+      "en": "A recovery objective on its own is maximised trivially at an S/F limit (extract everything, or nothing) and is not a real separation. Add Extract purity or Raffinate purity so the optimiser trades recovery against selectivity.",
+      "ru": "Отдельная цель по извлечению тривиально максимизируется на границе S/F (извлечь всё или ничего) и не является реальным разделением. Добавьте чистоту экстракта или рафината, чтобы оптимизатор балансировал извлечение и селективность.",
+      "tr": "Tek başına bir geri kazanım hedefi, bir S/F sınırında (her şeyi ya da hiçbir şeyi ekstrakte ederek) önemsizce maksimize edilir ve gerçek bir ayırma değildir. Optimize edicinin geri kazanımı seçicilikle dengelemesi için Ekstrakt saflığı veya Rafinat saflığı ekleyin."
+    },
+    {
+      "en": "Extract and raffinate recovery of the same solute sum to 100%, so they cannot both be maximised. The optimiser returns the best weighted compromise (split ≈ the weight ratio). Use one recovery plus a purity instead.",
+      "ru": "Извлечение в экстракт и в рафинат для одного вещества в сумме дают 100%, поэтому их нельзя максимизировать одновременно. Оптимизатор возвращает наилучший взвешенный компромисс (доля ≈ соотношению весов). Используйте одно извлечение и одну чистоту.",
+      "tr": "Aynı çözünenin ekstrakt ve rafinat geri kazanımı toplamı %100'dür, bu nedenle ikisi birden maksimize edilemez. Optimize edici en iyi ağırlıklı uzlaşmayı döndürür (oran ≈ ağırlık oranı). Bunun yerine bir geri kazanım ve bir saflık kullanın."
+    },
+    {
+      "en": "Tick one or more responses for the target solute and set each Goal (Maximise / Minimise). Each is put on a 0-1 desirability scale and combined into a weighted geometric mean the optimiser maximises. Recovery = fraction of the solute leaving in that product; purity = its solvent-free mole fraction in that product. Tip: to drive the solute INTO the extract, maximise extract recovery AND minimise raffinate purity.",
+      "ru": "Отметьте один или несколько откликов для целевого вещества и задайте для каждого цель (Максимизировать / Минимизировать). Каждый приводится к шкале желательности 0–1 и объединяется во взвешенное геометрическое среднее, которое максимизирует оптимизатор. Извлечение = доля вещества, уходящего в этот продукт; чистота = его мольная доля без растворителя в этом продукте. Совет: чтобы перевести вещество В экстракт, максимизируйте извлечение в экстракт И минимизируйте чистоту рафината.",
+      "tr": "Hedef çözünen için bir veya daha fazla yanıt işaretleyin ve her biri için Hedef (Maksimize / Minimize) belirleyin. Her biri 0–1 istenirlik ölçeğine konur ve optimize edicinin maksimize ettiği ağırlıklı geometrik ortalamada birleştirilir. Geri kazanım = çözünenin bu ürüne giden kesri; saflık = bu üründeki çözücüsüz mol kesri. İpucu: çözüneni ekstrakta İTMEK için ekstrakt geri kazanımını maksimize EDİN ve rafinat saflığını minimize EDİN."
+    },
+    {
+      "en": "Goal",
+      "ru": "Цель",
+      "tr": "Hedef"
+    },
+    {
+      "en": "Maximise",
+      "ru": "Максимизировать",
+      "tr": "Maksimize et"
+    },
+    {
+      "en": "Minimise",
+      "ru": "Минимизировать",
+      "tr": "Minimize et"
+    },
+    {
+      "en": "Goal (and relative weight) per response:",
+      "ru": "Цель (и относительный вес) для каждого отклика:",
+      "tr": "Yanıt başına hedef (ve göreli ağırlık):"
+    },
+    {
+      "en": "Select one or more responses for the target solute and set each Goal (Maximise / Minimise). Each is put on a 0-1 desirability scale and combined into a weighted geometric mean the optimiser maximises. Recovery = fraction of the solute leaving in the extract; purity = its solvent-free mole fraction in that product. Tip: to drive the solute INTO the extract, maximise extract purity AND minimise raffinate purity.",
+      "ru": "Выберите один или несколько откликов для целевого вещества и задайте для каждого цель (Максимизировать / Минимизировать). Каждый приводится к шкале желательности 0–1 и объединяется во взвешенное геометрическое среднее, которое максимизирует оптимизатор. Извлечение = доля вещества, уходящего в экстракт; чистота = его мольная доля без растворителя в этом продукте. Совет: чтобы перевести вещество В экстракт, максимизируйте чистоту экстракта И минимизируйте чистоту рафината.",
+      "tr": "Hedef çözünen için bir veya daha fazla yanıt seçin ve her biri için Hedef (Maksimize / Minimize) belirleyin. Her biri 0–1 istenirlik ölçeğine konur ve optimize edicinin maksimize ettiği ağırlıklı geometrik ortalamada birleştirilir. Geri kazanım = çözünenin ekstraktta çıkan kesri; saflık = bu üründeki çözücüsüz mol kesri. İpucu: çözüneni ekstrakta İTMEK için ekstrakt saflığını maksimize EDİN ve rafinat saflığını minimize EDİN."
+    },
+    {
+      "en": "Overall desirability D = the weighted geometric mean of the responses below, each mapped to a 0-1 scale by its Goal (maximise -> the value itself; minimise -> 1 minus the value). It reaches 100% only when every response meets its goal; it is NOT a simple average.",
+      "ru": "Общая желательность D = взвешенное геометрическое среднее откликов ниже, каждый из которых приводится к шкале 0–1 согласно его цели (максимизация → само значение; минимизация → 1 минус значение). Она достигает 100% только когда каждый отклик достигает своей цели; это НЕ простое среднее.",
+      "tr": "Genel istenirlik D = aşağıdaki yanıtların ağırlıklı geometrik ortalamasıdır; her biri hedefine göre 0–1 ölçeğine eşlenir (maksimize → değerin kendisi; minimize → 1 eksi değer). Yalnızca her yanıt hedefine ulaştığında %100'e ulaşır; bu basit bir ortalama DEĞİLDİR."
+    }
+  ]
+}

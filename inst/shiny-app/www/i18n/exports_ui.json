@@ -1,0 +1,349 @@
+{
+  "translation": [
+    {
+      "en": "Save to Session",
+      "ru": "Сохранить в сессию",
+      "tr": "Oturuma Kaydet"
+    },
+    {
+      "en": "Critical diameter",
+      "ru": "Критический диаметр",
+      "tr": "Kritik çap"
+    },
+    {
+      "en": "Show group decomposition",
+      "ru": "Показать разложение на группы",
+      "tr": "Grup ayrıştırmasını göster"
+    },
+    {
+      "en": "Show group legend",
+      "ru": "Показать легенду групп",
+      "tr": "Grup açıklamasını göster"
+    },
+    {
+      "en": "Group colour legend",
+      "ru": "Легенда цветов групп",
+      "tr": "Grup renk açıklaması"
+    },
+    {
+      "en": "VDW Volume Visualization",
+      "ru": "Визуализация ван-дер-ваальсова объёма",
+      "tr": "VDW Hacmi Görselleştirmesi"
+    },
+    {
+      "en": "No group decomposition for this visualization.",
+      "ru": "Для этой визуализации нет разложения на группы.",
+      "tr": "Bu görselleştirme için grup ayrıştırması yok."
+    },
+    {
+      "en": "Optimization methods summary",
+      "ru": "Сводка методов оптимизации",
+      "tr": "Optimizasyon yöntemleri özeti"
+    },
+    {
+      "en": "Stationary point (canonical analysis)",
+      "ru": "Стационарная точка (канонический анализ)",
+      "tr": "Durağan nokta (kanonik analiz)"
+    },
+    {
+      "en": "Nature of stationary point",
+      "ru": "Характер стационарной точки",
+      "tr": "Durağan noktanın doğası"
+    },
+    {
+      "en": "Traditional optimization (min / max)",
+      "ru": "Традиционная оптимизация (мин / макс)",
+      "tr": "Geleneksel optimizasyon (min / maks)"
+    },
+    {
+      "en": "all eigenvalues negative",
+      "ru": "все собственные значения отрицательны",
+      "tr": "tüm özdeğerler negatif"
+    },
+    {
+      "en": "all eigenvalues positive",
+      "ru": "все собственные значения положительны",
+      "tr": "tüm özdeğerler pozitif"
+    },
+    {
+      "en": "mixed eigenvalue signs",
+      "ru": "смешанные знаки собственных значений",
+      "tr": "karışık özdeğer işaretleri"
+    },
+    {
+      "en": "dimensionless",
+      "ru": "безразмерный",
+      "tr": "boyutsuz"
+    },
+    {
+      "en": "Save this component (groups, Tc and dc) to a JSON file on disk so it persists across sessions and can be reloaded into the flash, column and phase-behaviour tools.",
+      "ru": "Сохранить этот компонент (группы, Tc и dc) в JSON-файл на диске, чтобы он сохранялся между сессиями и мог быть повторно загружен в инструменты флэш-расчёта, колонны и фазового поведения.",
+      "tr": "Bu bileşeni (gruplar, Tc ve dc) diskteki bir JSON dosyasına kaydedin; böylece oturumlar arasında korunur ve flaş, kolon ve faz davranışı araçlarına yeniden yüklenebilir."
+    },
+    {
+      "en": "Save this design to the current session so you can reload or compare it later. It is NOT written to a file on disk.",
+      "ru": "Сохранить этот план в текущей сессии, чтобы позже перезагрузить или сравнить его. Он НЕ записывается в файл на диске.",
+      "tr": "Bu tasarımı geçerli oturuma kaydedin, böylece daha sonra yeniden yükleyebilir veya karşılaştırabilirsiniz. Diske bir dosya olarak YAZILMAZ."
+    },
+    {
+      "en": "Save this analysis to the current session so you can reload or compare it later. It is NOT written to a file on disk.",
+      "ru": "Сохранить этот анализ в текущей сессии, чтобы позже перезагрузить или сравнить его. Он НЕ записывается в файл на диске.",
+      "tr": "Bu analizi geçerli oturuma kaydedin, böylece daha sonra yeniden yükleyebilir veya karşılaştırabilirsiniz. Diske bir dosya olarak YAZILMAZ."
+    },
+    {
+      "en": "Optimization results",
+      "ru": "Результаты оптимизации",
+      "tr": "Optimizasyon sonuçları"
+    },
+    {
+      "en": "Model equation",
+      "ru": "Уравнение модели",
+      "tr": "Model denklemi"
+    },
+    {
+      "en": "Model equations",
+      "ru": "Уравнения моделей",
+      "tr": "Model denklemleri"
+    },
+    {
+      "en": "Diagnostic plots",
+      "ru": "Диагностические графики",
+      "tr": "Tanılama grafikleri"
+    },
+    {
+      "en": "Detailed predictions",
+      "ru": "Подробные прогнозы",
+      "tr": "Ayrıntılı tahminler"
+    },
+    {
+      "en": "Critical diameter dc (cm/mol^(1/3))",
+      "ru": "Критический диаметр dc (cm/mol^(1/3))",
+      "tr": "Kritik çap dc (cm/mol^(1/3))"
+    },
+    {
+      "en": "Broken-and-intact-cells (BIC) kinetic model comparison and parameters.",
+      "ru": "Сравнение и параметры кинетической модели разрушенных и целых клеток (BIC).",
+      "tr": "Kırılmış ve sağlam hücreler (BIC) kinetik modeli karşılaştırması ve parametreleri."
+    },
+    {
+      "en": "Broken-and-intact-cells model",
+      "ru": "Модель разрушенных и целых клеток",
+      "tr": "Kırılmış ve sağlam hücreler modeli"
+    },
+    {
+      "en": "Broken-and-Intact Cells — Report",
+      "ru": "Разрушенные и целые клетки — Отчёт",
+      "tr": "Kırılmış ve Sağlam Hücreler — Rapor"
+    },
+    {
+      "en": "Centre points",
+      "ru": "Центральные точки",
+      "tr": "Merkez noktaları"
+    },
+    {
+      "en": "Component & Parameters — Report",
+      "ru": "Компонент и параметры — Отчёт",
+      "tr": "Bileşen ve Parametreler — Rapor"
+    },
+    {
+      "en": "Critical diameter dc (cm·mol⁻¹ᐟ³)",
+      "ru": "Критический диаметр dc (cm·mol⁻¹ᐟ³)",
+      "tr": "Kritik çap dc (cm·mol⁻¹ᐟ³)"
+    },
+    {
+      "en": "Critical locus",
+      "ru": "Критическая линия",
+      "tr": "Kritik eğri"
+    },
+    {
+      "en": "Design type",
+      "ru": "Тип плана",
+      "tr": "Tasarım türü"
+    },
+    {
+      "en": "Desirability Optimization — Report",
+      "ru": "Оптимизация желательности — Отчёт",
+      "tr": "İstenirlik Optimizasyonu — Rapor"
+    },
+    {
+      "en": "DOE Analysis — Report",
+      "ru": "Анализ DOE — Отчёт",
+      "tr": "DOE Analizi — Rapor"
+    },
+    {
+      "en": "Eigenvalues",
+      "ru": "Собственные значения",
+      "tr": "Özdeğerler"
+    },
+    {
+      "en": "Estimated properties",
+      "ru": "Оценённые свойства",
+      "tr": "Tahmin edilen özellikler"
+    },
+    {
+      "en": "Experimental data with desirabilities",
+      "ru": "Экспериментальные данные с желательностями",
+      "tr": "İstenirlik değerleriyle deneysel veriler"
+    },
+    {
+      "en": "F-statistic",
+      "ru": "F-статистика",
+      "tr": "F-istatistiği"
+    },
+    {
+      "en": "Factor limits",
+      "ru": "Пределы факторов",
+      "tr": "Faktör sınırları"
+    },
+    {
+      "en": "GC-EOS / GCA-EOS component group decomposition and estimated parameters.",
+      "ru": "Групповое разложение компонента и оценённые параметры GC-EOS / GCA-EOS.",
+      "tr": "GC-EOS / GCA-EOS bileşen grup ayrışımı ve tahmin edilen parametreler."
+    },
+    {
+      "en": "Generate",
+      "ru": "Создать",
+      "tr": "Oluştur"
+    },
+    {
+      "en": "Group decomposition",
+      "ru": "Групповое разложение",
+      "tr": "Grup ayrışımı"
+    },
+    {
+      "en": "Lack-of-Fit p-value",
+      "ru": "p-значение неадекватности модели",
+      "tr": "Uyum eksikliği p-değeri"
+    },
+    {
+      "en": "Min / Max comparison",
+      "ru": "Сравнение мин. / макс.",
+      "tr": "Min / Maks karşılaştırması"
+    },
+    {
+      "en": "Model coefficients",
+      "ru": "Коэффициенты модели",
+      "tr": "Model katsayıları"
+    },
+    {
+      "en": "Model data",
+      "ru": "Данные модели",
+      "tr": "Model verileri"
+    },
+    {
+      "en": "Model fit",
+      "ru": "Качество подгонки модели",
+      "tr": "Model uyumu"
+    },
+    {
+      "en": "Model parameters",
+      "ru": "Параметры модели",
+      "tr": "Model parametreleri"
+    },
+    {
+      "en": "Model summaries",
+      "ru": "Сводки моделей",
+      "tr": "Model özetleri"
+    },
+    {
+      "en": "Multi-response desirability optimization: limits, model summaries and optimal solutions.",
+      "ru": "Многооткликовая оптимизация желательности: границы, сводки моделей и оптимальные решения.",
+      "tr": "Çok yanıtlı arzu edilebilirlik optimizasyonu: sınırlar, model özetleri ve optimal çözümler."
+    },
+    {
+      "en": "No",
+      "ru": "Нет",
+      "tr": "Hayır"
+    },
+    {
+      "en": "Observed vs predicted",
+      "ru": "Наблюдаемые и предсказанные",
+      "tr": "Gözlenen - tahmin edilen"
+    },
+    {
+      "en": "Optimal conditions (stationary point)",
+      "ru": "Оптимальные условия (стационарная точка)",
+      "tr": "Optimal koşullar (durağan nokta)"
+    },
+    {
+      "en": "Optimal solutions",
+      "ru": "Оптимальные решения",
+      "tr": "Optimal çözümler"
+    },
+    {
+      "en": "P-x,y phase envelope",
+      "ru": "P-x,y фазовая огибающая",
+      "tr": "P-x,y faz zarfı"
+    },
+    {
+      "en": "Phase-equilibrium results from the GC-EOS / GCA-EOS engine.",
+      "ru": "Результаты фазового равновесия из движка GC-EOS / GCA-EOS.",
+      "tr": "GC-EOS / GCA-EOS motorundan faz dengesi sonuçları."
+    },
+    {
+      "en": "Randomized",
+      "ru": "Рандомизированный",
+      "tr": "Rastgeleleştirilmiş"
+    },
+    {
+      "en": "Residual Std Error",
+      "ru": "Стандартная ошибка остатков",
+      "tr": "Artık standart hatası"
+    },
+    {
+      "en": "Response-surface analysis: initial and final models with diagnostics and optimisation.",
+      "ru": "Анализ поверхности отклика: начальная и финальная модели с диагностикой и оптимизацией.",
+      "tr": "Yanıt yüzeyi analizi: tanılama ve optimizasyon ile başlangıç ve nihai modeller."
+    },
+    {
+      "en": "Response limits",
+      "ru": "Пределы отклика",
+      "tr": "Yanıt sınırları"
+    },
+    {
+      "en": "Runs",
+      "ru": "Опыты",
+      "tr": "Deneme sayısı"
+    },
+    {
+      "en": "Saturation pressure",
+      "ru": "Давление насыщения",
+      "tr": "Doyma basıncı"
+    },
+    {
+      "en": "Selected model parameters",
+      "ru": "Выбранные параметры модели",
+      "tr": "Seçilen model parametreleri"
+    },
+    {
+      "en": "Steepest ascent path",
+      "ru": "Путь наискорейшего подъёма",
+      "tr": "En dik çıkış yolu"
+    },
+    {
+      "en": "Two-Site Desorption — Report",
+      "ru": "Двухцентровая десорбция — Отчёт",
+      "tr": "İki Bölgeli Desorpsiyon — Rapor"
+    },
+    {
+      "en": "Two-site desorption model",
+      "ru": "Двухцентровая модель десорбции",
+      "tr": "İki bölgeli desorpsiyon modeli"
+    },
+    {
+      "en": "Two-site kinetic desorption model fit and parameters.",
+      "ru": "Подгонка и параметры двухцентровой кинетической модели десорбции.",
+      "tr": "İki bölgeli kinetik desorpsiyon modeli uyumu ve parametreleri."
+    },
+    {
+      "en": "Vapour pressure vs temperature",
+      "ru": "Давление пара в зависимости от температуры",
+      "tr": "Buhar basıncına karşı sıcaklık"
+    },
+    {
+      "en": "Flash equilibrium",
+      "ru": "Флэш-равновесие",
+      "tr": "Flaş dengesi"
+    }
+  ]
+}

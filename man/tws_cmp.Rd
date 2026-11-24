@@ -18,7 +18,8 @@ tws_cmp(
   aggreg = "aard",
   maxt = round(max(x) * 1.2, -1),
   maxq = round(max(q) * 1.2, -1),
-  optmet = "nlopt"
+  optmet = "nlopt",
+  nfits = 1
 )
 }
 \arguments{
@@ -32,7 +33,8 @@ Missing data is not allowed.}
 \item{f}{An \strong{explicit} value of the fraction of easily-desorbed extract \eqn{F} (between 0 and 1).
 When provided (\code{NA} by default), iterative curve fitting of this parameter is not carried out (\code{est_f} is ignored).}
 
-\item{k1_0, k2_0}{\strong{Mandatory} initial estimates for first-order rate constants \eqn{k_1} and \eqn{k_2}.}
+\item{k1_0, k2_0}{Initial estimate(s) for first-order rate constants \eqn{k_1} and \eqn{k_2}.
+Can be single values or \code{numeric} vectors for multi-start optimization (max 6 values recommended).}
 
 \item{f0}{\strong{Optional} initial estimate for \eqn{F}.}
 
@@ -50,6 +52,9 @@ for model predictions. Defaults to 120\% of the maximum experimental value.}
 \item{optmet}{The method of iterative curve fitting to use for estimating \eqn{k_1}, \eqn{k_2}, and (optionally) \eqn{F}.
 One of \code{"nlopt"} (Non-Linear Optimization via \code{\link[nloptr]{nloptr}}; default) or \code{"nlrob"} (Robust Fitting
 via \code{\link[robustbase]{nlrob}}).}
+
+\item{nfits}{Number of times to repeat the fitting process (default \code{1}). When > 1, the best fit
+is selected, and standard deviations across fits are included in \code{$fit_summary}.}
 }
 \value{
 A \code{list} with the following elements:

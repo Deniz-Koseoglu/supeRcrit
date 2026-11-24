@@ -163,8 +163,11 @@ bendens <- function(pres, temp, units = "g/L") {
            Gn = -2*a[14]/temp^2 - 3*a[15]/temp^3 - 4*a[16]/temp^4,
            Hn = -2*a[17]/temp^2 - 3*a[18]/temp^3 - 4*a[19]/temp^4)
 
-  #Calculate density
-  ac <- c(0,1)
+  #Calculate density. Bracket the specific density (kg/L) in [0, 1.5]: supercritical CO2 exceeds 1 kg/L at
+  #high pressure (~1.1-1.2 kg/L near 1000 bar / low T), so the old [0,1] upper bound left the root un-bracketed
+  #there and the bisection railed to 1 -> a spurious 1000 g/L clamp (NIST ~1097). 1.5 covers the whole valid
+  #input range (pres <= 1000 bar) while still bracketing the single supercritical root.
+  ac <- c(0, 1.5)
   e <- 0.000001
   rhox <- function(x) {
     R*temp*x + abs["Bn"]*x^2 + abs["Cn"]*x^3 + abs["Dn"]*x^4 + abs["En"]*x^5 + abs["Fn"]*x^6 + (abs["Gn"]+abs["Hn"]*x^2)*x^3*exp(-a[20]*x^2) - pres
@@ -201,6 +204,210 @@ bendens <- function(pres, temp, units = "g/L") {
   finres <- unname(c(rho,h))
 
   return(setNames(finres, c("rho","ent")))
+}
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#FUNCTION A1: Calculate CO2 density via the Span-Wagner reference EoS
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#' @title Calculate CO2 density and enthalpy using the Span-Wagner (1996) reference EoS
+#'
+#' @description
+#' Computes CO2 density (g/L or g/mL) and specific enthalpy (kJ/kg) from pressure
+#' and temperature using the Span & Wagner (1996) reference equation of state, the
+#' IUPAC/NIST standard for CO2. Density is obtained by solving
+#' \eqn{P = \rho R T (1 + \delta\, \phi^r_\delta)} for density via bisection;
+#' enthalpy follows from
+#' \eqn{h = R T (1 + \tau(\phi^0_\tau + \phi^r_\tau) + \delta\,\phi^r_\delta)},
+#' with \eqn{\delta = \rho/\rho_c} and \eqn{\tau = T_c/T}.
+#'
+#' A higher-accuracy alternative to \code{\link{bendens}} in the near-critical /
+#' pseudo-critical region. Enthalpy uses the SAME reference as \code{bendens}
+#' (zero for the ideal gas at 298.15 K), so the two functions are interchangeable.
+#' Use \code{\link{co2dens}} to select the EoS at run time.
+#'
+#' Scope: the single-phase supercritical region (temperature above the critical
+#' point, ~31 degrees Celsius). Subcritical two-phase branch selection is not
+#' implemented; subcritical inputs raise an error (handled gracefully by
+#' \code{\link{co2dens}}).
+#'
+#' @param pres,temp Pressure (in bar) and temperature (in degrees Celsius).
+#' @param units Units for output density. One of: \code{"g/L"} (= kg/m3) or \code{"g/mL"}.
+#'
+#' @return A named \code{numeric} vector with the density (\code{["rho"]}) in the
+#' chosen \code{units} and the specific enthalpy (\code{["ent"]}, kJ/kg).
+#' @export
+#'
+#' @examples
+#' swdens(100, 40)
+#' swdens(300, 45, "g/mL")
+#'
+#' @references
+#' Span, R. & Wagner, W. (1996), 'A New Equation of State for Carbon Dioxide Covering
+#' the Fluid Region from the Triple-Point Temperature to 1100 K at Pressures up to
+#' 800 MPa', \emph{J. Phys. Chem. Ref. Data} \strong{25} (6), pp. 1509-1596,
+#' DOI: \url{https://doi.org/10.1063/1.555991}.
+#'
+#' @seealso \code{\link{bendens}}, \code{\link{co2dens}}
+#'
+#' @importFrom stats setNames
+swdens <- function(pres, temp, units = "g/L") {
+  if (!all(is.numeric(c(pres, temp))) || length(c(pres, temp)) != 2)
+    stop("Input data 'pres' and 'temp' must both be numeric values!")
+  if (pres < 1 || pres > 8000) stop("Pressure must be between 1 and 8000 bar!")
+  if (!any(c("g/L", "g/mL") %in% units))
+    stop("Argument 'units' must be one of 'g/L' or 'g/mL'!")
+  # Supercritical-only scope: below Tc the isotherm is non-monotonic (two-phase
+  # loop) and the single-branch solver is not valid. Reject explicitly so that
+  # co2dens() can fall back to Bender rather than returning a wrong-branch root.
+  if (temp + 273.15 <= 304.1282)
+    stop("swdens() supports the supercritical region only (temperature must exceed the critical point, ~31 C).")
+
+  ## --- CO2 reference constants (Span & Wagner 1996) ---
+  Tc   <- 304.1282      # K
+  rhoc <- 467.6         # kg/m3
+  R_J  <- 8.31451 / 0.0440098   # J/(kg*K) specific gas constant
+  R_kJ <- R_J / 1000            # kJ/(kg*K) for enthalpy
+  T0   <- 298.15        # K, enthalpy datum (ideal gas h = 0), matches bendens
+
+  ## --- Residual Helmholtz coefficients (Span-Wagner Table 31) ---
+  np <- c(0.38856823203161, 2.9385475942740, -5.5867188534934, -0.76753199592477,
+          0.31729005580416, 0.54803315897767, 0.12279411220335)
+  dp <- c(1,1,1,1,2,2,3); tp <- c(0,0.75,1,2,0.75,2,0.75)
+  ne <- c(2.1658961543220, 1.5841735109724, -0.23132705405503, 0.058116916431436,
+          -0.55369137205382, 0.48946615909422, -0.024275739843501, 0.062494790501678,
+          -0.12175860225246, -0.37055685270086, -0.016775879700426, -0.11960736637987,
+          -0.045619362388896, 0.035612789270346, -0.0074427727132052, -0.0017395704902432,
+          -0.021810121289527, 0.024332166559236, -0.037440133423463, 0.14338715756878,
+          -0.13491969083286, -0.023151225053480, 0.012363125492901, 0.0021058321972940,
+          -0.00033958519026368, 0.0055993651771592, -0.00030335118055646)
+  de <- c(1,2,4,5,5,5,6,6,6, 1,1,4,4,4,7,8, 2,3,3, 5,5,6,7,8,10, 4, 8)
+  te <- c(1.5,1.5,2.5,0,1.5,2,0,1,2, 3,6,3,6,8,6,0, 7,12,16, 22,24,16,24,8,2, 28, 14)
+  ce <- c(rep(1,9), rep(2,7), rep(3,3), rep(4,6), 5, 6)
+  ng <- c(-213.65488688320, 26641.569149272, -24027.212204557, -283.41603423999, 212.47284400179)
+  dg <- c(2,2,2,3,3); tg <- c(1,0,1,3,3)
+  alp <- c(25,25,25,15,20); bet <- c(325,300,300,275,275)
+  gam <- c(1.16,1.19,1.19,1.25,1.22); eps <- c(1,1,1,1,1)
+  na_n <- c(-0.66642276540751, 0.72608632349897, 0.055068668612842)
+  na_a <- c(3.5,3.5,3.0); na_b <- c(0.875,0.925,0.875); na_beta <- c(0.3,0.3,0.3)
+  na_A <- c(0.7,0.7,0.7); na_B <- c(0.3,0.3,1.0); na_C <- c(10,10,12.5); na_D <- c(275,275,275)
+
+  ## --- Ideal-gas Helmholtz coefficients (Span-Wagner Table 27) ---
+  # Only the tau-dependent parts matter for enthalpy (constants cancel in the datum).
+  a0_log <- 2.5
+  a0_2   <- -3.70454304 + 8.82013935801453   # lead a2 + CoolProp enthalpy-offset a2
+  n0 <- c(1.99427042, 0.62105248, 0.41195293, 1.04028922, 0.08327678)
+  th0 <- c(3.15163, 6.1119, 6.77708, 11.32384, 27.08792)
+
+  ## delta-derivative of residual Helmholtz energy
+  phir_d <- function(delta, tau) {
+    s <- sum(np * dp * delta^(dp - 1) * tau^tp)
+    ed <- delta^ce
+    s <- s + sum(ne * exp(-ed) * delta^(de - 1) * tau^te * (de - ce * ed))
+    gau <- exp(-alp * (delta - eps)^2 - bet * (tau - gam)^2)
+    s <- s + sum(ng * gau * delta^(dg - 1) * tau^tg * (dg - 2 * alp * delta * (delta - eps)))
+    for (i in 1:3) {
+      dm1 <- delta - 1; d2 <- dm1 * dm1
+      psi   <- exp(-na_C[i] * d2 - na_D[i] * (tau - 1)^2)
+      theta <- (1 - tau) + na_A[i] * d2^(1 / (2 * na_beta[i]))
+      Delta <- theta^2 + na_B[i] * d2^na_a[i]
+      dpsi  <- -2 * na_C[i] * dm1 * psi
+      dDelta <- if (abs(dm1) < 1e-12) 0 else
+        dm1 * (na_A[i] * theta * (2 / na_beta[i]) * d2^(1/(2*na_beta[i]) - 1) +
+                 2 * na_B[i] * na_a[i] * d2^(na_a[i] - 1))
+      Db   <- Delta^na_b[i]
+      Dbm1 <- if (Delta == 0) 0 else Delta^(na_b[i] - 1)
+      s <- s + na_n[i] * (Db * (psi + delta * dpsi) + na_b[i] * Dbm1 * dDelta * delta * psi)
+    }
+    s
+  }
+
+  ## tau-derivative of residual Helmholtz energy
+  phir_t <- function(delta, tau) {
+    s <- sum(np * delta^dp * tp * tau^(tp - 1))
+    s <- s + sum(ne * delta^de * te * tau^(te - 1) * exp(-delta^ce))
+    gau <- exp(-alp * (delta - eps)^2 - bet * (tau - gam)^2)
+    s <- s + sum(ng * delta^dg * tau^(tg - 1) * gau * (tg - 2 * bet * tau * (tau - gam)))
+    for (i in 1:3) {
+      dm1 <- delta - 1; d2 <- dm1 * dm1
+      psi   <- exp(-na_C[i] * d2 - na_D[i] * (tau - 1)^2)
+      theta <- (1 - tau) + na_A[i] * d2^(1 / (2 * na_beta[i]))
+      Delta <- theta^2 + na_B[i] * d2^na_a[i]
+      Db   <- Delta^na_b[i]
+      Dbm1 <- if (Delta == 0) 0 else Delta^(na_b[i] - 1)
+      s <- s + na_n[i] * delta * psi * (-2 * na_b[i] * theta * Dbm1 - 2 * na_D[i] * (tau - 1) * Db)
+    }
+    s
+  }
+
+  ## tau-derivative of ideal-gas Helmholtz energy
+  phi0_t <- function(tau) a0_2 + a0_log / tau + sum(n0 * th0 / (exp(th0 * tau) - 1))
+
+  Tk <- temp + 273.15
+  Ptgt <- pres * 1e5                       # Pa
+  tau <- Tc / Tk
+  Pfun <- function(rho) rho * R_J * Tk * (1 + (rho / rhoc) * phir_d(rho / rhoc, tau)) - Ptgt
+
+  ## bisection on the monotonic single-phase supercritical branch
+  lo <- 1e-3; hi <- 1600
+  flo <- Pfun(lo); fhi <- Pfun(hi)
+  if (flo * fhi > 0) stop("Density root not bracketed (point may be subcritical/two-phase; swdens supports T > Tc).")
+  for (k in 1:200) {
+    mid <- 0.5 * (lo + hi); fm <- Pfun(mid)
+    if (flo * fm <= 0) { hi <- mid; fhi <- fm } else { lo <- mid; flo <- fm }
+    if (hi - lo < 1e-9 * mid) break
+  }
+  rho <- 0.5 * (lo + hi)                    # kg/m3 == g/L
+  delta <- rho / rhoc
+
+  ## specific enthalpy, rebased to ideal gas = 0 at T0 (= bendens datum)
+  h_real  <- R_kJ * Tk * (1 + tau * (phi0_t(tau) + phir_t(delta, tau)) + delta * phir_d(delta, tau))
+  tau0    <- Tc / T0
+  h_ideal <- R_kJ * T0 * (1 + tau0 * phi0_t(tau0))
+  ent <- h_real - h_ideal
+
+  if (units == "g/mL") rho <- rho / 1000
+  setNames(c(rho, ent), c("rho", "ent"))
+}
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#FUNCTION A2: Dispatch CO2 density to a selectable equation of state
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#' @title Calculate CO2 density and enthalpy with a selectable equation of state
+#'
+#' @description Convenience dispatcher returning CO2 density (g/L or g/mL) and
+#' specific enthalpy (kJ/kg) from either the \strong{Bender} EoS
+#' (\code{\link{bendens}}, the default) or the \strong{Span-Wagner (1996)}
+#' reference EoS (\code{\link{swdens}}). Both back-ends share an identical
+#' signature and return value, so \code{co2dens} is a drop-in replacement for
+#' \code{bendens}. If Span-Wagner is requested outside its supported
+#' single-phase supercritical range (temperature at or below the critical point,
+#' ~31 degrees Celsius), \code{co2dens} falls back to Bender and emits a
+#' \code{\link{warning}}, so it is always safe to call.
+#'
+#' @param pres,temp Pressure (in bar) and temperature (in degrees Celsius).
+#' @param units Units for output density. One of: \code{"g/L"} or \code{"g/mL"}.
+#' @param eos Equation of state to use. One of: \code{"bender"} (default) or
+#' \code{"spanwagner"}.
+#'
+#' @return A named \code{numeric} vector containing the density (\code{["rho"]})
+#' in the chosen \code{units} and the specific enthalpy (\code{["ent"]}, kJ/kg).
+#' @export
+#'
+#' @examples
+#' co2dens(300, 45)                      # Bender (default)
+#' co2dens(300, 45, eos = "spanwagner")  # Span-Wagner reference EoS
+#'
+#' @seealso \code{\link{bendens}}, \code{\link{swdens}}
+co2dens <- function(pres, temp, units = "g/L", eos = c("bender", "spanwagner")) {
+  eos <- match.arg(eos)
+  if (eos == "spanwagner") {
+    res <- tryCatch(swdens(pres, temp, units), error = function(e) NULL)
+    if (!is.null(res)) return(res)
+    warning(sprintf(paste("Span-Wagner EoS unavailable at %g bar / %g C",
+                          "(outside the supercritical range); using Bender instead."),
+                    pres, temp), call. = FALSE)
+  }
+  bendens(pres, temp, units)
 }
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

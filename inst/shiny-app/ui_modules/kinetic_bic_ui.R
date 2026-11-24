@@ -8,7 +8,8 @@ kinetic_bic_ui <- function(id, defaults, i18n) {
       width = 5,
       fluidRow(
         column(4, actionButton(ns("reset"), i18n$t("Reset"), class = "btn btn-default btn-block")),
-        column(4, actionButton(ns("calculate"), i18n$t("Calculate"), class = "btn btn-primary btn-block", style = "color: white;"))
+        column(4, actionButton(ns("calculate"), i18n$t("Calculate"), class = "btn btn-primary btn-block", style = "color: white;")),
+        rp_export_dropdown_col(ns, i18n, "has_any_results", width = 4)
       ),
       br(),
       box(
@@ -142,7 +143,8 @@ kinetic_bic_ui <- function(id, defaults, i18n) {
             fluidRow(
               column(6, uiOutput(ns("ro_co2_ui"))),
               column(6, uiOutput(ns("tmax_ui"))),
-              column(6, uiOutput(ns("qmax_ui")))
+              column(6, uiOutput(ns("qmax_ui"))),
+              column(6, uiOutput(ns("eos_ui")))
             )
           ),
           accordionItem(
@@ -212,11 +214,7 @@ kinetic_bic_ui <- function(id, defaults, i18n) {
           conditionalPanel(
             condition = "output.has_any_results",
             ns = ns,
-            # Export Results button (green, large)
-            div(
-              style = "display: flex; justify-content: center; margin-bottom: 15px;",
-              downloadButton(ns("export_kinetic"), i18n$t("Export Results"), class = "btn btn-success btn-lg", style = "margin-left:5px;")
-            ),
+            # (Export moved to the action row at the top as a CSV/PDF dropdown.)
             # Model Comparison table (with highlighted best metrics)
             fluidRow(
               column(12, box(

@@ -51,9 +51,9 @@
       "tr": "İstenilirlik Fonksiyonu"
     },
     {
-      "en": "SFE Co-Solvent Selection",
-      "ru": "Выбор сорастворителя СКЭ",
-      "tr": "SFE Eş Çözücü Seçimi"
+      "en": "Solubility & Fractionation",
+      "ru": "Растворимость и фракционирование",
+      "tr": "Çözünürlük ve Fraksiyonlama"
     },
     {
       "en": "Solute Characterization",
@@ -66,14 +66,14 @@
       "tr": "Çözünen Madde Tanımlama"
     },
     {
-      "en": "Miscibility Optimization",
-      "ru": "Оптимизация смешиваемости",
-      "tr": "Karışabilirlik Optimizasyonu"
+      "en": "Co-Solvent Selection",
+      "ru": "Подбор сорастворителя",
+      "tr": "Yardımcı Çözücü Seçimi"
     },
     {
-      "en": "Miscibility Comparison",
-      "ru": "Сравнение смешиваемости",
-      "tr": "Karışabilirlik Karşılaştırması"
+      "en": "Co-Solvent Comparison",
+      "ru": "Сравнение сорастворителей",
+      "tr": "Yardımcı Çözücü Karşılaştırması"
     },
     {
       "en": "Auxiliary Tools",
@@ -636,9 +636,9 @@
       "tr": "Üretim Maliyeti (COM) Analizi: ham madde maliyetleri, hizmetler, işçilik ve sermaye yatırımı dahil olmak üzere süperkritik CO2 ve subkritik su ekstraksiyon proseslerinin ekonomik fizibilitesini değerlendirin."
     },
     {
-      "en": "SFE Co-Solvent Selection: characterize target solutes using Group Contribution Methods, optimize co-solvent selection via Hansen Solubility Parameters, compare miscibility across conditions, and calculate mixture critical parameters.",
-      "ru": "Выбор со-растворителя СКЭ: характеризация целевых веществ методами групповых вкладов, оптимизация выбора со-растворителя по параметрам растворимости Хансена, сравнение смешиваемости при различных условиях и расчёт критических параметров смесей.",
-      "tr": "SFE Ko-Çözücü Seçimi: Grup Katkı Yöntemleri ile hedef çözünenleri karakterize edin, Hansen Çözünürlük Parametreleri ile ko-çözücü seçimini optimize edin, koşullar arasında karışabilirliği karşılaştırın ve karışım kritik parametrelerini hesaplayın."
+      "en": "Solubility & Fractionation: characterize target solutes using Group Contribution Methods, optimize co-solvent selection via Hansen Solubility Parameters, compare miscibility across conditions, and calculate mixture critical parameters.",
+      "ru": "Растворимость и фракционирование: характеризация целевых веществ методами групповых вкладов, оптимизация выбора со-растворителя по параметрам растворимости Хансена, сравнение смешиваемости при различных условиях и расчёт критических параметров смесей.",
+      "tr": "Çözünürlük ve Fraksiyonlama: Grup Katkı Yöntemleri ile hedef çözünenleri karakterize edin, Hansen Çözünürlük Parametreleri ile ko-çözücü seçimini optimize edin, koşullar arasında karışabilirliği karşılaştırın ve karışım kritik parametrelerini hesaplayın."
     },
     {
       "en": "Design of Experiments (DOE): create experimental designs (Box-Behnken, CCD, Full/Fractional Factorial, Taguchi), analyze response surfaces, and perform multi-objective desirability optimization.",
@@ -809,6 +809,11 @@
       "en": "All rights reserved.",
       "tr": "Tüm hakları saklıdır.",
       "ru": "Все права защищены."
+    },
+    {
+      "en": "continued",
+      "ru": "продолжение",
+      "tr": "devamı"
     }
   ]
 }

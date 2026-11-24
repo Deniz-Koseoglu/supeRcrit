@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>Phase equilibria and counter-current fractionation with GC-EOS / GCA-EOS</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Phase equilibria and counter-current
+fractionation with GC-EOS / GCA-EOS</h1>
+
+
+
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>Besides the empirical Hansen-Solubility and machine-learning
+solubility workflows (see the <em>Co-Solvent Choice</em> vignette),
+<code>supeRcrit</code> includes a rigorous <strong>group-contribution
+equation of state</strong> for supercritical-CO<sub>2</sub> phase
+equilibria — the <a href="https://doi.org/10.1016/0378-3812(88)80059-0">GC-EOS</a> of
+Skjold-Jorgensen, and its association-enabled superset
+<strong>GCA-EOS</strong> (<a href="https://doi.org/10.1016/S0378-3812(96)03093-8">Gros, Sanchez,
+Brignole</a>). The same model that estimates a pure-component saturation
+pressure also predicts multicomponent vapour-liquid (and liquid-liquid)
+equilibria, phase envelopes and mixture critical points, and — through
+an equilibrium-stage cascade — the performance of a
+<strong>counter-current SC-CO<sub>2</sub> fractionation
+column</strong>.</p>
+<p>This is the engine for processes such as
+<strong>deterpenation</strong> of citrus and other essential oils,
+<strong>squalene</strong> purification, <strong>free-fatty-acid (FFA)
+deacidification</strong>, and aroma concentration. When a molecule
+contains associating groups (carboxylic acids, alcohols, water), the
+optional Wertheim/SAFT association term (GCA-EOS) captures the
+hydrogen-bonding that drives, e.g., acid dimerisation; with no
+associating groups present GCA-EOS reduces exactly to GC-EOS.</p>
+<p>The numerical core is implemented in C++ (with analytic fugacity
+derivatives) for speed. This vignette walks through the workflow from a
+molecular structure to a fully simulated fractionation column,
+reproducing the limonene/linalool deterpenation of <a href="https://doi.org/10.1016/j.supflu.2004.09.005">Diaz et
+al. (2005)</a>.</p>
+</div>
+<div id="group-decomposition-and-parameter-sets" class="section level2">
+<h2>Group decomposition and parameter sets</h2>
+<p>A molecule is decomposed into GC-EOS groups directly from its SMILES
+with <code>gceos_decompose</code>. The two models use slightly different
+group definitions — GCA-EOS uses whole associating groups (e.g. a single
+<code>CH3COOH</code>) where GC-EOS splits them:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">gceos_decompose</span>(<span class="st">&quot;CC(=O)O&quot;</span>, <span class="at">model =</span> <span class="st">&quot;gcaeos&quot;</span>)     <span class="co"># acetic acid -&gt; one CH3COOH group</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="co">#&gt; CH3COOH </span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co">#&gt;       1 </span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="co">#&gt; attr(,&quot;unmatched_atoms&quot;)</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co">#&gt; [1] 0</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="fu">gceos_decompose</span>(<span class="st">&quot;CC(=O)O&quot;</span>, <span class="at">model =</span> <span class="st">&quot;gceos&quot;</span>)      <span class="co"># GC-EOS splits it into CH3 + COOH</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="co">#&gt; COOH  CH3 </span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="co">#&gt;    1    1 </span></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="co">#&gt; attr(,&quot;unmatched_atoms&quot;)</span></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="co">#&gt; [1] 0</span></span></code></pre></div>
+<p>The bundled parameter sets are returned by <code>gceos_params</code>:
+the consolidated Fornari (<code>&quot;fornari2007&quot;</code>, 59 groups), the
+association set (<code>&quot;gcaeos&quot;</code>), and the literature-validated
+Diaz limonene/linalool/CO<sub>2</sub> deterpenation set
+(<code>&quot;diaz2005&quot;</code>). Each set carries the group-interaction
+parameters plus a table of pure-component critical temperatures and
+energy parameters (<code>dc</code>):</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>diaz <span class="ot">&lt;-</span> <span class="fu">gceos_params</span>(<span class="st">&quot;diaz2005&quot;</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co">#A small helper to assemble a component (group counts + dc + Tc) from the parameter set</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>mk <span class="ot">&lt;-</span> <span class="cf">function</span>(p, nm) {</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>  g <span class="ot">&lt;-</span> p<span class="sc">$</span>decomp[nm, ]; g <span class="ot">&lt;-</span> g[g <span class="sc">&gt;</span> <span class="dv">0</span>]</span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">groups =</span> g, <span class="at">dc =</span> p<span class="sc">$</span>components[nm, <span class="st">&quot;dc&quot;</span>], <span class="at">Tc =</span> p<span class="sc">$</span>components[nm, <span class="st">&quot;Tc&quot;</span>])</span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>}</span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>limonene <span class="ot">&lt;-</span> <span class="fu">mk</span>(diaz, <span class="st">&quot;limonene&quot;</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>linalool <span class="ot">&lt;-</span> <span class="fu">mk</span>(diaz, <span class="st">&quot;linalool&quot;</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>CO2      <span class="ot">&lt;-</span> <span class="fu">mk</span>(diaz, <span class="st">&quot;CO2&quot;</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a>limonene<span class="sc">$</span>groups          <span class="co"># the GC-EOS groups making up limonene</span></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">#&gt; CH3(B)  CYCH2   CYCH    ACH  C=CH2  ACCH3 </span></span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co">#&gt;      1      3      1      1      1      1</span></span></code></pre></div>
+<p>For a <strong>new</strong> molecule, the energy parameter
+<code>dc</code> is regressed from a known boiling point (or other
+saturation point) with <code>gceos_fit_dc</code>, given the group
+decomposition and critical temperature (the latter from
+<code>est_gcm</code>):</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>grp <span class="ot">&lt;-</span> <span class="fu">gceos_decompose</span>(<span class="st">&quot;CCCCCCCCCC&quot;</span>)                       <span class="co"># n-decane</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">gceos_fit_dc</span>(<span class="at">groups =</span> grp, <span class="at">Tc =</span> <span class="fl">617.7</span>, <span class="at">Tsat =</span> <span class="fl">447.3</span>)       <span class="co"># -&gt; dc ~ 6.02, reproduces the boiling point</span></span></code></pre></div>
+</div>
+<div id="pure-component-saturation-pressure" class="section level2">
+<h2>Pure-component saturation pressure</h2>
+<p><code>gceos_psat</code> returns the saturation (vapour) pressure of a
+pure component at a given temperature by locating the vapour and liquid
+volume roots of the equal-fugacity condition. As a check, evaluating it
+at a compound’s normal boiling point should return ~1 atm:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">gceos_psat</span>(<span class="fl">449.65</span>, limonene, diaz)     <span class="co"># limonene at its boiling point -&gt; ~1 atm</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#&gt; [1] 1.001559</span></span></code></pre></div>
+</div>
+<div id="vapour-liquid-equilibria-and-selectivity" class="section level2">
+<h2>Vapour-liquid equilibria and selectivity</h2>
+<p><code>gceos_flash</code> performs an isothermal-isobaric flash on a
+multicomponent feed, returning the K-values and the vapour/liquid
+compositions. The ratio of two K-values is the <strong>relative
+volatility</strong> (selectivity), the key quantity for a separation.
+For the limonene/linalool/CO<sub>2</sub> system at 10 MPa and 334 K:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>comps <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">limonene =</span> limonene, <span class="at">linalool =</span> linalool, <span class="at">CO2 =</span> CO2)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>fl <span class="ot">&lt;-</span> <span class="fu">gceos_flash</span>(<span class="at">T =</span> <span class="dv">334</span>, <span class="at">P =</span> <span class="fl">10e6</span> <span class="sc">/</span> <span class="dv">101325</span>,           <span class="co"># P in atm</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>                  <span class="at">z =</span> <span class="fu">c</span>(<span class="fl">0.123</span>, <span class="fl">0.027</span>, <span class="fl">0.85</span>), <span class="at">comps =</span> comps, <span class="at">model =</span> diaz)</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>fl<span class="sc">$</span>K                                                    <span class="co"># K-values</span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="co">#&gt;   limonene   linalool        CO2 </span></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="co">#&gt; 0.01985729 0.01136247 1.38145255</span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>fl<span class="sc">$</span>K[<span class="st">&quot;limonene&quot;</span>] <span class="sc">/</span> fl<span class="sc">$</span>K[<span class="st">&quot;linalool&quot;</span>]                     <span class="co"># selectivity ~ 1.75</span></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="co">#&gt; limonene </span></span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="co">#&gt; 1.747621</span></span></code></pre></div>
+<p>A selectivity of ~1.75 is modest — exactly the regime Diaz reported —
+which is why deterpenation needs a multistage column with reflux rather
+than a single flash.</p>
+</div>
+<div id="phase-envelopes-and-the-mixture-critical-point" class="section level2">
+<h2>Phase envelopes and the mixture critical point</h2>
+<p>Because selectivity collapses toward unity as a CO<sub>2</sub>-rich
+mixture approaches its critical point, knowing <strong>where</strong>
+that critical point sits is operationally crucial.
+<code>gceos_saturation</code> gives a single bubble- or dew-point,
+<code>gceos_pxy</code> traces a binary P-x envelope, and
+<code>gceos_critical</code> locates the mixture critical point (the
+envelope apex):</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>binary <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">CO2 =</span> CO2, <span class="at">limonene =</span> limonene)</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="co">#Bubble pressure of a 50:50 CO2/limonene liquid at 323 K</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">gceos_saturation</span>(<span class="fl">323.15</span>, <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>), binary, <span class="at">model =</span> diaz, <span class="at">type =</span> <span class="st">&quot;bubble&quot;</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>b<span class="sc">$</span>P <span class="sc">*</span> <span class="fl">0.101325</span>                          <span class="co"># MPa</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="co">#&gt; [1] 5.673345</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="co">#Mixture critical point at 323 K</span></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>cr <span class="ot">&lt;-</span> <span class="fu">gceos_critical</span>(<span class="fl">323.15</span>, binary, <span class="at">model =</span> diaz)</span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a><span class="fu">c</span>(<span class="at">x_CO2 =</span> cr<span class="sc">$</span>x[<span class="dv">1</span>], <span class="at">P_MPa =</span> cr<span class="sc">$</span>P <span class="sc">*</span> <span class="fl">0.101325</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="co">#&gt;      x_CO2      P_MPa </span></span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a><span class="co">#&gt;  0.9554286 10.1653552</span></span></code></pre></div>
+<p>The critical pressure here (~10.2 MPa at 323 K) sits right at typical
+deterpenation conditions — which is precisely why a column operated at
+10 MPa and 323 K struggles (selectivity collapses), whereas raising the
+temperature to ~334 K lifts the critical pressure well above 10 MPa and
+restores a workable two-phase window. <code>gceos_critical_locus</code>
+traces this critical line across temperatures to map the safe operating
+region.</p>
+</div>
+<div id="counter-current-fractionation-column" class="section level2">
+<h2>Counter-current fractionation column</h2>
+<p><code>gceos_column_ns_solve</code> simulates an isothermal (or
+thermal-gradient) equilibrium-stage counter-current column with external
+reflux, using a Naphtali-Sandholm simultaneous-correction
+(block-tridiagonal Newton) solver. The oil feed enters near the top,
+supercritical CO<sub>2</sub> enters at the bottom, the raffinate (heavy,
+less-volatile product) leaves the bottom, and the solvent-rich extract
+leaves the top. Reflux purifies the extract.</p>
+<p>Run at the optimum of Diaz et al. (2005, Table 6) — 10 MPa, 334 K, 28
+stages, feed at stage 11, reflux ratio 2.27, and a large solvent-to-feed
+ratio — the column reproduces the published high-purity deterpenation.
+Because the operating point sits in a narrow near-critical window, the
+solver is warm-started along a solvent-to-feed continuation (the
+<code>init</code> argument carries the previous solution forward):</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>zoil <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.9823</span>, <span class="fl">0.0177</span>, <span class="dv">0</span>)            <span class="co"># 98/2 wt% limonene/linalool feed (mole fractions)</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>P    <span class="ot">&lt;-</span> <span class="fl">10e6</span> <span class="sc">/</span> <span class="dv">101325</span>                   <span class="co"># 10 MPa in atm</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>prev <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="cf">for</span> (SF <span class="cf">in</span> <span class="fu">c</span>(<span class="fu">seq</span>(<span class="dv">20</span>, <span class="dv">560</span>, <span class="at">by =</span> <span class="dv">40</span>), <span class="dv">567</span>)) {</span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>  r <span class="ot">&lt;-</span> <span class="fu">gceos_column_ns_solve</span>(<span class="at">N =</span> <span class="dv">28</span>, <span class="at">T =</span> <span class="fl">334.06</span>, <span class="at">P =</span> P, <span class="at">comps =</span> comps,</span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>                             <span class="at">FL =</span> <span class="dv">1</span>, <span class="at">zL =</span> zoil, <span class="at">FV =</span> SF, <span class="at">zV =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>                             <span class="at">feedL =</span> <span class="dv">11</span>, <span class="at">reflux =</span> <span class="fl">2.27</span>, <span class="at">solvent =</span> <span class="st">&quot;CO2&quot;</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>                             <span class="at">model =</span> diaz, <span class="at">init =</span> prev)</span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>  <span class="cf">if</span> (r<span class="sc">$</span>status <span class="sc">==</span> <span class="st">&quot;converged&quot;</span>) prev <span class="ot">&lt;-</span> r</span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a>}</span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a>r <span class="ot">&lt;-</span> prev</span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a><span class="co">#Raffinate is almost pure linalool; the extract is almost pure limonene</span></span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a>MW <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">136.24</span>, <span class="fl">154.25</span>)</span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a>w  <span class="ot">&lt;-</span> r<span class="sc">$</span>raffinate<span class="sc">$</span>x[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="sc">*</span> MW</span>
+<span id="cb7-16"><a href="#cb7-16" tabindex="-1"></a><span class="dv">100</span> <span class="sc">*</span> w[<span class="dv">2</span>] <span class="sc">/</span> <span class="fu">sum</span>(w)            <span class="co"># raffinate linalool ~ 97.7 wt%  (Diaz 98.18)</span></span>
+<span id="cb7-17"><a href="#cb7-17" tabindex="-1"></a>r<span class="sc">$</span>recovery[<span class="st">&quot;limonene&quot;</span>]        <span class="co"># limonene recovery ~ 0.9996      (Diaz 0.9996)</span></span></code></pre></div>
+<p>This matches Diaz’s reported raffinate purity (~98 wt% linalool),
+linalool recovery (~95–97 %), and top limonene purity (~99.9 wt%), with
+the mass balance closed to within 1e-3. The hydraulic column dimensions
+(diameter, height) that fit these stages into a real vessel are obtained
+from <code>gceos_column_sizing</code>, and
+<code>gceos_column_optimize</code> searches the operating window (T, P,
+S/F, reflux) directly. A per-stage temperature vector passed to
+<code>T</code> simulates a thermal-gradient column (internal
+reflux).</p>
+</div>
+<div id="association-free-fatty-acids-water-and-alcohols" class="section level2">
+<h2>Association: free fatty acids, water and alcohols</h2>
+<p>When associating groups are present, switching to the
+<code>&quot;gcaeos&quot;</code> parameter set adds the hydrogen-bonding term. This
+is essential for systems where association changes the phase topology —
+for example a fatty acid is held more strongly in the liquid phase by
+dimerisation, lowering its K-value, and water/hydrocarbon mixtures split
+into two liquid phases (a three-phase vapour-liquid-liquid flash is
+available via the simulator core). The same <code>gceos_flash</code>,
+envelope and column functions accept the <code>&quot;gcaeos&quot;</code> model;
+with no associating groups the results are identical to GC-EOS.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>gca <span class="ot">&lt;-</span> <span class="fu">gceos_params</span>(<span class="st">&quot;gcaeos&quot;</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>comps_ffa <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>  <span class="at">CO2    =</span> <span class="fu">list</span>(<span class="at">groups =</span> <span class="fu">c</span>(<span class="at">CO2 =</span> <span class="dv">1</span>), <span class="at">dc =</span> <span class="fl">3.1289</span>, <span class="at">Tc =</span> <span class="fl">304.2</span>),</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>  <span class="at">lauric =</span> <span class="fu">list</span>(<span class="at">groups =</span> <span class="fu">c</span>(<span class="at">CH3 =</span> <span class="dv">1</span>, <span class="at">CH2 =</span> <span class="dv">9</span>, <span class="at">CH2COOH =</span> <span class="dv">1</span>), <span class="at">dc =</span> <span class="fl">6.3945</span>, <span class="at">Tc =</span> <span class="dv">743</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>)</span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="fu">gceos_flash</span>(<span class="dv">333</span>, <span class="fl">5e6</span> <span class="sc">/</span> <span class="dv">101325</span>, <span class="at">z =</span> <span class="fu">c</span>(<span class="fl">0.9</span>, <span class="fl">0.1</span>), <span class="at">comps =</span> comps_ffa, <span class="at">model =</span> gca)</span></code></pre></div>
+</div>
+<div id="the-interactive-process-simulation-module" class="section level2">
+<h2>The interactive Process Simulation module</h2>
+<p>Every function above is also exposed in the Shiny dashboard
+(<code>run_app()</code>) under <strong>Process Simulation</strong>,
+split into three tabs: <strong>Components</strong> (build and decompose
+a component, fit or look up its <code>dc</code>), <strong>Phase
+Behaviour</strong> (flash, P-x envelopes, critical loci), and
+<strong>Column</strong> (configure and run the counter-current
+fractionation column, with reflux, thermal gradients, sizing, and
+operating-window optimisation), each with interactive figures and
+downloadable tables.</p>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

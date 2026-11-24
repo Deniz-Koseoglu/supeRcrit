@@ -1,0 +1,330 @@
+---
+title: "Selecting co-solvents for SFE using Hansen Solubility"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Co-Solvent Choice}
+  %\VignetteEngine{knitr::rmarkdown_notangle}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+is_check <- ("CheckExEnv" %in% search()) || any(c("_R_CHECK_TIMINGS_",
+             "_R_CHECK_LICENSE_") %in% names(Sys.getenv()))
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  eval = !is_check,
+  comment = "#>",
+  out.width = "100%"
+)
+```
+
+```{r setup, message = FALSE, include = FALSE}
+library(supeRcrit)
+```
+
+## Introduction
+
+This vignette introduces the automated co-solvent selection and ranking workflow for Supercritical Fluid Extraction (SFE) processes, under the assumption that the reader is familiar with the technology. The choice of co-solvent composition and volume fraction (relative to CO~2~ flow), or indeed the choice of whether to use a co-solvent at all, is complicated by the different solubility of a target compound(s) contained in the extractable raw material, which is governed by its **cohesive energy density**, itself dependent on **the cohesive energy** and **molar volume**. The [Hansen Solubility Theory](https://www.hansen-solubility.com/HSP-science/basics.php) neatly defines the cohesive energy density of any given molecule (be it solute or solvent) as a set of solubility parameters (**HSP**s) describing the Dispersion, Polarity, and Hydrogen Bonding. These may be derived either experimentally via solubility trials or theoretically using [Group Contribution Methods](https://www.doi.org/10.1016/j.ejpb.2013.04.006) based on automated detection of functional groups from [SMILES](https://www.daylight.com/meetings/summerschool98/course/dave/smiles-intro.html) strings, [SMARTS](https://www.daylight.com/meetings/summerschool01/course/basics/smarts.html) notation, and other molecular descriptors.
+
+The [official website](https://www.hansen-solubility.com) of the Hansen Solubility Theory and the accompanying [book](https://www.doi.org/10.1201/9781420006834) provide comprehensive information about the theory, while several real world applications (e.g. [here](https://www.doi.org/10.1016/j.ces.2018.06.017), [here](https://www.doi.org/10.3303/CET197502), and [here](https://doi.org/10.1016/j.jfoodeng.2025.112538)) give specific examples of its usefulness. In lieu of reciting their content herein, the reader is directed to familiarize themselves with both SFE and Hansen Solubility using the available sources. This vignette instead aims to provide a worked example(s) showcasing the capability of `supeRcrit` and the workflow encompassed by the `sfe_mod` function to help:
+
+1.  [Retrieve molecular descriptors of a target compound](#moldesc).
+2.  [Estimation of boiling point, critical parameters, and HSPs](#estgcm).
+3.  [Estimate performance of various co-solvent for said compound](#sfemod).
+4.  [Comparison of a single co-solvent for multiple targets, pressures, temperatures, and/or volume fractions](#miscomp).
+
+## Worked examples
+
+### Retrieval of molecular descriptors {#moldesc}
+
+The workflow begins by retrieving molecular descriptors for a target compound. Although the `sfe_mod` function carries this out automatically, it is also useful as a separate function termed `mol_find`. All the user is required to provide is a target [CAS](https://www.cas.org/cas-data/cas-registry) number and preferred name of a molecule. Let's use beta-carotene as an example:
+
+```{r moldesc_1}
+mol <- mol_find(c("Beta-carotene", "7235-40-7"))
+
+#View results except InChI
+mol$IDs[!names(mol$IDs) %in% "InChI"]
+```
+
+We can additionally provide the SMILES string explicitly if required:
+
+```{r moldesc_2}
+#The SMILES string may also be specified:
+mol_data <- c("7235-40-7", "Beta-carotene", "CC1=C(C(CCC1)(C)C)C=CC(=CC=CC(=CC=CC=C(C)C=CC=C(C)C=CC2=C(CCCC2(C)C)C)C)C")
+mol <- mol_find(mol_data)
+```
+
+Although the function automatically determines the nature of input vector elements based on their formatting, the user may also explicitly name them as follows (**code not run**):
+
+```{r moldesc_3, eval = FALSE}
+mol_find(c(CAS = "7235-40-7",
+           Name = "Beta-carotene",
+           SMILES = "CC1=C(C(CCC1)(C)C)C=CC(=CC=CC(=CC=CC=C(C)C=CC=C(C)C=CC2=C(CCCC2(C)C)C)C)C"))
+```
+
+### Estimation of boiling point, critical parameters, and HSPs {#estgcm}
+
+The determination of co-solvent performance as target compound miscibility enhancers in supercritical CO~2~ requires estimation of their critical temperature and HSP values. Similarly to `mol_find`, the `sfe_mod` function handles this automatically, but a separate routine `est_gcm` provides this useful functionality as well. The function implements the [Joback-Reid](https://doi.org/10.1080/00986448708960487), [Stein and Brown](https://doi.org/10.1021/ci00019a016), [Nannoolal](https://doi.org/10.1016/j.fluid.2006.11.014), [Stefanis and Panayiotou](https://doi.org/10.1016/j.ijpharm.2012.01.001), and [Hukkerikar](https://doi.org/10.1016/j.fluid.2012.02.010) group contribution methods (GCMs) for estimating critical parameters and Hansen Solubility. Additionally, van der waals volume (in L mole^-1^) can be estimated by the methods of [Slonimskii](https://doi.org/10.1016/0032-3950(70)90345-X), [Bondi](https://doi.org/10.1021/j100785a001), and [Zhao](https://doi.org/10.1021/jo034808o). Once again using beta-carotene as an example:
+
+```{r estgcm_1, message = FALSE, out.width = "100%", fig.retina = 3}
+gcm_res <- est_gcm(solute = mol_data,
+                   tb = "SB_corr", #The corrected Stein and Brown method for boiling point estimation
+                   crit = "JR", #Joback-Reid method for boiling point estimation
+                   hsp = "SP12", #Stefanis and Panayiotou method for HSP estimation
+                   vdw = "ZHAO", #Zhao method for van der Waals volume (VDW) estimation
+                   silent = TRUE)
+
+#Show estimated parameters
+gcm_res[["pares"]][1:4]
+
+#Visualise the fragmentation patterns (example given is for Stein and Brown boiling point estimation method)
+grid::grid.raster(gcm_res[["visres"]][["Tb"]][[1]], width = 1, height = 1, vp = grid::viewport(xscale = c(0,1), yscale = c(0,1)))
+```
+
+All GCM approaches require fragmentation of a molecular structure into discrete representative groups where overlapping atoms between identified groups are either permitted or disallowed depending on the selected method. Manual group fragmentation may be time-consuming and in this package various automatic fragmentation approaches are instead employed, most of these were inspired by the work of [Peter Ertl](https://doi.org/10.1186/s13321-017-0225-z) and [Simon Müller](https://doi.org/10.1186/s13321-019-0382-3). The `simplicity` argument (rather fittingly) determines the level of simplicity of the automatic fragmentation algorithm. Besides the default setting, `"auto"`, the three possible values are:
+
+-   `"simple"`: Group overlap is allowed.
+-   `"normal"`: Group overlap is not allowed, with the first valid fragmentation pattern accepted.
+-   `"complex"`: Group overlap is not allowed and every possible fragmentation pattern is computed before final selection.
+
+Note that the above are overridden for second- and third-order groups, where the parameters of fragmentation are the same as those originally published (for more detail, the reader is referred to the primary literature linked throughout this document). For some molecules, the `"complex"` approach may take hours to settle on a single fragmentation pattern out of possible thousands, but for others (like 2-methylphenanthrene exemplified below) the routine is surprisingly fast. Nevertheless, the remaining two approaches are significantly more practical, but still differ in execution time and performance:
+
+```{r estgcm_2, message = FALSE}
+#Define a new molecule which should contain groups of multiple orders
+mol_data <- c("2531-84-2", "2-methylphenanthrene")
+mol <- mol_find(mol_data)
+
+#Compare the fragmentation time using the Hukkerikar approach for critical parameter estimation
+taken <- c()
+start_1 <- Sys.time()
+res_simple <- est_gcm(solute = mol_data, crit = "HKR_STW", simplicity = "simple", silent = TRUE)
+end_1 <- Sys.time()
+taken["simple"] <- round(end_1 - start_1, 2)
+
+#For the 'normal' simplicity level
+start_2 <- Sys.time()
+res_normal <- est_gcm(solute = mol_data, crit = "HKR_STW", simplicity = "normal", silent = TRUE)
+end_2 <- Sys.time()
+taken["normal"] <- round(end_2 - start_2, 2)
+
+#For the 'complex' simplicity level
+start_3 <- Sys.time()
+res_complex <- est_gcm(solute = mol_data, crit = "HKR_STW", simplicity = "complex", silent = TRUE)
+end_3 <- Sys.time()
+taken["complex"] <- round(end_3 - start_3, 2)
+taken
+```
+
+We see that, somewhat surprisingly, the `simple` approach is slower than the more complex `normal` setting, while the `complex` fragmentation is only slightly more time-consuming for such a small molecule. Let us check the results in more detail:
+
+```{r est_gcm3, message = FALSE}
+reslist <- list(res_simple, res_normal, res_complex)
+
+#Retrieve and show estimated critical temperatures
+setNames(sapply(reslist, function(x) x[["pares"]][["Critical"]][["Tc"]]), c("simple_Tc", "normal_Tc", "complex_Tc"))
+
+#Show the number of UNIQUE identified groups
+setNames(sapply(reslist, function(x) nrow(x[["pares"]][["Contribs"]][["Critical"]])), c("simple_groups", "normal_groups", "complex_groups"))
+```
+
+We see that the `simple` method likely vastly overestimates the critical temperature due to the overabundance of identified groups, while there is no need for the `complex` approach in this case since it results in the same estimation as the more time-efficient `normal` approach.
+
+Finally, some GCMs examine multiple levels of functional groups, otherwise known as **group orders**, to refine initial estimates from the so-called first-order groups. This can also alter estimates as exemplified below using the `gorder` argument:
+
+```{r estgcm_4, message = FALSE}
+#By default, consider all groups (first- and second-order in this case)
+res1 <- est_gcm(solute = mol_data, hsp = "SP12", gorder = 0, silent = TRUE)
+
+#Consider only first-order groups
+res2 <- est_gcm(solute = mol_data, hsp = "SP12", gorder = 1, silent = TRUE)
+
+res1[["pares"]][["HSP"]]
+res2[["pares"]][["HSP"]]
+```
+
+Naturally, given the variety of underlying models, different GCMs result in slightly (and sometimes significantly) different parameter estimates. These differences may be quickly displayed via the `compare_gcm` function as below:
+
+```{r estgcm_5, message = FALSE}
+cgcm <- compare_gcm(mol_data, simplicity = "simple")
+knitr::kable(cgcm, format = "html", digits = 2) |>  kableExtra::kable_styling(full_width = T)
+```
+
+While the values are often consistent between methods, it is recommended to survey the results are much as possible for each individual target compound before settling on a particular set of GCMs, since the accuracy of predicted parameters significantly impacts subsequent co-solvent performance estimation.
+
+### Estimation of co-solvent performance for one compound {#sfemod}
+
+The `sfe_mod` routine uses the [Hansen Solubility Theory](https://www.hansen-solubility.com/HSP-science/basics.php) to estimate the **relative** improvement in the miscibility of a target compound (the so-called *% Miscibility Enhancement*) in a **binary CO2 : co-solvent system** of a specified composition. This allows one to determine whether addition of a specific co-solvent(s) at various concentrations improves the solubility of a target compound relative to pure supercritical CO~2~, and how said improvements compare between different solvents.
+
+The general approach is based on the work of [Diego Tirado](https://doi.org/10.1016/j.supflu.2018.12.013) and involves several steps:
+
+1.  Calculation of the temperature influence on the HSP of the target compound using [Jayasri & Yaseen][jyas] nomograms.
+2.  Calculation of mole fractions (from the provided volume fraction) of the binary system.
+3.  Derivation of the average molar volume at a **specified range of process temperatures and pressures** from the binary system composition.
+4.  Calculation of the influence of the molar volume at each set of conditions on the HSP parameters of the binary system.
+5.  Calculation of the **solubility parameter distance**, ***Ra***, for pure CO~2~ and each binary CO~2~ : co-solvent system.
+6.  Conversion of the *Ra* metric into *% Miscibility Enhancement* relative to pure CO~2~.
+
+The solvent systems are finally ranked at each possible set of conditions within the user-specified range, and the system providing the largest miscibility enhancement is chosen as the "best".
+
+Let us determine the miscibility enhancement for xanthohumol, a prenylflavonoid commonly found in hops and poorly soluble in supercritical CO~2~, using various co-solvents at a volume fraction of 0.1.
+
+```{r sfemod_1, message = FALSE}
+xantho <- c(hspex[hspex[,"Name"] == "Xanthohumol",c("SMILES", "CAS", "Name")])
+
+res <- sfe_mod(solute = xantho,
+               tb = "SB_corr",
+               pres = seq_last(80, 400, 60),
+               temp = seq_last(32, 70, 9),
+               vfrac = 0.1,
+               crit = "NL07_robust",
+               hsp = "SP12",
+               simplicity = "normal")
+
+#Check the list of evaluated solvents
+res[["sfe"]][["Modifiers"]]
+
+#Display the best solvent at each set of conditions (80-400 bar and 32-70 C)
+res[["sfe"]][["Best_Modifier"]]
+
+#Display the overall ranking (based on the proportion of conditions at which a particular solvent provides the highest enhancement)
+res[["sfe"]][["Modifier_Ranking"]]
+```
+
+It appears that using water as a co-solvent provides by far the best enhancement of miscibility throughout the tested temperature and pressure range. However, let us compare the miscibility enhancement obtained with other solvents to see whether any show similar performance.
+
+```{r sfemod_2, message = FALSE}
+solv_list <- c("Hexane", "Toluene", "Methanol", "Ethanol", "Water")
+reslist <- list()
+for(i in solv_list){
+  reslist[[paste0("CO2 with ",i)]] <- c(i, round(range(res[["sfe"]][["Miscib_Enhancement"]][[paste0("CO2 with ", i)]]),2))
+}
+setNames(Reduce("rbind.data.frame", reslist), c("Co-solvent", "Min", "Max"))
+```
+
+The table of minimum and maximum miscibility enhancements reveals that while water is the best modifier, both ethanol and methanol are also likely to benefit the extraction of xanthohumol. What if we were to use a mixture of ethanol and water (e.g. 1:1)? Let us try.
+
+```{r sfemod_3, message = FALSE, fig.retina = 3, out.width = "100%"}
+res <- sfe_mod(solute = xantho,
+               modif = list(c("Ethanol", "Water"), "Water"),
+               modfracs = list(50),
+               tb = "SB_corr",
+               crit = "NL07_robust",
+               hsp = "SP12",
+               pres = seq_last(80, 400, 60),
+               temp = seq_last(32, 70, 9),
+               vfrac = 0.1,
+               simplicity = "normal",
+               silent = TRUE)
+
+res[["sfe"]][["Miscib_Enhancement"]]
+```
+
+It appears that the performance of 1:1 ethanol:water as a co-solvent is somewhere between that of pure ethanol and water, as expected.
+
+The output of `sfe_mod` may be exported as a .CSV file using the `hsp_export` function (**code not run**):
+
+```{r sfemod_4, eval = FALSE, message = FALSE}
+hsp_export(res,
+           expath = "C:/HSP") #Hypothetical export path as a string
+```
+
+### Comparison of co-solvents for various targets, temperatures, and/or pressures {#miscomp}
+
+Sometimes it is beneficial to survey co-solvent performance for different target compounds at various ranges of process pressure, temperature, and co-solvent volume fraction relative to that of CO~2~. The function `miscomp` simplifies this with visual representations of miscibility enhancement as shown below.
+
+```{r miscomp_1, message = FALSE, fig.retina = 3, out.width = "100%", fig.width = 7.5, fig.height = 7.5}
+#fig.height = 15, fig.width = 7.5
+#Define two analytes to compare
+mol1 <- c(hspex[1,c("SMILES", "CAS", "Name")]) #Beta-carotene
+mol2 <- c(hspex[24,c("SMILES", "CAS", "Name")]) #Xanthohumol
+
+#Compare miscibility enhancement
+gcm_comp <- miscomp(sols = list(mol1, mol2), simplicity = "normal") #Uses default volume fraction, pressure range, temperature etc.
+
+#Display plots for both compounds
+gcm_comp[["plots"]][["Beta-carotene"]]
+gcm_comp[["plots"]][["Xanthohumol"]]
+```
+
+It is apparent that addition of ethanol as a co-solvent does not result in a miscibility improvement for beta-carotene (and may even be detrimental to solubility), while the significantly more hydrophilic xanthohumol benefits significantly throughout the examined pressure range.
+
+## A machine-learned solubility workflow
+
+The Hansen workflow above ranks co-solvents by a *relative* miscibility metric (the change in the HSP distance *Ra*). `supeRcrit` also ships a complementary, fully data-driven route that predicts the **absolute** supercritical-CO~2~ solubility of a solute — and the enhancement a co-solvent provides — directly from a SMILES string. These models are written in native R (no Python dependency) and reimplement the "thermodynamics-informed machine learning" approach of [Makarov et al.](https://doi.org/10.1016/j.supflu.2024.106241), trained on large open experimental datasets.
+
+### Estimating molecular properties from SMILES
+
+Two gradient-boosted-tree estimators predict pure-component properties that are useful both downstream and in their own right. The melting point `gcm_mp` is trained on the open Jean-Claude Bradley dataset (~24k compounds); the enthalpy of vaporization `gcm_hvap` shares the same feature pipeline:
+
+```{r mlprops_1, message = FALSE}
+gcm_mp("CC(=O)Nc1ccc(O)cc1")          # paracetamol, ~441 K (experimental 442 K)
+gcm_mp("CC(=O)Nc1ccc(O)cc1", "C")     # the same value expressed in Celsius
+gcm_hvap("CCO")                        # ethanol, ~35 kJ/mol
+```
+
+The five [Abraham](https://doi.org/10.1039/c3cs60042j) LSER solute descriptors (E, S, A, B, V) used by the solubility model can be obtained directly:
+
+```{r mlprops_2, message = FALSE}
+abraham_params(c("c1ccccc1", "CCO"))   # benzene and ethanol
+```
+
+### Predicting supercritical-CO~2~ solubility
+
+`predict_solubility` returns the equilibrium solubility (solute mole fraction *y*~2~ in the CO~2~-rich phase) over a temperature/pressure grid, optionally with a liquid co-solvent at a given mole fraction. It needs only the solute SMILES and operating conditions — the melting point is estimated with `gcm_mp` when not supplied, or can be passed explicitly via `Tm`:
+
+```{r predsol_1, message = FALSE}
+#Naphthalene in pure CO2 at 308 K across a pressure range
+predict_solubility("c1ccc2ccccc2c1", temp = 308, pres = c(100, 150, 200, 250))
+
+#Paracetamol with 5 mol% methanol as a co-solvent
+predict_solubility("CC(=O)Nc1ccc(O)cc1", temp = 318, pres = 200, cosolvent = "CO", x = 0.05)
+```
+
+The model is reliable within roughly **308–373 K and 80–360 bar**. Mole-fraction solubilities convert to a mass loading (g of solute per kg of CO~2~) with `solub_gkg`:
+
+```{r predsol_2, message = FALSE}
+solub_gkg(1.7e-4, 151.2)               # paracetamol-like, ~0.58 g/kg
+```
+
+### Ranking co-solvents by predicted solubility enhancement
+
+`solub_optim` is the solubility analogue of `hsp_optim`: for one solute it evaluates `predict_solubility` over a pressure/temperature grid for pure CO~2~ and for each candidate co-solvent, returning each co-solvent's **enhancement ratio** (*y*~2~ with co-solvent divided by *y*~2~ in pure CO~2~) together with the absolute solubility. SMILES for the bundled Hansen solvents are available from `show_solv()`:
+
+```{r solopt_1, message = FALSE}
+cs <- setNames(show_solv()$SMILES, show_solv()$Solvent)
+
+sc <- solub_optim("CC(=O)Nc1ccc(O)cc1",
+                  cosolvents = cs[c("Ethanol", "Acetone", "Methanol", "Hexane")],
+                  temp_C = c(40, 50, 60), pres_bar = c(150, 200, 250), x = 0.05)
+
+#Mean enhancement of each co-solvent over the grid (higher is better)
+sort(sapply(sc$enhancement, mean), decreasing = TRUE)
+```
+
+For paracetamol the polar alcohols and ketone (ethanol, acetone, methanol) rank well above the non-polar hexane — consistent with experiment. This also corrects a known limitation of the purely HSP-based route, which can rank a solvent that is chemically *similar* to the solute but barely miscible with CO~2~ (such as water) too highly, because *Ra* is blind to the co-solvent's actual solubilising power.
+
+## Solubility curves and separator-cascade fractionation
+
+Once each target's solubility can be evaluated — by the density-based [Chrastil](https://doi.org/10.1021/j150612a012) correlation, the predictive [COSMO-SAC-Phi](https://doi.org/10.1021/acs.iecr.1c04531) equation of state, the machine-learned model above, or experimentally-fitted coefficients — `supeRcrit` can simulate an ideal **depressurisation cascade**. The extract-laden CO~2~ passes through a series of separators at progressively lower pressure; at each stage whatever exceeds the new (lower) saturation limit precipitates. Because different compounds have different solubility curves, they deposit preferentially in different separators, which is the basis for fractionation.
+
+The Chrastil solubility curve over a grid is given by `chrastil_solubility`, and the cascade by the internal engine function `supeRcrit:::chrastil_cascade` (the fractionation engines are driven interactively from the Shiny **Separator Cascade** module). Here we take two compounds from the bundled Chrastil database (`chrastil_db`):
+
+```{r cascade_1, message = FALSE}
+db <- chrastil_db()
+sub <- head(db[is.finite(db$mw) & is.finite(db$k), ], 2)
+solutes <- data.frame(name = sub$name, k = sub$k, A = sub$a, B = sub$b,
+                      mw = sub$mw, basis = "mol/mol", stringsAsFactors = FALSE)
+
+#Three separators at 40 C and decreasing pressure
+stages <- data.frame(temp_C = 40, pres_bar = c(300, 180, 100))
+
+casc <- supeRcrit:::chrastil_cascade(solutes, stages, co2_flow = 10,
+                         extract = list(temp_C = 40, pres_bar = 350))
+
+casc$deposit        # kg/h deposited per solute (rows) at each separator (columns)
+casc$stage_purity   # mass fraction of each separator's deposit
+```
+
+The mass balance itself is independent of the solubility model: the companion engine `supeRcrit:::solub_cascade` performs the same equilibrium-stage calculation from a precomputed solute × stage solubility matrix, so a cascade can equally be driven by CSP-2021, the machine-learned model, or experimental data instead of Chrastil.
+
+All of these workflows are also available interactively in the Shiny dashboard (`run_app()`): the **Solute Characterization**, **Co-Solvent Selection**/**Comparison**, and **Solubility & Separator Cascade** modules expose the GCM, HSP, melting-point/Hvap, ML-solubility, and cascade tools with figures, downloadable tables, and mol/mol &harr; g/kg unit toggles.

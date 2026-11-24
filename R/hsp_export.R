@@ -63,7 +63,15 @@ hsp_export <- function(input, addres = NA, plotpars = "default", plot_format = "
     crit_vec <- pares[["Critical"]]
     method_vec <- pares[["Methods"]]
     contrib_list <- pares[["Contribs"]]
-    names(contrib_list) <- paste0(names(contrib_list), " GCM contibutions (method: ", method_vec, ")")
+    # Match the method to EACH contribution type by name. `Contribs` drops entries for parameters
+    # supplied experimentally/manually (est_gcm removes the NA contribs), while `Methods` keeps all of
+    # them, so when experimental and GCM-estimated parameters are mixed the two differ in length. Indexing
+    # method_vec by the contribution names keeps them aligned (was: recycling `method_vec` against the
+    # shorter contrib_list -> "'names' attribute [N] must be the same length as the vector [M]").
+    if (is.list(contrib_list) && length(contrib_list) && !is.null(names(contrib_list))) {
+      m <- method_vec[names(contrib_list)]          # method per present contribution type (NA if absent)
+      names(contrib_list) <- paste0(names(contrib_list), " GCM contibutions (method: ", m, ")")
+    }
   }
 
   if(is.list(optres)) {
@@ -147,30 +155,30 @@ hsp_export <- function(input, addres = NA, plotpars = "default", plot_format = "
 
     for(i in seq_along(hsp_list)) {
       hsp_list[[i]] <- hsp_list[[i]][1,]
-      colnames(hsp_list[[i]]) <- paste0(colnames(hsp_list[[i]]), " °C")
+      colnames(hsp_list[[i]]) <- paste0(colnames(hsp_list[[i]]), " \u00b0C")
     }
 
     for(i in seq_along(blend_list)) {
       for(j in seq_along(blend_list[[i]])) {
-        colnames(blend_list[[i]][[j]]) <- paste0(colnames(blend_list[[i]][[j]]), " °C")
+        colnames(blend_list[[i]][[j]]) <- paste0(colnames(blend_list[[i]][[j]]), " \u00b0C")
         blend_list[[i]][[j]] <- cbind.data.frame("'"=paste0(rownames(blend_list[[i]][[j]]), " bar"), blend_list[[i]][[j]])
       }
     }
 
     for(i in seq_along(ra_list)) {
-      colnames(ra_list[[i]]) <- paste0(colnames(ra_list[[i]]), " °C")
+      colnames(ra_list[[i]]) <- paste0(colnames(ra_list[[i]]), " \u00b0C")
       ra_list[[i]] <- cbind.data.frame("'"=paste0(rownames(ra_list[[i]]), " bar"), ra_list[[i]])
     }
 
     for(i in seq_along(miscib_list)) {
-      colnames(miscib_list[[i]]) <- paste0(colnames(miscib_list[[i]]), " °C")
+      colnames(miscib_list[[i]]) <- paste0(colnames(miscib_list[[i]]), " \u00b0C")
       miscib_list[[i]] <- cbind.data.frame("'"=paste0(rownames(miscib_list[[i]]), " bar"), miscib_list[[i]])
     }
 
     if(length(modif_vec)>1) {
       miscib_best <- optres[["Best_Modifier"]]
       miscib_rank <- optres[["Modifier_Ranking"]]
-      colnames(miscib_best) <- paste0(colnames(miscib_best), " °C")
+      colnames(miscib_best) <- paste0(colnames(miscib_best), " \u00b0C")
       miscib_best <- cbind.data.frame("'"=paste0(rownames(miscib_best), " bar"), miscib_best)
     }
 

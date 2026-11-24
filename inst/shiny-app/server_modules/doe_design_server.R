@@ -792,12 +792,13 @@ doe_design_server <- function(input, output, session, defaults, i18n, tablang, d
         # Extract and clean the data frame
         data_df <- as.data.frame(result$doe[[1]])
 
-        # Ensure proper column names and structure
+        # Ensure proper column names and structure. The expected layout is Standard_Order + one CODED column
+        # per factor (A, B, C, ...) + one UNCODED column per factor (fnames). The coded-column count MUST
+        # track the number of factors — hardcoding "A","B","C" truncated 4- and 5-factor designs, silently
+        # dropping the last (factors - 3) uncoded columns on screen (e.g. D_Flow, E_CoSol for 5 factors).
         if (!is.null(params$fnames) && length(params$fnames) > 0) {
-          # Check if we need to rename columns
-          expected_cols <- c("Standard_Order", "A", "B", "C", params$fnames)
+          expected_cols <- c("Standard_Order", LETTERS[seq_len(params$factors)], params$fnames)
           if (ncol(data_df) >= length(params$fnames)) {
-            # Keep existing structure but ensure it's a proper data frame
             data_df <- data_df[, 1:min(ncol(data_df), length(expected_cols)), drop = FALSE]
           }
         }
@@ -1044,7 +1045,51 @@ doe_design_server <- function(input, output, session, defaults, i18n, tablang, d
   })
 
   # Export design
-  output$export_design <- downloadHandler(
+  # Shared: the localised design matrix data.frame (Standard Order + factor levels), used by BOTH exports.
+  .doe_export_df <- function() {
+    design_df <- as.data.frame(design_results$full_design_result$doe[[1]])
+    col_names <- names(design_df)
+    col_names <- gsub("Standard_Order", i18n_r()$t("Standard Order"), col_names)
+    col_names <- gsub("^[A-Z]_", "", col_names)                 # drop A_/B_/... prefixes from uncoded factors
+    names(design_df) <- col_names
+    design_df
+  }
+  # Localised key-value summary of the design (type / runs / factors / centre points / randomised).
+  .doe_export_setup <- function() {
+    df <- tryCatch(.doe_export_df(), error = function(e) NULL)
+    runs <- if (!is.null(df)) nrow(df) else NA_integer_
+    nfac <- tryCatch(length(design_results$full_design_result$factors %||% character(0)), error = function(e) NA_integer_)
+    if (is.na(nfac) || nfac == 0) nfac <- max(0L, (if (!is.null(df)) ncol(df) else 1L) - 1L)
+    pairs <- list(
+      list(label = i18n_r()$t("Design type"), value = translate_matrix_name(design_results$design_matrix_name %||% "", i18n_r())),
+      list(label = i18n_r()$t("Runs"), value = if (is.finite(runs)) as.character(runs) else ""),
+      list(label = i18n_r()$t("Factors"), value = if (is.finite(nfac)) as.character(nfac) else ""))
+    cp <- suppressWarnings(as.integer(input$cpts)); if (isTRUE(is.finite(cp)))
+      pairs <- c(pairs, list(list(label = i18n_r()$t("Centre points"), value = as.character(cp))))
+    pairs <- c(pairs, list(list(label = i18n_r()$t("Randomized"),
+      value = if (isTRUE(input$randomize)) i18n_r()$t("Yes") else i18n_r()$t("No"))))
+    pairs
+  }
+
+  output$export_pdf <- downloadHandler(
+    filename = function() paste0(generate_filename_with_timestamp(paste0("supercrit_doe_design_", design_results$design_type)), ".pdf"),
+    content = function(file) {
+      req(design_results$full_design_result, design_results$design_description)
+      pid <- showNotification(i18n$t("Preparing export..."), type = "message", duration = NULL); on.exit(removeNotification(pid), add = TRUE)
+      tryCatch({
+        logo <- if (file.exists("www/altraflora-15-min.png")) "www/altraflora-15-min.png" else NULL
+        ver  <- tryCatch(paste0("supeRcrit v", as.character(utils::packageVersion("supeRcrit"))), error = function(e) "supeRcrit")
+        export <- list(
+          intro = translate_design_description(design_results$design_description, i18n_r()),
+          matrix_name = translate_matrix_name(design_results$design_matrix_name %||% "", i18n_r()),
+          setup = .doe_export_setup(),
+          design_df = .doe_export_df(),
+          confounding = design_results$confounding_pattern)
+        build_doe_design_pdf_report(export, i18n_r(), file, company = ver, logo = logo)
+      }, error = function(e) showNotification(paste(i18n$t("Error exporting design:"), e$message), type = "error", duration = 8))
+    })
+
+  output$export_csv <- downloadHandler(
     filename = function() {
       # Use the helper function to generate the filename (changed to .csv)
       paste0(generate_filename_with_timestamp(paste0("supercrit_doe_design_export_", design_results$design_type)), ".csv")
@@ -1114,7 +1159,7 @@ doe_design_server <- function(input, output, session, defaults, i18n, tablang, d
     # Reset all inputs
     updateRadioButtons(session, "design_type", selected = defaults$design_type)
     updateNumericInput(session, "factors", value = defaults$factors)
-    updateNumericInput(session, "cpts", value = defaults$center_points)
+    updateNumericInput(session, "cpts", value = defaults$cpts)
     updateCheckboxInput(session, "randomize", value = defaults$randomize)
 
     # Clear results

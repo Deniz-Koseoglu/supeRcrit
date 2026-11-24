@@ -97,10 +97,16 @@ doe_analysis_ui <- function(id, defaults, i18n) {
     ),
     column(
       width = 5,
+      # Action row: Reset | Analyze | Save | Export (CSV + PDF dropdown, enabled once an analysis exists).
       fluidRow(
-        column(4, div(id = ns("reset_wrapper"), actionButton(ns("reset"), i18n$t("Reset"), class = "btn btn-default btn-block"))),
-        column(4, div(id = ns("analyze_wrapper"), actionButton(ns("analyze"), i18n$t("Analyze"), class = "btn btn-primary btn-block", style = "color: white !important;"))),
-        column(4, div(id = ns("save_analysis_wrapper"), actionButton(ns("save_analysis"), i18n$t("Save Analysis"), class = "btn btn-default btn-block")))
+        column(3, div(id = ns("reset_wrapper"), actionButton(ns("reset"), i18n$t("Reset"), class = "btn btn-default btn-block"))),
+        column(3, div(id = ns("analyze_wrapper"), actionButton(ns("analyze"), i18n$t("Analyze"), class = "btn btn-primary btn-block", style = "color: white !important;"))),
+        # Tooltip on the WRAPPER DIV — save_analysis is disabled at module init, and a disabled button's own
+        # title tooltip never shows; the div's does (and still works once enabled).
+        column(3, with_tooltip(div(id = ns("save_analysis_wrapper"),
+          actionButton(ns("save_analysis"), i18n$t("Save"), class = "btn btn-default btn-block")),
+          "Save this analysis to the current session so you can reload or compare it later. It is NOT written to a file on disk.")),
+        rp_export_dropdown_col(ns, i18n, "has_results", width = 3)
       ),
       br(),
       box(
@@ -267,17 +273,7 @@ doe_analysis_ui <- function(id, defaults, i18n) {
           conditionalPanel(
             condition = "output.has_results",
             ns = ns,
-            # Export All Results (top)
-            div(
-              id = ns("export_all_results_wrapper"),
-              fluidRow(
-                column(12,
-                  style = "display: flex; justify-content: center;",
-                  downloadButton(ns("export_all_results"), i18n$t("Export Results"), class = "btn btn-success btn-lg", style = "margin-left:5px;")
-                )
-              ),
-              br()
-            ),
+            # (Export moved to the action row at the top as a CSV/PDF dropdown.)
 
             # Initial and Final Model Comparison
             fluidRow(

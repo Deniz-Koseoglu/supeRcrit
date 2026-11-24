@@ -6,9 +6,11 @@ doe_desir_ui <- function(id, defaults, i18n) {
     # Left Panel - Input
     column(
       width = 5,
+      # Action row: Reset | Calculate | Export (CSV + PDF dropdown, enabled once results exist).
       fluidRow(
         column(4, actionButton(ns("reset"), i18n$t("Reset"), class = "btn btn-default btn-block")),
         column(4, actionButton(ns("calculate"), i18n$t("Calculate"), class = "btn btn-primary btn-block", style = "color: white;")),
+        rp_export_dropdown_col(ns, i18n, "has_results", width = 4)
       ),
       br(),
       box(
@@ -197,20 +199,7 @@ doe_desir_ui <- function(id, defaults, i18n) {
           conditionalPanel(
             condition = "output.has_results",
             ns = ns,
-            # Export Results (top)
-            div(
-              id = ns("export_results_wrapper"),
-              fluidRow(
-                column(12,
-                  style = "display: flex; justify-content: center; margin-bottom: 15px;",
-                  downloadButton(ns("export_all"),
-                    i18n$t("Export Results"),
-                    class = "btn btn-success btn-lg",
-                    style = "margin-left:5px;"
-                  )
-                )
-              )
-            ),
+            # (Export moved to the action row at the top as a CSV/PDF dropdown.)
             fluidRow(
               column(
                 12,

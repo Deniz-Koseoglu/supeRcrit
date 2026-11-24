@@ -2,3 +2,30 @@
 ^\.Rproj\.user$
 ^README\.Rmd$
 ^LICENSE\.md$
+# ---- dev-only / scratch / provenance: excluded from the built package so the tarball stays lean ----
+# (the app reads all data from inst/extdata/*.rds + R/sysdata.rda — NONE of the below is needed at runtime)
+^data-raw$
+^tools$
+# runtime-generated user calcs (now written to supercrit_user_dir(), not the install dir);
+# shipping them bloats the tarball and trips the >100-byte tarball-path WARNING
+^inst/shiny-app/config/user-settings$
+# precompiled vignette: ship the generated static CoSolvent_Choice.Rmd plus its figures,
+# but not the live source or the one-time knit script
+^vignettes/CoSolvent_Choice\.Rmd\.orig$
+^vignettes/precompile\.R$
+^scratch_tq$
+^scratch_markgraf$
+^catboost_info$
+^\.\.Rcheck$
+^\.agents$
+^\.claude$
+^\.Rhistory$
+^\.RData$
+^R/sysdata\.rda\.bak.*$
+^the$
+^bash\.exe\.stackdump$
+^backup_supercrit\.bat$
+^supeRcrit_0\.9\.0\.pdf$
+^DEPLOYMENT\.md$
+^CLEANUP_SCRATCH\.sh$
+^cleanup_and_isolate\.ps1$

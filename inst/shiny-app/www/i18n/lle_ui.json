@@ -1,0 +1,1679 @@
+{
+  "translation": [
+    {
+      "en": "Liquid-Liquid Extraction",
+      "ru": "Жидкостно-жидкостная экстракция",
+      "tr": "Sıvı-Sıvı Ekstraksiyon"
+    },
+    {
+      "en": "Run Screening",
+      "ru": "Запустить отбор",
+      "tr": "Taramayı Başlat"
+    },
+    {
+      "en": "Solute & Feed Phase",
+      "ru": "Растворённое вещество и исходная фаза",
+      "tr": "Çözünen ve Besleme Fazı"
+    },
+    {
+      "en": "Compound database",
+      "ru": "База данных соединений",
+      "tr": "Bileşik veritabanı"
+    },
+    {
+      "en": "Curated (2259, named solvents)",
+      "ru": "Курируемая (2259, именованные растворители)",
+      "tr": "Seçilmiş (2259, adlandırılmış çözücüler)"
+    },
+    {
+      "en": "CHAOS (53k, by SMILES — broad coverage)",
+      "ru": "CHAOS (53 тыс., по SMILES — широкий охват)",
+      "tr": "CHAOS (53k, SMILES ile — geniş kapsam)"
+    },
+    {
+      "en": "The two databases use different quantum-chemical levels and cannot be mixed in one ranking. CHAOS covers far more (incl. designer/heavy solutes) but compounds are selected by SMILES.",
+      "ru": "Две базы используют разные квантово-химические уровни и не могут смешиваться в одном ранжировании. CHAOS охватывает гораздо больше (включая сложные/тяжёлые вещества), но соединения выбираются по SMILES.",
+      "tr": "İki veritabanı farklı kuantum-kimyasal seviyeler kullanır ve tek bir sıralamada karıştırılamaz. CHAOS çok daha fazlasını kapsar (tasarım/ağır çözünenler dahil) ancak bileşikler SMILES ile seçilir."
+    },
+    {
+      "en": "Target solute",
+      "ru": "Целевое растворённое вещество",
+      "tr": "Hedef çözünen"
+    },
+    {
+      "en": "Feed / diluent phase",
+      "ru": "Исходная / разбавляющая фаза",
+      "tr": "Besleme / seyreltici faz"
+    },
+    {
+      "en": "Temperature (°C)",
+      "ru": "Температура (°C)",
+      "tr": "Sıcaklık (°C)"
+    },
+    {
+      "en": "Co-extracted solute (optional, for selectivity)",
+      "ru": "Соэкстрагируемое вещество (опц., для селективности)",
+      "tr": "Birlikte ekstrakte edilen çözünen (opsiyonel, seçicilik için)"
+    },
+    {
+      "en": "Candidate Solvents",
+      "ru": "Кандидатные растворители",
+      "tr": "Aday Çözücüler"
+    },
+    {
+      "en": "Solvent Screening",
+      "ru": "Скрининг растворителей",
+      "tr": "Çözücü Taraması"
+    },
+    {
+      "en": "Solvent classes to screen",
+      "ru": "Классы растворителей для скрининга",
+      "tr": "Taranacak çözücü sınıfları"
+    },
+    {
+      "en": "A built-in library of common extraction solvents is screened automatically and ranked — no manual selection needed. Optionally restrict to solvent classes below.",
+      "ru": "Встроенная библиотека распространённых экстрагентов автоматически сканируется и ранжируется — ручной выбор не нужен. При желании ограничьте классами растворителей ниже.",
+      "tr": "Yaygın ekstraksiyon çözücülerinden oluşan yerleşik bir kütüphane otomatik olarak taranır ve sıralanır — manuel seçim gerekmez. İsteğe bağlı olarak aşağıdaki çözücü sınıflarıyla sınırlayın."
+    },
+    {
+      "en": "A built-in library of common, readily-available extraction solvents (GSK solvent sustainability guide) is screened automatically and ranked — no manual selection needed.",
+      "ru": "Встроенная библиотека распространённых доступных экстрагентов (руководство GSK по устойчивости растворителей) сканируется автоматически и ранжируется — ручной выбор не нужен.",
+      "tr": "Yaygın, kolay bulunabilir ekstraksiyon çözücülerinden oluşan yerleşik bir kütüphane (GSK çözücü sürdürülebilirlik kılavuzu) otomatik olarak taranır ve sıralanır — manuel seçim gerekmez."
+    },
+    {
+      "en": "Product / application context",
+      "ru": "Контекст продукта / применения",
+      "tr": "Ürün / uygulama bağlamı"
+    },
+    {
+      "en": "General / industrial",
+      "ru": "Общий / промышленный",
+      "tr": "Genel / endüstriyel"
+    },
+    {
+      "en": "Pharmaceutical",
+      "ru": "Фармацевтический",
+      "tr": "Farmasötik"
+    },
+    {
+      "en": "Food / feed",
+      "ru": "Пищевой / кормовой",
+      "tr": "Gıda / yem"
+    },
+    {
+      "en": "Cosmetics / personal care",
+      "ru": "Косметика / средства ухода",
+      "tr": "Kozmetik / kişisel bakım"
+    },
+    {
+      "en": "Exclude highly hazardous solvents (optional — off by default)",
+      "ru": "Исключить особо опасные растворители (опционально — по умолчанию выкл.)",
+      "tr": "Yüksek tehlikeli çözücüleri hariç tut (isteğe bağlı — varsayılan kapalı)"
+    },
+    {
+      "en": "Solvents that are not food/feed-acceptable will be flagged in the results (not removed).",
+      "ru": "Растворители, не подходящие для пищи/кормов, будут отмечены в результатах (не удалены).",
+      "tr": "Gıda/yem için uygun olmayan çözücüler sonuçlarda işaretlenir (kaldırılmaz)."
+    },
+    {
+      "en": "Solvents not acceptable for cosmetics / personal care will be flagged in the results (not removed).",
+      "ru": "Растворители, не подходящие для косметики / ухода, будут отмечены в результатах (не удалены).",
+      "tr": "Kozmetik / kişisel bakım için uygun olmayan çözücüler sonuçlarda işaretlenir (kaldırılmaz)."
+    },
+    {
+      "en": "ICH Q3C Class 1 (toxic) solvents will be flagged in the results (not removed).",
+      "ru": "Растворители класса 1 ICH Q3C (токсичные) будут отмечены в результатах (не удалены).",
+      "tr": "ICH Q3C Sınıf 1 (toksik) çözücüler sonuçlarda işaretlenir (kaldırılmaz)."
+    },
+    {
+      "en": "Solvents are ranked by distribution coefficient D; the results table also shows each solvent's GSK sustainability band and key hazards.",
+      "ru": "Растворители ранжируются по коэффициенту распределения D; таблица результатов также показывает класс устойчивости GSK и основные опасности каждого растворителя.",
+      "tr": "Çözücüler dağılım katsayısı D ile sıralanır; sonuç tablosu ayrıca her çözücünün GSK sürdürülebilirlik bandını ve temel tehlikelerini gösterir."
+    },
+    {
+      "en": "Sustainability",
+      "ru": "Устойчивость",
+      "tr": "Sürdürülebilirlik"
+    },
+    {
+      "en": "Notes",
+      "ru": "Примечания",
+      "tr": "Notlar"
+    },
+    {
+      "en": "Restricted to food/feed-acceptable solvents",
+      "ru": "Ограничено растворителями, приемлемыми для пищи/кормов",
+      "tr": "Gıda/yem için kabul edilebilir çözücülerle sınırlı"
+    },
+    {
+      "en": "Restricted to solvents acceptable for cosmetics / personal care",
+      "ru": "Ограничено растворителями для косметики / ухода",
+      "tr": "Kozmetik / kişisel bakım için uygun çözücülerle sınırlı"
+    },
+    {
+      "en": "ICH Q3C Class 1 (toxic) solvents excluded",
+      "ru": "Растворители класса 1 ICH Q3C (токсичные) исключены",
+      "tr": "ICH Q3C Sınıf 1 (toksik) çözücüler hariç tutuldu"
+    },
+    {
+      "en": "No solvents",
+      "ru": "Нет растворителей",
+      "tr": "Çözücü yok"
+    },
+    {
+      "en": "No solvents match the selected classes and application context.",
+      "ru": "Нет растворителей, соответствующих выбранным классам и контексту применения.",
+      "tr": "Seçilen sınıflara ve uygulama bağlamına uyan çözücü yok."
+    },
+    {
+      "en": "Note: the top solvent (%s) carries a sustainability/hazard flag.",
+      "ru": "Внимание: лучший растворитель (%s) имеет флаг устойчивости/опасности.",
+      "tr": "Not: en iyi çözücü (%s) bir sürdürülebilirlik/tehlike bayrağı taşıyor."
+    },
+    {
+      "en": " A greener high-ranking alternative is %s.",
+      "ru": " Более экологичная альтернатива с высоким рейтингом — %s.",
+      "tr": " Daha yeşil, üst sıradaki bir alternatif %s."
+    },
+    {
+      "en": "Candidate solvents",
+      "ru": "Кандидатные растворители",
+      "tr": "Aday çözücüler"
+    },
+    {
+      "en": "Screen the entire database (~2259 compounds; slower)",
+      "ru": "Сканировать всю базу (~2259 соединений; медленнее)",
+      "tr": "Tüm veritabanını tara (~2259 bileşik; daha yavaş)"
+    },
+    {
+      "en": "Include dispersion term (recommended)",
+      "ru": "Учитывать дисперсионный член (рекомендуется)",
+      "tr": "Dağılım terimini dahil et (önerilir)"
+    },
+    {
+      "en": "Solvents are ranked by distribution coefficient D = γ∞(feed) / γ∞(solvent): higher D extracts the solute more strongly out of the feed phase.",
+      "ru": "Растворители ранжируются по коэффициенту распределения D = γ∞(исх.) / γ∞(раств.): чем больше D, тем сильнее извлекается вещество из исходной фазы.",
+      "tr": "Çözücüler dağılım katsayısı D = γ∞(besleme) / γ∞(çözücü) ile sıralanır: D ne kadar yüksekse çözünen besleme fazından o kadar güçlü çekilir."
+    },
+    {
+      "en": "Ranked Solvents",
+      "ru": "Ранжированные растворители",
+      "tr": "Sıralanmış Çözücüler"
+    },
+    {
+      "en": "Choose a solute, feed phase and candidate solvents, then run the screening.",
+      "ru": "Выберите вещество, исходную фазу и растворители, затем запустите отбор.",
+      "tr": "Bir çözünen, besleme fazı ve aday çözücüler seçin, ardından taramayı başlatın."
+    },
+    {
+      "en": "Screening solvents...",
+      "ru": "Отбор растворителей...",
+      "tr": "Çözücüler taranıyor..."
+    },
+    {
+      "en": "Input required",
+      "ru": "Требуется ввод",
+      "tr": "Giriş gerekli"
+    },
+    {
+      "en": "Please choose a target solute.",
+      "ru": "Пожалуйста, выберите целевое вещество.",
+      "tr": "Lütfen bir hedef çözünen seçin."
+    },
+    {
+      "en": "Please choose a feed / diluent phase.",
+      "ru": "Пожалуйста, выберите исходную / разбавляющую фазу.",
+      "tr": "Lütfen bir besleme / seyreltici faz seçin."
+    },
+    {
+      "en": "Select at least one candidate solvent, or enable screening of the whole database.",
+      "ru": "Выберите хотя бы один растворитель или включите сканирование всей базы.",
+      "tr": "En az bir aday çözücü seçin veya tüm veritabanı taramasını etkinleştirin."
+    },
+    {
+      "en": "Screening failed",
+      "ru": "Сбой отбора",
+      "tr": "Tarama başarısız"
+    },
+    {
+      "en": "No results",
+      "ru": "Нет результатов",
+      "tr": "Sonuç yok"
+    },
+    {
+      "en": "No candidate solvent could be evaluated (missing profiles).",
+      "ru": "Не удалось оценить ни один растворитель (нет профилей).",
+      "tr": "Hiçbir aday çözücü değerlendirilemedi (profiller eksik)."
+    },
+    {
+      "en": "Top solvent (highest D)",
+      "ru": "Лучший растворитель (макс. D)",
+      "tr": "En iyi çözücü (en yüksek D)"
+    },
+    {
+      "en": "Distribution coefficient D",
+      "ru": "Коэффициент распределения D",
+      "tr": "Dağılım katsayısı D"
+    },
+    {
+      "en": "Solvents evaluated",
+      "ru": "Оценено растворителей",
+      "tr": "Değerlendirilen çözücüler"
+    },
+    {
+      "en": "Solvent",
+      "ru": "Растворитель",
+      "tr": "Çözücü"
+    },
+    {
+      "en": "γ∞ (solvent)",
+      "ru": "γ∞ (растворитель)",
+      "tr": "γ∞ (çözücü)"
+    },
+    {
+      "en": "D = γ∞feed / γ∞solvent",
+      "ru": "D = γ∞исх / γ∞раств",
+      "tr": "D = γ∞besleme / γ∞çözücü"
+    },
+    {
+      "en": "Capacity = 1/γ∞",
+      "ru": "Ёмкость = 1/γ∞",
+      "tr": "Kapasite = 1/γ∞"
+    },
+    {
+      "en": "Selectivity",
+      "ru": "Селективность",
+      "tr": "Seçicilik"
+    },
+    {
+      "en": "Top extraction solvents",
+      "ru": "Лучшие экстрагенты",
+      "tr": "En iyi ekstraksiyon çözücüleri"
+    },
+    {
+      "en": "Solute σ-Profile",
+      "ru": "σ-профиль растворённого вещества",
+      "tr": "Çözünen σ-Profili"
+    },
+    {
+      "en": "Database",
+      "ru": "База данных",
+      "tr": "Veritabanı"
+    },
+    {
+      "en": "FastSigma",
+      "ru": "FastSigma",
+      "tr": "FastSigma"
+    },
+    {
+      "en": "FastSigma (estimated)",
+      "ru": "FastSigma (оценка)",
+      "tr": "FastSigma (tahmini)"
+    },
+    {
+      "en": "COSMO-SAC σ-profile of the selected solute. In the CHAOS database a new SMILES is estimated by FastSigma; when the compound is already in the database, the FastSigma estimate is overlaid on the true profile to show the model's accuracy.",
+      "ru": "σ-профиль COSMO-SAC выбранного вещества. В базе CHAOS новый SMILES оценивается FastSigma; если соединение уже есть в базе, оценка FastSigma накладывается на истинный профиль, демонстрируя точность модели.",
+      "tr": "Seçilen çözünenin COSMO-SAC σ-profili. CHAOS veritabanında yeni bir SMILES FastSigma ile tahmin edilir; bileşik veritabanında mevcutsa, modelin doğruluğunu göstermek için FastSigma tahmini gerçek profilin üzerine bindirilir."
+    },
+    {
+      "en": "Miscible with feed – single phase",
+      "ru": "Смешивается с исходной фазой – одна фаза",
+      "tr": "Besleme fazıyla karışır – tek faz"
+    },
+    {
+      "en": "Analysis mode",
+      "ru": "Режим анализа",
+      "tr": "Analiz modu"
+    },
+    {
+      "en": "Quick screen — rank solvents by distribution coefficient (γ∞)",
+      "ru": "Быстрый скрининг — ранжирование растворителей по коэффициенту распределения (γ∞)",
+      "tr": "Hızlı tarama — çözücüleri dağılım katsayısına göre sırala (γ∞)"
+    },
+    {
+      "en": "Two-phase flash — rigorous split, multiple solutes, optimize temperature",
+      "ru": "Двухфазный расчёт — строгое расслоение, несколько веществ, оптимизация температуры",
+      "tr": "İki fazlı flaş — kesin ayrışma, çoklu çözünen, sıcaklık optimizasyonu"
+    },
+    {
+      "en": "Quick screen ranks many solvents fast from infinite-dilution activity coefficients. Two-phase flash solves the actual liquid-liquid equilibrium (Michelsen stability + isoactivity flash): it splits the feed into two real phases, gives each solute's true distribution between them, the mutual solubility of the two solvents, and can optimize over a temperature range.",
+      "ru": "Быстрый скрининг быстро ранжирует множество растворителей по коэффициентам активности при бесконечном разбавлении. Двухфазный расчёт решает реальное жидкость-жидкостное равновесие (устойчивость по Михельсену + расчёт по равенству активностей): он разделяет питание на две реальные фазы, даёт истинное распределение каждого вещества между ними, взаимную растворимость двух растворителей и может оптимизироваться по диапазону температур.",
+      "tr": "Hızlı tarama, sonsuz seyreltme aktivite katsayılarından birçok çözücüyü hızla sıralar. İki fazlı flaş gerçek sıvı-sıvı dengesini çözer (Michelsen kararlılığı + eş-aktivite flaşı): beslemeyi iki gerçek faza ayırır, her çözünenin bunlar arasındaki gerçek dağılımını, iki çözücünün karşılıklı çözünürlüğünü verir ve bir sıcaklık aralığında optimize edebilir."
+    },
+    {
+      "en": "Additional solute(s) to separate (selectivity vs the target)",
+      "ru": "Дополнительное(ые) вещество(а) для разделения (селективность относительно целевого)",
+      "tr": "Ayrılacak ek çözünen(ler) (hedefe karşı seçicilik)"
+    },
+    {
+      "en": "Optional — add one or more",
+      "ru": "Необязательно — добавьте одно или несколько",
+      "tr": "İsteğe bağlı — bir veya daha fazla ekleyin"
+    },
+    {
+      "en": "T min (°C)",
+      "ru": "T мин (°C)",
+      "tr": "T min (°C)"
+    },
+    {
+      "en": "T max (°C)",
+      "ru": "T макс (°C)",
+      "tr": "T maks (°C)"
+    },
+    {
+      "en": "T step (°C)",
+      "ru": "Шаг T (°C)",
+      "tr": "T adımı (°C)"
+    },
+    {
+      "en": "Solvent : feed (mol)",
+      "ru": "Растворитель : питание (моль)",
+      "tr": "Çözücü : besleme (mol)"
+    },
+    {
+      "en": "Solute mole fraction (each)",
+      "ru": "Мольная доля вещества (каждого)",
+      "tr": "Çözünen mol kesri (her biri)"
+    },
+    {
+      "en": "The feed is diluent + candidate solvent at the chosen mole ratio, with each solute kept dilute. Lower solute fractions approach the infinite-dilution limit.",
+      "ru": "Питание — разбавитель + растворитель-кандидат в выбранном мольном соотношении, каждое вещество остаётся разбавленным. Меньшие доли веществ приближаются к пределу бесконечного разбавления.",
+      "tr": "Besleme, seçilen mol oranında seyreltici + aday çözücüdür; her çözünen seyreltik tutulur. Daha düşük çözünen kesirleri sonsuz seyreltme sınırına yaklaşır."
+    },
+    {
+      "en": "Two-Phase Optimize",
+      "ru": "Двухфазная оптимизация",
+      "tr": "İki fazlı optimizasyon"
+    },
+    {
+      "en": "Switch to Two-phase flash mode, choose the solute(s) to separate, then run.",
+      "ru": "Переключитесь в режим двухфазного расчёта, выберите вещество(а) для разделения и запустите.",
+      "tr": "İki fazlı flaş moduna geçin, ayrılacak çözünen(ler)i seçin ve çalıştırın."
+    },
+    {
+      "en": "Phase compositions (best solvent / temperature)",
+      "ru": "Составы фаз (лучший растворитель / температура)",
+      "tr": "Faz bileşimleri (en iyi çözücü / sıcaklık)"
+    },
+    {
+      "en": "Mole-fraction composition of the two equilibrium liquid phases for the top-ranked solvent and temperature, and each component's distribution D = x(extract) / x(raffinate).",
+      "ru": "Мольно-долевой состав двух равновесных жидких фаз для растворителя и температуры с наилучшим рейтингом, и распределение каждого компонента D = x(экстракт) / x(рафинат).",
+      "tr": "En üst sıradaki çözücü ve sıcaklık için iki denge sıvı fazının mol-kesri bileşimi ve her bileşenin dağılımı D = x(ekstrakt) / x(rafinat)."
+    },
+    {
+      "en": "Distribution vs T",
+      "ru": "Распределение от T",
+      "tr": "Dağılım–T"
+    },
+    {
+      "en": "Solving two-phase flash over solvents and temperature...",
+      "ru": "Решение двухфазного расчёта по растворителям и температуре...",
+      "tr": "Çözücüler ve sıcaklık üzerinde iki fazlı flaş çözülüyor..."
+    },
+    {
+      "en": "Flash failed",
+      "ru": "Расчёт не удался",
+      "tr": "Flaş başarısız"
+    },
+    {
+      "en": "No candidate solvent forms two liquid phases with the feed under these conditions — all are miscible with the diluent.",
+      "ru": "Ни один растворитель-кандидат не образует двух жидких фаз с питанием в этих условиях — все смешиваются с разбавителем.",
+      "tr": "Bu koşullarda hiçbir aday çözücü beslemeyle iki sıvı faz oluşturmuyor — hepsi seyrelticiyle karışıyor."
+    },
+    {
+      "en": "Best solvent",
+      "ru": "Лучший растворитель",
+      "tr": "En iyi çözücü"
+    },
+    {
+      "en": "none (no split)",
+      "ru": "нет (без расслоения)",
+      "tr": "yok (ayrışma yok)"
+    },
+    {
+      "en": "Best selectivity (S)",
+      "ru": "Лучшая селективность (S)",
+      "tr": "En iyi seçicilik (S)"
+    },
+    {
+      "en": "Best distribution D",
+      "ru": "Лучшее распределение D",
+      "tr": "En iyi dağılım D"
+    },
+    {
+      "en": "Two-phase (solvent × T) points",
+      "ru": "Двухфазные точки (растворитель × T)",
+      "tr": "İki fazlı (çözücü × T) noktaları"
+    },
+    {
+      "en": "T (°C)",
+      "ru": "T (°C)",
+      "tr": "T (°C)"
+    },
+    {
+      "en": "Two phases?",
+      "ru": "Две фазы?",
+      "tr": "İki faz?"
+    },
+    {
+      "en": "yes",
+      "ru": "да",
+      "tr": "evet"
+    },
+    {
+      "en": "no (single phase)",
+      "ru": "нет (одна фаза)",
+      "tr": "hayır (tek faz)"
+    },
+    {
+      "en": "D",
+      "ru": "D",
+      "tr": "D"
+    },
+    {
+      "en": "Selectivity S",
+      "ru": "Селективность S",
+      "tr": "Seçicilik S"
+    },
+    {
+      "en": "Solvent in raffinate",
+      "ru": "Растворитель в рафинате",
+      "tr": "Rafinatta çözücü"
+    },
+    {
+      "en": "Feed in extract",
+      "ru": "Питание в экстракте",
+      "tr": "Ekstraktta besleme"
+    },
+    {
+      "en": "Component",
+      "ru": "Компонент",
+      "tr": "Bileşen"
+    },
+    {
+      "en": "Raffinate (feed-rich) x",
+      "ru": "Рафинат (богат питанием) x",
+      "tr": "Rafinat (besleme-zengin) x"
+    },
+    {
+      "en": "Extract (solvent-rich) x",
+      "ru": "Экстракт (богат растворителем) x",
+      "tr": "Ekstrakt (çözücü-zengin) x"
+    },
+    {
+      "en": "D = extract / raffinate",
+      "ru": "D = экстракт / рафинат",
+      "tr": "D = ekstrakt / rafinat"
+    },
+    {
+      "en": "Best: %s at %s °C — extract-phase fraction β = %s",
+      "ru": "Лучший: %s при %s °C — доля фазы экстракта β = %s",
+      "tr": "En iyi: %s, %s °C — ekstrakt-faz kesri β = %s"
+    },
+    {
+      "en": "Separation selectivity vs temperature",
+      "ru": "Селективность разделения от температуры",
+      "tr": "Ayırma seçiciliği–sıcaklık"
+    },
+    {
+      "en": "Distribution coefficient vs temperature",
+      "ru": "Коэффициент распределения от температуры",
+      "tr": "Dağılım katsayısı–sıcaklık"
+    },
+    {
+      "en": "Distribution D",
+      "ru": "Распределение D",
+      "tr": "Dağılım D"
+    },
+    {
+      "en": "Optimize blend — find the best mixed-solvent recipe",
+      "ru": "Оптимизировать смесь — найти лучший рецепт смешанного растворителя",
+      "tr": "Karışımı optimize et — en iyi karışık çözücü reçetesini bul"
+    },
+    {
+      "en": "Quick screen ranks many solvents fast from infinite-dilution activity coefficients. Two-phase flash solves the actual liquid-liquid equilibrium (Michelsen stability + isoactivity flash): it splits the feed into two real phases, gives each solute's true distribution between them, the mutual solubility of the two solvents, and can optimize over a temperature range. Optimize blend searches the composition of a chosen solvent mixture (multistart + warm-start) for the recipe that maximizes selectivity or distribution — often beating any pure solvent.",
+      "ru": "Быстрый скрининг быстро ранжирует множество растворителей по коэффициентам активности при бесконечном разбавлении. Двухфазный расчёт решает реальное жидкость-жидкостное равновесие (устойчивость по Михельсену + расчёт по равенству активностей): разделяет питание на две реальные фазы, даёт истинное распределение каждого вещества, взаимную растворимость двух растворителей и может оптимизироваться по диапазону температур. Оптимизация смеси ищет состав выбранной смеси растворителей (мультистарт + тёплый старт) с рецептом, максимизирующим селективность или распределение — часто превосходя любой чистый растворитель.",
+      "tr": "Hızlı tarama, sonsuz seyreltme aktivite katsayılarından birçok çözücüyü hızla sıralar. İki fazlı flaş gerçek sıvı-sıvı dengesini çözer (Michelsen kararlılığı + eş-aktivite flaşı): beslemeyi iki gerçek faza ayırır, her çözünenin gerçek dağılımını, iki çözücünün karşılıklı çözünürlüğünü verir ve bir sıcaklık aralığında optimize edebilir. Karışım optimizasyonu, seçilen bir çözücü karışımının bileşimini (çoklu-başlangıç + sıcak-başlangıç) seçicilik veya dağılımı en üst düzeye çıkaran reçete için arar — çoğunlukla herhangi bir saf çözücüyü geçer."
+    },
+    {
+      "en": "Solvents to blend (choose 2–4)",
+      "ru": "Растворители для смешивания (выберите 2–4)",
+      "tr": "Karıştırılacak çözücüler (2–4 seçin)"
+    },
+    {
+      "en": "Pick the candidate solvents to mix",
+      "ru": "Выберите растворители-кандидаты для смешивания",
+      "tr": "Karıştırılacak aday çözücüleri seçin"
+    },
+    {
+      "en": "Maximize",
+      "ru": "Максимизировать",
+      "tr": "Enbüyükle"
+    },
+    {
+      "en": "Separation selectivity (needs ≥2 solutes)",
+      "ru": "Селективность разделения (нужно ≥2 веществ)",
+      "tr": "Ayırma seçiciliği (≥2 çözünen gerekir)"
+    },
+    {
+      "en": "Target distribution coefficient",
+      "ru": "Коэффициент распределения целевого вещества",
+      "tr": "Hedef dağılım katsayısı"
+    },
+    {
+      "en": "Multistart seeds",
+      "ru": "Точки мультистарта",
+      "tr": "Çoklu-başlangıç tohumları"
+    },
+    {
+      "en": "Warm-start across temperature",
+      "ru": "Тёплый старт по температуре",
+      "tr": "Sıcaklık boyunca sıcak-başlangıç"
+    },
+    {
+      "en": "Multistart refines the best simplex-grid seeds with a local search so the optimizer does not get stuck; warm-start seeds each temperature from the previous one's optimum.",
+      "ru": "Мультистарт уточняет лучшие точки симплекс-сетки локальным поиском, чтобы оптимизатор не застревал; тёплый старт задаёт для каждой температуры начальную точку из оптимума предыдущей.",
+      "tr": "Çoklu-başlangıç, en iyi simpleks-ızgara tohumlarını yerel aramayla iyileştirir, böylece optimize edici takılmaz; sıcak-başlangıç her sıcaklığı bir öncekinin optimumundan başlatır."
+    },
+    {
+      "en": "Blend Optimizer",
+      "ru": "Оптимизатор смеси",
+      "tr": "Karışım Optimize Edici"
+    },
+    {
+      "en": "Switch to Optimize blend mode, choose 2–4 solvents to mix, then run.",
+      "ru": "Переключитесь в режим оптимизации смеси, выберите 2–4 растворителя и запустите.",
+      "tr": "Karışım optimize modu'na geçin, karıştırmak için 2–4 çözücü seçin ve çalıştırın."
+    },
+    {
+      "en": "Optimal blend composition",
+      "ru": "Оптимальный состав смеси",
+      "tr": "Optimal karışım bileşimi"
+    },
+    {
+      "en": "Best composition vs temperature",
+      "ru": "Лучший состав в зависимости от температуры",
+      "tr": "En iyi bileşim–sıcaklık"
+    },
+    {
+      "en": "How the optimal recipe and its objective shift with temperature (warm-started).",
+      "ru": "Как оптимальный рецепт и его целевая функция меняются с температурой (тёплый старт).",
+      "tr": "Optimal reçetenin ve amacının sıcaklıkla nasıl değiştiği (sıcak-başlangıçlı)."
+    },
+    {
+      "en": "Pick at least two solvents to blend.",
+      "ru": "Выберите не менее двух растворителей для смешивания.",
+      "tr": "Karıştırmak için en az iki çözücü seçin."
+    },
+    {
+      "en": "Selectivity needs at least two solutes — add one under 'Additional solute(s)' or switch the objective to distribution.",
+      "ru": "Для селективности нужно не менее двух веществ — добавьте одно в «Дополнительные вещества» или переключите цель на распределение.",
+      "tr": "Seçicilik en az iki çözünen gerektirir — 'Ek çözünen(ler)' altına bir tane ekleyin veya amacı dağılıma çevirin."
+    },
+    {
+      "en": "Optimizing blend composition...",
+      "ru": "Оптимизация состава смеси...",
+      "tr": "Karışım bileşimi optimize ediliyor..."
+    },
+    {
+      "en": "Optimization failed",
+      "ru": "Оптимизация не удалась",
+      "tr": "Optimizasyon başarısız"
+    },
+    {
+      "en": "No two-phase blend",
+      "ru": "Нет двухфазной смеси",
+      "tr": "İki fazlı karışım yok"
+    },
+    {
+      "en": "No blend of these solvents formed two liquid phases under the given conditions. Try different solvents, a larger solvent:feed ratio, or another temperature.",
+      "ru": "Ни одна смесь этих растворителей не образовала двух жидких фаз при заданных условиях. Попробуйте другие растворители, большее соотношение растворитель:питание или другую температуру.",
+      "tr": "Bu çözücülerin hiçbir karışımı verilen koşullarda iki sıvı faz oluşturmadı. Farklı çözücüler, daha büyük çözücü:besleme oranı veya başka bir sıcaklık deneyin."
+    },
+    {
+      "en": "Optimal blend",
+      "ru": "Оптимальная смесь",
+      "tr": "Optimal karışım"
+    },
+    {
+      "en": "Best temperature",
+      "ru": "Лучшая температура",
+      "tr": "En iyi sıcaklık"
+    },
+    {
+      "en": "Blend fraction (mol %)",
+      "ru": "Доля в смеси (мол. %)",
+      "tr": "Karışım kesri (mol %)"
+    },
+    {
+      "en": "Solute",
+      "ru": "Вещество",
+      "tr": "Çözünen"
+    },
+    {
+      "en": "At %.0f °C — per-solute D: %s",
+      "ru": "При %.0f °C — D по веществам: %s",
+      "tr": "%.0f °C'de — çözünen başına D: %s"
+    },
+    {
+      "en": "Optimal composition",
+      "ru": "Оптимальный состав",
+      "tr": "Optimal bileşim"
+    },
+    {
+      "en": "Objective evaluation",
+      "ru": "Оценка целевой функции",
+      "tr": "Amaç değerlendirmesi"
+    },
+    {
+      "en": "Fast — infinite-dilution γ∞ ratios (AMS-style; ~1 s)",
+      "ru": "Быстро — отношения γ∞ при бесконечном разбавлении (стиль AMS; ~1 с)",
+      "tr": "Hızlı — sonsuz seyreltme γ∞ oranları (AMS tarzı; ~1 s)"
+    },
+    {
+      "en": "Rigorous — full two-phase flash (finite concentration; slower)",
+      "ru": "Строго — полный двухфазный расчёт (конечная концентрация; медленнее)",
+      "tr": "Kesin — tam iki fazlı flaş (sonlu derişim; daha yavaş)"
+    },
+    {
+      "en": "Multistart refines the best simplex-grid seeds with a local search so the optimizer does not get stuck; warm-start seeds each temperature from the previous one's optimum. Fast evaluation scores each trial blend from activity-coefficient ratios (the winner is still verified with one full flash); rigorous re-flashes every trial blend.",
+      "ru": "Мультистарт уточняет лучшие точки симплекс-сетки локальным поиском, чтобы оптимизатор не застревал; тёплый старт задаёт для каждой температуры начальную точку из оптимума предыдущей. Быстрая оценка ранжирует каждую пробную смесь по отношениям коэффициентов активности (победитель всё равно проверяется одним полным расчётом); строгая пересчитывает каждую смесь.",
+      "tr": "Çoklu-başlangıç, en iyi simpleks-ızgara tohumlarını yerel aramayla iyileştirir, böylece optimize edici takılmaz; sıcak-başlangıç her sıcaklığı bir öncekinin optimumundan başlatır. Hızlı değerlendirme her deneme karışımını aktiflik katsayısı oranlarından puanlar (kazanan yine de tek bir tam flaşla doğrulanır); kesin olan her deneme karışımını yeniden flaşlar."
+    },
+    {
+      "en": "Thermodynamic engine",
+      "ru": "Термодинамический движок",
+      "tr": "Termodinamik motor"
+    },
+    {
+      "en": "COSMO-SAC-dsp (broad: 2259 + 53k compounds, fast)",
+      "ru": "COSMO-SAC-dsp (широкий: 2259 + 53 тыс. соединений, быстро)",
+      "tr": "COSMO-SAC-dsp (geniş: 2259 + 53k bileşik, hızlı)"
+    },
+    {
+      "en": "openCOSMO-RS-Phi (rigorous EoS; 15 bundled compounds only)",
+      "ru": "openCOSMO-RS-Phi (строгое УС; только 15 включённых соединений)",
+      "tr": "openCOSMO-RS-Phi (kesin HD; yalnızca 15 paket bileşik)"
+    },
+    {
+      "en": "openCOSMO-RS-Phi is an equation-of-state COSMO model — it equates fugacities at a fixed pressure rather than activity coefficients. It is more rigorous but slower and limited to the individually profiled compounds. Use the Two-phase flash mode.",
+      "ru": "openCOSMO-RS-Phi — это COSMO-модель на основе уравнения состояния: она приравнивает летучести при фиксированном давлении, а не коэффициенты активности. Она строже, но медленнее и ограничена индивидуально профилированными соединениями. Используйте режим двухфазного расчёта.",
+      "tr": "openCOSMO-RS-Phi bir hal-denklemi COSMO modelidir — aktiflik katsayıları yerine sabit basınçta fugasiteleri eşitler. Daha kesindir ancak daha yavaştır ve yalnızca ayrı ayrı profillenmiş bileşiklerle sınırlıdır. İki fazlı flaş modunu kullanın."
+    },
+    {
+      "en": "Pressure (bar)",
+      "ru": "Давление (бар)",
+      "tr": "Basınç (bar)"
+    },
+    {
+      "en": "Engine",
+      "ru": "Движок",
+      "tr": "Motor"
+    },
+    {
+      "en": "openCOSMO-RS-Phi supports the Two-phase flash mode only. Switch the analysis mode to Two-phase flash, or switch the engine to COSMO-SAC-dsp for screening / blend optimization.",
+      "ru": "openCOSMO-RS-Phi поддерживает только режим двухфазного расчёта. Переключите режим анализа на двухфазный расчёт или выберите движок COSMO-SAC-dsp для скрининга / оптимизации смеси.",
+      "tr": "openCOSMO-RS-Phi yalnızca İki fazlı flaş modunu destekler. Analiz modunu İki fazlı flaşa geçirin veya tarama / karışım optimizasyonu için motoru COSMO-SAC-dsp'ye çevirin."
+    },
+    {
+      "en": "OK",
+      "ru": "OK",
+      "tr": "Tamam"
+    },
+    {
+      "en": "Reset",
+      "ru": "Сбросить",
+      "tr": "Sıfırla"
+    },
+    {
+      "en": "Load Example",
+      "ru": "Загрузить пример",
+      "tr": "Örnek Yükle"
+    },
+    {
+      "en": "Run",
+      "ru": "Запустить",
+      "tr": "Çalıştır"
+    },
+    {
+      "en": "COSMO-SAC-dsp equates activity coefficients from bundled sigma-profiles — broad and fast, and the only engine for Quick screen and Optimize blend. openCOSMO-RS-Phi is a rigorous equation-of-state COSMO model that equates fugacities at a fixed pressure (more accurate, slower, individually-profiled compounds) and is used for the Two-phase flash. CS25 is the 2025 COSMO-SAC reparametrisation — the most accurate for water/organic mutual solubilities, Two-phase flash only, and limited to the compounds in its built-in database.",
+      "ru": "COSMO-SAC-dsp уравнивает коэффициенты активности по встроенным сигма-профилям — широкий охват и высокая скорость, единственный движок для режимов Быстрый скрининг и Оптимизация смеси. openCOSMO-RS-Phi — строгая COSMO-модель на основе уравнения состояния, уравнивающая фугитивности при фиксированном давлении (точнее, медленнее, с индивидуально профилированными соединениями); используется для Двухфазного расчёта. CS25 — репараметризация COSMO-SAC 2025 года — наиболее точна для взаимной растворимости воды и органических веществ, только для Двухфазного расчёта и ограничена соединениями из встроенной базы данных.",
+      "tr": "COSMO-SAC-dsp, paketlenmiş sigma profillerinden aktivite katsayılarını eşitler — geniş kapsamlı ve hızlıdır ve Hızlı tarama ile Karışım optimizasyonu için tek motordur. openCOSMO-RS-Phi, sabit basınçta fugasiteleri eşitleyen titiz bir hal denklemi COSMO modelidir (daha doğru, daha yavaş, ayrı ayrı profillenmiş bileşikler) ve İki fazlı flaş için kullanılır. CS25, 2025 COSMO-SAC yeniden parametrelendirmesidir — su/organik karşılıklı çözünürlükler için en doğru olanıdır, yalnızca İki fazlı flaş içindir ve yerleşik veritabanındaki bileşiklerle sınırlıdır."
+    },
+    {
+      "en": "Quick screen ranks many solvents fast from infinite-dilution activity coefficients (gamma-infinity). Two-phase flash solves the real liquid-liquid equilibrium (Michelsen stability + isoactivity): it splits the feed into two phases, gives each solute's true distribution, the mutual solvent solubility, and can scan a temperature range. Optimize blend searches the composition of a chosen solvent mixture (multistart + warm-start) for the recipe maximising selectivity or distribution.",
+      "ru": "Быстрый скрининг быстро ранжирует множество растворителей по коэффициентам активности при бесконечном разбавлении (гамма-бесконечность). Двухфазный расчёт решает реальное жидкостно-жидкостное равновесие (устойчивость по Michelsen + изоактивность): он разделяет исходную смесь на две фазы, даёт истинное распределение каждого растворённого вещества, взаимную растворимость растворителей и может сканировать диапазон температур. Оптимизация смеси подбирает состав выбранной смеси растворителей (мультистарт + тёплый старт) для рецептуры, максимизирующей селективность или распределение.",
+      "tr": "Hızlı tarama, birçok çözücüyü sonsuz seyreltme aktivite katsayılarından (gama sonsuz) hızla sıralar. İki fazlı flaş, gerçek sıvı-sıvı dengesini çözer (Michelsen kararlılığı + izoaktivite): beslemeyi iki faza ayırır, her çözünenin gerçek dağılımını, karşılıklı çözücü çözünürlüğünü verir ve bir sıcaklık aralığını tarayabilir. Karışım optimizasyonu, seçilen bir çözücü karışımının bileşimini (çoklu başlangıç + sıcak başlangıç) seçiciliği veya dağılımı en üst düzeye çıkaran reçete için arar."
+    },
+    {
+      "en": "Curated: 2,259 named, CAS-tagged compounds (DMol3 profiles). CHAOS: ~53,000 compounds (Gond et al. 2026, omegaB97X-D) for broad / designer coverage — 6,805 carry a resolved common name + CAS; the rest are addressed by SMILES (a new SMILES is estimated on the fly by FastSigma). The two databases use different quantum chemistry and cannot be mixed in one ranking.",
+      "ru": "Курируемая: 2 259 именованных соединений с метками CAS (профили DMol3). CHAOS: ~53 000 соединений (Gond et al. 2026, omegaB97X-D) для широкого / проектировочного охвата — 6 805 имеют определённое общепринятое название + CAS; остальные адресуются по SMILES (новый SMILES оценивается на лету с помощью FastSigma). Две базы данных используют разную квантовую химию и не могут смешиваться в одном ранжировании.",
+      "tr": "Küratörlü: 2.259 adlandırılmış, CAS etiketli bileşik (DMol3 profilleri). CHAOS: geniş / tasarım kapsamı için ~53.000 bileşik (Gond ve ark. 2026, omegaB97X-D) — 6.805'i çözümlenmiş bir yaygın ad + CAS taşır; geri kalanı SMILES ile adreslenir (yeni bir SMILES, FastSigma tarafından anında tahmin edilir). İki veritabanı farklı kuantum kimyası kullanır ve tek bir sıralamada karıştırılamaz."
+    },
+    {
+      "en": "The phase the solute starts in (the liquid to extract from) — commonly water or an oil/organic diluent. A good extraction solvent must be largely immiscible with this feed so two liquid phases form.",
+      "ru": "Фаза, в которой изначально находится растворённое вещество (жидкость, из которой проводится экстракция) — обычно вода или масляный/органический разбавитель. Хороший экстрагент должен быть в значительной степени несмешиваемым с этой исходной фазой, чтобы образовались две жидкие фазы.",
+      "tr": "Çözünenin başlangıçta bulunduğu faz (ekstraksiyonun yapılacağı sıvı) — yaygın olarak su veya bir yağ/organik seyreltici. İyi bir ekstraksiyon çözücüsü, iki sıvı faz oluşabilmesi için bu beslemeyle büyük ölçüde karışmaz olmalıdır."
+    },
+    {
+      "en": "Browse database",
+      "ru": "Обзор базы данных",
+      "tr": "Veritabanına Göz At"
+    },
+    {
+      "en": "Show common solvents only",
+      "ru": "Показывать только распространённые растворители",
+      "tr": "Yalnızca yaygın çözücüleri göster"
+    },
+    {
+      "en": "Target solute(s)",
+      "ru": "Целевое(ые) растворённое(ые) вещество(а)",
+      "tr": "Hedef çözünen(ler)"
+    },
+    {
+      "en": "Search by name or CAS and add one or more solutes, or use Browse database to pick from a table. The first is the target to extract; any further solutes are co-extracted species — the separation selectivity is the target's distribution over theirs. Set each solute's own concentration in the list below. In CHAOS you may also type/paste a SMILES for an off-list compound (FastSigma estimates its profile).",
+      "ru": "Выполните поиск по названию или CAS и добавьте одно или несколько растворённых веществ либо используйте Обзор базы данных, чтобы выбрать из таблицы. Первое — это целевое вещество для экстракции; любые последующие вещества являются соэкстрагируемыми — селективность разделения равна отношению распределения целевого вещества к их распределению. Задайте собственную концентрацию каждого вещества в списке ниже. В CHAOS вы также можете ввести/вставить SMILES для соединения вне списка (FastSigma оценивает его профиль).",
+      "tr": "Ada veya CAS'a göre arayıp bir veya daha fazla çözünen ekleyin ya da bir tablodan seçmek için Veritabanına Göz At'ı kullanın. İlki, ekstrakte edilecek hedeftir; sonraki çözünenler birlikte ekstrakte edilen türlerdir — ayırma seçiciliği, hedefin dağılımının onlarınkine oranıdır. Her çözünenin kendi konsantrasyonunu aşağıdaki listede ayarlayın. CHAOS'ta, listede olmayan bir bileşik için bir SMILES de yazabilir/yapıştırabilirsiniz (FastSigma profilini tahmin eder)."
+    },
+    {
+      "en": "Search name or CAS, or Browse the database",
+      "ru": "Поиск по названию или CAS, либо Обзор базы данных",
+      "tr": "Ad veya CAS ara ya da veritabanına Göz At"
+    },
+    {
+      "en": "range (°C)",
+      "ru": "диапазон (°C)",
+      "tr": "aralık (°C)"
+    },
+    {
+      "en": "The temperature window the flash / optimizer scans. Distribution and mutual solubility both shift with temperature, so scanning finds the best operating point.",
+      "ru": "Температурное окно, которое сканирует расчёт / оптимизатор. Распределение и взаимная растворимость изменяются с температурой, поэтому сканирование позволяет найти оптимальную рабочую точку.",
+      "tr": "Flaşın / optimize edicinin taradığı sıcaklık aralığı. Dağılım ve karşılıklı çözünürlük sıcaklıkla değişir, bu nedenle tarama en iyi çalışma noktasını bulur."
+    },
+    {
+      "en": "Temperature range",
+      "ru": "Диапазон температур",
+      "tr": "Sıcaklık aralığı"
+    },
+    {
+      "en": "step",
+      "ru": "шаг",
+      "tr": "adım"
+    },
+    {
+      "en": "Temperature increment across the scan. Smaller steps resolve the optimum more finely but take longer.",
+      "ru": "Шаг температуры при сканировании. Меньший шаг точнее разрешает оптимум, но требует больше времени.",
+      "tr": "Tarama boyunca sıcaklık artışı. Daha küçük adımlar optimumu daha hassas çözer ancak daha uzun sürer."
+    },
+    {
+      "en": "T step",
+      "ru": "Шаг T",
+      "tr": "T adımı"
+    },
+    {
+      "en": "Candidate source",
+      "ru": "Источник кандидатов",
+      "tr": "Aday kaynağı"
+    },
+    {
+      "en": "Choose solvents lets you hand-pick from the curated GSK library. Extended solvent library auto-searches a vetted set of ~190 common extraction/process solvents across every chemical class — the AMS-style 'search the whole solvent database' — automatically restricted to those liquid at your temperature. (openCOSMO-RS-Phi additionally offers its entire profiled set.) Auto modes apply to Quick screen and Two-phase flash; Optimize blend always uses a hand-picked set.",
+      "ru": "«Выбрать растворители» позволяет вручную отобрать из курируемой библиотеки GSK. «Расширенная библиотека растворителей» автоматически ищет по проверенному набору из ~190 распространённых экстракционных/технологических растворителей всех химических классов — в стиле AMS «поиск по всей базе растворителей» — автоматически ограничиваясь теми, что жидкие при вашей температуре. (openCOSMO-RS-Phi дополнительно предлагает весь свой профилированный набор.) Автоматические режимы применяются к быстрому скринингу и двухфазному флэшу; оптимизация смеси всегда использует отобранный вручную набор.",
+      "tr": "«Çözücüleri seç» ile seçilmiş GSK kütüphanesinden elle seçim yapabilirsiniz. «Genişletilmiş çözücü kütüphanesi», her kimyasal sınıftan ~190 yaygın ekstraksiyon/proses çözücüsünden oluşan onaylı bir kümeyi otomatik olarak arar — AMS tarzı «tüm çözücü veritabanını ara» — sizin sıcaklığınızda sıvı olanlarla otomatik olarak sınırlandırılır. (openCOSMO-RS-Phi ayrıca profillenmiş kümesinin tamamını sunar.) Otomatik modlar hızlı taramaya ve iki fazlı flaşa uygulanır; harman optimizasyonu her zaman elle seçilmiş bir küme kullanır."
+    },
+    {
+      "en": "Add as many candidate extraction solvents as you like from the curated library (grounded in GSK's solvent sustainability guide). Each option is colour-coded by sustainability band in the dropdown — green Recommended through red Highly Hazardous (see the legend below). In Optimize blend mode these are the solvents blended together (pick at least two). You may also type a solvent not on the list.",
+      "ru": "Добавьте сколько угодно растворителей-кандидатов для экстракции из курируемой библиотеки (основанной на руководстве GSK по экологичности растворителей). Каждый вариант в раскрывающемся списке имеет цветовую маркировку по уровню экологичности — от зелёного «Рекомендуется» до красного «Крайне опасно» (см. легенду ниже). В режиме оптимизации смеси это растворители, смешиваемые вместе (выберите не менее двух). Можно также ввести растворитель, отсутствующий в списке.",
+      "tr": "Seçilmiş kütüphaneden (GSK'nın çözücü sürdürülebilirlik kılavuzuna dayalı) istediğiniz kadar aday ekstraksiyon çözücüsü ekleyin. Açılır listede her seçenek sürdürülebilirlik bandına göre renk kodludur — yeşil «Önerilen»den kırmızı «Çok Tehlikeli»ye kadar (aşağıdaki açıklamaya bakın). Harman optimizasyonu modunda bunlar birlikte harmanlanan çözücülerdir (en az iki tane seçin). Listede olmayan bir çözücüyü de yazabilirsiniz."
+    },
+    {
+      "en": "Add candidate solvents — colour shows GSK rating",
+      "ru": "Добавьте растворители-кандидаты — цвет показывает рейтинг GSK",
+      "tr": "Aday çözücüler ekleyin — renk GSK derecesini gösterir"
+    },
+    {
+      "en": "GSK rating: ",
+      "ru": "Рейтинг GSK: ",
+      "tr": "GSK derecesi: "
+    },
+    {
+      "en": "Recommended",
+      "ru": "Рекомендуется",
+      "tr": "Önerilen"
+    },
+    {
+      "en": "Some issues",
+      "ru": "Некоторые проблемы",
+      "tr": "Bazı sorunlar"
+    },
+    {
+      "en": "Hazardous",
+      "ru": "Опасно",
+      "tr": "Tehlikeli"
+    },
+    {
+      "en": "Highly hazardous",
+      "ru": "Крайне опасно",
+      "tr": "Çok tehlikeli"
+    },
+    {
+      "en": "Adds the 2014 COSMO-SAC-dsp dispersion contribution. Recommended: it improves activity coefficients for non-polar and aromatic systems. Automatically skipped for any compound lacking a dispersion parameter.",
+      "ru": "Добавляет дисперсионный вклад COSMO-SAC-dsp 2014 года. Рекомендуется: улучшает коэффициенты активности для неполярных и ароматических систем. Автоматически пропускается для любого соединения без дисперсионного параметра.",
+      "tr": "2014 COSMO-SAC-dsp dispersiyon katkısını ekler. Önerilir: polar olmayan ve aromatik sistemler için aktivite katsayılarını iyileştirir. Dispersiyon parametresi olmayan herhangi bir bileşik için otomatik olarak atlanır."
+    },
+    {
+      "en": "Dispersion term",
+      "ru": "Дисперсионный член",
+      "tr": "Dispersiyon terimi"
+    },
+    {
+      "en": "Optimization Settings",
+      "ru": "Настройки оптимизации",
+      "tr": "Optimizasyon Ayarları"
+    },
+    {
+      "en": "Optimize for",
+      "ru": "Оптимизировать по",
+      "tr": "Şuna göre optimize et"
+    },
+    {
+      "en": "Selectivity maximises the target solute's distribution relative to a co-extracted solute (needs at least two solutes). Target distribution maximises the target solute's own distribution coefficient into the extract phase.",
+      "ru": "Селективность максимизирует распределение целевого растворённого вещества относительно соэкстрагируемого вещества (требуется не менее двух веществ). Распределение целевого вещества максимизирует собственный коэффициент распределения целевого вещества в экстрактную фазу.",
+      "tr": "Seçicilik, hedef çözünenin birlikte ekstrakte edilen bir çözünene göre dağılımını maksimize eder (en az iki çözünen gerekir). Hedef dağılımı ise hedef çözünenin ekstre fazına kendi dağılım katsayısını maksimize eder."
+    },
+    {
+      "en": "Optimization objective",
+      "ru": "Цель оптимизации",
+      "tr": "Optimizasyon hedefi"
+    },
+    {
+      "en": "Warm-start over ",
+      "ru": "Тёплый старт по ",
+      "tr": "Sıcak başlangıç: "
+    },
+    {
+      "en": "Seeds each temperature's optimisation from the previous temperature's optimum, so the search tracks the best recipe smoothly across the scan instead of restarting cold.",
+      "ru": "Инициализирует оптимизацию при каждой температуре оптимумом предыдущей температуры, так что поиск плавно отслеживает наилучший состав по всему скану, а не стартует заново с нуля.",
+      "tr": "Her sıcaklıktaki optimizasyonu bir önceki sıcaklığın optimumundan tohumlar; böylece arama, baştan soğuk başlamak yerine en iyi reçeteyi tarama boyunca sorunsuzca izler."
+    },
+    {
+      "en": "Warm-start",
+      "ru": "Тёплый старт",
+      "tr": "Sıcak başlangıç"
+    },
+    {
+      "en": "Fast scores each trial blend from infinite-dilution gamma ratios (AMS-style, ~1 s; the winner is still verified with one full flash). Rigorous re-flashes every trial blend at finite concentration — slower but exact.",
+      "ru": "«Быстрый» оценивает каждую пробную смесь по отношениям гамма при бесконечном разбавлении (в стиле AMS, ~1 с; победитель всё же проверяется одним полным флэшем). «Строгий» заново флэширует каждую пробную смесь при конечной концентрации — медленнее, но точно.",
+      "tr": "«Hızlı», her deneme harmanını sonsuz seyreltme gama oranlarından puanlar (AMS tarzı, ~1 s; kazanan yine de tek bir tam flaşla doğrulanır). «Titiz», her deneme harmanını sonlu derişimde yeniden flaşlar — daha yavaş ama kesin."
+    },
+    {
+      "en": "These settings apply to the Optimize blend analysis mode.",
+      "ru": "Эти настройки применяются к режиму анализа «Оптимизация смеси».",
+      "tr": "Bu ayarlar «Harman optimizasyonu» analiz moduna uygulanır."
+    },
+    {
+      "en": "Output data will appear here",
+      "ru": "Здесь появятся выходные данные",
+      "tr": "Çıktı verileri burada görünecek"
+    },
+    {
+      "en": "Distribution coefficients (top solvents)",
+      "ru": "Коэффициенты распределения (лучшие растворители)",
+      "tr": "Dağılım katsayıları (en iyi çözücüler)"
+    },
+    {
+      "en": "Solute σ-profile",
+      "ru": "σ-профиль растворённого вещества",
+      "tr": "Çözünen madde σ-profili"
+    },
+    {
+      "en": "COSMO-SAC σ-profile of the selected solute. When the compound's structure is known, a SMILES-based FastSigma estimate is overlaid for comparison; the engine itself uses the experimental (database) profile unless an off-database SMILES is entered, in which case the FastSigma estimate is used.",
+      "ru": "COSMO-SAC σ-профиль выбранного растворённого вещества. Когда структура соединения известна, для сравнения накладывается оценка FastSigma на основе SMILES; сам движок использует экспериментальный профиль (из базы данных), если не введён SMILES, отсутствующий в базе, — в этом случае используется оценка FastSigma.",
+      "tr": "Seçilen çözünen maddenin COSMO-SAC σ-profili. Bileşiğin yapısı bilindiğinde, karşılaştırma için SMILES tabanlı bir FastSigma tahmini üzerine bindirilir; motorun kendisi, veritabanında olmayan bir SMILES girilmediği sürece deneysel (veritabanı) profili kullanır; bu durumda FastSigma tahmini kullanılır."
+    },
+    {
+      "en": "Switch to Two-phase flash mode and run — this plots how each candidate solvent's distribution coefficient (or separation selectivity, with two solutes) changes across the temperature scan.",
+      "ru": "Переключитесь в режим двухфазного флэша и запустите — это строит график того, как коэффициент распределения каждого растворителя-кандидата (или селективность разделения при двух растворённых веществах) изменяется в ходе температурного сканирования.",
+      "tr": "İki fazlı flaş moduna geçin ve çalıştırın — bu, her aday çözücünün dağılım katsayısının (veya iki çözünen madde ile ayırma seçiciliğinin) sıcaklık taraması boyunca nasıl değiştiğini çizer."
+    },
+    {
+      "en": "Switch to Optimize blend mode, choose 2 or more solvents to mix, then run.",
+      "ru": "Переключитесь в режим оптимизации смеси, выберите 2 или более растворителей для смешивания, затем запустите.",
+      "tr": "Karışım optimize etme moduna geçin, karıştırmak için 2 veya daha fazla çözücü seçin, ardından çalıştırın."
+    },
+    {
+      "en": "Search name or CAS — add one or more",
+      "ru": "Поиск по названию или CAS — добавьте одно или несколько",
+      "tr": "Ad veya CAS ile ara — bir veya daha fazla ekleyin"
+    },
+    {
+      "en": "Search name/CAS, or paste a SMILES (FastSigma)",
+      "ru": "Поиск по названию/CAS или вставьте SMILES (FastSigma)",
+      "tr": "Ad/CAS ara veya bir SMILES yapıştır (FastSigma)"
+    },
+    {
+      "en": "Quick screen (rank solvents)",
+      "ru": "Быстрый скрининг (ранжирование растворителей)",
+      "tr": "Hızlı tarama (çözücüleri sırala)"
+    },
+    {
+      "en": "Two-phase flash (rigorous split + T scan)",
+      "ru": "Двухфазный флэш (строгое разделение + сканирование T)",
+      "tr": "İki fazlı flaş (titiz ayırma + T taraması)"
+    },
+    {
+      "en": "Optimize blend (best mixed-solvent recipe)",
+      "ru": "Оптимизация смеси (лучший состав смешанного растворителя)",
+      "tr": "Karışımı optimize et (en iyi karışık çözücü reçetesi)"
+    },
+    {
+      "en": "Separation selectivity",
+      "ru": "Селективность разделения",
+      "tr": "Ayırma seçiciliği"
+    },
+    {
+      "en": "Browse compounds — feed / diluent phase",
+      "ru": "Обзор соединений — фаза сырья / разбавителя",
+      "tr": "Bileşiklere göz at — besleme / seyreltici fazı"
+    },
+    {
+      "en": "Browse compounds — solutes",
+      "ru": "Обзор соединений — растворённые вещества",
+      "tr": "Bileşiklere göz at — çözünen maddeler"
+    },
+    {
+      "en": "Search, select ONE row for the feed / diluent phase, then Add selected.",
+      "ru": "Выполните поиск, выберите ОДНУ строку для фазы сырья / разбавителя, затем нажмите «Добавить выбранное».",
+      "tr": "Arayın, besleme / seyreltici fazı için BİR satır seçin, ardından Seçileni ekle'ye basın."
+    },
+    {
+      "en": "Search, select one or more rows, then Add selected. The list reflects the current engine and database.",
+      "ru": "Выполните поиск, выберите одну или несколько строк, затем нажмите «Добавить выбранное». Список отражает текущий движок и базу данных.",
+      "tr": "Arayın, bir veya daha fazla satır seçin, ardından Seçileni ekle'ye basın. Liste geçerli motoru ve veritabanını yansıtır."
+    },
+    {
+      "en": "Close",
+      "ru": "Закрыть",
+      "tr": "Kapat"
+    },
+    {
+      "en": "Add selected",
+      "ru": "Добавить выбранное",
+      "tr": "Seçileni ekle"
+    },
+    {
+      "en": "Name",
+      "ru": "Название",
+      "tr": "Ad"
+    },
+    {
+      "en": "CAS",
+      "ru": "CAS",
+      "tr": "CAS"
+    },
+    {
+      "en": "Class",
+      "ru": "Класс",
+      "tr": "Sınıf"
+    },
+    {
+      "en": "Extraction temperature. Distribution and mutual solubility both depend on it; the flash/optimize modes scan a range instead.",
+      "ru": "Температура экстракции. От неё зависят как распределение, так и взаимная растворимость; режимы флэш-расчёта/оптимизации вместо этого сканируют диапазон.",
+      "tr": "Ekstraksiyon sıcaklığı. Dağılım ve karşılıklı çözünürlük her ikisi de buna bağlıdır; flaş/optimizasyon modları bunun yerine bir aralığı tarar."
+    },
+    {
+      "en": "Temperature",
+      "ru": "Температура",
+      "tr": "Sıcaklık"
+    },
+    {
+      "en": "System pressure for the openCOSMO-RS-Phi equation-of-state flash (fugacities are equated at this pressure).",
+      "ru": "Давление системы для флэш-расчёта openCOSMO-RS-Phi на основе уравнения состояния (фугитивности приравниваются при этом давлении).",
+      "tr": "openCOSMO-RS-Phi hal denklemi flaşı için sistem basıncı (fugasiteler bu basınçta eşitlenir)."
+    },
+    {
+      "en": "Pressure",
+      "ru": "Давление",
+      "tr": "Basınç"
+    },
+    {
+      "en": "Number of simplex-grid seeds refined by local search so the blend optimiser does not get stuck in a poor local optimum.",
+      "ru": "Число начальных точек симплексной сетки, уточняемых локальным поиском, чтобы оптимизатор смеси не застревал в плохом локальном оптимуме.",
+      "tr": "Karışım optimize edicinin kötü bir yerel optimumda takılmaması için yerel aramayla iyileştirilen simpleks ızgara başlangıç noktalarının sayısı."
+    },
+    {
+      "en": "Solute concentrations",
+      "ru": "Концентрации растворённых веществ",
+      "tr": "Çözünen madde derişimleri"
+    },
+    {
+      "en": "Each solute's amount in the feed, set individually. The first solute is the extraction target; any others are co-extracted species used for the selectivity. Mole fraction is per solute (lower values approach infinite dilution); g·L⁻¹ is converted using the feed's molar volume and the solute's molecular weight.",
+      "ru": "Количество каждого растворённого вещества в сырье, задаётся индивидуально. Первое вещество — целевое для экстракции; остальные — соэкстрагируемые компоненты, используемые для расчёта селективности. Мольная доля задаётся для каждого вещества (меньшие значения приближаются к бесконечному разбавлению); г·л⁻¹ пересчитывается с использованием молярного объёма сырья и молекулярной массы вещества.",
+      "tr": "Her çözünen maddenin beslemedeki miktarı, ayrı ayrı ayarlanır. İlk çözünen madde ekstraksiyon hedefidir; diğerleri seçicilik için kullanılan birlikte ekstrakte edilen türlerdir. Mol kesri her çözünen madde için ayrıdır (düşük değerler sonsuz seyrelmeye yaklaşır); g·L⁻¹, beslemenin molar hacmi ve çözünen maddenin moleküler ağırlığı kullanılarak dönüştürülür."
+    },
+    {
+      "en": "mole frac",
+      "ru": "мольная доля",
+      "tr": "mol kesri"
+    },
+    {
+      "en": "g·L⁻¹",
+      "ru": "г·л⁻¹",
+      "tr": "g·L⁻¹"
+    },
+    {
+      "en": "target",
+      "ru": "целевое",
+      "tr": "hedef"
+    },
+    {
+      "en": "co-extract",
+      "ru": "соэкстракт",
+      "tr": "birlikte ekstrakte"
+    },
+    {
+      "en": "Not in the list? Paste a SMILES to add a solute that isn't in the database — FastSigma estimates its σ-profile (see the Solute σ-Profile tab).",
+      "ru": "Нет в списке? Вставьте SMILES, чтобы добавить растворённое вещество, которого нет в базе данных — FastSigma оценит его σ-профиль (см. вкладку σ-профиль растворённого вещества).",
+      "tr": "Listede yok mu? Veritabanında bulunmayan bir çözünen madde eklemek için bir SMILES yapıştırın — FastSigma onun σ-profilini tahmin eder (Çözünen σ-Profili sekmesine bakın)."
+    },
+    {
+      "en": "To model a solute that isn't in the curated set, switch the database to CHAOS — FastSigma can then estimate any SMILES you paste.",
+      "ru": "Чтобы смоделировать растворённое вещество, отсутствующее в кураторском наборе, переключите базу данных на CHAOS — тогда FastSigma сможет оценить любой вставленный вами SMILES.",
+      "tr": "Seçilmiş sette bulunmayan bir çözünen maddeyi modellemek için veritabanını CHAOS'a geçirin — bu durumda FastSigma yapıştırdığınız herhangi bir SMILES'i tahmin edebilir."
+    },
+    {
+      "en": "mole ratio",
+      "ru": "мольное отношение",
+      "tr": "mol oranı"
+    },
+    {
+      "en": "volume %",
+      "ru": "объёмн. %",
+      "tr": "hacim %"
+    },
+    {
+      "en": "Solvent volume %",
+      "ru": "Объёмный % растворителя",
+      "tr": "Çözücü hacim %"
+    },
+    {
+      "en": "Amount of candidate solvent relative to the feed/diluent. Higher pulls more solute into the extract but uses more solvent.",
+      "ru": "Количество растворителя-кандидата относительно сырья/разбавителя. Большее значение извлекает больше вещества в экстракт, но требует больше растворителя.",
+      "tr": "Aday çözücünün besleme/seyreltici miktarına göre oranı. Daha yüksek değer ekstrakta daha fazla çözünen madde çeker ancak daha fazla çözücü kullanır."
+    },
+    {
+      "en": "Solvent : feed",
+      "ru": "Растворитель : сырьё",
+      "tr": "Çözücü : besleme"
+    },
+    {
+      "en": "scan range",
+      "ru": "диапазон сканирования",
+      "tr": "tarama aralığı"
+    },
+    {
+      "en": "Optimize solvent : feed",
+      "ru": "Оптимизировать растворитель : сырьё",
+      "tr": "Çözücü : beslemeyi optimize et"
+    },
+    {
+      "en": "Scan a range of solvent:feed ratios to find the best balance between solvent used and separation performance — reported alongside the temperature optimum.",
+      "ru": "Сканирует диапазон соотношений растворитель:сырьё, чтобы найти оптимальный баланс между расходом растворителя и эффективностью разделения — выводится вместе с температурным оптимумом.",
+      "tr": "Kullanılan çözücü ile ayırma performansı arasındaki en iyi dengeyi bulmak için çözücü:besleme oranları aralığını tarar — sıcaklık optimumu ile birlikte raporlanır."
+    },
+    {
+      "en": "Optimize solvent:feed",
+      "ru": "Оптимизировать растворитель:сырьё",
+      "tr": "Çözücü:besleme optimizasyonu"
+    },
+    {
+      "en": "All candidate solvents look immiscible with %s — a two-phase LLE is feasible.",
+      "ru": "Все рассматриваемые растворители выглядят несмешивающимися с %s — двухфазная ЖЖЭ осуществима.",
+      "tr": "Tüm aday çözücüler %s ile karışmaz görünüyor — iki fazlı SSE uygulanabilir."
+    },
+    {
+      "en": "Miscible with the feed (%s) — these form a single phase, so no LLE: %s",
+      "ru": "Смешиваются с сырьём (%s) — они образуют единую фазу, поэтому ЖЖЭ невозможна: %s",
+      "tr": "Besleme ile karışabilir (%s) — bunlar tek faz oluşturur, dolayısıyla SSE olmaz: %s"
+    },
+    {
+      "en": "%s individually-profiled compounds (rigorous EoS)",
+      "ru": "%s индивидуально профилированных соединений (строгое УС)",
+      "tr": "%s adet ayrı ayrı profillenmiş bileşik (katı HD)"
+    },
+    {
+      "en": "CS25 (2025 COSMO-SAC) — most accurate for water/organic systems; matches compounds against its built-in database",
+      "ru": "CS25 (COSMO-SAC 2025) — наиболее точен для систем вода/органика; сопоставляет соединения со своей встроенной базой данных",
+      "tr": "CS25 (2025 COSMO-SAC) — su/organik sistemler için en doğrusu; bileşikleri yerleşik veritabanıyla eşleştirir"
+    },
+    {
+      "en": "2,259 curated + 53,088 CHAOS compounds",
+      "ru": "2 259 курируемых + 53 088 соединений CHAOS",
+      "tr": "2.259 derlenmiş + 53.088 CHAOS bileşiği"
+    },
+    {
+      "en": "53,088 compounds — %s carry a resolved name + CAS; the rest by SMILES",
+      "ru": "53 088 соединений — %s имеют определённое название + CAS; остальные по SMILES",
+      "tr": "53.088 bileşik — %s tanesinin çözümlenmiş adı + CAS değeri var; geri kalanı SMILES ile"
+    },
+    {
+      "en": "2,259 named, CAS-tagged compounds",
+      "ru": "2 259 именованных соединений с метками CAS",
+      "tr": "2.259 adlandırılmış, CAS etiketli bileşik"
+    },
+    {
+      "en": "Auto-searching the entire openCOSMO-RS-Phi set (%s compounds).",
+      "ru": "Автоматический поиск по всему набору openCOSMO-RS-Phi (%s соединений).",
+      "tr": "Tüm openCOSMO-RS-Phi kümesi otomatik olarak aranıyor (%s bileşik)."
+    },
+    {
+      "en": " CS25 runs locally and serially, so this can take a few minutes.",
+      "ru": " CS25 работает локально и последовательно, поэтому это может занять несколько минут.",
+      "tr": " CS25 yerel olarak ve sırayla çalışır, bu nedenle birkaç dakika sürebilir."
+    },
+    {
+      "en": "Auto-searching %d solvents from the extended library (those liquid at %g °C).",
+      "ru": "Автоматический поиск %d растворителей из расширенной библиотеки (жидких при %g °C).",
+      "tr": "Genişletilmiş kitaplıktan %d çözücü otomatik olarak aranıyor (%g °C'de sıvı olanlar)."
+    },
+    {
+      "en": "%s supports the Two-phase flash mode only. Switch the analysis mode to Two-phase flash, or switch the engine to COSMO-SAC-dsp for screening / blend optimization.",
+      "ru": "%s поддерживает только режим двухфазного флэша. Переключите режим анализа на двухфазный флэш или смените движок на COSMO-SAC-dsp для скрининга / оптимизации смеси.",
+      "tr": "%s yalnızca İki fazlı flaş modunu destekler. Analiz modunu İki fazlı flaşa geçirin veya tarama / karışım optimizasyonu için motoru COSMO-SAC-dsp olarak değiştirin."
+    },
+    {
+      "en": "Optimize blend searches the composition of a hand-picked set of 2-4 solvents. Set Candidate source to 'Choose solvents' and pick the solvents to blend.",
+      "ru": "Оптимизация смеси ищет состав вручную выбранного набора из 2–4 растворителей. Установите источник кандидатов в значение «Выбрать растворители» и выберите растворители для смешивания.",
+      "tr": "Karışım optimizasyonu, elle seçilmiş 2-4 çözücüden oluşan bir kümenin bileşimini arar. Aday kaynağını 'Çözücü seç' olarak ayarlayın ve karıştırılacak çözücüleri seçin."
+    },
+    {
+      "en": "Please add at least one target solute.",
+      "ru": "Пожалуйста, добавьте хотя бы одно целевое растворённое вещество.",
+      "tr": "Lütfen en az bir hedef çözünen ekleyin."
+    },
+    {
+      "en": "Add at least one candidate solvent.",
+      "ru": "Добавьте хотя бы один рассматриваемый растворитель.",
+      "tr": "En az bir aday çözücü ekleyin."
+    },
+    {
+      "en": "CS25 unavailable",
+      "ru": "CS25 недоступен",
+      "tr": "CS25 kullanılamıyor"
+    },
+    {
+      "en": "The CS25 engine needs a local Java runtime and its model files, neither of which was detected on this machine.",
+      "ru": "Движку CS25 требуется локальная среда выполнения Java и его файлы модели, ни одно из которых не обнаружено на этом компьютере.",
+      "tr": "CS25 motoru yerel bir Java çalışma ortamına ve model dosyalarına ihtiyaç duyar; bunların hiçbiri bu makinede algılanmadı."
+    },
+    {
+      "en": "Solving CS25 two-phase flash...",
+      "ru": "Решение двухфазного флэша CS25...",
+      "tr": "CS25 iki fazlı flaş çözülüyor..."
+    },
+    {
+      "en": "No candidate solvent could be evaluated.",
+      "ru": "Ни один рассматриваемый растворитель не удалось оценить.",
+      "tr": "Hiçbir aday çözücü değerlendirilemedi."
+    },
+    {
+      "en": "CS25 could not resolve these compounds in its built-in compound database. Use the COSMO-SAC-dsp engine, or pick compounds that CS25 recognises.",
+      "ru": "CS25 не удалось найти эти соединения в своей встроенной базе данных. Используйте движок COSMO-SAC-dsp или выберите соединения, которые распознаёт CS25.",
+      "tr": "CS25 bu bileşikleri yerleşik bileşik veritabanında bulamadı. COSMO-SAC-dsp motorunu kullanın veya CS25'in tanıdığı bileşikleri seçin."
+    },
+    {
+      "en": "Pre-ranking the solvent library...",
+      "ru": "Предварительное ранжирование библиотеки растворителей...",
+      "tr": "Çözücü kütüphanesi ön sıralaması yapılıyor..."
+    },
+    {
+      "en": "Auto-search: pre-ranked %d solvents, flashing the top %d.",
+      "ru": "Автопоиск: предварительно ранжировано %d растворителей, выполняется флэш для %d лучших.",
+      "tr": "Otomatik arama: %d çözücü ön sıralandı, en iyi %d tanesi için flaş yapılıyor."
+    },
+    {
+      "en": "Pick at least two candidate solvents to blend.",
+      "ru": "Выберите не менее двух растворителей-кандидатов для смешивания.",
+      "tr": "Karıştırmak için en az iki aday çözücü seçin."
+    },
+    {
+      "en": "Selectivity needs at least two solutes — add another target solute or switch the objective to distribution.",
+      "ru": "Для селективности требуется не менее двух растворённых веществ — добавьте ещё одно целевое вещество или переключите критерий на распределение.",
+      "tr": "Seçicilik en az iki çözünen madde gerektirir — başka bir hedef çözünen ekleyin veya amacı dağılıma çevirin."
+    },
+    {
+      "en": "food-grade",
+      "ru": "пищевой категории",
+      "tr": "gıda sınıfı"
+    },
+    {
+      "en": "Experimental",
+      "ru": "Экспериментальный",
+      "tr": "Deneysel"
+    },
+    {
+      "en": "Preparing export...",
+      "ru": "Подготовка экспорта...",
+      "tr": "Dışa aktarma hazırlanıyor..."
+    },
+    {
+      "en": "Liquid-liquid extraction solvent screening results (COSMO-SAC family).",
+      "ru": "Результаты скрининга растворителей для жидкость-жидкостной экстракции (семейство COSMO-SAC).",
+      "tr": "Sıvı-sıvı ekstraksiyon çözücü tarama sonuçları (COSMO-SAC ailesi)."
+    },
+    {
+      "en": "Feed / diluent",
+      "ru": "Исходная смесь / разбавитель",
+      "tr": "Besleme / seyreltici"
+    },
+    {
+      "en": "Ranked solvents",
+      "ru": "Ранжированные растворители",
+      "tr": "Sıralanmış çözücüler"
+    },
+    {
+      "en": "Error exporting plots:",
+      "ru": "Ошибка при экспорте графиков:",
+      "tr": "Grafikler dışa aktarılırken hata:"
+    },
+    {
+      "en": "Two-phase liquid-liquid flash results across the temperature scan.",
+      "ru": "Результаты двухфазного жидкость-жидкостного флэша по температурному сканированию.",
+      "tr": "Sıcaklık taraması boyunca iki fazlı sıvı-sıvı flaş sonuçları."
+    },
+    {
+      "en": "Solute(s)",
+      "ru": "Растворённое(ые) вещество(а)",
+      "tr": "Çözünen madde(ler)"
+    },
+    {
+      "en": "Distribution vs temperature",
+      "ru": "Распределение в зависимости от температуры",
+      "tr": "Dağılım - sıcaklık"
+    },
+    {
+      "en": "Distribution / selectivity vs temperature",
+      "ru": "Распределение / селективность в зависимости от температуры",
+      "tr": "Dağılım / seçicilik - sıcaklık"
+    },
+    {
+      "en": "Two-phase points (solvent × T)",
+      "ru": "Двухфазные точки (растворитель × T)",
+      "tr": "İki fazlı noktalar (çözücü × T)"
+    },
+    {
+      "en": "Load an example",
+      "ru": "Загрузить пример",
+      "tr": "Örnek yükle"
+    },
+    {
+      "en": "Pick a well-known industrial liquid-liquid extraction. It sets every field and runs immediately.",
+      "ru": "Выберите известный промышленный пример жидкость-жидкостной экстракции. Он заполнит все поля и запустится немедленно.",
+      "tr": "İyi bilinen bir endüstriyel sıvı-sıvı ekstraksiyonu seçin. Tüm alanları ayarlar ve hemen çalıştırır."
+    },
+    {
+      "en": "Cancel",
+      "ru": "Отмена",
+      "tr": "İptal"
+    },
+    {
+      "en": "Load & Run",
+      "ru": "Загрузить и запустить",
+      "tr": "Yükle ve Çalıştır"
+    },
+    {
+      "en": "Search name or CAS — type to filter",
+      "ru": "Поиск по названию или CAS — введите для фильтрации",
+      "tr": "Ad veya CAS ara — filtrelemek için yazın"
+    },
+    {
+      "en": "Setup & Feed Phase",
+      "ru": "Настройка и исходная фаза",
+      "tr": "Kurulum ve Besleme Fazı"
+    },
+    {
+      "en": "Clear",
+      "ru": "Очистить",
+      "tr": "Temizle"
+    },
+    {
+      "en": "Clear the feed selection",
+      "ru": "Очистить выбор исходной фазы",
+      "tr": "Besleme seçimini temizle"
+    },
+    {
+      "en": "Temperature range (°C)",
+      "ru": "Диапазон температур (°C)",
+      "tr": "Sıcaklık aralığı (°C)"
+    },
+    {
+      "en": "Temperature step",
+      "ru": "Шаг температуры",
+      "tr": "Sıcaklık adımı"
+    },
+    {
+      "en": "Target Solute(s)",
+      "ru": "Целевое(ые) растворённое(ые) вещество(а)",
+      "tr": "Hedef Çözünen(ler)"
+    },
+    {
+      "en": "mol·mol⁻¹",
+      "ru": "mol·mol⁻¹",
+      "tr": "mol·mol⁻¹"
+    },
+    {
+      "en": "mol ratio",
+      "ru": "мол. отношение",
+      "tr": "mol oranı"
+    },
+    {
+      "en": "mass ratio",
+      "ru": "масс. отношение",
+      "tr": "kütle oranı"
+    },
+    {
+      "en": "Solvent : feed (mass)",
+      "ru": "Растворитель : сырьё (масс.)",
+      "tr": "Çözücü : besleme (kütle)"
+    },
+    {
+      "en": "The solvent:feed ratio is always scanned over this range; the optimum (best balance of solvent used vs separation) is reported alongside the temperature optimum.",
+      "ru": "Отношение растворитель:сырьё всегда сканируется в этом диапазоне; оптимум (наилучший баланс между расходом растворителя и разделением) сообщается вместе с оптимумом по температуре.",
+      "tr": "Çözücü:besleme oranı her zaman bu aralıkta taranır; optimum (kullanılan çözücü ile ayırma arasındaki en iyi denge) sıcaklık optimumuyla birlikte raporlanır."
+    },
+    {
+      "en": "Pre-ranking candidate solvents...",
+      "ru": "Предварительное ранжирование растворителей-кандидатов...",
+      "tr": "Aday çözücüler ön sıralanıyor..."
+    },
+    {
+      "en": "Pre-ranked %d candidate solvents; blending the top %d.",
+      "ru": "Предварительно ранжировано %d растворителей-кандидатов; смешиваются лучшие %d.",
+      "tr": "%d aday çözücü ön sıralandı; en iyi %d karıştırılıyor."
+    },
+    {
+      "en": "Quick screen ranks many solvents fast from infinite-dilution activity coefficients (gamma-infinity). Two-phase flash solves the real liquid-liquid equilibrium (Michelsen stability + isoactivity): it splits the feed into two phases, gives each solute's true distribution, the mutual solvent solubility, and can scan a temperature range. Optimize blend tests BINARY co-solvent mixtures — every pair of the top candidate solvents is optimised over its composition and temperature — and ranks them by selectivity or distribution.",
+      "ru": "Быстрый скрининг быстро ранжирует множество растворителей по коэффициентам активности при бесконечном разбавлении (гамма-бесконечность). Двухфазный расчёт решает реальное жидкостно-жидкостное равновесие (устойчивость по Michelsen + изоактивность): он разделяет исходную смесь на две фазы, даёт истинное распределение каждого растворённого вещества, взаимную растворимость растворителей и может сканировать диапазон температур. Оптимизация смеси проверяет БИНАРНЫЕ смеси сорастворителей — каждая пара из лучших растворителей-кандидатов оптимизируется по составу и температуре — и ранжирует их по селективности или распределению.",
+      "tr": "Hızlı tarama, birçok çözücüyü sonsuz seyreltme aktivite katsayılarından (gama sonsuz) hızla sıralar. İki fazlı flaş, gerçek sıvı-sıvı dengesini çözer (Michelsen kararlılığı + izoaktivite): beslemeyi iki faza ayırır, her çözünenin gerçek dağılımını, karşılıklı çözücü çözünürlüğünü verir ve bir sıcaklık aralığını tarayabilir. Karışım optimizasyonu, İKİLİ yardımcı çözücü karışımlarını test eder — en iyi aday çözücülerin her çifti bileşim ve sıcaklık üzerinde optimize edilir — ve bunları seçicilik veya dağılıma göre sıralar."
+    },
+    {
+      "en": "Best binary blend composition",
+      "ru": "Состав лучшей бинарной смеси",
+      "tr": "En iyi ikili karışım bileşimi"
+    },
+    {
+      "en": "Candidate binary blends (ranked)",
+      "ru": "Варианты бинарных смесей (ранжированные)",
+      "tr": "Aday ikili karışımlar (sıralı)"
+    },
+    {
+      "en": "Only binary mixtures are considered (a pure solvent or one co-solvent): every pair of the top candidate solvents is optimised over its composition and temperature, then ranked by the objective.",
+      "ru": "Рассматриваются только бинарные смеси (чистый растворитель или один сорастворитель): каждая пара из лучших растворителей-кандидатов оптимизируется по составу и температуре, затем ранжируется по целевой функции.",
+      "tr": "Yalnızca ikili karışımlar dikkate alınır (saf bir çözücü veya bir yardımcı çözücü): en iyi aday çözücülerin her çifti bileşim ve sıcaklık üzerinde optimize edilir, ardından hedefe göre sıralanır."
+    },
+    {
+      "en": "Optimize blend (best binary co-solvent)",
+      "ru": "Оптимизация смеси (лучший бинарный сорастворитель)",
+      "tr": "Karışım optimizasyonu (en iyi ikili yardımcı çözücü)"
+    },
+    {
+      "en": "Optimize blend tests binary mixtures of a hand-picked set of solvents. Set Candidate source to 'Choose solvents' and pick the solvents.",
+      "ru": "Оптимизация смеси проверяет бинарные смеси из вручную выбранного набора растворителей. Установите «Источник растворителей» в «Выбрать растворители» и выберите растворители.",
+      "tr": "Karışım optimizasyonu, elle seçilen bir çözücü kümesinin ikili karışımlarını test eder. Aday kaynağını 'Çözücü seç' olarak ayarlayın ve çözücüleri seçin."
+    },
+    {
+      "en": "Need at least two solvents that resolve in this database to form binary blends.",
+      "ru": "Нужно как минимум два растворителя, распознаваемых в этой базе данных, чтобы образовать бинарные смеси.",
+      "tr": "İkili karışım oluşturmak için bu veritabanında çözümlenen en az iki çözücü gereklidir."
+    },
+    {
+      "en": "Optimizing binary blends...",
+      "ru": "Оптимизация бинарных смесей...",
+      "tr": "İkili karışımlar optimize ediliyor..."
+    },
+    {
+      "en": "No binary blend of these solvents formed two liquid phases under the given conditions. Try different solvents, a larger solvent:feed ratio, or another temperature.",
+      "ru": "Ни одна бинарная смесь этих растворителей не образовала двух жидких фаз при заданных условиях. Попробуйте другие растворители, большее отношение растворитель:сырьё или другую температуру.",
+      "tr": "Bu çözücülerin hiçbir ikili karışımı verilen koşullarda iki sıvı faz oluşturmadı. Farklı çözücüler, daha büyük bir çözücü:besleme oranı veya başka bir sıcaklık deneyin."
+    },
+    {
+      "en": "Binary blend",
+      "ru": "Бинарная смесь",
+      "tr": "İkili karışım"
+    },
+    {
+      "en": "Candidate binary blends, ranked best first.",
+      "ru": "Варианты бинарных смесей, лучшие сверху.",
+      "tr": "Aday ikili karışımlar, en iyiden başlayarak sıralı."
+    },
+    {
+      "en": "Min",
+      "ru": "Мин.",
+      "tr": "Min"
+    },
+    {
+      "en": "Max",
+      "ru": "Макс.",
+      "tr": "Maks"
+    },
+    {
+      "en": "Step",
+      "ru": "Шаг",
+      "tr": "Adım"
+    },
+    {
+      "en": "Click to switch the solvent-to-feed basis: mol ratio → mass ratio → volume %.",
+      "ru": "Нажмите, чтобы изменить основу отношения растворитель/сырьё: мольное отношение → массовое отношение → объёмн. %.",
+      "tr": "Çözücü/besleme oranının temelini değiştirmek için tıklayın: mol oranı → kütle oranı → hacim %."
+    },
+    {
+      "en": "The minimum temperature must be below the maximum.",
+      "ru": "Минимальная температура должна быть ниже максимальной.",
+      "tr": "Minimum sıcaklık maksimumdan düşük olmalıdır."
+    },
+    {
+      "en": "Out of range:",
+      "ru": "Вне диапазона:",
+      "tr": "Aralık dışında:"
+    },
+    {
+      "en": "Food-grade",
+      "ru": "Пищевой категории",
+      "tr": "Gıda sınıfı"
+    },
+    {
+      "en": "Custom solute",
+      "ru": "Пользовательское вещество",
+      "tr": "Özel çözünen"
+    },
+    {
+      "en": "%s compounds",
+      "ru": "%s соединений",
+      "tr": "%s bileşik"
+    },
+    {
+      "en": "Pre-ranked %d solvents; flashing the top %d.",
+      "ru": "Предварительно ранжировано %d растворителей; рассчитываются лучшие %d.",
+      "tr": "%d çözücü ön sıralandı; en iyi %d tanesi hesaplanıyor."
+    },
+    {
+      "en": "Best: %s at %s °C, solvent:feed %s — extract-phase fraction β = %s",
+      "ru": "Лучший: %s при %s °C, растворитель:сырьё %s — доля экстрактной фазы β = %s",
+      "tr": "En iyi: %s, %s °C'de, çözücü:besleme %s — ekstrakt faz oranı β = %s"
+    },
+    {
+      "en": "CS25 compound names",
+      "ru": "Названия соединений CS25",
+      "tr": "CS25 bileşik adları"
+    },
+    {
+      "en": "CS25 matches compounds by name, not structure. One of the chosen compounds resolved only to a SMILES — switch the database to the curated set (UD) or pick a named compound, or use the COSMO-SAC-dsp engine.",
+      "ru": "CS25 сопоставляет соединения по названию, а не по структуре. Одно из выбранных соединений определилось только как SMILES — переключите базу данных на кураторский набор (UD), выберите именованное соединение или используйте движок COSMO-SAC-dsp.",
+      "tr": "CS25 bileşikleri yapıya göre değil ada göre eşleştirir. Seçilen bileşiklerden biri yalnızca bir SMILES olarak çözümlendi — veritabanını küratörlü kümeye (UD) geçirin, adlandırılmış bir bileşik seçin veya COSMO-SAC-dsp motorunu kullanın."
+    },
+    {
+      "en": "Export",
+      "ru": "Экспорт",
+      "tr": "Dışa aktar"
+    },
+    {
+      "en": "Export PDF",
+      "ru": "Экспорт PDF",
+      "tr": "PDF dışa aktar"
+    },
+    {
+      "en": "Export CSV",
+      "ru": "Экспорт CSV",
+      "tr": "CSV dışa aktar"
+    },
+    {
+      "en": "Download plot",
+      "ru": "Скачать график",
+      "tr": "Grafiği indir"
+    },
+    {
+      "en": "How each candidate solvent's distribution coefficient (or separation selectivity, with two solutes) changes across the temperature scan.",
+      "ru": "Как коэффициент распределения каждого растворителя-кандидата (или селективность разделения при двух растворённых веществах) изменяется в диапазоне сканирования температуры.",
+      "tr": "Her aday çözücünün dağılım katsayısının (veya iki çözünen varsa ayırma seçiciliğinin) sıcaklık taraması boyunca nasıl değiştiği."
+    },
+    {
+      "en": "Toggle units:",
+      "ru": "Единицы:",
+      "tr": "Birimler:"
+    },
+    {
+      "en": "Binary co-solvent blend optimization results (COSMO-SAC-dsp).",
+      "ru": "Результаты оптимизации бинарной смеси сорастворителей (COSMO-SAC-dsp).",
+      "tr": "İkili yardımcı çözücü karışımı optimizasyon sonuçları (COSMO-SAC-dsp)."
+    },
+    {
+      "en": "Done!",
+      "ru": "Готово!",
+      "tr": "Tamam!"
+    },
+    {
+      "en": "Optimal solvent / blend composition",
+      "ru": "Оптимальный состав растворителя / смеси",
+      "tr": "Optimal çözücü / karışım bileşimi"
+    },
+    {
+      "en": "Candidate solvents & blends (ranked)",
+      "ru": "Кандидатные растворители и смеси (ранжированные)",
+      "tr": "Aday çözücüler ve karışımlar (sıralı)"
+    },
+    {
+      "en": "Solvent in raffinate (mol·mol⁻¹)",
+      "ru": "Растворитель в рафинате (моль·моль⁻¹)",
+      "tr": "Rafinatta çözücü (mol·mol⁻¹)"
+    },
+    {
+      "en": "Feed in extract (mol·mol⁻¹)",
+      "ru": "Сырьё в экстракте (моль·моль⁻¹)",
+      "tr": "Ekstraktta besleme (mol·mol⁻¹)"
+    },
+    {
+      "en": "Best solvent / blend",
+      "ru": "Лучший растворитель / смесь",
+      "tr": "En iyi çözücü / karışım"
+    },
+    {
+      "en": "Solvent / blend",
+      "ru": "Растворитель / смесь",
+      "tr": "Çözücü / karışım"
+    },
+    {
+      "en": "Candidate solvents & blends, ranked best first.",
+      "ru": "Кандидатные растворители и смеси, лучшие в начале.",
+      "tr": "Aday çözücüler ve karışımlar, en iyiden başa doğru sıralı."
+    },
+    {
+      "en": "Kill",
+      "ru": "Прервать",
+      "tr": "Durdur"
+    },
+    {
+      "en": "Please wait",
+      "ru": "Пожалуйста, подождите",
+      "tr": "Lütfen bekleyin"
+    },
+    {
+      "en": "An evaluation is already running.",
+      "ru": "Расчёт уже выполняется.",
+      "tr": "Bir değerlendirme zaten çalışıyor."
+    },
+    {
+      "en": "running in the background — press Kill to cancel",
+      "ru": "выполняется в фоне — нажмите «Прервать», чтобы отменить",
+      "tr": "arka planda çalışıyor — iptal etmek için Durdur'a basın"
+    },
+    {
+      "en": "Could not start the background worker; this run is on the main thread and has no Kill button.",
+      "ru": "Не удалось запустить фоновый процесс; этот расчёт выполняется в основном потоке и не имеет кнопки «Прервать».",
+      "tr": "Arka plan işlemi başlatılamadı; bu çalışma ana iş parçacığında yürütülüyor ve Durdur düğmesi yok."
+    },
+    {
+      "en": "Evaluation cancelled.",
+      "ru": "Расчёт отменён.",
+      "tr": "Değerlendirme iptal edildi."
+    },
+    {
+      "en": "Unknown error.",
+      "ru": "Неизвестная ошибка.",
+      "tr": "Bilinmeyen hata."
+    },
+    {
+      "en": "Quick screen — ranked solvents",
+      "ru": "Быстрый скрининг — ранжированные растворители",
+      "tr": "Hızlı tarama — sıralı çözücüler"
+    },
+    {
+      "en": "Ranked solvents (top 20)",
+      "ru": "Ранжированные растворители (топ-20)",
+      "tr": "Sıralı çözücüler (ilk 20)"
+    },
+    {
+      "en": "Two-phase flash — distribution vs temperature",
+      "ru": "Двухфазный флэш — распределение в зависимости от температуры",
+      "tr": "İki fazlı flaş — dağılıma karşı sıcaklık"
+    },
+    {
+      "en": "Blend optimizer — candidate solvents & blends (ranked)",
+      "ru": "Оптимизатор смесей — кандидатные растворители и смеси (ранжированные)",
+      "tr": "Karışım iyileştirici — aday çözücüler ve karışımlar (sıralı)"
+    },
+    {
+      "en": "Best solvent / blend: %s",
+      "ru": "Лучший растворитель / смесь: %s",
+      "tr": "En iyi çözücü / karışım: %s"
+    },
+    {
+      "en": "Liquid-liquid extraction results (COSMO-SAC family) — all available analyses.",
+      "ru": "Результаты жидкостной экстракции (семейство COSMO-SAC) — все доступные анализы.",
+      "tr": "Sıvı-sıvı ekstraksiyon sonuçları (COSMO-SAC ailesi) — mevcut tüm analizler."
+    },
+    {
+      "en": "Two-phase flash — points (solvent × T)",
+      "ru": "Двухфазный флэш — точки (растворитель × T)",
+      "tr": "İki fazlı flaş — noktalar (çözücü × T)"
+    },
+    {
+      "en": "Blend optimizer — candidate solvents & blends",
+      "ru": "Оптимизатор смесей — кандидатные растворители и смеси",
+      "tr": "Karışım iyileştirici — aday çözücüler ve karışımlar"
+    },
+    {
+      "en": "Two-phase flash — results",
+      "ru": "Двухфазный флэш — результаты",
+      "tr": "İki fazlı flaş — sonuçlar"
+    },
+    {
+      "en": "Phase compositions",
+      "ru": "Составы фаз",
+      "tr": "Faz bileşimleri"
+    },
+    {
+      "en": "Blend optimizer — optimal composition",
+      "ru": "Оптимизатор смесей — оптимальный состав",
+      "tr": "Karışım iyileştirici — optimal bileşim"
+    }
+  ]
+}

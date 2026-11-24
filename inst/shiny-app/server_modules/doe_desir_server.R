@@ -2021,6 +2021,111 @@ doe_desir_server <- function(input, output, session, defaults, i18n, tablang, do
     }
   )
 
+  # ---- Unified Export (CSV / PDF) — mirrors the on-screen result tables (factor/response limits, model
+  # summaries, optimal solutions, augmented data). The ZIP export (export_all) is kept for the full bundle.
+  .desir_goal_tr <- function(v) {
+    m <- c("in_range" = i18n_r()$t("In Range"), "max" = i18n_r()$t("Maximize"),
+           "min" = i18n_r()$t("Minimize"), "trg" = i18n_r()$t("Target"), "target" = i18n_r()$t("Target"))
+    ifelse(v %in% names(m), unname(m[v]), v)
+  }
+  # Raw column name -> proper localised header (mirrors the on-screen DT colnames). Unknown names get a
+  # snake/dot -> Title Case fallback; di_<response> -> d(<response>) individual desirability.
+  # Maps the ACTUAL raw column names produced by the desirability engine (desir_sumlims / desir_tabs) to
+  # localised headers. factor_lims uses codename/lowlim/uplim(+_uncoded); response_lims uses lower_lim/
+  # upper_lim/lower_wt/upper_wt; mod_sums uses adj_r2/stnd_error/DOF_1/DOF_2; unique_solutions has type/DO.
+  .desir_colmap <- function() c(
+    codename = i18n_r()$t("Code Name"), code_name = i18n_r()$t("Code Name"), name = i18n_r()$t("Name"),
+    goal = i18n_r()$t("Goal"), type = i18n_r()$t("Type"),
+    lowlim = i18n_r()$t("Lower Limit"), uplim = i18n_r()$t("Upper Limit"),
+    lowlim_uncoded = i18n_r()$t("Lower Limit (Uncoded)"), uplim_uncoded = i18n_r()$t("Upper Limit (Uncoded)"),
+    lower_lim = i18n_r()$t("Lower Limit"), upper_lim = i18n_r()$t("Upper Limit"), target = i18n_r()$t("Target Value"),
+    lower_lim_uncoded = i18n_r()$t("Lower Limit (Uncoded)"), upper_lim_uncoded = i18n_r()$t("Upper Limit (Uncoded)"),
+    lower_wt = i18n_r()$t("Lower Weight"), upper_wt = i18n_r()$t("Upper Weight"),
+    response = i18n_r()$t("Response"), model_type = i18n_r()$t("Model Type"), order = i18n_r()$t("Order"),
+    R2 = "R²", r2 = "R²", adj_R2 = i18n_r()$t("Adjusted R²"), adj_r2 = i18n_r()$t("Adjusted R²"),
+    std_err = i18n_r()$t("Standard Error"), stnd_error = i18n_r()$t("Standard Error"),
+    F = "F", f_value = "F", df1 = i18n_r()$t("Degrees of Freedom 1"), df2 = i18n_r()$t("Degrees of Freedom 2"),
+    DOF_1 = i18n_r()$t("Degrees of Freedom 1"), DOF_2 = i18n_r()$t("Degrees of Freedom 2"),
+    LoF_p = i18n_r()$t("Lack of Fit p-value"), lof_pvalue = i18n_r()$t("Lack of Fit p-value"),
+    DO = i18n_r()$t("Overall Desirability"), overall_desirability = i18n_r()$t("Overall Desirability"),
+    desirability = i18n_r()$t("Desirability"))
+  .desir_rename <- function(nm) { map <- .desir_colmap()
+    vapply(nm, function(c) {
+      if (c %in% names(map)) return(unname(map[c]))
+      if (grepl("^di_", c)) return(paste0("d(", sub("^di_", "", c), ")"))
+      s <- gsub("[._]", " ", c); gsub("\\b([a-z])", "\\U\\1", s, perl = TRUE)
+    }, character(1), USE.NAMES = FALSE) }
+  .desir_tbl <- function(field, drop = character(0), drop_str = FALSE, sig = 6) {
+    r <- desir_data$desir_result; if (is.null(r) || is.null(r[[field]])) return(NULL)
+    d <- as.data.frame(r[[field]], check.names = FALSE)
+    # drop_str strips the optimisation STARTING-point columns (str_<factor>) which bloat Optimal Solutions to
+    # ~18 unreadable columns and are not part of the reported optimum. A generated start column ALWAYS has a
+    # matching bare column (str_A↔A, str_temperature↔temperature), so we only drop "str_X" when "X" is also a
+    # column — this never removes a user factor/response literally named e.g. "str_rate" (no bare "rate" column).
+    if (isTRUE(drop_str)) {
+      strcols <- names(d)[startsWith(tolower(names(d)), "str_") & sub("(?i)^str_", "", names(d), perl = TRUE) %in% names(d)]
+      drop <- union(drop, strcols)
+    }
+    d <- d[, setdiff(names(d), drop), drop = FALSE]
+    if ("goal" %in% names(d)) d$goal <- .desir_goal_tr(d$goal)
+    d[] <- lapply(d, function(c) if (is.numeric(c)) signif(c, sig) else c)
+    names(d) <- .desir_rename(names(d)); d
+  }
+  # Model equations (from mod_sums) in PROPER math notation (plotmath): a quoted upright "<response> (Initial):"
+  # label line then the wrapped equation, per model — rendered via rp_math_block (not a plain text paragraph).
+  .desir_eq_lines <- function() {
+    r <- desir_data$desir_result; ms <- r$mod_sums; if (is.null(ms) || is.null(ms$model_equation)) return(character(0))
+    ms <- as.data.frame(ms, check.names = FALSE)
+    mt <- my_mapvalues(ms$model_type, c("initial", "final"), c(i18n_r()$t("Initial"), i18n_r()$t("Final")), warn_missing = FALSE)
+    out <- character(0)
+    for (i in seq_len(nrow(ms))) {
+      rhs <- trimws(sub("^\\s*[A-Za-z0-9_.]+\\s*=\\s*", "", ms$model_equation[i]))
+      eqlines <- rp_eq_to_plotmath(ms$response[i], rhs)
+      if (!length(eqlines)) next
+      if (length(out)) out <- c(out, rp_pm_quote(" "))                 # blank spacer between equations
+      out <- c(out, rp_pm_quote(paste0(ms$response[i], " (", mt[i], "):")), eqlines)
+    }
+    out
+  }
+  .desir_sections <- function() {
+    secs <- list()
+    add <- function(field, title, drop = character(0), drop_str = FALSE, digits = 6, sig = 6) {
+      d <- .desir_tbl(field, drop, drop_str, sig); if (!is.null(d) && nrow(d)) secs[[length(secs) + 1L]] <<- list(title = title, table = d, digits = digits) }
+    add("factor_lims", i18n_r()$t("Factor limits"))
+    add("response_lims", i18n_r()$t("Response limits"))
+    add("mod_sums", i18n_r()$t("Model summaries"), drop = "model_equation")   # equation shown separately below
+    eq <- .desir_eq_lines(); if (length(eq)) secs[[length(secs) + 1L]] <- list(title = i18n_r()$t("Model equations"), math = eq, math_size = 11)
+    add("unique_solutions", i18n_r()$t("Optimal solutions"), drop_str = TRUE, digits = 4, sig = 4)
+    add("orig_data", i18n_r()$t("Experimental data with desirabilities"))
+    secs
+  }
+  output$export_pdf <- downloadHandler(
+    filename = function() paste0(generate_filename_with_timestamp("supercrit_desirability_report"), ".pdf"),
+    content = function(file) {
+      req(desir_data$desir_result)
+      pid <- showNotification(i18n$t("Preparing export..."), type = "message", duration = NULL); on.exit(removeNotification(pid), add = TRUE)
+      tryCatch({
+        logo <- if (file.exists("www/altraflora-15-min.png")) "www/altraflora-15-min.png" else NULL
+        ver  <- tryCatch(paste0("supeRcrit v", as.character(utils::packageVersion("supeRcrit"))), error = function(e) "supeRcrit")
+        export <- list(title = i18n_r()$t("Desirability Optimization — Report"),
+          intro = i18n_r()$t("Multi-response desirability optimization: limits, model summaries and optimal solutions."),
+          sections = .desir_sections())
+        build_module_pdf_report(export, i18n_r(), file, company = ver, logo = logo)
+      }, error = function(e) showNotification(paste(i18n$t("Error exporting plots:"), e$message), type = "error", duration = 8))
+    })
+  output$export_csv <- downloadHandler(
+    filename = function() paste0(generate_filename_with_timestamp("supercrit_desirability_results"), ".csv"),
+    content = function(file) {
+      con <- file(file, "wb"); on.exit(close(con), add = TRUE); writeBin(as.raw(c(0xEF, 0xBB, 0xBF)), con)
+      for (sec in .desir_sections()) {
+        if (is.null(sec$table) || !is.data.frame(sec$table) || !nrow(sec$table)) next   # skip the math-only equations section
+        writeBin(charToRaw(enc2utf8(paste0('"', gsub('"', '""', sec$title), '"\r\n'))), con)
+        tmp <- tempfile(fileext = ".csv"); on.exit(unlink(tmp), add = TRUE)
+        utils::write.csv(sec$table, tmp, row.names = FALSE, na = "", fileEncoding = "UTF-8")
+        writeBin(readBin(tmp, "raw", n = file.info(tmp)$size), con); writeBin(charToRaw("\r\n"), con)
+      }
+    }, contentType = "text/csv")
+
   output$export_all <- downloadHandler(
     filename = function() {
       paste0(generate_filename_with_timestamp("desirability_results"), ".zip")

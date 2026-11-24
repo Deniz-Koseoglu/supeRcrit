@@ -4,7 +4,15 @@
 \alias{plot_gcm}
 \title{Visualize molecules and sub-structures}
 \usage{
-plot_gcm(solute, smarts, hlight = TRUE, draw_plot = TRUE, plot_title = TRUE)
+plot_gcm(
+  solute,
+  smarts,
+  hlight = TRUE,
+  draw_plot = TRUE,
+  plot_title = TRUE,
+  method = NULL,
+  order = 1L
+)
 }
 \arguments{
 \item{solute}{MOL file and molecule descriptors output from function \code{\link{mol_find}}.}

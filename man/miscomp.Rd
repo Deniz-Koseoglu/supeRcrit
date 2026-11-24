@@ -19,7 +19,9 @@ miscomp(
   vfrac = seq(0.05, 0.4, 0.05),
   simplicity = "auto",
   draw = TRUE,
-  silent = FALSE
+  silent = FALSE,
+  crit_values = NULL,
+  hsp_values = NULL
 )
 }
 \arguments{
@@ -47,12 +49,16 @@ Possible names are \code{"one"}, \code{"two"}, \code{"three"}, \code{"four"}, \c
 
 \item{vfrac}{A \code{numeric} vector of volume fractions of co-solvent to evaluate. Defaults to \code{seq(0.05, 0.40, 0.05)}.}
 
-\item{simplicity}{A \code{character} string indicating whether overlapping sub-structures should be allowed (\code{"auto"} by default).
-See \code{\link{sub_smarts}}.}
+\item{simplicity}{A \code{character} string indicating whether overlapping sub-structures should be allowed (\code{"auto"} by default).}
 
 \item{draw}{A \code{logical} indicating whether generated plots should be printed automatically (\code{TRUE} by default).}
 
 \item{silent}{A \code{logical}. When \code{FALSE} (default), additional information is printed in the console.}
+
+\item{crit_values, hsp_values}{Optional per-solute experimental overrides, each a \code{list} the same length
+as \code{sols}. A non-\code{NULL} element supplies that solute's measured critical temperature (K) /
+Hansen parameters \code{c(dD, dP, dHB)}, used directly instead of the GCM estimate (\code{NULL} elements
+fall back to GCM). Used when comparing compounds loaded from the experimental database.}
 }
 \value{
 A named \code{list} containing the output \code{data.frame} (\code{$data}) with miscibility enhancement

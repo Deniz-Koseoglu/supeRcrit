@@ -142,16 +142,16 @@ com_export <- function(comres, expath = getwd(), plotpars = "default", plot_form
   lcn <- tolower(cn)
   
   #Try to find type column - check for common patterns
-  type_idx <- which(lcn %in% c("type", "тип", "tür"))[1]
+  type_idx <- which(lcn %in% c("type", "\u0442\u0438\u043f", "t\u00fcr"))[1]
   if(is.na(type_idx)) type_idx <- 4  #Fallback to 4th column
   
-  value_idx <- which(lcn %in% c("value", "значение", "değer"))[1]
+  value_idx <- which(lcn %in% c("value", "\u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435", "de\u011fer"))[1]
   if(is.na(value_idx)) value_idx <- 2
   
-  units_idx <- which(lcn %in% c("units", "единицы", "birim"))[1]
+  units_idx <- which(lcn %in% c("units", "\u0435\u0434\u0438\u043d\u0438\u0446\u044b", "birim"))[1]
   if(is.na(units_idx)) units_idx <- 3
   
-  desc_idx <- which(lcn %in% c("description", "описание", "açıklama"))[1]
+  desc_idx <- which(lcn %in% c("description", "\u043e\u043f\u0438\u0441\u0430\u043d\u0438\u0435", "a\u00e7\u0131klama"))[1]
   if(is.na(desc_idx)) desc_idx <- 5
   
   type_col <- cn[type_idx]

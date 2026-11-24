@@ -3,7 +3,7 @@
   "parameters": {
     "cas_input": "80-56-8",
     "name_input": "α-Pinene",
-    "smiles_input": "",
+    "smiles_input": "CC1=CCC2CC1C2(C)C",
     "specify_smiles": false,
     "gcm_tb": "SB",
     "gcm_crit": "JR",

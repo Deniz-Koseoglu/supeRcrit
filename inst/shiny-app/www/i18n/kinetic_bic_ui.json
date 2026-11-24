@@ -1262,7 +1262,7 @@
     },
     {
       "en": "Max Extractable Fraction",
-      "ru": "Макс. экстрагируемая фракция",
+      "ru": "Макс. экстр. фракция",
       "tr": "Maks. Ekstrakte Edilebilir Fraksiyon"
     },
     {
@@ -1358,7 +1358,7 @@
     {
       "en": "Time (min)",
       "ru": "Время (мин)",
-      "tr": "Süre (dk)"
+      "tr": "Zaman (dk)"
     },
     {
       "en": "Solvent/Material Ratio (kg/kg)",
@@ -2247,7 +2247,7 @@
     },
     {
       "en": "min",
-      "tr": "dak",
+      "tr": "dk",
       "ru": "мин"
     },
     {
@@ -2291,9 +2291,9 @@
       "ru": "м"
     },
     {
-      "en": "<em>R</em><sup>2</sup>",
-      "tr": "<em>R</em><sup>2</sup>",
-      "ru": "<em>R</em><sup>2</sup>"
+      "en": "<em>R<\/em><sup>2<\/sup>",
+      "tr": "<em>R<\/em><sup>2<\/sup>",
+      "ru": "<em>R<\/em><sup>2<\/sup>"
     },
     {
       "en": "Add Zero Row?",

@@ -18,10 +18,21 @@ library(colourpicker)
 library(shinyhelper)
 library(waiter)
 library(shinyalert)
+# Attach supeRcrit so the modules' bare calls (gceos_*, bicmod, ktsmod, ...) resolve in a
+# deployed app (shinyapps.io), not only under devtools::load_all. Also ensures rsconnect
+# records it as a dependency. Loading it initialises the JVM via rcdk/rJava (needs Java on
+# the host - on shinyapps.io enable Package Cache so the prebuilt rJava binary is used).
+library(supeRcrit)
 
 
 Sys.setlocale("LC_ALL", "en_US.UTF-8")
 options(encoding = "UTF-8")
+
+# The experimental-property DB tables (~8k rows) are rendered client-side on purpose so the
+# "Download Database" buttons export ALL rows (server-side export only dumps the visible page).
+# DT warns that this payload is large ("too big for client-side DataTables"); silence that advisory
+# since the client-side behaviour is intentional and the table performs fine at this size.
+options(DT.warn.size = FALSE)
 
 # Load default settings
 app_config_path <- system.file("shiny-app", "config", "default-settings.json", package = "supeRcrit")
@@ -60,7 +71,22 @@ source("utils/button_state_helpers.R")
 source("utils/saved_calculations_helpers.R")
 source("utils/doe_seed_data_helpers.R")
 source("utils/input_help.R")
+source("utils/report_pdf.R")   # reusable pure-R (cairo_pdf/grid) "Export Results as PDF" toolkit
+source("utils/report_module.R")   # generic section-based PDF builder + shared Export dropdown (built on report_pdf.R)
+source("utils/sol_char_export.R")   # Solute Characterization PDF/CSV export (built on report_pdf.R)
+source("utils/cosolv_export.R")   # Co-Solvent Selection PDF export (built on report_pdf.R)
+source("utils/comp_export.R")   # Co-Solvent Comparison PDF export (all graphs; built on report_pdf.R)
+source("utils/lle_export.R")   # Liquid-Liquid Extraction PDF export (plots + tables; built on report_pdf.R)
 source("utils/sfe_seed_data_helpers.R")
+source("utils/eos_seed_data_helpers.R")
+source("utils/eos_column_export.R")
+source("utils/doe_design_export.R")   # DOE Design PDF export (design matrix + confounding; built on report_pdf.R)
+source("utils/eos_phase_export.R")   # Phase Behaviour PDF export (flash + P-x,y + locus; built on report_pdf.R)
+source("utils/exp_db_helpers.R")
+source("utils/cosmo_similarity.R")   # COSMO DB membership + structural-similarity suggestions (Solute Characterization)
+source("utils/cs25_bridge.R")   # CS25 (JCOSMO) local bridge engine for LLE (auto-disabled where Java/JCOSMO absent)
+source("utils/lle_extended_solvents.R")   # AMS-style extended solvent library (auto-search pool) for LLE
+source("utils/lle_worker.R")   # self-contained flash/optimize computation for the cancellable background worker
 
 # Global settings manager
 source("utils/global_settings_manager.R")
@@ -74,7 +100,7 @@ source("server_modules/global_settings_modal_server.R")
 source("ui_modules/com_analysis_ui.R")
 source("server_modules/com_analysis_server.R")
 
-# SFE Co-Solvent Selection modules
+# Solubility & Fractionation modules
 source("ui_modules/sfe_sol_char_ui.R")
 source("server_modules/sfe_sol_char_server.R")
 
@@ -86,6 +112,11 @@ source("server_modules/sfe_aux_tool_server.R")
 
 source("ui_modules/sfe_misc_opt_ui.R")
 source("server_modules/sfe_misc_opt_server.R")
+
+source("ui_modules/sfe_sep_cascade_ui.R")
+source("server_modules/sfe_sep_cascade_server.R")
+source("ui_modules/lle_ui.R")
+source("server_modules/lle_server.R")
 
 # DOE modules
 source("ui_modules/doe_design_ui.R")
@@ -104,6 +135,14 @@ source("server_modules/kinetic_bic_server.R")
 source("ui_modules/kinetic_aux_tool_ui.R")
 source("server_modules/kinetic_aux_tool_server.R")
 
+# Process Simulation modules (GC/GCA-EOS phase equilibria + columns)
+source("ui_modules/eos_components_ui.R")
+source("server_modules/eos_components_server.R")
+source("ui_modules/eos_phase_ui.R")
+source("server_modules/eos_phase_server.R")
+source("ui_modules/eos_column_ui.R")
+source("server_modules/eos_column_server.R")
+
 
 
 # Intro modules
@@ -117,6 +156,10 @@ merge_translation_jsons(dir_path = "./www/i18n/", output_filename = "translation
 i18n <- Translator$new(translation_json_path = "./www/i18n/translation.json")
 i18n$set_translation_language("en")
 
+# Append a version query (the file's mtime) to a www asset URL so the browser refetches it whenever the
+# file changes — otherwise an updated logo keeps showing the stale, same-named cached image.
+.asset_v <- function(f) paste0(f, "?v=", tryCatch(as.integer(file.mtime(file.path("www", f))), error = function(e) "1"))
+
 # Main UI
 ui <- dashboardPage(
   skin = "green",
@@ -124,7 +167,10 @@ ui <- dashboardPage(
     title = tags$a(
       href = "#", onclick = "Shiny.setInputValue('show_about', Math.random())",
       style = "color: inherit; text-decoration: none; cursor: pointer;",
-      "supeRcrit"
+      # supeRcrit brand logo (replaces the plain "supeRcrit" text) on a white badge so the dark logotype
+      # stays legible against the green header.
+      tags$img(src = .asset_v("supercrit-logo.png"), alt = "supeRcrit",
+               style = "height:44px; vertical-align:middle;")   # sits on the white .logo cell (CSS below); no badge
     ),
      tags$li(
       class = "dropdown",
@@ -140,7 +186,7 @@ ui <- dashboardPage(
           href = "https://www.altraflora.com",
           target = "_blank",
           tags$img(
-            src = "altraflora-15-min.png",
+            src = .asset_v("altraflora-15-min.png"),
             style = "max-height:200px; max-width:200px; display: inline-block; vertical-align: middle;"
             # Resme artık box-shadow veya border-radius uygulamaya gerek yok
           ),
@@ -190,14 +236,19 @@ ui <- dashboardPage(
 
       # Cost Analysis
       menuItem(textOutput("menu_cost_analysis", inline = TRUE), tabName = "com_analysis", icon = icon("calculator")),
-      # SFE Co-Solvent Selection
+      # Solubility & Fractionation
       menuItem(
         text = textOutput("menu_sfe_co_sel", inline = TRUE),
         icon = icon("flask"),
-        tabName = "sfe_co_sel_main", # New tabName for the main SFE Co-Solvent Selection menu
+        tabName = "sfe_co_sel_main", # tabName for the main Solubility & Fractionation menu
         menuSubItem(textOutput("menu_solute_characterization", inline = TRUE), tabName = "solute_characterization", icon = icon("atom")),
         menuSubItem(textOutput("menu_miscibility_optimization", inline = TRUE), tabName = "miscibility_optimization", icon = icon("flask")),
         menuSubItem(textOutput("menu_miscibility_comparison", inline = TRUE), tabName = "miscibility_comparison", icon = icon("balance-scale")),
+        # PARKED 2026-11-06 (intentional, user-confirmed): the Separator Cascade is hidden from the menu
+        # while its mass-balance fractionation is considered too finicky/inaccurate to expose. The tabItem +
+        # server (sep_cascade_server) remain wired below, so re-enabling is just uncommenting this one line.
+        # menuSubItem(textOutput("menu_sep_cascade", inline = TRUE), tabName = "sep_cascade", icon = icon("layer-group")),
+        menuSubItem(textOutput("menu_lle", inline = TRUE), tabName = "lle", icon = icon("droplet")),
         menuSubItem(textOutput("menu_auxiliary_tools", inline = TRUE), tabName = "auxiliary_tools", icon = icon("toolbox"))
       ),
       # DOE
@@ -216,6 +267,17 @@ ui <- dashboardPage(
         menuSubItem(textOutput("menu_kinetic_tws", inline = TRUE), tabName = "kinetic_tws", icon = icon("wave-square")),
         menuSubItem(uiOutput("menu_kinetic_bic", inline = TRUE), tabName = "kinetic_bic", icon = icon("atom")),
         menuSubItem(textOutput("menu_kinetic_aux_tool", inline = TRUE), tabName = "kinetic_aux_tool", icon = icon("calculator"))
+      ),
+      # Process Simulation (GC/GCA-EOS phase equilibria & fractionation columns)
+      menuItem(
+        text = textOutput("menu_process_sim", inline = TRUE),
+        icon = icon("flask-vial"),
+        tabName = "process_sim_main",
+        menuSubItem(textOutput("menu_eos_components", inline = TRUE), tabName = "eos_components", icon = icon("atom")),
+        menuSubItem(textOutput("menu_eos_phase", inline = TRUE), tabName = "eos_phase", icon = icon("chart-area"))
+        # PARKED 2026-11-06: the Fractionation Column is hidden from the menu (tabItem + eos_column_server stay
+        # wired below; re-enable by restoring the comma after eos_phase above and uncommenting the next line).
+        # , menuSubItem(textOutput("menu_eos_column", inline = TRUE), tabName = "eos_column", icon = icon("layer-group"))
       )
     )
   ),
@@ -227,13 +289,29 @@ ui <- dashboardPage(
     waiter_show_on_load(
       html = tagList(
         div(style = "text-align:center;color:white",
-            tags$h2(i18n$t("supeRcrit is loading...")),
-            waiter::spin_ellipsis()
+            # supeRcrit brand logo (replaces the "supeRcrit is loading..." text) on a white badge so the
+            # dark logotype reads against the green splash; the spinner below still signals loading.
+            tags$img(src = .asset_v("supercrit-logo.png"), alt = "supeRcrit",
+                     style = "height:120px; background:#fff; padding:16px 28px; border-radius:12px; box-shadow:0 2px 12px rgba(0,0,0,0.18);"),
+            div(style = "margin-top:24px;", waiter::spin_ellipsis())
         )
       ),
       color = "#00a65a"
     ),
     tags$head(
+      # Top-left brand cell: a clean WHITE panel (the dark supeRcrit logo reads on white) instead of the
+      # default green square with a crammed badge. The green navbar is ~64px tall (its right-hand
+      # custom-menu/AltraFlora logo drives the height), so the logo cell is grown to match via MIN-height
+      # (only ever grows — never `height`/`max-height`, which would clip the navbar's floated content and
+      # collapse the layout width, as happened before). Both logo + navbar share min-height:64px so their
+      # bottom edges line up exactly; the (absolutely-positioned) sidebar's top padding is pushed to 64px so
+      # its first menu item still sits just below the taller brand panel. Header is non-fixed → content
+      # reflows below on its own.
+      tags$style(HTML(paste0(
+        ".skin-green .main-header .logo, .skin-green .main-header .logo:hover { background-color:#ffffff !important; }",
+        ".skin-green .main-header .logo, .skin-green .main-header .navbar { min-height:64px !important; }",
+        ".skin-green .main-header .logo { line-height:64px !important; }",
+        ".skin-green .main-sidebar { padding-top:64px !important; }"))),
       tags$link(rel = "stylesheet", type = "text/css", href = "css/fileInput.css"),
       tags$link(rel = "stylesheet", type = "text/css", href = "css/disabled_tabs.css"),
       tags$link(rel = "stylesheet", type = "text/css", href = "css/box_header_help.css"),
@@ -241,7 +319,10 @@ ui <- dashboardPage(
       tags$link(rel = "stylesheet", type = "text/css", href = "css/input_helper.css"),
       tags$script(src = "js/global_settings_manager.js"),
       tags$script(src = "js/tab_controls.js"),
-      tags$script(src = "js/accordion_expand_collapse.js")
+      tags$script(src = "js/accordion_expand_collapse.js"),
+      tags$script(src = "js/help_i18n.js"),
+      tags$script(src = "js/help_perf.js"),   # replaces shinyhelper's stacking per-icon click rebinding with one delegated handler
+      tags$script(src = "js/pdf_font.js")   # Unicode font for the DataTables per-table PDF export (symbols)
     ),
     
     
@@ -260,6 +341,36 @@ ui <- dashboardPage(
         integrity = "sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8",
         crossorigin = "anonymous"
       ),
+      # KaTeX auto-render extension — used to typeset math inside help modals (see the shown.bs.modal
+      # handler below). KaTeX is already loaded app-wide and is orders of magnitude faster than MathJax,
+      # whose observe_helpers(withMathJax=TRUE) full-DOCUMENT re-typeset made every help modal take
+      # several seconds on this all-tabs-in-DOM dashboard. (No integrity hash so a CDN sub-resource
+      # mismatch can't silently block it; worst case math just doesn't render and the modal still opens.)
+      tags$script(
+        src = "https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js",
+        crossorigin = "anonymous"
+      ),
+      # Typeset math ONLY inside a modal as it opens (help modals especially), instead of MathJax walking
+      # the entire dashboard. Scoped to e.target (the .modal element) so it is near-instant.
+      tags$script(HTML("
+        $(document).on('shown.bs.modal', function(e){
+          if (typeof renderMathInElement === 'function') {
+            try {
+              // Delimiters mirror MathJax's defaults ($$ / \\[ display, \\( inline). Single '$' is
+              // intentionally omitted: it was never enabled under the old MathJax config either, and
+              // enabling it would mis-parse literal '$' currency amounts in non-help modals as math.
+              renderMathInElement(e.target, {
+                delimiters: [
+                  {left: '$$', right: '$$', display: true},
+                  {left: '\\\\[', right: '\\\\]', display: true},
+                  {left: '\\\\(', right: '\\\\)', display: false}
+                ],
+                throwOnError: false
+              });
+            } catch(err) { console.log('KaTeX modal render error:', err); }
+          }
+        });
+      ")),
        tags$link(rel = "stylesheet", type = "text/css", href = "custom.css")
     ),
     tags$head(
@@ -512,6 +623,18 @@ ui <- dashboardPage(
         kinetic_aux_tool_ui("kinetic_aux_tool", default_settings$kinetic_aux_tool, i18n)
       ),
       tabItem(
+        tabName = "eos_components",
+        eos_components_ui("eos_components", default_settings$eos_components, i18n)
+      ),
+      tabItem(
+        tabName = "eos_phase",
+        eos_phase_ui("eos_phase", default_settings$eos_phase, i18n)
+      ),
+      tabItem(
+        tabName = "eos_column",
+        eos_column_ui("eos_column", default_settings$eos_column, i18n)
+      ),
+      tabItem(
         tabName = "solute_characterization",
         solute_characterization_ui("solute_characterization", default_settings$solute_characterization, i18n)
       ),
@@ -522,6 +645,14 @@ ui <- dashboardPage(
       tabItem(
         tabName = "miscibility_comparison",
         miscomp_ui("miscibility_comparison", default_settings$miscibility_comparison, i18n)
+      ),
+      tabItem(
+        tabName = "sep_cascade",
+        sep_cascade_ui("sep_cascade", default_settings$sep_cascade, i18n)
+      ),
+      tabItem(
+        tabName = "lle",
+        lle_ui("lle", default_settings$lle, i18n)
       ),
       tabItem(
         tabName = "auxiliary_tools",
@@ -576,8 +707,12 @@ server <- function(input, output, session) {
     ))
   })
 
-  # Initialize shinyhelper with MathJax support
-  observe_helpers(help_dir = "help_mds", withMathJax = TRUE)
+  # Initialize shinyhelper. withMathJax is intentionally FALSE: shiny::withMathJax wraps each markdown help
+  # modal in a FULL-DOCUMENT MathJax re-typeset (MathJax.Hub.Queue(["Typeset", MathJax.Hub])) plus a first-use
+  # CDN download — on this dashboard every tab module lives in the DOM at once, so that walk took ~10s on every
+  # help-icon click. Math in help modals is now typeset by the KaTeX auto-render shown.bs.modal handler
+  # (UI head), scoped to just the modal element, so help opens near-instantly.
+  observe_helpers(help_dir = "help_mds", withMathJax = FALSE)
 
   # Set language based on browser detection
   observeEvent(input$browser_language, {
@@ -664,8 +799,24 @@ server <- function(input, output, session) {
     i18n$t("Auxiliary Tools")
   })
 
+  output$menu_process_sim <- renderText({
+    i18n$t("Process Simulation")
+  })
+
+  output$menu_eos_components <- renderText({
+    i18n$t("Components & Parameters")
+  })
+
+  output$menu_eos_phase <- renderText({
+    i18n$t("Phase Behaviour")
+  })
+
+  output$menu_eos_column <- renderText({
+    i18n$t("Fractionation Column")
+  })
+
   output$menu_sfe_co_sel <- renderText({
-    i18n$t("SFE Co-Solvent Selection")
+    i18n$t("Solubility & Fractionation")
   })
 
   output$menu_solute_characterization <- renderText({
@@ -677,11 +828,19 @@ server <- function(input, output, session) {
   })
 
   output$menu_miscibility_optimization <- renderText({
-    i18n$t("Miscibility Optimization")
+    i18n$t("Co-Solvent Selection")
   })
 
   output$menu_miscibility_comparison <- renderText({
-    i18n$t("Miscibility Comparison")
+    i18n$t("Co-Solvent Comparison")
+  })
+
+  output$menu_sep_cascade <- renderText({
+    i18n$t("Solubility & Separator Cascade")
+  })
+
+  output$menu_lle <- renderText({
+    i18n$t("Liquid-Liquid Extraction")
   })
 
   output$menu_auxiliary_tools <- renderText({
@@ -720,6 +879,14 @@ server <- function(input, output, session) {
     seed_calculations = seed_gcm_calculations  # Seed data stored separately, loaded on demand
   )
 
+  # Process-Simulation (GC/GCA-EOS) shared store: built components are exported
+  # here and consumed by the flash / column / phase-diagram tools. Seeded with
+  # ready-built example components (limonene, squalene) loaded on demand.
+  eos_rv <- reactiveValues(
+    saved_components = list(),                 # empty until the user loads examples / from disk
+    seed_components = eos_seed_components()     # pre-built examples, loaded on demand
+  )
+
   # DOE modülleri için shared reactive values
   # Load seed data from config files to provide initial examples (loaded on demand via "Load Example" buttons)
   seed_analyses <- load_doe_analysis_seed_data()
@@ -737,6 +904,9 @@ server <- function(input, output, session) {
   callModule(kinetic_tws_server, "kinetic_tws", default_settings$kinetic_tws, i18n, tablang)
   callModule(kinetic_bic_server, "kinetic_bic", default_settings$kinetic_bic, i18n, tablang)
   callModule(kinetic_aux_tool_server, "kinetic_aux_tool", default_settings$kinetic_aux_tool, i18n, tablang)
+  callModule(eos_components_server, "eos_components", default_settings$eos_components, i18n, tablang, eos_rv)
+  callModule(eos_phase_server, "eos_phase", default_settings$eos_phase, i18n, tablang, eos_rv)
+  callModule(eos_column_server, "eos_column", default_settings$eos_column, i18n, tablang, eos_rv)
   callModule(
     solute_characterization_server, "solute_characterization",
     default_settings$solute_characterization, i18n, tablang, sfe_rv
@@ -750,12 +920,22 @@ server <- function(input, output, session) {
     default_settings$miscibility_comparison, i18n, tablang, sfe_rv
   ) # Use sfe_rv
   callModule(
+    sep_cascade_server, "sep_cascade",
+    default_settings$sep_cascade, i18n, tablang, sfe_rv
+  ) # Use sfe_rv (imports Chrastil-bearing saved calcs)
+  callModule(
     auxiliary_tools_server, "auxiliary_tools",
     default_settings$auxiliary_tools, i18n, tablang
   ) # Auxiliary tools might not need solute data, if so, omit sfe_rv.
+  callModule(lle_server, "lle", default_settings$lle, i18n, tablang)
 
-  # Hide waiter after app is fully loaded
-  waiter_hide()
+  # Hide the loading screen only after the UI has had time to paint. The menu titles, sub-menu
+  # titles and language picker are i18n outputs that render progressively after the server
+  # function returns; hiding immediately would briefly expose their un-styled/loading state, so
+  # delay the hide to keep the overlay until they have settled. (Trimmed 2500->1000ms: by the time
+  # the ~18s of module init finishes the i18n menus have long since painted, so the extra buffer was
+  # pure dead time on the splash.)
+  shinyjs::delay(1000, waiter_hide())
 }
 
 # Launch the app

@@ -1,6 +1,136 @@
 {
   "translation": [
     {
+      "en": "How co-solvents are scored and ranked. 'Absolute gain (Δ)' — how much MORE solute dissolves thanks to the co-solvent (in the chosen unit); robust and process-relevant, and the recommended default. 'Enhancement (×)' — the relative boost over pure CO2 (y with co-solvent / y in pure CO2), aggregated by the median so a single near-critical spike no longer dominates. 'Absolute solubility' — the achieved solubility with the co-solvent. The winning co-solvent at each pressure/temperature point is the same for all three (whichever gives the highest solubility there); only the ranking, the value boxes and the value view change.",
+      "ru": "Как со-растворители оцениваются и ранжируются. «Абсолютный прирост (Δ)» — насколько БОЛЬШЕ растворённого вещества растворяется благодаря со-растворителю (в выбранных единицах); надёжный и релевантный для процесса, рекомендуемый по умолчанию. «Усиление (×)» — относительный прирост по сравнению с чистым CO2 (y с со-растворителем / y в чистом CO2), агрегируется по медиане, чтобы единичный околокритический всплеск больше не доминировал. «Абсолютная растворимость» — достигнутая растворимость с со-растворителем. Победивший со-растворитель в каждой точке давления/температуры одинаков для всех трёх (тот, что даёт наибольшую растворимость там); меняются только ранжирование, информационные блоки и отображаемое значение.",
+      "tr": "Yardımcı çözücülerin nasıl puanlanıp sıralandığı. 'Mutlak kazanç (Δ)' — yardımcı çözücü sayesinde ne kadar DAHA FAZLA çözünenin çözündüğü (seçilen birimde); sağlam, sürece uygun ve önerilen varsayılan. 'İyileştirme (×)' — saf CO2'ye göre göreli artış (yardımcı çözücülü y / saf CO2'deki y), medyan ile toplanır; böylece tek bir kritik-yakını sıçrama artık baskın olmaz. 'Mutlak çözünürlük' — yardımcı çözücüyle elde edilen çözünürlük. Her basınç/sıcaklık noktasında kazanan yardımcı çözücü üçü için de aynıdır (orada en yüksek çözünürlüğü veren hangisiyse); yalnızca sıralama, değer kutuları ve değer görünümü değişir."
+    },
+    {
+      "en": "'%1$s' is not parameterised in %2$s; the Solubility Engine was switched to %3$s.",
+      "ru": "«%1$s» не параметризовано в %2$s; движок растворимости переключён на %3$s.",
+      "tr": "'%1$s', %2$s içinde parametrelendirilmemiş; Çözünürlük Motoru %3$s olarak değiştirildi."
+    },
+    {
+      "en": "'%s' is not in the CSP-2021 or openCOSMO-RS-Phi database — Solubility mode may not run; try HSP (Miscibility) mode.",
+      "ru": "«%s» отсутствует в базе данных CSP-2021 или openCOSMO-RS-Phi — режим растворимости может не запуститься; попробуйте режим HSP (смешиваемость).",
+      "tr": "'%s', CSP-2021 veya openCOSMO-RS-Phi veritabanında yok — Çözünürlük modu çalışmayabilir; HSP (Karışabilirlik) modunu deneyin."
+    },
+    {
+      "en": "Best co-solvent at each condition",
+      "ru": "Лучший сорастворитель для каждого условия",
+      "tr": "Her koşulda en iyi yardımcı çözücü"
+    },
+    {
+      "en": "Best co-solvent",
+      "ru": "Лучший сорастворитель",
+      "tr": "En iyi yardımcı çözücü"
+    },
+    {
+      "en": "Also screen binary blends (experimental)",
+      "ru": "Также перебрать бинарные смеси (экспериментально)",
+      "tr": "İkili karışımları da tara (deneysel)"
+    },
+    {
+      "en": "Adds every two-solvent 50:50 blend to the screen. Blend solubilities are extrapolated from a single-co-solvent model — reliable for ranking, indicative in absolute value; noticeably slower to compute.",
+      "ru": "Добавляет каждую двухкомпонентную смесь 50:50 в перебор. Растворимости смесей экстраполируются из модели для одиночных со-растворителей — надёжны для ранжирования, ориентировочны по абсолютной величине; заметно медленнее.",
+      "tr": "Her iki çözücülü 50:50 karışımı taramaya ekler. Karışım çözünürlükleri tek yardımcı çözücü modelinden ekstrapolasyondur — sıralama için güvenilir, mutlak değerde göstergedir; hesaplaması belirgin şekilde daha yavaştır."
+    },
+    {
+      "en": "Predicting co-solvent + blend solubility...",
+      "ru": "Прогноз растворимости со-растворителей и смесей...",
+      "tr": "Yardımcı çözücü + karışım çözünürlüğü tahmin ediliyor..."
+    },
+    {
+      "en": "not rated",
+      "ru": "не оценено",
+      "tr": "derecelendirilmemiş"
+    },
+    {
+      "en": "Automatic Solvent Finder (screen all solvents)",
+      "ru": "Автоматический поиск растворителей (перебрать все растворители)",
+      "tr": "Otomatik Çözücü Bulucu (tüm çözücüleri tara)"
+    },
+    {
+      "en": "Composition",
+      "ru": "Состав",
+      "tr": "Bileşim"
+    },
+    {
+      "en": "Component 2",
+      "ru": "Компонент 2",
+      "tr": "Bileşen 2"
+    },
+    {
+      "en": "Beats Best Single Solvent?",
+      "ru": "Превосходит лучший одиночный растворитель?",
+      "tr": "En İyi Tekli Çözücüyü Geçiyor mu?"
+    },
+    {
+      "en": "Average",
+      "ru": "Среднее",
+      "tr": "Ortalama"
+    },
+    {
+      "en": "Automatic Solvent Finder (screen all solvents, scCO₂ only)",
+      "ru": "Автоматический поиск растворителей (перебрать все растворители, только скCO₂)",
+      "tr": "Otomatik Çözücü Bulucu (tüm çözücüleri tara, yalnızca skCO₂)"
+    },
+    {
+      "en": "Screens every candidate co-solvent for the loaded solute. HSP (Miscibility) mode also recommends enhancing blends; Solubility (ML) mode ranks single co-solvents.",
+      "ru": "Перебирает все растворители-кандидаты для загруженного вещества. В режиме HSP (смешиваемость) также рекомендуются усиливающие смеси; в режиме растворимости (ML) ранжируются отдельные со-растворители.",
+      "tr": "Yüklü çözünen için tüm aday yardımcı çözücüleri tarar. HSP (Karışabilirlik) modu ayrıca iyileştirici karışımlar önerir; Çözünürlük (ML) modu tekli yardımcı çözücüleri sıralar."
+    },
+    {
+      "en": "Blends are not available in Solubility (ML) mode",
+      "ru": "Смеси недоступны в режиме растворимости (ML)",
+      "tr": "Karışımlar Çözünürlük (ML) modunda kullanılamaz"
+    },
+    {
+      "en": "The machine-learning solubility model evaluates a single co-solvent at a time and has no blend-mixing rule. Ranked single co-solvents appear in the Summary tab. Switch to HSP (Miscibility) mode for enhancing-blend recommendations.",
+      "ru": "Модель растворимости на основе машинного обучения оценивает по одному со-растворителю за раз и не имеет правила смешивания. Ранжированные отдельные со-растворители показаны на вкладке «Сводка». Для рекомендаций по усиливающим смесям переключитесь в режим HSP (смешиваемость).",
+      "tr": "Makine öğrenimi çözünürlük modeli her seferinde tek bir yardımcı çözücüyü değerlendirir ve karışım kuralı yoktur. Sıralanmış tekli yardımcı çözücüler Özet sekmesinde görünür. İyileştirici karışım önerileri için HSP (Karışabilirlik) moduna geçin."
+    },
+    {
+      "en": "None",
+      "ru": "Нет",
+      "tr": "Yok"
+    },
+    {
+      "en": "No enhancing-blend recommendations yet",
+      "ru": "Пока нет рекомендаций по усиливающим смесям",
+      "tr": "Henüz iyileştirici karışım önerisi yok"
+    },
+    {
+      "en": "Tick the \"Automatic Solvent Finder\" checkbox (Co-Solvent Selection) and run to get recommended enhancing blends.",
+      "ru": "Установите флажок «Автоматический поиск растворителей» (Выбор со-растворителя) и запустите, чтобы получить рекомендуемые усиливающие смеси.",
+      "tr": "Önerilen iyileştirici karışımları almak için \"Otomatik Çözücü Bulucu\" kutusunu (Yardımcı Çözücü Seçimi) işaretleyip çalıştırın."
+    },
+    {
+      "en": "None of your saved calculations are suitable for this mode.",
+      "ru": "Ни один из сохранённых расчётов не подходит для этого режима.",
+      "tr": "Kaydedilen hesaplamalarınızın hiçbiri bu mod için uygun değil."
+    },
+    {
+      "en": "needs a SMILES",
+      "ru": "требуется SMILES",
+      "tr": "SMILES gerekir"
+    },
+    {
+      "en": "needs Hansen parameters and a critical temperature",
+      "ru": "требуются параметры Хансена и критическая температура",
+      "tr": "Hansen parametreleri ve kritik sıcaklık gerekir"
+    },
+    {
+      "en": "Not available in this mode (%s):",
+      "ru": "Недоступно в этом режиме (%s):",
+      "tr": "Bu modda kullanılamaz (%s):"
+    },
+    {
+      "en": "Showing %d of %d calculation(s) suitable for this mode.",
+      "ru": "Показано %d из %d расчёт(ов), подходящих для этого режима.",
+      "tr": "Bu mod için uygun %2$d hesaplamadan %1$d tanesi gösteriliyor."
+    },
+    {
       "en": "Optimization Parameters",
       "ru": "Параметры оптимизации",
       "tr": "Optimizasyon Parametreleri"
@@ -152,13 +282,28 @@
     },
     {
       "en": "Min. Temperature (°C)",
-      "ru": "Мин. температура (°C)",
+      "ru": "Мин. темп. (°C)",
       "tr": "Min. Sıcaklık (°C)"
     },
     {
       "en": "Max. Temperature (°C)",
-      "ru": "Макс. температура (°C)",
+      "ru": "Макс. темп. (°C)",
       "tr": "Maks. Sıcaklık (°C)"
+    },
+    {
+      "en": "Min.",
+      "ru": "Мин.",
+      "tr": "Min."
+    },
+    {
+      "en": "Max.",
+      "ru": "Макс.",
+      "tr": "Maks."
+    },
+    {
+      "en": "Step",
+      "ru": "Шаг",
+      "tr": "Adım"
     },
     {
       "en": "Optimize Miscibility",
@@ -407,7 +552,7 @@
     },
     {
       "en": "Temperature Step (°C)",
-      "ru": "Шаг температуры (°C)",
+      "ru": "Шаг темп. (°C)",
       "tr": "Sıcaklık Adımı (°C)"
     },
     {
@@ -661,9 +806,9 @@
       "tr": "SFE DEĞİŞTİRİCİ OPTİMİZASYON SONUÇLARI"
     },
     {
-      "en": "SELECTION OF THE BEST scCO2 SFE MODIFIER AMONGST",
-      "ru": "ВЫБОР ЛУЧШЕГО МОДИФИКАТОРА scCO2 SFE СРЕДИ",
-      "tr": "EN İYİ scCO2 SFE DEĞİŞTİRİCİSİNİN SEÇİMİ"
+      "en": "SELECTION OF THE BEST scCO₂ SFE MODIFIER AMONGST",
+      "ru": "ВЫБОР ЛУЧШЕГО МОДИФИКАТОРА scCO₂ SFE СРЕДИ",
+      "tr": "EN İYİ scCO₂ SFE DEĞİŞTİRİCİSİNİN SEÇİMİ"
     },
     {
       "en": "SOLUTE HSP VERSUS TEMPERATURE",
@@ -1014,6 +1159,411 @@
       "en": "Choose which results to display in the table: Miscibility Enhancement (ME%) shows the percentage improvement over pure CO2, or HSP Distance shows the raw solubility parameter distance values.",
       "ru": "Выберите результаты для отображения: ME% показывает процентное улучшение по сравнению с чистым CO₂, или расстояние HSP показывает значения расстояния параметров растворимости.",
       "tr": "Tabloda hangi sonuçları göstereceğinizi seçin: ME% saf CO₂'ye göre yüzde iyileştirmeyi, HSP Mesafesi ham çözünürlük parametresi mesafe değerlerini gösterir."
+    },
+    {
+      "en": "Automatic Solvent Finder",
+      "ru": "Автоматический подбор растворителя",
+      "tr": "Otomatik Çözücü Bulucu"
+    },
+    {
+      "en": "Automatically rank candidate solvents for the loaded solute and suggest miscible blends that improve solubility further. Run an optimization first to estimate the solute's HSP.",
+      "ru": "Автоматически ранжирует возможные растворители для загруженного вещества и предлагает смешиваемые смеси, дополнительно улучшающие растворимость. Сначала выполните оптимизацию для оценки HSP вещества.",
+      "tr": "Yüklenen çözünen için aday çözücüleri otomatik olarak sıralar ve çözünürlüğü daha da artıran karışabilir karışımlar önerir. Çözünenin HSP'sini tahmin etmek için önce bir optimizasyon çalıştırın."
+    },
+    {
+      "en": "Search mode",
+      "ru": "Режим поиска",
+      "tr": "Arama modu"
+    },
+    {
+      "en": "SFE (supercritical CO2 + co-solvent)",
+      "ru": "СКЭ (сверхкритический CO2 + сорастворитель)",
+      "tr": "SFE (süperkritik CO2 + eş çözücü)"
+    },
+    {
+      "en": "General blend (any primary solvent)",
+      "ru": "Общая смесь (любой основной растворитель)",
+      "tr": "Genel karışım (herhangi bir birincil çözücü)"
+    },
+    {
+      "en": "Find Best Solvent / Blends",
+      "ru": "Найти лучший растворитель / смеси",
+      "tr": "En İyi Çözücüyü / Karışımları Bul"
+    },
+    {
+      "en": "Recommended Single Solvents",
+      "ru": "Рекомендуемые отдельные растворители",
+      "tr": "Önerilen Tekli Çözücüler"
+    },
+    {
+      "en": "Recommended Enhancing Blends",
+      "ru": "Рекомендуемые усиливающие смеси",
+      "tr": "Önerilen Güçlendirici Karışımlar"
+    },
+    {
+      "en": "Primary solvent",
+      "ru": "Основной растворитель",
+      "tr": "Birincil çözücü"
+    },
+    {
+      "en": "Any (global search)",
+      "ru": "Любой (глобальный поиск)",
+      "tr": "Herhangi (genel arama)"
+    },
+    {
+      "en": "Run a miscibility optimization first so the solute's HSP and critical temperature are available.",
+      "ru": "Сначала выполните оптимизацию смешиваемости, чтобы были доступны HSP и критическая температура вещества.",
+      "tr": "Çözünenin HSP'si ve kritik sıcaklığının kullanılabilir olması için önce bir karışabilirlik optimizasyonu çalıştırın."
+    },
+    {
+      "en": "Solvent finder error:",
+      "ru": "Ошибка подбора растворителя:",
+      "tr": "Çözücü bulucu hatası:"
+    },
+    {
+      "en": "Hansen distance Ra (lower is better)",
+      "ru": "Расстояние Хансена Ra (меньше — лучше)",
+      "tr": "Hansen mesafesi Ra (düşük olması daha iyi)"
+    },
+    {
+      "en": "% miscibility enhancement vs pure CO2 (higher is better)",
+      "ru": "% улучшения смешиваемости по сравнению с чистым CO2 (больше — лучше)",
+      "tr": "saf CO2'ye karşı % karışabilirlik artışı (yüksek olması daha iyi)"
+    },
+    {
+      "en": "no blend beats the best single solvent",
+      "ru": "ни одна смесь не превосходит лучший отдельный растворитель",
+      "tr": "hiçbir karışım en iyi tekli çözücüyü geçemiyor"
+    },
+    {
+      "en": "Best single solvent: ",
+      "ru": "Лучший отдельный растворитель: ",
+      "tr": "En iyi tekli çözücü: "
+    },
+    {
+      "en": "Best enhancing blend: ",
+      "ru": "Лучшая усиливающая смесь: ",
+      "tr": "En iyi güçlendirici karışım: "
+    },
+    {
+      "en": "Ranking metric: ",
+      "ru": "Метрика ранжирования: ",
+      "tr": "Sıralama metriği: "
+    },
+    {
+      "en": "No miscible enhancing blends found.",
+      "ru": "Смешиваемые усиливающие смеси не найдены.",
+      "tr": "Karışabilir güçlendirici karışım bulunamadı."
+    },
+    {
+      "en": "Run Selection",
+      "ru": "Запустить подбор",
+      "tr": "Seçimi Çalıştır"
+    },
+    {
+      "en": "Selection Method",
+      "ru": "Метод подбора",
+      "tr": "Seçim Yöntemi"
+    },
+    {
+      "en": "HSP (Miscibility)",
+      "ru": "HSP (смешиваемость)",
+      "tr": "HSP (Karışabilirlik)"
+    },
+    {
+      "en": "Solubility (ML)",
+      "ru": "Растворимость (ML)",
+      "tr": "Çözünürlük (ML)"
+    },
+    {
+      "en": "HSP (Miscibility) ranks co-solvents by Hansen solubility-parameter distance. Solubility (ML) ranks them by the predicted enhancement of the solute's scCO₂ solubility (and reports the absolute solubility), using the machine-learned model. Solubility mode needs the solute SMILES and is valid for roughly 308-373 K and 80-360 bar.",
+      "ru": "«HSP (смешиваемость)» ранжирует сорастворители по расстоянию параметров растворимости Хансена. «Растворимость (ML)» ранжирует их по прогнозируемому усилению растворимости вещества в скCO2 (и приводит абсолютную растворимость) с помощью модели машинного обучения. Режим растворимости требует SMILES вещества и применим примерно для 308-373 K и 80-360 бар.",
+      "tr": "«HSP (Karışabilirlik)» yardımcı çözücüleri Hansen çözünürlük-parametre uzaklığına göre sıralar. «Çözünürlük (ML)» onları, makine öğrenmeli model kullanarak çözünenin scCO₂ çözünürlüğündeki öngörülen artışa göre sıralar (ve mutlak çözünürlüğü bildirir). Çözünürlük modu çözünenin SMILES'ini gerektirir ve yaklaşık 308-373 K ile 80-360 bar için geçerlidir."
+    },
+    {
+      "en": "Co-Solvent Mole Fraction (%)",
+      "ru": "Мольная доля сорастворителя (%)",
+      "tr": "Yardımcı Çözücü Mol Kesri (%)"
+    },
+    {
+      "en": "Mole percentage of co-solvent in the CO2 stream used by the solubility model. Typical co-solvent loadings are 1-10 mol%; the model was trained up to ~50 mol%.",
+      "ru": "Мольный процент сорастворителя в потоке CO2, используемый моделью растворимости. Типичные загрузки сорастворителя — 1-10 мол%; модель обучена до ~50 мол%.",
+      "tr": "Çözünürlük modelinin kullandığı CO2 akışındaki yardımcı çözücünün mol yüzdesi. Tipik yardımcı çözücü yüklemeleri %1-10 mol'dür; model ~%50 mol'e kadar eğitilmiştir."
+    },
+    {
+      "en": "Mole Fraction",
+      "ru": "Мольная доля",
+      "tr": "Mol Kesri"
+    },
+    {
+      "en": "Predicting co-solvent solubility...",
+      "ru": "Прогнозирование растворимости с сорастворителем...",
+      "tr": "Yardımcı çözücü çözünürlüğü tahmin ediliyor..."
+    },
+    {
+      "en": "Solubility mode needs the solute SMILES. Load a calculation that has a SMILES string.",
+      "ru": "Режим растворимости требует SMILES вещества. Загрузите расчёт со строкой SMILES.",
+      "tr": "Çözünürlük modu çözünenin SMILES'ini gerektirir. SMILES dizesi olan bir hesaplama yükleyin."
+    },
+    {
+      "en": "Solubility mode evaluates single co-solvents only; blends are ignored.",
+      "ru": "Режим растворимости оценивает только отдельные сорастворители; смеси игнорируются.",
+      "tr": "Çözünürlük modu yalnızca tekli yardımcı çözücüleri değerlendirir; karışımlar yok sayılır."
+    },
+    {
+      "en": "Please select at least one co-solvent.",
+      "ru": "Пожалуйста, выберите хотя бы один сорастворитель.",
+      "tr": "Lütfen en az bir yardımcı çözücü seçin."
+    },
+    {
+      "en": "Error during solubility prediction:",
+      "ru": "Ошибка при прогнозировании растворимости:",
+      "tr": "Çözünürlük tahmini sırasında hata:"
+    },
+    {
+      "en": "No solubility results were produced.",
+      "ru": "Результаты растворимости не получены.",
+      "tr": "Çözünürlük sonucu üretilmedi."
+    },
+    {
+      "en": "%d of %d pressure/temperature points are outside the solubility model's reliable range (308-373 K, 80-360 bar).",
+      "ru": "%d из %d точек давления/температуры находятся вне надёжного диапазона модели растворимости (308-373 K, 80-360 бар).",
+      "tr": "%d / %d basınç/sıcaklık noktası, çözünürlük modelinin güvenilir aralığının (308-373 K, 80-360 bar) dışındadır."
+    },
+    {
+      "en": "Mean Enhancement (×)",
+      "ru": "Среднее усиление (×)",
+      "tr": "Ortalama Artış (×)"
+    },
+    {
+      "en": "Co-Solvent",
+      "ru": "Сорастворитель",
+      "tr": "Yardımcı Çözücü"
+    },
+    {
+      "en": "Max Enhancement (×)",
+      "ru": "Макс. усиление (×)",
+      "tr": "Maks. Artış (×)"
+    },
+    {
+      "en": "Mean Solubility (mol/mol)",
+      "ru": "Средняя растворимость (моль/моль)",
+      "tr": "Ortalama Çözünürlük (mol/mol)"
+    },
+    {
+      "en": "Mean Solubility (g/kg)",
+      "ru": "Средняя растворимость (г/кг)",
+      "tr": "Ortalama Çözünürlük (g/kg)"
+    },
+    {
+      "en": "Solubility (g/kg)",
+      "ru": "Растворимость (г/кг)",
+      "tr": "Çözünürlük (g/kg)"
+    },
+    {
+      "en": "Solubility Unit",
+      "ru": "Единица растворимости",
+      "tr": "Çözünürlük Birimi"
+    },
+    {
+      "en": "Unit for the absolute solubility shown in the results: mole fraction (mol/mol) or grams of solute per kilogram of CO2 (g/kg). The enhancement factor is unitless.",
+      "ru": "Единица абсолютной растворимости в результатах: мольная доля (моль/моль) или граммы вещества на килограмм CO2 (г/кг). Коэффициент усиления безразмерен.",
+      "tr": "Sonuçlarda gösterilen mutlak çözünürlüğün birimi: mol kesri (mol/mol) veya kg CO2 başına gram çözünen (g/kg). Artış faktörü birimsizdir."
+    },
+    {
+      "en": "mol/mol",
+      "ru": "моль/моль",
+      "tr": "mol/mol"
+    },
+    {
+      "en": "g/kg",
+      "ru": "г/кг",
+      "tr": "g/kg"
+    },
+    {
+      "en": "Absolute Solubility",
+      "ru": "Абсолютная растворимость",
+      "tr": "Mutlak Çözünürlük"
+    },
+    {
+      "en": "Absolute solubility with co-solvent",
+      "ru": "Абсолютная растворимость с сорастворителем",
+      "tr": "Yardımcı çözücü ile mutlak çözünürlük"
+    },
+    {
+      "en": "Absolute-solubility scale in pure CO2 — extremely insoluble ~1e-7 mol/mol (~1e-4 g/kg, e.g. disperse dyes); typical ~1e-4 (~0.7 g/kg); highly soluble ~0.1 (~300 g/kg, e.g. naphthalene).",
+      "ru": "Шкала абсолютной растворимости в чистом CO2 — крайне нерастворимые ~1e-7 моль/моль (~1e-4 г/кг, напр. дисперсные красители); типичные ~1e-4 (~0.7 г/кг); хорошо растворимые ~0.1 (~300 г/кг, напр. нафталин).",
+      "tr": "Saf CO2'de mutlak çözünürlük ölçeği — son derece çözünmez ~1e-7 mol/mol (~1e-4 g/kg, ör. dispers boyalar); tipik ~1e-4 (~0.7 g/kg); yüksek çözünür ~0.1 (~300 g/kg, ör. naftalin)."
+    },
+    {
+      "en": "Load from Database",
+      "ru": "Загрузить из базы данных",
+      "tr": "Veritabanından Yükle"
+    },
+    {
+      "en": "DB (exp HSP)",
+      "ru": "БД (эксп. HSP)",
+      "tr": "VT (deneysel HSP)"
+    },
+    {
+      "en": "DB (ML)",
+      "ru": "БД (МО)",
+      "tr": "VT (ML)"
+    },
+    {
+      "en": "Select a compound first.",
+      "ru": "Сначала выберите соединение.",
+      "tr": "Önce bir bileşik seçin."
+    },
+    {
+      "en": "Loaded '%s' from the database.",
+      "ru": "«%s» загружено из базы данных.",
+      "tr": "'%s' veritabanından yüklendi."
+    },
+    {
+      "en": "Screens every candidate co-solvent for the loaded solute and ranks them (by Hansen miscibility distance in HSP mode, or by predicted scCO2 solubility enhancement in Solubility mode). Tick \"Also screen enhancing blends\" to additionally recommend two-solvent blends.",
+      "ru": "Перебирает все возможные сорастворители для загруженного вещества и ранжирует их (по расстоянию смешиваемости Хансена в режиме HSP или по прогнозируемому усилению растворимости в scCO2 в режиме растворимости). Отметьте «Также перебрать усиливающие смеси», чтобы дополнительно получить рекомендации по двухкомпонентным смесям.",
+      "tr": "Yüklü çözünen için her aday yardımcı çözücüyü tarar ve sıralar (HSP modunda Hansen karışabilirlik mesafesine göre, Çözünürlük modunda tahmini scCO2 çözünürlük artışına göre). İki çözücülü karışımlar için ek öneriler almak üzere «Güçlendirici karışımları da tara» seçeneğini işaretleyin."
+    },
+    {
+      "en": "Also screen enhancing blends",
+      "ru": "Также перебрать усиливающие смеси",
+      "tr": "Güçlendirici karışımları da tara"
+    },
+    {
+      "en": "Screen enhancing blends",
+      "ru": "Перебор усиливающих смесей",
+      "tr": "Güçlendirici karışımları tara"
+    },
+    {
+      "en": "Also screens two-solvent enhancing blends of the top-ranked single co-solvents. HSP mode uses volume-weighted Hansen-distance blending; the CSP-2021 / openCOSMO-RS-Phi EoS engines evaluate each blend directly as a true n-component solve (slower). Recommendations appear in the Recommended Enhancing Blends tab. Not available for the Makarov ML model, which has no blend-mixing rule.",
+      "ru": "Дополнительно перебирает двухкомпонентные усиливающие смеси из наиболее высоко ранжированных одиночных сорастворителей. В режиме HSP используется смешивание по расстоянию Хансена с весами по объёму; движки уравнения состояния CSP-2021 / openCOSMO-RS-Phi рассчитывают каждую смесь напрямую как настоящую n-компонентную задачу (медленнее). Рекомендации отображаются на вкладке «Рекомендуемые усиливающие смеси». Недоступно для модели Makarov ML, у которой нет правила смешивания.",
+      "tr": "En üst sıradaki tekli yardımcı çözücülerden oluşan iki çözücülü güçlendirici karışımları da tarar. HSP modu hacim ağırlıklı Hansen mesafesi karışımını kullanır; CSP-2021 / openCOSMO-RS-Phi EoS motorları her karışımı doğrudan gerçek bir n-bileşenli çözüm olarak hesaplar (daha yavaş). Öneriler «Önerilen Güçlendirici Karışımlar» sekmesinde görünür. Karışım karıştırma kuralı olmayan Makarov ML modeli için kullanılamaz."
+    },
+    {
+      "en": "Blends are not available with the Makarov ML model",
+      "ru": "Смеси недоступны для модели Makarov ML",
+      "tr": "Karışımlar Makarov ML modelinde kullanılamaz"
+    },
+    {
+      "en": "The Makarov ML model evaluates a single co-solvent at a time (ranked in the Summary tab). For enhancing-blend recommendations use HSP (Miscibility) mode or a COSMO-SAC-Phi EoS engine (CSP-2021 / openCOSMO-RS-Phi) — all genuine blend-capable models.",
+      "ru": "Модель Makarov ML оценивает по одному сорастворителю за раз (ранжируются на вкладке «Сводка»). Для рекомендаций по усиливающим смесям используйте режим HSP (смешиваемость) или движок уравнения состояния COSMO-SAC-Phi (CSP-2021 / openCOSMO-RS-Phi) — все они являются настоящими моделями, поддерживающими смеси.",
+      "tr": "Makarov ML modeli her seferinde tek bir yardımcı çözücüyü değerlendirir («Özet» sekmesinde sıralanır). Güçlendirici karışım önerileri için HSP (Karışabilirlik) modunu veya bir COSMO-SAC-Phi EoS motorunu (CSP-2021 / openCOSMO-RS-Phi) kullanın — hepsi karışımları destekleyen gerçek modellerdir."
+    },
+    {
+      "en": "Tick the \"Automatic Solvent Finder\" checkbox (Co-Solvent Selection), then tick \"Also screen enhancing blends\", and run. Works in HSP (Miscibility) mode and in Solubility mode with a COSMO-SAC-Phi EoS engine (CSP-2021 / openCOSMO-RS-Phi).",
+      "ru": "Отметьте флажок «Автоматический подбор растворителя» (Выбор сорастворителя), затем отметьте «Также перебрать усиливающие смеси» и запустите. Работает в режиме HSP (смешиваемость) и в режиме растворимости с движком уравнения состояния COSMO-SAC-Phi (CSP-2021 / openCOSMO-RS-Phi).",
+      "tr": "«Otomatik Çözücü Bulucu» kutusunu (Yardımcı Çözücü Seçimi) işaretleyin, ardından «Güçlendirici karışımları da tara» seçeneğini işaretleyip çalıştırın. HSP (Karışabilirlik) modunda ve bir COSMO-SAC-Phi EoS motoru (CSP-2021 / openCOSMO-RS-Phi) ile Çözünürlük modunda çalışır."
+    },
+    {
+      "en": "Makarov (ML) predicts scCO2 solubility from SMILES for any solute/co-solvent (training domain ~308-373 K, 80-360 bar) but evaluates one co-solvent at a time (no blends). CSP-2021 and openCOSMO-RS-Phi are predictive COSMO-SAC-Phi equations of state; each needs the solute AND every co-solvent to be in its database and has no hard T/P domain. Being genuine n-component models, they can also screen enhancing blends.",
+      "ru": "Makarov (ML) прогнозирует растворимость в scCO2 по SMILES для любого вещества/сорастворителя (область обучения ~308-373 K, 80-360 бар), но оценивает по одному сорастворителю за раз (без смесей). CSP-2021 и openCOSMO-RS-Phi — прогностические уравнения состояния COSMO-SAC-Phi; каждому требуется наличие вещества И каждого сорастворителя в его базе данных, при этом нет жёсткой области по T/P. Будучи настоящими n-компонентными моделями, они также могут перебирать усиливающие смеси.",
+      "tr": "Makarov (ML), herhangi bir çözünen/yardımcı çözücü için SMILES'ten scCO2 çözünürlüğünü tahmin eder (eğitim aralığı ~308-373 K, 80-360 bar) ancak her seferinde tek bir yardımcı çözücüyü değerlendirir (karışım yok). CSP-2021 ve openCOSMO-RS-Phi, öngörücü COSMO-SAC-Phi hal denklemleridir; her biri çözünenin VE her yardımcı çözücünün kendi veritabanında bulunmasını gerektirir ve katı bir T/P alanı yoktur. Gerçek n-bileşenli modeller olduklarından güçlendirici karışımları da tarayabilirler."
+    },
+    {
+      "en": "The Makarov ML model evaluates single co-solvents only; saved blends are ignored. Use CSP-2021 or openCOSMO-RS-Phi to screen blends.",
+      "ru": "Модель Makarov ML оценивает только одиночные сорастворители; сохранённые смеси игнорируются. Используйте CSP-2021 или openCOSMO-RS-Phi для перебора смесей.",
+      "tr": "Makarov ML modeli yalnızca tekli yardımcı çözücüleri değerlendirir; kaydedilen karışımlar yok sayılır. Karışımları taramak için CSP-2021 veya openCOSMO-RS-Phi kullanın."
+    },
+    {
+      "en": "Please select at least one co-solvent (or add a blend).",
+      "ru": "Выберите хотя бы один сорастворитель (или добавьте смесь).",
+      "tr": "Lütfen en az bir yardımcı çözücü seçin (veya bir karışım ekleyin)."
+    },
+    {
+      "en": "These solvents react or interact exothermically on contact (Clavilier et al. 2025); treat the predicted blend with caution.",
+      "ru": "Эти растворители реагируют или экзотермически взаимодействуют при контакте (Clavilier et al. 2025); относитесь к прогнозу для смеси с осторожностью.",
+      "tr": "Bu çözücüler temas ettiğinde reaksiyona girer veya ekzotermik olarak etkileşir (Clavilier et al. 2025); tahmini karışım sonucuna dikkatle yaklaşın."
+    },
+    {
+      "en": "reactive",
+      "ru": "реакция",
+      "tr": "reaktif"
+    },
+    {
+      "en": "Partially miscible: these solvents mix only over a limited composition range (Clavilier et al. 2025), so the blend may not form a single phase at all ratios.",
+      "ru": "Частично смешиваемы: эти растворители смешиваются только в ограниченном диапазоне составов (Clavilier et al. 2025), поэтому смесь может не образовать единую фазу при всех соотношениях.",
+      "tr": "Kısmen karışabilir: bu çözücüler yalnızca sınırlı bir bileşim aralığında karışır (Clavilier et al. 2025), bu nedenle karışım tüm oranlarda tek faz oluşturmayabilir."
+    },
+    {
+      "en": "partly miscible",
+      "ru": "частично смешиваемы",
+      "tr": "kısmen karışır"
+    },
+    {
+      "en": "Blend '%s': its solvents react or interact on contact; the result is shown but treat it with caution.",
+      "ru": "Смесь «%s»: её растворители реагируют или взаимодействуют при контакте; результат показан, но относитесь к нему с осторожностью.",
+      "tr": "Karışım '%s': çözücüleri temas ettiğinde reaksiyona girer veya etkileşir; sonuç gösterilir ancak dikkatle değerlendirin."
+    },
+    {
+      "en": "Blend '%s': its solvents are immiscible (phase-separating); the predicted blend may not form a single phase.",
+      "ru": "Смесь «%s»: её растворители несмешиваемы (расслаиваются); прогнозируемая смесь может не образовать единую фазу.",
+      "tr": "Karışım '%s': çözücüleri karışmaz (faz ayrışır); tahmin edilen karışım tek faz oluşturmayabilir."
+    },
+    {
+      "en": "Blend '%s': its solvents are only partially miscible; the blend may not form a single phase at all ratios.",
+      "ru": "Смесь «%s»: её растворители смешиваются лишь частично; смесь может не образовать единую фазу при всех соотношениях.",
+      "tr": "Karışım '%s': çözücüleri yalnızca kısmen karışır; karışım tüm oranlarda tek faz oluşturmayabilir."
+    },
+    {
+      "en": "This calculation used manual/experimental critical-T or HSP values that were not saved with it; the optimization fell back to the group-contribution estimate. Re-characterize the solute and save it again to use the exact values.",
+      "ru": "В этом расчёте использовались ручные/экспериментальные значения критической температуры или HSP, которые не были сохранены вместе с ним; оптимизация вернулась к оценке по методу групповых вкладов. Повторно охарактеризуйте вещество и сохраните его снова, чтобы использовать точные значения.",
+      "tr": "Bu hesaplama, kendisiyle kaydedilmemiş manuel/deneysel kritik sıcaklık veya HSP değerleri kullandı; optimizasyon grup katkısı tahminine geri döndü. Kesin değerleri kullanmak için çözüneni yeniden karakterize edip tekrar kaydedin."
+    },
+    {
+      "en": "Co-Solvent Selection — Report",
+      "ru": "Выбор со-растворителя — отчёт",
+      "tr": "Yardımcı Çözücü Seçimi — Rapor"
+    },
+    {
+      "en": "Screening conditions",
+      "ru": "Условия скрининга",
+      "tr": "Tarama koşulları"
+    },
+    {
+      "en": "Pressure grid",
+      "ru": "Сетка давлений",
+      "tr": "Basınç ızgarası"
+    },
+    {
+      "en": "Temperature grid",
+      "ru": "Сетка температур",
+      "tr": "Sıcaklık ızgarası"
+    },
+    {
+      "en": "Co-solvent ranking",
+      "ru": "Рейтинг со-растворителей",
+      "tr": "Yardımcı çözücü sıralaması"
+    },
+    {
+      "en": "Recommended enhancing blends",
+      "ru": "Рекомендуемые усиливающие смеси",
+      "tr": "Önerilen geliştirici karışımlar"
+    },
+    {
+      "en": "Run a selection first.",
+      "ru": "Сначала выполните подбор.",
+      "tr": "Önce bir seçim çalıştırın."
+    },
+    {
+      "en": "ME Range",
+      "ru": "Диапазон ME",
+      "tr": "ME Aralığı"
+    },
+    {
+      "en": "Mean Solubility",
+      "ru": "Средняя растворимость",
+      "tr": "Ortalama Çözünürlük"
+    },
+    {
+      "en": "Co-solvent selection for supercritical-CO2 extraction of the solute: each candidate co-solvent is ranked by the solubility enhancement it provides, with green-chemistry (GSK/ICH) sustainability guidance.",
+      "ru": "Подбор со-растворителя для сверхкритической CO2-экстракции вещества: каждый со-растворитель ранжируется по обеспечиваемому им усилению растворимости, с рекомендациями по «зелёной химии» (GSK/ICH).",
+      "tr": "Çözünenin süperkritik CO2 ekstraksiyonu için yardımcı çözücü seçimi: her aday yardımcı çözücü, sağladığı çözünürlük artışına göre sıralanır; yeşil kimya (GSK/ICH) sürdürülebilirlik rehberliğiyle birlikte."
+    },
+    {
+      "en": "Each blend is an equal-molar (50:50) mixture of its two co-solvents, evaluated at the same total co-solvent mole fraction as the single-co-solvent screen.",
+      "ru": "Каждая смесь — эквимолярная (50:50) смесь двух со-растворителей, оценённая при той же суммарной мольной доле со-растворителя, что и при скрининге одиночных со-растворителей.",
+      "tr": "Her karışım, iki yardımcı çözücüsünün eşit molar (50:50) karışımıdır ve tek yardımcı çözücü taramasıyla aynı toplam yardımcı çözücü mol kesrinde değerlendirilir."
     }
   ]
 }

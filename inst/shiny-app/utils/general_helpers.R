@@ -260,6 +260,47 @@ generate_filename_with_timestamp <- function(base_name) {
   paste0(base_name, "_", timestamp)
 }
 
+# callr::r_bg() wrapper that muffles one harmless, callr-internal warning. On the SECOND+ background run in
+# a session, callr:::prepare_client_files() stages its processx client DLLs into <tempdir>/callr/<arch>/<hash>
+# with dir.create(dirname(fn), recursive = TRUE) and NO showWarnings = FALSE, so it warns
+# "'...\\callr\\x64\\...' already exists". The directory legitimately already exists; the run is unaffected.
+# Muffle just that one "already exists" warning (raised synchronously while r_bg launches the process); every
+# other warning passes through untouched. Use this instead of callr::r_bg() for the app's background workers.
+r_bg_quiet <- function(...) {
+  withCallingHandlers(
+    callr::r_bg(...),
+    warning = function(w) if (grepl("already exists", conditionMessage(w), fixed = TRUE)) invokeRestart("muffleWarning"))
+}
+
+# Convert a ggplot to an interactive plotly widget, silencing the two purely-cosmetic "feature not yet
+# implemented in plotly" warnings that ggplotly() emits for things it cannot render — geom_label
+# ("geom_GeomLabel() has yet to be implemented in plotly") and a theme aspect.ratio ("Aspect ratios aren't
+# yet implemented..."). Both are plotly limitations with no user action possible: the label layer is dropped
+# and the aspect ratio ignored (plotly sizes to its container). aspect.ratio is additionally stripped up front
+# so plotly never sees it. A non-ggplot input (an already-built plotly widget / plotly_empty()) passes straight
+# through. ALL other warnings propagate normally. Use in renderPlotly() outputs that return a ggplot.
+quiet_ggplotly <- function(p, ...) {
+  if (!inherits(p, "ggplot")) return(p)
+  p$theme$aspect.ratio <- NULL
+  withCallingHandlers(
+    plotly::ggplotly(p, ...),
+    warning = function(w) if (grepl("geom_GeomLabel|Aspect ratios aren't yet implemented",
+      conditionMessage(w))) invokeRestart("muffleWarning"))
+}
+
+# Writable per-user data directory for app settings / saved items. The installed package
+# directory is READ-ONLY in hosted deployments (shinyapps.io) and system-library installs,
+# so user-generated files must live here instead. Uses the standard R user-data dir
+# (tools::R_user_dir, persistent on desktop); falls back to a tempdir on locked-down hosts.
+# `subdir` may be a nested path like "user-settings/eos_components"; the dir is created.
+supercrit_user_dir <- function(subdir = NULL) {
+  base <- tryCatch(tools::R_user_dir("supeRcrit", "data"), error = function(e) NA_character_)
+  if (is.na(base) || !nzchar(base)) base <- file.path(tempdir(), "supeRcrit")
+  path <- if (is.null(subdir) || !nzchar(subdir)) base else file.path(base, subdir)
+  if (!dir.exists(path)) try(dir.create(path, recursive = TRUE, showWarnings = FALSE), silent = TRUE)
+  path
+}
+
 render_grob_as_image <- function(grob_object, width = 800, height = 600) {
   # Ensure grid and grDevices are loaded
   if (!requireNamespace("grid", quietly = TRUE)) {
@@ -626,6 +667,64 @@ range_badge_input <- function(ns, i18n_r, input_id, label_text, value, min_val, 
   )
 }
 
+# Multi-value (tag / selectize) numeric input WITH a range badge. Unlike the plain tag inputs, the
+# badge itself turns RED when ANY entered value is out of [min_val, max_val] (not just the individual
+# tags). Because the caller renders this inside a renderUI that reads the input's current value, the
+# badge re-evaluates on every edit. `current_vals` is the character vector currently entered.
+# Uniform "Selected Solutes" formatting across the app: a " (CAS)" suffix when a CAS number is present,
+# NULL otherwise (so the bold name stands alone). Used with strong(name) in the selected-solutes lists.
+solute_cas_suffix <- function(cas) {
+  cas <- if (is.null(cas) || length(cas) < 1 || is.na(cas[1])) "" else trimws(as.character(cas[1]))
+  if (!nzchar(cas)) NULL else paste0(" (", cas, ")")
+}
+
+range_badge_multi_input <- function(ns, i18n_r, input_id, label_text, current_vals, min_val, max_val,
+                                    range_text = NULL, tooltip = NULL, placeholder = NULL,
+                                    help_content = NULL, help_title = NULL, max_items = NULL,
+                                    trailing = NULL, disabled = FALSE) {
+  badge_text  <- if (!is.null(range_text)) range_text else paste0(min_val, "–", max_val)
+  badge_title <- if (!is.null(tooltip)) tooltip else paste0(min_val, " – ", max_val)
+  nums <- suppressWarnings(as.numeric(current_vals))
+  any_oor <- any(is.finite(nums) & (nums < min_val | nums > max_val))
+  badge_color <- if (isTRUE(any_oor)) "#dc3545" else "#6c757d"
+  help_icon <- if (!is.null(help_content))
+    input_help(help_content, title = if (!is.null(help_title)) help_title else label_text, buttonLabel = i18n_r()$t("OK")) else NULL
+  render_js <- sprintf(paste0(
+    "{ item: function(item, escape) { var val = parseFloat(item.value);",
+    " var oor = isNaN(val) || val < %s || val > %s;",
+    " var style = oor ? 'background-color:#dc3545;border-color:#dc3545;color:#fff;' : '';",
+    " return '<div class=\"item\" style=\"' + style + '\">' + escape(item.value) + '</div>'; } }"),
+    min_val, max_val)
+  sel <- selectizeInput(ns(input_id), label = NULL, choices = current_vals, selected = current_vals,
+      multiple = TRUE,
+      options = c(list(create = TRUE, persist = FALSE,
+        placeholder = if (!is.null(placeholder)) placeholder else "", render = I(render_js)),
+        if (!is.null(max_items)) list(maxItems = max_items) else NULL))
+  # When a trailing control shares the input's row, zero the input's form-group bottom margin so the
+  # vertical centring lands on the visible box (not its margin) — robust, no hard-coded pixel offsets.
+  if (!is.null(trailing)) sel <- htmltools::tagAppendAttributes(sel, style = "margin-bottom:0;")
+  # `disabled` greys the input box (and blocks interaction) without touching any trailing control.
+  sel_box <- if (isTRUE(disabled)) tags$div(style = "opacity:0.5; pointer-events:none;", sel) else sel
+  label_tag <- tags$label(label_text, help_icon, class = "control-label",
+    style = "display:flex; align-items:center; justify-content:space-between; width:100%;",
+    tags$span(badge_text, title = badge_title,
+      style = paste0("font-size:10px; padding:1px 5px; border-radius:3px; background-color:",
+        badge_color, "; color:white; margin-left:auto; font-weight:normal;")))
+  if (is.null(trailing)) {
+    tags$div(label_tag, sel_box)
+  } else {
+    # Label + input form one column so the BADGE aligns to the input field's right edge (not over the
+    # trailing control). The trailing (e.g. an Optimize checkbox) sits in a second column that stretches to
+    # the same height; a hidden spacer label matches the label row, and the checkbox is centred on the
+    # input BOX below it. A bottom margin restores the normal inter-field spacing (the input's own was zeroed).
+    tags$div(style = "display:flex; gap:10px; align-items:stretch; margin-bottom:15px;",
+      tags$div(style = "flex:1; min-width:0;", label_tag, sel_box),
+      tags$div(style = "flex:0 0 auto; white-space:nowrap; display:flex; flex-direction:column;",
+        tags$label(HTML("&nbsp;"), class = "control-label", style = "visibility:hidden; display:block;"),
+        tags$div(style = "flex:1; display:flex; align-items:center;", trailing)))
+  }
+}
+
 # Helper: create standard DT export buttons with copy, CSV, Excel, PDF
 # Consolidated version to reduce code duplication across all server modules
 #
@@ -633,21 +732,143 @@ range_badge_input <- function(ns, i18n_r, input_id, label_text, value, min_val, 
 # @param base_filename Base name for exported files (timestamp will be appended)
 #
 # @return A list of button configurations for DT::datatable
-create_dt_export_buttons <- function(i18n_r, base_filename) {
-  list(
-    list(
-      extend = "copy",
-      text = i18n_r()$t("Copy"),
-      titleAttr = i18n_r()$t("Copy"),
-      action = copy_button_no_popup(
-        copy_label = i18n_r()$t("Copy"),
-        copied_label = i18n_r()$t("Copied!")
-      )
-    ),
-    list(extend = "csv", filename = generate_filename_with_timestamp(base_filename)),
-    list(extend = "excel", filename = generate_filename_with_timestamp(base_filename)),
-    list(extend = "pdf", filename = generate_filename_with_timestamp(base_filename))
+create_dt_export_buttons <- function(i18n_r, base_filename, export_options = NULL) {
+  copy_btn  <- list(
+    extend = "copy",
+    text = i18n_r()$t("Copy"),
+    titleAttr = i18n_r()$t("Copy"),
+    action = copy_button_no_popup(
+      copy_label = i18n_r()$t("Copy"),
+      copied_label = i18n_r()$t("Copied!")
+    )
   )
+  # bom = TRUE prepends the UTF-8 BOM so Excel reads non-ASCII (°C, γ, ∞, ≤, —, ●, ⚠, Cyrillic, …) correctly
+  # instead of as CP1252 mojibake. Applies to the client-side CSV export used across every module.
+  csv_btn   <- list(extend = "csv",   filename = generate_filename_with_timestamp(base_filename), bom = TRUE)
+  excel_btn <- list(extend = "excel", filename = generate_filename_with_timestamp(base_filename))
+  # PDF: pdfmake's default font (Roboto) lacks symbols (γ ∞ ≤ — ● ⚠, Greek/Cyrillic) and renders them as
+  # boxes. Register the embedded Unicode font (window.__DEJAVU_VFS_B64__ from js/pdf_font.js) with pdfmake at
+  # export time and use it; silently falls back to the default font if the global is unavailable.
+  pdf_btn   <- list(extend = "pdf",   filename = generate_filename_with_timestamp(base_filename),
+    customize = DT::JS(paste0(
+      "function(doc){ try { if (window.pdfMake && window.__DEJAVU_VFS_B64__) {",
+      " pdfMake.vfs = pdfMake.vfs || {};",
+      " if (!pdfMake.vfs['DejaVuSans.ttf']) pdfMake.vfs['DejaVuSans.ttf'] = window.__DEJAVU_VFS_B64__;",
+      " pdfMake.fonts = pdfMake.fonts || {};",
+      " pdfMake.fonts.DejaVuSans = {normal:'DejaVuSans.ttf',bold:'DejaVuSans.ttf',italics:'DejaVuSans.ttf',bolditalics:'DejaVuSans.ttf'};",
+      " doc.defaultStyle = doc.defaultStyle || {}; doc.defaultStyle.font = 'DejaVuSans'; } } catch(e){} }")))
+  # Optional DataTables exportOptions (e.g. list(columns = ":visible") to drop hidden helper/flag columns).
+  if (!is.null(export_options)) {
+    copy_btn$exportOptions  <- export_options
+    csv_btn$exportOptions   <- export_options
+    excel_btn$exportOptions <- export_options
+    pdf_btn$exportOptions   <- export_options
+  }
+  list(copy_btn, csv_btn, excel_btn, pdf_btn)
+}
+
+# Hang-proof replacement for shinyFiles::getVolumes()() — builds the shinyFiles directory-picker roots
+# WITHOUT letting a slow drive stall app startup. Every stock enumeration method BLOCKS on this machine:
+# shinyFiles shells out to `wmic logicaldisk get VolumeName`, and probing letters via dir.exists() or asking
+# .NET's GetLogicalDrives() all stall for ~2-3 MINUTES on G:, which is a Google Drive (a cloud virtual drive
+# whose first touch wakes the sync engine). Several module servers build their roots EAGERLY at init
+# (volumes <- c(Home = ..., getVolumes()())), so that stall freezes server() before waiter_hide() runs and
+# the app is stuck forever on the loading splash.
+#
+# Strategy: (1) env-derived roots (pure string ops, zero filesystem access) are ALWAYS included — the system
+# drive, the home drive, and the drive the app runs from. (2) To also surface other LOCAL drives (e.g. D:)
+# without risking the hang, a short-lived CHILD process probes A..Z IN ORDER and appends each existing letter
+# as it finds it; the parent gives it a brief window, then kills it and harvests whatever it confirmed. Fast
+# local drives are recorded before the probe reaches a slow cloud/virtual drive and hangs, so they're
+# included and the slow one is simply skipped. The APP process never stats any drive. Cached per session.
+.supercrit_vol_cache <- new.env(parent = emptyenv())
+supercrit_get_volumes <- function() {
+  if (.Platform$OS.type != "windows") return(c(Computer = "/"))
+  if (!is.null(.supercrit_vol_cache$v)) return(.supercrit_vol_cache$v)
+
+  as_root <- function(p) {
+    p <- toupper(trimws(p))
+    if (grepl("^[A-Z]:", p)) paste0(substr(p, 1, 2), "/") else NA_character_
+  }
+  drives <- stats::na.omit(c(
+    as_root(Sys.getenv("SystemDrive")),   # usually C:
+    as_root(Sys.getenv("HOMEDRIVE")),     # user's home drive
+    as_root(getwd())                      # the drive the app is running from (e.g. the data/app drive)
+  ))
+
+  # Discover other local drive letters via a kill-after-timeout child probe (see note above). Any drive that
+  # hangs (e.g. a Google Drive mount) is never reached in time and is simply left out — no stall > the budget.
+  if (requireNamespace("callr", quietly = TRUE)) {
+    extra <- tryCatch({
+      tf <- tempfile(fileext = ".txt")
+      p <- callr::r_bg(function(f) {
+        for (L in LETTERS) if (dir.exists(paste0(L, ":/"))) cat(L, ":/\n", sep = "", file = f, append = TRUE)
+      }, args = list(f = tf))
+      p$wait(timeout = 2500)
+      if (p$is_alive()) p$kill()
+      if (file.exists(tf)) toupper(trimws(readLines(tf, warn = FALSE))) else character(0)
+    }, error = function(e) character(0))
+    drives <- c(drives, extra[nzchar(extra)])
+  }
+
+  drives <- sort(unique(drives))
+  if (length(drives) == 0) drives <- "C:/"
+  res <- stats::setNames(drives, sub("/$", "", drives))
+  .supercrit_vol_cache$v <- res
+  res
+}
+
+# Package-wide "Save Selected to Disk" for the solute / component lists. Wires a Save button
+# (opts$trigger) to a directory-picker modal (text field + shinyFiles browse) and writes ONE JSON file
+# per selected item, so the saved files round-trip through each module's existing multi-file "Load from
+# Disk". `opts$collect()` returns a list of list(name = <base filename>, data = <list written as JSON>)
+# for the CURRENT selection (NULL / empty list when nothing is selected). Call once per module server,
+# alongside the "Remove Selected from Session" button. IDs in `opts` are un-namespaced (the module's
+# `session$ns` namespaces them), so the same ids can be reused across modules without collision.
+setup_save_selected_to_disk <- function(input, session, i18n_r, opts) {
+  ns <- session$ns
+  volumes <- c(Home = Sys.getenv("HOME"), supercrit_get_volumes())
+  shinyFiles::shinyDirChoose(input, opts$browse, roots = volumes, session = session)
+  observeEvent(input[[opts$browse]], {
+    req(input[[opts$browse]])
+    dp <- shinyFiles::parseDirPath(volumes, input[[opts$browse]])
+    if (length(dp) > 0 && nzchar(dp)) updateTextInput(session, opts$dir_input, value = dp)
+  })
+  observeEvent(input[[opts$trigger]], {
+    items <- opts$collect()
+    if (is.null(items) || length(items) == 0) {
+      showNotification(i18n_r()$t("Select one or more items in the list to save."), type = "warning"); return()
+    }
+    showModal(modalDialog(
+      title = i18n_r()$t("Save Selected to Disk"), size = "m",
+      div(class = "alert alert-info", icon("info-circle"), " ",
+        sprintf(i18n_r()$t("Saving %d selected item(s) — one JSON file each."), length(items))),
+      div(style = "display:flex; gap:10px; align-items:flex-end;",
+        div(style = "flex-grow:1;", textInput(ns(opts$dir_input), i18n_r()$t("Save Directory"),
+          value = opts$default_dir(), width = "100%")),
+        div(style = "margin-bottom:15px;", shinyFiles::shinyDirButton(ns(opts$browse),
+          label = i18n_r()$t("Browse..."), title = i18n_r()$t("Select Save Directory"), class = "btn-default"))),
+      tags$small(class = "text-muted", i18n_r()$t("Leave empty to use the default package directory.")),
+      footer = tagList(modalButton(i18n_r()$t("Cancel")),
+        actionButton(ns(opts$confirm), i18n_r()$t("Save"), class = "btn btn-success", style = "color:white;"))))
+  })
+  observeEvent(input[[opts$confirm]], {
+    removeModal()
+    items <- opts$collect(); req(length(items) > 0)
+    dir <- input[[opts$dir_input]]; if (is.null(dir) || !nzchar(trimws(dir %||% ""))) dir <- opts$default_dir()
+    if (!dir.exists(dir)) dir.create(dir, recursive = TRUE, showWarnings = FALSE)
+    stamp <- format(Sys.time(), "%d-%m-%Y_%Hhrs-%Mmin-%Ssec")
+    okv <- vapply(seq_along(items), function(k) {
+      it <- items[[k]]
+      base <- gsub("[^a-zA-Z0-9_.-]", "_", it$name %||% "untitled"); if (!nzchar(base)) base <- "untitled"
+      fn <- if (length(items) > 1) sprintf("%s_%s_%02d.json", base, stamp, k) else sprintf("%s_%s.json", base, stamp)
+      isTRUE(tryCatch({ jsonlite::write_json(it$data, file.path(dir, fn), auto_unbox = TRUE, pretty = TRUE); TRUE },
+        error = function(e) FALSE))
+    }, logical(1))
+    ok <- sum(okv); err <- sum(!okv)
+    if (ok > 0) showNotification(sprintf(i18n_r()$t("Saved %d file(s) to: %s"), ok, dir), type = "message", duration = 5)
+    if (err > 0) showNotification(sprintf(i18n_r()$t("%d file(s) could not be saved."), err), type = "error")
+  })
 }
 
 # Helper: set outputOptions for multiple outputs at once
@@ -743,12 +964,12 @@ create_load_example_btn <- function(ns, i18n_r) {
 # @param link_id The input ID for the action link (without namespace)
 #
 # @return An actionLink element
-create_estimate_link <- function(ns, i18n_r, link_id) {
+create_estimate_link <- function(ns, i18n_r, link_id, title = NULL) {
   actionLink(
     ns(link_id), NULL,
     icon = icon("magic-wand-sparkles"),
     style = "color: #9b59b6; font-size: 13px; margin-left: auto;",
-    title = i18n_r()$t("Estimate from data")
+    title = if (is.null(title)) i18n_r()$t("Estimate from data") else title
   )
 }
 

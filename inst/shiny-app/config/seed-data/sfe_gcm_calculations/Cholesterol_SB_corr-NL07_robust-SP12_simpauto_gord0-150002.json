@@ -1,0 +1,18 @@
+{
+  "display_name": "Cholesterol | SB_corr-NL07_robust-SP12 | 15:00",
+  "parameters": {
+    "cas_input": "57-88-5",
+    "name_input": "Cholesterol",
+    "smiles_input": "CC(C)CCCC(C)C1CCC2C1(CCC3C2CC=C4C3(CCC(C4)O)C)C",
+    "specify_smiles": false,
+    "gcm_tb": "SB_corr",
+    "gcm_crit": "NL07_robust",
+    "gcm_hsp": "SP12",
+    "gcm_simplicity": "auto",
+    "gcm_gorder": 0
+  },
+  "metadata": {
+    "created_date": "2025-12-19 15:00:02",
+    "app_version": "0.9.0"
+  }
+}

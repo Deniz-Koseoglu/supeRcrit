@@ -22,6 +22,7 @@ Imports:
     gridExtra (>= 2.3),
     webchem (>= 1.3.0),
     rcdk (>= 3.8.1),
+    xgboost (>= 1.7),
     data.table (>= 1.14.8),
     ggpmisc (>= 0.5.4.1),
     ggplot2 (>= 3.5.1),
@@ -41,13 +42,32 @@ Imports:
     tibble (>= 3.2.1),
     tidyr (>= 1.3.1),
     magrittr (>= 2.0.3),
-    shinyFiles (>= 0.9.3)
-Suggests: 
+    shinyFiles (>= 0.9.3),
+    callr (>= 3.7.0),
+    Rcpp (>= 1.0.0)
+LinkingTo:
+    Rcpp,
+    RcppEigen
+Suggests:
     kableExtra,
     knitr,
+    png,
     R.rsp,
     rmarkdown,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    shiny,
+    DT,
+    plotly,
+    rhandsontable,
+    shinyjs,
+    shinyhelper,
+    shinytest2,
+    shinyWidgets,
+    shinydashboard,
+    R6,
+    chromote,
+    jsonlite,
+    withr
 Remotes:
     CDK-R/depict
 Encoding: UTF-8

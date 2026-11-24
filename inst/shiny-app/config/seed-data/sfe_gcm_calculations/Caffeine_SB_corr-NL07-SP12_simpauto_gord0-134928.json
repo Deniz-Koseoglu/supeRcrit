@@ -3,7 +3,7 @@
   "parameters": {
     "cas_input": "58-08-2",
     "name_input": "Caffeine",
-    "smiles_input": "",
+    "smiles_input": "Cn1cnc2c1c(=O)n(C)c(=O)n2C",
     "specify_smiles": false,
     "gcm_tb": "SB_corr",
     "gcm_crit": "NL07",

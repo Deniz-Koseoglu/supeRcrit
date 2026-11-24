@@ -4,7 +4,7 @@
 \alias{compare_gcm}
 \title{Compare estimated parameters from various GCM methods}
 \usage{
-compare_gcm(solute, gorder = 0, simplicity = "auto")
+compare_gcm(solute, gorder = 0, simplicity = "auto", methods = NULL)
 }
 \arguments{
 \item{solute}{A (optionally named) \code{character} vector of solute information as provided to \code{\link{mol_find}}.}
@@ -13,13 +13,17 @@ compare_gcm(solute, gorder = 0, simplicity = "auto")
 Defaults to \code{0}, which considers all group orders. Must either be of \strong{length 1} or a \strong{named vector}
 with names corresponding to available GCM methods (see \code{\link{est_gcm}} for a full list).}
 
-\item{simplicity}{A \code{character} string indicating whether overlapping sub-structures should be allowed (\code{"auto"} by default).
-See \code{\link{sub_smarts}}.}
+\item{simplicity}{A \code{character} string indicating whether overlapping sub-structures should be allowed (\code{"auto"} by default).}
+
+\item{methods}{An optional \code{character} vector of method codes to restrict the comparison to (e.g.
+\code{c("JR", "NL07", "HKR_STW")}). \code{NULL} (the default) compares all available methods. Method codes
+must match the \code{method} column of the returned table (see \code{\link{est_gcm}} for the full list).}
 }
 \value{
 A \code{data.frame} containing the type of estimated \code{parameter}, the \code{method} used,
 the level of \code{simplicity} of matching GCM SMARTS substructures, and various estimated parameters including
-boiling points (\code{"Tb"}, \code{"Tb_corr"}), critical temperature (\code{"Tc"}), pressure (\code{"Pc"}),
+the boiling point (\code{"Tb"}; for the corrected methods \code{JR_corr}/\code{SB_corr} this column already
+holds the corrected value), critical temperature (\code{"Tc"}), pressure (\code{"Pc"}),
 and volume (\code{"Vc"}), as well as dispersion (\code{"dD"}), polarity (\code{"dP"}, \code{"dP_low"}),
 and hydrogen bonding (\code{"dHB"}, \code{"dHB_low"}) components of HSPs.
 }
@@ -38,5 +42,5 @@ res <- compare_gcm(mol2)
 
 }
 \seealso{
-\code{\link{mol_find}}, \code{\link{sfe_mod}}, \code{\link{sub_smarts}}
+\code{\link{mol_find}}, \code{\link{sfe_mod}}
 }

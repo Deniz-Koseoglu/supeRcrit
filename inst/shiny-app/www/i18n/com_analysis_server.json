@@ -220,9 +220,11 @@
       "ru": "График времени окупаемости",
       "tr": "Geri dönüş süresi grafiği"
     },
-
-    { "en": "Time (min)", "ru": "Время (мин)", "tr": "Zaman (dak)" },
-
+    {
+      "en": "Time (min)",
+      "ru": "Время (мин)",
+      "tr": "Zaman (dk)"
+    },
     {
       "en": "Payback time (yr)",
       "ru": "Время окупаемости (год)",

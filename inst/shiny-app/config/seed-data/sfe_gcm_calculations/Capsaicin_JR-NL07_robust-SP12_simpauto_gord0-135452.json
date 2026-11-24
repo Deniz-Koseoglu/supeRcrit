@@ -3,7 +3,7 @@
   "parameters": {
     "cas_input": "404-86-4",
     "name_input": "Capsaicin",
-    "smiles_input": "",
+    "smiles_input": "COc1cc(CNC(=O)CCCC/C=C/C(C)C)ccc1O",
     "specify_smiles": false,
     "gcm_tb": "JR",
     "gcm_crit": "NL07_robust",

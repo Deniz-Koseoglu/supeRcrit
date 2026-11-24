@@ -7,6 +7,14 @@
 #   Sys.setenv(CHROMOTE_CHROME_DEBUG_PORT = "9515")
 #   devtools::test(filter = "shinytest2")
 
+# Skip the entire file unless the e2e opt-in is set AND shinytest2 is installed. This runs
+# during file sourcing, so `R CMD check` passes cleanly on machines without the (heavy)
+# browser-test stack instead of erroring on the library() call below.
+if (!isTRUE(as.logical(Sys.getenv("SUPERCRIT_E2E", "false"))) ||
+    !requireNamespace("shinytest2", quietly = TRUE)) {
+  testthat::skip("shinytest2 browser e2e tests are opt-in; set SUPERCRIT_E2E=true with shinytest2 installed")
+}
+
 library(shinytest2)
 
 # Custom browser class to connect to existing Chrome instance (Windows workaround)
@@ -73,6 +81,16 @@ setup_existing_chrome <- function(port = 9515L) {
 skip_if_no_chrome <- function() {
   skip_if_not_installed("chromote")
 
+  # OPT-IN GUARD. These e2e tests launch a real (headless) Chrome via chromote and
+  # are slow + memory-heavy. chromote only kills its Chrome on a CLEAN R exit, so a
+  # run that is killed/crashes mid-test (timeout, OOM, hard stop) ORPHANS the browser.
+  # Running the full suite on every change therefore leaked hundreds of headless
+  # Chrome processes. They are now skipped by default; run them deliberately with:
+  #   Sys.setenv(SUPERCRIT_E2E = "true"); devtools::test(filter = "shinytest2")
+  if (!isTRUE(as.logical(Sys.getenv("SUPERCRIT_E2E", "false")))) {
+    skip("shinytest2 browser e2e tests are opt-in; set SUPERCRIT_E2E=true to run them")
+  }
+
   # First check for existing Chrome debug instance (Windows workaround)
   debug_port <- as.integer(Sys.getenv("CHROMOTE_CHROME_DEBUG_PORT", "0"))
   if (debug_port > 0 && check_existing_chrome(debug_port)) {
@@ -113,6 +131,22 @@ get_app_dir <- function() {
   }
   app_dir
 }
+
+# Guaranteed cleanup: when this test file finishes, close the shared chromote
+# browser so a headless Chrome started by AppDriver (or by the availability check
+# above) is never left running. This protects clean opt-in runs; a HARD-killed R
+# process can still orphan Chrome (nothing in R runs then) - which is exactly why
+# the opt-in guard above keeps routine suite runs from launching a browser at all.
+withr::defer(
+  tryCatch({
+    if (isTRUE(tryCatch(chromote::has_default_chromote_object(),
+                        error = function(e) FALSE))) {
+      tryCatch(chromote::default_chromote_object()$close(),
+               error = function(e) NULL)
+    }
+  }, error = function(e) NULL),
+  teardown_env()
+)
 
 # ============================================================================
 # KINETIC TWS MODULE TESTS

@@ -1,6 +1,596 @@
 {
   "translation": [
     {
+      "en": "Fusion Enthalpy",
+      "ru": "Энтальпия плавления",
+      "tr": "Erime entalpisi"
+    },
+    {
+      "en": "Chickos-Acree GCM",
+      "ru": "ГВ Chickos-Acree",
+      "tr": "Chickos-Acree GKY"
+    },
+    {
+      "en": "Fusion Enthalpy Method",
+      "ru": "Метод энтальпии плавления",
+      "tr": "Erime entalpisi yöntemi"
+    },
+    {
+      "en": "Source of the solute enthalpy of fusion. \"Chickos-Acree GCM\" estimates it from structure as ΔHfus = Tfus·ΔS_tpce (total-phase-change-entropy group contributions), and also returns ΔS_tpce and the liquid/solid heat capacities. It REQUIRES a melting point, so this field is disabled until a Melting Point Method other than None is chosen. Choose Manual Input to enter a known value.",
+      "ru": "Источник энтальпии плавления вещества. «ГВ Chickos-Acree» оценивает её по структуре как ΔHfus = Tfus·ΔS_tpce (групповые вклады полной энтропии фазовых переходов) и также возвращает ΔS_tpce и теплоёмкости жидкости/твёрдого тела. Требуется температура плавления, поэтому это поле отключено, пока не выбран метод температуры плавления, отличный от «Нет». Выберите ручной ввод, чтобы задать известное значение.",
+      "tr": "Çözünenin erime entalpisinin kaynağı. \"Chickos-Acree GKY\" bunu yapıdan ΔHfus = Tfus·ΔS_tpce (toplam faz değişim entropisi grup katkıları) olarak tahmin eder ve ayrıca ΔS_tpce ile sıvı/katı ısı kapasitelerini döndürür. Bir erime noktası GEREKTİRİR, bu nedenle None dışında bir Erime Noktası Yöntemi seçilene kadar bu alan devre dışıdır. Bilinen bir değer girmek için Elle Giriş'i seçin."
+    },
+    {
+      "en": "ΔHfus (kJ/mol):",
+      "ru": "ΔHfus (кДж/моль):",
+      "tr": "ΔHfus (kJ/mol):"
+    },
+    {
+      "en": "Enthalpy of fusion of the solute in kJ/mol. Provide this when the Fusion Enthalpy Method is set to Manual Input.",
+      "ru": "Энтальпия плавления вещества в кДж/моль. Укажите её, когда метод энтальпии плавления установлен на ручной ввод.",
+      "tr": "Çözünenin kJ/mol cinsinden erime entalpisi. Erime Entalpisi Yöntemi Elle Giriş olarak ayarlandığında bunu girin."
+    },
+    {
+      "en": "Total Phase Change Entropy",
+      "ru": "Полная энтропия фазовых переходов",
+      "tr": "Toplam faz değişim entropisi"
+    },
+    {
+      "en": "Liquid Heat Capacity",
+      "ru": "Теплоёмкость жидкости",
+      "tr": "Sıvı ısı kapasitesi"
+    },
+    {
+      "en": "Solid Heat Capacity",
+      "ru": "Теплоёмкость твёрдого тела",
+      "tr": "Katı ısı kapasitesi"
+    },
+    {
+      "en": "Some atoms could not be assigned to a group – treat as a rough estimate",
+      "ru": "Некоторые атомы не удалось отнести к группе — считайте оценку грубой",
+      "tr": "Bazı atomlar bir gruba atanamadı – kaba bir tahmin olarak değerlendirin"
+    },
+    {
+      "en": "Group-contribution estimate (Chickos-Acree)",
+      "ru": "Оценка по групповым вкладам (Chickos-Acree)",
+      "tr": "Grup katkısı tahmini (Chickos-Acree)"
+    },
+    {
+      "en": "GCM estimate",
+      "ru": "Оценка ГВ",
+      "tr": "GKY tahmini"
+    },
+    {
+      "en": "GCM (approx.)",
+      "ru": "ГВ (прибл.)",
+      "tr": "GKY (yaklaşık)"
+    },
+    {
+      "en": "Chickos GCM (Chen + Cp)",
+      "ru": "ГВ Chickos (Chen + Cp)",
+      "tr": "Chickos GKY (Chen + Cp)"
+    },
+    {
+      "en": "Chen correlation + Chickos-Acree heat-capacity adjustment",
+      "ru": "Корреляция Chen + поправка на теплоёмкость Chickos-Acree",
+      "tr": "Chen korelasyonu + Chickos-Acree ısı kapasitesi düzeltmesi"
+    },
+    {
+      "en": "High structural risk (implausibly low fusion entropy, ring carbonyls, or unusual atoms) – treat as a rough estimate (~60% typical error)",
+      "ru": "Высокий структурный риск (неправдоподобно низкая энтропия плавления, кольцевые карбонилы или необычные атомы) — считайте оценку грубой (~60% типичная погрешность)",
+      "tr": "Yüksek yapısal risk (mantıksız derecede düşük erime entropisi, halka karbonilleri veya olağandışı atomlar) – kaba bir tahmin olarak değerlendirin (~%60 tipik hata)"
+    },
+    {
+      "en": "Group-contribution estimate (Chickos-Acree), moderate reliability (~29% typical error)",
+      "ru": "Оценка по групповым вкладам (Chickos-Acree), умеренная надёжность (~29% типичная погрешность)",
+      "tr": "Grup katkısı tahmini (Chickos-Acree), orta güvenilirlik (~%29 tipik hata)"
+    },
+    {
+      "en": "Group-contribution estimate (Chickos-Acree), good reliability (~15% typical error)",
+      "ru": "Оценка по групповым вкладам (Chickos-Acree), хорошая надёжность (~15% типичная погрешность)",
+      "tr": "Grup katkısı tahmini (Chickos-Acree), iyi güvenilirlik (~%15 tipik hata)"
+    },
+    {
+      "en": "Training samples",
+      "ru": "Обучающие образцы",
+      "tr": "Eğitim örnekleri"
+    },
+    {
+      "en": "Validation samples",
+      "ru": "Проверочные образцы",
+      "tr": "Doğrulama örnekleri"
+    },
+    {
+      "en": "Delete Selected",
+      "ru": "Удалить выбранное",
+      "tr": "Seçileni Sil"
+    },
+    {
+      "en": "Edit Selected",
+      "ru": "Изменить выбранное",
+      "tr": "Seçileni Düzenle"
+    },
+    {
+      "en": "Add or edit a compound in the database",
+      "ru": "Добавить или изменить соединение в базе данных",
+      "tr": "Veritabanında bir bileşik ekle veya düzenle"
+    },
+    {
+      "en": "Select a compound in the table first.",
+      "ru": "Сначала выберите соединение в таблице.",
+      "tr": "Önce tablodan bir bileşik seçin."
+    },
+    {
+      "en": "Editing this compound — change the values below and click Save to Database to update it.",
+      "ru": "Редактирование соединения — измените значения ниже и нажмите «Сохранить в базу данных», чтобы обновить.",
+      "tr": "Bu bileşik düzenleniyor — aşağıdaki değerleri değiştirin ve güncellemek için Veritabanına Kaydet'e tıklayın."
+    },
+    {
+      "en": "Only compounds you added can be deleted — the core database is read-only.",
+      "ru": "Удалять можно только добавленные вами соединения — основная база данных доступна только для чтения.",
+      "tr": "Yalnızca eklediğiniz bileşikler silinebilir — çekirdek veritabanı salt okunurdur."
+    },
+    {
+      "en": "Removed '%s' from your database.",
+      "ru": "«%s» удалено из вашей базы данных.",
+      "tr": "'%s' veritabanınızdan kaldırıldı."
+    },
+    {
+      "en": "Select a row to Load, Edit, or Delete it. Editing loads the compound into the form below (change values, then Save to update). Only compounds you added can be edited or deleted — the core database is read-only.",
+      "ru": "Выберите строку, чтобы загрузить, изменить или удалить её. Редактирование загружает соединение в форму ниже (измените значения, затем сохраните для обновления). Изменять или удалять можно только добавленные вами соединения — основная база данных доступна только для чтения.",
+      "tr": "Yüklemek, düzenlemek veya silmek için bir satır seçin. Düzenleme, bileşiği aşağıdaki forma yükler (değerleri değiştirin, ardından güncellemek için kaydedin). Yalnızca eklediğiniz bileşikler düzenlenebilir veya silinebilir — çekirdek veritabanı salt okunurdur."
+    },
+    {
+      "en": "SMILES is required (it is used to match the compound later). Leave unknown values blank; the entry is saved to your personal data and persists across sessions. Saving a compound whose SMILES already exists overwrites that entry.",
+      "ru": "SMILES обязателен (используется для сопоставления соединения позже). Оставьте неизвестные значения пустыми; запись сохраняется в ваших личных данных и сохраняется между сессиями. Сохранение соединения с уже существующим SMILES перезаписывает эту запись.",
+      "tr": "SMILES gereklidir (bileşiği daha sonra eşleştirmek için kullanılır). Bilinmeyen değerleri boş bırakın; giriş kişisel verilerinize kaydedilir ve oturumlar arasında korunur. SMILES'i zaten var olan bir bileşiği kaydetmek o girişi üzerine yazar."
+    },
+    {
+      "en": "SUBLIMES",
+      "ru": "ВОЗГОНЯЕТСЯ",
+      "tr": "SÜBLİMLEŞİR"
+    },
+    {
+      "en": "Boiling point is below the melting point, so this compound sublimes at atmospheric pressure — the tabulated boiling point is a sublimation temperature.",
+      "ru": "Точка кипения ниже точки плавления, поэтому это соединение возгоняется при атмосферном давлении — табличная точка кипения является температурой сублимации.",
+      "tr": "Kaynama noktası erime noktasının altında, bu nedenle bu bileşik atmosfer basıncında süblimleşir — tablodaki kaynama noktası bir süblimleşme sıcaklığıdır."
+    },
+    {
+      "en": "Sublimes: the boiling point lies below the melting point (sublimation temperature at 1 atm).",
+      "ru": "Возгоняется: точка кипения ниже точки плавления (температура сублимации при 1 атм).",
+      "tr": "Süblimleşir: kaynama noktası erime noktasının altındadır (1 atm'de süblimleşme sıcaklığı)."
+    },
+    {
+      "en": "scCO₂ Solubility Method",
+      "ru": "Метод растворимости в скCO2",
+      "tr": "skCO2 Çözünürlük Yöntemi"
+    },
+    {
+      "en": "Predicted equilibrium solubility of the solute in supercritical CO2 (mole fraction; also shown as g/L). \"Makarov dataset (ML)\" uses the native-R machine-learning model and requires the solute SMILES. It is evaluated at the temperature and pressure set under Additional Parameters.",
+      "ru": "Прогнозируемая равновесная растворимость растворённого вещества в сверхкритическом CO2 (мольная доля; также показана в г/л). «Набор данных Макарова (МО)» использует модель машинного обучения на R и требует SMILES вещества. Рассчитывается при температуре и давлении, заданных в разделе «Дополнительные параметры».",
+      "tr": "Çözünenin süperkritik CO2 içindeki tahmini denge çözünürlüğü (mol kesri; ayrıca g/L olarak gösterilir). \"Makarov veri seti (ML)\" yerel-R makine öğrenmesi modelini kullanır ve çözünenin SMILES değerini gerektirir. Ek Parametreler altında ayarlanan sıcaklık ve basınçta hesaplanır."
+    },
+    {
+      "en": "Additional Parameters",
+      "ru": "Дополнительные параметры",
+      "tr": "Ek Parametreler"
+    },
+    {
+      "en": "Reference temperature and pressure at which the displayed scCO₂ (Chrastil) solubility is evaluated, when experimental Chrastil coefficients are provided.",
+      "ru": "Эталонные температура и давление, при которых рассчитывается отображаемая растворимость в скCO2 (по Chrastil), когда предоставлены экспериментальные коэффициенты Chrastil.",
+      "tr": "Deneysel Chrastil katsayıları sağlandığında, görüntülenen skCO2 (Chrastil) çözünürlüğünün hesaplandığı referans sıcaklık ve basınç."
+    },
+    {
+      "en": "Solubility",
+      "ru": "Растворимость",
+      "tr": "Çözünürlük"
+    },
+    {
+      "en": "Chrastil Solubility",
+      "ru": "Растворимость по Chrastil",
+      "tr": "Chrastil Çözünürlüğü"
+    },
+    {
+      "en": "Predicted Parameters",
+      "ru": "Прогнозируемые параметры",
+      "tr": "Tahmin Edilen Parametreler"
+    },
+    {
+      "en": "Validation mode",
+      "ru": "Режим валидации",
+      "tr": "Doğrulama modu"
+    },
+    {
+      "en": "Group Contribution",
+      "ru": "Групповой вклад",
+      "tr": "Grup Katkısı"
+    },
+    {
+      "en": "Machine Learning",
+      "ru": "Машинное обучение",
+      "tr": "Makine Öğrenmesi"
+    },
+    {
+      "en": "ML validation data unavailable",
+      "ru": "Данные валидации МО недоступны",
+      "tr": "ML doğrulama verisi mevcut değil"
+    },
+    {
+      "en": "The bundled machine-learning validation dataset could not be loaded.",
+      "ru": "Не удалось загрузить встроенный набор данных валидации машинного обучения.",
+      "tr": "Pakete dahil makine öğrenmesi doğrulama veri kümesi yüklenemedi."
+    },
+    {
+      "en": "Held-out predicted vs. experimental values for each machine-learning predictor (points the model never saw during training). Select a model:",
+      "ru": "Прогноз против эксперимента на отложенной выборке для каждого ML-предиктора (точки, которые модель не видела при обучении). Выберите модель:",
+      "tr": "Her makine öğrenmesi tahmincisi için ayrılmış küme tahmin-deney değerleri (modelin eğitim sırasında hiç görmediği noktalar). Bir model seçin:"
+    },
+    {
+      "en": "Solubility: leave-solute-out (every test solute is entirely unseen). Melting point & heat of vaporization: 10% random hold-out. These are honest generalization estimates, not training-set fits.",
+      "ru": "Растворимость: с исключением вещества (каждое тестовое вещество полностью невидимо). Температура плавления и теплота испарения: 10% случайная отложенная выборка. Это честные оценки обобщения, а не подгонка на обучающей выборке.",
+      "tr": "Çözünürlük: çözünen-dışında-bırakma (her test çözüneni tamamen görülmemiş). Erime noktası ve buharlaşma ısısı: %10 rastgele ayrılmış küme. Bunlar eğitim kümesi uyumları değil, dürüst genelleme tahminleridir."
+    },
+    {
+      "en": "Validation strategy: these are fixed, pre-published group-contribution methods evaluated against external experimental benchmarks — not trained models, so there is no train/test split. \"Valid\" points show in-domain accuracy on the benchmark set; generalization follows from each method's published design. (Trained machine-learning predictors are validated separately, on held-out data, under the Machine Learning tab.)",
+      "ru": "Стратегия валидации: это фиксированные, ранее опубликованные методы групповых вкладов, оцениваемые по внешним экспериментальным эталонам — не обучаемые модели, поэтому разделения на обучающую/тестовую выборки нет. Точки «Valid» показывают точность в пределах области применимости на эталонном наборе; обобщение следует из опубликованной конструкции каждого метода. (Обучаемые ML-предсказатели проверяются отдельно, на отложенных данных, во вкладке «Машинное обучение».)",
+      "tr": "Doğrulama stratejisi: bunlar sabit, önceden yayımlanmış grup katkı yöntemleridir ve dış deneysel referanslara karşı değerlendirilir — eğitilmiş modeller değildir, bu nedenle eğitim/test ayrımı yoktur. \"Valid\" noktaları referans kümesinde alan-içi doğruluğu gösterir; genelleme her yöntemin yayımlanmış tasarımından gelir. (Eğitilmiş makine öğrenmesi tahmincileri ayrıca, ayrılmış veriler üzerinde, Makine Öğrenmesi sekmesinde doğrulanır.)"
+    },
+    {
+      "en": "All ML models (summary)",
+      "ru": "Все модели МО (сводка)",
+      "tr": "Tüm ML modelleri (özet)"
+    },
+    {
+      "en": "scCO₂ Solubility (ML)",
+      "ru": "Растворимость в скCO₂ (МО)",
+      "tr": "skCO₂ Çözünürlüğü (ML)"
+    },
+    {
+      "en": "leave-solute-out",
+      "ru": "с исключением вещества",
+      "tr": "çözünen-dışında-bırakma"
+    },
+    {
+      "en": "10% hold-out",
+      "ru": "10% отложенная выборка",
+      "tr": "%10 ayrılmış küme"
+    },
+    {
+      "en": "held-out",
+      "ru": "отложенные",
+      "tr": "ayrılmış"
+    },
+    {
+      "en": "Best fit (held-out):",
+      "ru": "Линия регрессии (отложенные):",
+      "tr": "En iyi uyum (ayrılmış):"
+    },
+    {
+      "en": "Chrastil scCO₂ solubility",
+      "ru": "Растворимость в скCO₂ по Chrastil",
+      "tr": "Chrastil skCO₂ çözünürlüğü"
+    },
+    {
+      "en": "Solute Characterization (Estimators)",
+      "ru": "Характеризация растворённого вещества (методы оценки)",
+      "tr": "Çözünen Karakterizasyonu (Tahminciler)"
+    },
+    {
+      "en": "scCO₂ solubility (ML)",
+      "ru": "Растворимость в скCO₂ (МО)",
+      "tr": "skCO₂ çözünürlüğü (ML)"
+    },
+    {
+      "en": "scCO₂ solubility (Chrastil)",
+      "ru": "Растворимость в скCO₂ (Chrastil)",
+      "tr": "skCO₂ çözünürlüğü (Chrastil)"
+    },
+    {
+      "en": "User-provided or database value",
+      "ru": "Значение, заданное пользователем или из базы данных",
+      "tr": "Kullanıcı tarafından sağlanan veya veritabanı değeri"
+    },
+    {
+      "en": "Machine-learning prediction",
+      "ru": "Прогноз машинного обучения",
+      "tr": "Makine öğrenmesi tahmini"
+    },
+    {
+      "en": "user value",
+      "ru": "значение пользователя",
+      "tr": "kullanıcı değeri"
+    },
+    {
+      "en": "ML estimate",
+      "ru": "оценка МО",
+      "tr": "ML tahmini"
+    },
+    {
+      "en": "Value from the experimental database",
+      "ru": "Значение из экспериментальной базы данных",
+      "tr": "Deneysel veritabanından değer"
+    },
+    {
+      "en": "Group Contribution Visualization",
+      "ru": "Визуализация групповых вкладов",
+      "tr": "Grup Katkısı Görselleştirmesi"
+    },
+    {
+      "en": "Select Plot",
+      "ru": "Выберите график",
+      "tr": "Grafik Seçin"
+    },
+    {
+      "en": "Solubility in CO₂",
+      "ru": "Растворимость в CO₂",
+      "tr": "CO₂ içinde Çözünürlük"
+    },
+    {
+      "en": "Predicted scCO₂ solubility (Makarov ML) at %g °C, %g bar.",
+      "ru": "Прогнозируемая растворимость в скCO₂ (Makarov, МО) при %g °C, %g бар.",
+      "tr": "%g °C, %g bar'da tahmini skCO₂ çözünürlüğü (Makarov ML)."
+    },
+    {
+      "en": "Estimator Comparison",
+      "ru": "Сравнение методов оценки",
+      "tr": "Tahminci Karşılaştırması"
+    },
+    {
+      "en": "Estimator Comparison for",
+      "ru": "Сравнение методов оценки для",
+      "tr": "Şunun için Tahminci Karşılaştırması"
+    },
+    {
+      "en": "Predicted vs. experimental parity for each estimation method, with all experimental test sets merged by property. Select a plot:",
+      "ru": "Соответствие прогноза и эксперимента для каждого метода оценки, со всеми экспериментальными наборами, объединёнными по свойству. Выберите график:",
+      "tr": "Her tahmin yöntemi için tahmin-deney uyumu; tüm deneysel test kümeleri özelliğe göre birleştirilmiştir. Bir grafik seçin:"
+    },
+    {
+      "en": "Methods to Compare",
+      "ru": "Методы для сравнения",
+      "tr": "Karşılaştırılacak Yöntemler"
+    },
+    {
+      "en": "Select which estimation methods to include in the comparison table. By default all methods are compared; deselecting some makes the table less crowded.",
+      "ru": "Выберите, какие методы оценки включить в таблицу сравнения. По умолчанию сравниваются все методы; отмена выбора некоторых делает таблицу менее загромождённой.",
+      "tr": "Karşılaştırma tablosuna hangi tahmin yöntemlerinin dahil edileceğini seçin. Varsayılan olarak tüm yöntemler karşılaştırılır; bazılarının seçimini kaldırmak tabloyu daha az kalabalık yapar."
+    },
+    {
+      "en": "{0} methods",
+      "ru": "{0} методов",
+      "tr": "{0} yöntem"
+    },
+    {
+      "en": "Machine-Learning Model Validation",
+      "ru": "Валидация моделей машинного обучения",
+      "tr": "Makine Öğrenmesi Modeli Doğrulaması"
+    },
+    {
+      "en": "Cross-validated / held-out performance of the bundled machine-learning predictors. R² is comparable across models; the table reports RMSE and MAE in each model's native unit.",
+      "ru": "Перекрёстно-проверенная / на отложенной выборке производительность встроенных моделей машинного обучения. R² сопоставим между моделями; в таблице приведены RMSE и MAE в собственных единицах каждой модели.",
+      "tr": "Pakete dahil makine öğrenmesi tahmincilerinin çapraz doğrulanmış / ayrılmış küme performansı. R² modeller arasında karşılaştırılabilir; tablo RMSE ve MAE değerlerini her modelin kendi biriminde verir."
+    },
+    {
+      "en": "The scCO₂ solubility model uses pooled leave-solute-out cross-validation (the strictest test: every solute is held out entirely). Melting-point and heat-of-vaporization models report held-out test performance.",
+      "ru": "Модель растворимости в скCO₂ использует объединённую перекрёстную проверку с исключением вещества (самый строгий тест: каждое вещество полностью исключается). Модели температуры плавления и теплоты испарения приводят результаты на отложенной тестовой выборке.",
+      "tr": "skCO₂ çözünürlük modeli, havuzlanmış çözünen-dışında-bırakma çapraz doğrulaması kullanır (en katı test: her çözünen tamamen dışarıda bırakılır). Erime noktası ve buharlaşma ısısı modelleri ayrılmış test performansını bildirir."
+    },
+    {
+      "en": "Cross-validated R²",
+      "ru": "Перекрёстно-проверенный R²",
+      "tr": "Çapraz doğrulanmış R²"
+    },
+    {
+      "en": "scCO₂ Solubility (pure)",
+      "ru": "Растворимость в скCO₂ (чистый)",
+      "tr": "skCO₂ Çözünürlüğü (saf)"
+    },
+    {
+      "en": "scCO₂ Solubility (+ co-solvent)",
+      "ru": "Растворимость в скCO₂ (+ сорастворитель)",
+      "tr": "skCO₂ Çözünürlüğü (+ yardımcı çözücü)"
+    },
+    {
+      "en": "Heat of Vaporization",
+      "ru": "Теплота испарения",
+      "tr": "Buharlaşma Isısı"
+    },
+    {
+      "en": "leave-solute-out CV",
+      "ru": "ПП с исключением вещества",
+      "tr": "çözünen-dışı ÇD"
+    },
+    {
+      "en": "held-out test",
+      "ru": "отложенная выборка",
+      "tr": "ayrılmış test"
+    },
+    {
+      "en": "Validation",
+      "ru": "Валидация",
+      "tr": "Doğrulama"
+    },
+    {
+      "en": "Samples",
+      "ru": "Образцы",
+      "tr": "Örnekler"
+    },
+    {
+      "en": "Training Data",
+      "ru": "Обучающие данные",
+      "tr": "Eğitim Verileri"
+    },
+    {
+      "en": "Click to switch units",
+      "ru": "Нажмите, чтобы переключить единицы",
+      "tr": "Birimleri değiştirmek için tıklayın"
+    },
+    {
+      "en": "Solubility prediction failed:",
+      "ru": "Не удалось спрогнозировать растворимость:",
+      "tr": "Çözünürlük tahmini başarısız oldu:"
+    },
+    {
+      "en": "mol/mol coefficients; solubility at %g °C, %g bar; AARD ~%d%%",
+      "ru": "коэффициенты моль/моль; растворимость при %g °C, %g бар; AARD ~%d%%",
+      "tr": "mol/mol katsayıları; %g °C, %g bar'da çözünürlük; AARD ~%d%%"
+    },
+    {
+      "en": "mol/mol coefficients (user-provided); solubility shown at %g °C, %g bar.",
+      "ru": "коэффициенты моль/моль (заданы пользователем); растворимость показана при %g °C, %g бар.",
+      "tr": "mol/mol katsayıları (kullanıcı tarafından sağlanmış); çözünürlük %g °C, %g bar'da gösterilmiştir."
+    },
+    {
+      "en": "Reliability",
+      "ru": "Надёжность",
+      "tr": "Güvenilirlik"
+    },
+    {
+      "en": "Whether all detected groups are calibrated for this parameter",
+      "ru": "Откалиброваны ли все обнаруженные группы для этого параметра",
+      "tr": "Bu parametre için tüm tespit edilen grupların kalibre edilip edilmediği"
+    },
+    {
+      "en": "Uses group(s) without calibrated parameters for this property – treat as a rough estimate",
+      "ru": "Использует группы без калиброванных параметров для этого свойства — оценка приблизительная",
+      "tr": "Bu özellik için kalibre edilmemiş grup(lar) kullanır – kaba bir tahmin olarak değerlendirin"
+    },
+    {
+      "en": "Rough",
+      "ru": "Приблизительно",
+      "tr": "Kaba"
+    },
+    {
+      "en": "Calibrated",
+      "ru": "Откалибровано",
+      "tr": "Kalibre"
+    },
+    {
+      "en": "GCM Validation",
+      "ru": "Валидация GCM",
+      "tr": "GKY Doğrulaması"
+    },
+    {
+      "en": "Validation results",
+      "ru": "Результаты валидации",
+      "tr": "Doğrulama sonuçları"
+    },
+    {
+      "en": "Property",
+      "ru": "Свойство",
+      "tr": "Özellik"
+    },
+    {
+      "en": "In-domain",
+      "ru": "В области применимости",
+      "tr": "Alan içi"
+    },
+    {
+      "en": "Outlier",
+      "ru": "Выброс",
+      "tr": "Aykırı değer"
+    },
+    {
+      "en": "Best fit",
+      "ru": "Линия аппроксимации",
+      "tr": "En iyi uyum"
+    },
+    {
+      "en": "excl. outliers",
+      "ru": "без выбросов",
+      "tr": "aykırılar hariç"
+    },
+    {
+      "en": "Select a plot:",
+      "ru": "Выберите график:",
+      "tr": "Bir grafik seçin:"
+    },
+    {
+      "en": "Include outliers (red) in best-fit line",
+      "ru": "Включить выбросы (красные) в линию аппроксимации",
+      "tr": "Aykırı değerleri (kırmızı) en iyi uyum çizgisine dahil et"
+    },
+    {
+      "en": "Mean ARD",
+      "ru": "Средн. ОАО",
+      "tr": "Ort. MBS"
+    },
+    {
+      "en": "Median ARD",
+      "ru": "Медиан. ОАО",
+      "tr": "Medyan MBS"
+    },
+    {
+      "en": "Test set",
+      "ru": "Тестовый набор",
+      "tr": "Test kümesi"
+    },
+    {
+      "en": "All combined",
+      "ru": "Все вместе",
+      "tr": "Tümü birlikte"
+    },
+    {
+      "en": "experimental",
+      "ru": "эксперимент",
+      "tr": "deneysel"
+    },
+    {
+      "en": "predicted",
+      "ru": "прогноз",
+      "tr": "tahmin"
+    },
+    {
+      "en": "Bias",
+      "ru": "Смещение",
+      "tr": "Yanlılık"
+    },
+    {
+      "en": "Validation data unavailable",
+      "ru": "Данные валидации недоступны",
+      "tr": "Doğrulama verisi yok"
+    },
+    {
+      "en": "The bundled GCM validation dataset could not be loaded.",
+      "ru": "Не удалось загрузить встроенный набор данных валидации GCM.",
+      "tr": "Paketteki GKY doğrulama veri kümesi yüklenemedi."
+    },
+    {
+      "en": "Predicted vs. experimental parity for each GCM method against the bundled experimental test sets. Select a plot:",
+      "ru": "Соответствие прогноз–эксперимент для каждого метода GCM по встроенным тестовым наборам. Выберите график:",
+      "tr": "Her GKY yöntemi için paketteki deneysel test kümelerine karşı tahmin–deney paritesi. Bir grafik seçin:"
+    },
+    {
+      "en": "All methods for this property (summary)",
+      "ru": "Все методы для этого свойства (сводка)",
+      "tr": "Bu özellik için tüm yöntemler (özet)"
+    },
+    {
+      "en": "Density exponent",
+      "ru": "Показатель плотности",
+      "tr": "Yoğunluk üssü"
+    },
+    {
+      "en": "Temperature coeff.",
+      "ru": "Темп. коэффициент",
+      "tr": "Sıcaklık katsayısı"
+    },
+    {
+      "en": "Show Chrastil Visualization",
+      "ru": "Показать визуализацию Храстила",
+      "tr": "Chrastil Görselleştirmesini Göster"
+    },
+    {
+      "en": "Chrastil Visualization",
+      "ru": "Визуализация Храстила",
+      "tr": "Chrastil Görselleştirmesi"
+    },
+    {
+      "en": "mol/mol basis; GCM estimate, AARD ~%d%%",
+      "ru": "основа моль/моль; оценка GCM, AARD ~%d%%",
+      "tr": "mol/mol bazında; GKY tahmini, AARD ~%d%%"
+    },
+    {
       "en": "Solute Information",
       "ru": "Информация о растворенном веществе",
       "tr": "Çözünen Madde Bilgileri"
@@ -537,7 +1127,7 @@
     },
     {
       "en": "mL/mol",
-      "ru": "mL/mol",
+      "ru": "мл/моль",
       "tr": "mL/mol"
     },
     {
@@ -577,7 +1167,7 @@
     },
     {
       "en": "L/mol",
-      "ru": "L/mol",
+      "ru": "л/моль",
       "tr": "L/mol"
     },
     {
@@ -637,8 +1227,8 @@
     },
     {
       "en": "Numeric Value",
-      "ru": "Numeric Value",
-      "tr": "Numeric Value"
+      "ru": "Числовое значение",
+      "tr": "Sayısal Değer"
     },
     {
       "en": "K",
@@ -662,8 +1252,8 @@
     },
     {
       "en": "Parameter Category",
-      "ru": "Parameter Category",
-      "tr": "Parameter Category"
+      "ru": "Категория параметра",
+      "tr": "Parametre Kategorisi"
     },
     {
       "en": "Single group contribution to dispersion parameter",
@@ -812,7 +1402,7 @@
     },
     {
       "en": "MPa",
-      "ru": "MPa",
+      "ru": "МПа",
       "tr": "MPa"
     },
     {
@@ -877,8 +1467,8 @@
     },
     {
       "en": "Unknown Solute",
-      "ru": "Unknown Solute",
-      "tr": "Unknown Solute"
+      "ru": "Неизвестное вещество",
+      "tr": "Bilinmeyen Çözünen"
     },
     {
       "en": "Boiling Point (K)",
@@ -892,7 +1482,7 @@
     },
     {
       "en": "√MPa",
-      "ru": "√MPa",
+      "ru": "√МПа",
       "tr": "√MPa"
     },
     {
@@ -942,7 +1532,7 @@
     },
     {
       "en": "g/mol",
-      "ru": "g/mol",
+      "ru": "г/моль",
       "tr": "g/mol"
     },
     {
@@ -964,6 +1554,461 @@
       "en": "Controls how molecules are broken into functional groups. Simple uses fewer, larger groups. Complex uses more detailed fragmentation. Auto selects automatically based on molecule complexity.",
       "tr": "Moleküllerin fonksiyonel gruplara nasıl ayrılacağını kontrol eder. Basit daha az, daha büyük gruplar kullanır. Karmaşık daha ayrıntılı parçalama kullanır. Otomatik, molekül karmaşıklığına göre seçer.",
       "ru": "Управляет разбиением молекул на функциональные группы. Простой — меньше крупных групп. Сложный — более детальная фрагментация. Авто — автоматический выбор по сложности молекулы."
+    },
+    {
+      "en": "Out of domain",
+      "ru": "Вне области применимости",
+      "tr": "Uygulama alanı dışı"
+    },
+    {
+      "en": "Not estimated",
+      "ru": "Не оценено",
+      "tr": "Tahmin edilmedi"
+    },
+    {
+      "en": "Out of applicability domain – the method produced a non-physical value, so no reliable estimate is available",
+      "ru": "Вне области применимости — метод выдал нефизичное значение, поэтому надёжная оценка недоступна",
+      "tr": "Uygulama alanı dışında — yöntem fiziksel olmayan bir değer üretti, bu nedenle güvenilir bir tahmin yok"
+    },
+    {
+      "en": "Out of applicability domain",
+      "ru": "Вне области применимости",
+      "tr": "Uygulama alanı dışında"
+    },
+    {
+      "en": "Solute is outside the Chrastil GCM applicability domain – the k/A/B estimate (and any solubility derived from it) is unreliable",
+      "ru": "Растворённое вещество вне области применимости GCM Храстиля — оценка k/A/B (и любая растворимость на её основе) ненадёжна",
+      "tr": "Çözünen, Chrastil GKY uygulama alanının dışında – k/A/B tahmini (ve ondan türetilen çözünürlük) güvenilir değil"
+    },
+    {
+      "en": "This solute is outside the Chrastil GCM's applicability domain, so the k/A/B estimate (and any solubility derived from it) is unreliable:",
+      "ru": "Это растворённое вещество вне области применимости GCM Храстиля, поэтому оценка k/A/B (и любая растворимость на её основе) ненадёжна:",
+      "tr": "Bu çözünen, Chrastil GKY uygulama alanının dışındadır; bu nedenle k/A/B tahmini (ve ondan türetilen çözünürlük) güvenilir değildir:"
+    },
+    {
+      "en": "References (sources)",
+      "ru": "Источники (ссылки)",
+      "tr": "Referanslar (kaynaklar)"
+    },
+    {
+      "en": "Valid",
+      "ru": "Допустимо",
+      "tr": "Geçerli"
+    },
+    {
+      "en": "High error",
+      "ru": "Большая ошибка",
+      "tr": "Yüksek hata"
+    },
+    {
+      "en": "Missing atoms",
+      "ru": "Непокрытые атомы",
+      "tr": "Eksik atomlar"
+    },
+    {
+      "en": "Voided",
+      "ru": "Аннулировано",
+      "tr": "Geçersiz kılındı"
+    },
+    {
+      "en": "Failed",
+      "ru": "Ошибка расчёта",
+      "tr": "Başarısız"
+    },
+    {
+      "en": "Valid only",
+      "ru": "только допустимые",
+      "tr": "yalnızca geçerli"
+    },
+    {
+      "en": "n (Valid)",
+      "ru": "n (допустимые)",
+      "tr": "n (Geçerli)"
+    },
+    {
+      "en": "No in-domain (Valid) points for this selection.",
+      "ru": "Нет допустимых точек для этого выбора.",
+      "tr": "Bu seçim için geçerli nokta yok."
+    },
+    {
+      "en": "References in view:",
+      "ru": "Источники в выборке:",
+      "tr": "Görünümdeki referanslar:"
+    },
+    {
+      "en": "Predicted vs. experimental parity for each GCM method, with all experimental test sets merged by property. Select a plot:",
+      "ru": "Соответствие расчёта и эксперимента для каждого метода ГВ; все наборы объединены по свойству. Выберите график:",
+      "tr": "Her GVM yöntemi için tahmin-deney paritesi; tüm test setleri özelliğe göre birleştirildi. Bir grafik seçin:"
+    },
+    {
+      "en": "The best-fit line uses only in-domain Valid points. Flagged points (High error, Missing atoms, Out of domain) are shown for context and can be toggled by clicking their legend entries — they never enter the best-fit.",
+      "ru": "Линия аппроксимации использует только допустимые точки. Отмеченные точки (Большая ошибка, Непокрытые атомы, Вне области применимости) показаны для контекста и переключаются кликом по легенде — в аппроксимацию они не входят.",
+      "tr": "En iyi uyum çizgisi yalnızca geçerli noktaları kullanır. İşaretli noktalar (Yüksek hata, Eksik atomlar, Alan dışı) bağlam için gösterilir ve açıklama girişlerine tıklanarak açılıp kapatılır — uyuma dahil edilmez."
+    },
+    {
+      "en": "Global Validation",
+      "ru": "Глобальная валидация",
+      "tr": "Küresel Doğrulama"
+    },
+    {
+      "en": "Best fit (Valid)",
+      "ru": "Аппроксимация (допустимые)",
+      "tr": "En iyi uyum (Geçerli)"
+    },
+    {
+      "en": "Best fit (Valid):",
+      "ru": "Аппроксимация (допустимые):",
+      "tr": "En iyi uyum (Geçerli):"
+    },
+    {
+      "en": "No in-domain (Valid) points to fit for this selection.",
+      "ru": "Нет допустимых точек для аппроксимации при этом выборе.",
+      "tr": "Bu seçim için uyacak geçerli nokta yok."
+    },
+    {
+      "en": "{0} references",
+      "ru": "{0} источников",
+      "tr": "{0} referans"
+    },
+    {
+      "en": "Estimate Chrastil solubility parameters",
+      "ru": "Оценить параметры растворимости Частиля",
+      "tr": "Chrastil çözünürlük parametrelerini tahmin et"
+    },
+    {
+      "en": "Export Data",
+      "ru": "Экспорт данных",
+      "tr": "Veriyi Dışa Aktar"
+    },
+    {
+      "en": "All available orders",
+      "ru": "Все доступные порядки",
+      "tr": "Tüm mevcut dereceler"
+    },
+    {
+      "en": "Maximum order of structural groups to include. \"All available orders\" uses every order the method defines; a lower setting falls back to a simpler first-/second-order model. First-order groups are always used.",
+      "ru": "Максимальный порядок структурных групп для включения. «Все доступные порядки» использует все порядки, определённые методом; меньшее значение переходит к более простой модели первого/второго порядка. Группы первого порядка используются всегда.",
+      "tr": "Dahil edilecek yapısal grupların maksimum derecesi. \"Tüm mevcut dereceler\" yöntemin tanımladığı her dereceyi kullanır; daha düşük bir ayar daha basit bir birinci/ikinci derece modele geri döner. Birinci derece gruplar her zaman kullanılır."
+    },
+    {
+      "en": "Up to 2nd order",
+      "ru": "До 2-го порядка",
+      "tr": "2. dereceye kadar"
+    },
+    {
+      "en": "Up to 3rd order",
+      "ru": "До 3-го порядка",
+      "tr": "3. dereceye kadar"
+    },
+    {
+      "en": "1st order",
+      "ru": "1-й порядок",
+      "tr": "1. derece"
+    },
+    {
+      "en": "2nd order",
+      "ru": "2-й порядок",
+      "tr": "2. derece"
+    },
+    {
+      "en": "3rd order",
+      "ru": "3-й порядок",
+      "tr": "3. derece"
+    },
+    {
+      "en": "Chrastil Solubility Parameters Contributions",
+      "ru": "Вклады параметров растворимости Частиля",
+      "tr": "Chrastil çözünürlük parametresi katkıları"
+    },
+    {
+      "en": "Single group contribution to Chrastil k",
+      "ru": "Вклад одной группы в Частиль k",
+      "tr": "Chrastil k için tek grup katkısı"
+    },
+    {
+      "en": "Single group contribution to Chrastil A",
+      "ru": "Вклад одной группы в Частиль A",
+      "tr": "Chrastil A için tek grup katkısı"
+    },
+    {
+      "en": "Single group contribution to Chrastil B",
+      "ru": "Вклад одной группы в Частиль B",
+      "tr": "Chrastil B için tek grup katkısı"
+    },
+    {
+      "en": "Best-fit uses only Valid (in-domain) points; flagged points are shown for context (toggle via the legend) but never enter the fit.",
+      "ru": "Линия аппроксимации использует только допустимые (в области применимости) точки; отмеченные точки показаны для контекста (переключение в легенде), но не входят в подгонку.",
+      "tr": "En iyi uyum yalnızca Geçerli (alan içi) noktaları kullanır; işaretli noktalar bağlam için gösterilir (açıklamadan değiştirilir) ancak uyuma dahil edilmez."
+    },
+    {
+      "en": "Melting Point Method",
+      "ru": "Метод температуры плавления",
+      "tr": "Erime Noktası Yöntemi"
+    },
+    {
+      "en": "Source of the solute melting point. \"ML predictor\" uses a native-R gradient-boosted model trained on the open Bradley melting-point dataset (SMILES required). Choose Manual Input to enter a known value, or None to skip.",
+      "ru": "Источник температуры плавления растворённого вещества. «ML-предиктор» использует нативную R-модель градиентного бустинга, обученную на открытом наборе данных Брэдли (требуется SMILES). Выберите «Ручной ввод», чтобы задать известное значение, или «Нет», чтобы пропустить.",
+      "tr": "Çözünen maddenin erime noktasının kaynağı. \"ML tahmincisi\", açık Bradley erime noktası veri kümesi üzerinde eğitilmiş yerel-R gradyan artırmalı bir model kullanır (SMILES gerekir). Bilinen bir değeri girmek için Manuel Giriş'i veya atlamak için Yok'u seçin."
+    },
+    {
+      "en": "ML predictor (SMILES)",
+      "ru": "ML-предиктор (SMILES)",
+      "tr": "ML tahmincisi (SMILES)"
+    },
+    {
+      "en": "Enthalpy of Vaporization Method",
+      "ru": "Метод энтальпии испарения",
+      "tr": "Buharlaşma Entalpisi Yöntemi"
+    },
+    {
+      "en": "Source of the solute enthalpy of vaporization. \"ML predictor\" uses a native-R gradient-boosted model (SMILES required). Choose Manual Input to enter a known value, or None to skip.",
+      "ru": "Источник энтальпии испарения растворённого вещества. «ML-предиктор» использует нативную R-модель градиентного бустинга (требуется SMILES). Выберите «Ручной ввод», чтобы задать известное значение, или «Нет», чтобы пропустить.",
+      "tr": "Çözünen maddenin buharlaşma entalpisinin kaynağı. \"ML tahmincisi\", yerel-R gradyan artırmalı bir model kullanır (SMILES gerekir). Bilinen bir değeri girmek için Manuel Giriş'i veya atlamak için Yok'u seçin."
+    },
+    {
+      "en": "Melting Point (K):",
+      "ru": "Температура плавления (K):",
+      "tr": "Erime Noktası (K):"
+    },
+    {
+      "en": "Melting point of the solute in Kelvin. Provide this when the Melting Point Method is set to Manual Input.",
+      "ru": "Температура плавления растворённого вещества в Кельвинах. Укажите её, когда метод температуры плавления установлен на «Ручной ввод».",
+      "tr": "Çözünen maddenin Kelvin cinsinden erime noktası. Erime Noktası Yöntemi Manuel Giriş olarak ayarlandığında bunu girin."
+    },
+    {
+      "en": "Melting Point",
+      "ru": "Температура плавления",
+      "tr": "Erime Noktası"
+    },
+    {
+      "en": "ΔHvap (kJ/mol):",
+      "ru": "ΔHисп (кДж/моль):",
+      "tr": "ΔHbuh (kJ/mol):"
+    },
+    {
+      "en": "Enthalpy of vaporization of the solute in kJ/mol. Provide this when the Enthalpy of Vaporization Method is set to Manual Input.",
+      "ru": "Энтальпия испарения растворённого вещества в кДж/моль. Укажите её, когда метод энтальпии испарения установлен на «Ручной ввод».",
+      "tr": "Çözünen maddenin kJ/mol cinsinden buharlaşma entalpisi. Buharlaşma Entalpisi Yöntemi Manuel Giriş olarak ayarlandığında bunu girin."
+    },
+    {
+      "en": "Enthalpy of Vaporization",
+      "ru": "Энтальпия испарения",
+      "tr": "Buharlaşma Entalpisi"
+    },
+    {
+      "en": "Phase-Transition Properties",
+      "ru": "Свойства фазовых переходов",
+      "tr": "Faz Geçiş Özellikleri"
+    },
+    {
+      "en": "ML predictor",
+      "ru": "ML-предиктор",
+      "tr": "ML tahmincisi"
+    },
+    {
+      "en": "manual",
+      "ru": "вручную",
+      "tr": "manuel"
+    },
+    {
+      "en": "kJ/mol",
+      "ru": "кДж/моль",
+      "tr": "kJ/mol"
+    },
+    {
+      "en": "Loaded experimental melting point.",
+      "ru": "Загружена экспериментальная температура плавления.",
+      "tr": "Deneysel erime noktası yüklendi."
+    },
+    {
+      "en": "Loaded experimental enthalpy of vaporization.",
+      "ru": "Загружена экспериментальная энтальпия испарения.",
+      "tr": "Deneysel buharlaşma entalpisi yüklendi."
+    },
+    {
+      "en": "Melting point (K)",
+      "ru": "Температура плавления (K)",
+      "tr": "Erime noktası (K)"
+    },
+    {
+      "en": "Enthalpy of vaporization (kJ/mol)",
+      "ru": "Энтальпия испарения (кДж/моль)",
+      "tr": "Buharlaşma entalpisi (kJ/mol)"
+    },
+    {
+      "en": "Load All",
+      "ru": "Загрузить всё",
+      "tr": "Tümünü Yükle"
+    },
+    {
+      "en": "Loaded all available experimental data.",
+      "ru": "Загружены все доступные экспериментальные данные.",
+      "tr": "Mevcut tüm deneysel veriler yüklendi."
+    },
+    {
+      "en": "Load or Add Database Entry",
+      "ru": "Загрузить или добавить запись в базу",
+      "tr": "Veritabanı Kaydı Yükle veya Ekle"
+    },
+    {
+      "en": "Add a new compound to the database",
+      "ru": "Добавить новое соединение в базу данных",
+      "tr": "Veritabanına yeni bir bileşik ekle"
+    },
+    {
+      "en": "SMILES is required (it is used to match the compound later). Leave unknown values blank; the entry is saved to your personal data and persists across sessions.",
+      "ru": "Требуется SMILES (используется для последующего сопоставления соединения). Оставьте неизвестные значения пустыми; запись сохраняется в ваших личных данных и сохраняется между сеансами.",
+      "tr": "SMILES gereklidir (bileşiği daha sonra eşleştirmek için kullanılır). Bilinmeyen değerleri boş bırakın; giriş kişisel verilerinize kaydedilir ve oturumlar arasında korunur."
+    },
+    {
+      "en": "Enter at least one experimental property value before saving.",
+      "ru": "Перед сохранением введите хотя бы одно значение экспериментального свойства.",
+      "tr": "Kaydetmeden önce en az bir deneysel özellik değeri girin."
+    },
+    {
+      "en": "Chrastil Solubility Method",
+      "ru": "Метод растворимости Храстила",
+      "tr": "Chrastil Çözünürlük Yöntemi"
+    },
+    {
+      "en": "Source of the three Chrastil density-based solubility parameters (mol/mol basis; the g/L form is also reported). \"Estimate (GCM)\" uses the Joback first-order groups of Garcia-Samino et al. (2024); approximate (reported AARD on solubility ~51%). Choose Manual Input to enter or load measured coefficients. Lets the solute be imported into the Solubility & Fractionation > Solubility & Separator Cascade tool.",
+      "ru": "Источник трёх параметров растворимости Храстила на основе плотности (основа моль/моль; также приводится форма г/л). «Оценка (GCM)» использует группы Джобака первого порядка из Garcia-Samino et al. (2024); приблизительно (заявленное AARD по растворимости ~51%). Выберите «Ручной ввод», чтобы ввести или загрузить измеренные коэффициенты. Позволяет импортировать вещество в инструмент «Растворимость и фракционирование > Растворимость и каскад сепараторов».",
+      "tr": "Yoğunluk tabanlı üç Chrastil çözünürlük parametresinin kaynağı (mol/mol esası; g/L biçimi de bildirilir). \"Tahmin (GKY)\", Garcia-Samino ve ark. (2024)'nın birinci derece Joback gruplarını kullanır; yaklaşıktır (çözünürlükte bildirilen AARD ~%51). Ölçülen katsayıları girmek veya yüklemek için Manuel Giriş'i seçin. Çözüneni Çözünürlük ve Fraksiyonlama > Çözünürlük ve Ayırıcı Kademe aracına aktarmaya olanak tanır."
+    },
+    {
+      "en": "Estimate (GCM)",
+      "ru": "Оценка (GCM)",
+      "tr": "Tahmin (GKY)"
+    },
+    {
+      "en": "Enter all three Chrastil coefficients (k, A, B) for Manual Input.",
+      "ru": "Введите все три коэффициента Храстила (k, A, B) для ручного ввода.",
+      "tr": "Manuel Giriş için üç Chrastil katsayısının (k, A, B) tümünü girin."
+    },
+    {
+      "en": "Loaded experimental Chrastil parameters.",
+      "ru": "Загружены экспериментальные параметры Храстила.",
+      "tr": "Deneysel Chrastil parametreleri yüklendi."
+    },
+    {
+      "en": "mol/mol coefficients (user-provided); solubility shown at 40 °C, 200 bar.",
+      "ru": "коэффициенты моль/моль (введены пользователем); растворимость показана при 40 °C, 200 бар.",
+      "tr": "mol/mol katsayıları (kullanıcı tarafından sağlanmış); çözünürlük 40 °C, 200 bar'da gösterilmiştir."
+    },
+    {
+      "en": "García-Sámano 2024 (GCM)",
+      "ru": "García-Sámano 2024 (GCM)",
+      "tr": "García-Sámano 2024 (GKY)"
+    },
+    {
+      "en": "Bradley dataset (ML)",
+      "ru": "Набор данных Bradley (ML)",
+      "tr": "Bradley veri kümesi (ML)"
+    },
+    {
+      "en": "Makarov dataset (ML)",
+      "ru": "Набор данных Makarov (ML)",
+      "tr": "Makarov veri kümesi (ML)"
+    },
+    {
+      "en": "Total",
+      "ru": "Суммарный",
+      "tr": "Toplam"
+    },
+    {
+      "en": "Other Parameters",
+      "ru": "Прочие параметры",
+      "tr": "Diğer Parametreler"
+    },
+    {
+      "en": "VDW Volume",
+      "ru": "Объём Ван-дер-Ваальса",
+      "tr": "VdW Hacmi"
+    },
+    {
+      "en": "all or none",
+      "ru": "всё или ничего",
+      "tr": "hepsi veya hiçbiri"
+    },
+    {
+      "en": "HSP",
+      "ru": "HSP",
+      "tr": "HSP"
+    },
+    {
+      "en": "Chrastil (mol/mol)",
+      "ru": "Chrastil (моль/моль)",
+      "tr": "Chrastil (mol/mol)"
+    },
+    {
+      "en": "Hansen parameters must be entered all together (δD, δP, δHB) or left all blank.",
+      "ru": "Параметры Хансена нужно ввести все вместе (δD, δP, δHB) или оставить все пустыми.",
+      "tr": "Hansen parametreleri ya birlikte (δD, δP, δHB) girilmeli ya da hepsi boş bırakılmalıdır."
+    },
+    {
+      "en": "Chrastil coefficients must be entered all together (k, A, B) or left all blank.",
+      "ru": "Коэффициенты Chrastil нужно ввести все вместе (k, A, B) или оставить все пустыми.",
+      "tr": "Chrastil katsayıları ya birlikte (k, A, B) girilmeli ya da hepsi boş bırakılmalıdır."
+    },
+    {
+      "en": "Export results",
+      "ru": "Экспорт результатов",
+      "tr": "Sonuçları dışa aktar"
+    },
+    {
+      "en": "Export PDF",
+      "ru": "Экспорт в PDF",
+      "tr": "PDF olarak dışa aktar"
+    },
+    {
+      "en": "Solute Characterization — Report",
+      "ru": "Характеризация растворённого вещества — отчёт",
+      "tr": "Çözünen Karakterizasyonu — Rapor"
+    },
+    {
+      "en": "Solute identity",
+      "ru": "Идентификация вещества",
+      "tr": "Çözünen kimliği"
+    },
+    {
+      "en": "Molecular weight",
+      "ru": "Молекулярная масса",
+      "tr": "Molekül ağırlığı"
+    },
+    {
+      "en": "Source",
+      "ru": "Источник",
+      "tr": "Kaynak"
+    },
+    {
+      "en": "Run a characterization first.",
+      "ru": "Сначала выполните характеризацию.",
+      "tr": "Önce bir karakterizasyon çalıştırın."
+    },
+    {
+      "en": "CSV export failed: %s",
+      "ru": "Ошибка экспорта CSV: %s",
+      "tr": "CSV dışa aktarma başarısız: %s"
+    },
+    {
+      "en": "Chrastil reference state",
+      "ru": "Опорное состояние Chrastil",
+      "tr": "Chrastil referans durumu"
+    },
+    {
+      "en": "Group-contribution and machine-learning property estimates for the selected solute, used to parameterise the supercritical-extraction models. Each value is tagged with its provenance (experimental database, GCM, ML, or user input).",
+      "ru": "Оценки свойств выбранного вещества методом групповых вкладов и машинного обучения, используемые для параметризации моделей сверхкритической экстракции. Каждое значение помечено источником (экспериментальная база данных, GCM, ML или ввод пользователя).",
+      "tr": "Seçilen çözünen için grup katkısı ve makine öğrenmesi özellik tahminleri; süperkritik ekstraksiyon modellerini parametrelemek için kullanılır. Her değer kaynağıyla etiketlenmiştir (deneysel veritabanı, GCM, ML veya kullanıcı girişi)."
+    },
+    {
+      "en": "Chrastil scCO₂ solubility is evaluated at %g °C and %g bar.",
+      "ru": "Растворимость scCO₂ по Chrastil рассчитана при %g °C и %g бар.",
+      "tr": "Chrastil scCO₂ çözünürlüğü %g °C ve %g bar değerinde hesaplanır."
+    },
+    {
+      "en": "Source legend: experimental (DB) = measured value from the database; GCM estimate = group-contribution prediction; ML estimate = machine-learning prediction; user value = entered manually; Rough = uses uncalibrated groups, treat with caution.",
+      "ru": "Легенда источников: экспериментальное (DB) = измеренное значение из базы; оценка GCM = метод групповых вкладов; оценка ML = машинное обучение; значение пользователя = введено вручную; Грубо = используются некалиброванные группы, будьте осторожны.",
+      "tr": "Kaynak açıklaması: deneysel (DB) = veritabanından ölçülen değer; GCM tahmini = grup katkısı tahmini; ML tahmini = makine öğrenmesi tahmini; kullanıcı değeri = elle girilmiş; Kaba = kalibre edilmemiş gruplar kullanır, dikkatli olun."
     }
   ]
 }

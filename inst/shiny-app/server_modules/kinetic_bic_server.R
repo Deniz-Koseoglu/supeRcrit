@@ -35,6 +35,19 @@ kinetic_bic_server <- function(input, output, session, defaults, i18n, tablang) 
     create_help_modal(i18n_r, "kinetic_bic_help_en")
   })
 
+  # CO2 density Equation of State selector (server-rendered so the Bender /
+  # Span-Wagner choice labels are translated).
+  output$eos_ui <- renderUI({
+    selectInput(ns("eos"),
+      label = tags$span(i18n_r()$t("CO2 EoS"),
+        input_help(i18n_r()$t("Equation of state used to compute CO2 density. Bender is fast and accurate over a wide range; Span-Wagner is the IUPAC/NIST reference equation, more accurate near the critical point."),
+                   title = i18n_r()$t("Equation of State"), buttonLabel = i18n_r()$t("OK"))),
+      choices = setNames(c("bender", "spanwagner"),
+                         c(i18n_r()$t("Bender"), i18n_r()$t("Span-Wagner"))),
+      selected = isolate(input$eos) %||% "bender")
+  })
+  outputOptions(output, "eos_ui", suspendWhenHidden = FALSE)
+
   # Render accordion expand/collapse button with translated tooltips
   output$accordion_toggle_btn <- renderUI({
     create_accordion_toggle_btn(ns, i18n_r, "param_accordion")
@@ -1292,7 +1305,7 @@ kinetic_bic_server <- function(input, output, session, defaults, i18n, tablang) 
   
   # Observer for loading example data
   observeEvent(input$load_example_data, {
-    default_path <- system.file("extdata", "gui-kinetic_bic_oec.csv", package = "supeRcrit")
+    default_path <- system.file("extdata", "examples", "gui-kinetic_bic_oec.csv", package = "supeRcrit")
     if (file.exists(default_path)) {
       raw_data <- read.csv(default_path, stringsAsFactors = FALSE)
       
@@ -1630,6 +1643,7 @@ kinetic_bic_server <- function(input, output, session, defaults, i18n, tablang) 
             opt_est = opt_est_val,
             etoh_frac = input$etoh_frac %||% defaults$etoh_frac %||% 0,
             flowpar = flowpar_vec,
+            eos = input$eos %||% "bender",
             ro_co2 = NA,
             cumulative = input$cumulative %||% defaults$cumulative,
             mass_flow = input$mass_flow %||% defaults$mass_flow,
@@ -1819,6 +1833,7 @@ kinetic_bic_server <- function(input, output, session, defaults, i18n, tablang) 
               if (is.null(val)) 0 else val
             },
             flowpar = flowpar_vec,
+            eos = input$eos %||% "bender",
             ro_co2 = if (ro_co2_enabled()) get_input_or_default("ro_co2") else NA,
             tmax = if (tmax_enabled()) get_input_or_default("tmax") else NA,
             qmax = if (qmax_enabled()) get_input_or_default("qmax") else NA,
@@ -2006,6 +2021,151 @@ kinetic_bic_server <- function(input, output, session, defaults, i18n, tablang) 
   })
 
   # Render selected model plot using unified selectors
+  # ---- Unified Export (CSV / PDF) — mirrors the on-screen model comparison + selected params + obs/pred + plot ----
+  .bic_results_map <- function() list(
+    sim = list(r = kinetic_results$sim_result, nm = i18n_r()$t("Simplified")),
+    ct  = list(r = kinetic_results$ct_result,  nm = i18n_r()$t("Characteristic Times")),
+    cmp = list(r = kinetic_results$cmp_result, nm = i18n_r()$t("Complete")))
+  # Proper-notation parameter symbols (plain names -> β₁, θf, tᵢ, c₁, t′ ...) for CSV / verbatim display.
+  .bic_sym <- c(beta1 = "β₁", beta = "β", G0 = "G₀", G = "G", kf = "kf", kfa0 = "kfa₀", ksas = "ksas",
+    qm = "qm", qn = "qn", qs = "qs", r = "r", ti = "tᵢ", thetaf = "θf", thetae = "θe",
+    c1 = "c₁", c2 = "c₂", tprime = "t′", eprime = "e′")
+  # Plotmath (true math notation) variants for the PDF Parameter column — italic variables, real subscripts,
+  # Greek letters, primes.
+  .bic_sym_pm <- c(beta1 = "beta[1]", beta = "beta", G0 = "italic(G)[0]", G = "italic(G)", kf = "italic(k)[f]",
+    kfa0 = "italic(k)[f]*italic(a)[0]", ksas = "italic(k)[s]*italic(a)[s]", qm = "italic(q)[m]", qn = "italic(q)[n]",
+    qs = "italic(q)[s]", r = "italic(r)", ti = "italic(t)[i]", thetaf = "theta[f]", thetae = "theta[e]",
+    c1 = "italic(c)[1]", c2 = "italic(c)[2]", tprime = "italic(t)*minute", eprime = "italic(e)*minute")
+  # Per-cell green highlight (matching the on-screen #d4edda) for the BEST value in each metric column of the
+  # model-comparison table: lowest AARD, lowest RMSE, highest R².
+  .bic_compare_hl <- function(d) {
+    tc <- matrix("", nrow(d), ncol(d)); if (is.null(d) || !nrow(d)) return(tc)
+    pick <- function(col, fn) { v <- suppressWarnings(as.numeric(d[[col]])); if (any(is.finite(v))) tc[fn(v), col] <<- "#d4edda" }
+    if (ncol(d) >= 2) pick(2L, which.min); if (ncol(d) >= 3) pick(3L, which.min); if (ncol(d) >= 4) pick(4L, which.max)
+    tc
+  }
+  .bic_avail <- function() { av <- kinetic_results$available_models; if (is.null(av)) return(character(0))
+    # available_models stores the Complete model as "cmp2"/"cmp3" (plot variants), never the bare "cmp" that
+    # .bic_results_map() keys it under — translate so the Complete model is not silently dropped from exports.
+    keys <- character(0)
+    if ("sim" %in% av) keys <- c(keys, "sim")
+    if ("ct"  %in% av) keys <- c(keys, "ct")
+    if (any(c("cmp", "cmp2", "cmp3") %in% av)) keys <- c(keys, "cmp")
+    keys }
+  .bic_compare_df <- function() {
+    av <- .bic_avail(); if (!length(av)) return(NULL)
+    rows <- lapply(av, function(k) { m <- .bic_results_map()[[k]]; r <- m$r; if (is.null(r) || is.null(r$resid)) return(NULL)
+      data.frame(Model = m$nm, AARD = as.numeric(r$resid["aard"]),
+        RMSE = as.numeric(r$resid["rmse"]), `R²` = as.numeric(r$resid["r2"]), check.names = FALSE) })
+    out <- do.call(rbind, Filter(Negate(is.null), rows)); if (is.null(out) || !nrow(out)) return(NULL)
+    names(out) <- c(i18n_r()$t("Model"), i18n_r()$t("AARD"), i18n_r()$t("RMSE"), i18n_r()$t("R²")); rownames(out) <- NULL; out
+  }
+  # pm = TRUE -> Parameter column holds plotmath SOURCE (PDF math_col); pm = FALSE -> readable Unicode (CSV).
+  .bic_params_df <- function(result, pm = FALSE) {
+    if (is.null(result) || is.null(result$mod_pars) || !length(result$mod_pars)) return(NULL)
+    mp <- result$mod_pars; pn <- names(mp); fit_pars <- result$fit_pars %||% character(0)
+    desc_map <- c(c1 = "Constant", c2 = "Constant", qm = "Solvent at end of CER", r = "Grinding efficiency",
+      ksas = "Solid-phase MT coefficient × area", G = "Initial fraction of solute in broken cells",
+      G0 = "Initial fraction at CER start", kf = "Fluid-phase MT coefficient", kfa0 = "Fluid-phase MT coefficient × area",
+      thetaf = "External MT resistance", thetae = "External MT coefficient", ti = "FER duration",
+      qn = "Solvent at end of FER", qs = "Specific solubility", beta = "Solvent velocity ratio",
+      beta1 = "Extraction rate parameter", tprime = "Time at end of CER", eprime = "Yield at end of CER")
+    sym <- if (pm) .bic_sym_pm else .bic_sym
+    param <- ifelse(pn %in% names(sym), sym[pn], if (pm) vapply(pn, rp_pm_quote, character(1)) else pn)
+    out <- data.frame(Parameter = param, Value = as.numeric(mp),
+      Fitted = ifelse(pn %in% fit_pars, i18n_r()$t("Yes"), ""),
+      Description = vapply(pn, function(p) if (p %in% names(desc_map)) i18n_r()$t(desc_map[[p]]) else "", character(1)),
+      check.names = FALSE, stringsAsFactors = FALSE)
+    names(out) <- c(i18n_r()$t("Parameter"), i18n_r()$t("Value"), i18n_r()$t("Fitted"), i18n_r()$t("Description")); out
+  }
+  .bic_resp_disp <- function() { ru <- kinetic_results$resp_units %||% "percent"
+    switch(ru, "g" = "g", "percent" = "%", "permille" = "‰", "ppm" = "ppm", "ppb" = "ppb", ru) }
+  # Observed-vs-predicted — mirror the on-screen column mapping (Time / S/M / Observed+Predicted Yield …).
+  .bic_ordt_df <- function(result, selkey = NULL) {
+    d <- result$ordt; if (is.null(d) || !nrow(d)) return(NULL)
+    ordt <- as.data.frame(d, check.names = FALSE); rd <- .bic_resp_disp()
+    cmap <- c(t = i18n_r()$t("Time (min)"), x = i18n_r()$t("Solvent/Material (kg/kg)"),
+      y = paste0(i18n_r()$t("Observed Yield"), " (", rd, ")"), mod_y = paste0(i18n_r()$t("Predicted Yield"), " (", rd, ")"),
+      y_cmp3 = paste0(i18n_r()$t("Predicted"), " CMP3 (", rd, ")"), y_cmp2 = paste0(i18n_r()$t("Predicted"), " CMP2 (", rd, ")"))
+    ordt[] <- lapply(ordt, function(c) if (is.numeric(c)) signif(c, 5) else c)
+    orig <- names(ordt); names(ordt) <- ifelse(orig %in% names(cmap), cmap[orig], orig); ordt
+  }
+  # Detailed predictions — mirror the on-screen table: translate the model/period VALUES (sim->Simplified,
+  # cer->CER …), user-facing column names, and drop the Model column unless the Complete model is selected.
+  .bic_mdt_df <- function(result, selkey = NULL) {
+    d <- result$mdt; if (is.null(d) || !nrow(d)) return(NULL)
+    mdt <- as.data.frame(d, check.names = FALSE); rd <- .bic_resp_disp()
+    if ("period" %in% names(mdt)) mdt$period <- my_mapvalues(as.character(mdt$period), c("cer", "fer", "dc"),
+      c(i18n_r()$t("Constant Extraction Rate (CER)"), i18n_r()$t("Falling Extraction Rate (FER)"),
+        i18n_r()$t("Diffusion Controlled (DC)")), warn_missing = FALSE)
+    if ("model" %in% names(mdt)) mdt$model <- my_mapvalues(as.character(mdt$model), c("sim", "ct", "cmp2", "cmp3"),
+      c(i18n_r()$t("Simplified"), i18n_r()$t("Characteristic Times"),
+        i18n_r()$t("Complete (2 Regions)"), i18n_r()$t("Complete (3 Regions)")), warn_missing = FALSE)
+    if (!identical(selkey, "cmp") && "model" %in% names(mdt)) mdt$model <- NULL   # Model column only meaningful for Complete
+    cmap <- c(model = i18n_r()$t("Model"), period = i18n_r()$t("Period"), x = i18n_r()$t("Solvent/Material (kg/kg)"),
+      y = paste0(i18n_r()$t("Yield"), " (", rd, ")"), t = i18n_r()$t("Time (min)"))
+    mdt[] <- lapply(mdt, function(c) if (is.numeric(c)) signif(c, 5) else c)
+    orig <- names(mdt); names(mdt) <- ifelse(orig %in% names(cmap), cmap[orig], orig); mdt
+  }
+  # The plot for ONE model key (prefer the time-based variant), with its baked English labels translated.
+  .bic_plot_for <- function(key) {
+    pl <- kinetic_results$plots_list; if (is.null(pl) || !length(pl)) return(NULL)
+    cand <- switch(key, sim = c("sim_time", "sim"), ct = c("ct"),
+                   cmp = c("cmp2_time", "cmp3_time", "cmp2", "cmp3"), key)
+    pname <- cand[cand %in% names(pl)]; if (!length(pname)) return(NULL)
+    g <- pl[[pname[1]]]; if (is.null(g) || !inherits(g, "ggplot")) return(NULL)
+    for (lb in c("title", "subtitle", "x", "y", "colour", "color", "fill", "linetype"))
+      if (!is.null(g$labels[[lb]]) && is.character(g$labels[[lb]]) && nzchar(g$labels[[lb]])) g$labels[[lb]] <- i18n_r()$t(g$labels[[lb]])
+    g
+  }
+  output$export_pdf <- downloadHandler(
+    filename = function() paste0(generate_filename_with_timestamp("supercrit_kinetic_bic_report"), ".pdf"),
+    content = function(file) {
+      req(kinetic_results$available_models)
+      pid <- showNotification(i18n$t("Preparing export..."), type = "message", duration = NULL); on.exit(removeNotification(pid), add = TRUE)
+      tryCatch({
+        logo <- if (file.exists("www/altraflora-15-min.png")) "www/altraflora-15-min.png" else NULL
+        ver  <- tryCatch(paste0("supeRcrit v", as.character(utils::packageVersion("supeRcrit"))), error = function(e) "supeRcrit")
+        cmp_df <- .bic_compare_df()
+        secs <- list(list(title = i18n_r()$t("Model Comparison"), table = cmp_df, digits = 5, body_size = 10,
+          cell_fill = if (!is.null(cmp_df)) .bic_compare_hl(cmp_df) else NULL))
+        # ALL available models (not just the selected one): one plot per model + parameters + obs-vs-pred +
+        # detailed predictions, with proper math parameter notation and user-facing table columns/values.
+        for (k in .bic_avail()) {
+          r <- .bic_results_map()[[k]]$r; nm <- .bic_results_map()[[k]]$nm; if (is.null(r)) next
+          g <- tryCatch(.bic_plot_for(k), error = function(e) NULL)
+          if (!is.null(g)) secs <- c(secs, list(list(title = paste0(i18n_r()$t("Model"), ": ", nm),
+            plots = list(list(plot = g, title = NULL, height = 3.4)))))
+          pdf_m <- .bic_params_df(r, pm = TRUE); if (!is.null(pdf_m))
+            secs <- c(secs, list(list(title = if (is.null(g)) paste0(i18n_r()$t("Model"), ": ", nm) else NULL,
+              table = pdf_m, table_title = i18n_r()$t("Parameters"), math_col = 1L, body_size = 10)))
+          op <- .bic_ordt_df(r, k); if (!is.null(op))
+            secs <- c(secs, list(list(title = i18n_r()$t("Observed vs predicted"), table = op, digits = 5, body_size = 9.5)))
+          dp <- .bic_mdt_df(r, k); if (!is.null(dp))
+            secs <- c(secs, list(list(title = i18n_r()$t("Detailed predictions"), table = dp, digits = 5)))
+        }
+        export <- list(title = i18n_r()$t("Broken-and-Intact Cells — Report"),
+          intro = i18n_r()$t("Broken-and-intact-cells (BIC) kinetic model comparison and parameters."),
+          sections = secs)
+        build_module_pdf_report(export, i18n_r(), file, company = ver, logo = logo)
+      }, error = function(e) showNotification(paste(i18n$t("Error exporting plots:"), e$message), type = "error", duration = 8))
+    })
+  output$export_csv <- downloadHandler(
+    filename = function() paste0(generate_filename_with_timestamp("supercrit_kinetic_bic_results"), ".csv"),
+    content = function(file) {
+      con <- file(file, "wb"); on.exit(close(con), add = TRUE); writeBin(as.raw(c(0xEF, 0xBB, 0xBF)), con)
+      wblock <- function(title, df) { if (is.null(df) || !nrow(df)) return(invisible())
+        writeBin(charToRaw(enc2utf8(paste0('"', gsub('"', '""', title), '"\r\n'))), con)
+        tmp <- tempfile(fileext = ".csv"); on.exit(unlink(tmp), add = TRUE)
+        utils::write.csv(df, tmp, row.names = FALSE, na = "", fileEncoding = "UTF-8")
+        writeBin(readBin(tmp, "raw", n = file.info(tmp)$size), con); writeBin(charToRaw("\r\n"), con) }
+      wblock(i18n_r()$t("Model Comparison"), .bic_compare_df())
+      for (k in .bic_avail()) { r <- .bic_results_map()[[k]]$r; nm <- .bic_results_map()[[k]]$nm; if (is.null(r)) next
+        wblock(paste0(nm, " — ", i18n_r()$t("Parameters")), .bic_params_df(r))
+        wblock(paste0(nm, " — ", i18n_r()$t("Observed vs predicted")), .bic_ordt_df(r, k))
+        wblock(paste0(nm, " — ", i18n_r()$t("Detailed predictions")), .bic_mdt_df(r, k)) }
+    }, contentType = "text/csv")
+
   output$selected_model_plot <- renderPlotly({
     sel_model <- input$selected_model_detail
     sel_xaxis <- input$plot_xaxis_type %||% "time"
@@ -2093,7 +2253,7 @@ kinetic_bic_server <- function(input, output, session, defaults, i18n, tablang) 
 
         if ("ggplot" %in% class(plot_obj)) {
           # ggplot object - convert to plotly
-          p <- ggplotly(plot_obj)
+          p <- quiet_ggplotly(plot_obj)
 
           # Fix legend labels - translate period values
           if (!is.null(p$x$data)) {
@@ -2130,7 +2290,7 @@ kinetic_bic_server <- function(input, output, session, defaults, i18n, tablang) 
           plot_obj
         } else {
           # Try direct conversion as last resort
-          p <- ggplotly(plot_obj)
+          p <- quiet_ggplotly(plot_obj)
 
           # Fix legend labels - translate period values
           if (!is.null(p$x$data)) {

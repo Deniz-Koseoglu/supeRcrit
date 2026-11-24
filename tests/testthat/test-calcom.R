@@ -21,5 +21,5 @@ test_that("Calculation of Cost of Manufacturing (COM) works...", {
                    auxfr = c(oil = 1),
                    pltlab = "Time (min)")
   sink()
-  expect_named(comres, c("input", "response_details", "output", "simple_output", "rm_state", "tables", "plots", "extra", "call"))
+  expect_named(comres, c("input", "response_details", "output", "simple_output", "rm_state", "tables", "tables_bytime", "plots", "extra", "call"))
 })

@@ -1,0 +1,1829 @@
+{
+  "translation": [
+    {
+      "en": "Co-solvent(s)",
+      "ru": "Со-растворитель(и)",
+      "tr": "Yardımcı çözücü(ler)"
+    },
+    {
+      "en": "Does not precipitate in range",
+      "ru": "Не осаждается в диапазоне",
+      "tr": "Aralıkta çökelmez"
+    },
+    {
+      "en": "The selected solute(s) are high-melting solids with no fusion data in openCOSMO-RS-Phi, so their solubility cannot be computed — switch to the Chrastil or CSP-2021 model.",
+      "ru": "Выбранное(ые) вещество(а) являются высокоплавкими твёрдыми веществами без данных о плавлении в openCOSMO-RS-Phi, поэтому их растворимость не может быть рассчитана — переключитесь на модель Chrastil или CSP-2021.",
+      "tr": "Seçilen çözünen(ler), openCOSMO-RS-Phi'de füzyon verisi olmayan yüksek erime noktalı katılardır, bu nedenle çözünürlükleri hesaplanamaz — Chrastil veya CSP-2021 modeline geçin."
+    },
+    {
+      "en": "Not placed in the cascade — solid below its melting point with no fusion data in openCOSMO-RS-Phi, so its solubility cannot be computed (use Chrastil or CSP-2021): %s",
+      "ru": "Не размещено в каскаде — твёрдое вещество ниже точки плавления без данных о плавлении в openCOSMO-RS-Phi, поэтому его растворимость не может быть рассчитана (используйте Chrastil или CSP-2021): %s",
+      "tr": "Kaskada yerleştirilmedi — erime noktasının altında, openCOSMO-RS-Phi'de füzyon verisi olmayan katı, bu nedenle çözünürlüğü hesaplanamaz (Chrastil veya CSP-2021 kullanın): %s"
+    },
+    {
+      "en": "melts",
+      "ru": "плавится",
+      "tr": "erir"
+    },
+    {
+      "en": "Solid with no fusion data in openCOSMO-RS-Phi — solubility cannot be computed (switch to Chrastil or CSP-2021): %s",
+      "ru": "Твёрдое вещество без данных о плавлении в openCOSMO-RS-Phi — растворимость не может быть рассчитана (переключитесь на Chrastil или CSP-2021): %s",
+      "tr": "openCOSMO-RS-Phi'de füzyon verisi olmayan katı — çözünürlük hesaplanamaz (Chrastil veya CSP-2021'e geçin): %s"
+    },
+    {
+      "en": "Not in the openCOSMO-RS-Phi database (switch to Chrastil or CSP-2021): %s",
+      "ru": "Отсутствует в базе данных openCOSMO-RS-Phi (переключитесь на Chrastil или CSP-2021): %s",
+      "tr": "openCOSMO-RS-Phi veritabanında yok (Chrastil veya CSP-2021'e geçin): %s"
+    },
+    {
+      "en": "Near its melting point, the openCOSMO-RS-Phi solubility can be unreliable for: %s. Consider the Chrastil model.",
+      "ru": "Вблизи точки плавления растворимость openCOSMO-RS-Phi может быть ненадёжной для: %s. Рассмотрите модель Chrastil.",
+      "tr": "Erime noktasına yakın, openCOSMO-RS-Phi çözünürlüğü şunlar için güvenilmez olabilir: %s. Chrastil modelini düşünün."
+    },
+    {
+      "en": "Optional entrainer(s) added to the CO₂, restricted to solvents with full HSP + CSP data. A co-solvent raises the solute's solubility and shifts its precipitation onset to lower pressure. Pick TWO OR MORE to model a co-solvent BLEND — the total mole fraction below is split among them. Blends are evaluated n-component by CSP-2021 / openCOSMO-RS-Phi; the Makarov (ML) model approximates a blend by its first component; the Chrastil and experimental models model pure CO₂ and ignore co-solvents.",
+      "ru": "Необязательный(е) энтрейнер(ы), добавляемый(е) в CO₂, ограниченный(е) растворителями с полными данными HSP + CSP. Со-растворитель повышает растворимость вещества и смещает начало его осаждения к более низкому давлению. Выберите ДВА ИЛИ БОЛЕЕ, чтобы смоделировать СМЕСЬ со-растворителей — общая мольная доля ниже распределяется между ними. Смеси оцениваются n-компонентно моделями CSP-2021 / openCOSMO-RS-Phi; модель Makarov (ML) приближает смесь её первым компонентом; модели Chrastil и экспериментальная моделируют чистый CO₂ и игнорируют со-растворители.",
+      "tr": "CO₂'ye eklenen isteğe bağlı sürükleyici(ler), tam HSP + CSP verisine sahip çözücülerle sınırlıdır. Bir yardımcı çözücü, çözünenin çözünürlüğünü artırır ve çökelme başlangıcını daha düşük basınca kaydırır. Bir yardımcı çözücü KARIŞIMI modellemek için İKİ VEYA DAHA FAZLA seçin — aşağıdaki toplam mol kesri aralarında bölünür. Karışımlar CSP-2021 / openCOSMO-RS-Phi tarafından n-bileşenli değerlendirilir; Makarov (ML) modeli bir karışımı ilk bileşeniyle yaklaşık olarak alır; Chrastil ve deneysel modeller saf CO₂'yi modeller ve yardımcı çözücüleri yok sayar."
+    },
+    {
+      "en": "Total co-solvent (mol %)",
+      "ru": "Всего со-растворителя (мол. %)",
+      "tr": "Toplam yardımcı çözücü (mol %)"
+    },
+    {
+      "en": "Total co-solvent mole fraction in the CO₂ phase (split among the blend components below). The solubility models are calibrated to roughly ≤10 mol%; higher values are extrapolation.",
+      "ru": "Общая мольная доля со-растворителя в фазе CO₂ (распределяется между компонентами смеси ниже). Модели растворимости откалиброваны примерно до ≤10 мол%; более высокие значения — экстраполяция.",
+      "tr": "CO₂ fazındaki toplam yardımcı çözücü mol kesri (aşağıdaki karışım bileşenleri arasında bölünür). Çözünürlük modelleri yaklaşık ≤%10 mol için kalibre edilmiştir; daha yüksek değerler ekstrapolasyondur."
+    },
+    {
+      "en": "Blend composition (relative parts within the total co-solvent fraction):",
+      "ru": "Состав смеси (относительные части в пределах общей доли со-растворителя):",
+      "tr": "Karışım bileşimi (toplam yardımcı çözücü kesri içindeki göreli paylar):"
+    },
+    {
+      "en": "Co-solvent blend '%s': its solvents react or interact on contact; results are shown but treat them with caution.",
+      "ru": "Смесь со-растворителей «%s»: её растворители реагируют или взаимодействуют при контакте; результаты показаны, но относитесь к ним с осторожностью.",
+      "tr": "Yardımcı çözücü karışımı '%s': çözücüleri temas halinde reaksiyona girer veya etkileşir; sonuçlar gösterilir ancak dikkatle değerlendirin."
+    },
+    {
+      "en": "Co-solvent blend '%s': its solvents are immiscible (phase-separating); the blend may not form a single co-solvent phase.",
+      "ru": "Смесь со-растворителей «%s»: её растворители несмешиваемы (расслаиваются); смесь может не образовать единую фазу со-растворителя.",
+      "tr": "Yardımcı çözücü karışımı '%s': çözücüleri karışmaz (faz ayrışması); karışım tek bir yardımcı çözücü fazı oluşturmayabilir."
+    },
+    {
+      "en": "Co-solvent blend '%s': its solvents are only partially miscible; the blend may not form a single co-solvent phase at all ratios.",
+      "ru": "Смесь со-растворителей «%s»: её растворители смешиваются лишь частично; смесь может не образовать единую фазу со-растворителя при всех соотношениях.",
+      "tr": "Yardımcı çözücü karışımı '%s': çözücüleri yalnızca kısmen karışır; karışım tüm oranlarda tek bir yardımcı çözücü fazı oluşturmayabilir."
+    },
+    {
+      "en": "Estimate missing fusion data from structure",
+      "ru": "Оценить недостающие данные плавления по структуре",
+      "tr": "Eksik erime verisini yapıdan tahmin et"
+    },
+    {
+      "en": "When a solute has no experimental fusion data (melting point, enthalpy of fusion, solid molar volume), estimate it from the SMILES — melting point via the ML predictor, ΔHfus via the Chickos-Acree group-contribution method, and a rough solid molar volume — so the CSP solid-solubility route can still run. These are estimates (~20% typical error on ΔHfus); leave off to require experimental fusion data.",
+      "ru": "Когда у вещества нет экспериментальных данных плавления (температура плавления, энтальпия плавления, мольный объём твёрдого тела), оцените их по SMILES — температуру плавления через ML-предиктор, ΔHfus методом групповых вкладов Chickos-Acree и приблизительный мольный объём твёрдого тела — чтобы маршрут растворимости твёрдого тела CSP всё же работал. Это оценки (~20% типичная погрешность ΔHfus); оставьте выключенным, чтобы требовать экспериментальные данные плавления.",
+      "tr": "Bir çözünenin deneysel erime verisi (erime noktası, erime entalpisi, katı molar hacim) yoksa, SMILES'ten tahmin edin — erime noktası ML tahminleyici ile, ΔHfus Chickos-Acree grup katkısı yöntemiyle ve kaba bir katı molar hacim — böylece CSP katı-çözünürlük yolu yine de çalışabilir. Bunlar tahmindir (ΔHfus'ta ~%20 tipik hata); deneysel erime verisi istemek için kapalı bırakın."
+    },
+    {
+      "en": "Fusion-data fallback",
+      "ru": "Резервная оценка данных плавления",
+      "tr": "Erime verisi yedeği"
+    },
+    {
+      "en": "Fusion-data fallback on: ΔHfus is estimated from structure for solutes without experimental data. Its effect on solubility scales with 1/T − 1/Tm, so it mainly matters for HIGH-melting solids separated well below their melting point — a solute melting near the separator temperature is barely affected.",
+      "ru": "Резервная оценка данных плавления включена: ΔHfus оценивается по структуре для веществ без экспериментальных данных. Её влияние на растворимость масштабируется как 1/T − 1/Tm, поэтому она важна главным образом для ВЫСОКОплавких твёрдых веществ, разделяемых значительно ниже их температуры плавления — на вещество, плавящееся вблизи температуры сепаратора, влияние почти отсутствует.",
+      "tr": "Erime verisi yedeği açık: deneysel verisi olmayan çözünenler için ΔHfus yapıdan tahmin edilir. Çözünürlüğe etkisi 1/T − 1/Tm ile ölçeklenir, bu nedenle esas olarak erime noktalarının çok altında ayrılan YÜKSEK erimeli katılar için önemlidir — ayırıcı sıcaklığına yakın eriyen bir çözünen neredeyse hiç etkilenmez."
+    },
+    {
+      "en": "Model co-deposition",
+      "ru": "Моделировать соосаждение",
+      "tr": "Birlikte çökelmeyi modelle"
+    },
+    {
+      "en": "When on, a dilute solute that never reaches its own saturation is still partly trapped in the bulk (oil) deposit that precipitates at each stage, per a reference partition D₀ = γ(CO₂)/γ(oil). The density dependence is added automatically from the solute's own solubility curve — no calibration to separator data. Enter D₀ per solute in the column that appears, or auto-estimate it from structure.",
+      "ru": "Когда включено, разбавленное вещество, никогда не достигающее собственного насыщения, всё же частично захватывается в основной (масляный) осадок, выпадающий на каждой ступени, согласно опорному коэффициенту распределения D₀ = γ(CO₂)/γ(масло). Зависимость от плотности добавляется автоматически по кривой растворимости самого вещества — без калибровки по данным сепаратора. Введите D₀ для каждого вещества в появившемся столбце или оцените его автоматически по структуре.",
+      "tr": "Açıkken, kendi doygunluğuna hiç ulaşmayan seyreltik bir çözünen, her kademede çöken yığın (yağ) tortusuna, referans dağılım katsayısı D₀ = γ(CO₂)/γ(yağ) uyarınca kısmen hapsolur. Yoğunluk bağımlılığı, çözünenin kendi çözünürlük eğrisinden otomatik eklenir — separatör verisine kalibrasyon yoktur. Görünen sütunda her çözünen için D₀ girin veya yapıdan otomatik tahmin edin."
+    },
+    {
+      "en": "Co-deposition (entrainment)",
+      "ru": "Соосаждение (захват)",
+      "tr": "Birlikte çökelme (sürüklenme)"
+    },
+    {
+      "en": "Auto-estimate D₀ (FastSigma)",
+      "ru": "Автооценка D₀ (FastSigma)",
+      "tr": "D₀ otomatik tahmini (FastSigma)"
+    },
+    {
+      "en": "Co-dep.",
+      "ru": "Соосажд.",
+      "tr": "Bir.çök."
+    },
+    {
+      "en": "Reference partition D₀ = γ(CO₂)/γ(oil) at the extraction condition. D₀ > 1 means the solute prefers the oil (bulk deposit) phase and is co-precipitated.",
+      "ru": "Опорный коэффициент распределения D₀ = γ(CO₂)/γ(масло) при условиях экстракции. D₀ > 1 означает, что вещество предпочитает масляную фазу (основной осадок) и соосаждается.",
+      "tr": "Ekstraksiyon koşulunda referans dağılım katsayısı D₀ = γ(CO₂)/γ(yağ). D₀ > 1, çözünenin yağ (yığın tortu) fazını tercih ettiği ve birlikte çöktüğü anlamına gelir."
+    },
+    {
+      "en": "Auto-estimate co-deposition partition D₀",
+      "ru": "Автооценка коэффициента соосаждения D₀",
+      "tr": "Birlikte çökelme dağılımı D₀ otomatik tahmini"
+    },
+    {
+      "en": "Estimates each solute's reference partition D₀ = γ(CO₂)/γ(oil) between the CO₂ phase and the bulk (oil) deposit from FastSigma σ-profiles — structure only, no calibration. D₀ > 1 means the solute is pulled into the deposit. The pressure/density dependence is added afterwards from each solute's own solubility curve.",
+      "ru": "Оценивает опорный коэффициент распределения каждого вещества D₀ = γ(CO₂)/γ(масло) между фазой CO₂ и основным (масляным) осадком по σ-профилям FastSigma — только по структуре, без калибровки. D₀ > 1 означает, что вещество втягивается в осадок. Зависимость от давления/плотности добавляется затем по кривой растворимости самого вещества.",
+      "tr": "Her çözünenin CO₂ fazı ile yığın (yağ) tortusu arasındaki referans dağılımı D₀ = γ(CO₂)/γ(yağ)'ı FastSigma σ-profillerinden tahmin eder — yalnızca yapı, kalibrasyon yok. D₀ > 1, çözünenin tortuya çekildiği anlamına gelir. Basınç/yoğunluk bağımlılığı sonradan her çözünenin kendi çözünürlük eğrisinden eklenir."
+    },
+    {
+      "en": "Bulk deposit (oil/matrix) surrogate",
+      "ru": "Модель основного осадка (масло/матрица)",
+      "tr": "Yığın tortu (yağ/matris) vekili"
+    },
+    {
+      "en": "Oleic acid (liquid-oil surrogate)",
+      "ru": "Олеиновая кислота (модель жидкого масла)",
+      "tr": "Oleik asit (sıvı yağ vekili)"
+    },
+    {
+      "en": "Linoleic acid",
+      "ru": "Линолевая кислота",
+      "tr": "Linoleik asit"
+    },
+    {
+      "en": "Palmitic acid",
+      "ru": "Пальмитиновая кислота",
+      "tr": "Palmitik asit"
+    },
+    {
+      "en": "…or a custom matrix SMILES (overrides the choice above)",
+      "ru": "…или собственный SMILES матрицы (заменяет выбор выше)",
+      "tr": "…veya özel bir matris SMILES (yukarıdaki seçimi geçersiz kılar)"
+    },
+    {
+      "en": "Only solutes with a SMILES can be estimated; others keep whatever value you typed.",
+      "ru": "Оценить можно только вещества со SMILES; для остальных сохраняется введённое вами значение.",
+      "tr": "Yalnızca SMILES'i olan çözünenler tahmin edilebilir; diğerleri girdiğiniz değeri korur."
+    },
+    {
+      "en": "Cancel",
+      "ru": "Отмена",
+      "tr": "İptal"
+    },
+    {
+      "en": "Estimate & apply",
+      "ru": "Оценить и применить",
+      "tr": "Tahmin et ve uygula"
+    },
+    {
+      "en": "Estimating partitions (FastSigma)…",
+      "ru": "Оценка коэффициентов (FastSigma)…",
+      "tr": "Dağılımlar tahmin ediliyor (FastSigma)…"
+    },
+    {
+      "en": "Estimated D₀ for %d of %d solute(s) with a SMILES.",
+      "ru": "Оценён D₀ для %d из %d веществ со SMILES.",
+      "tr": "SMILES'i olan %d çözünenden %d tanesi için D₀ tahmin edildi."
+    },
+    {
+      "en": "Could not estimate D₀ for any solute (no parseable SMILES, or FastSigma failed).",
+      "ru": "Не удалось оценить D₀ ни для одного вещества (нет распознаваемого SMILES или сбой FastSigma).",
+      "tr": "Hiçbir çözünen için D₀ tahmin edilemedi (ayrıştırılabilir SMILES yok veya FastSigma başarısız)."
+    },
+    {
+      "en": "Co-deposition is on but no solute has a valid D₀ — enter or auto-estimate D₀ first.",
+      "ru": "Соосаждение включено, но ни у одного вещества нет корректного D₀ — сначала введите или оцените D₀.",
+      "tr": "Birlikte çökelme açık ama hiçbir çözünenin geçerli D₀'ı yok — önce D₀ girin veya tahmin edin."
+    },
+    {
+      "en": "Optimize",
+      "ru": "Оптимизировать",
+      "tr": "Optimize et"
+    },
+    {
+      "en": "Feed loading per solute (g/kg CO₂)",
+      "ru": "Загрузка каждого вещества (г/кг CO₂)",
+      "tr": "Çözünen başına besleme yükü (g/kg CO₂)"
+    },
+    {
+      "en": "Loading of each solute in the CO₂ stream. Blank uses its saturation at the extraction conditions.",
+      "ru": "Загрузка каждого вещества в потоке CO₂. Пусто — используется насыщение при условиях экстракции.",
+      "tr": "Her çözünenin CO₂ akışındaki yükü. Boş bırakılırsa ekstraksiyon koşullarındaki doygunluğu kullanılır."
+    },
+    {
+      "en": "Select solutes in the Solute Selection section first.",
+      "ru": "Сначала выберите вещества в разделе «Выбор вещества».",
+      "tr": "Önce Çözünen Seçimi bölümünde çözünen seçin."
+    },
+    {
+      "en": "Click to toggle: kg/h / g/min",
+      "ru": "Нажмите для переключения: кг/ч / г/мин",
+      "tr": "Değiştirmek için tıklayın: kg/sa / g/dk"
+    },
+    {
+      "en": "Recovery vs separator pressure",
+      "ru": "Извлечение в зависимости от давления сепаратора",
+      "tr": "Ayırıcı basıncına karşı geri kazanım"
+    },
+    {
+      "en": "Stage fractionation",
+      "ru": "Ступенчатое фракционирование",
+      "tr": "Kademeli fraksiyonlama"
+    },
+    {
+      "en": "Separator pressure (bar)",
+      "ru": "Давление сепаратора (бар)",
+      "tr": "Ayırıcı basıncı (bar)"
+    },
+    {
+      "en": "Recovery (%)",
+      "ru": "Извлечение (%)",
+      "tr": "Geri kazanım (%)"
+    },
+    {
+      "en": "Feed loading (g/kg CO₂):",
+      "ru": "Загрузка сырья (г/кг CO₂):",
+      "tr": "Besleme yükü (g/kg CO₂):"
+    },
+    {
+      "en": "Target recovery (%)",
+      "ru": "Целевое извлечение (%)",
+      "tr": "Hedef geri kazanım (%)"
+    },
+    {
+      "en": "Target-fractionation optimization",
+      "ru": "Оптимизация целевого фракционирования",
+      "tr": "Hedef fraksiyonlama optimizasyonu"
+    },
+    {
+      "en": "Onset",
+      "ru": "Начало осаждения",
+      "tr": "Başlangıç"
+    },
+    {
+      "en": "Feed",
+      "ru": "Сырьё",
+      "tr": "Besleme"
+    },
+    {
+      "en": "≥%d%% recovery",
+      "ru": "≥%d%% извлечение",
+      "tr": "≥%%%d geri kazanım"
+    },
+    {
+      "en": "Per-separator capture",
+      "ru": "Захват по сепараторам",
+      "tr": "Separatör başına yakalama"
+    },
+    {
+      "en": "Recovery curve",
+      "ru": "Кривая извлечения",
+      "tr": "Geri kazanım eğrisi"
+    },
+    {
+      "en": "Cumulative recovery",
+      "ru": "Суммарное извлечение",
+      "tr": "Kümülatif geri kazanım"
+    },
+    {
+      "en": "The target solute",
+      "ru": "Целевое вещество",
+      "tr": "Hedef çözünen"
+    },
+    {
+      "en": "Feed (g/kg CO₂)",
+      "ru": "Загрузка (г/кг CO₂)",
+      "tr": "Besleme (g/kg CO₂)"
+    },
+    {
+      "en": "Feed loading of the solute in the CO₂ stream",
+      "ru": "Загрузка вещества в потоке CO₂",
+      "tr": "CO₂ akışındaki çözünenin besleme yüklemesi"
+    },
+    {
+      "en": "Highest separator pressure at which the solute begins to precipitate",
+      "ru": "Наибольшее давление сепаратора, при котором вещество начинает осаждаться",
+      "tr": "Çözünenin çökelmeye başladığı en yüksek separatör basıncı"
+    },
+    {
+      "en": "Separator temperature used for this solute",
+      "ru": "Температура сепаратора для этого вещества",
+      "tr": "Bu çözünen için kullanılan separatör sıcaklığı"
+    },
+    {
+      "en": "Highest separator pressure that still recovers the target fraction (or the best achievable if the target is not reached)",
+      "ru": "Наибольшее давление сепаратора, при котором ещё извлекается целевая доля (или наилучшее достижимое, если цель не достигнута)",
+      "tr": "Hedef fraksiyonu hâlâ geri kazanan en yüksek separatör basıncı (veya hedefe ulaşılamazsa ulaşılabilir en iyisi)"
+    },
+    {
+      "en": "Percent of feed captured at separator %d (%.0f bar)",
+      "ru": "Процент загрузки, захваченный на сепараторе %d (%.0f бар)",
+      "tr": "Separatör %d (%.0f bar) tarafından yakalanan besleme yüzdesi"
+    },
+    {
+      "en": "Precipitation onset & recovery",
+      "ru": "Начало осаждения и извлечение",
+      "tr": "Çökelme başlangıcı ve geri kazanım"
+    },
+    {
+      "en": " (temperature optimized)",
+      "ru": " (температура оптимизирована)",
+      "tr": " (sıcaklık optimize edildi)"
+    },
+    {
+      "en": "Precipitation onset (where each solute begins to drop out) and the highest separator pressure that still recovers at least %d%% of it, at its feed loading%s:",
+      "ru": "Начало осаждения (где каждое вещество начинает выпадать) и наибольшее давление сепаратора, при котором извлекается не менее %d%% при данной загрузке%s:",
+      "tr": "Çökelme başlangıcı (her çözünenin ayrılmaya başladığı yer) ve besleme yükünde en az %%%d'ini geri kazanan en yüksek ayırıcı basıncı%s:"
+    },
+    {
+      "en": "Optimization could not reach the target recovery for any solute in range. Lower the recovery target or the feed loading.",
+      "ru": "Оптимизация не достигла целевого извлечения ни для одного вещества в диапазоне. Снизьте целевое извлечение или загрузку.",
+      "tr": "Optimizasyon, aralıktaki hiçbir çözünen için hedef geri kazanıma ulaşamadı. Hedef geri kazanımı veya besleme yükünü düşürün."
+    },
+    {
+      "en": "Enter each solute's feed loading (g/kg CO₂) above. The optimizer reports where each solute begins to precipitate (onset) and the highest separator pressure recovering the target fraction, at its feed loading. Separator pressure/temperature are auto-found when \"Optimize\" is ticked, or entered manually; separators apply in the listed (decreasing) pressure order.",
+      "ru": "Введите загрузку каждого вещества (г/кг CO₂) выше. Оптимизатор показывает, где каждое вещество начинает осаждаться, и наибольшее давление сепаратора для целевого извлечения. Давление/температура находятся автоматически при отметке «Оптимизировать» или вводятся вручную; сепараторы применяются в указанном (убывающем) порядке давления.",
+      "tr": "Her çözünenin besleme yükünü (g/kg CO₂) yukarıya girin. Optimize edici, her çözünenin çökelmeye başladığı yeri ve hedef fraksiyonu geri kazanan en yüksek ayırıcı basıncını bildirir. Basınç/sıcaklık \"Optimize\" işaretlendiğinde otomatik bulunur veya elle girilir; ayırıcılar listelenen (azalan) basınç sırasında uygulanır."
+    },
+    {
+      "en": "Only one solute per name may be selected; skipped: %s",
+      "ru": "Можно выбрать только одно вещество с данным именем; пропущено: %s",
+      "tr": "Her ad için yalnızca bir çözünen seçilebilir; atlandı: %s"
+    },
+    {
+      "en": "Already added from the database; removed from session selection: %s",
+      "ru": "Уже добавлено из базы данных; удалено из выбора сессии: %s",
+      "tr": "Veritabanından zaten eklendi; oturum seçiminden kaldırıldı: %s"
+    },
+    {
+      "en": "Already selected; skipped: %s",
+      "ru": "Уже выбрано; пропущено: %s",
+      "tr": "Zaten seçili; atlandı: %s"
+    },
+    {
+      "en": "Out of range:",
+      "ru": "Вне диапазона:",
+      "tr": "Aralık dışı:"
+    },
+    {
+      "en": "Separator pressures must be entered in non-increasing order — each stage at or below the previous stage's pressure.",
+      "ru": "Давления сепараторов должны вводиться в неубывающем порядке — каждая ступень при давлении не выше предыдущей.",
+      "tr": "Ayırıcı basınçları artmayan sırada girilmelidir — her aşama bir önceki aşamanın basıncında veya altında olmalıdır."
+    },
+    {
+      "en": "flow rate",
+      "ru": "расход",
+      "tr": "akış hızı"
+    },
+    {
+      "en": "Extraction",
+      "ru": "Экстракция",
+      "tr": "Ekstraksiyon"
+    },
+    {
+      "en": "Extraction pressure (%g bar) cannot be below the highest separator pressure (%g bar).",
+      "ru": "Давление экстракции (%g бар) не может быть ниже наибольшего давления сепаратора (%g бар).",
+      "tr": "Ekstraksiyon basıncı (%g bar) en yüksek ayırıcı basıncından (%g bar) düşük olamaz."
+    },
+    {
+      "en": "Separators are applied in the listed pressure order. Give one temperature (applied to all stages) or one per stage. Enable \"Optimize\" to have the app find the highest separator pressure (and/or best temperature) that still recovers ≥90% of each target solute.",
+      "ru": "Сепараторы применяются в указанном порядке давлений. Укажите одну температуру (для всех ступеней) или по одной на ступень. Включите «Оптимизировать», чтобы приложение нашло наибольшее давление сепаратора (и/или наилучшую температуру), при котором извлекается ≥90% каждого целевого вещества.",
+      "tr": "Ayırıcılar listelenen basınç sırasına göre uygulanır. Bir sıcaklık (tüm kademelere uygulanır) veya kademe başına bir tane verin. Uygulamanın her hedef çözünenin ≥%90'ını hâlâ geri kazanan en yüksek ayırıcı basıncını (ve/veya en iyi sıcaklığı) bulması için «Optimize et»i etkinleştirin."
+    },
+    {
+      "en": "Optimize automatically",
+      "ru": "Оптимизировать автоматически",
+      "tr": "Otomatik optimize et"
+    },
+    {
+      "en": "Units",
+      "ru": "Единицы",
+      "tr": "Birimler"
+    },
+    {
+      "en": "Filter by solute",
+      "ru": "Фильтр по веществу",
+      "tr": "Çözünene göre filtrele"
+    },
+    {
+      "en": "All solutes",
+      "ru": "Все вещества",
+      "tr": "Tüm çözünenler"
+    },
+    {
+      "en": "Optimized separator conditions",
+      "ru": "Оптимизированные условия сепаратора",
+      "tr": "Optimize edilmiş ayırıcı koşulları"
+    },
+    {
+      "en": "Recovery",
+      "ru": "Извлечение",
+      "tr": "Geri kazanım"
+    },
+    {
+      "en": "Suggested pressure",
+      "ru": "Рекомендуемое давление",
+      "tr": "Önerilen basınç"
+    },
+    {
+      "en": "Temperature",
+      "ru": "Температура",
+      "tr": "Sıcaklık"
+    },
+    {
+      "en": "Solute",
+      "ru": "Вещество",
+      "tr": "Çözünen"
+    },
+    {
+      "en": "Extraction temperature (°C)",
+      "ru": "Температура экстракции (°C)",
+      "tr": "Ekstraksiyon sıcaklığı (°C)"
+    },
+    {
+      "en": "Extraction pressure (bar)",
+      "ru": "Давление экстракции (бар)",
+      "tr": "Ekstraksiyon basıncı (bar)"
+    },
+    {
+      "en": "CO₂ flow rate (kg/h)",
+      "ru": "Расход CO₂ (кг/ч)",
+      "tr": "CO₂ akış hızı (kg/s)"
+    },
+    {
+      "en": "Highest separator pressure (and temperature) that still recovers at least 90% of each target solute:",
+      "ru": "Наибольшее давление сепаратора (и температура), при котором извлекается не менее 90% каждого целевого вещества:",
+      "tr": "Her hedef çözünenin en az %90'ını hâlâ geri kazanan en yüksek ayırıcı basıncı (ve sıcaklığı):"
+    },
+    {
+      "en": "Optimization could not find a separator pressure reaching 90% recovery for any solute. Try a lower extraction pressure or a different model.",
+      "ru": "Оптимизация не смогла найти давление сепаратора, обеспечивающее 90% извлечения ни для одного вещества. Попробуйте меньшее давление экстракции или другую модель.",
+      "tr": "Optimizasyon, hiçbir çözünen için %90 geri kazanıma ulaşan bir ayırıcı basıncı bulamadı. Daha düşük bir ekstraksiyon basıncı veya farklı bir model deneyin."
+    },
+    {
+      "en": "Pick compounds from the database for the selected solubility model; they are added to the solute list.",
+      "ru": "Выберите соединения из базы данных для выбранной модели растворимости; они добавляются в список веществ.",
+      "tr": "Seçili çözünürlük modeli için veritabanından bileşik seçin; çözünen listesine eklenirler."
+    },
+    {
+      "en": "Separators are applied in the listed pressure order. Give one temperature (applied to all stages) or one per stage. Enable \"Optimize automatically\" to have the app find the highest separator pressure (and/or best temperature) that still recovers ≥90% of each target solute.",
+      "ru": "Сепараторы применяются в указанном порядке давлений. Укажите одну температуру (для всех ступеней) или по одной на ступень. Включите «Оптимизировать автоматически», чтобы приложение нашло наибольшее давление сепаратора (и/или наилучшую температуру), при котором извлекается ≥90% каждого целевого вещества.",
+      "tr": "Ayırıcılar listelenen basınç sırasına göre uygulanır. Bir sıcaklık (tüm kademelere uygulanır) veya kademe başına bir tane verin. Uygulamanın her hedef çözünenin ≥%90'ını hâlâ geri kazanan en yüksek ayırıcı basıncını (ve/veya en iyi sıcaklığı) bulması için «Otomatik optimize et»i etkinleştirin."
+    },
+    {
+      "en": "Model used to compute each solute's scCO₂ solubility at the curve and separator conditions. Experimental uses density-based k/A/B coefficients measured for the compound; CSP-2021 is a predictive equation of state for compounds in its database; Makarov (ML) predicts from SMILES. Only solutes that carry the data a model needs are selectable for it.",
+      "ru": "Модель для расчёта растворимости каждого вещества в скCO2 при условиях кривой и сепараторов. «Экспериментальная» использует измеренные для соединения коэффициенты k/A/B на основе плотности; CSP-2021 — прогнозное уравнение состояния для соединений из его базы данных; «Makarov (МО)» прогнозирует по SMILES. Для каждой модели доступны только вещества, несущие необходимые ей данные.",
+      "tr": "Her çözünenin eğri ve ayırıcı koşullarında skCO2 çözünürlüğünü hesaplamak için kullanılan model. Deneysel, bileşik için ölçülmüş yoğunluk tabanlı k/A/B katsayılarını kullanır; CSP-2021, veritabanındaki bileşikler için öngörücü bir hal denklemidir; Makarov (ML) SMILES'ten tahmin eder. Yalnızca bir modelin ihtiyaç duyduğu veriyi taşıyan çözünenler o model için seçilebilir."
+    },
+    {
+      "en": "Solubility & Separator Cascade",
+      "ru": "Растворимость и каскад сепараторов",
+      "tr": "Çözünürlük ve Ayırıcı Kademe"
+    },
+    {
+      "en": "Run",
+      "ru": "Запустить",
+      "tr": "Çalıştır"
+    },
+    {
+      "en": "Database & Manual Entry",
+      "ru": "База данных и ручной ввод",
+      "tr": "Veritabanı ve Manuel Giriş"
+    },
+    {
+      "en": "Add from Database",
+      "ru": "Добавить из базы данных",
+      "tr": "Veritabanından Ekle"
+    },
+    {
+      "en": "Manual Entry",
+      "ru": "Ручной ввод",
+      "tr": "Manuel Giriş"
+    },
+    {
+      "en": "Molar mass (g/mol)",
+      "ru": "Молярная масса (г/моль)",
+      "tr": "Molar kütle (g/mol)"
+    },
+    {
+      "en": "Basis",
+      "ru": "Основа",
+      "tr": "Temel"
+    },
+    {
+      "en": "Add Manual Solute",
+      "ru": "Добавить вещество вручную",
+      "tr": "Manuel Çözünen Ekle"
+    },
+    {
+      "en": "Working Solute Set",
+      "ru": "Рабочий набор веществ",
+      "tr": "Çalışma Çözünen Kümesi"
+    },
+    {
+      "en": "Export CSV",
+      "ru": "Экспорт CSV",
+      "tr": "CSV Dışa Aktar"
+    },
+    {
+      "en": "Import CSV",
+      "ru": "Импорт CSV",
+      "tr": "CSV İçe Aktar"
+    },
+    {
+      "en": "Clear All",
+      "ru": "Очистить всё",
+      "tr": "Tümünü Temizle"
+    },
+    {
+      "en": "Solubility Conditions",
+      "ru": "Условия растворимости",
+      "tr": "Çözünürlük Koşulları"
+    },
+    {
+      "en": "Density EoS",
+      "ru": "Уравнение состояния (плотность)",
+      "tr": "Yoğunluk Durum Denklemi"
+    },
+    {
+      "en": "Separator Cascade",
+      "ru": "Каскад сепараторов",
+      "tr": "Ayırıcı Kademesi"
+    },
+    {
+      "en": "Extraction T (°C)",
+      "ru": "Т экстракции (°C)",
+      "tr": "Ekstraksiyon S (°C)"
+    },
+    {
+      "en": "Extraction P (bar)",
+      "ru": "Р экстракции (бар)",
+      "tr": "Ekstraksiyon B (bar)"
+    },
+    {
+      "en": "CO2 flow rate (kg/h)",
+      "ru": "Расход CO2 (кг/ч)",
+      "tr": "CO2 akış hızı (kg/sa)"
+    },
+    {
+      "en": "Separators are applied in the listed pressure order. Give one temperature (applied to all stages) or one per stage.",
+      "ru": "Сепараторы применяются в указанном порядке давлений. Укажите одну температуру (для всех ступеней) или по одной на ступень.",
+      "tr": "Ayırıcılar listelenen basınç sırasıyla uygulanır. Tüm kademeler için tek bir sıcaklık ya da her kademe için birer sıcaklık girin."
+    },
+    {
+      "en": "Solubility Curves",
+      "ru": "Кривые растворимости",
+      "tr": "Çözünürlük Eğrileri"
+    },
+    {
+      "en": "Solubility Data",
+      "ru": "Данные растворимости",
+      "tr": "Çözünürlük Verileri"
+    },
+    {
+      "en": "Cascade Fractionation",
+      "ru": "Фракционирование в каскаде",
+      "tr": "Kademe Fraksiyonlama"
+    },
+    {
+      "en": "Cascade Data",
+      "ru": "Данные каскада",
+      "tr": "Kademe Verileri"
+    },
+    {
+      "en": "Select solutes and run to see results.",
+      "ru": "Выберите вещества и запустите расчёт.",
+      "tr": "Çözünenleri seçin ve sonuçlar için çalıştırın."
+    },
+    {
+      "en": "Mole fraction (mol/mol)",
+      "ru": "Мольная доля (моль/моль)",
+      "tr": "Mol kesri (mol/mol)"
+    },
+    {
+      "en": "Concentration (g/L)",
+      "ru": "Концентрация (г/л)",
+      "tr": "Konsantrasyon (g/L)"
+    },
+    {
+      "en": "Export Plot",
+      "ru": "Экспорт графика",
+      "tr": "Grafiği Dışa Aktar"
+    },
+    {
+      "en": "Set the cascade conditions and run to see fractionation.",
+      "ru": "Задайте условия каскада и запустите расчёт.",
+      "tr": "Kademe koşullarını ayarlayın ve fraksiyonlama için çalıştırın."
+    },
+    {
+      "en": "Stage Deposit Composition (mass %)",
+      "ru": "Состав осадка по ступеням (масс. %)",
+      "tr": "Kademe Çökeltisi Bileşimi (kütle %)"
+    },
+    {
+      "en": "Export Cascade Results (CSV)",
+      "ru": "Экспорт результатов каскада (CSV)",
+      "tr": "Kademe Sonuçlarını Dışa Aktar (CSV)"
+    },
+    {
+      "en": "Deposited mass per stage (kg/h)",
+      "ru": "Осаждённая масса по ступеням (кг/ч)",
+      "tr": "Kademe başına çökelen kütle (kg/sa)"
+    },
+    {
+      "en": "Recovery fraction per stage",
+      "ru": "Доля извлечения по ступеням",
+      "tr": "Kademe başına geri kazanım oranı"
+    },
+    {
+      "en": "Search compound",
+      "ru": "Поиск соединения",
+      "tr": "Bileşik ara"
+    },
+    {
+      "en": "Type to search the database...",
+      "ru": "Введите для поиска по базе данных...",
+      "tr": "Veritabanında aramak için yazın..."
+    },
+    {
+      "en": "Temperatures (°C)",
+      "ru": "Температуры (°C)",
+      "tr": "Sıcaklıklar (°C)"
+    },
+    {
+      "en": "Pressures (bar)",
+      "ru": "Давления (бар)",
+      "tr": "Basınçlar (bar)"
+    },
+    {
+      "en": "Separator pressures (bar)",
+      "ru": "Давления сепараторов (бар)",
+      "tr": "Ayırıcı basınçları (bar)"
+    },
+    {
+      "en": "Separator temperatures (°C)",
+      "ru": "Температуры сепараторов (°C)",
+      "tr": "Ayırıcı sıcaklıkları (°C)"
+    },
+    {
+      "en": "Type temperatures...",
+      "ru": "Введите температуры...",
+      "tr": "Sıcaklıkları girin..."
+    },
+    {
+      "en": "Type pressures...",
+      "ru": "Введите давления...",
+      "tr": "Basınçları girin..."
+    },
+    {
+      "en": "CO₂ flow rate",
+      "ru": "Расход CO₂",
+      "tr": "CO₂ akış hızı"
+    },
+    {
+      "en": "Extraction temperature",
+      "ru": "Температура экстракции",
+      "tr": "Ekstraksiyon sıcaklığı"
+    },
+    {
+      "en": "Extraction pressure",
+      "ru": "Давление экстракции",
+      "tr": "Ekstraksiyon basıncı"
+    },
+    {
+      "en": "Temperatures at which the solubility curves are computed — one curve per value. Supercritical CO₂ requires temperatures above its critical temperature (~31 °C).",
+      "ru": "Температуры, при которых рассчитываются кривые растворимости — по одной кривой на значение. Сверхкритический CO₂ требует температур выше его критической температуры (~31 °C).",
+      "tr": "Çözünürlük eğrilerinin hesaplandığı sıcaklıklar — değer başına bir eğri. Süperkritik CO₂, kritik sıcaklığının (~31 °C) üzerinde sıcaklıklar gerektirir."
+    },
+    {
+      "en": "Pressures at which the solubility curves are computed — one point per value.",
+      "ru": "Давления, при которых рассчитываются кривые растворимости — по одной точке на значение.",
+      "tr": "Çözünürlük eğrilerinin hesaplandığı basınçlar — değer başına bir nokta."
+    },
+    {
+      "en": "Separator stage pressures, listed highest first (the stream is depressurised stage by stage). Ignored when Optimize is ticked; none may be below the recovery pressure.",
+      "ru": "Давления ступеней сепаратора, от наибольшего к наименьшему (поток сбрасывает давление ступень за ступенью). Игнорируются, если включена оптимизация; ни одно не может быть ниже давления извлечения.",
+      "tr": "Ayırıcı kademe basınçları, en yüksekten başlayarak (akış kademe kademe basıncı düşürülür). Optimizasyon işaretliyse yok sayılır; hiçbiri geri kazanım basıncının altında olamaz."
+    },
+    {
+      "en": "Separator stage temperatures. Enter one value to apply the same temperature to every stage, or one per stage. Ignored when Optimize is ticked.",
+      "ru": "Температуры ступеней сепаратора. Введите одно значение для всех ступеней или по одному на ступень. Игнорируются, если включена оптимизация.",
+      "tr": "Ayırıcı kademe sıcaklıkları. Her kademeye aynı sıcaklığı uygulamak için bir değer veya kademe başına bir değer girin. Optimizasyon işaretliyse yok sayılır."
+    },
+    {
+      "en": "Temperature of the extraction vessel. When a solute's feed loading is left blank, its saturation at these extraction conditions is used as the feed.",
+      "ru": "Температура экстрактора. Если загрузка вещества оставлена пустой, в качестве загрузки используется его насыщение при этих условиях экстракции.",
+      "tr": "Ekstraksiyon kabının sıcaklığı. Bir çözünenin besleme yüklemesi boş bırakıldığında, bu ekstraksiyon koşullarındaki doygunluğu besleme olarak kullanılır."
+    },
+    {
+      "en": "Pressure of the extraction vessel. Must be at or above the highest separator pressure (the stream is depressurised into the separators).",
+      "ru": "Давление экстрактора. Должно быть не ниже наибольшего давления сепаратора (поток сбрасывает давление в сепараторы).",
+      "tr": "Ekstraksiyon kabının basıncı. En yüksek ayırıcı basıncında veya üzerinde olmalıdır (akış ayırıcılara doğru basıncı düşürülür)."
+    },
+    {
+      "en": "Mass flow rate of CO₂ through the cascade. It sets the absolute deposited mass per stage (kg/h); click the unit badge to toggle kg/h and g/min.",
+      "ru": "Массовый расход CO₂ через каскад. Задаёт абсолютную осаждённую массу на ступень (кг/ч); нажмите на значок единиц для переключения кг/ч и г/мин.",
+      "tr": "Kademe boyunca CO₂ kütlesel akış hızı. Kademe başına biriken mutlak kütleyi (kg/sa) belirler; kg/sa ile g/dk arasında geçiş için birim rozetine tıklayın."
+    },
+    {
+      "en": "Fraction of each solute you aim to recover. The optimizer reports the highest separator pressure that still reaches it (or flags it as not reached).",
+      "ru": "Доля каждого вещества, которую нужно извлечь. Оптимизатор сообщает наибольшее давление сепаратора, при котором она ещё достигается (или отмечает как недостигнутую).",
+      "tr": "Her çözünenin geri kazanmayı hedeflediğiniz oranı. Optimize edici, buna hâlâ ulaşan en yüksek ayırıcı basıncını bildirir (veya ulaşılamadı olarak işaretler)."
+    },
+    {
+      "en": "Number of separator stages (1–6). Caps how many separator pressures/temperatures can be entered and how many the optimizer produces.",
+      "ru": "Число ступеней сепаратора (1–6). Ограничивает, сколько давлений/температур сепаратора можно ввести и сколько создаёт оптимизатор.",
+      "tr": "Ayırıcı kademe sayısı (1–6). Kaç ayırıcı basıncı/sıcaklığı girilebileceğini ve optimize edicinin kaç tane üreteceğini sınırlar."
+    },
+    {
+      "en": "Equation of state used to compute the CO₂ density that converts mole-fraction solubility to g/L and g/kg. Span-Wagner is the reference EoS; Bender is a faster alternative.",
+      "ru": "Уравнение состояния для расчёта плотности CO₂, которая переводит мольную долю растворимости в г/л и г/кг. Span-Wagner — эталонное УРС; Bender — более быстрая альтернатива.",
+      "tr": "Mol kesri çözünürlüğünü g/L ve g/kg'ye dönüştüren CO₂ yoğunluğunu hesaplamak için kullanılan durum denklemi. Span-Wagner referans EoS'tur; Bender daha hızlı bir alternatiftir."
+    },
+    {
+      "en": "No solutes added yet.",
+      "ru": "Вещества ещё не добавлены.",
+      "tr": "Henüz çözünen eklenmedi."
+    },
+    {
+      "en": "No solutes selected.",
+      "ru": "Вещества не выбраны.",
+      "tr": "Çözünen seçilmedi."
+    },
+    {
+      "en": "No saved calculations with Chrastil coefficients found.",
+      "ru": "Сохранённые расчёты с коэффициентами Храстила не найдены.",
+      "tr": "Chrastil katsayıları olan kayıtlı hesaplama bulunamadı."
+    },
+    {
+      "en": "Add at least one solute first.",
+      "ru": "Сначала добавьте хотя бы одно вещество.",
+      "tr": "Önce en az bir çözünen ekleyin."
+    },
+    {
+      "en": "Computing Chrastil solubility...",
+      "ru": "Расчёт растворимости по Храстилу...",
+      "tr": "Chrastil çözünürlüğü hesaplanıyor..."
+    },
+    {
+      "en": "Separator stage",
+      "ru": "Ступень сепаратора",
+      "tr": "Ayırıcı kademesi"
+    },
+    {
+      "en": "Deposited mass (kg/h)",
+      "ru": "Осаждённая масса (кг/ч)",
+      "tr": "Çökelen kütle (kg/sa)"
+    },
+    {
+      "en": "Pressure (bar)",
+      "ru": "Давление (бар)",
+      "tr": "Basınç (bar)"
+    },
+    {
+      "en": "Solubility (g/L)",
+      "ru": "Растворимость (г/л)",
+      "tr": "Çözünürlük (g/L)"
+    },
+    {
+      "en": "Solubility (mol/mol)",
+      "ru": "Растворимость (моль/моль)",
+      "tr": "Çözünürlük (mol/mol)"
+    },
+    {
+      "en": "Estimate Chrastil solubility parameters (k, A, B)",
+      "ru": "Оценить параметры растворимости Храстила (k, A, B)",
+      "tr": "Chrastil çözünürlük parametrelerini tahmin et (k, A, B)"
+    },
+    {
+      "en": "Chrastil GCM",
+      "ru": "GCM Храстила",
+      "tr": "Chrastil GCM"
+    },
+    {
+      "en": "Chrastil Solubility Parameters",
+      "ru": "Параметры растворимости Храстила",
+      "tr": "Chrastil Çözünürlük Parametreleri"
+    },
+    {
+      "en": "Chrastil density exponent",
+      "ru": "Показатель плотности Храстила",
+      "tr": "Chrastil yoğunluk üssü"
+    },
+    {
+      "en": "Chrastil temperature coeff.",
+      "ru": "Темп. коэффициент Храстила",
+      "tr": "Chrastil sıcaklık katsayısı"
+    },
+    {
+      "en": "Chrastil intercept",
+      "ru": "Свободный член Храстила",
+      "tr": "Chrastil sabit terimi"
+    },
+    {
+      "en": "Solubility Model",
+      "ru": "Модель растворимости",
+      "tr": "Çözünürlük Modeli"
+    },
+    {
+      "en": "Model used to compute each solute's scCO₂ solubility at the curve and separator conditions. Chrastil and Experimental use density-based k/A/B coefficients (GCM-estimated vs measured); CSP-2021 is a predictive equation of state for compounds in its database; Makarov (ML) predicts from SMILES. Only solutes that carry the data a model needs are selectable for it.",
+      "ru": "Модель для расчёта растворимости каждого вещества в скCO2 при условиях кривой и сепараторов. Chrastil и «Экспериментальная» используют коэффициенты k/A/B на основе плотности (оценка GCM или измеренные); CSP-2021 — предсказательное уравнение состояния для веществ из его базы; Makarov (ML) предсказывает по SMILES. Для модели доступны только вещества с необходимыми данными.",
+      "tr": "Her çözünenin eğri ve ayırıcı koşullarında scCO₂ çözünürlüğünü hesaplamak için kullanılan model. Chrastil ve Deneysel, yoğunluk tabanlı k/A/B katsayılarını kullanır (GCM tahmini veya ölçülmüş); CSP-2021, veritabanındaki bileşikler için öngörücü bir hal denklemidir; Makarov (ML) SMILES'ten tahmin eder. Bir model için yalnızca gerekli verileri taşıyan çözünenler seçilebilir."
+    },
+    {
+      "en": "Chrastil (GCM/DB)",
+      "ru": "Chrastil (GCM/БД)",
+      "tr": "Chrastil (GKY/VT)"
+    },
+    {
+      "en": "Experimental (measured k/A/B)",
+      "ru": "Экспериментальная (измеренные k/A/B)",
+      "tr": "Deneysel (ölçülen k/A/B)"
+    },
+    {
+      "en": "CSP-2021 (in database)",
+      "ru": "CSP-2021 (в базе данных)",
+      "tr": "CSP-2021 (veritabanında)"
+    },
+    {
+      "en": "Makarov (ML, from SMILES)",
+      "ru": "Makarov (ML, из SMILES)",
+      "tr": "Makarov (ML, SMILES'ten)"
+    },
+    {
+      "en": "No saved calculations eligible for the selected model (need %s).",
+      "ru": "Нет сохранённых расчётов, подходящих для выбранной модели (нужно: %s).",
+      "tr": "Seçilen model için uygun kayıtlı hesaplama yok (gerekli: %s)."
+    },
+    {
+      "en": "Chrastil coefficients",
+      "ru": "коэффициенты Храстила",
+      "tr": "Chrastil katsayıları"
+    },
+    {
+      "en": "a name with measured k/A/B in the database",
+      "ru": "название с измеренными k/A/B в базе",
+      "tr": "veritabanında ölçülen k/A/B olan bir ad"
+    },
+    {
+      "en": "a name in the CSP-2021 database",
+      "ru": "название в базе CSP-2021",
+      "tr": "CSP-2021 veritabanında bir ad"
+    },
+    {
+      "en": "a SMILES string",
+      "ru": "строку SMILES",
+      "tr": "bir SMILES dizesi"
+    },
+    {
+      "en": "Characterize a solute in Solute Characterization (with the data the chosen model needs), then it will appear here.",
+      "ru": "Охарактеризуйте вещество в модуле «Характеризация вещества» (с данными, нужными для выбранной модели), и оно появится здесь.",
+      "tr": "Çözünen Karakterizasyonu'nda bir çözüneni (seçilen modelin ihtiyaç duyduğu verilerle) karakterize edin; ardından burada görünecektir."
+    },
+    {
+      "en": "Showing %d calculation(s) eligible for the selected solubility model.",
+      "ru": "Показано %d расчёт(ов), подходящих для выбранной модели растворимости.",
+      "tr": "Seçilen çözünürlük modeli için uygun %d hesaplama gösteriliyor."
+    },
+    {
+      "en": "The Makarov (ML) model has no name database — add Makarov solutes via Solute Characterization (with SMILES) or Manual Entry (Name + SMILES).",
+      "ru": "У модели Makarov (ML) нет базы названий — добавляйте вещества через «Характеризацию вещества» (со SMILES) или ручной ввод (название + SMILES).",
+      "tr": "Makarov (ML) modelinin ad veritabanı yoktur — Makarov çözünenlerini Çözünen Karakterizasyonu (SMILES ile) veya Manuel Giriş (Ad + SMILES) yoluyla ekleyin."
+    },
+    {
+      "en": "Optional — required for the Makarov (ML) model",
+      "ru": "Необязательно — требуется для модели Makarov (ML)",
+      "tr": "İsteğe bağlı — Makarov (ML) modeli için gerekli"
+    },
+    {
+      "en": "Enter a name and either k/A/B (for Chrastil) or a SMILES (for the ML model).",
+      "ru": "Введите название и либо k/A/B (для Chrastil), либо SMILES (для ML-модели).",
+      "tr": "Bir ad ve k/A/B (Chrastil için) veya bir SMILES (ML modeli için) girin."
+    },
+    {
+      "en": "Loading (g/kg)",
+      "ru": "Загрузка (г/кг)",
+      "tr": "Yükleme (g/kg)"
+    },
+    {
+      "en": "Loading (g/kg CO₂)",
+      "ru": "Загрузка (г/кг CO₂)",
+      "tr": "Yükleme (g/kg CO₂)"
+    },
+    {
+      "en": "Sat.",
+      "ru": "Насыщ.",
+      "tr": "Doym."
+    },
+    {
+      "en": "Separator",
+      "ru": "Сепаратор",
+      "tr": "Separatör"
+    },
+    {
+      "en": "Number of separators",
+      "ru": "Число сепараторов",
+      "tr": "Separatör sayısı"
+    },
+    {
+      "en": "Separators",
+      "ru": "Сепараторы",
+      "tr": "Separatörler"
+    },
+    {
+      "en": "Co-solvent",
+      "ru": "Со-растворитель",
+      "tr": "Yardımcı çözücü"
+    },
+    {
+      "en": "Makarov (ML) applicability domain: MW %d–%d g/mol, T %d–%d °C, P %d–%d bar. Outside it the model may over-predict.",
+      "ru": "Область применимости Makarov (ML): M %d–%d г/моль, T %d–%d °C, P %d–%d бар. Вне неё модель может завышать.",
+      "tr": "Makarov (ML) uygulanabilirlik alanı: MA %d–%d g/mol, T %d–%d °C, P %d–%d bar. Bunun dışında model fazla tahmin edebilir."
+    },
+    {
+      "en": "Molar mass outside the domain (expect over-prediction): %s.",
+      "ru": "Молярная масса вне области (ожидается завышение): %s.",
+      "tr": "Molar kütle alan dışında (fazla tahmin beklenir): %s."
+    },
+    {
+      "en": "Pressures reach outside the calibration range (%d–%d bar) — separator/recovery below %d bar is extrapolation.",
+      "ru": "Давления выходят за диапазон калибровки (%d–%d бар) — сепаратор/извлечение ниже %d бар — экстраполяция.",
+      "tr": "Basınçlar kalibrasyon aralığının dışına çıkıyor (%d–%d bar) — %d bar altındaki separatör/geri kazanım ekstrapolasyondur."
+    },
+    {
+      "en": "Temperature %g °C is outside the calibration range (%d–%d °C).",
+      "ru": "Температура %g °C вне диапазона калибровки (%d–%d °C).",
+      "tr": "Sıcaklık %g °C kalibrasyon aralığının dışında (%d–%d °C)."
+    },
+    {
+      "en": "These solutes have measured Chrastil coefficients — the Experimental model is likely more reliable: %s.",
+      "ru": "У этих веществ есть измеренные коэффициенты Chrastil — модель «Экспериментальная», вероятно, надёжнее: %s.",
+      "tr": "Bu çözünenlerin ölçülmüş Chrastil katsayıları var — Deneysel model muhtemelen daha güvenilirdir: %s."
+    },
+    {
+      "en": "Makarov (ML) tends to OVER-predict solubility for large molecules (MW > 400): %s. Where measured data exists, prefer the Experimental (Chrastil) model.",
+      "ru": "Makarov (ML) склонна ЗАВЫШАТЬ растворимость крупных молекул (M > 400): %s. При наличии измеренных данных предпочтительна модель «Экспериментальная» (Chrastil).",
+      "tr": "Makarov (ML), büyük moleküller (MA > 400) için çözünürlüğü FAZLA tahmin etme eğilimindedir: %s. Ölçülen veri varsa Deneysel (Chrastil) modeli tercih edin."
+    },
+    {
+      "en": "These solutes have measured Chrastil coefficients in the database — the Experimental model is likely more reliable: %s.",
+      "ru": "У этих веществ есть измеренные коэффициенты Chrastil в базе — модель «Экспериментальная», вероятно, надёжнее: %s.",
+      "tr": "Bu çözünenlerin veritabanında ölçülmüş Chrastil katsayıları var — Deneysel model muhtemelen daha güvenilirdir: %s."
+    },
+    {
+      "en": "Estimate loading from extraction curve",
+      "ru": "Оценить загрузку по кривой экстракции",
+      "tr": "Ekstraksiyon eğrisinden yüklemeyi tahmin et"
+    },
+    {
+      "en": "Estimate feed loading from an extraction curve",
+      "ru": "Оценка загрузки по кривой экстракции",
+      "tr": "Ekstraksiyon eğrisinden besleme yüklemesini tahmin et"
+    },
+    {
+      "en": "— enter my own curve —",
+      "ru": "— ввести свою кривую —",
+      "tr": "— kendi eğrimi gir —"
+    },
+    {
+      "en": "Reference oil",
+      "ru": "Эталонное масло",
+      "tr": "Referans yağ"
+    },
+    {
+      "en": "X axis",
+      "ru": "Ось X",
+      "tr": "X ekseni"
+    },
+    {
+      "en": "Y axis",
+      "ru": "Ось Y",
+      "tr": "Y ekseni"
+    },
+    {
+      "en": "Cumulative CO₂ (kg)",
+      "ru": "Суммарный CO₂ (кг)",
+      "tr": "Kümülatif CO₂ (kg)"
+    },
+    {
+      "en": "Solvent-to-feed ratio",
+      "ru": "Отношение растворитель/сырьё",
+      "tr": "Çözücü-besleme oranı"
+    },
+    {
+      "en": "Time (min)",
+      "ru": "Время (мин)",
+      "tr": "Zaman (dk)"
+    },
+    {
+      "en": "Extract mass (g)",
+      "ru": "Масса экстракта (г)",
+      "tr": "Ekstrakt kütlesi (g)"
+    },
+    {
+      "en": "Yield (g/g feed)",
+      "ru": "Выход (г/г сырья)",
+      "tr": "Verim (g/g besleme)"
+    },
+    {
+      "en": "Yield (%)",
+      "ru": "Выход (%)",
+      "tr": "Verim (%)"
+    },
+    {
+      "en": "CO₂ flow (kg/min)",
+      "ru": "Поток CO₂ (кг/мин)",
+      "tr": "CO₂ akışı (kg/dk)"
+    },
+    {
+      "en": "Feed mass (kg)",
+      "ru": "Масса сырья (кг)",
+      "tr": "Besleme kütlesi (kg)"
+    },
+    {
+      "en": "Target in extract (wt %)",
+      "ru": "Целевое в экстракте (масс. %)",
+      "tr": "Ekstraktta hedef (ağ. %)"
+    },
+    {
+      "en": "CO₂ flow is needed only for a time axis; feed mass only for a yield axis that is not solvent-to-feed.",
+      "ru": "Поток CO₂ нужен только для оси времени; масса сырья — только для оси выхода, не являющейся отношением растворитель/сырьё.",
+      "tr": "CO₂ akışı yalnızca zaman ekseni için gereklidir; besleme kütlesi yalnızca çözücü-besleme olmayan bir verim ekseni için gereklidir."
+    },
+    {
+      "en": "Curve points (one \"x y\" pair per line)",
+      "ru": "Точки кривой (пара «x y» в строке)",
+      "tr": "Eğri noktaları (satır başına bir \"x y\" çifti)"
+    },
+    {
+      "en": "Estimate loading",
+      "ru": "Оценить загрузку",
+      "tr": "Yüklemeyi tahmin et"
+    },
+    {
+      "en": "Enter a curve (or pick a reference oil) and press Estimate.",
+      "ru": "Введите кривую (или выберите эталонное масло) и нажмите «Оценить».",
+      "tr": "Bir eğri girin (veya referans yağ seçin) ve Tahmin et'e basın."
+    },
+    {
+      "en": "Enter at least 3 valid \"x y\" points.",
+      "ru": "Введите не менее 3 корректных точек «x y».",
+      "tr": "En az 3 geçerli \"x y\" noktası girin."
+    },
+    {
+      "en": "Could not estimate loading:",
+      "ru": "Не удалось оценить загрузку:",
+      "tr": "Yükleme tahmin edilemedi:"
+    },
+    {
+      "en": "CER loading: %.3g g/kg CO₂",
+      "ru": "Загрузка CER: %.3g г/кг CO₂",
+      "tr": "CER yüklemesi: %.3g g/kg CO₂"
+    },
+    {
+      "en": "Whole-run average: %.3g g/kg (the separator sees the CER peak, not the average). Fit R² = %.4f over %d points.",
+      "ru": "Среднее за весь процесс: %.3g г/кг (сепаратор видит пик CER, а не среднее). R² = %.4f по %d точкам.",
+      "tr": "Tüm çalışma ortalaması: %.3g g/kg (separatör ortalamayı değil CER tepesini görür). %d nokta üzerinde R² = %.4f."
+    },
+    {
+      "en": "Target-solute loading: %.3g g/kg CO₂",
+      "ru": "Загрузка целевого вещества: %.3g г/кг CO₂",
+      "tr": "Hedef çözünen yüklemesi: %.3g g/kg CO₂"
+    },
+    {
+      "en": "Set a target wt% to get the solute loading.",
+      "ru": "Укажите целевой масс.% для загрузки вещества.",
+      "tr": "Çözünen yüklemesi için hedef ağ.% girin."
+    },
+    {
+      "en": "Apply to solute",
+      "ru": "Применить к веществу",
+      "tr": "Çözünene uygula"
+    },
+    {
+      "en": "Use as feed loading",
+      "ru": "Использовать как загрузку",
+      "tr": "Besleme yüklemesi olarak kullan"
+    },
+    {
+      "en": "Falling / diffusion",
+      "ru": "Падение / диффузия",
+      "tr": "Düşen / difüzyon"
+    },
+    {
+      "en": "CER (linear)",
+      "ru": "CER (линейный)",
+      "tr": "CER (doğrusal)"
+    },
+    {
+      "en": "CER fit",
+      "ru": "Аппроксимация CER",
+      "tr": "CER uyumu"
+    },
+    {
+      "en": "Cumulative extract (g)",
+      "ru": "Суммарный экстракт (г)",
+      "tr": "Kümülatif ekstrakt (g)"
+    },
+    {
+      "en": "Applied %.3g g/kg CO₂ to %s.",
+      "ru": "Применено %.3g г/кг CO₂ к %s.",
+      "tr": "%.3g g/kg CO₂ %s öğesine uygulandı."
+    },
+    {
+      "en": "Co-solvent (mol %)",
+      "ru": "Со-растворитель (мол. %)",
+      "tr": "Yardımcı çözücü (mol %)"
+    },
+    {
+      "en": "None (pure CO₂)",
+      "ru": "Нет (чистый CO₂)",
+      "tr": "Yok (saf CO₂)"
+    },
+    {
+      "en": "Optional entrainer added to the CO₂, restricted to solvents with full HSP + CSP data (molar volume, Hansen parameters, sigma profiles). A co-solvent raises the solute's solubility and shifts its precipitation onset to lower pressure. Applies to the Makarov (ML) and CSP-2021 models only — the Chrastil/experimental models ignore it.",
+      "ru": "Необязательный со-растворитель, добавляемый к CO₂; ограничен растворителями с полными данными HSP + CSP (мольный объём, параметры Хансена, сигма-профили). Со-растворитель повышает растворимость вещества и смещает начало осаждения к меньшему давлению. Учитывается только моделями Makarov (ML) и CSP-2021 — модели Chrastil/эксперим. его игнорируют.",
+      "tr": "CO₂'ye eklenen isteğe bağlı yardımcı çözücü; tam HSP + CSP verisine (molar hacim, Hansen parametreleri, sigma profilleri) sahip çözücülerle sınırlıdır. Yardımcı çözücü çözünenin çözünürlüğünü artırır ve çökelme başlangıcını daha düşük basınca kaydırır. Yalnızca Makarov (ML) ve CSP-2021 modelleri dikkate alır — Chrastil/deneysel modeller yok sayar."
+    },
+    {
+      "en": "Co-solvent mole fraction in the CO₂ phase. The solubility models are calibrated to roughly ≤10 mol%; higher values are extrapolation.",
+      "ru": "Мольная доля со-растворителя в фазе CO₂. Модели растворимости откалиброваны примерно до ≤10 мол.%; большие значения — экстраполяция.",
+      "tr": "CO₂ fazındaki yardımcı çözücü mol kesri. Çözünürlük modelleri yaklaşık ≤%10 mol için kalibre edilmiştir; daha yüksek değerler ekstrapolasyondur."
+    },
+    {
+      "en": "The selected co-solvent is ignored by the Chrastil/experimental model (only Makarov and CSP-2021 account for it).",
+      "ru": "Выбранный со-растворитель игнорируется моделью Chrastil/эксперим. (его учитывают только Makarov и CSP-2021).",
+      "tr": "Seçilen yardımcı çözücü Chrastil/deneysel model tarafından yok sayılır (yalnızca Makarov ve CSP-2021 dikkate alır)."
+    },
+    {
+      "en": "Save Selected to Disk",
+      "ru": "Сохранить выбранное на диск",
+      "tr": "Seçileni Diske Kaydet"
+    },
+    {
+      "en": "Select one or more items in the list to save.",
+      "ru": "Выберите один или несколько элементов в списке для сохранения.",
+      "tr": "Kaydetmek için listeden bir veya daha fazla öğe seçin."
+    },
+    {
+      "en": "Saving %d selected item(s) — one JSON file each.",
+      "ru": "Сохранение %d выбранного(ых) элемента(ов) — по одному файлу JSON.",
+      "tr": "%d seçili öğe kaydediliyor — her biri için bir JSON dosyası."
+    },
+    {
+      "en": "Saved %d file(s) to: %s",
+      "ru": "Сохранено файлов: %d в: %s",
+      "tr": "%d dosya şuraya kaydedildi: %s"
+    },
+    {
+      "en": "%d file(s) could not be saved.",
+      "ru": "Не удалось сохранить %d файл(ов).",
+      "tr": "%d dosya kaydedilemedi."
+    },
+    {
+      "en": "flow",
+      "ru": "поток",
+      "tr": "akış"
+    },
+    {
+      "en": "Recovery",
+      "ru": "Извлечение",
+      "tr": "Geri kazanım"
+    },
+    {
+      "en": "Recovery pressure",
+      "ru": "Давление извлечения",
+      "tr": "Geri kazanım basıncı"
+    },
+    {
+      "en": "The lowest separator pressure allowed. Neither manual entry nor optimization can drop a separator below this pressure — if the target recovery needs a lower pressure, it is reported as not reached.",
+      "ru": "Наименьшее допустимое давление сепаратора. Ни ручной ввод, ни оптимизация не могут опустить сепаратор ниже этого давления — если для целевого извлечения нужно более низкое давление, оно отмечается как недостигнутое.",
+      "tr": "İzin verilen en düşük separatör basıncı. Ne manuel giriş ne de optimizasyon bir separatörü bu basıncın altına düşüremez — hedef geri kazanım daha düşük bir basınç gerektiriyorsa, ulaşılamadı olarak bildirilir."
+    },
+    {
+      "en": "Separator pressures below the recovery pressure (%g bar) were raised to it.",
+      "ru": "Давления сепараторов ниже давления извлечения (%g бар) были подняты до него.",
+      "tr": "Geri kazanım basıncının (%g bar) altındaki separatör basınçları ona yükseltildi."
+    },
+    {
+      "en": "Target recovery (%d%%)",
+      "ru": "Целевое извлечение (%d%%)",
+      "tr": "Hedef geri kazanım (%d%%)"
+    },
+    {
+      "en": "Recovery (%)",
+      "ru": "Извлечение (%)",
+      "tr": "Geri kazanım (%)"
+    },
+    {
+      "en": "Recovery (% of feed)",
+      "ru": "Извлечение (% от загрузки)",
+      "tr": "Geri kazanım (besleme %)"
+    },
+    {
+      "en": "Select solute",
+      "ru": "Выберите вещество",
+      "tr": "Çözünen seçin"
+    },
+    {
+      "en": "Recovery per separator stage (%)",
+      "ru": "Извлечение по ступеням сепаратора (%)",
+      "tr": "Separatör kademesi başına geri kazanım (%)"
+    },
+    {
+      "en": "Not reached (max %.0f%% at %.0f bar)",
+      "ru": "Не достигнуто (макс. %.0f%% при %.0f бар)",
+      "tr": "Ulaşılamadı (maks. %.0f%%, %.0f bar)"
+    },
+    {
+      "en": "Export Plot",
+      "ru": "Экспорт графика",
+      "tr": "Grafiği dışa aktar"
+    },
+    {
+      "en": "Export failed:",
+      "ru": "Ошибка экспорта:",
+      "tr": "Dışa aktarma başarısız:"
+    },
+    {
+      "en": "Feed loading exceeds 1000 g/kg CO₂ for: %s (physically implausible — please check).",
+      "ru": "Загрузка превышает 1000 г/кг CO₂ для: %s (физически неправдоподобно — проверьте).",
+      "tr": "Besleme yüklemesi 1000 g/kg CO₂ değerini aşıyor: %s (fiziksel olarak makul değil — kontrol edin)."
+    },
+    {
+      "en": "Target recovery %d%% not reached in range for: %s. Showing the best achievable.",
+      "ru": "Целевое извлечение %d%% не достигнуто в диапазоне для: %s. Показан наилучший достижимый результат.",
+      "tr": "Hedef geri kazanım %d%% aralıkta ulaşılamadı: %s. Ulaşılabilir en iyi değer gösteriliyor."
+    },
+    {
+      "en": "Saturation at extraction — click to use as the loading",
+      "ru": "Насыщение при экстракции — нажмите, чтобы использовать как загрузку",
+      "tr": "Ekstraksiyonda doygunluk — yükleme olarak kullanmak için tıklayın"
+    },
+    {
+      "en": "Solubility (g/kg)",
+      "ru": "Растворимость (г/кг)",
+      "tr": "Çözünürlük (g/kg)"
+    },
+    {
+      "en": "None of the selected solutes are eligible for the chosen solubility model.",
+      "ru": "Ни одно из выбранных веществ не подходит для выбранной модели растворимости.",
+      "tr": "Seçilen çözünenlerden hiçbiri seçilen çözünürlük modeli için uygun değil."
+    },
+    {
+      "en": "Skipped (not eligible for this model): %s",
+      "ru": "Пропущено (не подходит для этой модели): %s",
+      "tr": "Atlandı (bu model için uygun değil): %s"
+    },
+    {
+      "en": "Computing solubility...",
+      "ru": "Расчёт растворимости...",
+      "tr": "Çözünürlük hesaplanıyor..."
+    },
+    {
+      "en": "Excluded from cascade (no molar mass or solubility): %s",
+      "ru": "Исключено из каскада (нет молярной массы или растворимости): %s",
+      "tr": "Kademeden hariç tutuldu (molar kütle veya çözünürlük yok): %s"
+    },
+    {
+      "en": "Could not compute stage solubilities for any solute.",
+      "ru": "Не удалось рассчитать растворимости на ступенях ни для одного вещества.",
+      "tr": "Hiçbir çözünen için kademe çözünürlükleri hesaplanamadı."
+    },
+    {
+      "en": "CSP-2021 predicts solubility for %d compounds in its quantum-chemical database (%d added by you). To add one, supply its QM/COSMO sigma profile.",
+      "ru": "CSP-2021 рассчитывает растворимость для %d соединений в своей квантово-химической базе данных (%d добавлено вами). Чтобы добавить соединение, укажите его КХ/COSMO сигма-профиль.",
+      "tr": "CSP-2021, kuantum-kimyasal veri tabanındaki %d bileşik için çözünürlük tahmin eder (%d tanesi sizin tarafınızdan eklendi). Bir bileşik eklemek için QM/COSMO sigma profilini girin."
+    },
+    {
+      "en": "Add compound to CSP…",
+      "ru": "Добавить соединение в CSP…",
+      "tr": "CSP'ye bileşik ekle…"
+    },
+    {
+      "en": "Add a compound to the CSP model",
+      "ru": "Добавить соединение в модель CSP",
+      "tr": "CSP modeline bileşik ekle"
+    },
+    {
+      "en": "The sigma profile must be a JCOSMO ExportProf file computed at the SAME QM level as the bundled set (B3LYP/def2-SVPD, the LVPP nw-b3lyp-svpd-18 recipe). A profile from another level is not consistent with the CO₂ reference. See the DFT setup guide.",
+      "ru": "Сигма-профиль должен быть файлом JCOSMO ExportProf, рассчитанным на ТОМ ЖЕ квантово-химическом уровне, что и встроенный набор (B3LYP/def2-SVPD, рецепт LVPP nw-b3lyp-svpd-18). Профиль другого уровня несовместим с эталоном CO₂. См. руководство по настройке DFT.",
+      "tr": "Sigma profili, yerleşik kümeyle AYNI QM düzeyinde (B3LYP/def2-SVPD, LVPP nw-b3lyp-svpd-18 reçetesi) hesaplanmış bir JCOSMO ExportProf dosyası olmalıdır. Başka bir düzeyden profil, CO₂ referansıyla tutarlı değildir. DFT kurulum kılavuzuna bakın."
+    },
+    {
+      "en": "Compound name",
+      "ru": "Название соединения",
+      "tr": "Bileşik adı"
+    },
+    {
+      "en": "SMILES (optional, for auto-fill)",
+      "ru": "SMILES (необязательно, для автозаполнения)",
+      "tr": "SMILES (isteğe bağlı, otomatik doldurma için)"
+    },
+    {
+      "en": "JCOSMO sigma-profile file (ExportProf .tsv)",
+      "ru": "Файл сигма-профиля JCOSMO (ExportProf .tsv)",
+      "tr": "JCOSMO sigma profili dosyası (ExportProf .tsv)"
+    },
+    {
+      "en": "Auto-fill properties from SMILES",
+      "ru": "Автозаполнение свойств из SMILES",
+      "tr": "Özellikleri SMILES'ten otomatik doldur"
+    },
+    {
+      "en": "(experimental database, else Joback estimate — review before saving)",
+      "ru": "(экспериментальная база данных, иначе оценка по Джобаку — проверьте перед сохранением)",
+      "tr": "(deneysel veri tabanı, yoksa Joback tahmini — kaydetmeden önce gözden geçirin)"
+    },
+    {
+      "en": "Critical properties",
+      "ru": "Критические свойства",
+      "tr": "Kritik özellikler"
+    },
+    {
+      "en": "Fusion data (for the solid-solubility route)",
+      "ru": "Данные плавления (для расчёта растворимости твёрдого вещества)",
+      "tr": "Erime verileri (katı çözünürlük yolu için)"
+    },
+    {
+      "en": "CSP model",
+      "ru": "Модель CSP",
+      "tr": "CSP modeli"
+    },
+    {
+      "en": "Add compound",
+      "ru": "Добавить соединение",
+      "tr": "Bileşik ekle"
+    },
+    {
+      "en": "Your added compounds",
+      "ru": "Добавленные вами соединения",
+      "tr": "Eklediğiniz bileşikler"
+    },
+    {
+      "en": " — no fusion data",
+      "ru": " — нет данных плавления",
+      "tr": " — erime verisi yok"
+    },
+    {
+      "en": "Enter a SMILES string first.",
+      "ru": "Сначала введите строку SMILES.",
+      "tr": "Önce bir SMILES dizesi girin."
+    },
+    {
+      "en": "Could not estimate any properties from that SMILES.",
+      "ru": "Не удалось оценить свойства по этому SMILES.",
+      "tr": "Bu SMILES'ten hiçbir özellik tahmin edilemedi."
+    },
+    {
+      "en": "Filled %d properties — review and adjust as needed.",
+      "ru": "Заполнено %d свойств — проверьте и при необходимости измените.",
+      "tr": "%d özellik dolduruldu — gözden geçirin ve gerekirse ayarlayın."
+    },
+    {
+      "en": "A compound name is required.",
+      "ru": "Требуется название соединения.",
+      "tr": "Bir bileşik adı gerekli."
+    },
+    {
+      "en": "Upload the JCOSMO sigma-profile (.tsv) file.",
+      "ru": "Загрузите файл сигма-профиля JCOSMO (.tsv).",
+      "tr": "JCOSMO sigma profili (.tsv) dosyasını yükleyin."
+    },
+    {
+      "en": "Critical properties Tc, Pc, Vc, Tb are all required (use Auto-fill or enter them).",
+      "ru": "Необходимы все критические свойства: Tc, Pc, Vc, Tb (используйте автозаполнение или введите вручную).",
+      "tr": "Kritik özelliklerin tümü gereklidir: Tc, Pc, Vc, Tb (otomatik doldurmayı kullanın veya girin)."
+    },
+    {
+      "en": "Could not add compound:",
+      "ru": "Не удалось добавить соединение:",
+      "tr": "Bileşik eklenemedi:"
+    },
+    {
+      "en": "Added '%s' to the CSP model.%s",
+      "ru": "«%s» добавлено в модель CSP.%s",
+      "tr": "'%s' CSP modeline eklendi.%s"
+    },
+    {
+      "en": " Add Tm/ΔHfus/vs before using the solid-solubility route.",
+      "ru": " Добавьте Tm/ΔHfus/vs перед использованием расчёта растворимости твёрдого вещества.",
+      "tr": " Katı çözünürlük yolunu kullanmadan önce Tm/ΔHfus/vs değerlerini ekleyin."
+    },
+    {
+      "en": "Removed '%s' from the CSP model.",
+      "ru": "«%s» удалено из модели CSP.",
+      "tr": "'%s' CSP modelinden kaldırıldı."
+    },
+    {
+      "en": "Nothing to remove.",
+      "ru": "Нечего удалять.",
+      "tr": "Kaldırılacak bir şey yok."
+    },
+    {
+      "en": "openCOSMO-RS-Phi predicts solubility for %d compounds in its bundled database.",
+      "ru": "openCOSMO-RS-Phi прогнозирует растворимость для %d соединений в своей встроенной базе данных.",
+      "tr": "openCOSMO-RS-Phi, yerleşik veritabanındaki %d bileşik için çözünürlük tahmin eder."
+    },
+    {
+      "en": "These co-solvents are immiscible (they phase-separate): %s. They cannot form a single co-solvent phase in the CO₂ — choose miscible solvents.",
+      "ru": "Эти со-растворители несмешиваемы (расслаиваются): %s. Они не могут образовать единую фазу со-растворителя в CO₂ — выберите смешивающиеся растворители.",
+      "tr": "Bu yardımcı çözücüler karışmaz (faz ayrışması yapar): %s. CO₂ içinde tek bir yardımcı çözücü fazı oluşturamazlar — karışan çözücüler seçin."
+    },
+    {
+      "en": "These co-solvents react or interact on contact: %s. They will not form a stable single co-solvent phase — results are computed but unreliable.",
+      "ru": "Эти со-растворители реагируют или взаимодействуют при контакте: %s. Они не образуют стабильную единую фазу со-растворителя — результаты рассчитаны, но ненадёжны.",
+      "tr": "Bu yardımcı çözücüler temas halinde reaksiyona girer veya etkileşir: %s. Kararlı tek bir yardımcı çözücü fazı oluşturmazlar — sonuçlar hesaplanır ancak güvenilir değildir."
+    },
+    {
+      "en": "These co-solvents are only partially miscible: %s. The blend may not form a single co-solvent phase at all ratios.",
+      "ru": "Эти со-растворители смешиваются лишь частично: %s. Смесь может не образовать единую фазу со-растворителя при всех соотношениях.",
+      "tr": "Bu yardımcı çözücüler yalnızca kısmen karışır: %s. Karışım tüm oranlarda tek bir yardımcı çözücü fazı oluşturmayabilir."
+    },
+    {
+      "en": "These co-solvents may react or interact on contact (%s). They will not form a stable entrainer — treat any blend result with caution.",
+      "ru": "Эти со-растворители могут реагировать или взаимодействовать при контакте (%s). Они не образуют стабильный энтрейнер — относитесь к любому результату смеси с осторожностью.",
+      "tr": "Bu yardımcı çözücüler temas halinde reaksiyona girebilir veya etkileşebilir (%s). Kararlı bir sürükleyici oluşturmazlar — karışım sonuçlarını dikkatle değerlendirin."
+    },
+    {
+      "en": "At the selected ratio (%s) and %s °C these co-solvents split into two liquid phases — they will not form a single homogeneous entrainer. Adjust the ratio, raise the temperature, or choose different co-solvents.",
+      "ru": "При выбранном соотношении (%s) и %s °C эти со-растворители расслаиваются на две жидкие фазы — они не образуют единый однородный энтрейнер. Измените соотношение, повысьте температуру или выберите другие со-растворители.",
+      "tr": "Seçilen oranda (%s) ve %s °C'de bu yardımcı çözücüler iki sıvı faza ayrışır — tek bir homojen sürükleyici oluşturmazlar. Oranı değiştirin, sıcaklığı yükseltin veya farklı yardımcı çözücüler seçin."
+    },
+    {
+      "en": "These co-solvents may not be fully miscible (%s); their miscibility at the exact selected ratio could not be verified from structure.",
+      "ru": "Эти со-растворители могут быть не полностью смешиваемы (%s); их смешиваемость при точно выбранном соотношении не удалось проверить по структуре.",
+      "tr": "Bu yardımcı çözücüler tam olarak karışmayabilir (%s); tam seçilen orandaki karışabilirlikleri yapıdan doğrulanamadı."
+    },
+    {
+      "en": "Co-solvent blend '%s': its solvents may react or interact on contact; results are shown but treat them with caution.",
+      "ru": "Смесь со-растворителей «%s»: её растворители могут реагировать или взаимодействовать при контакте; результаты показаны, но относитесь к ним с осторожностью.",
+      "tr": "Yardımcı çözücü karışımı '%s': çözücüleri temas halinde reaksiyona girebilir veya etkileşebilir; sonuçlar gösterilir ancak dikkatle değerlendirin."
+    },
+    {
+      "en": "Co-solvent blend '%s': at the selected ratio and %s °C its solvents split into two liquid phases (not a single entrainer); results are shown but the blend may not be physical.",
+      "ru": "Смесь со-растворителей «%s»: при выбранном соотношении и %s °C её растворители расслаиваются на две жидкие фазы (не единый энтрейнер); результаты показаны, но смесь может быть нефизичной.",
+      "tr": "Yardımcı çözücü karışımı '%s': seçilen oranda ve %s °C'de çözücüleri iki sıvı faza ayrışır (tek bir sürükleyici değil); sonuçlar gösterilir ancak karışım fiziksel olmayabilir."
+    },
+    {
+      "en": "Model used to compute each solute's scCO₂ solubility at the curve and separator conditions. Experimental uses density-based k/A/B coefficients measured for the compound; CSP-2021 and openCOSMO-RS-Phi are predictive COSMO-SAC-Phi equations of state for compounds in their databases (from quantum σ-profiles + fitted parameters); Makarov (ML) predicts from SMILES. Only solutes that carry the data a model needs are selectable for it.",
+      "ru": "Модель для расчёта растворимости каждого вещества в скCO₂ при условиях кривой и сепаратора. «Экспериментальная» использует измеренные для соединения коэффициенты k/A/B на основе плотности; CSP-2021 и openCOSMO-RS-Phi — прогностические уравнения состояния COSMO-SAC-Phi для соединений из их баз данных (по квантовым σ-профилям + подогнанным параметрам); Makarov (ML) прогнозирует по SMILES. Для модели можно выбрать только те вещества, для которых есть нужные ей данные.",
+      "tr": "Her çözünenin skCO₂ çözünürlüğünü eğri ve ayırıcı koşullarında hesaplamak için kullanılan model. «Deneysel», bileşik için ölçülen yoğunluk temelli k/A/B katsayılarını kullanır; CSP-2021 ve openCOSMO-RS-Phi, veritabanlarındaki bileşikler için öngörücü COSMO-SAC-Phi hal denklemleridir (kuantum σ-profillerinden + uydurulmuş parametrelerden); Makarov (ML) ise SMILES'ten tahmin eder. Bir model için yalnızca gereken verilere sahip çözünenler seçilebilir."
+    },
+    {
+      "en": "openCOSMO-RS-Phi (in database)",
+      "ru": "openCOSMO-RS-Phi (в базе данных)",
+      "tr": "openCOSMO-RS-Phi (veritabanında)"
+    },
+    {
+      "en": "Makarov (ML) is a pure-CO₂ predictor and IGNORES the selected co-solvent — its co-solvent sensitivity is too weak to be reliable. Switch to CSP-2021 or openCOSMO-RS-Phi to model co-solvent enhancement.",
+      "ru": "Makarov (ML) — предсказатель для чистого CO₂ и ИГНОРИРУЕТ выбранный со-растворитель: его чувствительность к со-растворителю слишком мала, чтобы быть надёжной. Переключитесь на CSP-2021 или openCOSMO-RS-Phi, чтобы моделировать усиление со-растворителем.",
+      "tr": "Makarov (ML) saf CO₂ için bir öngörücüdür ve seçilen yardımcı çözücüyü YOK SAYAR — yardımcı çözücü duyarlılığı güvenilir olamayacak kadar zayıftır. Yardımcı çözücü etkisini modellemek için CSP-2021 veya openCOSMO-RS-Phi'ye geçin."
+    },
+    {
+      "en": "CSP-2021 predicts solubility for %d compounds in its quantum-chemical database.",
+      "ru": "CSP-2021 прогнозирует растворимость для %d соединений в своей квантово-химической базе данных.",
+      "tr": "CSP-2021, kuantum-kimyasal veritabanındaki %d bileşik için çözünürlüğü tahmin eder."
+    },
+    {
+      "en": "a name in the openCOSMO-RS-Phi database",
+      "ru": "название из базы данных openCOSMO-RS-Phi",
+      "tr": "openCOSMO-RS-Phi veritabanındaki bir ad"
+    },
+    {
+      "en": "Selected calculation(s) removed.",
+      "ru": "Выбранные расчёты удалены.",
+      "tr": "Seçili hesaplama(lar) kaldırıldı."
+    },
+    {
+      "en": "Added %d solute(s) from the database.",
+      "ru": "Добавлено %d вещество(а) из базы данных.",
+      "tr": "Veritabanından %d çözünen eklendi."
+    },
+    {
+      "en": "Choose a single pure co-solvent or a custom blend of multiple solvents at specified proportions. Blends are evaluated n-component by CSP-2021 / openCOSMO-RS-Phi.",
+      "ru": "Выберите один чистый со-растворитель или пользовательскую смесь нескольких растворителей в заданных пропорциях. Смеси рассчитываются как n-компонентные с помощью CSP-2021 / openCOSMO-RS-Phi.",
+      "tr": "Tek bir saf yardımcı çözücü veya belirtilen oranlarda birden çok çözücüden oluşan özel bir karışım seçin. Karışımlar CSP-2021 / openCOSMO-RS-Phi ile n-bileşenli olarak değerlendirilir."
+    },
+    {
+      "en": "Select Modifier",
+      "ru": "Выбрать модификатор",
+      "tr": "Modifiye Edici Seç"
+    },
+    {
+      "en": "mass %",
+      "ru": "масс. %",
+      "tr": "ağ. %"
+    },
+    {
+      "en": "mol %",
+      "ru": "мол. %",
+      "tr": "mol %"
+    },
+    {
+      "en": "Units:",
+      "ru": "Единицы:",
+      "tr": "Birimler:"
+    },
+    {
+      "en": "Toggle mol % / mass %",
+      "ru": "Переключить мол. % / масс. %",
+      "tr": "mol % / ağ. % değiştir"
+    },
+    {
+      "en": "Total amount of co-solvent (modifier) added to the CO₂, expressed as a fraction of the whole fluid. Toggle the badge to switch between mole % and mass %.",
+      "ru": "Общее количество со-растворителя (модификатора), добавляемого к CO₂, выраженное как доля всего флюида. Нажмите на значок, чтобы переключаться между мол. % и масс. %.",
+      "tr": "CO₂'ye eklenen toplam yardımcı çözücü (modifiye edici) miktarı; tüm akışkanın bir kesri olarak ifade edilir. Mol % ile ağ. % arasında geçiş yapmak için rozete tıklayın."
+    },
+    {
+      "en": "Total co-solvent",
+      "ru": "Всего со-растворителя",
+      "tr": "Toplam yardımcı çözücü"
+    },
+    {
+      "en": "No co-solvent",
+      "ru": "Без со-растворителя",
+      "tr": "Yardımcı çözücü yok"
+    },
+    {
+      "en": "The %s model predicts pure-CO₂ solubility and does not model a co-solvent. Switch to CSP-2021 or openCOSMO-RS-Phi to add one.",
+      "ru": "Модель %s прогнозирует растворимость в чистом CO₂ и не моделирует со-растворитель. Переключитесь на CSP-2021 или openCOSMO-RS-Phi, чтобы добавить его.",
+      "tr": "%s modeli saf CO₂ çözünürlüğünü tahmin eder ve yardımcı çözücüyü modellemez. Bir tane eklemek için CSP-2021 veya openCOSMO-RS-Phi'ye geçin."
+    },
+    {
+      "en": "Type separator pressures...",
+      "ru": "Введите давления сепараторов...",
+      "tr": "Ayırıcı basınçlarını yazın..."
+    },
+    {
+      "en": "Type separator temperatures...",
+      "ru": "Введите температуры сепараторов...",
+      "tr": "Ayırıcı sıcaklıklarını yazın..."
+    },
+    {
+      "en": "g/kg CO₂",
+      "ru": "г/кг CO₂",
+      "tr": "g/kg CO₂"
+    },
+    {
+      "en": "Feed loading in g solute per kg CO₂. Defaults to the saturation solubility at the extraction condition; edit to enter a known loading. Range 0–1000.",
+      "ru": "Загрузка сырья в г вещества на кг CO₂. По умолчанию — растворимость при насыщении в условиях экстракции; измените, чтобы ввести известную загрузку. Диапазон 0–1000.",
+      "tr": "Besleme yükü, kg CO₂ başına g çözünen olarak. Varsayılan, ekstraksiyon koşulundaki doygunluk çözünürlüğüdür; bilinen bir yükü girmek için düzenleyin. Aralık 0–1000."
+    },
+    {
+      "en": "Allowed range 0–1000 g/kg CO₂",
+      "ru": "Допустимый диапазон 0–1000 г/кг CO₂",
+      "tr": "İzin verilen aralık 0–1000 g/kg CO₂"
+    },
+    {
+      "en": "Estimate loading from an extraction curve",
+      "ru": "Оценить загрузку по кривой экстракции",
+      "tr": "Yükü bir ekstraksiyon eğrisinden tahmin et"
+    },
+    {
+      "en": "Reference partition D₀ = γ(CO₂)/γ(oil) at the extraction condition. D₀ > 1 means the solute prefers the oil (bulk deposit) and is co-precipitated. Any positive value.",
+      "ru": "Опорный коэффициент распределения D₀ = γ(CO₂)/γ(масло) в условиях экстракции. D₀ > 1 означает, что вещество предпочитает масло (основной осадок) и соосаждается. Любое положительное значение.",
+      "tr": "Ekstraksiyon koşulunda referans dağılım D₀ = γ(CO₂)/γ(yağ). D₀ > 1, çözünenin yağı (ana çökelti) tercih ettiği ve birlikte çökeldiği anlamına gelir. Herhangi bir pozitif değer."
+    },
+    {
+      "en": "Saturation solubility at the extraction condition (the default loading).",
+      "ru": "Растворимость при насыщении в условиях экстракции (загрузка по умолчанию).",
+      "tr": "Ekstraksiyon koşulundaki doygunluk çözünürlüğü (varsayılan yük)."
+    },
+    {
+      "en": "MINE",
+      "ru": "СВОЙ",
+      "tr": "BENİM"
+    },
+    {
+      "en": "Upload OEC (CSV)",
+      "ru": "Загрузить OEC (CSV)",
+      "tr": "OEC yükle (CSV)"
+    },
+    {
+      "en": "Reference OEC database — estimate feed loading",
+      "ru": "База данных опорных OEC — оценка загрузки сырья",
+      "tr": "Referans OEC veritabanı — besleme yükünü tahmin et"
+    },
+    {
+      "en": "Reference overall extraction curves (OECs). Pick a row and press Load Selected to compute its CER-slope near-saturation loading; then apply it to a solute. Add your own by uploading a 2-column OEC (CSV).",
+      "ru": "Опорные суммарные кривые экстракции (OEC). Выберите строку и нажмите «Загрузить выбранное», чтобы вычислить загрузку вблизи насыщения по наклону CER; затем примените её к веществу. Добавьте свою, загрузив OEC из 2 столбцов (CSV).",
+      "tr": "Referans toplam ekstraksiyon eğrileri (OEC). Bir satır seçip «Seçileni Yükle»ye basarak CER-eğimi doygunluğa yakın yükünü hesaplayın; ardından bunu bir çözünene uygulayın. 2 sütunlu bir OEC (CSV) yükleyerek kendinizinkini ekleyin."
+    },
+    {
+      "en": "Add reference OEC (upload CSV)",
+      "ru": "Добавить опорный OEC (загрузить CSV)",
+      "tr": "Referans OEC ekle (CSV yükle)"
+    },
+    {
+      "en": "Load Selected",
+      "ru": "Загрузить выбранное",
+      "tr": "Seçileni Yükle"
+    },
+    {
+      "en": "Select a reference OEC first.",
+      "ru": "Сначала выберите опорный OEC.",
+      "tr": "Önce bir referans OEC seçin."
+    },
+    {
+      "en": "This entry has no OEC curve yet — upload one first.",
+      "ru": "У этой записи ещё нет кривой OEC — сначала загрузите её.",
+      "tr": "Bu kaydın henüz bir OEC eğrisi yok — önce bir tane yükleyin."
+    },
+    {
+      "en": "Select a reference OEC above and press Load Selected.",
+      "ru": "Выберите опорный OEC выше и нажмите «Загрузить выбранное».",
+      "tr": "Yukarıdan bir referans OEC seçin ve «Seçileni Yükle»ye basın."
+    },
+    {
+      "en": "Add reference OEC",
+      "ru": "Добавить опорный OEC",
+      "tr": "Referans OEC ekle"
+    },
+    {
+      "en": "Upload OEC (2-column CSV)",
+      "ru": "Загрузить OEC (CSV из 2 столбцов)",
+      "tr": "OEC yükle (2 sütunlu CSV)"
+    },
+    {
+      "en": "Could not read a 2-column CSV.",
+      "ru": "Не удалось прочитать CSV из 2 столбцов.",
+      "tr": "2 sütunlu bir CSV okunamadı."
+    },
+    {
+      "en": "Choose the temporal (X) and signal (Y) columns.",
+      "ru": "Выберите столбцы времени (X) и сигнала (Y).",
+      "tr": "Zamansal (X) ve sinyal (Y) sütunlarını seçin."
+    },
+    {
+      "en": "X and Y must be different columns.",
+      "ru": "X и Y должны быть разными столбцами.",
+      "tr": "X ve Y farklı sütunlar olmalıdır."
+    },
+    {
+      "en": "Need at least 3 numeric rows.",
+      "ru": "Требуется не менее 3 числовых строк.",
+      "tr": "En az 3 sayısal satır gerekir."
+    },
+    {
+      "en": "No values below 0 are allowed in either column.",
+      "ru": "Значения ниже 0 не допускаются ни в одном из столбцов.",
+      "tr": "Her iki sütunda da 0'ın altında değere izin verilmez."
+    },
+    {
+      "en": "Looks good — %d points (origin included).",
+      "ru": "Всё в порядке — %d точек (включая начало координат).",
+      "tr": "İyi görünüyor — %d nokta (orijin dahil)."
+    },
+    {
+      "en": "Temporal column (X)",
+      "ru": "Столбец времени (X)",
+      "tr": "Zamansal sütun (X)"
+    },
+    {
+      "en": "Signal column (Y)",
+      "ru": "Столбец сигнала (Y)",
+      "tr": "Sinyal sütunu (Y)"
+    },
+    {
+      "en": "Saved reference OEC '%s'.",
+      "ru": "Опорный OEC «%s» сохранён.",
+      "tr": "Referans OEC '%s' kaydedildi."
+    },
+    {
+      "en": "Add co-deposition matrix",
+      "ru": "Добавить матрицу соосаждения",
+      "tr": "Birlikte çökelme matrisi ekle"
+    },
+    {
+      "en": "Define the bulk deposit (oil/matrix) as a mixture of components — the same way you build a co-solvent blend. For each component type a name, CAS or SMILES and resolve it against the compound database (or by its structure), then set its weight %.",
+      "ru": "Определите основной осадок (масло/матрицу) как смесь компонентов — так же, как вы составляете смесь со-растворителей. Для каждого компонента введите название, CAS или SMILES и сопоставьте его с базой данных соединений (или по структуре), затем задайте его масс. %.",
+      "tr": "Ana çökeltiyi (yağ/matris), bir yardımcı çözücü karışımı oluşturduğunuz gibi bileşenlerin bir karışımı olarak tanımlayın. Her bileşen için bir ad, CAS veya SMILES yazıp bileşik veritabanıyla (veya yapısına göre) eşleştirin, ardından ağ. %'sini belirleyin."
+    },
+    {
+      "en": "Matrix name",
+      "ru": "Название матрицы",
+      "tr": "Matris adı"
+    },
+    {
+      "en": "Matrix composition (wt %):",
+      "ru": "Состав матрицы (масс. %):",
+      "tr": "Matris bileşimi (ağ. %):"
+    },
+    {
+      "en": "Save matrix",
+      "ru": "Сохранить матрицу",
+      "tr": "Matrisi kaydet"
+    },
+    {
+      "en": "Could not resolve '%s' from the database or its structure.",
+      "ru": "Не удалось определить «%s» по базе данных или по структуре.",
+      "tr": "'%s' veritabanından veya yapısından çözümlenemedi."
+    },
+    {
+      "en": "Component already in the matrix.",
+      "ru": "Компонент уже в матрице.",
+      "tr": "Bileşen zaten matriste."
+    },
+    {
+      "en": "No components yet — click \"Add compound\".",
+      "ru": "Компонентов пока нет — нажмите «Добавить соединение».",
+      "tr": "Henüz bileşen yok — \"Bileşik ekle\"ye tıklayın."
+    },
+    {
+      "en": "Resolve & add",
+      "ru": "Определить и добавить",
+      "tr": "Çözümle ve ekle"
+    },
+    {
+      "en": "Allowed range 0.1–100 wt %",
+      "ru": "Допустимый диапазон 0,1–100 масс. %",
+      "tr": "İzin verilen aralık 0,1–100 ağ. %"
+    },
+    {
+      "en": "Saved co-deposition matrix '%s'.",
+      "ru": "Матрица соосаждения «%s» сохранена.",
+      "tr": "Birlikte çökelme matrisi '%s' kaydedildi."
+    },
+    {
+      "en": "(unnamed matrix)",
+      "ru": "(матрица без названия)",
+      "tr": "(adsız matris)"
+    },
+    {
+      "en": "Preset oils",
+      "ru": "Готовые масла",
+      "tr": "Hazır yağlar"
+    },
+    {
+      "en": "Saved matrices",
+      "ru": "Сохранённые матрицы",
+      "tr": "Kayıtlı matrisler"
+    },
+    {
+      "en": "Add new matrix",
+      "ru": "Добавить новую матрицу",
+      "tr": "Yeni matris ekle"
+    },
+    {
+      "en": "This matrix has no components.",
+      "ru": "В этой матрице нет компонентов.",
+      "tr": "Bu matriste bileşen yok."
+    },
+    {
+      "en": "Composition:",
+      "ru": "Состав:",
+      "tr": "Bileşim:"
+    },
+    {
+      "en": "Represented by its dominant (highest-wt%) component for this structure-only estimate.",
+      "ru": "Представлена доминирующим (с наибольшим масс. %) компонентом для этой оценки только по структуре.",
+      "tr": "Bu yalnızca yapıya dayalı tahmin için baskın (en yüksek ağ. %) bileşeniyle temsil edilir."
+    },
+    {
+      "en": "A preset single-component oil surrogate.",
+      "ru": "Готовый однокомпонентный заменитель масла.",
+      "tr": "Hazır tek bileşenli yağ ikamesi."
+    },
+    {
+      "en": "Enter at least one temperature and one pressure.",
+      "ru": "Введите хотя бы одну температуру и одно давление.",
+      "tr": "En az bir sıcaklık ve bir basınç girin."
+    },
+    {
+      "en": "Cascade failed:",
+      "ru": "Каскад завершился с ошибкой:",
+      "tr": "Kaskad başarısız oldu:"
+    },
+    {
+      "en": "Cascade needs molar masses; none of the selected solutes have one.",
+      "ru": "Для каскада нужны молярные массы; ни у одного из выбранных веществ её нет.",
+      "tr": "Kaskad molar kütleler gerektirir; seçili çözünenlerin hiçbirinde yok."
+    },
+    {
+      "en": "Inputs reset.",
+      "ru": "Ввод сброшен.",
+      "tr": "Girdiler sıfırlandı."
+    },
+    {
+      "en": "Co-Solvent(s)",
+      "ru": "Со-растворитель(и)",
+      "tr": "Yardımcı çözücü(ler)"
+    },
+    {
+      "en": "Use co-solvent",
+      "ru": "Использовать со-растворитель",
+      "tr": "Yardımcı çözücü kullan"
+    },
+    {
+      "en": "Solute Loading and Deposition",
+      "ru": "Загрузка и осаждение вещества",
+      "tr": "Çözünen Yükü ve Çökelmesi"
+    },
+    {
+      "en": "Enter each solute's feed loading (g/kg CO₂) below. The optimizer reports where each solute begins to precipitate (onset) and the highest separator pressure recovering the target fraction, at its feed loading. Separator pressure/temperature are auto-found when \"Optimize\" is ticked, or entered manually; separators apply in the listed (decreasing) pressure order.",
+      "ru": "Введите загрузку сырья для каждого вещества (г/кг CO₂) ниже. Оптимизатор показывает, где каждое вещество начинает осаждаться (начало), и наибольшее давление сепаратора, обеспечивающее целевую долю извлечения при его загрузке. Давление/температура сепаратора подбираются автоматически при включённом «Оптимизировать» или задаются вручную; сепараторы применяются в указанном порядке (убывающего давления).",
+      "tr": "Aşağıda her çözünenin besleme yükünü (g/kg CO₂) girin. Optimize edici, her çözünenin çökelmeye başladığı noktayı (başlangıç) ve besleme yükünde hedef fraksiyonu geri kazanan en yüksek ayırıcı basıncını bildirir. Ayırıcı basıncı/sıcaklığı «Optimize» işaretliyse otomatik bulunur veya elle girilir; ayırıcılar listelenen (azalan basınç) sırasıyla uygulanır."
+    }
+  ]
+}

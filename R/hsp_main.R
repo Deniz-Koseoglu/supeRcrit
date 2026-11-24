@@ -24,12 +24,15 @@
 #' made up to a total of 100). The total number of list elements must equal the number of mixtures specified in \code{modif}.
 #' @param hlight A \code{logical} indicating whether substructures are highlighted (see \code{\link{plot_gcm}}).
 #' @param simplicity A \code{character} string indicating whether overlapping sub-structures should be allowed (\code{"auto"} by default).
-#' See \code{\link{sub_smarts}}.
 #' @param pres,temps Both are \code{numeric} values \strong{or sequences} of pressures (75-1000 bar) and temperatures (32-200 Celsius)
 #' at which to evaluate solute and solvent HSPs. Defaults are \code{seq(80,300,20)} and \code{seq(32,65,3)} for pressure and
 #' temperature, respectively.
 #' @param vfrac The volume fraction of co-solvent to use (defaults to \code{0.10}, or 10%).
 #' @param silent A \code{logical}. When \code{FALSE} (default), additional information is printed in the console.
+#' @param crit_value,hsp_values Optional experimental override. When both are supplied — a measured critical
+#' temperature \code{crit_value} (in K) and Hansen parameters \code{hsp_values} as \code{c(dD, dP, dHB)} —
+#' these are used directly and the GCM estimation (\code{tb}/\code{crit}/\code{hsp}) is skipped. Used when a
+#' compound's measured properties are loaded from the experimental database. \code{NULL} (default) uses GCM.
 #'
 #' @details
 #' The workflow is based on various group contribution methods (see \code{\link{est_gcm}} for relevant sources), the
@@ -90,7 +93,7 @@
 #' @seealso \code{\link{mol_find}}, \code{\link{est_gcm}}, \code{\link{plot_gcm}}, \code{\link{hsp_optim}}, \code{\link{miscomp}}, \code{\link{compare_gcm}}, \code{\link{show_solv}}
 sfe_mod <- function(solute, tb, crit, hsp, gorder = 0, modif = "all", modfracs = NA, hlight = TRUE, simplicity = "auto",
                     pres = seq_last(80, 400, 20), temps = seq_last(32, 70, 3), vfrac = 0.10,
-                    silent = FALSE) {
+                    silent = FALSE, crit_value = NULL, hsp_values = NULL) {
 
   #Record function call for later exporting
   cl_rec <- match.call()
@@ -98,15 +101,44 @@ sfe_mod <- function(solute, tb, crit, hsp, gorder = 0, modif = "all", modfracs =
   ##Preliminary checks
   #if(any(modif %in% "none")) stop("The function has no task to carry out! No SFE modifiers were set...")
 
-  #Estimate boiling points, critical parameters, and HSP via GCM
-  gcmres <- est_gcm(solute, tb, crit, hsp, vdw = NA, hlight, simplicity, gorder, silent)
-
-  #Unpack results and get parameters for HSP-based miscibility optimization
-  solute_data <- gcmres[["solute_data"]]
-  pares <- gcmres[["pares"]]
-  visres <- gcmres[["visres"]]
-  crit_foropt <- pares[["Critical"]][["Tc"]]
-  hsp_foropt <- pares[["HSP"]]
+  # Experimental override (PARTIAL-friendly): use a measured critical temperature (crit_value, K) and/or
+  # Hansen parameters (hsp_values = c(dD, dP, dHB)) directly when supplied, and fall back to the GCM ONLY
+  # for the part(s) not provided. This must not be all-or-nothing: a compound can have experimental HSP
+  # but no measured Tc (e.g. caffeine, whose experimental Tc is NA). In that case the GCM still runs for
+  # the critical part, but a KNOWN-VALID placeholder method is used for any experimentally-supplied part
+  # (its GCM result is discarded), so a non-GCM method string ("experimental"/"") carried in from the
+  # database never reaches est_gcm — which would otherwise crash with "get1index" on the empty method.
+  have_crit <- !is.null(crit_value) && isTRUE(is.finite(suppressWarnings(as.numeric(crit_value)[1])))
+  have_hsp  <- !is.null(hsp_values) && length(hsp_values) >= 3 &&
+               all(is.finite(suppressWarnings(as.numeric(hsp_values[1:3]))))
+  if (have_crit && have_hsp) {
+    # Fully experimental: no GCM decomposition needed.
+    solute_data <- mol_find(solute)
+    hsp_foropt  <- stats::setNames(as.numeric(hsp_values[1:3]), c("dD", "dP", "dHB"))
+    crit_foropt <- as.numeric(crit_value)[1]
+    pares  <- list(Critical = c(Tc = crit_foropt), HSP = hsp_foropt,
+                   Methods = c(Tc = "experimental", HSP = "experimental"))
+    visres <- NA
+  } else {
+    # GCM for whatever is NOT supplied experimentally; valid placeholder methods for any supplied part.
+    gcmres <- est_gcm(solute, tb,
+                      if (have_crit) "JR" else crit,
+                      if (have_hsp)  "SP12" else hsp,
+                      vdw = NA, hlight, simplicity, gorder, silent)
+    solute_data <- gcmres[["solute_data"]]
+    pares <- gcmres[["pares"]]
+    visres <- gcmres[["visres"]]
+    if (have_crit) {
+      crit_foropt <- as.numeric(crit_value)[1]
+      pares[["Critical"]][["Tc"]] <- crit_foropt
+      if (!is.null(pares[["Methods"]])) pares[["Methods"]][["Tc"]] <- "experimental"
+    } else crit_foropt <- pares[["Critical"]][["Tc"]]
+    if (have_hsp) {
+      hsp_foropt <- stats::setNames(as.numeric(hsp_values[1:3]), c("dD", "dP", "dHB"))
+      pares[["HSP"]] <- hsp_foropt
+      if (!is.null(pares[["Methods"]])) pares[["Methods"]][["HSP"]] <- "experimental"
+    } else hsp_foropt <- pares[["HSP"]]
+  }
 
   #Use the critical temperature Tc and HSP parameters of solute to obtain miscibility enhancement in various CO2-Cosolvent mixtures versus pure CO2
   if(!any(modif %in% "none")) {
@@ -139,9 +171,12 @@ sfe_mod <- function(solute, tb, crit, hsp, gorder = 0, modif = "all", modfracs =
 #' @param temp The single \code{numeric} temperature value to use (between 40-70 Celsius).
 #' @param vfrac A \code{numeric} vector of volume fractions of co-solvent to evaluate. Defaults to \code{seq(0.05, 0.40, 0.05)}.
 #' @param simplicity A \code{character} string indicating whether overlapping sub-structures should be allowed (\code{"auto"} by default).
-#' See \code{\link{sub_smarts}}.
 #' @param draw A \code{logical} indicating whether generated plots should be printed automatically (\code{TRUE} by default).
 #' @param silent A \code{logical}. When \code{FALSE} (default), additional information is printed in the console.
+#' @param crit_values,hsp_values Optional per-solute experimental overrides, each a \code{list} the same length
+#' as \code{sols}. A non-\code{NULL} element supplies that solute's measured critical temperature (K) /
+#' Hansen parameters \code{c(dD, dP, dHB)}, used directly instead of the GCM estimate (\code{NULL} elements
+#' fall back to GCM). Used when comparing compounds loaded from the experimental database.
 #'
 #' @return A named \code{list} containing the output \code{data.frame} (\code{$data}) with miscibility enhancement
 #' at all values of pressure and co-solvent volume fractions, and corresponding visualizations (\code{$plots}).
@@ -167,7 +202,7 @@ sfe_mod <- function(solute, tb, crit, hsp, gorder = 0, modif = "all", modfracs =
 miscomp <- function(sols, tb = "SB_corr", crit = "NL07_robust", hsp = "SP12",
                     modif = "Ethanol", modfracs = NA, pres = seq(100,600,100), pres_comp = pres, cols = "default",
                     plt_title = TRUE, temp = 40, vfrac = seq(0.05, 0.40, 0.05), simplicity = "auto",
-                    draw = TRUE, silent = FALSE) {
+                    draw = TRUE, silent = FALSE, crit_values = NULL, hsp_values = NULL) {
 
   #Preliminary checks
   if(!is.list(sols)) {
@@ -193,7 +228,9 @@ miscomp <- function(sols, tb = "SB_corr", crit = "NL07_robust", hsp = "SP12",
   if(length(sols)==1 & length(pres)==1) stop("At least one input vector/list among pressure ('pres') and/or solutes ('sols') must be high than 1 in length!")
   if(length(plt_title)==1) plt_title <- rep(plt_title,2) else if(length(plt_title)>2) stop("The length of 'plt_title' must be either 1 or 2!")
   if(length(vfrac)<2) stop("At least two volume fractions must be included in 'vfrac' for visualization!")
-  if(temp<40 & temp>70|length(temp)!=1) stop("The temperature parameter 'temp' must be a single numeric value between 40 and 70!")
+  # 'temp' may be a single value or a VECTOR of temperatures (the returned data gains a 'temp' column).
+  temp <- sort(unique(as.numeric(temp)))
+  if(!length(temp) || any(!is.finite(temp))) stop("The temperature parameter 'temp' must be one or more finite numeric values!")
   if(length(sols)>6) stop("The maximum number of solutes to be compared ('sols') is currently limited to 6!")
   if(length(pres)>6|!is.numeric(pres)) stop("The pressure parameter 'pres' must be a numeric vector of length 1-6!")
   if(!all(pres_comp %in% pres)) stop("The pressure(s) used for solute comparison ('pres_comp') must also be included in 'pres'!")
@@ -212,35 +249,52 @@ miscomp <- function(sols, tb = "SB_corr", crit = "NL07_robust", hsp = "SP12",
 
   #Calculate or compile boiling points, critical parameters, and HSPs for all solutes
   #Also calculate and compile Ra and miscibility enhancements for all solutes at each volume fraction of the chosen modifier
-  miscib <- as.data.frame(matrix(ncol = 3, nrow = 0))
+  miscib <- NULL
   for(i in seq_along(sols)) {
     if(!silent) cat("\nWorking on compound", i, "of", length(sols),"...")
     if(!silent) cat("\nCalculating HSPs and other parameters...")
-    gcmpars <- est_gcm(sols[[i]], tb[[i]], crit[[i]], hsp[[i]], vdw = NA, simplicity = simplicity, silent = TRUE)
-    soldata <- gcmpars[["solute_data"]][["IDs"]]
-    crit_opt <- gcmpars[["pares"]][["Critical"]][["Tc"]]
-    hsp_opt <- gcmpars[["pares"]][["HSP"]]
+    # Per-solute experimental override (measured Tc + HSP loaded from the database): skip GCM for this solute.
+    exp_i <- !is.null(crit_values) && length(crit_values) >= i && !is.null(crit_values[[i]]) &&
+             !is.null(hsp_values) && length(hsp_values) >= i && !is.null(hsp_values[[i]]) &&
+             isTRUE(is.finite(suppressWarnings(as.numeric(crit_values[[i]])[1]))) &&
+             all(is.finite(suppressWarnings(as.numeric(hsp_values[[i]])[1:3])))
+    if(exp_i) {
+      soldata  <- mol_find(sols[[i]])[["IDs"]]
+      crit_opt <- as.numeric(crit_values[[i]])[1]
+      hsp_opt  <- stats::setNames(as.numeric(hsp_values[[i]])[1:3], c("dD","dP","dHB"))
+    } else {
+      gcmpars <- est_gcm(sols[[i]], tb[[i]], crit[[i]], hsp[[i]], vdw = NA, simplicity = simplicity, silent = TRUE)
+      soldata <- gcmpars[["solute_data"]][["IDs"]]
+      crit_opt <- gcmpars[["pares"]][["Critical"]][["Tc"]]
+      hsp_opt <- gcmpars[["pares"]][["HSP"]]
+    }
 
     cat("\nCalculating miscibility enhancement...")
     optres <- lapply(vfrac, function(x) {
-      res <- hsp_optim(crit_opt, hsp_opt, modif, modfracs, pres, temp, vfrac = x, silent = TRUE)[["Miscib_Enhancement"]][[1]]
-      res <- data.frame(rep(soldata[["Name"]],nrow(res)), rep(x, nrow(res)), as.character(rownames(res)), miscib_enh = res)
-      return(res)
+      # Miscib_Enhancement[[1]] is a pressures x temperatures matrix; melt it so every temperature yields
+      # its own rows (the source of the new 'temp' column that lets callers compare across temperatures).
+      me <- hsp_optim(crit_opt, hsp_opt, modif, modfracs, pres, temp, vfrac = x, silent = TRUE)[["Miscib_Enhancement"]][[1]]
+      Pr <- as.character(rownames(me)); Tc <- as.numeric(colnames(me))
+      do.call(rbind, lapply(seq_along(Tc), function(ti)
+        data.frame(name = soldata[["Name"]], vfrac = x, pres = Pr, temp = Tc[ti],
+                   miscib = as.numeric(me[, ti]), stringsAsFactors = FALSE)))
     })
     cat("\nCompiling data...")
-    optres <- do.call(rbind.data.frame, optres)
-    miscib <- rbind.data.frame(miscib, optres)
+    optres <- do.call(rbind, optres)
+    miscib <- rbind(miscib, optres)
   }
-  colnames(miscib) <- c("name", "vfrac", "pres", "miscib")
+  colnames(miscib) <- c("name", "vfrac", "pres", "temp", "miscib")
   rownames(miscib) <- NULL
 
-  #Create plots of the results
+  #Create plots of the results (at the first temperature; multi-temperature comparison is handled by the
+  # Shiny app, which builds temperature-aware plots reactively from the returned $data).
   pltlst <- list()
+  miscib_p <- miscib[miscib[,"temp"] == temp[1], , drop = FALSE]
 
   #Each solute at different pressures
   if(length(pres)>1) {
-    for(i in unique(miscib[,"name"])) {
-      pltlst[[i]] <- ggplot(data = miscib[miscib[,"name"]==i,], aes(x = .data[["vfrac"]], y = .data[["miscib"]],
+    for(i in unique(miscib_p[,"name"])) {
+      pltlst[[i]] <- ggplot(data = miscib_p[miscib_p[,"name"]==i,], aes(x = .data[["vfrac"]], y = .data[["miscib"]],
                                                                     shape = .data[["pres"]], #grp = .data[["pres"]]
                                                                     col = .data[["pres"]])) +
         geom_line() + geom_point(size = 2) +
@@ -269,7 +323,7 @@ miscomp <- function(sols, tb = "SB_corr", crit = "NL07_robust", hsp = "SP12",
   #Multiple solutes at the same pressure(s)
   if(length(sols)>1) {
     for(i in seq_along(pres_comp)) {
-      pltlst[[paste0("pres_",pres_comp[i])]] <- ggplot(data = miscib[miscib[,"pres"]==pres_comp[i],], aes(x = .data[["vfrac"]], y = .data[["miscib"]],
+      pltlst[[paste0("pres_",pres_comp[i])]] <- ggplot(data = miscib_p[miscib_p[,"pres"]==pres_comp[i],], aes(x = .data[["vfrac"]], y = .data[["miscib"]],
                                                                                                           grp = .data[["name"]], shape = .data[["name"]],
                                                                                                           col = .data[["name"]])) +
         geom_line() + geom_point(size = 2) +
@@ -312,11 +366,14 @@ miscomp <- function(sols, tb = "SB_corr", crit = "NL07_robust", hsp = "SP12",
 #' Defaults to \code{0}, which considers all group orders. Must either be of \strong{length 1} or a \strong{named vector}
 #' with names corresponding to available GCM methods (see \code{\link{est_gcm}} for a full list).
 #' @param simplicity A \code{character} string indicating whether overlapping sub-structures should be allowed (\code{"auto"} by default).
-#' See \code{\link{sub_smarts}}.
+#' @param methods An optional \code{character} vector of method codes to restrict the comparison to (e.g.
+#' \code{c("JR", "NL07", "HKR_STW")}). \code{NULL} (the default) compares all available methods. Method codes
+#' must match the \code{method} column of the returned table (see \code{\link{est_gcm}} for the full list).
 #'
 #' @return A \code{data.frame} containing the type of estimated \code{parameter}, the \code{method} used,
 #' the level of \code{simplicity} of matching GCM SMARTS substructures, and various estimated parameters including
-#' boiling points (\code{"Tb"}, \code{"Tb_corr"}), critical temperature (\code{"Tc"}), pressure (\code{"Pc"}),
+#' the boiling point (\code{"Tb"}; for the corrected methods \code{JR_corr}/\code{SB_corr} this column already
+#' holds the corrected value), critical temperature (\code{"Tc"}), pressure (\code{"Pc"}),
 #' and volume (\code{"Vc"}), as well as dispersion (\code{"dD"}), polarity (\code{"dP"}, \code{"dP_low"}),
 #' and hydrogen bonding (\code{"dHB"}, \code{"dHB_low"}) components of HSPs.
 #'
@@ -331,9 +388,9 @@ miscomp <- function(sols, tb = "SB_corr", crit = "NL07_robust", hsp = "SP12",
 #' mol2 <- c("CCCCCC=CCC=CCCCCCCCC(=O)O", "60-33-3", "Linoleic Acid")
 #' res <- compare_gcm(mol2)
 #'
-#' @seealso \code{\link{mol_find}}, \code{\link{sfe_mod}}, \code{\link{sub_smarts}}
+#' @seealso \code{\link{mol_find}}, \code{\link{sfe_mod}}
 #'
-compare_gcm <- function(solute, gorder = 0, simplicity = "auto") {
+compare_gcm <- function(solute, gorder = 0, simplicity = "auto", methods = NULL) {
   if(length(gorder)>1 & is.null(names(gorder))) {
     stop("When group order 'gorder' is of length > 1, names corresponding to available GCM methods must be provided!")
   } else if(length(gorder)>1 & !all(names(gorder) %in% gcm_opts[,"Method"])) {
@@ -341,13 +398,28 @@ compare_gcm <- function(solute, gorder = 0, simplicity = "auto") {
                 paste0("'", names(gorder)[!names(gorder) %in% gcm_opts[,"Method"]], "'", collapse = ", "), "."))
   } else if(length(gorder)==1) gorder <- setNames(rep(gorder, nrow(gcm_opts)), gcm_opts[,"Method"])
 
-  mets <- cbind.data.frame(parameter = c(rep("tb",7), rep("crit",5), rep("hsp",4), rep("vdw",3)),
+  mets <- cbind.data.frame(parameter = c(rep("tb",7), rep("crit",5), rep("hsp",4), rep("vdw",3), "chrastil"),
                            method = c("JR", "JR_corr", "SB", "SB_corr", "NL04", "HKR_STW", "HKR_SIM",
                                       "JR", "NL07", "NL07_robust", "HKR_STW", "HKR_SIM",
                                       "SP08", "SP12",  "HKR_STW", "HKR_SIM",
-                                      "BND", "SLON", "ZHAO"),
-                           simplicity = c(rep(simplicity,19)))
+                                      "BND", "SLON", "ZHAO", "CHRASTIL"),
+                           simplicity = c(rep(simplicity,20)))
+
+  # Optional method selection: keep only the requested methods (the comparison table is otherwise very
+  # crowded). 'methods' is a character vector of method codes (see the 'method' column above / est_gcm).
+  if(!is.null(methods)) {
+    methods <- as.character(methods)
+    valid_mets <- unique(mets[,"method"])
+    unknown <- setdiff(methods, valid_mets)
+    if(length(unknown)) stop(paste0("Unrecognized method(s) in 'methods': ",
+        paste0("'", unknown, "'", collapse = ", "), ". Available: ", paste0(valid_mets, collapse = ", "), "."))
+    mets <- mets[mets[,"method"] %in% methods, , drop = FALSE]
+    if(nrow(mets)==0) stop("No methods left to compare after applying the 'methods' filter.")
+    rownames(mets) <- NULL
+  }
+
   mets[,"order"] <- sapply(mets[,"method"], function(x) {
+    if(!x %in% gcm_opts[,"Method"]) return(0)        # e.g. CHRASTIL: first-order groups only
     input_order <- gorder[names(gorder) %in% x]
     cur_order <- gcm_opts[gcm_opts[,"Method"]==x,"Order"]
     if(cur_order < input_order | input_order==0) cur_order else input_order
@@ -357,15 +429,16 @@ compare_gcm <- function(solute, gorder = 0, simplicity = "auto") {
   for(i in seq(nrow(mets))) {
     cat(if(i==1)"\n" else "\r", "Estimating values using method: ", mets[i, "method"], "...", sep = "")
     par <- mets[i,"parameter"]
-    grps <- define_grps(sub_smarts(solute, method = mets[i,"method"], simplicity = simplicity, gorder = gorder[names(gorder) %in% mets[i,"method"]], silent = TRUE))
-    contribs <- gcm_contribs(solute, grps)
+    g_i <- gorder[names(gorder) %in% mets[i,"method"]]; if(length(g_i)==0) g_i <- 0   # CHRASTIL not in gcm_opts
+    contribs <- gcm_contribs_route(solute, mets[i,"method"], simplicity = simplicity, gorder = g_i, silent = TRUE)
     if(par=="tb") {
       tbres <- gcm_bp(contribs)
-      mets[i,"Tb"] <- tbres[["Tb"]]
-      if(any(names(tbres) %in% "Tb_corr")) mets[i,"Tb_corr"] <- tbres[["Tb_corr"]]
+      # Fold the JR/SB correction into Tb: the corrected-method rows (JR_corr / SB_corr) report the
+      # corrected boiling point directly in the Tb column, so the separate (redundant) Tb_corr column
+      # is no longer produced.
+      mets[i,"Tb"] <- if(any(names(tbres) %in% "Tb_corr")) tbres[["Tb_corr"]] else tbres[["Tb"]]
     } else if(par=="crit") {
-      tb_grps <- define_grps(sub_smarts(solute, method = "SB_corr", simplicity = simplicity, gorder = gorder[names(gorder) %in% mets[i,"method"]], silent = TRUE))
-      tb_contribs <- gcm_contribs(solute, tb_grps)
+      tb_contribs <- gcm_contribs_route(solute, "SB_corr", simplicity = simplicity, gorder = g_i, silent = TRUE)
       tb <- gcm_bp(tb_contribs)[["Tb_corr"]]
       mets[i,c("Tc","Pc","Vc")] <- unname(gcm_crit(tb, contribs)[c("Tc","Pc","Vc")])
     } else if(par=="hsp") {
@@ -375,6 +448,9 @@ compare_gcm <- function(solute, gorder = 0, simplicity = "auto") {
     } else if(par=="vdw") {
       vdwres <- gcm_vdw(contribs)
       mets[i,"VDW"] <- vdwres[["VDW"]]
+    } else if(par=="chrastil") {
+      chres <- gcm_chrastil(contribs)
+      mets[i,c("k","A","B")] <- unname(chres[c("k","A","B")])
     }
   }
   return(mets)

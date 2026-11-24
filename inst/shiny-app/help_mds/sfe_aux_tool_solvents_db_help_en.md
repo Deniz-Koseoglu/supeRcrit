@@ -1,6 +1,8 @@
 ## Available Solvents Database
 
-This table lists the thermophysical properties of solvents and co-solvents available for use in the Miscibility Optimization, Miscibility Comparison, and Critical Parameters modules.
+> **Scope — HSP co-solvent mode only.** This table lists **only the solvents available for the Hansen Solubility Parameter (HSP) co-solvent mode** of the Co-Solvent Selection / Comparison modules. It is **not** an exhaustive list of every compound the application can handle: the solubility and liquid-liquid extraction models draw on much larger compound databases (thousands of compounds). Treat this as the curated HSP-parameterised solvent set.
+
+This table lists the thermophysical properties of the solvents and co-solvents available for use in the HSP co-solvent mode of the Miscibility Optimization, Miscibility Comparison, and Critical Parameters modules.
 
 ### Displayed Properties
 

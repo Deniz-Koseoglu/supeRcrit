@@ -1,0 +1,18 @@
+{
+  "display_name": "Vanillin | NL04-JR-SP08 | 15:00",
+  "parameters": {
+    "cas_input": "121-33-5",
+    "name_input": "Vanillin",
+    "smiles_input": "COc1cc(C=O)ccc1O",
+    "specify_smiles": false,
+    "gcm_tb": "NL04",
+    "gcm_crit": "JR",
+    "gcm_hsp": "SP08",
+    "gcm_simplicity": "simple",
+    "gcm_gorder": 0
+  },
+  "metadata": {
+    "created_date": "2025-12-19 15:00:03",
+    "app_version": "0.9.0"
+  }
+}

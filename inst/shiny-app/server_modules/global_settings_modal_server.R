@@ -12,11 +12,13 @@ global_settings_modal_server <- function(id, main_input, main_session, default_s
     # checkbox_id → default_settings key
     checkbox_to_keys <- list(
       mod_com_analysis             = "com_analysis",
-      mod_sfe_co_sel               = "sfe_co_sel",
       mod_solute_characterization  = "solute_characterization",
       mod_miscibility_optimization = "miscibility_optimization",
       mod_miscibility_comparison   = "miscibility_comparison",
+      mod_lle                       = "lle",
       mod_auxiliary_tools           = "auxiliary_tools",
+      mod_eos_components           = "eos_components",
+      mod_eos_phase                = "eos_phase",
       mod_doe_design               = "doe_design",
       mod_doe_analysis             = "doe_analysis",
       mod_doe_desir                = "doe_desir",
@@ -29,7 +31,8 @@ global_settings_modal_server <- function(id, main_input, main_session, default_s
     parent_children <- list(
       mod_com_analysis = character(0),
       mod_sfe_co_sel   = c("mod_solute_characterization", "mod_miscibility_optimization",
-                           "mod_miscibility_comparison", "mod_auxiliary_tools"),
+                           "mod_miscibility_comparison", "mod_lle", "mod_auxiliary_tools"),
+      mod_eos          = c("mod_eos_components", "mod_eos_phase"),
       mod_doe          = c("mod_doe_design", "mod_doe_analysis", "mod_doe_desir"),
       mod_kinetic      = c("mod_kinetic_tws", "mod_kinetic_bic", "mod_kinetic_aux_tool")
     )
@@ -43,11 +46,15 @@ global_settings_modal_server <- function(id, main_input, main_session, default_s
     key_labels <- reactive({
       c(
         com_analysis = i18n_r()$t("Cost Analysis"),
-        sfe_co_sel = i18n_r()$t("SFE Co-Solvent Selection"),
+        sfe_co_sel = i18n_r()$t("Solubility & Fractionation"),
         solute_characterization = i18n_r()$t("Solute Characterization"),
-        miscibility_optimization = i18n_r()$t("Miscibility Optimization"),
-        miscibility_comparison = i18n_r()$t("Miscibility Comparison"),
+        miscibility_optimization = i18n_r()$t("Co-Solvent Selection"),
+        miscibility_comparison = i18n_r()$t("Co-Solvent Comparison"),
+        lle = i18n_r()$t("Liquid-Liquid Extraction"),
         auxiliary_tools = i18n_r()$t("Auxiliary Tools"),
+        eos = i18n_r()$t("Process Simulation"),
+        eos_components = i18n_r()$t("Components & Parameters"),
+        eos_phase = i18n_r()$t("Phase Behaviour"),
         doe_design = i18n_r()$t("DOE Design"),
         doe_analysis = i18n_r()$t("DOE Analysis"),
         doe_desir = i18n_r()$t("Desirability Function"),

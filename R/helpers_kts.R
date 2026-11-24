@@ -182,7 +182,12 @@ h2o_dens <- function (temp = 25, pres = 1) {
 
   #Calculate density
   rho <- try(uniroot(dP, interval, extendInt = extendint, temp = temp, pres_mpa = pres_mpa)[["root"]], silent = TRUE)
-  if(!is.numeric(rho)) stop("Failed to calculate density of water at given temperature and pressure!") else return(rho)
+  # Plausibility guard: near the critical point the saturated-liquid bracket + extendInt can extend past zero
+  # and return a NON-PHYSICAL negative/degenerate density silently (which then poisons downstream mass flows).
+  # Reject any root that is not a positive, liquid-plausible density (water liquid ~300-1200 kg/m3).
+  if(!is.numeric(rho) || !is.finite(rho) || rho <= 0 || rho > 1300)
+    stop("Failed to calculate a physical water density at the given temperature and pressure (point may be too close to the critical region).")
+  return(rho)
 }
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
