@@ -9,6 +9,10 @@
 /tools
 convert_csv_to_json.*
 
+# Local, machine-specific dev utilities (hardcoded personal paths) - not part of the package
+backup_supercrit.bat
+cleanup_and_isolate.ps1
+
 # Large OPERA source files (re-downloaded by build_exp_property_db.R)
 data-raw/exp_property_db/opera/
 
