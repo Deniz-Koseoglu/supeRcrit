@@ -69,12 +69,13 @@ The package documentation can be accessed with:
 
 ## Launching the interactive app
 
-`supeRcrit` ships with an interactive Shiny dashboard that bundles all of the
-package's modules (Cost Analysis, Solute Characterization, Co-Solvent
-Selection/Comparison, Solubility & Separator Cascade, Liquid-Liquid Extraction, Design of Experiments, and
-Kinetic Modeling) into a single interface. The co-solvent and cascade modules
-offer both the Hansen-Solubility and the machine-learned solubility workflows
-side by side. Launch it with:
+`supeRcrit` ships with an interactive Shiny dashboard that bundles the
+package's modules into a single interface: **Cost Analysis**; **Solubility &
+Fractionation** (Solute Characterization, Co-Solvent Selection/Comparison,
+Liquid-Liquid Extraction); **Process Simulation** (GC/GCA-EOS components & phase
+behaviour); **Design of Experiments** (design, analysis, desirability); and
+**Kinetic Modeling**. The co-solvent modules offer both the Hansen-Solubility
+and the machine-learned solubility workflows side by side. Launch it with:
 
 ```{r, eval = FALSE}
 library(supeRcrit)
@@ -181,8 +182,9 @@ optres$parameters$HSP
 #View detected functional groups and their contribution to the GCM estimation methods
 optres$parameters$Contribs
 
-#Plot detected functional groups for HSP GCM (as an example)
-grid::grid.raster(optres$gcm_vis$HSP)
+#Plot detected functional groups for HSP GCM (as an example). The visualisation is a
+#list of one or more images (one per molecule sub-structure); plot the first here.
+grid::grid.raster(optres$gcm_vis$HSP[[1]])
 
 ```
 
